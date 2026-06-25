@@ -16,7 +16,7 @@ import {
   IconSettings,
   IconX,
 } from "@tabler/icons-react";
-import { agentNativePath, useActionQuery } from "@agent-native/core/client";
+import { agentNativePath, useActionQuery } from "@agentnative-fork/core/client";
 import { useDesktopPromo } from "@/hooks/use-desktop-promo";
 import {
   UpcomingMeetingCard,

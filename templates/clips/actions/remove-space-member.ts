@@ -5,8 +5,8 @@
  *   pnpm action remove-space-member --spaceId=<id> --email=alice@example.com
  */
 
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

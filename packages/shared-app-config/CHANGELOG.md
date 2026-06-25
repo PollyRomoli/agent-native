@@ -1,4 +1,4 @@
-# @agent-native/shared-app-config
+# @agentnative-fork/shared-app-config
 
 ## 0.1.2
 

@@ -10,7 +10,7 @@ import { useCallback, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTheme } from "next-themes";
 import { IconMoon, IconSun } from "@tabler/icons-react";
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import {
   AppProviders,
   CommandMenu,
@@ -20,8 +20,8 @@ import {
   getThemeInitScript,
   useCommandMenuShortcut,
   useT,
-} from "@agent-native/core/client";
-import { configureTracking } from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
+import { configureTracking } from "@agentnative-fork/core/client";
 import { Layout as AppLayout } from "@/components/layout/Layout";
 import { useDistillationBridge } from "@/hooks/use-distillation-bridge";
 import { useNavigationState } from "@/hooks/use-navigation-state";
@@ -223,4 +223,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

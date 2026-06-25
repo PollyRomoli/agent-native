@@ -15,17 +15,17 @@
  * `receiveA2ASecretHandler` (`packages/core/src/org/handlers.ts`): peek the
  * unverified `org_domain`, build the ordered candidate-secret set
  * (`process.env.A2A_SECRET` then the org's per-domain `a2a_secret` via
- * `getA2ASecretByDomain` from `@agent-native/core/org`), verify the HS256
+ * `getA2ASecretByDomain` from `@agentnative-fork/core/org`), verify the HS256
  * signature, then require the verified org_domain to resolve to a LOCAL org
  * (`resolveOrgByDomain`). Cross-org / unauthenticated callers are rejected.
- * The crypto/secret-resolution helpers are imported from `@agent-native/core`
+ * The crypto/secret-resolution helpers are imported from `@agentnative-fork/core`
  * — no crypto is reimplemented (HS256 verify uses Node's built-in `crypto`,
  * the same operation jose performs).
  *
  * APP-LIST SOURCE — Dispatch's existing connected-apps registry.
  * -------------------------------------------------------------
  * Dispatch already has a connected-apps concept: `discoverAgents("dispatch")`
- * from `@agent-native/core/server/agent-discovery` (the same source
+ * from `@agentnative-fork/core/server/agent-discovery` (the same source
  * `list-connected-agents` and the `call-agent` delegation path use). It
  * returns the allow-listed first-party apps with their prod URLs PLUS any
  * org-tracked custom/remote agents and sibling workspace apps Dispatch
@@ -50,13 +50,13 @@ import {
   createAuthPlugin,
   getH3App,
   runWithRequestContext,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   getA2ASecretByDomain,
   getOrgDomain,
   resolveOrgByDomain,
-} from "@agent-native/core/org";
-import { discoverAgents } from "@agent-native/core/server/agent-discovery";
+} from "@agentnative-fork/core/org";
+import { discoverAgents } from "@agentnative-fork/core/server/agent-discovery";
 import { defineEventHandler, getMethod, getRequestHeader } from "h3";
 import type { H3Event } from "h3";
 import {

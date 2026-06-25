@@ -4,7 +4,7 @@
  *
  * Follows the mock patterns from update-visual-plan.spec.ts and
  * update-visual-plan-comment-flow.spec.ts: importOriginal spread for
- * @agent-native/core, embedApp mocked, real plans.js helpers used where safe,
+ * @agentnative-fork/core, embedApp mocked, real plans.js helpers used where safe,
  * DB-touching helpers (loadPlanBundle, assertPlanEditor) stubbed.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -39,18 +39,18 @@ vi.mock("drizzle-orm", () => ({
   isNull: (...args: unknown[]) => ({ op: "isNull", args }),
 }));
 
-vi.mock("@agent-native/core", async (importOriginal) => ({
-  ...(await importOriginal<typeof import("@agent-native/core")>()),
+vi.mock("@agentnative-fork/core", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@agentnative-fork/core")>()),
   defineAction: (options: unknown) => options,
   embedApp: vi.fn(() => ({ title: "stub" })),
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestUserEmail: () => request.email,
   getRequestUserName: () => request.name,
 }));
 
-vi.mock("@agent-native/core/sharing", () => {
+vi.mock("@agentnative-fork/core/sharing", () => {
   class ForbiddenError extends Error {
     statusCode = 403;
     constructor(message: string) {

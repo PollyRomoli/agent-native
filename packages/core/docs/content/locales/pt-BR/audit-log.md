@@ -81,7 +81,7 @@ Duas leituras actions estão disponíveis para o agente **e** o frontend em cada
 Crie um feed de atividades ou uma linha "quem mudou isto" chamando `list-audit-events` do UI com `useActionQuery` — nunca escreva manualmente uma busca na tabela de auditoria:
 
 ```tsx
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 const { data } = useActionQuery("list-audit-events", {
   targetType: "recording",

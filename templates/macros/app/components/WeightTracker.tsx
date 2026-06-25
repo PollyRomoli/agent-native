@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useActionQuery, useActionMutation } from "@agent-native/core/client";
+import { useActionQuery, useActionMutation } from "@agentnative-fork/core/client";
 import { IconScale } from "@tabler/icons-react";
 import { formatLocalDate } from "@/lib/utils";
 import { AddWeightDialog } from "./AddWeightDialog";

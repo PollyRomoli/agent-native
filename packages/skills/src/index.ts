@@ -142,13 +142,13 @@ export interface PlanModePromptContext {
   initialMode: PlanMode;
 }
 
-const HELP = `@agent-native/skills
+const HELP = `@agentnative-fork/skills
 
 Usage:
-  npx @agent-native/skills@latest add [options]
-  npx @agent-native/skills@latest list
-  npx @agent-native/skills@latest status [skill|scaffold] [options]
-  npx @agent-native/skills@latest update [skill|scaffold] [options]
+  npx @agentnative-fork/skills@latest add [options]
+  npx @agentnative-fork/skills@latest list
+  npx @agentnative-fork/skills@latest status [skill|scaffold] [options]
+  npx @agentnative-fork/skills@latest update [skill|scaffold] [options]
 
 Options:
   --skill <name>              Install only this skill (repeatable)
@@ -177,10 +177,10 @@ For visual-plan/visual-recap/content, choose --mode local-files for local-file
 workflows, or --mode self-hosted --mcp-url <url> for your own app.
 
 Examples:
-  npx @agent-native/skills@latest add
-  npx @agent-native/skills@latest add --skill quick-recap
-  npx @agent-native/skills@latest add --skill visual-recap --with-github-action
-  npx @agent-native/skills@latest update scaffold --project
+  npx @agentnative-fork/skills@latest add
+  npx @agentnative-fork/skills@latest add --skill quick-recap
+  npx @agentnative-fork/skills@latest add --skill visual-recap --with-github-action
+  npx @agentnative-fork/skills@latest update scaffold --project
 `;
 
 const CLIENTS: SkillClient[] = [
@@ -193,8 +193,8 @@ const CLIENTS: SkillClient[] = [
   "github-copilot",
 ];
 const DEFAULT_SKILLS_SOURCE = "BuilderIO/skills";
-const MANAGED_INSTRUCTIONS_START = "<!-- BEGIN @agent-native/skills -->";
-const MANAGED_INSTRUCTIONS_END = "<!-- END @agent-native/skills -->";
+const MANAGED_INSTRUCTIONS_START = "<!-- BEGIN @agentnative-fork/skills -->";
+const MANAGED_INSTRUCTIONS_END = "<!-- END @agentnative-fork/skills -->";
 
 export function parseSkillsCliArgs(argv: string[]): ParsedArgs {
   const first = argv[0];
@@ -290,7 +290,7 @@ export function parseSkillsCliArgs(argv: string[]): ParsedArgs {
     !out.copySource
   ) {
     throw new Error(
-      `Unexpected argument: ${out.source}. @agent-native/skills installs the BuilderIO skills collection; use --skill <name> to choose a skill.`,
+      `Unexpected argument: ${out.source}. @agentnative-fork/skills installs the BuilderIO skills collection; use --skill <name> to choose a skill.`,
     );
   }
   if (
@@ -312,7 +312,7 @@ export function parseSkillsCliArgs(argv: string[]): ParsedArgs {
 }
 
 /**
- * Translate this package's parsed args into the argv shape `@agent-native/core`
+ * Translate this package's parsed args into the argv shape `@agentnative-fork/core`
  * skills expects. Core takes a single positional target + compatible flags; we
  * forward one explicit skill as that target and let core's interactive picker
  * handle 0-or-many selections.
@@ -413,7 +413,7 @@ export async function runSkillsCli(
 ): Promise<void> {
   const parsed = parseSkillsCliArgs(argv);
 
-  // `@agent-native/skills` normally uses the exact same core flow as
+  // `@agentnative-fork/skills` normally uses the exact same core flow as
   // `agent-native skills`; it only passes a broader public skill catalog.
   // AGENT_NATIVE_SKILLS_DIRECT=1 is set by core when it shells out to this
   // package as a headless file-copy worker for public/plain skill repos. That
@@ -427,7 +427,7 @@ export async function runSkillsCli(
       ? await materializeSource(parsed.source ?? DEFAULT_SKILLS_SOURCE)
       : null;
     try {
-      const { runSkills } = (await import("@agent-native/core/cli/skills")) as {
+      const { runSkills } = (await import("@agentnative-fork/core/cli/skills")) as {
         runSkills: (
           argv: string[],
           options: Record<string, unknown>,
@@ -1151,10 +1151,10 @@ async function printInstallResult(
     clack.note(
       [
         "No sharing, all local.",
-        "Run: npx @agent-native/core@latest plan blocks --out plan-blocks.md",
-        "Check: npx @agent-native/core@latest plan local check --dir plans/<slug>",
-        "Serve: npx @agent-native/core@latest plan local serve --dir plans/<slug> --open",
-        "Verify: npx @agent-native/core@latest plan local verify --dir plans/<slug>",
+        "Run: npx @agentnative-fork/core@latest plan blocks --out plan-blocks.md",
+        "Check: npx @agentnative-fork/core@latest plan local check --dir plans/<slug>",
+        "Serve: npx @agentnative-fork/core@latest plan local serve --dir plans/<slug> --open",
+        "Verify: npx @agentnative-fork/core@latest plan local verify --dir plans/<slug>",
       ].join("\n"),
       "Local Plan files",
     );
@@ -1333,7 +1333,7 @@ async function materializeSource(input: string): Promise<{
   const ref = parsed.ref ?? "main";
   const url = `https://codeload.github.com/${parsed.owner}/${parsed.repo}/tar.gz/${encodeURIComponent(ref)}`;
   const response = await fetch(url, {
-    headers: { "user-agent": "@agent-native/skills" },
+    headers: { "user-agent": "@agentnative-fork/skills" },
   });
   if (!response.ok) {
     fs.rmSync(tmpRoot, { recursive: true, force: true });
@@ -1533,7 +1533,7 @@ function prVisualRecapWorkflowPath(baseDir: string): string {
 }
 
 function prVisualRecapSetupCommand(): string {
-  return "npx @agent-native/core@latest recap setup";
+  return "npx @agentnative-fork/core@latest recap setup";
 }
 
 async function promptForGithubAction(

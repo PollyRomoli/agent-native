@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — JS timer monkey-patching (opt-in)
+// @agentnative-fork/pinpoint — JS timer monkey-patching (opt-in)
 // MIT License
 //
 // Opt-in: disabled by default, activated via options.freezeJSTimers: true

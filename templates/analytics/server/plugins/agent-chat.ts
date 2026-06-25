@@ -2,9 +2,9 @@ import {
   createAgentChatPlugin,
   loadActionsFromStaticRegistry,
   type AgentLoopFinalResponseGuardContext,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import actionsRegistry from "../../.generated/actions-registry.js";
-import { getOrgContext } from "@agent-native/core/org";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import {
   listScopedSettingRecords,
   resolveSettingsScope,
@@ -219,7 +219,7 @@ export default createAgentChatPlugin({
       search: async (query: string, event?: any) => {
         if (!event) return [];
         try {
-          const { getOrgContext } = await import("@agent-native/core/org");
+          const { getOrgContext } = await import("@agentnative-fork/core/org");
           const { listDashboards } = await import("../lib/dashboards-store.js");
           const ctx = await getOrgContext(event);
           const rows = await listDashboards(
@@ -258,7 +258,7 @@ export default createAgentChatPlugin({
       search: async (query: string, event?: any) => {
         if (!event) return [];
         try {
-          const { getOrgContext } = await import("@agent-native/core/org");
+          const { getOrgContext } = await import("@agentnative-fork/core/org");
           const { listAnalyses } = await import("../lib/dashboards-store.js");
           const ctx = await getOrgContext(event);
           const rows = await listAnalyses({

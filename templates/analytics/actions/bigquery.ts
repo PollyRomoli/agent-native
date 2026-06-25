@@ -1,4 +1,4 @@
-import { AgentActionStopError, defineAction } from "@agent-native/core";
+import { AgentActionStopError, defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { runQuery } from "../server/lib/bigquery";
 

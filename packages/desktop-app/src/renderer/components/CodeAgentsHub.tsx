@@ -5,7 +5,7 @@ import {
   type CodeAgentTranscriptEvent,
   type CodeAgentTranscriptRequest,
   type CodeAgentsHost,
-} from "@agent-native/code-agents-ui";
+} from "@agentnative-fork/code-agents-ui";
 import { toAppDefinition, type AppConfig } from "@shared/app-registry";
 import AppWebview from "./AppWebview.js";
 

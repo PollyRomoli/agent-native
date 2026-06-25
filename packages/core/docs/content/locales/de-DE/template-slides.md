@@ -67,7 +67,7 @@ Der Rest dieses Dokuments richtet sich an alle, die die Folienvorlage verzweigen
 Erstellen Sie eine neue Folien-App aus CLI:
 
 ```bash
-npx @agent-native/core@latest create my-slides --standalone --template slides
+npx @agentnative-fork/core@latest create my-slides --standalone --template slides
 cd my-slides
 pnpm install
 pnpm dev

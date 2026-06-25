@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   and,
   asc,
@@ -12,8 +12,8 @@ import {
 } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
-import { accessFilter } from "@agent-native/core/sharing";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
+import { accessFilter } from "@agentnative-fork/core/sharing";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
 import {
   getActiveOrganizationId,
   parseSpaceIds,

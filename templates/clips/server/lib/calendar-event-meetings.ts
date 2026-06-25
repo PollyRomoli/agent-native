@@ -1,7 +1,7 @@
 import { Buffer } from "node:buffer";
 import { and, eq } from "drizzle-orm";
-import { readAppSecret, writeAppSecret } from "@agent-native/core/secrets";
-import { resolveAccess } from "@agent-native/core/sharing";
+import { readAppSecret, writeAppSecret } from "@agentnative-fork/core/secrets";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../db/index.js";
 import {
   getActiveOrganizationId,

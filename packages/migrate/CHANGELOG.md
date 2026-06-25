@@ -1,4 +1,4 @@
-# @agent-native/migrate
+# @agentnative-fork/migrate
 
 ## 0.0.7
 

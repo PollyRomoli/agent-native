@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router";
-import { useActionQuery, useT } from "@agent-native/core/client";
+import { useActionQuery, useT } from "@agentnative-fork/core/client";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface DesignFile {

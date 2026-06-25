@@ -1,6 +1,6 @@
-import { getSession } from "@agent-native/core/server";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
-import { createH3SSRHandler } from "@agent-native/core/server/ssr-handler";
+import { getSession } from "@agentnative-fork/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
+import { createH3SSRHandler } from "@agentnative-fork/core/server/ssr-handler";
 import { defineEventHandler } from "h3";
 
 const ssr = createH3SSRHandler(

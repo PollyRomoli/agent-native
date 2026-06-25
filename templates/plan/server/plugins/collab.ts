@@ -1,4 +1,4 @@
-import { createCollabPlugin } from "@agent-native/core/server";
+import { createCollabPlugin } from "@agentnative-fork/core/server";
 
 /**
  * Real-time multi-user prose editing for plan `rich-text` blocks.

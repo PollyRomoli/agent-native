@@ -60,7 +60,7 @@ description: "एजेंट-नेटिव फॉर्म बिल्डर
 ### त्वरित शुरुआत
 
 ```bash
-npx @agent-native/core@latest create my-forms --standalone --template forms
+npx @agentnative-fork/core@latest create my-forms --standalone --template forms
 cd my-forms
 pnpm install
 pnpm dev
@@ -69,7 +69,7 @@ pnpm dev
 अन्य ऐप्स के साथ-साथ फ़ॉर्म वाले कार्यक्षेत्र के लिए:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 कार्यस्थान सेटअप के दौरान इच्छित फ़ॉर्म और कोई अन्य टेम्पलेट चुनें।

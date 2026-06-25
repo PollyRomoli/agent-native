@@ -13,15 +13,15 @@ Plan skill instructions, registers the hosted Plan MCP connector, and runs the
 client-specific auth/setup flow in one step:
 
 ```sh
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 You do not need to wire the MCP server separately.
 
 Supported aliases include:
 
-- `npx @agent-native/core@latest skills add visual-plan`
-- `npx @agent-native/core@latest skills add visual-recap`
+- `npx @agentnative-fork/core@latest skills add visual-plan`
+- `npx @agentnative-fork/core@latest skills add visual-recap`
 
 Restart or reload the host if the tools are not visible immediately.
 
@@ -111,7 +111,7 @@ When you install Plans interactively, the CLI asks whether you also want the PR
 Visual Recap GitHub Action. You can add it explicitly at any time:
 
 ```sh
-npx @agent-native/core@latest skills add visual-plan --with-github-action
+npx @agentnative-fork/core@latest skills add visual-plan --with-github-action
 ```
 
 That writes `.github/workflows/pr-visual-recap.yml`. Then run the setup helper to
@@ -119,8 +119,8 @@ configure GitHub Actions secrets/variables where possible and print any missing
 manual steps:
 
 ```sh
-npx @agent-native/core@latest recap setup
-npx @agent-native/core@latest recap doctor
+npx @agentnative-fork/core@latest recap setup
+npx @agentnative-fork/core@latest recap doctor
 ```
 
 The hosted default needs `PLAN_RECAP_TOKEN` plus `ANTHROPIC_API_KEY` for the

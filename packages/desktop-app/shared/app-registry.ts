@@ -3,7 +3,7 @@ import {
   getTemplate as getSharedTemplate,
   getTemplateGatewayAppUrl as getSharedTemplateGatewayAppUrl,
   type AppConfig,
-} from "@agent-native/shared-app-config";
+} from "@agentnative-fork/shared-app-config";
 
 const DESKTOP_DEFAULT_EXCLUDED_APP_IDS = new Set(["starter"]);
 const DEFAULT_DESKTOP_TEMPLATE_GATEWAY_URL = "http://127.0.0.1:8080";
@@ -108,4 +108,4 @@ export {
   visibleTemplates,
   getTemplate,
   type TemplateMeta,
-} from "@agent-native/shared-app-config";
+} from "@agentnative-fork/shared-app-config";

@@ -5,7 +5,7 @@ template's `actions/` folder:
 
 ```ts
 // actions/create-booking.ts
-export { default } from "@agent-native/scheduling/actions/create-booking";
+export { default } from "@agentnative-fork/scheduling/actions/create-booking";
 ```
 
 The action scaffolder can do this for you. Full list:

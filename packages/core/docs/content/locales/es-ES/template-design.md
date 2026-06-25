@@ -67,7 +67,7 @@ El resto de este documento es para cualquiera que bifurque la plantilla de Dise√
 ### Inicio r√°pido
 
 ```bash
-npx @agent-native/core@latest create my-design --standalone --template design
+npx @agentnative-fork/core@latest create my-design --standalone --template design
 cd my-design
 pnpm install
 pnpm dev

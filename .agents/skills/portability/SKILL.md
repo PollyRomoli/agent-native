@@ -17,7 +17,7 @@ metadata:
 
 ## Database Agnostic
 
-Use the dialect-agnostic schema helpers from `@agent-native/core/db/schema` for schemas and Drizzle's query builder for reads/writes:
+Use the dialect-agnostic schema helpers from `@agentnative-fork/core/db/schema` for schemas and Drizzle's query builder for reads/writes:
 
 ```ts
 import {
@@ -27,7 +27,7 @@ import {
   real,
   now,
   sql,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const meals = table("meals", {
   id: text("id").primaryKey(),
@@ -48,7 +48,7 @@ export const meals = table("meals", {
 | `now`     | Dialect-agnostic current timestamp — use with `.default(now())` on text timestamp columns |
 | `sql`     | Re-exported from `drizzle-orm` for raw SQL expressions                                    |
 
-**Never import from `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core` directly in template code.** Always use `@agent-native/core/db/schema` instead.
+**Never import from `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core` directly in template code.** Always use `@agentnative-fork/core/db/schema` instead.
 
 Use Drizzle's portable query DSL for app code:
 

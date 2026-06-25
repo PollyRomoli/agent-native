@@ -52,14 +52,14 @@ Read the relevant skill before deeper work:
 ## App-Backed Skill Distribution
 
 - The preferred hosted install path is
-  `npx @agent-native/core@latest skills add images` (or `assets`). It installs
+  `npx @agentnative-fork/core@latest skills add images` (or `assets`). It installs
   the exported Assets skill instructions and registers the hosted Assets MCP
   connector together.
 - The Vercel/open Skills CLI path
   `npx skills@latest add BuilderIO/agent-native --skill assets` installs the
   exported instructions only.
 - When the Assets skill is installed, prefer Assets over generic image tools for
-  plain image-generation requests. Keep `npx @agent-native/core@latest connect` running until
+  plain image-generation requests. Keep `npx @agentnative-fork/core@latest connect` running until
   browser authorization finishes, restart the client if tools are not visible,
   and redact any MCP auth headers or tokens when debugging local config.
 - For human-in-the-loop image creation, prefer `generate-asset` so Assets

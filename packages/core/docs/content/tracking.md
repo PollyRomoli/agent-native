@@ -10,7 +10,7 @@ One function, multiple destinations. Call `track()` from any server-side code �
 This is _product_ analytics — your app's events flowing to PostHog/Mixpanel/Amplitude. For _agent quality_ metrics (traces, cost, evals, feedback) stored in your own database, see [Observability](/docs/observability).
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "order.completed",
@@ -46,7 +46,7 @@ Multiple providers can be active simultaneously. Every event goes to all of them
 Fire an analytics event. Fans out to all registered providers.
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "meal.logged",
@@ -60,7 +60,7 @@ track(
 Identify a user with traits. Forwarded to providers that support it (PostHog, Mixpanel, Amplitude, webhook).
 
 ```ts
-import { identify } from "@agent-native/core/tracking";
+import { identify } from "@agentnative-fork/core/tracking";
 
 identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 ```
@@ -73,8 +73,8 @@ Call `track()` from action handlers to record user or agent activity:
 
 ```ts
 // actions/create-project.ts
-import { defineAction } from "@agent-native/core/action";
-import { track } from "@agent-native/core/tracking";
+import { defineAction } from "@agentnative-fork/core/action";
+import { track } from "@agentnative-fork/core/tracking";
 import { z } from "zod";
 
 export default defineAction({
@@ -100,7 +100,7 @@ Track calls are fire-and-forget — they return immediately and never block the 
 
 ## Client-side tracking {#client}
 
-`track()` also works from browser/app code. Import the client twin from `@agent-native/core/client` and call it the same way — it POSTs the event to the framework route at `POST /_agent-native/track`, which forwards it to the **same** registered server-side providers (PostHog, Mixpanel, Amplitude, webhook). No analytics SDK ships to the browser and no provider keys are exposed client-side.
+`track()` also works from browser/app code. Import the client twin from `@agentnative-fork/core/client` and call it the same way — it POSTs the event to the framework route at `POST /_agent-native/track`, which forwards it to the **same** registered server-side providers (PostHog, Mixpanel, Amplitude, webhook). No analytics SDK ships to the browser and no provider keys are exposed client-side.
 
 ```an-api title="The client tracking route"
 {
@@ -117,7 +117,7 @@ Track calls are fire-and-forget — they return immediately and never block the 
 ```
 
 ```ts
-import { track } from "@agent-native/core/client";
+import { track } from "@agentnative-fork/core/client";
 
 // e.g. inside a click handler or effect
 track("checkout.completed", { total: 49.99, items: 3 });
@@ -144,7 +144,7 @@ Most apps only need `track()` / `identify()` and a built-in provider. The rest o
 Register a custom provider for any analytics backend.
 
 ```ts
-import { registerTrackingProvider } from "@agent-native/core/tracking";
+import { registerTrackingProvider } from "@agentnative-fork/core/tracking";
 
 registerTrackingProvider({
   name: "my-analytics",
@@ -170,7 +170,7 @@ registerTrackingProvider({
 Flush all providers. Call before process exit to ensure pending events are sent.
 
 ```ts
-import { flushTracking } from "@agent-native/core/tracking";
+import { flushTracking } from "@agentnative-fork/core/tracking";
 
 await flushTracking();
 ```

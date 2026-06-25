@@ -68,6 +68,11 @@ export {
   type AuthOptions,
 } from "./auth.js";
 export {
+  setTheme,
+  getTheme,
+  type ThemeConfig,
+} from "./onboarding-html.js";
+export {
   handleIdentitySso,
   getIdentityHubUrl,
   isIdentitySsoEnabled,
@@ -151,7 +156,7 @@ export {
 } from "./capture-error.js";
 export { createSentryPlugin, defaultSentryPlugin } from "./sentry-plugin.js";
 // Re-export the org plugin so the auto-discovery's DEFAULT_PLUGIN_REGISTRY
-// (which references "defaultOrgPlugin" from @agent-native/core/server) can
+// (which references "defaultOrgPlugin" from @agentnative-fork/core/server) can
 // resolve it during the deploy build worker-entry generation.
 export { createOrgPlugin, defaultOrgPlugin } from "../org/plugin.js";
 export {
@@ -384,6 +389,10 @@ export {
   writeBuilderCredentials,
   deleteBuilderCredentials,
   resolveSecret,
+  setCredentialMode,
+  getCredentialMode,
+  setPlatformCredentialResolver,
+  type CredentialMode,
 } from "./credential-provider.js";
 export {
   getBuilderBranchProjectId,
@@ -425,7 +434,7 @@ export {
 // SSR handler is NOT re-exported here — it uses a virtual module
 // (virtual:react-router/server-build) that only exists at Vite dev/build time.
 // Including it in this barrel would break the esbuild CF Pages bundler.
-// Templates import directly: import { ssrHandler } from "@agent-native/core/server/ssr-handler"
+// Templates import directly: import { ssrHandler } from "@agentnative-fork/core/server/ssr-handler"
 
 // Nitro plugin helper — re-exported so templates don't need nitro as a direct dependency.
 // defineNitroPlugin is an identity function; this typed wrapper lets templates use it

@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Pin creation/edit popup with voice + queue
+// @agentnative-fork/pinpoint — Pin creation/edit popup with voice + queue
 // MIT License
 
 import {

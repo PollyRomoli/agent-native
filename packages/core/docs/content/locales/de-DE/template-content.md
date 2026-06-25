@@ -93,7 +93,7 @@ eigenständiges Repo-Layout, Konfiguration, benutzerdefinierte MDX-Komponenten, 
 So installieren Sie den Content Local-Files-Skill in einem vorhandenen Repository:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 Das Installationsprogramm kopiert den `content`-Skill für Ihren Coding-Agent und schreibt oder
@@ -114,7 +114,7 @@ Der Rest dieses Dokuments richtet sich an alle, die die Inhaltsvorlage verzweige
 Erstellen Sie ein Gerüst für einen neuen Arbeitsbereich mit der Inhaltsvorlage:
 
 ```bash
-npx @agent-native/core@latest create my-workspace --standalone --template content
+npx @agentnative-fork/core@latest create my-workspace --standalone --template content
 cd my-workspace
 pnpm install
 pnpm dev

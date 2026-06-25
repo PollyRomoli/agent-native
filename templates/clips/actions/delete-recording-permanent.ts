@@ -5,7 +5,7 @@
  *   pnpm action delete-recording-permanent --id=<id>
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
@@ -14,7 +14,7 @@ import {
   writeAppState,
   deleteAppState,
   deleteAppStateByPrefix,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 
 export default defineAction({
   description:

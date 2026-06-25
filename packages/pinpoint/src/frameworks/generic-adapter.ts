@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Generic fallback adapter
+// @agentnative-fork/pinpoint — Generic fallback adapter
 // MIT License
 //
 // For non-framework pages. DOM-only info, no component tree, no source files.

@@ -1,5 +1,5 @@
 import { defineEventHandler, getCookie, deleteCookie } from "h3";
-import { removeSession } from "@agent-native/core/server";
+import { removeSession } from "@agentnative-fork/core/server";
 
 export default defineEventHandler(async (event) => {
   const cookie = getCookie(event, "an_session");

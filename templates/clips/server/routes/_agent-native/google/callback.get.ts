@@ -14,7 +14,7 @@ import {
   resolveOAuthOwner,
   setDesktopExchange,
   type OAuthStatePayload,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   GOOGLE_TOKEN_URL,
   GOOGLE_USERINFO_URL,

@@ -164,7 +164,7 @@ function hasRawDbScope(tableBody) {
 }
 
 /**
- * Resolve an `export * from "@agent-native/<pkg>/schema[/<sub>]"` (or relative)
+ * Resolve an `export * from "@agentnative-fork/<pkg>/schema[/<sub>]"` (or relative)
  * specifier in the given source file to one or more on-disk schema files.
  * Returns an empty array when the import doesn't point at an in-repo package.
  */
@@ -212,7 +212,7 @@ for await (const file of walk(path.join(REPO_ROOT, "templates"))) {
 
   // Scan the template's own schema.ts plus any package schemas it
   // re-exports. Without the re-export resolution, templates like
-  // scheduling that ship their tables from @agent-native/scheduling/schema
+  // scheduling that ship their tables from @agentnative-fork/scheduling/schema
   // bypass the guard entirely (the file looks empty of `table(...)` calls).
   const filesToScan = [file, ...(await resolveSchemaReExports(file))];
   for (const scanFile of filesToScan) {

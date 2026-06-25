@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../server/db/index.js";
 import { nowIso } from "../server/lib/json.js";
 import { serializeLibrary } from "./_helpers.js";

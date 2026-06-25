@@ -301,7 +301,7 @@ async function sanitizeWithModel(
 ): Promise<{ content: string; method: "model"; model: string } | null> {
   if (process.env.NODE_ENV === "test" || process.env.VITEST) return null;
 
-  const core = await import("@agent-native/core/server");
+  const core = await import("@agentnative-fork/core/server");
   const userApiKey = await core.getOwnerActiveApiKey(input.source.ownerEmail);
   const engine = await core.resolveEngine({
     apiKey: userApiKey ?? undefined,

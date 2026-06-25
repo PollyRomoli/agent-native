@@ -1,4 +1,4 @@
-import { getConfiguredAppBasePath } from "@agent-native/core/server";
+import { getConfiguredAppBasePath } from "@agentnative-fork/core/server";
 
 export function parseJson<T>(value: string | null | undefined, fallback: T): T {
   if (!value) return fallback;

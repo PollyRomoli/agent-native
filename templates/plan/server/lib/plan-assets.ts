@@ -15,7 +15,7 @@
 import { randomUUID } from "node:crypto";
 import { and, eq, sum } from "drizzle-orm";
 import { getDb, schema } from "../db/index.js";
-import { uploadFile } from "@agent-native/core/file-upload";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
 import {
   PLAN_ASSET_MAX_SINGLE_BYTES,
   PLAN_ASSET_MAX_TOTAL_BYTES,

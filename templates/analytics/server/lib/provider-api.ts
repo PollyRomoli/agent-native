@@ -6,7 +6,7 @@ import {
   type ProviderApiId,
   type ProviderApiMethod,
   type ProviderApiRequestArgs,
-} from "@agent-native/core/provider-api";
+} from "@agentnative-fork/core/provider-api";
 import { requireRequestCredentialContext } from "./credentials-context";
 import { resolveAnalyticsProviderCredential } from "./provider-credentials";
 

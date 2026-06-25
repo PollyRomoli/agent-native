@@ -111,7 +111,7 @@ Kern-SQL-Stores werden automatisch erstellt und sind in jeder Vorlage verfügbar
 
 ```ts
 // Drizzle schema for domain data
-import { table, text, integer } from "@agent-native/core/db/schema";
+import { table, text, integer } from "@agentnative-fork/core/db/schema";
 
 export const forms = table("forms", {
   id: text("id").primaryKey(),
@@ -145,7 +145,7 @@ Der UI ruft niemals einen LLM direkt auf. Wenn ein Benutzer auf „Diagramm erst
 
 ```ts
 // In a React component — delegate AI work to the agent
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 sendToAgentChat({
   message: "Generate a chart showing signups by source",
@@ -167,7 +167,7 @@ Wenn der Agent etwas Komplexes tun muss – einen API aufrufen, Daten verarbeite
 
 ```ts
 // actions/fetch-data.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -198,7 +198,7 @@ Datenbankänderungen werden über `useDbSync()` mit dem UI synchronisiert. Gleic
 
 ```ts
 // Client: subscribe to agent/UI data changes once near the app shell
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 
 useDbSync({ queryClient });
 ```
@@ -266,7 +266,7 @@ Es gibt keine gemeinsame Codebasis, die zerstört werden könnte. Sie besitzen d
 
 Zwei Architekturregeln sorgen dafür, dass Apps über Datenbanken und Hosts hinweg portierbar sind:
 
-- **Datenbankunabhängig.** Schreiben Sie Schemata mit `@agent-native/core/db/schema` und lesen/schreiben Sie mit der tragbaren Abfrage DSL von Drizzle, sodass derselbe Code auf jedem unterstützten Anbieter ausgeführt wird. Verwenden Sie rohes SQL nur für additive Migrationen oder einmalige Wartungsarbeiten, parametrisiert und dialektunabhängig. Siehe [Database](/docs/database).
+- **Datenbankunabhängig.** Schreiben Sie Schemata mit `@agentnative-fork/core/db/schema` und lesen/schreiben Sie mit der tragbaren Abfrage DSL von Drizzle, sodass derselbe Code auf jedem unterstützten Anbieter ausgeführt wird. Verwenden Sie rohes SQL nur für additive Migrationen oder einmalige Wartungsarbeiten, parametrisiert und dialektunabhängig. Siehe [Database](/docs/database).
 - **Hosting-agnostisch.** Der Server läuft auf Nitro und kompiliert zu jedem Bereitstellungsziel. Verwenden Sie niemals knotenspezifische APIs (`fs`, `child_process`, `path`) in Serverrouten oder Plugins und gehen Sie niemals von einem dauerhaften Serverprozess aus – serverlos und Edge sind zustandslos, also behalten Sie alle Zustände in SQL bei. Siehe [Deployment](/docs/deployment).
 
 ## Arbeitsbereich {#workspace}

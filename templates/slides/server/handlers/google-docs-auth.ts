@@ -15,7 +15,7 @@ import {
   oauthErrorPage,
   resolveOAuthRedirectUri,
   safeReturnPath,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   disconnectGoogleDocs,
   exchangeGoogleDocsCode,

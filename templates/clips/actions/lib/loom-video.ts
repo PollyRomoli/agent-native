@@ -1,4 +1,4 @@
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 import { MAX_UPLOAD_BYTES } from "@shared/upload-limits.js";
 import { z } from "zod";
 

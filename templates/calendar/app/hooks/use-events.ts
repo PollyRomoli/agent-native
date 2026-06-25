@@ -7,7 +7,7 @@ import {
   callAction,
   useActionMutation,
   useActionQuery,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { nanoid } from "nanoid";
 import {
   applyCalendarEventRsvp,

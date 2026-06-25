@@ -34,14 +34,14 @@ Agent-Native 使用主机部署、主机会话和配置
 行动路线。
 
 ```bash
-pnpm add @agent-native/core
+pnpm add @agentnative-fork/core
 ```
 
 在服务器上：
 
 ```ts
 // server/plugins/agent-native.ts
-import { createAgentNativeEmbeddedPlugin } from "@agent-native/core/server";
+import { createAgentNativeEmbeddedPlugin } from "@agentnative-fork/core/server";
 import { builderActions } from "../agent-native/actions";
 import { getBuilderSession } from "../auth";
 
@@ -73,7 +73,7 @@ export default createAgentNativeEmbeddedPlugin({
 import {
   AgentNativeEmbedded,
   defineClientAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export function BuilderAppShell({ children, content, editor }) {
   return (
@@ -146,27 +146,27 @@ export default createAgentNativeEmbeddedPlugin({
 
 | 模式                     | 什么时候使用它                                                                        | 包                                  |
 | ------------------------ | ------------------------------------------------------------------------------------- | ----------------------------------- |
-| **嵌入式应用程序选择器** | 启动完整的 Agent-Native 应用程序作为重点 iframe（资产选择器、表单生成器、审批面板）。 | `@agent-native/embedding`           |
-| **`<AgentNative>` 主桥** | 手动连接页面上下文和客户端 actions 的独立 sidecar 应用或跨源 iframe。                 | `@agent-native/core/client`         |
-| **便携式扩展**           | 当 SaaS 已拥有扩展存储/批准时，让主机用户构建沙盒迷你应用程序。                       | `@agent-native/core/client`扩展插槽 |
+| **嵌入式应用程序选择器** | 启动完整的 Agent-Native 应用程序作为重点 iframe（资产选择器、表单生成器、审批面板）。 | `@agentnative-fork/embedding`           |
+| **`<AgentNative>` 主桥** | 手动连接页面上下文和客户端 actions 的独立 sidecar 应用或跨源 iframe。                 | `@agentnative-fork/core/client`         |
+| **便携式扩展**           | 当 SaaS 已拥有扩展存储/批准时，让主机用户构建沙盒迷你应用程序。                       | `@agentnative-fork/core/client`扩展插槽 |
 
-较低级别的 `@agent-native/embedding` 包公开：
+较低级别的 `@agentnative-fork/embedding` 包公开：
 
 | 导入路径                           | 它提供什么                                                                        |
 | ---------------------------------- | --------------------------------------------------------------------------------- |
-| `@agent-native/embedding`          | `EmbeddedApp` 选择器组件、`getA2AUrl`、`getMcpUrl`、`sendMessage`（流式传输 A2A） |
-| `@agent-native/embedding/react`    | React 特定的钩子和组件                                                            |
-| `@agent-native/embedding/bridge`   | `announceEmbeddedAppReady`、`sendEmbeddedAppMessage` — 在嵌入式应用内使用         |
-| `@agent-native/embedding/agent`    | 代理端点助手                                                                      |
-| `@agent-native/embedding/protocol` | 协议类型                                                                          |
+| `@agentnative-fork/embedding`          | `EmbeddedApp` 选择器组件、`getA2AUrl`、`getMcpUrl`、`sendMessage`（流式传输 A2A） |
+| `@agentnative-fork/embedding/react`    | React 特定的钩子和组件                                                            |
+| `@agentnative-fork/embedding/bridge`   | `announceEmbeddedAppReady`、`sendEmbeddedAppMessage` — 在嵌入式应用内使用         |
+| `@agentnative-fork/embedding/agent`    | 代理端点助手                                                                      |
+| `@agentnative-fork/embedding/protocol` | 协议类型                                                                          |
 
 ```bash
-pnpm add @agent-native/embedding
+pnpm add @agentnative-fork/embedding
 ```
 
 ### 嵌入式应用程序和选择器模式
 
-当主机产品想要推出完整的产品时，请使用`@agent-native/embedding`
+当主机产品想要推出完整的产品时，请使用`@agentnative-fork/embedding`
 Agent-Native 应用程序作为聚焦的 iframe 表面：资产选择器、资产生成器，
 表单构建器、日历时段选择器、审批面板或任何其他特定于任务的
 工作流程。这是故意小于下面的 sidecar 主桥：
@@ -174,7 +174,7 @@ iframe 宣布准备就绪，主机可以发送命名消息，并且嵌入
 应用程序可以发出域事件，例如 `chooseAsset` 或 `close`。
 
 ```tsx
-import { EmbeddedApp } from "@agent-native/embedding";
+import { EmbeddedApp } from "@agentnative-fork/embedding";
 
 export function AssetPickerDialog({ close }) {
   return (
@@ -207,7 +207,7 @@ export function AssetPickerDialog({ close }) {
 import {
   announceEmbeddedAppReady,
   sendEmbeddedAppMessage,
-} from "@agent-native/embedding/bridge";
+} from "@agentnative-fork/embedding/bridge";
 
 announceEmbeddedAppReady({ app: "assets", mode: "picker" });
 sendEmbeddedAppMessage("chooseAsset", {
@@ -230,7 +230,7 @@ sendEmbeddedAppMessage("chooseAsset", {
 通过 A2A 流式传输文本：
 
 ```ts
-import { getA2AUrl, getMcpUrl, sendMessage } from "@agent-native/embedding";
+import { getA2AUrl, getMcpUrl, sendMessage } from "@agentnative-fork/embedding";
 
 getMcpUrl("https://assets.agent-native.com");
 getA2AUrl("https://assets.agent-native.com");
@@ -252,7 +252,7 @@ for await (const chunk of sendMessage(
 对于独立的 sidecar 应用程序或跨源 iframe，请使用较低级别的 `<AgentNative />`。它将 iframe sidecar 和连接页面上下文、实时客户端 actions 以及主机刷新/导航命令呈现在一个位置：
 
 ```tsx
-import { AgentNative, defineClientAction } from "@agent-native/core/client";
+import { AgentNative, defineClientAction } from "@agentnative-fork/core/client";
 
 export function AssistantDock({ customer, sessionToken }) {
   return (
@@ -340,7 +340,7 @@ import {
   requestAgentNativeHostContext,
   runAgentNativeHostAction,
   sendAgentNativeHostCommand,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 announceAgentNativeFrameReady({ hostOrigin: "https://app.example.com" });
 
@@ -384,7 +384,7 @@ const hostTools = createAgentNativeHostTools({
 
 ```tsx
 import { useEffect } from "react";
-import { startAgentNativeBrowserSessionBridge } from "@agent-native/core/client";
+import { startAgentNativeBrowserSessionBridge } from "@agentnative-fork/core/client";
 
 export function SidecarRuntime() {
   useEffect(() => {
@@ -437,7 +437,7 @@ import {
   AgentNativeExtensionSlot,
   createHttpAgentNativeExtensionStorage,
   defineClientAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const storage = createHttpAgentNativeExtensionStorage({
   endpoint: "/api/agent-native/extensions/storage",

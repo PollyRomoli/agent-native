@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Click-and-drag multi-element selection
+// @agentnative-fork/pinpoint — Click-and-drag multi-element selection
 // MIT License
 //
 // Inspired by react-grab pattern: 75% coverage threshold.

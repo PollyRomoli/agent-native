@@ -6,12 +6,12 @@ import {
 } from "h3";
 import { eq } from "drizzle-orm";
 import type { AvailabilityConfig } from "../../shared/api.js";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 import {
   readBody,
   getRequestTimezone,
   getSession,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { getDb, schema } from "../db/index.js";
 
 function createDefaultAvailability(timezone: string): AvailabilityConfig {

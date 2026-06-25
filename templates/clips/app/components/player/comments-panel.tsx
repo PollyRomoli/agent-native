@@ -23,7 +23,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { msToClock } from "./scrubber";
 

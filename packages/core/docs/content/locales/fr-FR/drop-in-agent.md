@@ -25,7 +25,7 @@ Vous n'avez pas besoin de créer un agent natif à partir de zéro. Le chat de l
 | `sendToAgentChat()`   | Envoyer un message au chat par programmation                                                                            | Un bouton qui confie le travail à l'agent au lieu de l'exécuter en ligne                |
 | `useActionMutation()` | Wrapper frontal Typesafe autour d'une action                                                                            | Le UI doit exécuter la même opération qu'un outil d'agent exécuterait                   |
 
-Tous ces éléments sont exportés depuis `@agent-native/core/client`.
+Tous ces éléments sont exportés depuis `@agentnative-fork/core/client`.
 
 ```an-diagram title="Le modèle de monture" summary="<AgentSidebar> enveloppe votre mise en page existante. Vos itinéraires s'affichent dans la zone principale ; le panneau d'agent se monte à côté d'eux. <AgentPanel> est le même panneau sans le wrapper."
 {
@@ -44,7 +44,7 @@ les enfants restent dans la zone principale de l'application. Le chat de l'agent
 {
   "filename": "app/root.tsx",
   "language": "tsx",
-  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agent-native/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
+  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agentnative-fork/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
   "annotations": [
     { "lines": "6", "label": "Wrapper", "note": "`<AgentSidebar>` wraps your whole layout. It adds the toggleable side panel; everything you pass as children stays in the main app area." },
     { "lines": "8-12", "label": "Starter prompts", "note": "`suggestions` render as clickable chips on the empty chat." },
@@ -73,7 +73,7 @@ Lorsque vous avez besoin d'un contrôle total sur la mise en page (un itinérair
 
 ```tsx
 // app/routes/agent.tsx
-import { AgentPanel } from "@agent-native/core/client";
+import { AgentPanel } from "@agentnative-fork/core/client";
 
 export default function AgentRoute() {
   return (
@@ -94,14 +94,14 @@ export default function AgentRoute() {
 - **`isFullscreen`** / **`onToggleFullscreen`** – connectez l'état plein écran externe si vous souhaitez une colonne centrée de style Claude.
 - **`storageKey`** — espace de noms pour les clés `localStorage`. Utile lorsque vous affichez plusieurs panneaux (différentes instances d'application ou espaces de travail) sur la même page.
 
-Accessoires complets : `AgentPanelProps` dans `@agent-native/core/client`.
+Accessoires complets : `AgentPanelProps` dans `@agentnative-fork/core/client`.
 
 ## Messages programmatiques : `sendToAgentChat()` {#send}
 
 Un bouton qui confie le travail à l'agent (au lieu d'exécuter un appel `llm()` en ligne — l'anti-modèle du [ladder](/docs/what-is-agent-native#the-ladder)) :
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 <Button
   onClick={() =>
@@ -151,7 +151,7 @@ Les appels `sendToAgentChat()` sont transférés vers le chat hôte lorsque cela
 Si vous souhaitez un état de chargement, utilisez le hook `useSendToAgentChat()` : il renvoie à la fois `send` et `isGenerating` :
 
 ```ts
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 
 const { send, isGenerating } = useSendToAgentChat();
 ```
@@ -186,7 +186,7 @@ le code client n'apprend pas un deuxième transport ad hoc.
 Lorsque le UI doit exécuter la même opération qu'un outil d'agent exécuterait (échelon 3 du [ladder](/docs/what-is-agent-native#rung-three)), utilisez `useActionMutation` :
 
 ```tsx
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 const { mutate, isPending } = useActionMutation("reply-to-email");
 
@@ -218,7 +218,7 @@ import {
   AgentSidebar,
   AgentToggleButton,
   sendToAgentChat,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export default function Root() {
   return (

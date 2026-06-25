@@ -2,8 +2,8 @@ import {
   getUsageSummary,
   usageBillingForEngine,
   type UsageBillingMode,
-} from "@agent-native/core/usage";
-import { getDbExec } from "@agent-native/core/db";
+} from "@agentnative-fork/core/usage";
+import { getDbExec } from "@agentnative-fork/core/db";
 import {
   detectEngineFromEnv,
   detectEngineFromUserSecrets,
@@ -11,8 +11,8 @@ import {
   isAgentEngineSettingConfigured,
   isStoredEngineUsable,
   registerBuiltinEngines,
-} from "@agent-native/core/agent/engine";
-import { getSetting } from "@agent-native/core/settings";
+} from "@agentnative-fork/core/agent/engine";
+import { getSetting } from "@agentnative-fork/core/settings";
 import { currentOrgId, currentOwnerEmail } from "./dispatch-store.js";
 import {
   listWorkspaceApps,

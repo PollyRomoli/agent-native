@@ -9,8 +9,8 @@ import {
 import { useLocation } from "react-router";
 import { DocumentSidebar } from "@/components/sidebar/DocumentSidebar";
 import { useCreatePage } from "@/hooks/use-create-page";
-import { AgentSidebar, getBrowserTabId, useT } from "@agent-native/core/client";
-import { InvitationBanner } from "@agent-native/core/client/org";
+import { AgentSidebar, getBrowserTabId, useT } from "@agentnative-fork/core/client";
+import { InvitationBanner } from "@agentnative-fork/core/client/org";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { IconMenu2 } from "@tabler/icons-react";

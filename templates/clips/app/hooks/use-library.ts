@@ -1,4 +1,4 @@
-import { useActionQuery, useActionMutation } from "@agent-native/core/client";
+import { useActionQuery, useActionMutation } from "@agentnative-fork/core/client";
 
 export interface RecordingSummary {
   id: string;

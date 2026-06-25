@@ -72,8 +72,8 @@ hatch.
 
 ```ts
 // actions/classify-message.ts
-import { defineAction } from "@agent-native/core/action";
-import { completeText } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core/action";
+import { completeText } from "@agentnative-fork/core/server";
 import { z } from "zod";
 
 export default defineAction({
@@ -107,7 +107,7 @@ Actions mounted by the framework automatically run with request context. Custom 
 {
   "filename": "server/routes/api/projects.get.ts",
   "language": "ts",
-  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agent-native/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agent-native/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.projectShares));\n    },\n  );\n});",
+  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agentnative-fork/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agentnative-fork/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.projectShares));\n    },\n  );\n});",
   "annotations": [
     { "lines": "7-10", "label": "Custom routes have no auto-context", "note": "Unlike actions, a file route must load the session itself and fail closed when there is no authenticated user." },
     { "lines": "12-13", "label": "Establish request context", "note": "`runWithRequestContext` makes the user/org available to scoping helpers for the duration of the work." },
@@ -116,7 +116,7 @@ Actions mounted by the framework automatically run with request context. Custom 
 }
 ```
 
-`getDb` is created per app via `createGetDb(schema)` in `server/db/index.ts`, so custom routes import it from the template (`../../db/index.js`), not from `@agent-native/core/db`; see [Database — Where the DB Client Lives](/docs/database#db-client). Do not run unscoped `db.select().from(ownableTable)` in custom routes.
+`getDb` is created per app via `createGetDb(schema)` in `server/db/index.ts`, so custom routes import it from the template (`../../db/index.js`), not from `@agentnative-fork/core/db`; see [Database — Where the DB Client Lives](/docs/database#db-client). Do not run unscoped `db.select().from(ownableTable)` in custom routes.
 
 ## Server Plugins {#server-plugins}
 
@@ -124,7 +124,7 @@ Plugins live in `server/plugins/` and run at startup. Use them for migrations, p
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -224,7 +224,7 @@ For custom packages or tests that need an H3 app directly, `createServer()`
 returns a preconfigured app and router:
 
 ```ts
-import { createServer } from "@agent-native/core/server";
+import { createServer } from "@agentnative-fork/core/server";
 import { defineEventHandler } from "h3";
 
 const { app, router } = createServer();
@@ -244,7 +244,7 @@ otherwise customize the agent through `AGENTS.md`, skills, actions, and the
 agent chat plugin.
 
 ```ts
-import { createProductionAgentHandler } from "@agent-native/core/server";
+import { createProductionAgentHandler } from "@agentnative-fork/core/server";
 
 const handler = createProductionAgentHandler({
   scripts,

@@ -63,7 +63,7 @@ agent-native add provider https://docs.example.com/api | claude
 
 Markdown 파일을 `packages/core/blueprints/<kind>/<name>.md`에 놓습니다. 종류는 하위 디렉터리입니다. 이름은 `.md`가 없는 파일 이름입니다. 자동으로 선택됩니다. `--list`, 이름 확인 및 카탈로그는 모두 런타임 시 디렉터리를 읽습니다. 등록을 위해 코드 변경이 필요하지 않습니다.
 
-청사진 `.md` 파일은 `package.json` `files`의 `blueprints` 항목을 통해 게시된 패키지에 제공되므로 최종 사용자를 위해 `node_modules/@agent-native/core/blueprints/**`에서 확인됩니다.
+청사진 `.md` 파일은 `package.json` `files`의 `blueprints` 항목을 통해 게시된 패키지에 제공되므로 최종 사용자를 위해 `node_modules/@agentnative-fork/core/blueprints/**`에서 확인됩니다.
 
 각 청사진을 다른 컨텍스트 없이 코딩 에이전트에 대한 명령 세트로 작성합니다. 좋은 청사진은 다음과 같습니다:
 

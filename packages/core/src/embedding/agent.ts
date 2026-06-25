@@ -3,7 +3,7 @@ import {
   callAgent,
   type Message,
   type Task,
-} from "@agent-native/core/a2a";
+} from "@agentnative-fork/core/a2a";
 
 export interface AgentEndpointOptions {
   /**

@@ -29,7 +29,7 @@ The UI writes a `navigation` key to application-state on every route change. Thi
 
 ```tsx
 // app/hooks/use-navigation-state.ts
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 export function useNavigationState() {
@@ -50,7 +50,7 @@ export function useNavigationState() {
 **Agent side** — read before acting:
 
 ```ts
-import { readAppState } from "@agent-native/core/application-state";
+import { readAppState } from "@agentnative-fork/core/application-state";
 
 const navigation = await readAppState("navigation");
 // e.g. { view: "thread", threadId: "abc123", subject: "Re: Q3 Planning" }
@@ -81,7 +81,7 @@ returns a snapshot of what the user sees. Do not add REST wrappers just so
 
 ```ts
 // actions/view-screen.ts
-import { readAppState } from "@agent-native/core/application-state";
+import { readAppState } from "@agentnative-fork/core/application-state";
 
 export default async function main() {
   const navigation = await readAppState("navigation");
@@ -117,7 +117,7 @@ The agent writes a one-shot `navigate` command to application-state. The UI read
 **Agent side:**
 
 ```ts
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 
 // Navigate the user to a specific thread
 await writeAppState("navigate", { view: "inbox", threadId: "abc123" });
@@ -139,7 +139,7 @@ wrapper so the URL and visible route commit together.
 
 When the agent writes to application-state via script helpers (`writeAppState`), the write is tagged with `requestSource: "agent"`. The UI uses the `ignoreSource` option on `useDbSync()` with a per-tab ID so it ignores its own writes while still picking up changes from agents, other tabs, and scripts.
 
-Client code can use `useAgentRouteState`, `useSemanticNavigationState`, `setClientAppState`, `writeClientAppState`, `readClientAppState`, and `deleteClientAppState` from `@agent-native/core/client` instead of hand-written `fetch` calls. Pass `{ requestSource: TAB_ID }` on UI writes when pairing with `useDbSync({ ignoreSource: TAB_ID })`; pass `{ keepalive: true }` for short-lived writes such as selection cleanup during unload.
+Client code can use `useAgentRouteState`, `useSemanticNavigationState`, `setClientAppState`, `writeClientAppState`, `readClientAppState`, and `deleteClientAppState` from `@agentnative-fork/core/client` instead of hand-written `fetch` calls. Pass `{ requestSource: TAB_ID }` on UI writes when pairing with `useDbSync({ ignoreSource: TAB_ID })`; pass `{ keepalive: true }` for short-lived writes such as selection cleanup during unload.
 
 ```ts
 // app/root.tsx

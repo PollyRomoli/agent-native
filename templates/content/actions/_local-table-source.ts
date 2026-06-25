@@ -6,7 +6,7 @@
  * feature.
  */
 
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
 import type {

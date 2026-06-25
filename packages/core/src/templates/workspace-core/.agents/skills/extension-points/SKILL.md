@@ -92,7 +92,7 @@ immediate after the action's UI invalidation).
 Drop `<ExtensionSlot>` wherever you want to allow extensions:
 
 ```tsx
-import { ExtensionSlot } from "@agent-native/core/client/extensions";
+import { ExtensionSlot } from "@agentnative-fork/core/client/extensions";
 
 // inside your component
 <ExtensionSlot
@@ -102,7 +102,7 @@ import { ExtensionSlot } from "@agent-native/core/client/extensions";
 />;
 ```
 
-> The legacy import path `@agent-native/core/client/tools` continues to
+> The legacy import path `@agentnative-fork/core/client/tools` continues to
 > re-export the same component for back-compat with existing templates.
 
 Props:

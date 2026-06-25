@@ -30,7 +30,7 @@ export interface SchedulingContext {
   publicBaseUrl?: string;
 }
 
-const CTX_KEY = Symbol.for("@agent-native/scheduling.context");
+const CTX_KEY = Symbol.for("@agentnative-fork/scheduling.context");
 interface GlobalWithCtx {
   [CTX_KEY]?: SchedulingContext;
 }
@@ -43,7 +43,7 @@ export function getSchedulingContext(): SchedulingContext {
   const ctx = (globalThis as unknown as GlobalWithCtx)[CTX_KEY];
   if (!ctx)
     throw new Error(
-      "@agent-native/scheduling: context not initialized. Call setSchedulingContext(...) at startup.",
+      "@agentnative-fork/scheduling: context not initialized. Call setSchedulingContext(...) at startup.",
     );
   return ctx;
 }

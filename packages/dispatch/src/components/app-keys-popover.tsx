@@ -1,5 +1,5 @@
 import { useMemo, useState, type ReactNode } from "react";
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 import {
   IconCheck,
   IconLoader2,

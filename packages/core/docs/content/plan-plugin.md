@@ -30,7 +30,7 @@ long-lived (30-day default, sliding 365-day refresh), so this should be rare;
 when it happens, the lightweight fix is:
 
 ```bash
-npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex
+npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex
 ```
 
 `reconnect` finds and refreshes the connector by URL for the selected local
@@ -44,7 +44,7 @@ the Plan MCP connector. They write `plans/<slug>/plan.mdx` plus optional
 `canvas.mdx`, `prototype.mdx`, and `.plan-state.json`, then preview locally with:
 
 ```bash
-npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --open
+npx @agentnative-fork/core@latest plan local serve --dir plans/<slug> --kind plan --open
 ```
 
 This starts a tiny localhost bridge and opens the Plan UI against the local
@@ -65,7 +65,7 @@ A few local-files-mode gotchas worth knowing:
   scraping the long-running `serve` stdout. Treat it as a local token file and
   do not commit it.
 - **Verify headlessly** when no browser is available:
-  `npx @agent-native/core@latest plan local verify --dir plans/<slug>` starts the
+  `npx @agentnative-fork/core@latest plan local verify --dir plans/<slug>` starts the
   bridge, checks the private-network preflight and JSON payload, prints
   diagnostics, and exits non-zero on failure — no human eyes required.
 - **Run `plan local check` first.** It validates the MDX against the Plan
@@ -106,13 +106,13 @@ There are three ways in. The **universal CLI route** is the one we recommend by 
 Works for any host — Claude Code, Codex, Cursor, Cline, Goose, ChatGPT custom MCP apps, Claude Cowork, and anything else MCP-compatible. The Agent-Native CLI installs both skills, registers the hosted Plan MCP connector, **and runs auth for the selected local client(s) in the same step**, so your first tool call does not hit an OAuth wall:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 This installs `visual-plan` plus the companion `visual-recap` skill, then registers the `plan` connector, then runs auth (OAuth prompt for hosted/account-backed sharing). Useful flags:
 
 - `--client codex|claude-code|claude-code-cli|cowork|all` — which local agents to write the MCP config for (default `all`).
-- `--no-connect` — register the connector without authenticating; run `npx @agent-native/core@latest connect https://plan.agent-native.com --client all` later, or choose a narrower `--client`.
+- `--no-connect` — register the connector without authenticating; run `npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client all` later, or choose a narrower `--client`.
 - `--mode hosted|local-files|self-hosted` — choose hosted sharing, all-local MDX files, or your own Plan app.
 - `--mcp-url <url>` — point the connector at a custom origin (an ngrok tunnel, a local dev server, or a self-hosted deployment) instead of the hosted default.
 - `--with-github-action` — also write the PR Visual Recap GitHub Action (see [PR Visual Recap](/docs/pr-visual-recap)).
@@ -122,8 +122,8 @@ present. Say yes to add it during skill setup, or run the command above later
 with `--with-github-action`. After the workflow is written, run:
 
 ```bash
-npx @agent-native/core@latest recap setup
-npx @agent-native/core@latest recap doctor
+npx @agentnative-fork/core@latest recap setup
+npx @agentnative-fork/core@latest recap doctor
 ```
 
 `recap setup` configures the GitHub Action secrets and variables where possible,
@@ -159,9 +159,9 @@ codex plugin add agent-native-visual-plans@agent-native-apps
 codex mcp login plan   # OAuth in the browser
 ```
 
-After install, **start a new Codex thread** so the skills and MCP tools load into the session. The plugin ships a URL-only connector (`[mcp_servers.plan]` → `https://plan.agent-native.com/_agent-native/mcp`); `codex mcp login plan` runs the OAuth flow. The universal CLI route above also works for Codex (`npx @agent-native/core@latest skills add visual-plan --client codex`) if you prefer one command that installs and authenticates together, or when you want local-files or self-hosted mode.
+After install, **start a new Codex thread** so the skills and MCP tools load into the session. The plugin ships a URL-only connector (`[mcp_servers.plan]` → `https://plan.agent-native.com/_agent-native/mcp`); `codex mcp login plan` runs the OAuth flow. The universal CLI route above also works for Codex (`npx @agentnative-fork/core@latest skills add visual-plan --client codex`) if you prefer one command that installs and authenticates together, or when you want local-files or self-hosted mode.
 
-> **Older installs:** if your config still has an `agent-native-plans` entry pointing at the same URL, running `npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex` for Codex, or the same command with your target `--client`, consolidates it to the canonical `plan` name.
+> **Older installs:** if your config still has an `agent-native-plans` entry pointing at the same URL, running `npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex` for Codex, or the same command with your target `--client`, consolidates it to the canonical `plan` name.
 
 ## Updates {#updates}
 
@@ -169,7 +169,7 @@ The plugin routes auto-update — you do not re-pack or re-add the marketplace f
 
 - **Claude Code** — the marketplace entry sets `autoUpdate: true` and the plugin uses commit-SHA versioning, so Claude Code pulls new versions from the repo at startup; run `/reload-plugins` to activate. Every push to the repo's default branch reaches installed users automatically.
 - **Codex** — the plugin `version` embeds a content hash of the bundled skills and MCP endpoint (e.g. `1.0.0+codex.<hash>`), so any skill or endpoint change yields a new version. Codex's startup auto-upgrade re-installs configured git marketplaces on its own; just **start a new thread** to pick up the change. No manual `codex plugin marketplace upgrade` is needed for routine updates.
-- **Universal CLI route** — run `npx @agent-native/core@latest skills status visual-plan` to check copied skill folders, or `npx @agent-native/core@latest skills update visual-plan` to refresh them in place. Re-running `skills add visual-plan` still works when you also want to re-register/authenticate the connector. `@latest` always pulls the current skills from the published `@agent-native/core` package.
+- **Universal CLI route** — run `npx @agentnative-fork/core@latest skills status visual-plan` to check copied skill folders, or `npx @agentnative-fork/core@latest skills update visual-plan` to refresh them in place. Re-running `skills add visual-plan` still works when you also want to re-register/authenticate the connector. `@latest` always pulls the current skills from the published `@agentnative-fork/core` package.
 
 The connector points at a **hosted** app, so the Plan app's actions and live tool surface always reflect the deployed version regardless of when you installed; only the bundled skill instructions follow the update mechanisms above.
 
@@ -190,7 +190,7 @@ In short: ship it as a self-hosted/public git marketplace and users install dire
 
 A **skill** is a single `SKILL.md` instruction file the agent reads when a task matches. A **plugin** (Claude Code marketplace plugin or Codex plugin) is a package that bundles one or more skills **plus** an MCP connector and metadata, so a host can install everything in one step.
 
-Under the hood, all three routes are produced from the same source by the `npx @agent-native/core@latest app-skill` CLI: `app-skill pack` builds the marketplace/plugin adapters, and `skills add` is the friendly one-step installer that also registers and authenticates the MCP connector. See [Skills Guide](/docs/skills-guide) for the app-skill manifest format, and [External Agents](/docs/external-agents) for connecting any MCP host and the `npx @agent-native/core@latest connect` flow.
+Under the hood, all three routes are produced from the same source by the `npx @agentnative-fork/core@latest app-skill` CLI: `app-skill pack` builds the marketplace/plugin adapters, and `skills add` is the friendly one-step installer that also registers and authenticates the MCP connector. See [Skills Guide](/docs/skills-guide) for the app-skill manifest format, and [External Agents](/docs/external-agents) for connecting any MCP host and the `npx @agentnative-fork/core@latest connect` flow.
 
 ## What's next {#whats-next}
 

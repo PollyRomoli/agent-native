@@ -1,6 +1,6 @@
 /**
  * Headless hooks for scheduling UIs. The stable API surface of the React
- * entry point — components live at `@agent-native/scheduling/react/components`
+ * entry point — components live at `@agentnative-fork/scheduling/react/components`
  * and are less stable until v1.0.
  */
 export * from "./hooks/useTimezone.js";

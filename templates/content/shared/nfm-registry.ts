@@ -32,7 +32,7 @@ import {
   type MdxAttrNode,
   type ParsedBlockBase,
   type SerializableBlock,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 
 /**
  * Register the content block library (the dev-doc + OpenAPI + standard

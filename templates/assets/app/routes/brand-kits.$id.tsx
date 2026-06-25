@@ -22,7 +22,7 @@ import {
   sendToAgentChat,
   useActionMutation,
   useActionQuery,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   IconCopy,
   IconDotsVertical,

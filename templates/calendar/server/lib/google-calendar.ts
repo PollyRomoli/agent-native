@@ -8,9 +8,9 @@ import {
   saveOAuthTokens,
   deleteOAuthTokens,
   listOAuthAccountsByOwner,
-} from "@agent-native/core/oauth-tokens";
-import { isOAuthConnected, getOAuthAccounts } from "@agent-native/core/server";
-import { getDbExec } from "@agent-native/core/db";
+} from "@agentnative-fork/core/oauth-tokens";
+import { isOAuthConnected, getOAuthAccounts } from "@agentnative-fork/core/server";
+import { getDbExec } from "@agentnative-fork/core/db";
 import {
   createOAuth2Client,
   oauth2GetUserInfo,

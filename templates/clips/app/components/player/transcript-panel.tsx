@@ -18,7 +18,7 @@ import { msToClock } from "./scrubber";
 import {
   agentNativePath,
   openBuilderConnectPopup,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   Tooltip,
   TooltipContent,

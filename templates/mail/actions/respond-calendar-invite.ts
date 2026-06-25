@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail } from "@agent-native/core/server";
-import { writeAppState } from "@agent-native/core/application-state";
-import { getUserSetting } from "@agent-native/core/settings";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { getUserSetting } from "@agentnative-fork/core/settings";
 import { z } from "zod";
 import { getAccessTokens } from "./helpers.js";
 import {

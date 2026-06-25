@@ -41,7 +41,7 @@ details live in `.agents/skills/`.
   express the endpoint, filters, request body, pagination, or API version the
   user needs, call `provider-api-catalog` / `provider-api-docs`, then
   `provider-api-request` against the provider's real HTTP API. The generic
-  request action uses the shared `@agent-native/core/provider-api` runtime,
+  request action uses the shared `@agentnative-fork/core/provider-api` runtime,
   injects configured credentials, blocks private/internal URLs, and redacts
   secrets.
 - For named account/deal deep dives, call `account-deep-dive` first. It bundles

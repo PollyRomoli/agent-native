@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { desc } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
@@ -6,7 +6,7 @@ import {
   accessFilter,
   resolveAccess,
   type ShareRole,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 
 function canManageRole(role: "owner" | ShareRole) {
   return role === "owner" || role === "admin";

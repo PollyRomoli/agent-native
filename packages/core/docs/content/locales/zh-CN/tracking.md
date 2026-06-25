@@ -10,7 +10,7 @@ description: "使用可插入提供程序进行服务器端分析 - PostHog、Mi
 这是*product*分析——您的应用程序的事件流向PostHog/Mixpanel/Amplitude。有关存储在您自己的数据库中的*代理质量*指标（跟踪、成本、评估、反馈），请参阅 [Observability](/docs/observability)。
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "order.completed",
@@ -46,7 +46,7 @@ track(
 触发分析事件。扇出到所有注册的提供商。
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "meal.logged",
@@ -60,7 +60,7 @@ track(
 识别具有特征的用户。转发给支持它的提供商（PostHog、Mixpanel、Amplitude、webhook）。
 
 ```ts
-import { identify } from "@agent-native/core/tracking";
+import { identify } from "@agentnative-fork/core/tracking";
 
 identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 ```
@@ -73,8 +73,8 @@ identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 
 ```ts
 // actions/create-project.ts
-import { defineAction } from "@agent-native/core/action";
-import { track } from "@agent-native/core/tracking";
+import { defineAction } from "@agentnative-fork/core/action";
+import { track } from "@agentnative-fork/core/tracking";
 import { z } from "zod";
 
 export default defineAction({
@@ -100,7 +100,7 @@ export default defineAction({
 
 ## 客户端跟踪 {#client}
 
-`track()` 也适用于浏览器/应用程序代码。从 `@agent-native/core/client` 导入客户端孪生并以相同的方式调用它 - 它将事件发布到 `POST /_agent-native/track` 的框架路由，后者将其转发到**相同**注册的服务器端提供程序（PostHog、Mixpanel、Amplitude、webhook）。没有分析 SDK 发送到浏览器，也没有提供者密钥暴露在客户端。
+`track()` 也适用于浏览器/应用程序代码。从 `@agentnative-fork/core/client` 导入客户端孪生并以相同的方式调用它 - 它将事件发布到 `POST /_agent-native/track` 的框架路由，后者将其转发到**相同**注册的服务器端提供程序（PostHog、Mixpanel、Amplitude、webhook）。没有分析 SDK 发送到浏览器，也没有提供者密钥暴露在客户端。
 
 ```an-api title="The client tracking route"
 {
@@ -117,7 +117,7 @@ export default defineAction({
 ```
 
 ```ts
-import { track } from "@agent-native/core/client";
+import { track } from "@agentnative-fork/core/client";
 
 // e.g. inside a click handler or effect
 track("checkout.completed", { total: 49.99, items: 3 });
@@ -144,7 +144,7 @@ track("checkout.completed", { total: 49.99, items: 3 });
 为任何分析后端注册自定义提供商。
 
 ```ts
-import { registerTrackingProvider } from "@agent-native/core/tracking";
+import { registerTrackingProvider } from "@agentnative-fork/core/tracking";
 
 registerTrackingProvider({
   name: "my-analytics",
@@ -170,7 +170,7 @@ registerTrackingProvider({
 刷新所有提供者。在进程退出之前调用以确保发送待处理事件。
 
 ```ts
-import { flushTracking } from "@agent-native/core/tracking";
+import { flushTracking } from "@agentnative-fork/core/tracking";
 
 await flushTracking();
 ```

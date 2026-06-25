@@ -93,7 +93,7 @@ Widgets `extensions/` et guide de sécurité de production.
 Pour installer la compétence Content local-files dans un dépôt existant :
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 Le programme d'installation copie la compétence `content` pour votre agent de codage et écrit ou
@@ -114,7 +114,7 @@ Le reste de ce document s'adresse à toute personne qui crée le modèle de cont
 Élaborez un nouvel espace de travail avec le modèle de contenu :
 
 ```bash
-npx @agent-native/core@latest create my-workspace --standalone --template content
+npx @agentnative-fork/core@latest create my-workspace --standalone --template content
 cd my-workspace
 pnpm install
 pnpm dev

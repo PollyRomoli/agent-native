@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   signShortLivedToken: vi.fn(() => "signed-token"),
 }));
 

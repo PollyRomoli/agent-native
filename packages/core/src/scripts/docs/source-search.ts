@@ -2,7 +2,7 @@
  * Core script: source-search
  *
  * Search and read the packaged Agent Native source corpus.
- * The corpus is generated into @agent-native/core/corpus during package build.
+ * The corpus is generated into @agentnative-fork/core/corpus during package build.
  *
  * Usage:
  *   pnpm action source-search --query "defineAction"
@@ -319,7 +319,7 @@ Options:
 
   if (!fs.existsSync(corpusRoot)) {
     console.log(
-      `Source corpus not found at ${corpusRoot}. Build or reinstall @agent-native/core so node_modules/@agent-native/core/corpus exists.`,
+      `Source corpus not found at ${corpusRoot}. Build or reinstall @agentnative-fork/core so node_modules/@agentnative-fork/core/corpus exists.`,
     );
     return;
   }

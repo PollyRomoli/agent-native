@@ -281,7 +281,7 @@ https://your-clips.example.com/api/slack/unfurl
 
 ```ts
 // server/plugins/integrations.ts
-import { createIntegrationsPlugin } from "@agent-native/core/server";
+import { createIntegrationsPlugin } from "@agentnative-fork/core/server";
 import { scriptRegistry } from "../../agent.config";
 
 export default createIntegrationsPlugin({
@@ -358,8 +358,8 @@ import type {
   PlatformAdapter,
   IncomingMessage,
   OutgoingMessage,
-} from "@agent-native/core/server";
-import type { EnvKeyConfig } from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
+import type { EnvKeyConfig } from "@agentnative-fork/core/server";
 
 const myAdapter: PlatformAdapter = {
   platform: "discord",

@@ -1,4 +1,4 @@
-import { runMigrations, intType } from "@agent-native/core/db";
+import { runMigrations, intType } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [

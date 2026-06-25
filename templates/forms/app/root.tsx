@@ -27,7 +27,7 @@ import {
   navigateWithAgentChatViewTransition,
   setClientAppState,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import type { LinksFunction } from "react-router";
 import changelog from "../CHANGELOG.md?raw";
 import stylesheet from "./global.css?url";
@@ -266,4 +266,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

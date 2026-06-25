@@ -4,7 +4,7 @@ import {
   ReactNodeViewRenderer,
   type NodeViewProps,
 } from "@tiptap/react";
-import { SharedImage, uploadEditorImage } from "@agent-native/core/client";
+import { SharedImage, uploadEditorImage } from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import { PlanImageViewer } from "./PlanImageViewer";
 

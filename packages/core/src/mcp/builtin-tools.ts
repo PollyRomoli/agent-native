@@ -1068,7 +1068,7 @@ function createWorkspaceAppTool(): ActionEntry {
       }
 
       // Enforce the strict public template allow-list. The authoritative,
-      // dependency-free source inside @agent-native/core is cli/templates-meta
+      // dependency-free source inside @agentnative-fork/core is cli/templates-meta
       // (kept in sync with packages/shared-app-config/templates.ts; CI guard).
       const { visibleTemplates } = await import("../cli/templates-meta.js");
       const allowed = new Set(visibleTemplates().map((t) => t.name));

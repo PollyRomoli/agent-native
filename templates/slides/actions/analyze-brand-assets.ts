@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   normalizeBrandWebsiteUrl,
   fetchBrandWebsiteSignals,
-} from "@agent-native/core/brand-kit";
-import { resolveAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/brand-kit";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import "../server/db/index.js"; // ensure registerShareableResource runs
 
 // Re-exported for back-compat with existing imports/tests.

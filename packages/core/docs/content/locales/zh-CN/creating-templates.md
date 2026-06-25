@@ -22,13 +22,13 @@ description: "如何创建和发布您自己的代理本机应用模板。"
 当您想要一个框架连接已就位的最小应用程序时，请使用聊天模板：
 
 ```bash
-npx @agent-native/core@latest create my-template --template chat --standalone
+npx @agentnative-fork/core@latest create my-template --template chat --standalone
 ```
 
 对于具有多个应用程序的工作区，运行选择器并包含与您想要的任何域模板的聊天：
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 聊天为您提供身份验证、持久聊天线程、SQL 支持的资源、工具、应用程序状态、actions 和轮询同步。您添加域模型和产品 UI。
@@ -87,7 +87,7 @@ import {
   now,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),
@@ -112,7 +112,7 @@ export const projectShares = createSharesTable("project_shares");
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -145,7 +145,7 @@ Actions 是应用行为的单一事实来源。代理将它们作为工具调用
 {
   "filename": "actions/create-project.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { getDb } from \"../server/db/index.js\";\nimport { nanoid } from \"nanoid\";\nimport { z } from \"zod\";\nimport * as schema from \"../server/db/schema\";\n\nexport default defineAction({\n  description: \"Create a project.\",\n  schema: z.object({\n    title: z.string().min(1).describe(\"Project title\"),\n  }),\n  run: async ({ title }, ctx) => {\n    const db = getDb();\n    const id = nanoid();\n    await db.insert(schema.projects).values({\n      id,\n      title,\n      ownerEmail: ctx.userEmail,\n      orgId: ctx.orgId,\n    });\n    return { id, title };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { getDb } from \"../server/db/index.js\";\nimport { nanoid } from \"nanoid\";\nimport { z } from \"zod\";\nimport * as schema from \"../server/db/schema\";\n\nexport default defineAction({\n  description: \"Create a project.\",\n  schema: z.object({\n    title: z.string().min(1).describe(\"Project title\"),\n  }),\n  run: async ({ title }, ctx) => {\n    const db = getDb();\n    const id = nanoid();\n    await db.insert(schema.projects).values({\n      id,\n      title,\n      ownerEmail: ctx.userEmail,\n      orgId: ctx.orgId,\n    });\n    return { id, title };\n  },\n});",
   "annotations": [
     { "lines": "2", "note": "`getDb` is created per app via `createGetDb(schema)` in `server/db/index.ts`." },
     { "lines": "8", "label": "Tool surface", "note": "The `description` is what the agent reads to decide when to call this action as a tool." },
@@ -162,7 +162,7 @@ Actions 是应用行为的单一事实来源。代理将它们作为工具调用
 路由位于 `app/routes/` 中并使用 React Router v7 文件路由。通过actions或API处理程序查询数据，并默认使突变乐观。
 
 ```tsx
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 
 export default function ProjectsPage() {
   const { data: projects = [] } = useActionQuery("list-projects", {});
@@ -179,7 +179,7 @@ export default function ProjectsPage() {
 在应用程序 shell 附近连接一次实时同步，以便在代理、另一个选项卡或操作更改数据时刷新 React 查询缓存：
 
 ```tsx
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 export function AppSync() {
@@ -192,7 +192,7 @@ export function AppSync() {
 **代理原生承诺：代理写入显示在 UI 中，无需手动刷新。** `useActionQuery` 是简单路径 - 当变异操作发出 `source: "action"` 时，每个钩子都会重新获取。如果您使用自定义密钥（例如，读取集成状态的低级客户端帮助程序）获取原始 `useQuery`，请将每个源计数器折叠到 queryKey 中以进行有针对性的刷新：
 
 ```tsx
-import { useChangeVersions } from "@agent-native/core/client";
+import { useChangeVersions } from "@agentnative-fork/core/client";
 
 const v = useChangeVersions(["dashboards", "action"]);
 useQuery({
@@ -215,7 +215,7 @@ useQuery({
 使用 `useAgentRouteState` 作为 UI 挂钩，以便应用程序状态写入、选项卡范围命令读取、读取后删除和重复命令保护保持一致：
 
 ```tsx
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 export function useNavigationState() {
@@ -240,8 +240,8 @@ export function useNavigationState() {
 
 ```ts
 // actions/navigate.ts
-import { defineAction } from "@agent-native/core/action";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -335,8 +335,8 @@ Use this skill when the user uploads a legacy project CSV.
 
 ```ts
 // server/plugins/onboarding.ts
-import { defineNitroPlugin } from "@agent-native/core/server";
-import { registerOnboardingStep } from "@agent-native/core/onboarding";
+import { defineNitroPlugin } from "@agentnative-fork/core/server";
+import { registerOnboardingStep } from "@agentnative-fork/core/onboarding";
 
 export default defineNitroPlugin(() => {
   registerOnboardingStep({
@@ -389,7 +389,7 @@ export default defineNitroPlugin(() => {
 可以从 GitHub 存储库创建社区模板：
 
 ```bash
-npx @agent-native/core@latest create my-app --template github:user/repo
+npx @agentnative-fork/core@latest create my-app --template github:user/repo
 ```
 
 ## 为框架 monorepo 做出贡献 {#contributing}
@@ -401,11 +401,11 @@ npx @agent-native/core@latest create my-app --template github:user/repo
 本地包标志：
 
 ```bash
-AGENT_NATIVE_CREATE_USE_LOCAL_CORE=1 pnpm --filter @agent-native/core create my-platform
+AGENT_NATIVE_CREATE_USE_LOCAL_CORE=1 pnpm --filter @agentnative-fork/core create my-platform
 ```
 
-生成的工作空间链接本地`@agent-native/core`和
-`@agent-native/dispatch` 软件包，因此更改为 Core API、Dispatch 工作区
+生成的工作空间链接本地`@agentnative-fork/core`和
+`@agentnative-fork/dispatch` 软件包，因此更改为 Core API、Dispatch 工作区
 可以在发布之前测试行为或第一方模板。包裹
 `prepack` 脚本在链接之前构建 `dist`，这会保留生成的
 工作空间指向当前构建输出。

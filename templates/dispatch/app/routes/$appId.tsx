@@ -3,4 +3,4 @@ export {
   default,
   loader,
   meta,
-} from "@agent-native/dispatch/routes/pages/$appId";
+} from "@agentnative-fork/dispatch/routes/pages/$appId";

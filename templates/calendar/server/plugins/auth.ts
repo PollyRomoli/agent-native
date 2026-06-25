@@ -1,4 +1,4 @@
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 // Calendar keeps Google as the primary auth surface, but the first sign-in is
 // identity-only. The template-owned `/_agent-native/google/*` routes request
@@ -17,7 +17,7 @@ export default createAuthPlugin({
       "Answers schedule questions and resolves conflicts instantly",
     ],
     runLocalCommand:
-      "npx @agent-native/core@latest create my-calendar-app --template calendar",
+      "npx @agentnative-fork/core@latest create my-calendar-app --template calendar",
   },
   googleSignInNotice: {
     host: "calendar.agent-native.com",

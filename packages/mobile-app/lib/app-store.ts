@@ -3,7 +3,7 @@ import {
   DEFAULT_APPS,
   TEMPLATES,
   type AppConfig,
-} from "@agent-native/shared-app-config";
+} from "@agentnative-fork/shared-app-config";
 
 const STORAGE_KEY = "agent-native:apps";
 

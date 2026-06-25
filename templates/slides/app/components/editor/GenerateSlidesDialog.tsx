@@ -14,7 +14,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 import type { SlideGenerateResponse } from "@shared/api";
 
 interface GenerateSlidesDialogProps {

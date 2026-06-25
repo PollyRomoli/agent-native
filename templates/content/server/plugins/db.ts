@@ -1,4 +1,4 @@
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 import { repairUnseededBlocksFields } from "../../actions/_property-utils.js";
 
 function scheduleBlocksRepairRetry(attempt = 1): void {

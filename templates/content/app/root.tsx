@@ -30,14 +30,14 @@ import {
   type LocalizationPreference,
   useCommandMenuShortcut,
   useT,
-} from "@agent-native/core/client";
-import { resolveLocaleFromRequest } from "@agent-native/core/server";
+} from "@agentnative-fork/core/client";
+import { resolveLocaleFromRequest } from "@agentnative-fork/core/server";
 import { useDbSync } from "./hooks/use-db-sync";
 import { useNavigationState } from "./hooks/use-navigation-state";
 import changelog from "../CHANGELOG.md?raw";
 import type { LinksFunction, LoaderFunctionArgs } from "react-router";
 import stylesheet from "./global.css?url";
-import { configureTracking } from "@agent-native/core/client";
+import { configureTracking } from "@agentnative-fork/core/client";
 import { i18nCatalog } from "./i18n";
 configureTracking({
   getDefaultProps: (_name, properties) => ({

@@ -24,7 +24,7 @@ description: "امنح الوكيل وصولاً منظمًا إلى أي أدا
 ينفذ كل محول CLI `CliAdapter`:
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -45,7 +45,7 @@ interface CliResult {
 بالنسبة لمعظم CLI، لا تحتاج إلى فئة مخصصة — `ShellCliAdapter` يغلف أي ثنائي باستخدام إعدادات افتراضية معقولة:
 
 ```ts
-import { ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const gh = new ShellCliAdapter({
   command: "gh",
@@ -69,7 +69,7 @@ const ffmpeg = new ShellCliAdapter({
 تقوم `CliRegistry` بتجميع المحولات حتى يتمكن الوكيل من اكتشاف ما هو متاح في وقت التشغيل:
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(
@@ -90,8 +90,8 @@ const result = await gh?.execute(["pr", "list", "--json", "title,url"]);
 
 ```ts
 // actions/list-prs.ts
-import { defineAction } from "@agent-native/core/action";
-import { ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 import { z } from "zod";
 
 const gh = new ShellCliAdapter({ command: "gh", description: "GitHub CLI" });

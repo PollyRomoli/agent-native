@@ -10,7 +10,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { marked, type RendererThis, type Tokens } from "marked";
 import { codeToHtml } from "shiki";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 interface Props {
   markdown: string;

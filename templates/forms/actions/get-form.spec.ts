@@ -53,7 +53,7 @@ vi.mock("../server/db/index.js", async () => ({
   schema: await vi.importActual("../server/db/schema.js"),
 }));
 
-vi.mock("@agent-native/core/sharing", () => sharingMock);
+vi.mock("@agentnative-fork/core/sharing", () => sharingMock);
 
 const { default: getForm } = await import("./get-form.js");
 

@@ -1,5 +1,5 @@
-import { listFileUploadProviders } from "@agent-native/core/file-upload";
-import { resolveHasBuilderPrivateKey } from "@agent-native/core/server";
+import { listFileUploadProviders } from "@agentnative-fork/core/file-upload";
+import { resolveHasBuilderPrivateKey } from "@agentnative-fork/core/server";
 
 export const STORAGE_SETUP_REQUIRED_REASON =
   "Video storage is not connected yet. Connect Builder.io or configure S3-compatible storage to upload clips.";

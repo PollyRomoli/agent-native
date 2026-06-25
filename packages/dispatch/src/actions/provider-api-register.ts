@@ -1,12 +1,12 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   upsertCustomProvider,
   deleteCustomProvider,
   listCustomProviders,
   getCustomProvider,
-} from "@agent-native/core/provider-api";
-import { getCredentialContext } from "@agent-native/core/server";
+} from "@agentnative-fork/core/provider-api";
+import { getCredentialContext } from "@agentnative-fork/core/server";
 
 const AuthSchema = z.discriminatedUnion("type", [
   z.object({

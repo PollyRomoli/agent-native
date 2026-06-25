@@ -46,7 +46,7 @@ Ajoutez le tableau de bord à n'importe quel modèle avec un seul itinéraire :
 
 ```tsx
 // app/routes/observability.tsx
-import { ObservabilityDashboard } from "@agent-native/core/client";
+import { ObservabilityDashboard } from "@agentnative-fork/core/client";
 
 export default function ObservabilityPage() {
   return (
@@ -106,7 +106,7 @@ Cinq scoreurs déterministes s'exécutent après chaque exécution d'agent :
 Activez l'évaluation basée sur LLM échantillonnée en définissant `evalSampleRate` :
 
 ```ts
-import { putSetting } from "@agent-native/core/settings";
+import { putSetting } from "@agentnative-fork/core/settings";
 
 await putSetting("observability-config", {
   enabled: true,
@@ -269,7 +269,7 @@ Chaque modèle en hérite automatiquement : il n'y a rien à importer. Pour les
 
 ```ts
 // server/plugins/sentry.ts
-import { createSentryPlugin } from "@agent-native/core/server";
+import { createSentryPlugin } from "@agentnative-fork/core/server";
 export default createSentryPlugin();
 ```
 

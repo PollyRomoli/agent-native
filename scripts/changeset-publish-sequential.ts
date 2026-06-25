@@ -43,11 +43,11 @@ const availabilityTimeoutMs = Number(
   process.env.AGENT_NATIVE_NPM_AVAILABILITY_TIMEOUT_MS ?? 5 * 60_000,
 );
 const npmPublishAllowlist = new Set([
-  "@agent-native/core",
-  "@agent-native/dispatch",
-  "@agent-native/pinpoint",
-  "@agent-native/scheduling",
-  "@agent-native/skills",
+  "@agentnative-fork/core",
+  "@agentnative-fork/dispatch",
+  "@agentnative-fork/pinpoint",
+  "@agentnative-fork/scheduling",
+  "@agentnative-fork/skills",
 ]);
 
 async function readJson<T>(filePath: string): Promise<T> {

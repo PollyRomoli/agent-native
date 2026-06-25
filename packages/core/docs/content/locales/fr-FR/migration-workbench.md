@@ -17,14 +17,14 @@ Il s'exécute comme une session de code normale que vous pouvez reprendre, attac
 ```
 
 ```bash
-npx @agent-native/core@latest code /migrate ./my-next-app --out ../migrated-app
-npx @agent-native/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
-npx @agent-native/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
+npx @agentnative-fork/core@latest code /migrate ./my-next-app --out ../migrated-app
+npx @agentnative-fork/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
+npx @agentnative-fork/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
 ```
 
 Le guide complet — formes d'entrée (chemin / URL / description), dossiers `--emit`,
 Mode Plan vs Auto, contrôles d'exécution, informations d'identification, liens profonds sur le bureau et
-Exportations de packages `@agent-native/migrate` – réside dans
+Exportations de packages `@agentnative-fork/migrate` – réside dans
 [Agent-Native Code UI → Migrating to Agent-Native](/docs/code-agents-ui#migrate).
 
 > [!NOTE]

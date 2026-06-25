@@ -1,13 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("@agent-native/core/oauth-tokens", () => ({
+vi.mock("@agentnative-fork/core/oauth-tokens", () => ({
   deleteOAuthTokens: vi.fn(),
   getOAuthTokens: vi.fn(),
   listOAuthAccountsByOwner: vi.fn(),
   saveOAuthTokens: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getSession: vi.fn(),
 }));
 
@@ -17,7 +17,7 @@ import {
   resolveNotionMarkdownResponse,
   type NotionPageMarkdown,
 } from "./notion";
-import { listOAuthAccountsByOwner } from "@agent-native/core/oauth-tokens";
+import { listOAuthAccountsByOwner } from "@agentnative-fork/core/oauth-tokens";
 import { canonicalizeNfm } from "../../shared/nfm";
 import {
   normalizeNfmForStorage,

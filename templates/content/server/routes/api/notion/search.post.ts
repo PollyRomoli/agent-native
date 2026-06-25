@@ -4,7 +4,7 @@ import {
   getNotionConnectionForOwner,
   notionFetch,
 } from "../../../lib/notion.js";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 import type {
   NotionSearchResponse,
   NotionSearchResult,

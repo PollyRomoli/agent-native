@@ -3,7 +3,7 @@ import { MAX_UPLOAD_BYTES } from "@shared/upload-limits.js";
 
 const mockSsrfSafeFetch = vi.fn();
 
-vi.mock("@agent-native/core/extensions/url-safety", () => ({
+vi.mock("@agentnative-fork/core/extensions/url-safety", () => ({
   ssrfSafeFetch: (...args: unknown[]) => mockSsrfSafeFetch(...args),
 }));
 

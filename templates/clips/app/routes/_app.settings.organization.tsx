@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { IconMailFast, IconUsers } from "@tabler/icons-react";
-import { useActionQuery, useSession } from "@agent-native/core/client";
+import { useActionQuery, useSession } from "@agentnative-fork/core/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {

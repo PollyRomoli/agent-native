@@ -4,7 +4,7 @@ import {
   useActionMutation,
   useActionQuery,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { AgentsPanel, type ConnectedAgent } from "@/components/agents-panel";
 import { DispatchShell } from "@/components/dispatch-shell";
 import { Button } from "@/components/ui/button";

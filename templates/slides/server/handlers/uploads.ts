@@ -6,7 +6,7 @@ import {
 import path from "path";
 import fs from "fs";
 import { nanoid } from "nanoid";
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 import { tenantUploadDir } from "../lib/tenant-files.js";
 import { canSaveAsUploadedAsset, uploadImageAsset } from "./assets.js";
 import {

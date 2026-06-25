@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import {
   IconAlertCircle,

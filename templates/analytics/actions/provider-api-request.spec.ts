@@ -22,7 +22,7 @@ vi.mock("../server/lib/provider-credentials", () => ({
   resolveAnalyticsProviderCredential,
 }));
 
-vi.mock("@agent-native/core/extensions/url-safety", () => ({
+vi.mock("@agentnative-fork/core/extensions/url-safety", () => ({
   createSsrfSafeDispatcher,
   isBlockedExtensionUrlWithDns,
 }));
@@ -35,7 +35,7 @@ vi.mock("../server/lib/sign-jwt", () => ({
   signRs256Jwt,
 }));
 
-vi.mock("@agent-native/core/provider-api/staging", () => ({
+vi.mock("@agentnative-fork/core/provider-api/staging", () => ({
   stagingExecuteRequest,
 }));
 

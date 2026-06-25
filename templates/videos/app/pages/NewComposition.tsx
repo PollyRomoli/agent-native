@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IconMovie, IconLoader2 } from "@tabler/icons-react";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 type NewCompositionProps = {
   isGenerating?: boolean;

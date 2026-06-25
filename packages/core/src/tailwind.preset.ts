@@ -8,7 +8,7 @@ import type { Config } from "tailwindcss";
  *
  *   // app/global.css
  *   @import "tailwindcss";
- *   @import "@agent-native/core/styles/agent-native.css";
+ *   @import "@agentnative-fork/core/styles/agent-native.css";
  *
  * No `tailwind.config.ts` or `postcss.config.js` is needed. The
  * `@tailwindcss/vite` plugin is auto-injected by `defineConfig()`.
@@ -18,7 +18,7 @@ import type { Config } from "tailwindcss";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
-// Scan @agent-native/core's dist/client for Tailwind classes used in
+// Scan @agentnative-fork/core's dist/client for Tailwind classes used in
 // core components (AgentPanel, AssistantChat, etc.)
 const thisDir =
   typeof __dirname !== "undefined"
@@ -31,7 +31,7 @@ const thisDir =
  * does NOT merge `content` from presets, so the preset alone isn't enough.
  *
  * Usage:
- *   import preset, { coreContentGlob } from "@agent-native/core/tailwind";
+ *   import preset, { coreContentGlob } from "@agentnative-fork/core/tailwind";
  *   export default { presets: [preset], content: ["./app/**\/*.{ts,tsx}", coreContentGlob] };
  */
 export const coreContentGlob = join(thisDir, "client", "**/*.{js,mjs}");

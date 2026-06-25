@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/mobile-app",
+  "name": "@agentnative-fork/mobile-app",
   "version": "0.1.2",
   "private": true,
   "repository": {
@@ -18,7 +18,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@agent-native/shared-app-config": "workspace:*",
+    "@agentnative-fork/shared-app-config": "workspace:*",
     "@expo/vector-icons": "^15.1.1",
     "@react-native-async-storage/async-storage": "^3.0.2",
     "expo": "^55.0.17",

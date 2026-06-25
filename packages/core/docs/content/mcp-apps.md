@@ -39,7 +39,7 @@ Do not hand-write one-off plain HTML MCP Apps for product UI; if the action need
 ```
 
 ```ts
-import { embedApp } from "@agent-native/core";
+import { embedApp } from "@agentnative-fork/core";
 
 export default defineAction({
   // ...description, schema, run, link...
@@ -58,7 +58,7 @@ export default defineAction({
 {
   "filename": "actions/review-draft.ts",
   "language": "ts",
-  "code": "import { embedApp } from \"@agent-native/core\";\n\nexport default defineAction({\n  // ...description, schema, run, link...\n  mcpApp: {\n    resource: embedApp({\n      title: \"Review draft\",\n      description: \"Open the generated draft in the real Mail compose UI.\",\n      iframeTitle: \"Agent-Native Mail\",\n      openLabel: \"Open in Mail\",\n    }),\n  },\n});",
+  "code": "import { embedApp } from \"@agentnative-fork/core\";\n\nexport default defineAction({\n  // ...description, schema, run, link...\n  mcpApp: {\n    resource: embedApp({\n      title: \"Review draft\",\n      description: \"Open the generated draft in the real Mail compose UI.\",\n      iframeTitle: \"Agent-Native Mail\",\n      openLabel: \"Open in Mail\",\n    }),\n  },\n});",
   "annotations": [
     { "lines": "6", "label": "Progressive enhancement", "note": "`mcpApp.resource` advertises an inline UI for hosts that support the MCP Apps extension. Keep the action's `link` builder too — CLI-only and older hosts ignore the UI metadata and still need the deep link." },
     { "lines": "7", "label": "Embed = the link target", "note": "`embedApp()` uses the action's `link` as its launch target: it calls `create_embed_session`, exchanges a one-time SQL ticket at `/_agent-native/embed/start`, and navigates the MCP App frame to the same signed app route." },
@@ -103,7 +103,7 @@ The resource shell owns the outer host size. `embedApp({ height })` defaults to 
 
 Claude uses the single-frame transplant path by default. You can also force it in other hosts with `embedMode: "transplant"` or `frame: "transplant"` when debugging host module-loading behavior. You can force the nested diagnostic iframe with `embedMode: "iframe"`, `renderMode: "iframe"`, `nested: true`, or `frame: "iframe"`. If the iframe is blocked, `embedApp()` replaces it with an open-app fallback: the user can retry inline, open a freshly minted embed session through the host, or use the visible route URL. Keep the action's `link` target useful on its own because it is still the universal escape hatch.
 
-When testing Claude through ngrok, use a production build (`npx @agent-native/core@latest build` then `npx @agent-native/core@latest start`) or a deployed preview/production URL. Claude's single-frame transplant path works with production asset chunks; raw Vite dev modules such as `/app/root.tsx` can be protected by app auth and fail dynamic imports from the Claude resource origin.
+When testing Claude through ngrok, use a production build (`npx @agentnative-fork/core@latest build` then `npx @agentnative-fork/core@latest start`) or a deployed preview/production URL. Claude's single-frame transplant path works with production asset chunks; raw Vite dev modules such as `/app/root.tsx` can be protected by app auth and fail dynamic imports from the Claude resource origin.
 
 ## Host bridge API {#host-bridge}
 
@@ -120,7 +120,7 @@ The host bridge is deliberately small:
 | ChatGPT / iframe route | `agentNative.embeddedAppReady`        | Confirm the route iframe loaded          |
 | ChatGPT / iframe route | `agentNative.mcpHost.*` / `.response` | Wrapper relay for host requests          |
 
-Embedded routes can use `updateMcpAppModelContext()`, `openMcpAppHostLink()`, `requestMcpAppDisplayMode()`, `getMcpAppHostContext()`, and `useMcpAppHostContext()` from `@agent-native/core/client`. `sendToAgentChat()` uses the same path from full-app embeds for auto-submitted prompts.
+Embedded routes can use `updateMcpAppModelContext()`, `openMcpAppHostLink()`, `requestMcpAppDisplayMode()`, `getMcpAppHostContext()`, and `useMcpAppHostContext()` from `@agentnative-fork/core/client`. `sendToAgentChat()` uses the same path from full-app embeds for auto-submitted prompts.
 
 Display mode is best-effort. The in-app `McpAppRenderer` currently reports an inline web host context and an inline-only display mode; external hosts may honor larger display requests, ignore them, or reply with an unsupported-mode error. Always keep the inline route usable.
 

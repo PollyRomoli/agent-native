@@ -21,7 +21,7 @@ import {
 } from "@tabler/icons-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
 import {
   agentNativePath,
   DevDatabaseLink,
@@ -37,8 +37,8 @@ import {
   useSession,
   useT,
   type ChatThreadSummary,
-} from "@agent-native/core/client";
-import { OrgSwitcher } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { OrgSwitcher } from "@agentnative-fork/core/client/org";
 import { APP_TITLE } from "@/lib/app-config";
 import { usePlans } from "@/hooks/use-plans";
 import { Badge } from "@/components/ui/badge";

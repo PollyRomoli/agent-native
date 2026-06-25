@@ -1,6 +1,6 @@
 import { useTheme } from "next-themes";
 import { Link } from "react-router";
-import { useActionQuery, useT } from "@agent-native/core/client";
+import { useActionQuery, useT } from "@agentnative-fork/core/client";
 
 export function meta() {
   return [{ title: "{{APP_TITLE}}" }];

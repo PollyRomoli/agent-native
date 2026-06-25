@@ -31,7 +31,7 @@ description: "البيانات الوصفية للموفر المشترك وال
 import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 await upsertWorkspaceConnection({
   id: "acme-slack",
@@ -98,7 +98,7 @@ await upsertWorkspaceConnectionGrant({
 قبل أن تطلب من المستخدم لصق مفتاح جديد، تحقق من الاستعداد أولاً:
 
 ```ts
-import { listWorkspaceConnectionProviderCatalogForApp } from "@agent-native/core/workspace-connections";
+import { listWorkspaceConnectionProviderCatalogForApp } from "@agentnative-fork/core/workspace-connections";
 
 const catalog = await listWorkspaceConnectionProviderCatalogForApp({
   appId: "brain",
@@ -120,14 +120,14 @@ if (slack.readiness.status === "needs_credentials") {
 
 ### كتالوج الموفر
 
-استيراد الكتالوج من `@agent-native/core/connections`:
+استيراد الكتالوج من `@agentnative-fork/core/connections`:
 
 ```ts
 import {
   getWorkspaceConnectionProvider,
   listWorkspaceConnectionProvidersForTemplate,
   workspaceConnectionProviderSupports,
-} from "@agent-native/core/connections";
+} from "@agentnative-fork/core/connections";
 
 const brainProviders = listWorkspaceConnectionProvidersForTemplate("brain");
 const slack = getWorkspaceConnectionProvider("slack");
@@ -165,7 +165,7 @@ import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
   revokeWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 const connections = await listWorkspaceConnections({ includeDisabled: true });
 const grants = await listWorkspaceConnectionGrants({ appId: "brain" });
@@ -232,8 +232,8 @@ const brainCatalog = await listWorkspaceConnectionProviderCatalogForApp({
 
 يجب أن تكشف التطبيقات التي تستهلك بيانات اعتماد الموفر المشترك عن إجراء الاستعداد للقراءة فقط وغطاء سطحي صغير للإعداد:
 
-- **كتالوج الموفر:** معرف الموفر، والتسمية، والإمكانات، واستخدامات القالب الموصى بها، وأسماء مفاتيح الاعتماد المطلوبة من `@agent-native/core/connections`.
-- **ملخص مساحة العمل:** عدد الاتصالات، والأعداد النشطة/الممنوحة، وحالة المنح، وأسماء مرجع بيانات الاعتماد، وتسميات الحسابات غير السرية من `@agent-native/core/workspace-connections`.
+- **كتالوج الموفر:** معرف الموفر، والتسمية، والإمكانات، واستخدامات القالب الموصى بها، وأسماء مفاتيح الاعتماد المطلوبة من `@agentnative-fork/core/connections`.
+- **ملخص مساحة العمل:** عدد الاتصالات، والأعداد النشطة/الممنوحة، وحالة المنح، وأسماء مرجع بيانات الاعتماد، وتسميات الحسابات غير السرية من `@agentnative-fork/core/workspace-connections`.
 - **جاهزية الموفر:** `ready` أو `needs_credentials` أو `needs_attention` أو `checking` أو `disabled` أو `not_configured` عبر `summarizeWorkspaceConnectionProviderReadiness()`.
 - **حالة المصدر:** المصادر التي تم تكوينها محليًا للتطبيق، والمؤشرات، وحالة المزامنة، والإجراء التالي.
 
@@ -243,8 +243,8 @@ const brainCatalog = await listWorkspaceConnectionProviderCatalogForApp({
 
 متى يجب أن يعمل الموفر الجديد عبر قوالب متعددة:
 
-1. **بيانات تعريف الموفر:** إضافة موفر أو إعادة استخدامه في `@agent-native/core/connections`. هذا هو المعرف الثابت، وتصنيف العرض، وقائمة الإمكانات، واستخدامات النماذج الموصى بها، وأسماء مفاتيح الاعتماد.
-2. **اتصال مساحة العمل:** يقوم Dispatch أو أي سطح إعداد آخر لمساحة العمل بتخزين البيانات التعريفية الآمنة للحساب المتصل والحالة والنطاقات و`credentialRefs` ومنح التطبيقات من خلال `@agent-native/core/workspace-connections`.
+1. **بيانات تعريف الموفر:** إضافة موفر أو إعادة استخدامه في `@agentnative-fork/core/connections`. هذا هو المعرف الثابت، وتصنيف العرض، وقائمة الإمكانات، واستخدامات النماذج الموصى بها، وأسماء مفاتيح الاعتماد.
+2. **اتصال مساحة العمل:** يقوم Dispatch أو أي سطح إعداد آخر لمساحة العمل بتخزين البيانات التعريفية الآمنة للحساب المتصل والحالة والنطاقات و`credentialRefs` ومنح التطبيقات من خلال `@agentnative-fork/core/workspace-connections`.
 3. **مصدر التطبيق المحلي:** يخزن تطبيق Brain أو Analytics أو Mail أو تطبيق آخر فقط الاختيارات الخاصة بالتطبيق التي يمتلكها، مثل قنوات Slack أو مستودعات GitHub أو مرشحات الكائنات HubSpot أو مؤشرات المزامنة أو إيقاع الاستقصاء.
 
 لا تقم بتكرار تخزين OAuth/الرمز المميز في كل تطبيق. يقول سجل الاتصال "هذا هو Acme Slack والرمز المميز الخاص به موجود في `SLACK_BOT_TOKEN`"؛ يقول المصدر المحلي للتطبيق "قد يستوعب الدماغ `#product` و`#dev-fusion` من اتصال Slack هذا."

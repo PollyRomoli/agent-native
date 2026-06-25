@@ -30,7 +30,7 @@ description: "लूप-आंतरिक पर्यवेक्षक/रे
 प्रत्येक प्रोसेसर को अपना स्वयं का परिवर्तनशील, रन-स्कोप्ड `state` ऑब्जेक्ट मिलता है जो एक ही रन के भीतर उसके प्रत्येक हुक इनवोकेशन में बना रहता है और अन्य प्रोसेसर की स्थिति से **पृथक** होता है।
 
 ```ts
-import type { Processor } from "@agent-native/core";
+import type { Processor } from "@agentnative-fork/core";
 
 const noSecretsInOutput: Processor = {
   name: "no-secrets",
@@ -64,7 +64,7 @@ const coverageGate: Processor = {
 एक हुक `abort(reason, meta?)` को कॉल करके रन को रोक देता है, जो **`TripWire`** फेंकता है। लूप इसे पकड़ता है, एक एकल **`tripwire` ईवेंट** उत्सर्जित करता है, सफाई से रोकता है, और अंतिम सहायक संदेश के रूप में कारण सामने लाता है।
 
 ```ts
-import { TripWire } from "@agent-native/core";
+import { TripWire } from "@agentnative-fork/core";
 ```
 
 `tripwire` इवेंट में शामिल हैं:

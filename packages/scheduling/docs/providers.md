@@ -11,7 +11,7 @@ Meet (piggy-backs on Google Calendar).
 ## CalendarProvider
 
 ```ts
-import { registerCalendarProvider } from "@agent-native/scheduling/server/providers";
+import { registerCalendarProvider } from "@agentnative-fork/scheduling/server/providers";
 
 registerCalendarProvider({
   kind: "my_calendar",

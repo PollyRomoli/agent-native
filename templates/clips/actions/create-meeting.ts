@@ -7,7 +7,7 @@
  *   2. Manual / ad-hoc — pass title and optional scheduledStart/End.
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
@@ -16,8 +16,8 @@ import {
   getActiveOrganizationId,
   nanoid,
 } from "../server/lib/recordings.js";
-import { writeAppState } from "@agent-native/core/application-state";
-import { resolveAccess } from "@agent-native/core/sharing";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 
 const PLATFORMS = [
   "zoom",

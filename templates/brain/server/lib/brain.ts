@@ -1,21 +1,21 @@
 import { and, desc, eq, inArray, isNull, like, or } from "drizzle-orm";
-import { readAppState } from "@agent-native/core/application-state";
+import { readAppState } from "@agentnative-fork/core/application-state";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
-import { getSetting, putSetting } from "@agent-native/core/settings";
+} from "@agentnative-fork/core/server/request-context";
+import { getSetting, putSetting } from "@agentnative-fork/core/settings";
 import {
   resourceDeleteByPath,
   resourcePut,
   SHARED_OWNER,
-} from "@agent-native/core/resources/store";
+} from "@agentnative-fork/core/resources/store";
 import {
   accessFilter,
   assertAccess,
   resolveAccess,
   type ResolvedAccess,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../db/index.js";
 import {
   DEFAULT_BRAIN_SETTINGS,

@@ -14,7 +14,7 @@ import {
   getBrowserTabId,
   configureTracking,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import changelog from "../CHANGELOG.md?raw";
 import { Toaster } from "@/components/ui/sonner";
@@ -145,4 +145,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

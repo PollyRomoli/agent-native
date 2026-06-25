@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/sonner";
 import { AppLayout } from "@/components/layout/AppLayout";
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import {
   AppProviders,
   DEFAULT_LOCALE,
@@ -25,14 +25,14 @@ import {
   getThemeInitScript,
   normalizeLocaleCode,
   type LocaleCode,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 import { isMcpEmbedSurface } from "@/lib/mcp-embed";
 import { markExternalEmailRefresh } from "@/hooks/use-emails";
 import { Button } from "@/components/ui/button";
 import type { LinksFunction } from "react-router";
 import stylesheet from "./global.css?url";
-import { configureTracking } from "@agent-native/core/client";
+import { configureTracking } from "@agentnative-fork/core/client";
 import { i18nCatalog } from "./i18n";
 configureTracking({
   getDefaultProps: (_name, properties) => ({

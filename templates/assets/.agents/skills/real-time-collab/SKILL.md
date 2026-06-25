@@ -82,7 +82,7 @@ Exactly ONE connected client applies the authoritative snapshot; the rest
 receive it through Yjs sync:
 
 ```ts
-import { isReconcileLeadClient } from "@agent-native/core/client";
+import { isReconcileLeadClient } from "@agentnative-fork/core/client";
 
 if (
   loaded.updatedAt > lastAppliedUpdatedAt.current &&
@@ -108,7 +108,7 @@ in **different** regions merge fine through the CRDT.
 
 ```ts
 // server/plugins/collab.ts
-import { createCollabPlugin } from "@agent-native/core/server";
+import { createCollabPlugin } from "@agentnative-fork/core/server";
 
 export default createCollabPlugin({
   table: "documents",
@@ -148,7 +148,7 @@ pnpm add @tiptap/extension-collaboration @tiptap/extension-collaboration-caret @
 
 ```ts
 // server/plugins/collab.ts
-import { createCollabPlugin } from "@agent-native/core/server";
+import { createCollabPlugin } from "@agentnative-fork/core/server";
 
 export default createCollabPlugin({
   table: "documents",
@@ -161,7 +161,7 @@ export default createCollabPlugin({
 ### 3. Use the client hook
 
 ```ts
-import { useCollaborativeDoc, emailToColor, emailToName } from "@agent-native/core/client";
+import { useCollaborativeDoc, emailToColor, emailToName } from "@agentnative-fork/core/client";
 
 const { ydoc, awareness, activeUsers, agentActive, agentPresent } =
   useCollaborativeDoc({

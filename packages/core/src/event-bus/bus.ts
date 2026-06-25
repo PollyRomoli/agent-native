@@ -18,7 +18,7 @@ interface BusState {
   subscriptions: Map<string, { event: string; handler: Handler }>;
 }
 
-const BUS_KEY = Symbol.for("@agent-native/core/event-bus.bus");
+const BUS_KEY = Symbol.for("@agentnative-fork/core/event-bus.bus");
 interface GlobalWithBus {
   [BUS_KEY]?: BusState;
 }

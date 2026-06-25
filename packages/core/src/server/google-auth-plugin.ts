@@ -475,7 +475,7 @@ function getGoogleLoginHtml(googleAuthMode: GoogleAuthMode): string {
  *
  * Usage in a template's `server/plugins/auth.ts`:
  * ```ts
- * import { createGoogleAuthPlugin } from "@agent-native/core/server";
+ * import { createGoogleAuthPlugin } from "@agentnative-fork/core/server";
  * export default createGoogleAuthPlugin();
  * ```
  */

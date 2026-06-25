@@ -78,7 +78,7 @@ Der Agent schreibt die Datei für Sie.
 Legen Sie eine Markdown-Datei über die Ressource APIs des Frameworks in `jobs/` ab:
 
 ```ts
-import { resourcePut } from "@agent-native/core/resources";
+import { resourcePut } from "@agentnative-fork/core/resources";
 
 await resourcePut(
   ownerEmail,
@@ -127,10 +127,10 @@ In jeder Vorlage ist ein einzelnes `manage-jobs`-Tool registriert. Der Parameter
 
 ## Unterscheidet sich vom Planungspaket {#vs-scheduling-package}
 
-Verwechseln Sie wiederkehrende Aufträge nicht mit `@agent-native/scheduling`:
+Verwechseln Sie wiederkehrende Aufträge nicht mit `@agentnative-fork/scheduling`:
 
 - **Wiederkehrende Jobs (diese Seite)** – Cron-geplante Eingabeaufforderungen, die der Agent im Hintergrund ausführt. Framework-Ebene. Lebt im Arbeitsbereich. Läuft auf jeder agentennativen App.
-- **`@agent-native/scheduling`** – ein wiederverwendbares Domänenpaket zum Erstellen von Kalender-/Buchungsfunktionen (Veranstaltungstypen, Verfügbarkeitsfenster, Buchungen). Unterstützt die `calendar`-Vorlage und benutzerdefinierte Planungsoberflächen.
+- **`@agentnative-fork/scheduling`** – ein wiederverwendbares Domänenpaket zum Erstellen von Kalender-/Buchungsfunktionen (Veranstaltungstypen, Verfügbarkeitsfenster, Buchungen). Unterstützt die `calendar`-Vorlage und benutzerdefinierte Planungsoberflächen.
 
 Wiederkehrende Aufträge lauten: „Wie bringe ich den Agent dazu, eigenständig zu handeln?“ Das Planungspaket lautet: „Wie erstelle ich eine Kalender-App?“ Verschiedene Anliegen.
 

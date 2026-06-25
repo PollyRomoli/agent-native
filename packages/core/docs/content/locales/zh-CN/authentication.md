@@ -174,7 +174,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 设置时访问令牌使用 `A2A_SECRET` 进行签名，否则使用 `BETTER_AUTH_SECRET` 进行签名。它们携带签名的用户/组织身份和 `mcp:read`、`mcp:write` 和/或 `mcp:apps` 范围，并且受众绑定到确切的 MCP 资源 URL。刷新令牌仅存储为哈希值并在每次刷新时轮换。工具调用和 MCP Apps 资源读取在与登录用户相同的请求上下文中运行；嵌入式 MCP 应用程序 iframe 永远不会接收原始 OAuth 令牌。
 
-`npx @agent-native/core@latest connect <url> --client claude-code` 为此标准流程写入仅 URL 的 MCP 条目。对于无法执行远程 MCP OAuth 的客户端，请使用“连接”页面或 `npx @agent-native/core@latest connect --token <token>` 回退来写入显式不记名令牌条目。
+`npx @agentnative-fork/core@latest connect <url> --client claude-code` 为此标准流程写入仅 URL 的 MCP 条目。对于无法执行远程 MCP OAuth 的客户端，请使用“连接”页面或 `npx @agentnative-fork/core@latest connect --token <token>` 回退来写入显式不记名令牌条目。
 
 ## 自带身份验证 {#byoa}
 
@@ -182,7 +182,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 ```ts
 // server/plugins/auth.ts
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   getSession: async (event) => {
@@ -250,7 +250,7 @@ interface AuthSession {
 在客户端上，使用 `useSession()` 挂钩：
 
 ```ts
-import { useSession } from "@agent-native/core/client";
+import { useSession } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const { session, isLoading } = useSession();

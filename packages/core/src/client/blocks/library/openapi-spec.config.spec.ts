@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { BlockAttrReader } from "@agent-native/core/blocks/server";
+import type { BlockAttrReader } from "@agentnative-fork/core/blocks/server";
 import {
   openApiSpecMdx,
   openApiSpecSchema,

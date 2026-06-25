@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { getCredentialContext } from "@agent-native/core/server/request-context";
-import { stagingExecuteRequest } from "@agent-native/core/provider-api/staging";
+import { defineAction } from "@agentnative-fork/core";
+import { getCredentialContext } from "@agentnative-fork/core/server/request-context";
+import { stagingExecuteRequest } from "@agentnative-fork/core/provider-api/staging";
 import { z } from "zod";
 import {
   CALENDAR_APP_ID,

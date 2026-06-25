@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
-import { readAppState } from "@agent-native/core/application-state";
-import { getRequestUserEmail } from "@agent-native/core/server";
-import { accessFilter } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { readAppState } from "@agentnative-fork/core/application-state";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { extractVideoLink } from "./event-action-helpers.js";
 import { listCalendarEvents } from "./list-events.js";

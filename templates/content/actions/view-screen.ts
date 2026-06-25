@@ -1,8 +1,8 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   readAppState,
   readAppStateForCurrentTab,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { and, asc, inArray } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
 import {
@@ -10,7 +10,7 @@ import {
   parseDocumentFavorite,
   parseDocumentHideFromSearch,
 } from "../server/lib/documents.js";
-import { accessFilter, resolveAccess } from "@agent-native/core/sharing";
+import { accessFilter, resolveAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import type {
   ContentDatabaseColumnCalculation,

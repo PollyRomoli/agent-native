@@ -20,7 +20,7 @@ description: "انشر تطبيقات الوكيل الأصلية على أي ن
 إذا كان مشروعك [workspace](/docs/multi-app-workspace)، فيمكنك شحن كل تطبيق فيه إلى أصل واحد باستخدام أمر واحد:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
@@ -49,26 +49,26 @@ wrangler pages deploy dist
 بالنسبة لعمليات النشر الموحدة لـ Netlify، استخدم الإعداد المسبق لـ Netlify:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 بالنسبة لعمليات النشر الموحدة لـ Vercel، استخدم إعداد Vercel المسبق:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
-عند تكوين أمر بناء الموفر، استخدم نفس الأمر مع `--build-only`. يجب أن يقوم Vercel بتشغيل `npx @agent-native/core@latest deploy --preset vercel --build-only`؛ يقوم الأمر بكتابة `.vercel/output` مباشرة، لذلك لا يلزم وجود `vercel.json` لتوجيه مساحة العمل.
+عند تكوين أمر بناء الموفر، استخدم نفس الأمر مع `--build-only`. يجب أن يقوم Vercel بتشغيل `npx @agentnative-fork/core@latest deploy --preset vercel --build-only`؛ يقوم الأمر بكتابة `.vercel/output` مباشرة، لذلك لا يلزم وجود `vercel.json` لتوجيه مساحة العمل.
 
 تتطلب إصدارات مساحة العمل المستضافة وجود `A2A_SECRET` في بيئة موفر النشر.
 يؤدي هذا إلى استئناف عمل Slack وwebhooks الداخلي وA2A عبر التطبيقات من خلال التوقيع
 معالجات الخلفية. لا تزال عمليات التحقق من العناصر المحلية `--build-only` تعمل بدونها.
 
-لا يزال النشر المستقل لكل تطبيق مدعومًا - فقط `cd apps/<name> && npx @agent-native/core@latest build` مثل سقالة مستقلة.
+لا يزال النشر المستقل لكل تطبيق مدعومًا - فقط `cd apps/<name> && npx @agentnative-fork/core@latest build` مثل سقالة مستقلة.
 
 ## كيفية العمل {#how-it-works}
 
-عند تشغيل `npx @agent-native/core@latest build`، يقوم Nitro ببناء كل من العميل SPA والخادم API في `.output/`:
+عند تشغيل `npx @agentnative-fork/core@latest build`، يقوم Nitro ببناء كل من العميل SPA والخادم API في `.output/`:
 
 ```an-file-tree title="مخرجات build"
 {
@@ -95,7 +95,7 @@ npx @agent-native/core@latest deploy --preset vercel
 افتراضيًا، يتم إنشاء Nitro لـ Node.js. لاستهداف منصة مختلفة، قم بضبط الإعداد المسبق في `vite.config.ts`:
 
 ```ts
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -106,7 +106,7 @@ export default defineConfig({
 أو استخدم متغير البيئة `NITRO_PRESET` في وقت الإنشاء:
 
 ```bash
-NITRO_PRESET=netlify npx @agent-native/core@latest build
+NITRO_PRESET=netlify npx @agentnative-fork/core@latest build
 ```
 
 ## Node.js (افتراضي) {#nodejs}
@@ -114,7 +114,7 @@ NITRO_PRESET=netlify npx @agent-native/core@latest build
 الإعداد المسبق الافتراضي. البناء والتشغيل:
 
 ```bash
-npx @agent-native/core@latest build
+npx @agentnative-fork/core@latest build
 node .output/server/index.mjs
 ```
 
@@ -163,13 +163,13 @@ vercel deploy
 بالنسبة لمساحة العمل، أنشئ كل تطبيق في حزمة Vercel Build Output API واحدة:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
 بالنسبة لعمليات نشر Vercel Git، قم بتعيين أمر الإنشاء على:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 ينسخ بناء مساحة العمل مخرجات Nitro `vercel` لكل تطبيق إلى الجذر `.vercel/output`، ويمنح كل وظيفة بيئة مسار التثبيت الخاصة بها، ويكتب تكوين المسار الذي يخدم التطبيقات في `/<app-id>`.
@@ -190,7 +190,7 @@ export default defineConfig({
 بالنسبة لمساحة العمل، انشر كل تطبيق من موقع Netlify واحد عن طريق تشغيل:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 يكتب بناء مساحة العمل الأصول الثابتة ضمن `dist/_workspace_static/` ويوجه كل تطبيق إلى وظيفة Netlify الخاصة به دون عمليات إعادة توجيه الأصول القسرية، لذلك يتم تقديم ملفات مثل `/mail/assets/...` بشكل ثابت قبل أن تتعامل وظيفة الخادم مع مسارات التطبيق.
@@ -230,7 +230,7 @@ export default defineConfig({
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PORT`                      | منفذ الخادم (Node.js فقط)                                                                                                                     |
 | `NITRO_PRESET`              | تجاوز الإعداد المسبق للإنشاء في وقت الإنشاء                                                                                                   |
-| `APP_BASE_PATH`             | قم بتثبيت التطبيق تحت بادئة (مثل `/mail`). يتم ضبطه تلقائيًا بواسطة `npx @agent-native/core@latest deploy`؛ اتركه بدون ضبط للوضع المستقل.     |
+| `APP_BASE_PATH`             | قم بتثبيت التطبيق تحت بادئة (مثل `/mail`). يتم ضبطه تلقائيًا بواسطة `npx @agentnative-fork/core@latest deploy`؛ اتركه بدون ضبط للوضع المستقل.     |
 | `AGENT_PROD_CODE_EXECUTION` | وضع تنفيذ كود الإنتاج الاختياري: `off` (افتراضي)، أو `sandboxed`، أو `trusted`. انظر [Production Code Execution](#production-code-execution). |
 
 متغيرات اتصال قاعدة البيانات (`DATABASE_URL`، `DATABASE_AUTH_TOKEN`، `<APP_NAME>_DATABASE_URL` لكل تطبيق) موجودة في [Database](/docs/database#production).

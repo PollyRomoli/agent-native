@@ -34,8 +34,8 @@ import {
   accessFilter,
   registerShareableResource,
   resolveAccess,
-} from "@agent-native/core/sharing";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/sharing";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 import {
   LOCAL_PLAN_OWNER_EMAIL,
   resolvePlanAccessContext,
@@ -324,16 +324,16 @@ beforeAll(async () => {
   updateVisualPlan = (await import("../actions/update-visual-plan.js"))
     .default as AnyAction;
   shareResource = (
-    await import("@agent-native/core/sharing/actions/share-resource")
+    await import("@agentnative-fork/core/sharing/actions/share-resource")
   ).default as AnyAction;
   listResourceShares = (
-    await import("@agent-native/core/sharing/actions/list-resource-shares")
+    await import("@agentnative-fork/core/sharing/actions/list-resource-shares")
   ).default as AnyAction;
   setResourceVisibility = (
-    await import("@agent-native/core/sharing/actions/set-resource-visibility")
+    await import("@agentnative-fork/core/sharing/actions/set-resource-visibility")
   ).default as AnyAction;
   unshareResource = (
-    await import("@agent-native/core/sharing/actions/unshare-resource")
+    await import("@agentnative-fork/core/sharing/actions/unshare-resource")
   ).default as AnyAction;
 }, ACCESS_MATRIX_SETUP_TIMEOUT_MS);
 

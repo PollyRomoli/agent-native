@@ -5,7 +5,7 @@ import {
   requireRequestCredentialContext,
   type CredentialContext,
 } from "./credentials-context";
-import { getDbExec } from "@agent-native/core/db";
+import { getDbExec } from "@agentnative-fork/core/db";
 
 async function getProjectContext(): Promise<{
   projectId: string;

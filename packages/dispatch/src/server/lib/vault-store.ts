@@ -1,19 +1,19 @@
 import crypto from "node:crypto";
 import { and, desc, eq, isNull, or } from "drizzle-orm";
-import { discoverAgents } from "@agent-native/core/server/agent-discovery";
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { discoverAgents } from "@agentnative-fork/core/server/agent-discovery";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 import {
   deleteAppSecret,
   listAppSecretsForScope,
   writeAppSecret,
   type SecretScope,
-} from "@agent-native/core/secrets";
+} from "@agentnative-fork/core/secrets";
 import {
   getOrgSetting,
   getUserSetting,
   putOrgSetting,
   putUserSetting,
-} from "@agent-native/core/settings";
+} from "@agentnative-fork/core/settings";
 import { getDb, schema } from "../../db/index.js";
 import {
   currentOwnerEmail,

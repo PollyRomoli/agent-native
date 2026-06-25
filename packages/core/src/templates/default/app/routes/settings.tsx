@@ -3,7 +3,7 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export function meta() {
   return [{ title: "Settings - {{APP_TITLE}}" }];

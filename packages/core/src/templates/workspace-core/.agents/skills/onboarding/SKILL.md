@@ -26,8 +26,8 @@ per-user credentials.
 ## Registering a Step
 
 ```ts
-import { registerOnboardingStep } from "@agent-native/core/onboarding";
-import { hasOAuthTokens } from "@agent-native/core/oauth-tokens";
+import { registerOnboardingStep } from "@agentnative-fork/core/onboarding";
+import { hasOAuthTokens } from "@agentnative-fork/core/oauth-tokens";
 
 registerOnboardingStep({
   id: "gmail",

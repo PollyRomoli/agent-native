@@ -53,7 +53,7 @@ description: "قم بتكوين مساحة تخزين تحميل الملفات 
 
 ```ts
 // server/plugins/file-upload.ts
-import { registerFileUploadProvider } from "@agent-native/core/file-upload";
+import { registerFileUploadProvider } from "@agentnative-fork/core/file-upload";
 
 export default defineNitroPlugin(() => {
   registerFileUploadProvider({
@@ -103,10 +103,10 @@ interface FileUploadResult {
 }
 ```
 
-استخدم `uploadFile()` من `@agent-native/core/file-upload` في actions أو رمز الخادم:
+استخدم `uploadFile()` من `@agentnative-fork/core/file-upload` في actions أو رمز الخادم:
 
 ```ts
-import { uploadFile } from "@agent-native/core/file-upload";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
 
 const result = await uploadFile({
   data: fileBuffer,

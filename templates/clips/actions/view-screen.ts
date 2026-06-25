@@ -10,16 +10,16 @@
  *   pnpm action view-screen
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   readAppState,
   readAppStateForCurrentTab,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { and, asc, desc, eq, gte, isNotNull, isNull, lte } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
-import { accessFilter } from "@agent-native/core/sharing";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
+import { accessFilter } from "@agentnative-fork/core/sharing";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
 import {
   getActiveOrganizationId,
   parseSpaceIds,

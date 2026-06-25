@@ -1,11 +1,11 @@
-import { defineAction } from "@agent-native/core";
-import { getWorkspaceConnectionProvider } from "@agent-native/core/connections";
+import { defineAction } from "@agentnative-fork/core";
+import { getWorkspaceConnectionProvider } from "@agentnative-fork/core/connections";
 import {
   getWorkspaceConnection,
   listWorkspaceConnectionGrants,
   summarizeWorkspaceConnectionProviderReadiness,
-} from "@agent-native/core/workspace-connections";
-import { dispatchActions } from "@agent-native/dispatch/actions";
+} from "@agentnative-fork/core/workspace-connections";
+import { dispatchActions } from "@agentnative-fork/dispatch/actions";
 import { z } from "zod";
 
 type WorkspaceApp = {

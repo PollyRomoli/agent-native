@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
-import { useOrg } from "@agent-native/core/client/org";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
+import { useOrg } from "@agentnative-fork/core/client/org";
 import { toast } from "sonner";
 import { DispatchShell } from "@/components/dispatch-shell";
 import { Button } from "@/components/ui/button";

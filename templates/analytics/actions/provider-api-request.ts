@@ -1,11 +1,11 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   ANALYTICS_PROVIDER_API_IDS,
   executeProviderApiRequest,
   getAnalyticsProviderApiRuntime,
 } from "../server/lib/provider-api";
-import { stagingExecuteRequest } from "@agent-native/core/provider-api/staging";
+import { stagingExecuteRequest } from "@agentnative-fork/core/provider-api/staging";
 import { requireRequestCredentialContext } from "../server/lib/credentials-context";
 import { ANALYTICS_APP_ID } from "../server/lib/provider-credentials";
 

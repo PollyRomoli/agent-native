@@ -8,7 +8,7 @@
  * public).
  *
  *   import { table, text, ownableColumns, createSharesTable } from
- *     "@agent-native/core/db/schema";
+ *     "@agentnative-fork/core/db/schema";
  *
  *   export const decks = table("decks", {
  *     id: text("id").primaryKey(),

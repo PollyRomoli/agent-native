@@ -20,7 +20,7 @@ import {
 } from "h3";
 import fs from "node:fs";
 import path from "node:path";
-import { getSession, runWithRequestContext } from "@agent-native/core/server";
+import { getSession, runWithRequestContext } from "@agentnative-fork/core/server";
 
 const UPLOADS_DIR = path.resolve("data/uploads");
 const MAX_BYTES = 5 * 1024 * 1024;

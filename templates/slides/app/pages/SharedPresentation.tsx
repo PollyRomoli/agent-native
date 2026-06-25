@@ -4,7 +4,7 @@ import { IconAlertCircle } from "@tabler/icons-react";
 import type { SharedDeckResponse } from "@shared/api";
 import type { Slide } from "@/context/DeckContext";
 import PresentationView from "@/components/presentation/PresentationView";
-import { appBasePath } from "@agent-native/core/client";
+import { appBasePath } from "@agentnative-fork/core/client";
 
 interface SharedPresentationProps {
   initialDeck?: SharedDeckResponse | null;

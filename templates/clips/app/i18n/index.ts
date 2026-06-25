@@ -3,7 +3,7 @@ import type {
   AgentNativeI18nCatalog,
   LocaleCode,
   LocaleMessages,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export async function loadI18nMessages(
   locale: LocaleCode,

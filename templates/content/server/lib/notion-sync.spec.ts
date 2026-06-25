@@ -30,7 +30,7 @@ vi.mock("drizzle-orm", async (importOriginal) => {
   };
 });
 
-vi.mock("@agent-native/core/collab", () => ({
+vi.mock("@agentnative-fork/core/collab", () => ({
   deleteCollabState: vi.fn(),
   releaseDoc: vi.fn(),
 }));

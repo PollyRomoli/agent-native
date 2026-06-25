@@ -42,8 +42,8 @@ import {
   vi,
 } from "vitest";
 import * as planSchema from "../server/db/schema.js";
-import { registerShareableResource } from "@agent-native/core/sharing";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 
 let client: Client;
 let db: LibSQLDatabase<typeof planSchema>;
@@ -200,10 +200,10 @@ beforeAll(async () => {
     .default as AnyAction;
   getVisualPlan = (await import("./get-visual-plan.js")).default as AnyAction;
   shareResource = (
-    await import("@agent-native/core/sharing/actions/share-resource")
+    await import("@agentnative-fork/core/sharing/actions/share-resource")
   ).default as AnyAction;
   setResourceVisibility = (
-    await import("@agent-native/core/sharing/actions/set-resource-visibility")
+    await import("@agentnative-fork/core/sharing/actions/set-resource-visibility")
   ).default as AnyAction;
 }, ACCESS_SPEC_SETUP_TIMEOUT_MS);
 

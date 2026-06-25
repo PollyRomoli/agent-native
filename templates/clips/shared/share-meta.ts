@@ -4,7 +4,7 @@ import {
   AGENT_NATIVE_SOCIAL_IMAGE_TYPE,
   AGENT_NATIVE_SOCIAL_IMAGE_WIDTH,
   type SocialMetaDescriptor,
-} from "@agent-native/core/shared";
+} from "@agentnative-fork/core/shared";
 
 export const CLIPS_DEFAULT_TITLE = "Untitled recording";
 

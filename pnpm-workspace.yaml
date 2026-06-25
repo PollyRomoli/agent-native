@@ -7,7 +7,7 @@ packages:
 
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
-  - "@agent-native/core"
+  - "@agentnative-fork/core"
 
 catalog:
   "@tabler/icons-react": ^3.41.1

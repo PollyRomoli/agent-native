@@ -102,13 +102,13 @@ description: "分叉一个可用的 SaaS 产品并使其成为您的产品 - 包
 如果您现在正在搭建脚手架，则 CLI 命令为：
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
-您将获得一个多选选择器。选择一个应用程序（独立）或多个应用程序（工作区 - 应用程序共享身份验证、品牌、代理配置和数据库）。每个挑选的模板都与您需要的每个文件一起构建到 `apps/<name>/` 中。对于仅限操作的应用程序而不是模板 UI，请使用 `npx @agent-native/core@latest create my-agent --headless`。
+您将获得一个多选选择器。选择一个应用程序（独立）或多个应用程序（工作区 - 应用程序共享身份验证、品牌、代理配置和数据库）。每个挑选的模板都与您需要的每个文件一起构建到 `apps/<name>/` 中。对于仅限操作的应用程序而不是模板 UI，请使用 `npx @agentnative-fork/core@latest create my-agent --headless`。
 
 填写`.env`（主要是`ANTHROPIC_API_KEY`和`DATABASE_URL`）、`pnpm install`、`pnpm dev`，就可以了。没有“TODO：实现登录”，没有占位符路由。
 
-部署目标：任何 Nitro 兼容主机（Node、Cloudflare、Netlify、Vercel、Deno、Lambda、Bun）和任何 Drizzle 兼容 SQL 数据库（SQLite、Postgres、Turso、D1、Supabase、Neon）。对于工作区，`npx @agent-native/core@latest deploy` 一次构建每个应用程序并将它们发送到单个源。参见[Deployment](/docs/deployment)。
+部署目标：任何 Nitro 兼容主机（Node、Cloudflare、Netlify、Vercel、Deno、Lambda、Bun）和任何 Drizzle 兼容 SQL 数据库（SQLite、Postgres、Turso、D1、Supabase、Neon）。对于工作区，`npx @agentnative-fork/core@latest deploy` 一次构建每个应用程序并将它们发送到单个源。参见[Deployment](/docs/deployment)。
 
 要创作和发布您自己的模板，请参阅 [Creating Templates](/docs/creating-templates)。

@@ -1,4 +1,4 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import { z } from "zod";
 import { IMAGE_QUALITY_TIERS, STYLE_STRENGTHS } from "../shared/api.js";
 

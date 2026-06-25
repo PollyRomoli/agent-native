@@ -1,6 +1,6 @@
 /**
- * Drift guard: the standalone `@agent-native/skills` installer and
- * `@agent-native/core` must agree on (a) how MCP config is written to disk and
+ * Drift guard: the standalone `@agentnative-fork/skills` installer and
+ * `@agentnative-fork/core` must agree on (a) how MCP config is written to disk and
  * (b) which hosted MCP server each built-in app's skills connect to. The two
  * packages keep their own copies (skills ships standalone and can't depend on
  * the heavyweight core), so this test fails CI if the copies diverge.

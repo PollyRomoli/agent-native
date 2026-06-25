@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   buildDeepLink,
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { z } from "zod";
 import { listDashboardCatalog } from "../server/lib/dashboard-catalog";
 

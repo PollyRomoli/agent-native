@@ -7,7 +7,7 @@ const mocks = vi.hoisted(() => ({
   writeAppSecret: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/secrets", () => ({
+vi.mock("@agentnative-fork/core/secrets", () => ({
   deleteAppSecret: mocks.deleteAppSecret,
   listAppSecretsForScope: mocks.listAppSecretsForScope,
   writeAppSecret: mocks.writeAppSecret,

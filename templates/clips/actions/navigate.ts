@@ -14,8 +14,8 @@
  *   pnpm action navigate --path=/r/rec_abc
  */
 
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 const Views = [

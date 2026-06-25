@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { getUserSetting } from "@agent-native/core/settings";
-import { getRequestUserEmail, buildDeepLink } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { getUserSetting } from "@agentnative-fork/core/settings";
+import { getRequestUserEmail, buildDeepLink } from "@agentnative-fork/core/server";
 import {
   getClients,
   DEFAULT_THREAD_RECENT_MESSAGE_CANDIDATE_LIMIT,

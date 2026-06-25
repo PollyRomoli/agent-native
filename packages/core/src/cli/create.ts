@@ -250,7 +250,7 @@ async function createWorkspaceInteractive(
       "container — it isn't an app itself. Inside it you pick one or more apps",
       "(below), and each app gets its own route, agent, and UI. Apps in the",
       "same workspace share auth, database, and the agent chat. Add more apps",
-      "later with `npx @agent-native/core@latest add-app`. Chat is the UI on-ramp",
+      "later with `npx @agentnative-fork/core@latest add-app`. Chat is the UI on-ramp",
       "for a minimal chat-first app with the browser shell already wired.",
       "Dispatch is always included as the workspace control plane —",
       "it owns shared secrets, messaging, approvals, and cross-app routing.",
@@ -398,7 +398,7 @@ async function createWorkspaceInteractive(
       ``,
       ...dispatchNextStep,
       ``,
-      `Add another app later:        npx @agent-native/core@latest add-app`,
+      `Add another app later:        npx @agentnative-fork/core@latest add-app`,
       `Deploy the whole workspace:   pnpm exec agent-native deploy`,
     ].join("\n"),
   );
@@ -897,9 +897,9 @@ async function scaffoldRequiredPackages(
       await downloadGitHubSubdir(REPO, `packages/${pkgName}`, targetDir);
     }
 
-    // The copied package may have @agent-native/core as a workspace:* dep.
+    // The copied package may have @agentnative-fork/core as a workspace:* dep.
     // Convert it to this CLI package's published range since
-    // @agent-native/core is an npm package, not a workspace member.
+    // @agentnative-fork/core is an npm package, not a workspace member.
     const pkgJsonPath = path.join(targetDir, "package.json");
     if (fs.existsSync(pkgJsonPath)) {
       try {
@@ -915,7 +915,7 @@ async function scaffoldRequiredPackages(
             if (
               typeof val === "string" &&
               val.startsWith("workspace:") &&
-              key === "@agent-native/core"
+              key === "@agentnative-fork/core"
             ) {
               deps[key] = getCoreDependencyVersion();
             }
@@ -1002,7 +1002,7 @@ function postProcessStandalone(
           const exactOverride = STANDALONE_EXACT_DEPENDENCY_OVERRIDES[key];
           if (exactOverride) {
             deps[key] = exactOverride;
-          } else if (key === "@agent-native/core") {
+          } else if (key === "@agentnative-fork/core") {
             deps[key] = getCoreDependencyVersion();
           } else if (typeof val === "string" && val.startsWith("workspace:")) {
             deps[key] = "latest";
@@ -1526,7 +1526,7 @@ function getCorePackageVersion(): string | undefined {
  *
  *   - ≤ 0.7.83: single repo-wide tag `v<version>` (legacy).
  *   - ≥ 0.8.0:  changesets per-package tags
- *               `@agent-native/core@<version>` (current).
+ *               `@agentnative-fork/core@<version>` (current).
  *
  * `main` is the final fallback so dev builds and brand-new releases (where
  * the tag has not propagated yet) still work — at the cost of pulling
@@ -1536,7 +1536,7 @@ function getGitHubTemplateRefCandidates(): string[] {
   const version = getCorePackageVersion();
   const candidates: string[] = [];
   if (version && /^\d+\.\d+\.\d+(?:-.+)?$/.test(version)) {
-    candidates.push(`@agent-native/core@${version}`);
+    candidates.push(`@agentnative-fork/core@${version}`);
     candidates.push(`v${version}`);
   }
   candidates.push("main");
@@ -1561,8 +1561,8 @@ function rewriteCoreDependencyVersions(projectDir: string): void {
       "peerDependencies",
     ] as const) {
       const deps = pkg[depType];
-      if (deps?.["@agent-native/core"]) {
-        deps["@agent-native/core"] = getCoreDependencyVersion();
+      if (deps?.["@agentnative-fork/core"]) {
+        deps["@agentnative-fork/core"] = getCoreDependencyVersion();
       }
     }
     fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");

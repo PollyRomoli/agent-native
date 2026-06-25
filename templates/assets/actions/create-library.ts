@@ -1,11 +1,11 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import { getDb, schema } from "../server/db/index.js";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { nowIso, stringifyJson } from "../server/lib/json.js";
 import { serializeLibrary } from "./_helpers.js";
 import { seedDefaultGenerationPresets } from "../server/lib/generation-presets.js";

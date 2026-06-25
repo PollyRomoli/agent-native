@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Main entry point (Node/universal)
+// @agentnative-fork/pinpoint — Main entry point (Node/universal)
 // MIT License
 
 // Types
@@ -28,7 +28,7 @@ export type {
   AgentOutput,
 } from "./types/index.js";
 
-// Storage (browser-safe only — FileStore is in @agent-native/pinpoint/server)
+// Storage (browser-safe only — FileStore is in @agentnative-fork/pinpoint/server)
 export { MemoryStore, RestClient } from "./storage/index.js";
 export {
   PinSchema,

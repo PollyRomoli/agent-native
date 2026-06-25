@@ -7,7 +7,7 @@ description: "The workspace control plane: secrets vault, integration hub, cross
 
 Dispatch is the central app that sits in front of every other app in your workspace and handles secrets, integrations, messaging, and cross-app delegation. It is the **workspace control plane** — the single agent your team talks to, the single place credentials live, and the single router that decides which specialist app should handle a given request.
 
-> **Dispatch the template vs. `@agent-native/dispatch` the package.** This page covers the Dispatch app/template concept — what it does and why you'd want it. The `@agent-native/dispatch` npm package is the separately published runtime that bundles the Dispatch template's server logic (vault, integrations, destinations, scheduled jobs, and cross-app delegation) as a drop-in package for workspaces that extend it. For the scaffolded app itself (routes, screens, agent guide), see the [Dispatch template](/docs/template-dispatch).
+> **Dispatch the template vs. `@agentnative-fork/dispatch` the package.** This page covers the Dispatch app/template concept — what it does and why you'd want it. The `@agentnative-fork/dispatch` npm package is the separately published runtime that bundles the Dispatch template's server logic (vault, integrations, destinations, scheduled jobs, and cross-app delegation) as a drop-in package for workspaces that extend it. For the scaffolded app itself (routes, screens, agent guide), see the [Dispatch template](/docs/template-dispatch).
 
 Without Dispatch, every app in a multi-app workspace ends up re-implementing the same plumbing: its own Slack bot, its own secret store, its own scheduled jobs, its own copy of the workspace's instructions. Rotating one API key turns into ten redeployments. Adding a new policy turns into ten copy-pastes. Dispatch centralizes all of that in one app so the others stay focused on their domain.
 
@@ -131,9 +131,9 @@ The whole pipeline is built to survive on every serverless host (Netlify, Vercel
 
 Three short steps:
 
-1. **Scaffold a workspace that includes Dispatch.** Run `npx @agent-native/core@latest create my-company-platform` and pick `dispatch` alongside whatever domain templates you want. Dispatch lives at `apps/dispatch` and the rest of the apps sit beside it. See [Multi-App Workspace](/docs/multi-app-workspace).
+1. **Scaffold a workspace that includes Dispatch.** Run `npx @agentnative-fork/core@latest create my-company-platform` and pick `dispatch` alongside whatever domain templates you want. Dispatch lives at `apps/dispatch` and the rest of the apps sit beside it. See [Multi-App Workspace](/docs/multi-app-workspace).
 2. **Connect messaging.** Open **Settings → Messaging** in Dispatch and click connect for Slack, Email, Telegram, or WhatsApp. The form fields match the env vars in the [Messaging](/docs/messaging) doc — refer there for what each platform needs.
-3. **Add other apps.** Run `npx @agent-native/core@latest add-app` from the workspace root for each domain app. They auto-appear as A2A peers in Dispatch's `list-workspace-apps` — no manual registration, no agent-card editing. Dispatch will start delegating to them as soon as their agent cards are reachable.
+3. **Add other apps.** Run `npx @agentnative-fork/core@latest add-app` from the workspace root for each domain app. They auto-appear as A2A peers in Dispatch's `list-workspace-apps` — no manual registration, no agent-card editing. Dispatch will start delegating to them as soon as their agent cards are reachable.
 
 Then add credentials to the vault and (optionally) author global workspace resources under **Resources**. Vault keys can still be synced or granted depending on access mode; All-app workspace resources are inherited automatically. If you need per-app secret isolation, switch the vault access setting to manual before granting individual apps.
 

@@ -14,7 +14,7 @@ import {
 import { useDbStatus } from "@/hooks/use-db-status";
 import { CloudUpgrade } from "@/components/CloudUpgrade";
 import type { Deck } from "@/context/DeckContext";
-import { appBasePath } from "@agent-native/core/client";
+import { appBasePath } from "@agentnative-fork/core/client";
 import {
   Tooltip,
   TooltipContent,

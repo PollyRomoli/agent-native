@@ -1,8 +1,8 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   readAppState,
   readAppStateForCurrentTab,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 import getLibrary from "./get-library.js";
 import getAsset from "./get-asset.js";

@@ -30,7 +30,7 @@ Um processador implementa qualquer subconjunto de três ganchos de ciclo de vida
 Cada processador obtém seu próprio objeto `state` mutável com escopo de execução que persiste em cada uma de suas invocações de gancho em uma única execução e é **isolado** do estado de outros processadores.
 
 ```ts
-import type { Processor } from "@agent-native/core";
+import type { Processor } from "@agentnative-fork/core";
 
 const noSecretsInOutput: Processor = {
   name: "no-secrets",
@@ -64,7 +64,7 @@ const coverageGate: Processor = {
 Um gancho interrompe a execução chamando `abort(reason, meta?)`, que lança um **`TripWire`**. O loop o detecta, emite um único **evento `tripwire`**, para de forma limpa e revela o motivo como a mensagem final do assistente.
 
 ```ts
-import { TripWire } from "@agent-native/core";
+import { TripWire } from "@agentnative-fork/core";
 ```
 
 O evento `tripwire` carrega:

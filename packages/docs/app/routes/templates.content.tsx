@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 import { useState } from "react";
 import { templates, trackEvent } from "../components/TemplateCard";
 import { TemplateDocsLink } from "../components/template-docs";

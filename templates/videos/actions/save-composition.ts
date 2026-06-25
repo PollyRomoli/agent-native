@@ -1,20 +1,20 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import {
   assertAccess,
   resolveAccess,
   ForbiddenError,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import {
   hasCollabState,
   applyText,
   seedFromText,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 import { getDb, schema } from "../server/db/index.js";
 
 export default defineAction({

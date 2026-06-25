@@ -2,7 +2,7 @@ import { eq, or, sql, type SQL } from "drizzle-orm";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { schema } from "../db/index.js";
 
 export function parseDocumentFavorite(

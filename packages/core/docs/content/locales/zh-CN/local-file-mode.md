@@ -97,7 +97,7 @@ UI 和特工 actions 在两种模式下都应保持相同的形状。内容
 技能：
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 这会将 `content` 技能复制到存储库的代理技能文件夹中并写入

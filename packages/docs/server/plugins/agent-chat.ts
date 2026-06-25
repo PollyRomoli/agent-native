@@ -4,7 +4,7 @@ process.env.AGENT_MODE = "production"; // guard:allow-env-mutation — boot-time
 import {
   createAgentChatPlugin,
   loadActionsFromStaticRegistry,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import actionsRegistry from "../../.generated/actions-registry.js";
 
 const SYSTEM_PROMPT = `You are the Agent-Native documentation assistant at agent-native.com.

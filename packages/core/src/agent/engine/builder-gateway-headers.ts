@@ -38,7 +38,7 @@ export function getBuilderGatewayClientVersion(): string {
 /** Stable request headers for Builder LLM gateway attribution in logs. */
 export function getBuilderGatewayRequestHeaders(): Record<string, string> {
   return {
-    "x-client-name": "@agent-native/core",
+    "x-client-name": "@agentnative-fork/core",
     "x-client-version": getBuilderGatewayClientVersion(),
   };
 }

@@ -151,7 +151,7 @@ For the resource model and canonical paths, see [Workspace — Global resources]
 
 ## Setup Checklist
 
-For a new workspace, after running `npx @agent-native/core@latest create`:
+For a new workspace, after running `npx @agentnative-fork/core@latest create`:
 
 **Git & GitHub:**
 

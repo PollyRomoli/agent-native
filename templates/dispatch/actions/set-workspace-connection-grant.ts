@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getWorkspaceConnection,
   revokeWorkspaceConnectionGrant,
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 import { z } from "zod";
 
 const httpBoolean = z.preprocess((value) => {

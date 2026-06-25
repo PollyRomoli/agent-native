@@ -102,13 +102,13 @@ description: "ابتكر منتج SaaS فعالاً واجعله ملكك - بم
 إذا كنت تعمل في مجال السقالات الآن، فإن أمر CLI هو:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
-سوف تحصل على منتقي متعدد التحديد. اختر تطبيقًا واحدًا (مستقلًا) أو عدة تطبيقات (مساحة العمل - تتشارك التطبيقات في المصادقة والعلامة التجارية وتكوين الوكيل وقاعدة البيانات). يتم دمج كل قالب تم اختياره في `apps/<name>/` مع كل ملف تحتاجه. بالنسبة إلى تطبيق الإجراء فقط بدلاً من القالب UI، استخدم `npx @agent-native/core@latest create my-agent --headless`.
+سوف تحصل على منتقي متعدد التحديد. اختر تطبيقًا واحدًا (مستقلًا) أو عدة تطبيقات (مساحة العمل - تتشارك التطبيقات في المصادقة والعلامة التجارية وتكوين الوكيل وقاعدة البيانات). يتم دمج كل قالب تم اختياره في `apps/<name>/` مع كل ملف تحتاجه. بالنسبة إلى تطبيق الإجراء فقط بدلاً من القالب UI، استخدم `npx @agentnative-fork/core@latest create my-agent --headless`.
 
 املأ `.env` (غالبًا `ANTHROPIC_API_KEY` و`DATABASE_URL`)، و`pnpm install`، و`pnpm dev`، وسيعمل. لا يوجد "TODO: تنفيذ تسجيل الدخول،" ولا توجد مسارات نائبة.
 
-أهداف النشر: أي مضيف متوافق مع Nitro (Node وCloudflare وNetlify وVercel وDeno وLambda وBun) وأي قاعدة بيانات SQL متوافقة مع SQL (SQLite وPostgres وTurso وD1 وSupabase وNeon). بالنسبة لمساحات العمل، تقوم `npx @agent-native/core@latest deploy` بإنشاء كل تطبيق في وقت واحد وشحنه خلف مصدر واحد. انظر [Deployment](/docs/deployment).
+أهداف النشر: أي مضيف متوافق مع Nitro (Node وCloudflare وNetlify وVercel وDeno وLambda وBun) وأي قاعدة بيانات SQL متوافقة مع SQL (SQLite وPostgres وTurso وD1 وSupabase وNeon). بالنسبة لمساحات العمل، تقوم `npx @agentnative-fork/core@latest deploy` بإنشاء كل تطبيق في وقت واحد وشحنه خلف مصدر واحد. انظر [Deployment](/docs/deployment).
 
 لتأليف ونشر القالب الخاص بك، راجع [Creating Templates](/docs/creating-templates).

@@ -10,7 +10,7 @@ description: "प्लग करने योग्य प्रदाताओ
 यह _उत्पाद_ एनालिटिक्स है - आपके ऐप के इवेंट पोस्टहॉग/मिक्सपैनल/एम्प्लीट्यूड पर प्रवाहित हो रहे हैं। आपके अपने डेटाबेस में संग्रहीत _एजेंट गुणवत्ता_ मेट्रिक्स (निशान, लागत, मूल्यांकन, फीडबैक) के लिए, [Observability](/docs/observability) देखें।
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "order.completed",
@@ -46,7 +46,7 @@ track(
 एक एनालिटिक्स इवेंट सक्रिय करें। सभी पंजीकृत प्रदाताओं के प्रशंसक।
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "meal.logged",
@@ -60,7 +60,7 @@ track(
 किसी उपयोगकर्ता को उसके गुणों से पहचानें. उन प्रदाताओं को अग्रेषित किया जाता है जो इसका समर्थन करते हैं (पोस्टहॉग, मिक्सपैनल, एम्प्लिट्यूड, वेबहुक)।
 
 ```ts
-import { identify } from "@agent-native/core/tracking";
+import { identify } from "@agentnative-fork/core/tracking";
 
 identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 ```
@@ -73,8 +73,8 @@ identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 
 ```ts
 // actions/create-project.ts
-import { defineAction } from "@agent-native/core/action";
-import { track } from "@agent-native/core/tracking";
+import { defineAction } from "@agentnative-fork/core/action";
+import { track } from "@agentnative-fork/core/tracking";
 import { z } from "zod";
 
 export default defineAction({
@@ -100,7 +100,7 @@ export default defineAction({
 
 ## क्लाइंट-साइड ट्रैकिंग {#client}
 
-`track()` ब्राउज़र/ऐप कोड से भी काम करता है। क्लाइंट ट्विन को `@agent-native/core/client` से आयात करें और इसे उसी तरह से कॉल करें - यह ईवेंट को `POST /_agent-native/track` पर फ्रेमवर्क रूट पर पोस्ट करता है, जो इसे **समान** पंजीकृत सर्वर-साइड प्रदाताओं (पोस्टहॉग, मिक्सपैनल, एम्प्लिट्यूड, वेबहुक) को अग्रेषित करता है। कोई भी एनालिटिक्स SDK ब्राउज़र पर नहीं भेजा जाता है और कोई भी प्रदाता कुंजी क्लाइंट-साइड पर प्रदर्शित नहीं होती है।
+`track()` ब्राउज़र/ऐप कोड से भी काम करता है। क्लाइंट ट्विन को `@agentnative-fork/core/client` से आयात करें और इसे उसी तरह से कॉल करें - यह ईवेंट को `POST /_agent-native/track` पर फ्रेमवर्क रूट पर पोस्ट करता है, जो इसे **समान** पंजीकृत सर्वर-साइड प्रदाताओं (पोस्टहॉग, मिक्सपैनल, एम्प्लिट्यूड, वेबहुक) को अग्रेषित करता है। कोई भी एनालिटिक्स SDK ब्राउज़र पर नहीं भेजा जाता है और कोई भी प्रदाता कुंजी क्लाइंट-साइड पर प्रदर्शित नहीं होती है।
 
 ```an-api title="The client tracking route"
 {
@@ -117,7 +117,7 @@ export default defineAction({
 ```
 
 ```ts
-import { track } from "@agent-native/core/client";
+import { track } from "@agentnative-fork/core/client";
 
 // e.g. inside a click handler or effect
 track("checkout.completed", { total: 49.99, items: 3 });
@@ -144,7 +144,7 @@ track("checkout.completed", { total: 49.99, items: 3 });
 किसी भी एनालिटिक्स बैकएंड के लिए एक कस्टम प्रदाता पंजीकृत करें।
 
 ```ts
-import { registerTrackingProvider } from "@agent-native/core/tracking";
+import { registerTrackingProvider } from "@agentnative-fork/core/tracking";
 
 registerTrackingProvider({
   name: "my-analytics",
@@ -170,7 +170,7 @@ registerTrackingProvider({
 सभी प्रदाताओं को फ्लश करें. लंबित घटनाओं को भेजने को सुनिश्चित करने के लिए प्रक्रिया से बाहर निकलने से पहले कॉल करें।
 
 ```ts
-import { flushTracking } from "@agent-native/core/tracking";
+import { flushTracking } from "@agentnative-fork/core/tracking";
 
 await flushTracking();
 ```

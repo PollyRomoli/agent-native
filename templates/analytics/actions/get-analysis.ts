@@ -1,9 +1,9 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   getRequestUserEmail,
   getRequestOrgId,
   buildDeepLink,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { z } from "zod";
 import { getAnalysis } from "../server/lib/dashboards-store";
 

@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const frameState = vi.hoisted(() => ({ inBuilderFrame: false }));
 const sendToAgentChatMock = vi.hoisted(() => vi.fn(() => "chat-tab"));
 
-vi.mock("@agent-native/core/client", () => ({
+vi.mock("@agentnative-fork/core/client", () => ({
   isInBuilderFrame: () => frameState.inBuilderFrame,
   sendToAgentChat: sendToAgentChatMock,
 }));

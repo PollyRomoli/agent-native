@@ -16,9 +16,9 @@ import {
   useChatThreads,
   useT,
   type ChatThreadSummary,
-} from "@agent-native/core/client";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
-import { OrgSwitcher } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
+import { OrgSwitcher } from "@agentnative-fork/core/client/org";
 import { navItems } from "@/lib/brain";
 import { cn } from "@/lib/utils";
 import {

@@ -31,7 +31,7 @@
  * cryptographic operation jose performs for HS256. We do NOT invent an auth
  * scheme or a cipher; we reuse the A2A peer model and core's org/secret
  * resolution helpers (`getA2ASecretByDomain`, `resolveOrgByDomain` from
- * `@agent-native/core/org`). `jose` is not a direct dependency of this
+ * `@agentnative-fork/core/org`). `jose` is not a direct dependency of this
  * template (pnpm strict resolution), so a built-in-`crypto` HS256 verify is
  * the dependency-safe way to honor "do not reimplement crypto, reuse the A2A
  * verifier path".
@@ -171,7 +171,7 @@ function verifyWithSecret(
  *      wins. A token that validates under NO candidate is rejected.
  *
  * `resolveOrgSecretByDomain` is injected so this stays pure/testable; the
- * plugin wires it to `getA2ASecretByDomain` from `@agent-native/core/org`.
+ * plugin wires it to `getA2ASecretByDomain` from `@agentnative-fork/core/org`.
  *
  * Returns the verified `{ email, orgDomain }` or null. `null` => 401.
  */
@@ -279,7 +279,7 @@ export interface DiscoveredAppLike {
 /**
  * Shape the discovered-agent list into the directory response. The input is
  * Dispatch's EXISTING connected-apps registry — `discoverAgents("dispatch")`
- * from `@agent-native/core/server/agent-discovery`, the same source
+ * from `@agentnative-fork/core/server/agent-discovery`, the same source
  * `list-connected-agents` and the `call-agent` delegation path use. It is
  * already allow-list-respecting (hidden first-party templates are excluded
  * from `BUILTIN_AGENTS` unless `defaultAgent`), so no second filter is

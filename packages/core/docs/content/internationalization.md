@@ -6,7 +6,7 @@ description: "Localize Agent Native apps with shared locale catalogs, a language
 # Internationalization
 
 Agent Native apps can localize framework and template UI through the shared
-`@agent-native/core/client/i18n` runtime. The framework stores the user's
+`@agentnative-fork/core/client/i18n` runtime. The framework stores the user's
 language choice in SQL settings, exposes it as actions, and falls back to
 English when an app has not translated a string yet.
 
@@ -15,7 +15,7 @@ English when an app has not translated a string yet.
 Use the provider through `AppProviders`:
 
 ```tsx
-import { AppProviders, getLocaleInitScript } from "@agent-native/core/client";
+import { AppProviders, getLocaleInitScript } from "@agentnative-fork/core/client";
 import { i18nCatalog } from "./i18n";
 
 const LOCALE_INIT_SCRIPT = getLocaleInitScript();
@@ -32,7 +32,7 @@ const LOCALE_INIT_SCRIPT = getLocaleInitScript();
 
 `getLocaleInitScript()` sets the initial `lang`, `dir`, and
 `window.__AGENT_NATIVE_LOCALE__` before React hydrates. Public SSR routes can
-call `resolveLocaleFromRequest()` from `@agent-native/core/server` and pass the
+call `resolveLocaleFromRequest()` from `@agentnative-fork/core/server` and pass the
 resolved locale/catalog into that script to avoid hydration mismatches.
 
 ## Catalogs
@@ -42,7 +42,7 @@ Each localized template keeps catalogs under `app/i18n/`:
 ```ts
 // app/i18n/index.ts
 import enUS from "./en-US";
-import type { AgentNativeI18nCatalog } from "@agent-native/core/client";
+import type { AgentNativeI18nCatalog } from "@agentnative-fork/core/client";
 
 export const i18nCatalog = {
   sourceLocale: "en-US",
@@ -73,7 +73,7 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 function SettingsPage() {
   const t = useT();

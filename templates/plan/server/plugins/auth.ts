@@ -1,4 +1,4 @@
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 import { PUBLIC_PLAN_ACTION_PATHS } from "../lib/public-action-paths.js";
 import { isLocalPlanRuntime } from "../lib/local-identity.js";
 

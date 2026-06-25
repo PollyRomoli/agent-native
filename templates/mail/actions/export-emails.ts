@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getSetting } from "@agent-native/core/settings";
+import { defineAction } from "@agentnative-fork/core";
+import { getSetting } from "@agentnative-fork/core/settings";
 import { z } from "zod";
 
 export default defineAction({

@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { getAccessTokens } from "./helpers.js";
 import { z } from "zod";
 import { nanoid } from "nanoid";
@@ -8,7 +8,7 @@ import {
   invalidateListCacheForOwner,
   setAccountDisplayName,
 } from "../server/lib/google-auth.js";
-import { setOAuthDisplayName } from "@agent-native/core/oauth-tokens";
+import { setOAuthDisplayName } from "@agentnative-fork/core/oauth-tokens";
 import {
   bodyToHtml,
   buildRawEmail,
@@ -16,9 +16,9 @@ import {
   splitReplyQuote,
 } from "../server/lib/outgoing-email.js";
 import { resolveGoogleSenderIdentity } from "../server/lib/sender-identity.js";
-import { getRequestUserEmail } from "@agent-native/core/server";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
-import { emit } from "@agent-native/core/event-bus";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
+import { emit } from "@agentnative-fork/core/event-bus";
 import {
   collectLinks,
   newClickToken,
@@ -26,7 +26,7 @@ import {
   persistTracking,
   type TrackingContext,
 } from "../server/lib/email-tracking.js";
-import { getAppProductionUrl } from "@agent-native/core/server";
+import { getAppProductionUrl } from "@agentnative-fork/core/server";
 import type { UserSettings } from "../shared/types.js";
 import { markdownPreviewSnippet } from "../shared/markdown.js";
 

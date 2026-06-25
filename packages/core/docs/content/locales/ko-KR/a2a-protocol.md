@@ -33,7 +33,7 @@ A2A is the substrate for cross-app delegation in this framework — most promine
 
 ```ts
 // server/plugins/a2a.ts
-import { mountA2A } from "@agent-native/core/a2a";
+import { mountA2A } from "@agentnative-fork/core/a2a";
 
 export default defineNitroPlugin((nitro) => {
   mountA2A(nitro, {
@@ -177,7 +177,7 @@ _(버전은 다를 수 있습니다. 현재 `protocolVersion`에 대해서는 `/
 `A2AClient` 클래스는 검색, 메시징 및 스트리밍을 처리합니다.
 
 ```ts
-import { A2AClient } from "@agent-native/core/a2a";
+import { A2AClient } from "@agentnative-fork/core/a2a";
 
 const client = new A2AClient("https://analytics.example.com", "my-api-key");
 
@@ -213,7 +213,7 @@ for await (const update of client.stream({
 간단한 텍스트 입력/텍스트 출력 통화의 경우 `callAgent()`를 사용하세요.
 
 ```ts
-import { callAgent } from "@agent-native/core/a2a";
+import { callAgent } from "@agentnative-fork/core/a2a";
 
 // One-shot: send text, get text back
 const response = await callAgent(
@@ -232,7 +232,7 @@ URL.
 `agent-native agents` 및 `agent-native invoke` CLI 명령.
 
 ```ts
-import { agentNative } from "@agent-native/core/agent-native";
+import { agentNative } from "@agentnative-fork/core/agent-native";
 
 const agents = await agentNative.listAgents();
 
@@ -371,8 +371,8 @@ See [Messaging](/docs/messaging) for setup details on each platform.
 
 ```ts
 // In the mail agent's actions/get-analytics.ts
-import { defineAction } from "@agent-native/core/action";
-import { callAgent } from "@agent-native/core/a2a";
+import { defineAction } from "@agentnative-fork/core/action";
+import { callAgent } from "@agentnative-fork/core/a2a";
 import { z } from "zod";
 
 export default defineAction({

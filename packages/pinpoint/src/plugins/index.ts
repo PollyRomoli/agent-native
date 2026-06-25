@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Plugin exports
+// @agentnative-fork/pinpoint — Plugin exports
 // MIT License
 
 export {

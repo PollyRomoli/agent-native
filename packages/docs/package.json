@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/docs",
+  "name": "@agentnative-fork/docs",
   "private": true,
   "type": "module",
   "repository": {
@@ -34,7 +34,7 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@agent-native/core": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
     "@radix-ui/react-popover": "^1.1.15",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@react-router/dev": "^7.16.0",

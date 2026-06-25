@@ -111,7 +111,7 @@ Core SQL stores are auto-created and available in every template:
 
 ```ts
 // Drizzle schema for domain data
-import { table, text, integer } from "@agent-native/core/db/schema";
+import { table, text, integer } from "@agentnative-fork/core/db/schema";
 
 export const forms = table("forms", {
   id: text("id").primaryKey(),
@@ -145,7 +145,7 @@ The UI never calls an LLM directly. When a user clicks "Generate chart" or "Writ
 
 ```ts
 // In a React component — delegate AI work to the agent
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 sendToAgentChat({
   message: "Generate a chart showing signups by source",
@@ -167,7 +167,7 @@ When the agent needs to do something complex — call an API, process data, quer
 
 ```ts
 // actions/fetch-data.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -198,7 +198,7 @@ Database changes are synced to the UI through `useDbSync()`. Same-process writes
 
 ```ts
 // Client: subscribe to agent/UI data changes once near the app shell
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 
 useDbSync({ queryClient });
 ```
@@ -266,7 +266,7 @@ There's no shared codebase to break. You own the app, and the agent evolves it f
 
 Two architectural rules keep apps portable across databases and hosts:
 
-- **Database-agnostic.** Write schemas with `@agent-native/core/db/schema` and reads/writes with Drizzle's portable query DSL so the same code runs on any supported provider. Use raw SQL only for additive migrations or one-off maintenance, kept parameterized and dialect-agnostic. See [Database](/docs/database).
+- **Database-agnostic.** Write schemas with `@agentnative-fork/core/db/schema` and reads/writes with Drizzle's portable query DSL so the same code runs on any supported provider. Use raw SQL only for additive migrations or one-off maintenance, kept parameterized and dialect-agnostic. See [Database](/docs/database).
 - **Hosting-agnostic.** The server runs on Nitro and compiles to any deployment target. Never use Node-specific APIs (`fs`, `child_process`, `path`) in server routes or plugins, and never assume a persistent server process — serverless and edge are stateless, so keep all state in SQL. See [Deployment](/docs/deployment).
 
 ## Workspace {#workspace}

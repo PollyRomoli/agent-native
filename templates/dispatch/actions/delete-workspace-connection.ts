@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { deleteWorkspaceConnection } from "@agent-native/core/workspace-connections";
+import { defineAction } from "@agentnative-fork/core";
+import { deleteWorkspaceConnection } from "@agentnative-fork/core/workspace-connections";
 import { z } from "zod";
 
 export default defineAction({

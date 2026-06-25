@@ -1,5 +1,5 @@
-import { runMigrations, getDbExec, isPostgres } from "@agent-native/core/db";
-import { registerEvent } from "@agent-native/core/event-bus";
+import { runMigrations, getDbExec, isPostgres } from "@agentnative-fork/core/db";
+import { registerEvent } from "@agentnative-fork/core/event-bus";
 import { z } from "zod";
 // Side-effect import — registers `recording` as a shareable resource with the
 // framework before any HTTP request runs. The framework's auto-mounted

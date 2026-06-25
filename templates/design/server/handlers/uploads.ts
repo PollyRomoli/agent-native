@@ -7,7 +7,7 @@ import fs from "fs";
 import path from "path";
 import crypto from "crypto";
 import { nanoid } from "nanoid";
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 
 const UPLOADS_ROOT = path.join(process.cwd(), "data", "uploads");
 const MAX_EXTRACTED_TEXT_CHARS = 8_000;

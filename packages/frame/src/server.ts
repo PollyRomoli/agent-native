@@ -23,7 +23,7 @@ import {
   type H3Event,
 } from "h3";
 import { listen } from "listhen";
-import { getTemplate } from "@agent-native/shared-app-config";
+import { getTemplate } from "@agentnative-fork/shared-app-config";
 import { extractAppFromState } from "./oauth-state.js";
 
 const PORT = parseInt(process.env.FRAME_SERVER_PORT || "3335", 10);

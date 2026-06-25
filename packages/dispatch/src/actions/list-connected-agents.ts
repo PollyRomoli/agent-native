@@ -1,20 +1,20 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   discoverAgents,
   getBuiltinAgents,
   shouldIncludeRemoteAgentManifest,
-} from "@agent-native/core/server/agent-discovery";
-import { getRequestUserEmail } from "@agent-native/core/server";
+} from "@agentnative-fork/core/server/agent-discovery";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
 import {
   resourceGet,
   resourceListAccessible,
   SHARED_OWNER,
-} from "@agent-native/core/resources/store";
+} from "@agentnative-fork/core/resources/store";
 import {
   REMOTE_AGENT_RESOURCE_PREFIXES,
   parseRemoteAgentManifest,
-} from "@agent-native/core/resources/metadata";
+} from "@agentnative-fork/core/resources/metadata";
 
 export default defineAction({
   description:

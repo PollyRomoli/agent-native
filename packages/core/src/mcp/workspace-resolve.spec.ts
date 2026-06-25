@@ -59,7 +59,7 @@ function buildWorkspace(appIds: string[]): string {
   const root = fs.mkdtempSync(path.join(tmpRoot, "ws-"));
   writePkg(root, {
     name: "workspace",
-    "agent-native": { workspaceCore: "@agent-native/core" },
+    "agent-native": { workspaceCore: "@agentnative-fork/core" },
   });
   for (const id of appIds) {
     writePkg(path.join(root, "apps", id), { name: id });
@@ -96,7 +96,7 @@ describe("findWorkspaceRoot", () => {
     const dir = fs.mkdtempSync(path.join(tmpRoot, "noapps-"));
     writePkg(dir, {
       name: "ws",
-      "agent-native": { workspaceCore: "@agent-native/core" },
+      "agent-native": { workspaceCore: "@agentnative-fork/core" },
     });
     // No apps/ dir → not a workspace root.
     expect(findWorkspaceRoot(dir)).toBeNull();
@@ -114,7 +114,7 @@ describe("findWorkspaceRoot", () => {
 describe("resolveWorkspace — standalone (no workspace)", () => {
   it("treats the cwd as the single app and derives a clean id from the pkg name", async () => {
     const dir = fs.mkdtempSync(path.join(tmpRoot, "solo-"));
-    writePkg(dir, { name: "@agent-native/agent-native-mail" });
+    writePkg(dir, { name: "@agentnative-fork/agent-native-mail" });
     probeOutcome = "error"; // dev server not up
     const ws = await resolveWorkspace(dir, { PORT: "4321" });
     expect(ws.isWorkspace).toBe(false);
@@ -349,7 +349,7 @@ describe("resolveLocalAppOrigin precedence", () => {
     const root = fs.mkdtempSync(path.join(tmpRoot, "empty-ws-"));
     writePkg(root, {
       name: "ws",
-      "agent-native": { workspaceCore: "@agent-native/core" },
+      "agent-native": { workspaceCore: "@agentnative-fork/core" },
     });
     mkdirp(path.join(root, "apps"));
     await expect(resolveLocalAppOrigin({ cwd: root })).rejects.toThrow(

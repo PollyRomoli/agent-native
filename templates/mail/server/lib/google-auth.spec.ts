@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { listOAuthAccountsByOwner } from "@agent-native/core/oauth-tokens";
+import { listOAuthAccountsByOwner } from "@agentnative-fork/core/oauth-tokens";
 import {
   gmailBatchGetThreads,
   gmailGetThread,
@@ -8,7 +8,7 @@ import {
 } from "./google-api.js";
 import { listGmailMessages } from "./google-auth.js";
 
-vi.mock("@agent-native/core/oauth-tokens", () => ({
+vi.mock("@agentnative-fork/core/oauth-tokens", () => ({
   deleteOAuthTokens: vi.fn(),
   getOAuthTokens: vi.fn(),
   hasOAuthTokens: vi.fn(),
@@ -17,7 +17,7 @@ vi.mock("@agent-native/core/oauth-tokens", () => ({
   saveOAuthTokens: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getOAuthAccounts: vi.fn(),
   isOAuthConnected: vi.fn(),
 }));

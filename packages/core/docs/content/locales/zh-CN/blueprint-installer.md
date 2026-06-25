@@ -63,7 +63,7 @@ agent-native add provider https://docs.example.com/api | claude
 
 将 Markdown 文件拖放到 `packages/core/blueprints/<kind>/<name>.md` 中。 kind 是子目录；该名称是不带 `.md` 的文件名。它是自动拾取的 - `--list`、名称解析和目录都在运行时读取目录。无需更改代码即可注册。
 
-蓝图 `.md` 文件通过 `package.json` `files` 中的 `blueprints` 条目发送到已发布的包中，因此最终用户可以在 `node_modules/@agent-native/core/blueprints/**` 上进行解析。
+蓝图 `.md` 文件通过 `package.json` `files` 中的 `blueprints` 条目发送到已发布的包中，因此最终用户可以在 `node_modules/@agentnative-fork/core/blueprints/**` 上进行解析。
 
 将每个蓝图编写为编码代理的指令集，没有其他上下文。一个好的蓝图具有：
 

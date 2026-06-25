@@ -46,7 +46,7 @@ Fügen Sie das Dashboard mit einer einzigen Route zu jeder Vorlage hinzu:
 
 ```tsx
 // app/routes/observability.tsx
-import { ObservabilityDashboard } from "@agent-native/core/client";
+import { ObservabilityDashboard } from "@agentnative-fork/core/client";
 
 export default function ObservabilityPage() {
   return (
@@ -106,7 +106,7 @@ Fünf deterministische Scorer werden nach jedem Agentenlauf ausgeführt:
 Aktivieren Sie die auf Stichproben basierende LLM-Auswertung, indem Sie `evalSampleRate` festlegen:
 
 ```ts
-import { putSetting } from "@agent-native/core/settings";
+import { putSetting } from "@agentnative-fork/core/settings";
 
 await putSetting("observability-config", {
   enabled: true,
@@ -269,7 +269,7 @@ Jede Vorlage erbt dies automatisch – es gibt nichts zu importieren. Bei SSR-Ap
 
 ```ts
 // server/plugins/sentry.ts
-import { createSentryPlugin } from "@agent-native/core/server";
+import { createSentryPlugin } from "@agentnative-fork/core/server";
 export default createSentryPlugin();
 ```
 

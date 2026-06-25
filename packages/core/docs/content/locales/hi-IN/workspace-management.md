@@ -151,7 +151,7 @@ core:
 
 ## सेटअप चेकलिस्ट
 
-एक नए कार्यक्षेत्र के लिए, `npx @agent-native/core@latest create` चलाने के बाद:
+एक नए कार्यक्षेत्र के लिए, `npx @agentnative-fork/core@latest create` चलाने के बाद:
 
 **गिट और GitHub:**
 

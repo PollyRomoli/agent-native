@@ -8,7 +8,7 @@ import {
   sendToAgentChat,
   useT,
   writeClientAppState,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { IconPhoto, IconSparkles, IconVideo } from "@tabler/icons-react";
 import { ASSETS_CHAT_STORAGE_KEY } from "@/lib/chat";
 

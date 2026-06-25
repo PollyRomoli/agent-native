@@ -1,4 +1,4 @@
-import type { AgentNativeI18nCatalog } from "@agent-native/core/client";
+import type { AgentNativeI18nCatalog } from "@agentnative-fork/core/client";
 import { messagesByLocale } from "../i18n-data";
 
 export const i18nCatalog = {

@@ -4,4 +4,4 @@ export {
   HydrateFallback,
   loader,
   meta,
-} from "@agent-native/dispatch/routes/pages/_index";
+} from "@agentnative-fork/dispatch/routes/pages/_index";

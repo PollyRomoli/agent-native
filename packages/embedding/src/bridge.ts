@@ -1,2 +1,2 @@
-// Thin re-export. Implementation lives in @agent-native/core/embedding/bridge.
-export * from "@agent-native/core/embedding/bridge";
+// Thin re-export. Implementation lives in @agentnative-fork/core/embedding/bridge.
+export * from "@agentnative-fork/core/embedding/bridge";

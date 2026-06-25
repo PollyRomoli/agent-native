@@ -15,7 +15,7 @@ Die Dokumentationsseite ist die Referenzimplementierung. Heute wird Folgendes au
 - Markdown spiegelt wie `/docs/getting-started.md` wider.
 - `Accept: text/markdown`-Antworten für öffentliche Dokumentseiten nach einem Produktions-Build.
 - JSON-LD für Basisorganisation, Website und Seitenmetadaten.
-- Ein Audit CLI (`npx @agent-native/core@latest audit-agent-web`), das alle oben genannten Punkte überprüft.
+- Ein Audit CLI (`npx @agentnative-fork/core@latest audit-agent-web`), das alle oben genannten Punkte überprüft.
 
 Durch das Festlegen von `publicMcp: true` wird zusätzlich der optierte actions als öffentlicher MCP-Endpunkt verfügbar gemacht, sodass externe Agenten ihn direkt aufrufen können (siehe [MCP Protocol](/docs/mcp-protocol)).
 
@@ -99,13 +99,13 @@ Um eine Aktion über ein öffentliches Agentenprotokoll verfügbar zu machen, mu
 
 ## Dateien zur Erstellungszeit {#build-time}
 
-Framework-Dienstprogramme in `@agent-native/core/agent-web` generieren die gemeinsamen Dateien aus einer Seitenliste:
+Framework-Dienstprogramme in `@agentnative-fork/core/agent-web` generieren die gemeinsamen Dateien aus einer Seitenliste:
 
 ```ts
 import {
   buildAgentWebStaticFiles,
   normalizeAgentWebConfig,
-} from "@agent-native/core/agent-web";
+} from "@agentnative-fork/core/agent-web";
 
 const config = normalizeAgentWebConfig(
   { crawlerPolicy: "discoverable-no-training" },
@@ -130,14 +130,14 @@ const files = buildAgentWebStaticFiles({
 });
 ```
 
-Vite-Apps können `createAgentWebVitePlugin` von `@agent-native/core/vite` verwenden, um diese Dateien während Produktionsbuilds in `public`, `dist`, `dist/client`, `dist/server/public` oder `build/client` zu schreiben.
+Vite-Apps können `createAgentWebVitePlugin` von `@agentnative-fork/core/vite` verwenden, um diese Dateien während Produktionsbuilds in `public`, `dist`, `dist/client`, `dist/server/public` oder `build/client` zu schreiben.
 
 ## Eine Website prüfen {#audit}
 
 Verwenden Sie die CLI-Prüfung für einen bereitgestellten Standort oder einen lokalen Produktionsserver:
 
 ```bash
-npx @agent-native/core@latest audit-agent-web --url https://www.agent-native.com
+npx @agentnative-fork/core@latest audit-agent-web --url https://www.agent-native.com
 ```
 
 Die Prüfung prüft auf:

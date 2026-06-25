@@ -54,7 +54,7 @@ Content UI sidebar to repaint immediately.
 Install into an existing repo with:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 The installer copies this skill and writes or updates `agent-native.json` with

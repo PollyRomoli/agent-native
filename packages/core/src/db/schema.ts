@@ -6,7 +6,7 @@
  * The correct dialect is chosen at runtime based on `DATABASE_URL`.
  *
  * Usage:
- *   import { table, text, integer, now } from "@agent-native/core/db/schema";
+ *   import { table, text, integer, now } from "@agentnative-fork/core/db/schema";
  *
  *   export const users = table("users", {
  *     id: text("id").primaryKey(),

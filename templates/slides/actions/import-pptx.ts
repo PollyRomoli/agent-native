@@ -1,13 +1,13 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
-import { assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server/request-context";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { notifyClients } from "../server/handlers/decks.js";
 import { parsePptx } from "../server/handlers/import/pptx-parser.js";
 import { convertToSlideHtml } from "../server/handlers/import/html-converter.js";

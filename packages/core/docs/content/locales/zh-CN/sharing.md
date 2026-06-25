@@ -81,7 +81,7 @@ description: "Google Docs 风格的共享，内置于框架中。每个用户创
 共享按钮是一次导入：
 
 ```tsx
-import { ShareButton } from "@agent-native/core/client";
+import { ShareButton } from "@agentnative-fork/core/client";
 
 <ShareButton
   resourceType="deck"
@@ -115,7 +115,7 @@ import {
   text,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const decks = table("decks", {
   id: text("id").primaryKey(),
@@ -166,7 +166,7 @@ export const deckShares = createSharesTable("deck_shares");
 `server/db/index.ts` 中的一次注册电话：
 
 ```ts
-import { registerShareableResource } from "@agent-native/core/sharing";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
 
 registerShareableResource({
   type: "deck",

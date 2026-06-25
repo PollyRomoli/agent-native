@@ -117,7 +117,7 @@ export async function resolveServerCatchAllTarget(
 ): Promise<string | null> {
   if (!import.meta.env.SSR) return null;
   const { getBuiltinAgents, loadWorkspaceAppsManifest } =
-    await import("@agent-native/core/server/agent-discovery");
+    await import("@agentnative-fork/core/server/agent-discovery");
   return resolveCatchAllTarget(appId, {
     workspaceApps: loadWorkspaceAppsManifest(),
     builtinAgents: getBuiltinAgents("dispatch"),

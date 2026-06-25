@@ -10,7 +10,7 @@ import {
   getLocaleInitScript,
   getThemeInitScript,
   useDbSync,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { ProviderCorpusJobNotifier } from "@/components/ProviderCorpusJobNotifier";
 import { CommandPalette } from "./components/layout/CommandPalette";
@@ -18,7 +18,7 @@ import { Layout as AppLayout } from "./components/layout/Layout";
 import type { LinksFunction } from "react-router";
 import stylesheet from "./global.css?url";
 import { TAB_ID } from "@/lib/tab-id";
-import { configureTracking } from "@agent-native/core/client";
+import { configureTracking } from "@agentnative-fork/core/client";
 import { i18nCatalog } from "./i18n";
 configureTracking({
   getDefaultProps: (_name, properties) => ({
@@ -111,4 +111,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

@@ -19,15 +19,15 @@ import {
   roleSatisfies,
   resolveAccess,
   type ShareRole,
-} from "@agent-native/core/sharing";
-import { recordChange } from "@agent-native/core/server";
+} from "@agentnative-fork/core/sharing";
+import { recordChange } from "@agentnative-fork/core/server";
 import {
   getAllSettings,
   getOrgSetting,
   getUserSetting,
   deleteOrgSetting,
   deleteUserSetting,
-} from "@agent-native/core/settings";
+} from "@agentnative-fork/core/settings";
 import { getDb, schema } from "../db/index.js";
 
 export type DashboardKind = "explorer" | "sql";

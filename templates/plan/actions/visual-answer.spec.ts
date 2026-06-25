@@ -1,8 +1,8 @@
 import {
   getRequestOrgId,
   runWithRequestContext,
-} from "@agent-native/core/server/request-context";
-import { resolveOrgIdForEmail } from "@agent-native/core/org";
+} from "@agentnative-fork/core/server/request-context";
+import { resolveOrgIdForEmail } from "@agentnative-fork/core/org";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const dbMock = vi.hoisted(() => ({
@@ -37,18 +37,18 @@ vi.mock("./import-visual-plan-source.js", () => ({
   },
 }));
 
-vi.mock("@agent-native/core/org", async (importOriginal) => {
+vi.mock("@agentnative-fork/core/org", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("@agent-native/core/org")>();
+    await importOriginal<typeof import("@agentnative-fork/core/org")>();
   return {
     ...actual,
     resolveOrgIdForEmail: vi.fn(async () => null),
   };
 });
 
-vi.mock("@agent-native/core/sharing", async (importOriginal) => {
+vi.mock("@agentnative-fork/core/sharing", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("@agent-native/core/sharing")>();
+    await importOriginal<typeof import("@agentnative-fork/core/sharing")>();
   return {
     ...actual,
     accessFilter: vi.fn(() => true),
@@ -56,7 +56,7 @@ vi.mock("@agent-native/core/sharing", async (importOriginal) => {
   };
 });
 
-vi.mock("@agent-native/core/sharing/actions/set-resource-visibility", () => ({
+vi.mock("@agentnative-fork/core/sharing/actions/set-resource-visibility", () => ({
   default: setVisibilityMock,
 }));
 

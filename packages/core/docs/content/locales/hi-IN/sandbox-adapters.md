@@ -178,7 +178,7 @@ registerSandboxAdapter(new RemoteSandboxAdapter());
 अन्य एडाप्टर सीम एक एकल कमांड-लाइन टूल (`gh`, `ffmpeg`, `stripe`, `aws`) को लपेटता है ताकि एजेंट इसे खोज सके, जांच सके कि यह इंस्टॉल है या नहीं, और इसे लगातार stdout/stderr/exit-code परिणाम के साथ चला सकता है। प्रत्येक CLI एडाप्टर `CliAdapter` को लागू करता है:
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -197,7 +197,7 @@ interface CliResult {
 अधिकांश CLIs के लिए, `ShellCliAdapter` किसी भी बाइनरी को समझदार डिफ़ॉल्ट के साथ लपेटता है, और `CliRegistry` रनटाइम खोज के लिए एडेप्टर एकत्र करता है:
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(

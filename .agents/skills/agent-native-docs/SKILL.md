@@ -3,7 +3,7 @@ name: agent-native-docs
 description: >-
   How to find version-matched Agent Native framework docs and source bundled in
   node_modules. Use before implementing or answering questions about
-  @agent-native/core APIs, generated apps, workspaces, templates, or advanced
+  @agentnative-fork/core APIs, generated apps, workspaces, templates, or advanced
   features.
 scope: dev
 metadata:
@@ -15,7 +15,7 @@ metadata:
 ## Rule
 
 Before implementing or explaining non-trivial Agent Native behavior, read the
-version-matched docs installed with `@agent-native/core`. When examples,
+version-matched docs installed with `@agentnative-fork/core`. When examples,
 imports, or implementation details matter, inspect the packaged source corpus
 too.
 
@@ -47,14 +47,14 @@ read-only `source-search` tool with `query`, `path`, and `list`.
 If the action runner is unavailable, search the package directly:
 
 ```bash
-rg -n "actions|automations|a2a|sharing" node_modules/@agent-native/core/docs
-rg -n "defineAction|useActionQuery" node_modules/@agent-native/core/corpus
+rg -n "actions|automations|a2a|sharing" node_modules/@agentnative-fork/core/docs
+rg -n "defineAction|useActionQuery" node_modules/@agentnative-fork/core/corpus
 ```
 
-Then read `node_modules/@agent-native/core/docs/AGENTS.md` or the matching file
-under `node_modules/@agent-native/core/docs/content/`. For source examples,
-read files under `node_modules/@agent-native/core/corpus/core/` or
-`node_modules/@agent-native/core/corpus/templates/`.
+Then read `node_modules/@agentnative-fork/core/docs/AGENTS.md` or the matching file
+under `node_modules/@agentnative-fork/core/docs/content/`. For source examples,
+read files under `node_modules/@agentnative-fork/core/corpus/core/` or
+`node_modules/@agentnative-fork/core/corpus/templates/`.
 
 ## Useful Slugs
 

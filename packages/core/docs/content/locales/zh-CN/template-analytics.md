@@ -80,7 +80,7 @@ description: "用简单的英语提出分析问题，获取图表和仪表板。
 从 CLI 创建新的 Analytics 应用：
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 本地开发：
@@ -162,7 +162,7 @@ GCP 控制台 → API 和服务 → 凭证 → OAuth 客户端 ID，并首选
 
 核心表（参见`templates/analytics/server/db/schema.ts`）：
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ GCP 控制台 → API 和服务 → 凭证 → OAuth 客户端 ID，并首选
 }
 ```
 
-加上 `@agent-native/core/org` 提供的每个资源共享表（`dashboard_shares`、`analysis_shares`）和组织表（`organizations`、`org_members`、`org_invitations`）。数据字典位于框架的 `settings` 表中的作用域键下。
+加上 `@agentnative-fork/core/org` 提供的每个资源共享表（`dashboard_shares`、`analysis_shares`）和组织表（`organizations`、`org_members`、`org_invitations`）。数据字典位于框架的 `settings` 表中的作用域键下。
 
 - **`dashboards`** — Explorer 和 SQL 仪表板。 `kind`为`"explorer"`或`"sql"`； `config` 是与 `SqlDashboardConfig` 匹配的 JSON Blob。
 - **`dashboard_shares`** — 每个资源份额授予（主体、角色）。
@@ -222,7 +222,7 @@ GCP 控制台 → API 和服务 → 凭证 → OAuth 客户端 ID，并首选
 - **`analysis_shares`** — 用于分析的每个资源份额授予。
 - **`bigquery_cache`** — 由 SQL 哈希键控的查询结果缓存，并进行字节处理记账。
 
-加上`@agent-native/core/org`提供的组织表（`organizations`、`org_members`、`org_invitations`）。
+加上`@agentnative-fork/core/org`提供的组织表（`organizations`、`org_members`、`org_invitations`）。
 
 数据字典位于框架的 `settings` 表中，位于作用域键下；查看 `list-data-dictionary` 和 `save-data-dictionary-entry` actions 的完整形状。
 

@@ -3,7 +3,7 @@ import {
   isEmailConfigured,
   renderEmail,
   sendEmail,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import type { CalendarEvent, DeleteEventScope } from "../../shared/api.js";
 
 export interface GuestNotificationResult {

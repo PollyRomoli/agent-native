@@ -3,7 +3,7 @@ import {
   DATA_CHART_WIDGET,
   DATA_INSIGHTS_WIDGET,
   DATA_TABLE_WIDGET,
-} from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core/data-widgets";
 
 const dbMock = vi.hoisted(() => {
   let results: unknown[][] = [];
@@ -40,7 +40,7 @@ vi.mock("../server/db/index.js", async () => ({
   schema: await vi.importActual("../server/db/schema.js"),
 }));
 
-vi.mock("@agent-native/core/sharing", () => sharingMock);
+vi.mock("@agentnative-fork/core/sharing", () => sharingMock);
 
 const { default: responseInsights } = await import("./response-insights.js");
 

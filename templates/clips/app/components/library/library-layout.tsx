@@ -25,12 +25,12 @@ import {
   appPath,
   getBrowserTabId,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   InvitationBanner,
   OrgSwitcher,
   useOrg,
-} from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client/org";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -60,7 +60,7 @@ import {
   CaptureInstallButton,
   CaptureInstallInlineLink,
 } from "@/components/capture-install-options";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
 import { toast } from "sonner";
 import {
   Tooltip,

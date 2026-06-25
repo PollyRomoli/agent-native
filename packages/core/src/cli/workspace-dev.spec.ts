@@ -559,7 +559,7 @@ describe("workspace dev startup", () => {
 
     appCall?.child.stderr?.emit(
       "data",
-      "Error: Cannot find module '@agent-native/example'\n",
+      "Error: Cannot find module '@agentnative-fork/example'\n",
     );
     appCall?.child.emit("exit", 1, null);
 
@@ -570,7 +570,7 @@ describe("workspace dev startup", () => {
 
     expect(html).toContain("App failed to start: Dispatch");
     expect(html).toContain("Cannot find module");
-    expect(html).toContain("@agent-native/example");
+    expect(html).toContain("@agentnative-fork/example");
     expect(fake.startedApps()).toEqual(["dispatch"]);
   });
 

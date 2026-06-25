@@ -9,7 +9,7 @@ Chaque application native d'agent s'exécute avec un agent IA à côté de l'app
 le wrapper qui héberge les deux : il affiche votre application et donne à l'agent un emplacement pour
 discutez, exécutez et (en développement) modifiez le code. Il existe trois frames partageant un même environnement d'exécution :
 
-- **Panneau d'agent intégré** : livré dans chaque application de `@agent-native/core`.
+- **Panneau d'agent intégré** : livré dans chaque application de `@agentnative-fork/core`.
   Il s'agit de la barre latérale que votre application affiche elle-même, en développement et en production.
 - **Cadre de développement local** : un wrapper léger qui charge votre application en cours d'exécution dans une iframe
   et ajoute le même panneau d'agent plus un terminal CLI intégré à côté. Utilisé
@@ -30,10 +30,10 @@ Le code de votre application est identique quel que soit le cadre qui l'héberge
 ## Panneau d'agent intégré {#embedded-agent}
 
 Le panneau intégré est la barre latérale de l'agent affichée par votre application. Il est livré avec
-`@agent-native/core` — il n'y a pas de package distinct à installer — et c'est le même
+`@agentnative-fork/core` — il n'y a pas de package distinct à installer — et c'est le même
 composant en développement et en production.
 
-- Exporté en tant que `AgentPanel` depuis `@agent-native/core/client`, avec un
+- Exporté en tant que `AgentPanel` depuis `@agentnative-fork/core/client`, avec un
   variante de production uniquement `ProductionAgentPanel`.
 - Fournit la surface Chat / CLI / Workspace complète, de sorte que l'entrée de l'agent reste activée
   la pile de composition partagée utilisée partout ailleurs dans le framework.
@@ -75,7 +75,7 @@ barre latérale à l'intérieur de l'iframe, afin que vous puissiez prévisualis
 ## Terminal intégré et commutation CLI {#cli-terminal}
 
 En développement, le panneau comprend un terminal intégré (`AgentTerminal`, également
-de `@agent-native/core/client`) soutenu par un serveur PTY. Vous pouvez exécuter un vrai
+de `@agentnative-fork/core/client`) soutenu par un serveur PTY. Vous pouvez exécuter un vrai
 codage CLI juste à côté de l'application et basculez entre eux ; le terminal redémarre
 avec le CLI sélectionné.
 
@@ -113,7 +113,7 @@ cohérent dans les deux cas.
 
 ## Exécution API {#runtime-apis}
 
-Ceux-ci sont livrés avec `@agent-native/core` et sont ce que votre application utilise pour communiquer avec le
+Ceux-ci sont livrés avec `@agentnative-fork/core` et sont ce que votre application utilise pour communiquer avec le
 agent, quel que soit le frame qui l'héberge :
 
 1. **Envoyer un message** : `sendToAgentChat()` envoie un message à l'agent. Le
@@ -134,12 +134,12 @@ Le panneau d'agent intégré fait partie de chaque application : créez un mod�
 déjà là :
 
 ```bash
-npx @agent-native/core@latest create my-app --template mail --standalone
+npx @agentnative-fork/core@latest create my-app --template mail --standalone
 cd my-app
 pnpm dev
 ```
 
-Le cadre de développement local (le package privé `@agent-native/frame` dans le dépôt du framework) est un package d'outils internes qui n'est pas publié sur npm. Il charge le serveur de développement de l'application active dans une iframe et monte le panneau intégré à côté, en sélectionnant l'application via le paramètre de requête `app`. Le terminal CLI intégré nécessite Agent Native Desktop, qui fournit le code local et l'accès PTY aux besoins du terminal ; sans cela, le panneau affiche la surface de discussion et vous invite à ouvrir le bureau pour utiliser le CLI.
+Le cadre de développement local (le package privé `@agentnative-fork/frame` dans le dépôt du framework) est un package d'outils internes qui n'est pas publié sur npm. Il charge le serveur de développement de l'application active dans une iframe et monte le panneau intégré à côté, en sélectionnant l'application via le paramètre de requête `app`. Le terminal CLI intégré nécessite Agent Native Desktop, qui fournit le code local et l'accès PTY aux besoins du terminal ; sans cela, le panneau affiche la surface de discussion et vous invite à ouvrir le bureau pour utiliser le CLI.
 
 ## Remarques de compatibilité {#compatibility}
 

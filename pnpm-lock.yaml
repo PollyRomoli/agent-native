@@ -116,10 +116,10 @@ importers:
         specifier: ^2.0.7
         version: 2.0.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
     devDependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
-      '@agent-native/shared-app-config':
+      '@agentnative-fork/shared-app-config':
         specifier: workspace:*
         version: link:../shared-app-config
       '@types/react':
@@ -541,13 +541,13 @@ importers:
 
   packages/desktop-app:
     dependencies:
-      '@agent-native/code-agents-ui':
+      '@agentnative-fork/code-agents-ui':
         specifier: workspace:*
         version: link:../code-agents-ui
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
-      '@agent-native/shared-app-config':
+      '@agentnative-fork/shared-app-config':
         specifier: workspace:*
         version: link:../shared-app-config
       '@radix-ui/react-select':
@@ -744,7 +744,7 @@ importers:
         specifier: ^4.3.6
         version: 4.4.3
     devDependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
       '@react-router/dev':
@@ -783,7 +783,7 @@ importers:
 
   packages/docs:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
       '@radix-ui/react-popover':
@@ -874,7 +874,7 @@ importers:
 
   packages/embedding:
     devDependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
       '@types/react':
@@ -911,10 +911,10 @@ importers:
         specifier: 19.2.7
         version: 19.2.7(react@19.2.7)
     devDependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
-      '@agent-native/shared-app-config':
+      '@agentnative-fork/shared-app-config':
         specifier: workspace:*
         version: link:../shared-app-config
       '@tailwindcss/vite':
@@ -969,7 +969,7 @@ importers:
 
   packages/mobile-app:
     dependencies:
-      '@agent-native/shared-app-config':
+      '@agentnative-fork/shared-app-config':
         specifier: workspace:*
         version: link:../shared-app-config
       '@expo/vector-icons':
@@ -1052,7 +1052,7 @@ importers:
         specifier: ^4.3.6
         version: 4.4.3
     devDependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
       '@modelcontextprotocol/sdk':
@@ -1110,7 +1110,7 @@ importers:
         specifier: ^4.3.6
         version: 4.4.3
     devDependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
       '@libsql/client':
@@ -1146,7 +1146,7 @@ importers:
 
   packages/skills:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../core
       '@clack/prompts':
@@ -1207,7 +1207,7 @@ importers:
 
   templates/analytics:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@dnd-kit/core':
@@ -1460,7 +1460,7 @@ importers:
 
   templates/assets:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@aws-sdk/client-s3':
@@ -1623,7 +1623,7 @@ importers:
 
   templates/brain:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@fontsource-variable/inter':
@@ -1744,10 +1744,10 @@ importers:
 
   templates/calendar:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@agent-native/scheduling':
+      '@agentnative-fork/scheduling':
         specifier: workspace:*
         version: link:../../packages/scheduling
       '@fontsource-variable/inter':
@@ -1979,7 +1979,7 @@ importers:
 
   templates/chat:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@fontsource-variable/inter':
@@ -2187,7 +2187,7 @@ importers:
 
   templates/clips:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@ffmpeg/ffmpeg':
@@ -2477,7 +2477,7 @@ importers:
 
   templates/content:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@dnd-kit/core':
@@ -2715,10 +2715,10 @@ importers:
 
   templates/design:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@agent-native/pinpoint':
+      '@agentnative-fork/pinpoint':
         specifier: workspace:*
         version: link:../../packages/pinpoint
       '@fontsource-variable/inter':
@@ -2944,10 +2944,10 @@ importers:
 
   templates/dispatch:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@agent-native/dispatch':
+      '@agentnative-fork/dispatch':
         specifier: workspace:*
         version: link:../../packages/dispatch
       '@fontsource-variable/inter':
@@ -3032,7 +3032,7 @@ importers:
 
   templates/forms:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@fontsource-variable/inter':
@@ -3249,7 +3249,7 @@ importers:
 
   templates/macros:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@fontsource-variable/inter':
@@ -3466,7 +3466,7 @@ importers:
 
   templates/mail:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@fontsource-variable/inter':
@@ -3728,7 +3728,7 @@ importers:
 
   templates/plan:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
       '@excalidraw/excalidraw':
@@ -3993,10 +3993,10 @@ importers:
 
   templates/slides:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@agent-native/pinpoint':
+      '@agentnative-fork/pinpoint':
         specifier: workspace:*
         version: link:../../packages/pinpoint
       '@dnd-kit/core':
@@ -4339,10 +4339,10 @@ importers:
 
   templates/videos:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@agent-native/pinpoint':
+      '@agentnative-fork/pinpoint':
         specifier: workspace:*
         version: link:../../packages/pinpoint
       '@fontsource-variable/inter':

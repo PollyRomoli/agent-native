@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getRequestRunContext,
   getRequestUserEmail,
   getRequestUserName,
-} from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js"; // ensure registerShareableResource runs
 

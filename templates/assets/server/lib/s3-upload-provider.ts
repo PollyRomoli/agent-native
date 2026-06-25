@@ -15,7 +15,7 @@
  *   ASSETS_STORAGE_PUBLIC_BASE_URL | IMAGES_STORAGE_PUBLIC_BASE_URL | S3_PUBLIC_BASE_URL — optional
  */
 
-import type { FileUploadProvider } from "@agent-native/core/file-upload";
+import type { FileUploadProvider } from "@agentnative-fork/core/file-upload";
 
 interface S3Config {
   region: string;

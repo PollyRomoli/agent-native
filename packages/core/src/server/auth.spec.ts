@@ -100,7 +100,7 @@ describe("server/auth", () => {
 
     it("infers first-party template identity from agent-native production URLs", async () => {
       vi.stubEnv("APP_URL", "https://content.agent-native.com");
-      vi.stubEnv("npm_package_name", "@agent-native/framework");
+      vi.stubEnv("npm_package_name", "@agentnative-fork/framework");
       const { resolveSignupTrackingIdentity } =
         await import("./better-auth-instance.js");
 
@@ -3175,14 +3175,14 @@ describe("server/auth", () => {
           appName: "Agent-Native Mail",
           tagline: "Manage email with an agent.",
           runLocalCommand:
-            "npx @agent-native/core@latest create my-mail-app --template mail",
+            "npx @agentnative-fork/core@latest create my-mail-app --template mail",
         },
       });
 
       expect(html).toContain('id="run-local-button"');
       expect(html).toContain("Run Locally");
       expect(html).toContain(
-        "npx @agent-native/core@latest create my-mail-app --template mail",
+        "npx @agentnative-fork/core@latest create my-mail-app --template mail",
       );
       expect(html).toContain("function __anCopyRunLocalCommand()");
     });

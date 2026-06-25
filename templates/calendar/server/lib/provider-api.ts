@@ -9,9 +9,9 @@ import {
   type ProviderApiMethod,
   type ProviderApiRequestArgs,
   type ProviderApiResolvedCredential,
-} from "@agent-native/core/provider-api";
-import { resolveCredential } from "@agent-native/core/credentials";
-import { getCredentialContext } from "@agent-native/core/server";
+} from "@agentnative-fork/core/provider-api";
+import { resolveCredential } from "@agentnative-fork/core/credentials";
+import { getCredentialContext } from "@agentnative-fork/core/server";
 
 export const CALENDAR_APP_ID = "calendar";
 export const CALENDAR_PROVIDER_API_IDS = listProviderApiIdsForTemplateUse(

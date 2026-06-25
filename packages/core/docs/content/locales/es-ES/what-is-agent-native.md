@@ -147,7 +147,7 @@ Las aplicaciones nativas del agente siguen un modelo de bifurcación y personali
 
 Debido a que es _su_ aplicación, no una infraestructura compartida, el agente puede desarrollar el código de manera segura. Tu aplicación sigue mejorando a medida que la usas. Consulte [Templates](/docs/cloneable-saas) para conocer la historia completa.
 
-¿No estás listo para bifurcar una plantilla completa? También puede probar el agente nativo agregando una **habilidad** a un agente de codificación que ya usa: instale la habilidad Planes con `npx @agent-native/core@latest skills add visual-plan`. Ver el [Skills Guide](/docs/skills-guide#app-backed-skills).
+¿No estás listo para bifurcar una plantilla completa? También puede probar el agente nativo agregando una **habilidad** a un agente de codificación que ya usa: instale la habilidad Planes con `npx @agentnative-fork/core@latest skills add visual-plan`. Ver el [Skills Guide](/docs/skills-guide#app-backed-skills).
 
 ## Agentes componibles {#composable-agents}
 
@@ -163,7 +163,7 @@ Si está creando o ampliando una aplicación nativa del agente, este es el patr�
 {
   "filename": "actions/reply-to-email.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread\",\n  schema: z.object({ emailId: z.string(), body: z.string() }),\n  run: async ({ emailId, body }) => {\n    // db and schema come from your app's server/db setup\n    await db.insert(schema.replies).values({ emailId, body });\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread\",\n  schema: z.object({ emailId: z.string(), body: z.string() }),\n  run: async ({ emailId, body }) => {\n    // db and schema come from your app's server/db setup\n    await db.insert(schema.replies).values({ emailId, body });\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Tool surface", "note": "The `description` is what the agent reads to decide when to call this as a tool." },
     { "lines": "6", "label": "Contrato tipado", "note": "Un zod `schema` valida la entrada de **todas** las superficies: agente, UI, HTTP, MCP y A2A." },
@@ -183,7 +183,7 @@ const { mutate } = useActionMutation("reply-to-email");
 
 ```tsx
 // And the agent panel mounted anywhere in your app
-import { AgentSidebar } from "@agent-native/core/client";
+import { AgentSidebar } from "@agentnative-fork/core/client";
 
 <AgentSidebar />;
 ```

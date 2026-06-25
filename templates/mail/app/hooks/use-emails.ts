@@ -5,7 +5,7 @@ import {
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
-import { callAction } from "@agent-native/core/client";
+import { callAction } from "@agentnative-fork/core/client";
 import type {
   ComposeAttachment,
   EmailMessage,
@@ -14,7 +14,7 @@ import type {
 } from "@shared/types";
 import { markdownPreviewSnippet } from "@shared/markdown";
 import { TAB_ID } from "@/lib/tab-id";
-import { appApiPath } from "@agent-native/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 import { bodyToHtml } from "@/lib/utils";
 import {
   useThreadCache,

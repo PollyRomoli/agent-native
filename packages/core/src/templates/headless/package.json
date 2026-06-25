@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@agent-native/core": "latest",
+    "@agentnative-fork/core": "latest",
     "postgres": "^3.4.9",
     "zod": "^4.4.3"
   },

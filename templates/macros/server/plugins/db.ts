@@ -1,4 +1,4 @@
-import { runMigrations, isPostgres } from "@agent-native/core/db";
+import { runMigrations, isPostgres } from "@agentnative-fork/core/db";
 
 function pk(): string {
   return isPostgres() ? "SERIAL PRIMARY KEY" : "INTEGER PRIMARY KEY";

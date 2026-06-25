@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { callAction, useActionQuery } from "@agent-native/core/client";
+import { callAction, useActionQuery } from "@agentnative-fork/core/client";
 import type { CalendarEvent, ExternalCalendar } from "@shared/api";
 
 const EXTERNAL_CALENDARS_KEY = [

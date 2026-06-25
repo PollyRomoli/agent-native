@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import type { ApolloPersonResult } from "@shared/types";
-import { appApiPath } from "@agent-native/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 async function apiFetch<T>(url: string, options?: RequestInit): Promise<T> {

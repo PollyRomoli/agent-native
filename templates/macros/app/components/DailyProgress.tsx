@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { cn, formatLocalDate } from "@/lib/utils";
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 import { subDays } from "date-fns";
 import { Link } from "react-router";
 import {

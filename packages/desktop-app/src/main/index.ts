@@ -287,7 +287,7 @@ function handleSecondInstance(_event: Electron.Event, argv: string[]): void {
 
 if (IS_DEV) {
   // electron-vite kills the main process and relaunches it on every rebuild
-  // (e.g. when the concurrent `@agent-native/core` tsc --watch under
+  // (e.g. when the concurrent `@agentnative-fork/core` tsc --watch under
   // dev:lazy:desktop rewrites bundled output). A single-instance lock would
   // make the relaunched instance race the still-dying one for the lock, lose,
   // and app.quit() — leaving the killed instance's dead Dock tile behind.
@@ -1835,7 +1835,7 @@ function resolveRemoteConnectorCliInvocation(): {
     command: "pnpm",
     args: [
       "--filter",
-      "@agent-native/core",
+      "@agentnative-fork/core",
       "exec",
       "node",
       "dist/cli/index.js",
@@ -3229,7 +3229,7 @@ function spawnCodeAgentRunner(
     ? [path.relative(repoRoot, localCli), "code", "run", runId]
     : [
         "--filter",
-        "@agent-native/core",
+        "@agentnative-fork/core",
         "exec",
         "node",
         "dist/cli/index.js",
@@ -3378,7 +3378,7 @@ function spawnCodeAgentApprovalRunner(
     ? [path.relative(repoRoot, localCli), "code", subcommand, runId]
     : [
         "--filter",
-        "@agent-native/core",
+        "@agentnative-fork/core",
         "exec",
         "node",
         "dist/cli/index.js",
@@ -6792,7 +6792,7 @@ function getCodeAgentHostMetadata(): CodeAgentHostMetadata {
       runsDir: codeAgentRunsDir(),
       transcriptsDir: codeAgentEventsDir(),
       codePack: {
-        name: corePackage.name ?? "@agent-native/core",
+        name: corePackage.name ?? "@agentnative-fork/core",
         version: corePackage.version,
         root: fs.existsSync(path.join(repoRoot, "packages/core"))
           ? path.join(repoRoot, "packages/core")

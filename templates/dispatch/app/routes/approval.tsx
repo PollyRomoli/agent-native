@@ -1,1 +1,1 @@
-export { default, meta } from "@agent-native/dispatch/routes/pages/approval";
+export { default, meta } from "@agentnative-fork/dispatch/routes/pages/approval";

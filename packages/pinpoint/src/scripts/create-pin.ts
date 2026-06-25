@@ -1,7 +1,7 @@
-// @agent-native/pinpoint — Create annotation script
+// @agentnative-fork/pinpoint — Create annotation script
 // MIT License
 
-import { parseArgs, fail } from "@agent-native/core/scripts";
+import { parseArgs, fail } from "@agentnative-fork/core/scripts";
 import { FileStore } from "../storage/file-store.js";
 import { randomUUID } from "crypto";
 import type { Pin } from "../types/index.js";

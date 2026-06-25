@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { IconCheck, IconMailFast, IconX } from "@tabler/icons-react";
-import { callAction, useSession } from "@agent-native/core/client";
+import { callAction, useSession } from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

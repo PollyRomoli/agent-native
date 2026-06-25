@@ -53,7 +53,7 @@ import {
   DevDatabaseLink,
   FeedbackButton,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { EVENT_CATEGORY_COLORS } from "@/lib/event-colors";
 import {
   CALENDAR_COLORS,
@@ -82,8 +82,8 @@ import {
 } from "@/components/ui/collapsible";
 import { useCalendarContext } from "./AppLayout";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { OrgSwitcher } from "@agent-native/core/client/org";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
+import { OrgSwitcher } from "@agentnative-fork/core/client/org";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
 
 const navItems = [
   { path: "/", labelKey: "navigation.calendar", icon: IconCalendar },

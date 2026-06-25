@@ -118,7 +118,7 @@ Todas las rutas se encuentran bajo `/_agent-native/onboarding/`:
 {
   "filename": "server/plugins/my-onboarding.ts",
   "language": "ts",
-  "code": "import { defineNitroPlugin } from \"@agent-native/core/server\";\nimport { registerOnboardingStep } from \"@agent-native/core/onboarding\";\nimport { listOAuthAccounts } from \"@agent-native/core/oauth-tokens\";\n\nexport default defineNitroPlugin(() => {\n  registerOnboardingStep({\n    id: \"gmail\",\n    order: 100,\n    title: \"Connect Gmail\",\n    description: \"Grant read/send access so the agent can work with email.\",\n    methods: [\n      {\n        id: \"oauth\",\n        kind: \"link\",\n        primary: true,\n        label: \"Sign in with Google\",\n        payload: { url: \"/_agent-native/google/auth-url?scope=mail\", external: false },\n      },\n      {\n        id: \"delegate\",\n        kind: \"agent-task\",\n        label: \"Let the agent set it up\",\n        badge: \"beta\",\n        payload: { prompt: \"Walk me through connecting Gmail. Set env vars as needed.\" },\n      },\n    ],\n    isComplete: async () => {\n      const accounts = await listOAuthAccounts(\"google\");\n      return accounts.length > 0;\n    },\n  });\n});",
+  "code": "import { defineNitroPlugin } from \"@agentnative-fork/core/server\";\nimport { registerOnboardingStep } from \"@agentnative-fork/core/onboarding\";\nimport { listOAuthAccounts } from \"@agentnative-fork/core/oauth-tokens\";\n\nexport default defineNitroPlugin(() => {\n  registerOnboardingStep({\n    id: \"gmail\",\n    order: 100,\n    title: \"Connect Gmail\",\n    description: \"Grant read/send access so the agent can work with email.\",\n    methods: [\n      {\n        id: \"oauth\",\n        kind: \"link\",\n        primary: true,\n        label: \"Sign in with Google\",\n        payload: { url: \"/_agent-native/google/auth-url?scope=mail\", external: false },\n      },\n      {\n        id: \"delegate\",\n        kind: \"agent-task\",\n        label: \"Let the agent set it up\",\n        badge: \"beta\",\n        payload: { prompt: \"Walk me through connecting Gmail. Set env vars as needed.\" },\n      },\n    ],\n    isComplete: async () => {\n      const accounts = await listOAuthAccounts(\"google\");\n      return accounts.length > 0;\n    },\n  });\n});",
   "annotations": [
     { "lines": "5", "label": "Auto-mounted", "note": "Register from a Nitro plugin — the framework handles rendering, completion tracking, and dismissal." },
     { "lines": "7", "label": "Stable id", "note": "Re-registering with the same `id` after defaults load overrides a built-in step." },
@@ -136,7 +136,7 @@ Al crear plantillas que interactúan con servicios externos (como Slack, Google 
 Puedes verificar la preparación de la conexión en tu devolución de llamada `isComplete` usando el catálogo de conexiones APIs:
 
 ```ts
-import { listWorkspaceConnectionProviderCatalogForApp } from "@agent-native/core/workspace-connections";
+import { listWorkspaceConnectionProviderCatalogForApp } from "@agentnative-fork/core/workspace-connections";
 
 // Inside registerOnboardingStep:
 isComplete: async () => {
@@ -196,7 +196,7 @@ import {
   OnboardingPanel,
   OnboardingBanner,
   useOnboarding,
-} from "@agent-native/core/client/onboarding";
+} from "@agentnative-fork/core/client/onboarding";
 
 function MySidebar() {
   const { allComplete, dismissed, currentStepId } = useOnboarding();

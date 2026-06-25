@@ -6,8 +6,8 @@ import {
   isInBuilderFrame,
   sendToAgentChat,
   useDevMode,
-} from "@agent-native/core/client";
-import { getWorkspaceAppIdValidationError } from "@agent-native/core/shared";
+} from "@agentnative-fork/core/client";
+import { getWorkspaceAppIdValidationError } from "@agentnative-fork/core/shared";
 import {
   IconArrowLeft,
   IconArrowUpRight,

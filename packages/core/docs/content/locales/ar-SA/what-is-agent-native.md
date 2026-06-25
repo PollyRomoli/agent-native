@@ -147,7 +147,7 @@ Agent-native هو وسيلة لبناء البرامج حيث يكون وكيل 
 
 نظرًا لأنه _your_ التطبيق، وليس بنية تحتية مشتركة، يمكن للوكيل تطوير التعليمات البرمجية بأمان. يستمر تطبيقك في التحسن أثناء استخدامه. راجع [Templates](/docs/cloneable-saas) للحصول على القصة الكاملة.
 
-لست مستعدًا لتقسيم قالب كامل؟ يمكنك أيضًا تجربة Agent-Native عن طريق إضافة **مهارة** إلى وكيل الترميز الذي تستخدمه بالفعل — قم بتثبيت مهارة الخطط باستخدام `npx @agent-native/core@latest skills add visual-plan`. انظر [Skills Guide](/docs/skills-guide#app-backed-skills).
+لست مستعدًا لتقسيم قالب كامل؟ يمكنك أيضًا تجربة Agent-Native عن طريق إضافة **مهارة** إلى وكيل الترميز الذي تستخدمه بالفعل — قم بتثبيت مهارة الخطط باستخدام `npx @agentnative-fork/core@latest skills add visual-plan`. انظر [Skills Guide](/docs/skills-guide#app-backed-skills).
 
 ## العوامل القابلة للتركيب {#composable-agents}
 
@@ -163,7 +163,7 @@ Agent-native هو وسيلة لبناء البرامج حيث يكون وكيل 
 {
   "filename": "actions/reply-to-email.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread\",\n  schema: z.object({ emailId: z.string(), body: z.string() }),\n  run: async ({ emailId, body }) => {\n    // db and schema come from your app's server/db setup\n    await db.insert(schema.replies).values({ emailId, body });\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread\",\n  schema: z.object({ emailId: z.string(), body: z.string() }),\n  run: async ({ emailId, body }) => {\n    // db and schema come from your app's server/db setup\n    await db.insert(schema.replies).values({ emailId, body });\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Tool surface", "note": "The `description` is what the agent reads to decide when to call this as a tool." },
     { "lines": "6", "label": "عقد typed", "note": "يقوم zod `schema` واحد بالتحقق من الإدخال من **كل** سطح — agent وواجهة المستخدم وHTTP وMCP وA2A." },
@@ -183,7 +183,7 @@ const { mutate } = useActionMutation("reply-to-email");
 
 ```tsx
 // And the agent panel mounted anywhere in your app
-import { AgentSidebar } from "@agent-native/core/client";
+import { AgentSidebar } from "@agentnative-fork/core/client";
 
 <AgentSidebar />;
 ```

@@ -12,7 +12,7 @@ import {
   OpenSourceBadge,
   PoweredByBadge,
   StarfieldBackground,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { DatePicker } from "@/components/booking/DatePicker";
 import { TimeSlotPicker } from "@/components/booking/TimeSlotPicker";

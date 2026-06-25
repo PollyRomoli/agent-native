@@ -1,4 +1,4 @@
-// Public API for @agent-native/core/collab
+// Public API for @agentnative-fork/core/collab
 
 // Storage
 export {

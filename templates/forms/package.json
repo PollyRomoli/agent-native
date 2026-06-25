@@ -16,7 +16,7 @@
     "test": "vitest --run --config vitest.config.ts"
   },
   "dependencies": {
-    "@agent-native/core": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
     "@fontsource-variable/inter": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
     "@libsql/client": "^0.15.0",

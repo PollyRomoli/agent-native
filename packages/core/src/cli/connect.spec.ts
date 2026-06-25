@@ -1995,7 +1995,7 @@ describe("runConnect", () => {
     await runConnect(["--help"]);
     expect(process.exitCode).toBeFalsy();
     expect(out.mock.calls.flat().join("")).toContain(
-      "npx @agent-native/core@latest connect",
+      "npx @agentnative-fork/core@latest connect",
     );
   });
 });

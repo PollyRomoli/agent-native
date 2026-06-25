@@ -8,11 +8,11 @@ const repoRoot = path.resolve(
 );
 
 const npmPublishAllowlist = new Set([
-  "@agent-native/core",
-  "@agent-native/dispatch",
-  "@agent-native/pinpoint",
-  "@agent-native/scheduling",
-  "@agent-native/skills",
+  "@agentnative-fork/core",
+  "@agentnative-fork/dispatch",
+  "@agentnative-fork/pinpoint",
+  "@agentnative-fork/scheduling",
+  "@agentnative-fork/skills",
 ]);
 
 // Packages that are NOT published to npm and therefore exempt from the
@@ -20,14 +20,14 @@ const npmPublishAllowlist = new Set([
 // consumed through `workspace:` and must stay ignored by changesets until npm
 // trusted publishing is configured for them.
 const workspaceOnlyPackageAllowlist = new Set([
-  "@agent-native/desktop-app",
-  "@agent-native/docs",
-  "@agent-native/frame",
-  "@agent-native/mobile-app",
-  "@agent-native/code-agents-ui",
-  "@agent-native/embedding",
-  "@agent-native/migrate",
-  "@agent-native/shared-app-config",
+  "@agentnative-fork/desktop-app",
+  "@agentnative-fork/docs",
+  "@agentnative-fork/frame",
+  "@agentnative-fork/mobile-app",
+  "@agentnative-fork/code-agents-ui",
+  "@agentnative-fork/embedding",
+  "@agentnative-fork/migrate",
+  "@agentnative-fork/shared-app-config",
 ]);
 
 type PackageJson = {
@@ -76,7 +76,7 @@ function readWorkspacePackageNames(): Set<string> {
     if (!fs.existsSync(packageJsonPath)) continue;
 
     const pkg = readJson<PackageJson>(packageJsonPath);
-    if (pkg.name?.startsWith("@agent-native/")) {
+    if (pkg.name?.startsWith("@agentnative-fork/")) {
       names.add(pkg.name);
     }
   }
@@ -140,7 +140,7 @@ for (const entry of fs.readdirSync(packagesDir, { withFileTypes: true })) {
   if (!fs.existsSync(packageJsonPath)) continue;
 
   const pkg = readJson<PackageJson>(packageJsonPath);
-  if (!pkg.name?.startsWith("@agent-native/")) continue;
+  if (!pkg.name?.startsWith("@agentnative-fork/")) continue;
 
   failures.push(
     ...localWorkspaceDependencyFailures(

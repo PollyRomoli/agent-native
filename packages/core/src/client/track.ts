@@ -2,14 +2,14 @@ import { agentNativePath } from "./api-path.js";
 
 /**
  * Fire an analytics event from browser/app code. This is the client-side twin
- * of the server `track()` from `@agent-native/core/tracking`: it POSTs to the
+ * of the server `track()` from `@agentnative-fork/core/tracking`: it POSTs to the
  * `/_agent-native/track` framework route, which forwards the event to the SAME
  * registered server-side providers (PostHog, Mixpanel, Amplitude, webhook,
  * etc.). The event is attributed server-side to the signed-in user (and active
  * org) — callers do not pass an identity.
  *
  * ```ts
- * import { track } from "@agent-native/core/client";
+ * import { track } from "@agentnative-fork/core/client";
  *
  * track("checkout.completed", { total: 49.99, items: 3 });
  * ```

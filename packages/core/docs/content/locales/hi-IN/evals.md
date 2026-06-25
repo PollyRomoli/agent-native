@@ -27,7 +27,7 @@ description: " *.eval.ts परीक्षण मामले लिखें �
 
 ```ts
 // evals/greeting.eval.ts
-import { defineEval, contains, llmJudge } from "@agent-native/core/eval";
+import { defineEval, contains, llmJudge } from "@agentnative-fork/core/eval";
 
 export default defineEval({
   name: "greets the user by name",
@@ -65,7 +65,7 @@ interface AgentRunOutput {
 
 ## अंतर्निहित स्कोरर {#built-in}
 
-`@agent-native/core/eval` से आयातित:
+`@agentnative-fork/core/eval` से आयातित:
 
 | स्कोरर                   | स्कोर                                                                  | मॉडल? |
 | ------------------------ | ---------------------------------------------------------------------- | ----- |
@@ -97,7 +97,7 @@ generateReason(...) → string     human-readable why (optional)
 `preprocess` और `analyze` पहचान के लिए डिफ़ॉल्ट हैं (स्कोरर कच्चा `AgentRunOutput` देखता है)। `analyze` चरण को LLM-समर्थित स्कोरिंग के लिए प्रदाता-अज्ञेयवादी `judge()` सहायक के साथ एक `ctx` प्राप्त होता है:
 
 ```ts
-import { createScorer, clamp01 } from "@agent-native/core/eval";
+import { createScorer, clamp01 } from "@agentnative-fork/core/eval";
 
 // A scorer that rewards short, tool-using answers.
 const concise = createScorer({

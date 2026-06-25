@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — React adapter using bippy + element-source
+// @agentnative-fork/pinpoint — React adapter using bippy + element-source
 // MIT License
 
 import type {

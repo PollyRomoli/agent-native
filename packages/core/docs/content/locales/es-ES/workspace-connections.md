@@ -31,7 +31,7 @@ Conecta Slack una vez y concédelo a Brain and Analytics:
 import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 await upsertWorkspaceConnection({
   id: "acme-slack",
@@ -98,7 +98,7 @@ await upsertWorkspaceConnectionGrant({
 Antes de pedirle a un usuario que pegue una nueva clave, verifique primero que esté lista:
 
 ```ts
-import { listWorkspaceConnectionProviderCatalogForApp } from "@agent-native/core/workspace-connections";
+import { listWorkspaceConnectionProviderCatalogForApp } from "@agentnative-fork/core/workspace-connections";
 
 const catalog = await listWorkspaceConnectionProviderCatalogForApp({
   appId: "brain",
@@ -120,14 +120,14 @@ if (slack.readiness.status === "needs_credentials") {
 
 ### Catálogo de proveedores
 
-Importar el catálogo de `@agent-native/core/connections`:
+Importar el catálogo de `@agentnative-fork/core/connections`:
 
 ```ts
 import {
   getWorkspaceConnectionProvider,
   listWorkspaceConnectionProvidersForTemplate,
   workspaceConnectionProviderSupports,
-} from "@agent-native/core/connections";
+} from "@agentnative-fork/core/connections";
 
 const brainProviders = listWorkspaceConnectionProvidersForTemplate("brain");
 const slack = getWorkspaceConnectionProvider("slack");
@@ -165,7 +165,7 @@ import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
   revokeWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 const connections = await listWorkspaceConnections({ includeDisabled: true });
 const grants = await listWorkspaceConnectionGrants({ appId: "brain" });
@@ -232,8 +232,8 @@ La mayoría de los controladores en vivo siguen siendo propiedad de las plantill
 
 Las aplicaciones que consumen credenciales de proveedores compartidas deben exponer una acción de preparación de solo lectura y una pequeña superficie de configuración que cubra:
 
-- **Catálogo de proveedores:** ID de proveedor, etiqueta, capacidades, usos de plantilla recomendados y nombres de claves de credenciales requeridas de `@agent-native/core/connections`.
-- **Resumen del espacio de trabajo:** recuento de conexiones, recuentos activos/concedidos, estado de concesión, nombres de referencia de credenciales y etiquetas de cuentas no secretas de `@agent-native/core/workspace-connections`.
+- **Catálogo de proveedores:** ID de proveedor, etiqueta, capacidades, usos de plantilla recomendados y nombres de claves de credenciales requeridas de `@agentnative-fork/core/connections`.
+- **Resumen del espacio de trabajo:** recuento de conexiones, recuentos activos/concedidos, estado de concesión, nombres de referencia de credenciales y etiquetas de cuentas no secretas de `@agentnative-fork/core/workspace-connections`.
 - **Preparación del proveedor:** `ready`, `needs_credentials`, `needs_attention`, `checking`, `disabled` o `not_configured` a través de `summarizeWorkspaceConnectionProviderReadiness()`.
 - **Estado de la fuente:** fuentes configuradas locales de la aplicación, cursores, estado de sincronización y siguiente acción.
 
@@ -243,8 +243,8 @@ La página Fuentes de Brain es la implementación de referencia. Muestra proveed
 
 Cuándo un nuevo proveedor debería funcionar en varias plantillas:
 
-1. **Metadatos del proveedor:** agregue o reutilice un proveedor en `@agent-native/core/connections`. Esta es la identificación estable, la etiqueta para mostrar, la lista de capacidades, los usos recomendados de la plantilla y los nombres de las claves de credenciales.
-2. **Conexión del espacio de trabajo:** Dispatch u otra superficie de configuración del espacio de trabajo almacena los metadatos seguros, el estado, los alcances, `credentialRefs` y las concesiones de aplicaciones de la cuenta conectada a través de `@agent-native/core/workspace-connections`.
+1. **Metadatos del proveedor:** agregue o reutilice un proveedor en `@agentnative-fork/core/connections`. Esta es la identificación estable, la etiqueta para mostrar, la lista de capacidades, los usos recomendados de la plantilla y los nombres de las claves de credenciales.
+2. **Conexión del espacio de trabajo:** Dispatch u otra superficie de configuración del espacio de trabajo almacena los metadatos seguros, el estado, los alcances, `credentialRefs` y las concesiones de aplicaciones de la cuenta conectada a través de `@agentnative-fork/core/workspace-connections`.
 3. **Fuente local de la aplicación:** Brain, Analytics, Mail u otra aplicación almacena solo las opciones específicas de la aplicación que posee, como canales Slack, repositorios GitHub, filtros de objetos HubSpot, cursores de sincronización o cadencia de sondeo.
 
 No duplique OAuth/almacenamiento de tokens en cada aplicación. El registro de conexión dice "este es Acme Slack y su token se encuentra en `SLACK_BOT_TOKEN`"; la fuente local de la aplicación dice "Brain puede ingerir `#product` y `#dev-fusion` de esa conexión Slack".

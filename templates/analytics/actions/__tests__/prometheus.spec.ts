@@ -1,6 +1,6 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-// @agent-native/core transitively imports @opentelemetry/api, which has a
+// @agentnative-fork/core transitively imports @opentelemetry/api, which has a
 // broken ESM export path that node's resolver can't load. Stub defineAction
 // so action tests don't depend on the framework runtime.
 //
@@ -10,7 +10,7 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 // string "defineAction" gets added to .generated/actions-registry.ts, which
 // causes vi.mock() to run outside Vitest's transform pipeline and throws
 // "Vitest mocker was not initialized in this environment. vi.queueMock() is forbidden."
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   defineAction: <T extends { run: (args: any) => unknown }>(def: T) => def,
 }));
 

@@ -13,7 +13,7 @@ import {
   getH3App,
   readBody,
   setFrameworkSessionCookie,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { defineEventHandler, getMethod } from "h3";
 import { createClient } from "@supabase/supabase-js";
 

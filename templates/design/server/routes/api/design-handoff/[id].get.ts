@@ -7,7 +7,7 @@ import {
   type H3Event,
 } from "h3";
 import { eq } from "drizzle-orm";
-import { verifyShortLivedToken } from "@agent-native/core/server";
+import { verifyShortLivedToken } from "@agentnative-fork/core/server";
 import { getDb, schema } from "../../../db/index.js";
 import {
   buildDesignHandoffMarkdown,

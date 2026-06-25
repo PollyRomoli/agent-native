@@ -1,4 +1,4 @@
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   marketing: {

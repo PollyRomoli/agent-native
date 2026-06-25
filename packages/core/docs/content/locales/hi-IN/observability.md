@@ -46,7 +46,7 @@ description: "एजेंट ट्रेस, मूल्यांकन, फ�
 
 ```tsx
 // app/routes/observability.tsx
-import { ObservabilityDashboard } from "@agent-native/core/client";
+import { ObservabilityDashboard } from "@agentnative-fork/core/client";
 
 export default function ObservabilityPage() {
   return (
@@ -106,7 +106,7 @@ export default function ObservabilityPage() {
 `evalSampleRate` सेट करके नमूना LLM-आधारित मूल्यांकन सक्षम करें:
 
 ```ts
-import { putSetting } from "@agent-native/core/settings";
+import { putSetting } from "@agentnative-fork/core/settings";
 
 await putSetting("observability-config", {
   enabled: true,
@@ -269,7 +269,7 @@ DSN कॉन्फ़िगर होने पर Nitro रूट हैंड
 
 ```ts
 // server/plugins/sentry.ts
-import { createSentryPlugin } from "@agent-native/core/server";
+import { createSentryPlugin } from "@agentnative-fork/core/server";
 export default createSentryPlugin();
 ```
 

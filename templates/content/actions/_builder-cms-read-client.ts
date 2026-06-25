@@ -1,4 +1,4 @@
-import { resolveBuilderCredential } from "@agent-native/core/server";
+import { resolveBuilderCredential } from "@agentnative-fork/core/server";
 import type {
   BuilderCmsModelFieldSummary,
   BuilderCmsModelSummary,

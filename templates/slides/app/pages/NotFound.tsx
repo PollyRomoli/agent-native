@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { useEffect } from "react";
 import { IconArrowLeft } from "@tabler/icons-react";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 export default function NotFound() {
   const t = useT();

@@ -1,4 +1,4 @@
-import { isInBuilderFrame, sendToAgentChat } from "@agent-native/core/client";
+import { isInBuilderFrame, sendToAgentChat } from "@agentnative-fork/core/client";
 
 export function submitOverviewPrompt(
   message: string,

@@ -22,13 +22,13 @@ A good template:
 Use the Chat template when you want a minimal app with the framework wiring already in place:
 
 ```bash
-npx @agent-native/core@latest create my-template --template chat --standalone
+npx @agentnative-fork/core@latest create my-template --template chat --standalone
 ```
 
 For a workspace with multiple apps, run the picker and include Chat with any domain templates you want:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 Chat gives you auth, durable chat threads, SQL-backed resources, tools, application state, actions, and polling sync. You add the domain model and product UI.
@@ -87,7 +87,7 @@ import {
   now,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),
@@ -112,7 +112,7 @@ For app reads and writes, use Drizzle's query builder and portable operators fro
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -145,7 +145,7 @@ Actions are the single source of truth for app behavior. The agent calls them as
 {
   "filename": "actions/create-project.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { getDb } from \"../server/db/index.js\";\nimport { nanoid } from \"nanoid\";\nimport { z } from \"zod\";\nimport * as schema from \"../server/db/schema\";\n\nexport default defineAction({\n  description: \"Create a project.\",\n  schema: z.object({\n    title: z.string().min(1).describe(\"Project title\"),\n  }),\n  run: async ({ title }, ctx) => {\n    const db = getDb();\n    const id = nanoid();\n    await db.insert(schema.projects).values({\n      id,\n      title,\n      ownerEmail: ctx.userEmail,\n      orgId: ctx.orgId,\n    });\n    return { id, title };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { getDb } from \"../server/db/index.js\";\nimport { nanoid } from \"nanoid\";\nimport { z } from \"zod\";\nimport * as schema from \"../server/db/schema\";\n\nexport default defineAction({\n  description: \"Create a project.\",\n  schema: z.object({\n    title: z.string().min(1).describe(\"Project title\"),\n  }),\n  run: async ({ title }, ctx) => {\n    const db = getDb();\n    const id = nanoid();\n    await db.insert(schema.projects).values({\n      id,\n      title,\n      ownerEmail: ctx.userEmail,\n      orgId: ctx.orgId,\n    });\n    return { id, title };\n  },\n});",
   "annotations": [
     { "lines": "2", "note": "`getDb` is created per app via `createGetDb(schema)` in `server/db/index.ts`." },
     { "lines": "8", "label": "Tool surface", "note": "The `description` is what the agent reads to decide when to call this action as a tool." },
@@ -162,7 +162,7 @@ Use `http: { method: "GET" }` or `readOnly: true` for read-only actions. Use `pa
 Routes live in `app/routes/` and use React Router v7 file routing. Query data through actions or API handlers, and make mutations optimistic by default.
 
 ```tsx
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 
 export default function ProjectsPage() {
   const { data: projects = [] } = useActionQuery("list-projects", {});
@@ -179,7 +179,7 @@ export default function ProjectsPage() {
 Wire live sync once near the app shell so React Query caches refresh when the agent, another tab, or an action changes data:
 
 ```tsx
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 export function AppSync() {
@@ -192,7 +192,7 @@ export function AppSync() {
 **The agent-native promise: agent writes show up in the UI without a manual refresh.** `useActionQuery` is the easy path — every hook refetches when a mutating action emits `source: "action"`. If you reach for raw `useQuery` with a custom key (for example, a low-level client helper that reads integration status), fold the per-source counter into the queryKey for targeted refreshes:
 
 ```tsx
-import { useChangeVersions } from "@agent-native/core/client";
+import { useChangeVersions } from "@agentnative-fork/core/client";
 
 const v = useChangeVersions(["dashboards", "action"]);
 useQuery({
@@ -215,7 +215,7 @@ Application state is how the agent knows what the user is seeing. At minimum, ad
 Use `useAgentRouteState` for the UI hook so application-state writes, tab-scoped command reads, delete-after-read, and duplicate-command protection stay consistent:
 
 ```tsx
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 export function useNavigationState() {
@@ -240,8 +240,8 @@ that key is reserved for the framework URL tools and URL-only filter changes.
 
 ```ts
 // actions/navigate.ts
-import { defineAction } from "@agent-native/core/action";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -335,8 +335,8 @@ If a template needs an API key, OAuth connection, or provider account, register 
 
 ```ts
 // server/plugins/onboarding.ts
-import { defineNitroPlugin } from "@agent-native/core/server";
-import { registerOnboardingStep } from "@agent-native/core/onboarding";
+import { defineNitroPlugin } from "@agentnative-fork/core/server";
+import { registerOnboardingStep } from "@agentnative-fork/core/onboarding";
 
 export default defineNitroPlugin(() => {
   registerOnboardingStep({
@@ -389,7 +389,7 @@ Before sharing:
 Community templates can be created from a GitHub repo:
 
 ```bash
-npx @agent-native/core@latest create my-app --template github:user/repo
+npx @agentnative-fork/core@latest create my-app --template github:user/repo
 ```
 
 ## Contributing to the framework monorepo {#contributing}
@@ -401,11 +401,11 @@ workspace to use unpublished package or template changes, run create with the
 local-package flag:
 
 ```bash
-AGENT_NATIVE_CREATE_USE_LOCAL_CORE=1 pnpm --filter @agent-native/core create my-platform
+AGENT_NATIVE_CREATE_USE_LOCAL_CORE=1 pnpm --filter @agentnative-fork/core create my-platform
 ```
 
-The generated workspace links the local `@agent-native/core` and
-`@agent-native/dispatch` packages, so changes to Core APIs, Dispatch workspace
+The generated workspace links the local `@agentnative-fork/core` and
+`@agentnative-fork/dispatch` packages, so changes to Core APIs, Dispatch workspace
 behavior, or first-party templates can be tested before publishing. The package
 `prepack` scripts build `dist` before linking, which keeps the generated
 workspace pointed at current build output.

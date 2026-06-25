@@ -1,13 +1,13 @@
-import { createH3SSRHandler } from "@agent-native/core/server/ssr-handler";
+import { createH3SSRHandler } from "@agentnative-fork/core/server/ssr-handler";
 import {
   defineEventHandler,
   getRequestURL,
   setResponseHeader,
   type H3Event,
 } from "h3";
-import { getSession, runWithRequestContext } from "@agent-native/core/server";
-import { getOrgContext } from "@agent-native/core/org";
-import { resolveAccess } from "@agent-native/core/sharing";
+import { getSession, runWithRequestContext } from "@agentnative-fork/core/server";
+import { getOrgContext } from "@agentnative-fork/core/org";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import {
   MEDIA_CAPTURE_PERMISSIONS_POLICY,
   withMediaCapturePermissions,

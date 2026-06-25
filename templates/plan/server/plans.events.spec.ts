@@ -7,7 +7,7 @@ import {
   subscribe,
   unsubscribe,
   registerEvent,
-} from "@agent-native/core/event-bus";
+} from "@agentnative-fork/core/event-bus";
 import { z } from "zod";
 import {
   emitPlanCreated,

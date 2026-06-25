@@ -9,7 +9,7 @@ import {
 import { useState, useRef, useEffect } from "react";
 import type { Deck } from "@/context/DeckContext";
 import SlideRenderer from "./SlideRenderer";
-import { VisibilityBadge } from "@agent-native/core/client";
+import { VisibilityBadge } from "@agentnative-fork/core/client";
 import {
   DropdownMenu,
   DropdownMenuTrigger,

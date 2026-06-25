@@ -9,7 +9,7 @@ Every agent-native app is multi-tenant out of the box. Organizations, team membe
 
 ## What you get for free {#free}
 
-A fresh `npx @agent-native/core@latest create` scaffold already ships with:
+A fresh `npx @agentnative-fork/core@latest create` scaffold already ships with:
 
 - **User registration and login** — see [Authentication](/docs/authentication).
 - **Organizations** — users create orgs and invite members by email. Each org is a fully isolated tenant.

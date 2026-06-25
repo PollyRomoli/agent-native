@@ -76,7 +76,7 @@ That's the whole point. Fork a template and customize it by asking the agent. "A
 
 ### Can I build something the templates don't cover? {#build-from-scratch}
 
-Yes. If you want a basic chat app, run `npx @agent-native/core@latest create my-chat-app --template chat`; you get durable chat threads, actions, auth, SQL-backed runtime state, and room to add your own screens. If you want the smallest action-first app with no UI, run `npx @agent-native/core@latest create my-agent --headless`. See [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps), and [Chat](/docs/template-chat).
+Yes. If you want a basic chat app, run `npx @agentnative-fork/core@latest create my-chat-app --template chat`; you get durable chat threads, actions, auth, SQL-backed runtime state, and room to add your own screens. If you want the smallest action-first app with no UI, run `npx @agentnative-fork/core@latest create my-agent --headless`. See [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps), and [Chat](/docs/template-chat).
 
 ### Can I try it without forking a template? {#try-with-a-skill}
 

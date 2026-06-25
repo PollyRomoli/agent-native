@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import fs from "fs";
 import path from "path";
 import { z } from "zod";

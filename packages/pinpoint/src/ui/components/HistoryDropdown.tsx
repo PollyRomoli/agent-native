@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — History dropdown for past annotations
+// @agentnative-fork/pinpoint — History dropdown for past annotations
 // MIT License
 
 import { Show, For, type Component } from "solid-js";

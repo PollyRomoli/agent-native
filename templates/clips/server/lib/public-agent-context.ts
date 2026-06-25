@@ -1,10 +1,10 @@
-import { appStateGet } from "@agent-native/core/application-state";
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { appStateGet } from "@agentnative-fork/core/application-state";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 import {
   getSession,
   signShortLivedToken,
   verifyShortLivedToken,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { asc, eq } from "drizzle-orm";
 import { getRequestURL, setResponseHeader, type H3Event } from "h3";
 import {

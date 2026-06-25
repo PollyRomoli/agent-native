@@ -1,10 +1,10 @@
-import type { BlockRegistry } from "@agent-native/core/blocks";
+import type { BlockRegistry } from "@agentnative-fork/core/blocks";
 import {
   buildRegistryBlockSlashItems,
   getRegistryBlockSlashDescription,
   getRegistryBlockSlashSearchText,
   type SlashCommandItem,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { createPlanBlockId } from "@shared/plan-content";
 import { isNotionCompatibleBlockType } from "@shared/notion-compat";
 
@@ -12,7 +12,7 @@ import { isNotionCompatibleBlockType } from "@shared/notion-compat";
  * The Tiptap editor handed to a slash command's `action`. Derived from the core
  * {@link SlashCommandItem} contract instead of importing `@tiptap/react`
  * directly, so this file carries no extra tiptap dependency (the plan template
- * uses tiptap transitively through `@agent-native/core/client`).
+ * uses tiptap transitively through `@agentnative-fork/core/client`).
  */
 type SlashEditor = Parameters<SlashCommandItem["action"]>[0];
 
@@ -20,7 +20,7 @@ type SlashEditor = Parameters<SlashCommandItem["action"]>[0];
  * The `insertTable` command is contributed by `@tiptap/extension-table`, which
  * the shared editor registers at runtime but whose `ChainedCommands` type
  * augmentation is not visible from this template (it has no direct tiptap
- * dependency — tiptap is transitive through `@agent-native/core/client`). This
+ * dependency — tiptap is transitive through `@agentnative-fork/core/client`). This
  * narrow shape re-adds just that one command signature so the Table slash item
  * stays type-safe without importing tiptap here.
  */

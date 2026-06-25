@@ -193,7 +193,7 @@ Agent-Native is an open source framework for building apps where AI agents and U
       description:
         "Install app-backed skills your coding agent runs as slash commands: /visual-plan and /visual-recap.",
       markdown:
-        "# Agent Skills\n\nInstall app-backed skills your coding agent runs as slash commands. `/visual-plan` opens structured visual plans before you build; `/visual-recap` turns a PR diff into a high-altitude review. Install with `npx @agent-native/core@latest skills add visual-plan`.\n",
+        "# Agent Skills\n\nInstall app-backed skills your coding agent runs as slash commands. `/visual-plan` opens structured visual plans before you build; `/visual-recap` turns a PR diff into a high-altitude review. Install with `npx @agentnative-fork/core@latest skills add visual-plan`.\n",
       lastmod: gitLastmod(path.resolve(rootDir, "app/routes/skills.tsx")),
     },
     ...docsPages,

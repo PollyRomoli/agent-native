@@ -24,7 +24,7 @@ Un adaptateur CLI encapsule un seul outil de ligne de commande (`gh`, `ffmpeg`, 
 Chaque adaptateur CLI implémente `CliAdapter` :
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -45,7 +45,7 @@ interface CliResult {
 Pour la plupart des CLI, vous n'avez pas besoin d'une classe personnalisée : `ShellCliAdapter` encapsule n'importe quel binaire avec des valeurs par défaut raisonnables :
 
 ```ts
-import { ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const gh = new ShellCliAdapter({
   command: "gh",
@@ -69,7 +69,7 @@ Pour une authentification personnalisée, une analyse de sortie ou un pré/post-
 `CliRegistry` collecte les adaptateurs afin que l'agent puisse découvrir ce qui est disponible au moment de l'exécution :
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(
@@ -90,8 +90,8 @@ Encapsulez un appel CLI dans `defineAction` pour l'exposer sur la surface d'acti
 
 ```ts
 // actions/list-prs.ts
-import { defineAction } from "@agent-native/core/action";
-import { ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 import { z } from "zod";
 
 const gh = new ShellCliAdapter({ command: "gh", description: "GitHub CLI" });

@@ -5,12 +5,12 @@ import {
   appPath,
   markAgentChatHomeHandoff,
   useAgentRouteState,
-} from "@agent-native/core/client";
-import { extensionIdFromPathname } from "@agent-native/core/client/extensions";
+} from "@agentnative-fork/core/client";
+import { extensionIdFromPathname } from "@agentnative-fork/core/client/extensions";
 import type {
   DispatchExtensionConfig,
   DispatchNavItem,
-} from "@agent-native/dispatch/components";
+} from "@agentnative-fork/dispatch/components";
 
 export interface NavigationState {
   view: string;

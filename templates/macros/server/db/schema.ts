@@ -1,4 +1,4 @@
-import { table, text, integer, real } from "@agent-native/core/db/schema";
+import { table, text, integer, real } from "@agentnative-fork/core/db/schema";
 
 // owner_email is .notNull() at the type level so the action layer is forced
 // to provide a real email on insert. The actual DB column remains nullable

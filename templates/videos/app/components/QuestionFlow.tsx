@@ -1,7 +1,7 @@
 import {
   GuidedQuestionFlow,
   type GuidedQuestion,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import type { QuestionFlowQuestion } from "@shared/api";
 
 interface QuestionFlowProps {

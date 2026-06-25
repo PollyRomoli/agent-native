@@ -2,9 +2,9 @@
  * First-party template metadata used by the `agent-native` CLI.
  *
  * This file is intentionally inlined here (rather than imported from a
- * separate workspace package) so that the published `@agent-native/core`
+ * separate workspace package) so that the published `@agentnative-fork/core`
  * has no `workspace:*` runtime dependencies. Without this inlining, `npx
- * @agent-native/core create ...` fails on a fresh machine with:
+ * @agentnative-fork/core create ...` fails on a fresh machine with:
  *
  *   npm error code EUNSUPPORTEDPROTOCOL
  *   npm error Unsupported URL Type "workspace:": workspace:*

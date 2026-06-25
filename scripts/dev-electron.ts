@@ -101,7 +101,7 @@ function tryKillPort(port: number) {
 function ensureElectronBinary() {
   try {
     execSync(
-      `pnpm --filter @agent-native/desktop-app exec node -e "require('electron')"`,
+      `pnpm --filter @agentnative-fork/desktop-app exec node -e "require('electron')"`,
       { stdio: "ignore" },
     );
     return;
@@ -112,11 +112,11 @@ function ensureElectronBinary() {
   }
 
   try {
-    execSync(`pnpm --filter @agent-native/desktop-app rebuild electron`, {
+    execSync(`pnpm --filter @agentnative-fork/desktop-app rebuild electron`, {
       stdio: "inherit",
     });
     execSync(
-      `pnpm --filter @agent-native/desktop-app exec node -e "require('electron')"`,
+      `pnpm --filter @agentnative-fork/desktop-app exec node -e "require('electron')"`,
       { stdio: "ignore" },
     );
   } catch (err) {
@@ -124,7 +124,7 @@ function ensureElectronBinary() {
       `\x1b[31m[dev-electron]\x1b[0m Electron is installed but its binary could not be prepared.`,
     );
     console.error(
-      `Run this once and retry:\n  pnpm --filter @agent-native/desktop-app rebuild electron`,
+      `Run this once and retry:\n  pnpm --filter @agentnative-fork/desktop-app rebuild electron`,
     );
     throw err;
   }
@@ -145,7 +145,7 @@ requestedApps.forEach((appName, i) => {
   }
   names.push(appName);
   // Run the Vite dev server directly.
-  // The templates' vite.config.ts uses @agent-native/core/vite which integrates
+  // The templates' vite.config.ts uses @agentnative-fork/core/vite which integrates
   // the Express API server as Vite middleware — so this single command starts
   // both the frontend and all /api/* routes on the one port.
   // PORT pins the dev server port (Nitro's vite plugin reads process.env.PORT
@@ -157,12 +157,12 @@ requestedApps.forEach((appName, i) => {
 });
 
 names.push("frame");
-commands.push("pnpm --filter @agent-native/frame dev");
+commands.push("pnpm --filter @agentnative-fork/frame dev");
 colors.push("magenta");
 
 // Electron shell dev (starts electron-vite which starts renderer + main + Electron)
 names.push("electron");
-commands.push("pnpm --filter @agent-native/desktop-app dev");
+commands.push("pnpm --filter @agentnative-fork/desktop-app dev");
 colors.push("yellow");
 
 if (dryRun) {

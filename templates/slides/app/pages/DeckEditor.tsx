@@ -40,8 +40,8 @@ import {
   appBasePath,
   callAction,
   useGuidedQuestionFlow,
-} from "@agent-native/core/client";
-import { useOrg } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { useOrg } from "@agentnative-fork/core/client/org";
 import {
   IconArrowLeft,
   IconBuilding,
@@ -67,10 +67,10 @@ import { ToastAction } from "@/components/ui/toast";
 import { Button } from "@/components/ui/button";
 import { nanoid } from "nanoid";
 import { TAB_ID } from "@/lib/tab-id";
-import type { PinpointProps } from "@agent-native/pinpoint/react";
+import type { PinpointProps } from "@agentnative-fork/pinpoint/react";
 
 const Pinpoint = lazy<ComponentType<PinpointProps>>(() =>
-  import("@agent-native/pinpoint/react").then((m) => ({
+  import("@agentnative-fork/pinpoint/react").then((m) => ({
     default: m.Pinpoint as ComponentType<PinpointProps>,
   })),
 );

@@ -1,4 +1,4 @@
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 

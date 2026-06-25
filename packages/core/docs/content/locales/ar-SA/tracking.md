@@ -10,7 +10,7 @@ description: "تحليلات من جانب الخادم مع موفري خدما
 هذه هي تحليلات _product_ — تتدفق أحداث تطبيقك إلى PostHog/Mixpanel/Amplitude. للحصول على مقاييس جودة_الوكيل (التتبعات والتكلفة والتقييمات والملاحظات) المخزنة في قاعدة البيانات الخاصة بك، راجع [Observability](/docs/observability).
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "order.completed",
@@ -46,7 +46,7 @@ track(
 قم بتشغيل حدث التحليلات. المعجبون لجميع مقدمي الخدمة المسجلين.
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "meal.logged",
@@ -60,7 +60,7 @@ track(
 تحديد المستخدم مع السمات. يتم إرسالها إلى مقدمي الخدمة الذين يدعمونها (PostHog، Mixpanel، Amplitude، webhook).
 
 ```ts
-import { identify } from "@agent-native/core/tracking";
+import { identify } from "@agentnative-fork/core/tracking";
 
 identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 ```
@@ -73,8 +73,8 @@ identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 
 ```ts
 // actions/create-project.ts
-import { defineAction } from "@agent-native/core/action";
-import { track } from "@agent-native/core/tracking";
+import { defineAction } from "@agentnative-fork/core/action";
+import { track } from "@agentnative-fork/core/tracking";
 import { z } from "zod";
 
 export default defineAction({
@@ -100,7 +100,7 @@ export default defineAction({
 
 ## التتبع من جانب العميل {#client}
 
-يعمل `track()` أيضًا من خلال رمز المتصفح/التطبيق. قم باستيراد توأم العميل من `@agent-native/core/client` وقم بتسميته بنفس الطريقة - فهو ينشر الحدث إلى مسار إطار العمل في `POST /_agent-native/track`، والذي يعيد توجيهه إلى موفري جانب الخادم المسجلين **نفسهم** (PostHog، Mixpanel، Amplitude، webhook). لا يتم شحن أي تحليلات SDK إلى المتصفح ولا يتم الكشف عن مفاتيح الموفر من جانب العميل.
+يعمل `track()` أيضًا من خلال رمز المتصفح/التطبيق. قم باستيراد توأم العميل من `@agentnative-fork/core/client` وقم بتسميته بنفس الطريقة - فهو ينشر الحدث إلى مسار إطار العمل في `POST /_agent-native/track`، والذي يعيد توجيهه إلى موفري جانب الخادم المسجلين **نفسهم** (PostHog، Mixpanel، Amplitude، webhook). لا يتم شحن أي تحليلات SDK إلى المتصفح ولا يتم الكشف عن مفاتيح الموفر من جانب العميل.
 
 ```an-api title="The client tracking route"
 {
@@ -117,7 +117,7 @@ export default defineAction({
 ```
 
 ```ts
-import { track } from "@agent-native/core/client";
+import { track } from "@agentnative-fork/core/client";
 
 // e.g. inside a click handler or effect
 track("checkout.completed", { total: 49.99, items: 3 });
@@ -144,7 +144,7 @@ track("checkout.completed", { total: 49.99, items: 3 });
 قم بتسجيل موفر مخصص لأي واجهة تحليلية خلفية.
 
 ```ts
-import { registerTrackingProvider } from "@agent-native/core/tracking";
+import { registerTrackingProvider } from "@agentnative-fork/core/tracking";
 
 registerTrackingProvider({
   name: "my-analytics",
@@ -170,7 +170,7 @@ registerTrackingProvider({
 مسح كافة مقدمي الخدمات. اتصل قبل إنهاء العملية للتأكد من إرسال الأحداث المعلقة.
 
 ```ts
-import { flushTracking } from "@agent-native/core/tracking";
+import { flushTracking } from "@agentnative-fork/core/tracking";
 
 await flushTracking();
 ```

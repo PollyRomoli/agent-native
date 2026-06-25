@@ -1,4 +1,4 @@
-# @agent-native/core
+# @agentnative-fork/core
 
 ## 0.76.12
 
@@ -422,7 +422,7 @@ background-processing` UPDATE) before running inline, so the SQL atomic claim
   the JPEG frame URLs and describes the screen; claude.ai's web chat reads the
   transcript only. Docs-only copy change; the agent-context/frame APIs are
   unchanged.
-- d684bbf: Add scaffold skill refresh commands for generated Agent Native apps and workspaces, plus public `@agent-native/skills` status/update forwarding.
+- d684bbf: Add scaffold skill refresh commands for generated Agent Native apps and workspaces, plus public `@agentnative-fork/skills` status/update forwarding.
 - d684bbf: Redesign the Google sign-in preflight notice on the onboarding/sign-in screen
   to match the in-app connect popover: an amber warning-icon chip beside a bold
   heading and muted body copy, with the close affordance moved to the top-right.
@@ -507,7 +507,7 @@ EXISTS` can't re-type an existing column, so those databases kept the int4
   so the agent chat aborted as a `connection_error`).
 
   Adds a `widenIntColumnsToBigInt()` helper (new module
-  `@agent-native/core/db/widen-columns`) that, on Postgres only, widens such
+  `@agentnative-fork/core/db/widen-columns`) that, on Postgres only, widens such
   columns in place to `BIGINT` once via each store's existing `ensureTable()`
   bootstrap. It is idempotent (only ALTERs columns still typed `integer`, so
   already-bigint tables are never rewritten), non-destructive (int4 → int8
@@ -715,8 +715,8 @@ EXISTS` can't re-type an existing column, so those databases kept the int4
 ### Minor Changes
 
 - 1b61a90: Add tab-scoped application-state helpers so multi-tab agents read the screen of the tab they were sent from.
-  - Server: `readAppStateForCurrentTab`, `writeAppStateForCurrentTab`, `appStateKeyForBrowserTab`, and `getCurrentRequestBrowserTabId` (from `@agent-native/core/application-state`). These resolve the requesting tab via `getRequestRunContext().browserTabId`, read the `key:<tabId>` value first, and fall back to the global key for CLI/external agents.
-  - Client: `getBrowserTabId` (from `@agent-native/core/client`), a stable per-tab id backed by sessionStorage.
+  - Server: `readAppStateForCurrentTab`, `writeAppStateForCurrentTab`, `appStateKeyForBrowserTab`, and `getCurrentRequestBrowserTabId` (from `@agentnative-fork/core/application-state`). These resolve the requesting tab via `getRequestRunContext().browserTabId`, read the `key:<tabId>` value first, and fall back to the global key for CLI/external agents.
+  - Client: `getBrowserTabId` (from `@agentnative-fork/core/client`), a stable per-tab id backed by sessionStorage.
 
   The default app scaffold (`view-screen` action and `tab-id` helper) now uses these so newly generated apps are tab-correct by default.
 
@@ -823,25 +823,25 @@ EXISTS` can't re-type an existing column, so those databases kept the int4
 
 ### Minor Changes
 
-- 2b8cfd0: Add an `@agent-native/core/embedding` export surface (`./embedding`,
+- 2b8cfd0: Add an `@agentnative-fork/core/embedding` export surface (`./embedding`,
   `./embedding/react`, `./embedding/bridge`, `./embedding/agent`,
   `./embedding/protocol`) that hosts the `EmbeddedApp` component and embed bridge.
 
-  The implementation moved here from the workspace-only `@agent-native/embedding`
+  The implementation moved here from the workspace-only `@agentnative-fork/embedding`
   package, which is not published to npm. Standalone scaffolds of templates that
   embed apps (content, design, assets) previously rewrote their `workspace:*`
-  dependency on `@agent-native/embedding` to `latest`, which 404'd on install
+  dependency on `@agentnative-fork/embedding` to `latest`, which 404'd on install
   because the package isn't published. Those templates now import the embed
-  surface from the published `@agent-native/core` instead, so
+  surface from the published `@agentnative-fork/core` instead, so
   `create --standalone --template content` installs cleanly. The
-  `@agent-native/embedding` package remains as a thin re-export for backward
+  `@agentnative-fork/embedding` package remains as a thin re-export for backward
   compatibility.
 
 ## 0.64.1
 
 ### Patch Changes
 
-- 13c202b: Pin `@tiptap/*` dependencies to an exact, fully-published version (3.27.1) instead of caret ranges. Tiptap extension packages exact-pin their `@tiptap/core` and `@tiptap/pm` peer dependencies, so a caret range let npm climb to the newest tiptap release and fail with `ETARGET No matching version found for @tiptap/extension-table@<x>` during the brief window when a new tiptap version is only partially published. Pinning keeps installs of `@agent-native/core` (and `@agent-native/skills`, which depends on it) reproducible and unaffected by upstream staggered publishes.
+- 13c202b: Pin `@tiptap/*` dependencies to an exact, fully-published version (3.27.1) instead of caret ranges. Tiptap extension packages exact-pin their `@tiptap/core` and `@tiptap/pm` peer dependencies, so a caret range let npm climb to the newest tiptap release and fail with `ETARGET No matching version found for @tiptap/extension-table@<x>` during the brief window when a new tiptap version is only partially published. Pinning keeps installs of `@agentnative-fork/core` (and `@agentnative-fork/skills`, which depends on it) reproducible and unaffected by upstream staggered publishes.
 
 ## 0.64.0
 
@@ -894,7 +894,7 @@ EXISTS` can't re-type an existing column, so those databases kept the int4
 
 ### Patch Changes
 
-- 7157583: Export the in-loop processor API (`TripWire`, `Processor`, `ProcessorState`, `ProcessorAbort`) from the package root so the `@agent-native/core` imports shown in the In-Loop Processors guide resolve.
+- 7157583: Export the in-loop processor API (`TripWire`, `Processor`, `ProcessorState`, `ProcessorAbort`) from the package root so the `@agentnative-fork/core` imports shown in the In-Loop Processors guide resolve.
 - 7157583: Rename the onboarding path from headless action to headless agent in docs and CLI copy.
 - 7157583: Make Codex CLI subscription auth easier to discover in Agent-Native Code docs and provider copy, and document that Codex harness auth is supplied by the AI SDK Codex runtime while Code/Desktop sessions reuse the locally signed-in Codex CLI.
 - 7157583: Add shared full-page chat handoff helpers so apps can morph a chat tab into the
@@ -907,14 +907,14 @@ EXISTS` can't re-type an existing column, so those databases kept the int4
 
 - b7c8bb6: Make the package root (Node `default` entry) server-safe so headless apps work out of the box.
 
-  The top-level `@agent-native/core` entry used by Node/SSR/headless contexts no
+  The top-level `@agentnative-fork/core` entry used by Node/SSR/headless contexts no
   longer re-exports the React client barrel. Re-exporting `./client/index.js` from
   the Node entry eagerly pulled `react`, `react-router`, and
   `@tanstack/react-query` into the module graph, so a freshly scaffolded
   `--headless` app (which installs none of those) crashed at module load on the
   documented first command, `pnpm action hello`. The React client surface still
   ships via the `browser` condition (so UI bundles that import client helpers from
-  the bare specifier keep working) and via the explicit `@agent-native/core/client`
+  the bare specifier keep working) and via the explicit `@agentnative-fork/core/client`
   subpath.
 
   Also fixes the headless scaffold's `tsconfig.json`, which inherited
@@ -924,7 +924,7 @@ typecheck` with TS2688 because a headless app has no Vite dependency. It now
 
   Migration: code that runs through the Node entry (SSR, scripts, headless) and
   imports React client helpers (`useDbSync`, `cn`, `useSession`, `sendToAgentChat`,
-  etc.) from `@agent-native/core` should import them from `@agent-native/core/client`
+  etc.) from `@agentnative-fork/core` should import them from `@agentnative-fork/core/client`
   instead. Browser-only code is unaffected.
 
 ## 0.62.1
@@ -950,7 +950,7 @@ typecheck` with TS2688 because a headless app has no Vite dependency. It now
 - 8a74b0a: Add a small agent-native client helper for listing workspace agents and invoking sibling apps by id, name, or URL.
 - 8a74b0a: Remove top-level JSON Schema combinators from Anthropic tool input schemas before sending requests so strict provider validation does not reject valid framework tools.
 
-  Also mark the Assets template as requiring the embedding package so generated workspaces can resolve `@agent-native/embedding/bridge` during deploy builds.
+  Also mark the Assets template as requiring the embedding package so generated workspaces can resolve `@agentnative-fork/embedding/bridge` during deploy builds.
 
 - 8a74b0a: Add the Chat template as the public minimal app on-ramp and keep Starter as a legacy CLI alias.
 - 8a74b0a: Allow Agent-Native Code to run through the local Codex CLI when Codex is signed in, and update provider copy to mention Codex CLI auth.
@@ -1080,7 +1080,7 @@ typecheck` with TS2688 because a headless app has no Vite dependency. It now
 
 ### Patch Changes
 
-- 9e20092: Add a public "Harness Agents" docs page documenting the `AgentHarness` substrate (`@agent-native/core/agent/harness`): built-in Claude Code / Codex / Pi adapters, `registerBuiltinAgentHarnesses`/`resolveAgentHarness`/`startAgentHarnessRun`, resumable SQL-backed sessions, host tools and permission modes, event translation, background-run surface, and custom adapters.
+- 9e20092: Add a public "Harness Agents" docs page documenting the `AgentHarness` substrate (`@agentnative-fork/core/agent/harness`): built-in Claude Code / Codex / Pi adapters, `registerBuiltinAgentHarnesses`/`resolveAgentHarness`/`startAgentHarnessRun`, resumable SQL-backed sessions, host tools and permission modes, event translation, background-run surface, and custom adapters.
 
 ## 0.57.0
 
@@ -1250,7 +1250,7 @@ scorers, threshold })` and compose scorers with the Mastra-style 4-step
   (provider-agnostic internal agent calls — no hardcoded model), the
   `maybeCompactThread` compactor entry point, and the `buildObservationalContext`
   read API returning the three tiers ready for prompt injection, all exported
-  from `@agent-native/core/agent/observational-memory`.
+  from `@agentnative-fork/core/agent/observational-memory`.
 
   The read API and compactor are intentionally not yet wired into the agent loop:
   injecting `buildObservationalContext` output into `production-agent.ts` (and
@@ -1384,7 +1384,7 @@ scorers, threshold })` and compose scorers with the Mastra-style 4-step
 
 ### Patch Changes
 
-- 914c8db: Unify the skills CLI flow so `@agent-native/skills` delegates normal user-facing
+- 914c8db: Unify the skills CLI flow so `@agentnative-fork/skills` delegates normal user-facing
   list/add flows to the core skills CLI with an expanded public skills catalog,
   while `agent-native skills` keeps the Agent Native-only catalog.
 
@@ -1735,7 +1735,7 @@ scorers, threshold })` and compose scorers with the Mastra-style 4-step
 
 ### Patch Changes
 
-- 809e96b: Fix Vite dev SSR for standalone apps using `file:@agent-native/core` by aliasing monorepo core source and deduping `react-router`. Add a Playwright dev smoke test that catches HydratedRouter/Meta render failures after auto-login.
+- 809e96b: Fix Vite dev SSR for standalone apps using `file:@agentnative-fork/core` by aliasing monorepo core source and deduping `react-router`. Add a Playwright dev smoke test that catches HydratedRouter/Meta render failures after auto-login.
 
 ## 0.49.4
 
@@ -1785,14 +1785,14 @@ scorers, threshold })` and compose scorers with the Mastra-style 4-step
     `agent-native-plans`.
   - Installs no longer write duplicate alias entries and clean up existing
     duplicates on the next connect or skills-add run.
-  - All CLI, server, skill, and docs guidance now uses `npx @agent-native/core@latest reconnect <app-url>`
+  - All CLI, server, skill, and docs guidance now uses `npx @agentnative-fork/core@latest reconnect <app-url>`
     as the documented one-line reauth path and consistently teaches that
     reinstalling from scratch is never needed to fix auth.
 
-- d77a37f: Add best-effort install-funnel analytics to both skills CLIs (`npx @agent-native/skills@latest` and `npx @agent-native/core@latest skills`). Each run reports a step-by-step funnel — started, skills prompted, skills selected, clients selected, scope selected, install completed, MCP registered, connect, and completed/failed/cancelled — to the first-party Agent Native Analytics endpoint, so install volume, skill selection, and step-by-step dropoff can be measured. Events carry a stable per-machine install id (unique installs) and a per-run id (dropoff) and never include paths, repo names, or other identifying data. Telemetry is fire-and-forget, flushes before exit, and is opt-out via `DO_NOT_TRACK=1` or `AGENT_NATIVE_TELEMETRY_DISABLED=1`.
+- d77a37f: Add best-effort install-funnel analytics to both skills CLIs (`npx @agentnative-fork/skills@latest` and `npx @agentnative-fork/core@latest skills`). Each run reports a step-by-step funnel — started, skills prompted, skills selected, clients selected, scope selected, install completed, MCP registered, connect, and completed/failed/cancelled — to the first-party Agent Native Analytics endpoint, so install volume, skill selection, and step-by-step dropoff can be measured. Events carry a stable per-machine install id (unique installs) and a per-run id (dropoff) and never include paths, repo names, or other identifying data. Telemetry is fire-and-forget, flushes before exit, and is opt-out via `DO_NOT_TRACK=1` or `AGENT_NATIVE_TELEMETRY_DISABLED=1`.
 - d77a37f: Unify the two skills installers onto one codebase + UX.
-  - `npx @agent-native/skills@latest add` / `list` now delegate to `@agent-native/core`'s
-    clack-based installer (`runSkills`, newly exported at `@agent-native/core/cli/skills`),
+  - `npx @agentnative-fork/skills@latest add` / `list` now delegate to `@agentnative-fork/core`'s
+    clack-based installer (`runSkills`, newly exported at `@agentnative-fork/core/cli/skills`),
     so the standalone CLI and `agent-native skills` share the exact same interactive
     experience, MCP-server registration, and authentication. A `AGENT_NATIVE_SKILLS_DIRECT`
     env guard keeps core's plain-repo delegation from looping back.
@@ -1860,7 +1860,7 @@ visual-plan` / `visual-recap` likewise install only the named skill, while the
   is not passed, matching the open `skills` CLI UX.
 
   Built-in skill instructions are now written straight into each client's skills
-  directory instead of shelling out to `npx @agent-native/skills@latest` — that
+  directory instead of shelling out to `npx @agentnative-fork/skills@latest` — that
   package is not published yet, so the previous delegation failed with a 404
   mid-install. External/plain skill repos still use the standalone installer.
 
@@ -1907,7 +1907,7 @@ visual-plan` / `visual-recap` likewise install only the named skill, while the
 - 3c1d3eb: Resurrect end-to-end action type inference.
 
   `defineAction` overloads now return a typed `ActionDefinition<TInput, TReturn>` instead of `any`. The schema-inferred input type (via `StandardSchemaV1.InferOutput<TSchema>`) and the run callback's return type flow through to `useActionQuery`, `useActionMutation`, and `callAction` once the generated `.generated/action-types.d.ts` is included in the project's TypeScript config.
-  - Added `ActionDefinition<TInput, TReturn>` interface (exported from `@agent-native/core`).
+  - Added `ActionDefinition<TInput, TReturn>` interface (exported from `@agentnative-fork/core`).
   - All 15 template `tsconfig.json` files now include `.generated/**/*` so the generated registry d.ts is picked up automatically.
   - Scaffold default tsconfig updated to match.
   - Exports `ActionDefinition` from the core package index.
@@ -1951,20 +1951,20 @@ visual-plan` / `visual-recap` likewise install only the named skill, while the
     now append a "Start new chat" CTA link (matching the `builder_gateway_error`
     pattern) so users have a one-click escape path from the error card.
 
-- 3c1d3eb: Extract hand-copied template shell into `@agent-native/core` as shared exports.
+- 3c1d3eb: Extract hand-copied template shell into `@agentnative-fork/core` as shared exports.
 
   New exports:
-  - `@agent-native/core/server/entry-server` — exports `handleDocumentRequest` (default) and `streamTimeout`. Superset of all 6 entry.server.tsx variants in the template fleet. Removes dead `typeof wrapWithAnalytics === "function"` guards (it is a plain import, never conditionally undefined). Adds `.well-known/` 404 rejection (content template improvement, now the default for all).
-  - `@agent-native/core/client` — exports `AppProviders`, a composed `QueryClientProvider → ThemeProvider → TooltipProvider → Toaster` shell. Accepts `queryClient` prop so each template keeps its own `createAgentNativeQueryClient(overrides)` call. Supports the public-path SSR branch pattern (calendar/clips/content) via `isPublicPath` + `clientOnlyFallback` props.
+  - `@agentnative-fork/core/server/entry-server` — exports `handleDocumentRequest` (default) and `streamTimeout`. Superset of all 6 entry.server.tsx variants in the template fleet. Removes dead `typeof wrapWithAnalytics === "function"` guards (it is a plain import, never conditionally undefined). Adds `.well-known/` 404 rejection (content template improvement, now the default for all).
+  - `@agentnative-fork/core/client` — exports `AppProviders`, a composed `QueryClientProvider → ThemeProvider → TooltipProvider → Toaster` shell. Accepts `queryClient` prop so each template keeps its own `createAgentNativeQueryClient(overrides)` call. Supports the public-path SSR branch pattern (calendar/clips/content) via `isPublicPath` + `clientOnlyFallback` props.
 
   `templates/starter` and `packages/core/src/templates/default` (scaffold) are migrated to one-line re-exports of the shared handler. A sync spec (`starter-shell-sync.spec.ts`) guards byte-identity between scaffold and starter so they never drift again.
 
 - 3c1d3eb: Lazy-load the assistant-ui chat stack (~650-700 KB gzip) off the critical path of every page.
   - `AgentPanel`: `MultiTabAssistantChat` converted to `React.lazy` + `Suspense`; sidebar chrome renders immediately while the chat chunk loads.
   - `AssistantChat`: `react-markdown` + `remark-gfm` deferred via a module-level async loader (same pattern as shiki); plain-text fallback shown during the one-frame load window.
-  - New `@agent-native/core/client/api-path` source alias registered in `CORE_CLIENT_SUBPATHS` and `getCoreSourceAliases` so monorepo dev resolves it from `src/`.
-  - All `templates/*/app/entry.client.tsx` (and the scaffold copy) changed to `import { appBasePath } from '@agent-native/core/client/api-path'` so the full client barrel — and its transitive chat-stack imports — are no longer in the static closure of the client entry point.
-  - `@agent-native/core/client/api-path` is an existing public export; `AssistantChat`, `MultiTabAssistantChat`, `ResourcesPanel`, `SettingsPanel`, and `AgentTerminal` remain re-exported from the barrel for consumers that use them directly (marked minor because the barrel lazy-routing is a behaviour change for those named re-exports).
+  - New `@agentnative-fork/core/client/api-path` source alias registered in `CORE_CLIENT_SUBPATHS` and `getCoreSourceAliases` so monorepo dev resolves it from `src/`.
+  - All `templates/*/app/entry.client.tsx` (and the scaffold copy) changed to `import { appBasePath } from '@agentnative-fork/core/client/api-path'` so the full client barrel — and its transitive chat-stack imports — are no longer in the static closure of the client entry point.
+  - `@agentnative-fork/core/client/api-path` is an existing public export; `AssistantChat`, `MultiTabAssistantChat`, `ResourcesPanel`, `SettingsPanel`, and `AgentTerminal` remain re-exported from the barrel for consumers that use them directly (marked minor because the barrel lazy-routing is a behaviour change for those named re-exports).
 
 - 3c1d3eb: Add server-side staging layer for provider-api responses.
   - **Staging primitive (P0)**: `provider-api-request` now accepts `stageAs` to write response items into a scoped scratch dataset (`staged_datasets` + `staged_dataset_rows`) instead of returning the raw body. Returns `{ dataset, rowCount, columns, sampleRows }` — keeping large payloads out of the context window and avoiding the 50 K-char truncation that silently biases aggregates.
@@ -1975,14 +1975,14 @@ visual-plan` / `visual-recap` likewise install only the named skill, while the
 
 - 3c1d3eb: Expose focused public client subpaths for custom chat, composer, conversation, collaboration, rich-editor, and resources UI composition.
 
-  Adds `@agent-native/core/client/chat`, `@agent-native/core/client/composer`, `@agent-native/core/client/conversation`, `@agent-native/core/client/collab`, `@agent-native/core/client/editor`, and `@agent-native/core/client/resources`, promotes the low-level `TiptapComposer` props/types through the composer surface, exports `dedupeCollabUsersByEmail`, and documents how to rebuild agent chat/sidebar, realtime presence, rich editor, and resources experiences from public pieces.
+  Adds `@agentnative-fork/core/client/chat`, `@agentnative-fork/core/client/composer`, `@agentnative-fork/core/client/conversation`, `@agentnative-fork/core/client/collab`, `@agentnative-fork/core/client/editor`, and `@agentnative-fork/core/client/resources`, promotes the low-level `TiptapComposer` props/types through the composer surface, exports `dedupeCollabUsersByEmail`, and documents how to rebuild agent chat/sidebar, realtime presence, rich editor, and resources experiences from public pieces.
 
-- 3c1d3eb: Export `createAgentNativeQueryClient` from `@agent-native/core/client` with house defaults (staleTime 30s, auth-aware retry, refetchOnWindowFocus false); raise commandRefetchInterval default from 2s to 15s.
+- 3c1d3eb: Export `createAgentNativeQueryClient` from `@agentnative-fork/core/client` with house defaults (staleTime 30s, auth-aware retry, refetchOnWindowFocus false); raise commandRefetchInterval default from 2s to 15s.
 - 3c1d3eb: Upload-first chat attachments: when a file-upload provider is configured, images and files are uploaded to hosted URLs at send time and stored as URL references in thread_data (no more base64 blobs in SQL). Added `read-attachment` core tool for paginating large text attachments that exceed the 60 K context limit. Base64 fallback path retained with a 2 MB-per-attachment cap.
 
 ### Patch Changes
 
-- 3c1d3eb: Add the `@agent-native/skills` installer CLI for plain Codex/Claude skill repos and let `agent-native skills add` delegate public skill repositories like `BuilderIO/skills` to it.
+- 3c1d3eb: Add the `@agentnative-fork/skills` installer CLI for plain Codex/Claude skill repos and let `agent-native skills add` delegate public skill repositories like `BuilderIO/skills` to it.
 - 3c1d3eb: Harden agent runtime resume and chat attachment edge cases.
 - 3c1d3eb: Add Content-Security-Policy to app document responses: `object-src 'none'; base-uri 'self'` enforced, `script-src` emitted as Report-Only with a Sentry-config hash when configured. Skipped in dev and opt-outable via `AGENT_NATIVE_DISABLE_DOC_CSP=1`.
 - 3c1d3eb: AppProviders parity polish: add `disableThemeTransitions` prop (default `true`),
@@ -2032,7 +2032,7 @@ visual-plan` / `visual-recap` likewise install only the named skill, while the
   - **HEIC/TIFF/AVIF images**: always transcode non-web-safe image formats (HEIC, TIFF, AVIF, BMP, etc.) to JPEG/PNG via canvas before attaching; throw a visible composer error if transcoding fails instead of silently attaching raw bytes. Server-side, inject a text placeholder for any unsupported image that bypasses the client so the model knows the image was present.
   - **Base64 images in prompt text**: stop inlining image data-URLs into the text prompt string (≈700K tokens per MB); CLI code-agent now passes images as proper engine `image` content parts. PromptComposer no longer inlines images into prompt text.
   - **PDF and body-size caps**: cap PDFs at 4 MB with a clear composer error; estimate the total serialized attachment body and aggressively re-compress images if over 3.5 MB, rejecting the largest attachment with a clear error if still over.
-  - **Server-side upload limits**: `/file-upload` and `/resources/upload` now enforce a 25 MB file size cap (413) and reject executable/script MIME types (415). New `readBodyWithSizeLimit`, `isAllowedUploadMimeType`, and related constants exported from `@agent-native/core/server`.
+  - **Server-side upload limits**: `/file-upload` and `/resources/upload` now enforce a 25 MB file size cap (413) and reject executable/script MIME types (415). New `readBodyWithSizeLimit`, `isAllowedUploadMimeType`, and related constants exported from `@agentnative-fork/core/server`.
   - **Silent failure UX**: drag-drop and paste attachment errors are now surfaced as a dismissible inline error banner above the composer instead of silently logging to the console.
 
 - 3c1d3eb: Fix four chat streaming UX issues: (1) P0 race where plain Enter while a run was active caused the new message to never be sent (appended to assistant-ui while the server run was still alive, resulting in a 409 → reconnect to old run under the new prompt); now aborts the active run first and waits for it to clear before appending. (2) P2 tool results for parallel same-name tool calls could get swapped; now matches by server-assigned id when present, with name-matching fallback. (3) P2 resuming affordance: show "Resuming…" in the thinking indicator during the 250 ms continuation window between serverless chunks, and show the last live activity label instead of bare "Thinking". (4) P1 backgrounded-tab catch-up lag: when the tab returns from background with a large streaming backlog (> 2000 graphemes), jump the reveal cursor to near the tail so only the last ~200 graphemes animate in rather than replaying minutes of content.
@@ -2134,7 +2134,7 @@ visual-plan` / `visual-recap` likewise install only the named skill, while the
   user/org-scoped provider registrations so the agent can call APIs that are not
   in the 24 built-in PROVIDER_CONFIGS:
   - `upsertCustomProvider`, `deleteCustomProvider`, `listCustomProviders`,
-    `getCustomProvider` — CRUD helpers exported from `@agent-native/core/provider-api`.
+    `getCustomProvider` — CRUD helpers exported from `@agentnative-fork/core/provider-api`.
   - `validateCustomBaseUrl` — SSRF-safe URL validation for registration time.
   - `createProviderApiRuntime` now accepts `getCustomProviders?: () => Promise<CustomProviderConfig[]>`.
     Custom providers are merged into the catalog after built-ins; they cannot
@@ -2264,8 +2264,8 @@ visual-plan` / `visual-recap` likewise install only the named skill, while the
   `db-migrate-encrypt-oauth-tokens` script to re-encrypt existing rows in place.
 
   Also exposes the AES-256-GCM helpers (`encryptSecretValue`,
-  `decryptSecretValue`, `isEncryptedSecretValue`) from `@agent-native/core/secrets`
-  and a focused `@agent-native/core/secrets/crypto` subpath, so templates can
+  `decryptSecretValue`, `isEncryptedSecretValue`) from `@agentnative-fork/core/secrets`
+  and a focused `@agentnative-fork/core/secrets/crypto` subpath, so templates can
   encrypt per-row secret values (e.g. a per-recording share password) that don't
   fit the keyed app_secrets / credentials stores.
 
@@ -2280,7 +2280,7 @@ visual-plan` / `visual-recap` likewise install only the named skill, while the
 - a2a3e52: Fix nested interactive elements in question-form option previews, theme-aware iframe ink in the html block, click/focus/scroll fixes for annotated-code and diff annotation popovers.
 - a2a3e52: Fix CLI safety issues: scope isFirstPartyPlanHost to plan.agent-native.com only, exclude diff headers from countDiffLines, raise waitForPublicRecapImage retry budget to ~20s, detect git failures in collect-diff, guard codex mcp-config against clobbering existing config, require PLAN_RECAP_TOKEN for claude mcp-config, and fix plan-local unknown-area exit code.
 - a2a3e52: Fix several PR Visual Recap pipeline reliability issues:
-  - **playwright optionalDependency**: add `playwright@^1` as an `optionalDependency` of `@agent-native/core` so consumer repos running `npx @agent-native/core@latest` can take screenshots without manual install steps; the existing dynamic-import fallback chain is preserved.
+  - **playwright optionalDependency**: add `playwright@^1` as an `optionalDependency` of `@agentnative-fork/core` so consumer repos running `npx @agentnative-fork/core@latest` can take screenshots without manual install steps; the existing dynamic-import fallback chain is preserved.
   - **plan-id continuity**: `buildCommentBody` now threads the last-known plan id (`PREV_PLAN_ID`) into every comment branch (failure, suppressed, tiny) so a transient error never orphans the plan; the failure branch also keeps a labeled stale link to the previous recap.
   - **freshness line**: all comment branches that have a `HEAD_SHA` now emit `_As of \`<short-sha>\`\_` so reviewers can tell whether the recap matches the latest push.
   - **deterministic visibility**: `create-visual-recap` action accepts a `visibility` input (enum `private|org|public`, default `org`) and applies it server-side after import, so the recap is never accidentally private; the agent prompt now passes `visibility: "org"` in the `create-visual-recap` call and demotes `set-resource-visibility` to a fallback note.
@@ -2998,7 +2998,7 @@ bearer or basic authentication in header` and the PR comment reported
   instead of falling back to a "needs custom Edit" hint.
 
 - d82d5f7: Move the eight "dev-doc" structured blocks into the core block library so any app can register them, mirroring how `checklist` / `code-tabs` / `html` / `table` / `tabs` already live in core.
-  - **New shared blocks** — `mermaid` (hand-drawn Mermaid diagram), `api-endpoint` (Swagger / Stripe-style endpoint reference), `openapi-spec` (whole-document OpenAPI / Swagger reference), `data-model` (interactive dbdiagram-style ERD), `diff` (GitHub-style before/after with unified + split views), `file-tree` (VS Code / GitHub explorer with change badges), `json-explorer` (collapsible devtools JSON tree), and `annotated-code` (Stripe-docs "explain this code" walkthrough). Their React-free schema + MDX round-trip config export from `@agent-native/core/blocks/server`; their `Read` / `Edit` React renderers export from `@agent-native/core/blocks`.
+  - **New shared blocks** — `mermaid` (hand-drawn Mermaid diagram), `api-endpoint` (Swagger / Stripe-style endpoint reference), `openapi-spec` (whole-document OpenAPI / Swagger reference), `data-model` (interactive dbdiagram-style ERD), `diff` (GitHub-style before/after with unified + split views), `file-tree` (VS Code / GitHub explorer with change badges), `json-explorer` (collapsible devtools JSON tree), and `annotated-code` (Stripe-docs "explain this code" walkthrough). Their React-free schema + MDX round-trip config export from `@agentnative-fork/core/blocks/server`; their `Read` / `Edit` React renderers export from `@agentnative-fork/core/blocks`.
   - **App-agnostic** — the renderers no longer depend on a host app's shadcn/ui components or `next-themes`. Form controls use minimal inline primitives styled with the same Tailwind tokens, dark mode is detected from the document root's `.dark` class, and the diff line-differ is inlined so core carries no extra runtime dependency. Rendered output (dark/light, collapse, FK-highlight interactivity, panel editing) is unchanged.
 
 - d82d5f7: Export shared registry-block Tiptap node utilities so app editors can render registered block specs through a common NodeView, side-map provider, and duplicate-id reminting plugin.
@@ -3030,9 +3030,9 @@ bearer or basic authentication in header` and the PR comment reported
   reverted. External (agent/peer) edits never byte-match a local emission, so
   agent resync is unaffected.
 - d82d5f7: Make the unified editor's block library "add a block in ONE place" by sharing the two pieces that were still duplicated between the plan and content editors.
-  - **`buildRegistryBlockSlashItems(registry, options)`** (exported from `@agent-native/core/client`) — the shared builder for the registry-derived block slash commands both editors offer. It owns the `registry.list("block")` source, the Notion-compatibility filter, and the one-item-per-spec mapping; each app injects only the parts that legitimately differ (its item shape, its Notion-compat predicate, and how it inserts the block node). Plan's `buildPlanSlashCommands` and content's `buildRegistrySlashItems` are now thin adapters over it.
-  - **`registerLibraryBlocks(registry, { overrides? })` + `libraryBlockSpecs`** (from `@agent-native/core/blocks`) — register the whole standard browser library (checklist, table, code-tabs, html, tabs + the eight dev-doc blocks: mermaid, api-endpoint, openapi-spec, data-model, diff, file-tree, json-explorer, annotated-code) in one call. Apps register it, then add only their app-specific blocks on top, passing small per-block `overrides` (e.g. content re-types `table` → `table-block`).
-  - **`registerLibraryBlockConfigs(registry, { overrides? })` + `libraryBlockConfigs`** (from `@agent-native/core/blocks/server`) — the React-free twin for server / shared registries, registering the same library as `Read: () => null` config stubs so the agent schema export and MDX round-trip share one source too.
+  - **`buildRegistryBlockSlashItems(registry, options)`** (exported from `@agentnative-fork/core/client`) — the shared builder for the registry-derived block slash commands both editors offer. It owns the `registry.list("block")` source, the Notion-compatibility filter, and the one-item-per-spec mapping; each app injects only the parts that legitimately differ (its item shape, its Notion-compat predicate, and how it inserts the block node). Plan's `buildPlanSlashCommands` and content's `buildRegistrySlashItems` are now thin adapters over it.
+  - **`registerLibraryBlocks(registry, { overrides? })` + `libraryBlockSpecs`** (from `@agentnative-fork/core/blocks`) — register the whole standard browser library (checklist, table, code-tabs, html, tabs + the eight dev-doc blocks: mermaid, api-endpoint, openapi-spec, data-model, diff, file-tree, json-explorer, annotated-code) in one call. Apps register it, then add only their app-specific blocks on top, passing small per-block `overrides` (e.g. content re-types `table` → `table-block`).
+  - **`registerLibraryBlockConfigs(registry, { overrides? })` + `libraryBlockConfigs`** (from `@agentnative-fork/core/blocks/server`) — the React-free twin for server / shared registries, registering the same library as `Read: () => null` config stubs so the agent schema export and MDX round-trip share one source too.
 
   Adding a 14th standard library block now means editing one core list instead of four app files. The set of registered blocks and the Notion-gating behavior in each app are unchanged.
 
@@ -3044,13 +3044,13 @@ bearer or basic authentication in header` and the PR comment reported
 
 - 5f51768: Give actions and skills tighter control over what the agent sees, and make the clarifying-question UI a first-class building block.
   - **`agentTool: false` on `defineAction`** — expose an action to the frontend / HTTP (`useActionMutation`, `callAction`, `/_agent-native/actions/<name>`) while hiding it from every agent tool surface (in-app assistant, MCP, A2A, job/trigger runners). Frontend/programmatic actions no longer have to spend a slot in the model's tool list. Distinct from `toolCallable`, which only governs the sandboxed extension iframe bridge.
-  - **`ask-question` / `askUserQuestion()`** — the built-in clarifying-question tool now accepts a short `header` chip and per-option `preview` content, aligning with Claude Code's `AskUserQuestion`. A new `askUserQuestion()` client helper (exported from `@agent-native/core/client`) lets app code raise the same inline multiple-choice prompt and `await` the user's selected value(s) — so the UI can gate an action on one quick decision. Documented in `client.md` and the `client-methods` skill.
+  - **`ask-question` / `askUserQuestion()`** — the built-in clarifying-question tool now accepts a short `header` chip and per-option `preview` content, aligning with Claude Code's `AskUserQuestion`. A new `askUserQuestion()` client helper (exported from `@agentnative-fork/core/client`) lets app code raise the same inline multiple-choice prompt and `await` the user's selected value(s) — so the UI can gate an action on one quick decision. Documented in `client.md` and the `client-methods` skill.
   - **Skill scoping** — SKILL.md frontmatter now supports `scope: runtime | dev | both` (default `both`). The runtime agent excludes `scope: dev` skills from both the system-prompt skills block and `docs-search`, so development-only skills stay invisible to the running app's agent.
   - **Action-surface guidance + advisory audit** — the `actions` skill and docs now teach keeping the action surface small and orthogonal (prefer one CRUD `update` over per-field actions; reach for the generic query/escape-hatch actions instead of minting read actions). Added `pnpm actions:audit`, an advisory scanner that flags likely UI-dead mutating actions and redundant action clusters (never fails CI).
   - **`run(args, ctx)` context** — an action's `run` now receives an optional second argument with the resolved request identity (`userEmail`, `orgId`) and the invocation source (`caller`: `"tool" | "http" | "frontend" | "cli" | "mcp" | "a2a"`), wired at every dispatch site. Read `ctx.userEmail` / `ctx.caller` instead of calling `getRequestUserEmail()` by hand. Backward compatible (1-arg `run(args)` still valid); `userEmail` is never defaulted to a dev identity.
-  - **Client-side `track()`** — analytics tracking now works from the browser. A new `track()` client helper (exported from `@agent-native/core/client`) POSTs to `/_agent-native/track`, which forwards the event to the same registered server-side providers (PostHog/Mixpanel/etc) with server-resolved attribution. No analytics SDK or provider keys ship to the client.
+  - **Client-side `track()`** — analytics tracking now works from the browser. A new `track()` client helper (exported from `@agentnative-fork/core/client`) POSTs to `/_agent-native/track`, which forwards the event to the same registered server-side providers (PostHog/Mixpanel/etc) with server-resolved attribution. No analytics SDK or provider keys ship to the client.
 
-- 510f15d: Add a first-party block registry (`@agent-native/core/blocks`). A `BlockSpec`
+- 510f15d: Add a first-party block registry (`@agentnative-fork/core/blocks`). A `BlockSpec`
   describes one document block end to end — a zod `schema` for its data, an `mdx`
   config for byte-stable MDX round-trip, a `Read` renderer, an optional `Edit`
   (auto-generated from the schema when omitted), and `placement` (top-level
@@ -3064,13 +3064,13 @@ bearer or basic authentication in header` and the PR comment reported
     fields editing inline via the app's rich-markdown editor.
   - `serializeSpecBlock` / `parseSpecBlock` + the shared `prop()` encoder and
     estree attribute reader (exported from the React-free
-    `@agent-native/core/blocks/server` entry) — registry-driven MDX round-trip that
+    `@agentnative-fork/core/blocks/server` entry) — registry-driven MDX round-trip that
     reproduces the existing component/attribute encoding for backward compatibility.
   - `describeBlocksForAgent` / `renderBlockVocabularyReference` — generate the
     agent's block vocabulary (per-block JSON schemas and a compact markdown
     reference of types, MDX tags, placement, and key fields) directly from the
     registry so the agent never drifts from what the app can render and serialize.
-  - A standard block library (`@agent-native/core/blocks` + the React-free
+  - A standard block library (`@agentnative-fork/core/blocks` + the React-free
     `/blocks/server` entry): `checklistBlock`, `tableBlock`, `codeTabsBlock`,
     `htmlBlock`, and `tabsBlock`, each with its pure schema + MDX config so apps
     can register the shared specs (plan registers all of them; tabs is also
@@ -3081,10 +3081,10 @@ bearer or basic authentication in header` and the PR comment reported
   unregistered block types, so existing documents keep working unchanged.
 
 - 510f15d: Add a standard `tabs` block to the core block library
-  (`@agent-native/core/blocks`): a horizontal pill-tab container whose tabs each
+  (`@agentnative-fork/core/blocks`): a horizontal pill-tab container whose tabs each
   hold their own list of child blocks. It exports `tabsBlock` (the full React
   spec), `TabsBlockReader`/`TabsBlockEditor`, and the React-free
-  `tabsSchema`/`tabsMdx` config (from `@agent-native/core/blocks/server`). The MDX
+  `tabsSchema`/`tabsMdx` config (from `@agentnative-fork/core/blocks/server`). The MDX
   encoding matches the legacy `<TabsBlock … tabs={[…]} />` form — labels and
   nested child blocks are one JSON `tabs` prop (not nested MDX) — so stored
   documents round-trip byte-compatibly.
@@ -3124,7 +3124,7 @@ bearer or basic authentication in header` and the PR comment reported
   `useCollaborativeDoc` and a `createCollabPlugin` mount, reusing the shared collab
   backend instead of reimplementing CRDT sync. New exports:
   `createRichMarkdownExtensions`, `RichMarkdownCollabUser`, and
-  `CreateRichMarkdownExtensionsOptions` from `@agent-native/core/client`.
+  `CreateRichMarkdownExtensionsOptions` from `@agentnative-fork/core/client`.
 
 - 510f15d: Add a shared block-level image node to the rich markdown editor core so every
   embedder gets an uploading image block — improve it once, both apps improve.
@@ -3141,7 +3141,7 @@ alt? }>`. A self-contained ProseMirror plugin wires paste-image and
     `src`), and `createImageSlashCommand(upload)` adds a `/image` file-picker
     command. With no uploader the block still renders and round-trips pasted image
     URLs / `![](url)` markdown.
-  - **`uploadEditorImage`** (exported from `@agent-native/core/client`): the
+  - **`uploadEditorImage`** (exported from `@agentnative-fork/core/client`): the
     default uploader. Reads the File as a data URL and calls the framework
     `upload-image` action, returning the hosted CDN URL — so any consumer gets a
     real uploading image block with no per-app upload code.
@@ -3158,7 +3158,7 @@ alt? }>`. A self-contained ProseMirror plugin wires paste-image and
   base Tiptap setup, markdown wiring, collab seed/reconcile logic, and the slash /
   bubble menus.
 
-  New exports from `@agent-native/core/client`:
+  New exports from `@agentnative-fork/core/client`:
   - `createSharedEditorExtensions(opts)` — the single extension factory. Assembles
     StarterKit + Placeholder + Link + tasks + tables + a dialect-keyed
     `tiptap-markdown` serializer (`MARKDOWN_DIALECT_CONFIG` for `gfm`/`nfm`), then
@@ -3421,7 +3421,7 @@ alt? }>`. A self-contained ProseMirror plugin wires paste-image and
 
 ### Minor Changes
 
-- 8509cf0: Add a shared `@agent-native/core/provider-api` module: a reusable provider-API runtime with a credential-resolver hook, SSRF-safe outbound dispatch, a provider catalog (base URLs, auth styles, credential keys, docs/spec URLs, placeholders, examples), and helpers (`createProviderApiRuntime`, `getProviderApiConfig`, `isProviderApiId`, `listProviderApiCatalog`, `listProviderApiIdsForTemplateUse`, `PROVIDER_API_IDS`). Templates can build a thin credential adapter on top instead of hardcoding each provider endpoint.
+- 8509cf0: Add a shared `@agentnative-fork/core/provider-api` module: a reusable provider-API runtime with a credential-resolver hook, SSRF-safe outbound dispatch, a provider catalog (base URLs, auth styles, credential keys, docs/spec URLs, placeholders, examples), and helpers (`createProviderApiRuntime`, `getProviderApiConfig`, `isProviderApiId`, `listProviderApiCatalog`, `listProviderApiIdsForTemplateUse`, `PROVIDER_API_IDS`). Templates can build a thin credential adapter on top instead of hardcoding each provider endpoint.
 
 ## 0.32.18
 
@@ -3570,7 +3570,7 @@ alt? }>`. A self-contained ProseMirror plugin wires paste-image and
 
 ### Minor Changes
 
-- a56d93d: Add a shared `@agent-native/core/brand-kit` module — template-agnostic Brand Kit types and brand-signal extraction, plus a single re-export surface over the existing design-token utilities (URL/GitHub/Tailwind/CSS/code/document extraction). This de-duplicates the design-system/brand logic that the `design` and `slides` templates previously copy-pasted, so it can be reused across design, slides, and assets for on-brand generation.
+- a56d93d: Add a shared `@agentnative-fork/core/brand-kit` module — template-agnostic Brand Kit types and brand-signal extraction, plus a single re-export surface over the existing design-token utilities (URL/GitHub/Tailwind/CSS/code/document extraction). This de-duplicates the design-system/brand logic that the `design` and `slides` templates previously copy-pasted, so it can be reused across design, slides, and assets for on-brand generation.
 
 ### Patch Changes
 
@@ -3618,7 +3618,7 @@ alt? }>`. A self-contained ProseMirror plugin wires paste-image and
 
 ### Minor Changes
 
-- d4013f0: Add a shared `@agent-native/core/brand-kit` module — template-agnostic Brand Kit types and brand-signal extraction, plus a single re-export surface over the existing design-token utilities (URL/GitHub/Tailwind/CSS/code/document extraction). This de-duplicates the design-system/brand logic that the `design` and `slides` templates previously copy-pasted, so it can be reused across design, slides, and assets for on-brand generation.
+- d4013f0: Add a shared `@agentnative-fork/core/brand-kit` module — template-agnostic Brand Kit types and brand-signal extraction, plus a single re-export surface over the existing design-token utilities (URL/GitHub/Tailwind/CSS/code/document extraction). This de-duplicates the design-system/brand logic that the `design` and `slides` templates previously copy-pasted, so it can be reused across design, slides, and assets for on-brand generation.
 
 ### Patch Changes
 
@@ -4068,7 +4068,7 @@ canToggle, isLoading, setCodeMode }`.
 ### Patch Changes
 
 - 5f82202: `open_app({app: "<id>"})` now defaults to the app's home page (`/`) when neither `view` nor `path` is given, instead of throwing `requires 'app' and either 'view' or 'path'`. Hosts (ChatGPT / Claude) previously wasted a turn on the model's first-attempt retry whenever it omitted view/path; this lands the embed on `/` first try.
-- 5f82202: Re-export `deleteOrHideExtension` and `hideExtensionForCurrentUser` from `@agent-native/core/client/extensions` so templates that wrap the extensions system (e.g. Workbench Custom Tools) don't have to deep-import internals. Also add CLI templates-meta entry for the new hidden `workbench` template.
+- 5f82202: Re-export `deleteOrHideExtension` and `hideExtensionForCurrentUser` from `@agentnative-fork/core/client/extensions` so templates that wrap the extensions system (e.g. Workbench Custom Tools) don't have to deep-import internals. Also add CLI templates-meta entry for the new hidden `workbench` template.
 
 ## 0.22.41
 
@@ -4340,7 +4340,7 @@ canToggle, isLoading, setCodeMode }`.
 
 ### Patch Changes
 
-- b5fc3b7: `/_agent-native/mcp/connect` now leads with the no-CLI path: the remote MCP URL is shown with a copy button, and a Claude/ChatGPT/Cursor/Claude Code/Codex/Other tab strip walks users through each host (paste-the-URL for OAuth hosts, one-line `claude mcp add` / `npx @agent-native/core@latest connect` snippets for CLI hosts) so non-developers can connect a chat host without ever opening a terminal. The static-token mint flow and connections list keep their existing endpoints; tests cover the new sections.
+- b5fc3b7: `/_agent-native/mcp/connect` now leads with the no-CLI path: the remote MCP URL is shown with a copy button, and a Claude/ChatGPT/Cursor/Claude Code/Codex/Other tab strip walks users through each host (paste-the-URL for OAuth hosts, one-line `claude mcp add` / `npx @agentnative-fork/core@latest connect` snippets for CLI hosts) so non-developers can connect a chat host without ever opening a terminal. The static-token mint flow and connections list keep their existing endpoints; tests cover the new sections.
 
 ## 0.22.3
 
@@ -4598,7 +4598,7 @@ canToggle, isLoading, setCodeMode }`.
 ### Patch Changes
 
 - 8b0a941: Fix agent sidebar resurrecting an old closed tab on refresh. When all tabs were closed down to a single new empty tab, reloading the page replaced it with the most-recent old conversation because the empty tab is never persisted server-side and the in-memory newly-created marker is wiped by the reload. The saved tab is now restored verbatim as an optimistic empty tab instead of falling back to an unrelated old chat. Stale (>12h) tab clearing is unchanged.
-- 8b0a941: Composer toolbar: drop the leading pencil/clipboard icon from the Act/Plan mode picker, and hide the reasoning-level suffix ("· Auto") when the chatfield is narrower than 370px so the model name + version stays fully readable instead of truncating. The reasoning level is still reachable via the model picker popover. Also alias `@agent-native/core/styles/agent-native.css` to source in dev so CSS edits take effect live instead of silently loading the stale built copy.
+- 8b0a941: Composer toolbar: drop the leading pencil/clipboard icon from the Act/Plan mode picker, and hide the reasoning-level suffix ("· Auto") when the chatfield is narrower than 370px so the model name + version stays fully readable instead of truncating. The reasoning level is still reachable via the model picker popover. Also alias `@agentnative-fork/core/styles/agent-native.css` to source in dev so CSS edits take effect live instead of silently loading the stale built copy.
 - 8b0a941: Refine Demo Mode redaction: only coerce a name-key value to a fake name when it's a 2–4 word person name (mail labels/tabs like "Important" no longer mangled); stable mappings via a bounded, TTL'd, leak-free cache plus produced-fake idempotency so names/emails don't drift when a draft is edited and refetched; realistic stand-in email domains instead of example.com; protect SQL/query/expression/code keys so analytics panel queries aren't corrupted by redaction (chart titles/names still faked, queries run intact); fetch interceptor hardened to be a zero-overhead pass-through when demo mode is off and to never touch agent/run/streaming transport. Plus DemoModeSection/action-routes wiring and tightened TiptapComposer, use-chat-threads, and use-db-sync behavior.
 - 8b0a941: Fix Google sign-in popup showing "[object Object]" instead of redirecting to Google. The `/_agent-native/google/auth-url?redirect=1` path used h3 v2's `sendRedirect`, which (in `2.0.1-rc.20`) ignores the event and returns a non-standard `HTTPResponse` instance; the request-handler shim stringified it to `[object Object]` with a 200 status and no `Location` header. It now returns a native web `Response` 302, matching the proven OAuth response idiom used by the callback route.
 
@@ -4775,7 +4775,7 @@ canToggle, isLoading, setCodeMode }`.
 
 - b5b6f22: New optional `emptyStateAddon` prop on `AssistantChat` — content rendered in the empty state above the suggestion buttons. Used by `MultiTabAssistantChat` to surface "previous chats for this design" when the current thread is empty but the scope has other threads. No behaviour change when the prop isn't passed.
 - 2eb5064: `PromptComposer` + `TiptapComposer`: inline image attachments, attachment-only composer-mode sends, and active-voice cancellation on submit. Image files attached to the composer are now sent inline as `<uploaded-image name=… contentType=…>` data-URL blocks alongside the existing pasted-text / inline-text flattening. Composer modes (`/code`, `/research`, etc.) now also accept submissions with no text when attachments are present — the default prompt becomes "Use the attached context." and the attachments survive the wrap in the mode's prefix + `<context>` block. Every send / build intercept path also cancels any in-flight voice dictation so a late transcript can't land on top of the just-sent message.
-- 97ca0db: Export `useBuilderStatus` and `useBuilderConnectFlow` (plus `BuilderConnectFlow` / `BuilderConnectFlowOptions` types) from `@agent-native/core/client`. Both hooks already powered the in-framework SettingsPanel's Builder.io connect flow; surfacing them lets templates reuse the same status read + connect-flow state machine in their own settings UIs without duplicating the SSE / popup-handshake plumbing.
+- 97ca0db: Export `useBuilderStatus` and `useBuilderConnectFlow` (plus `BuilderConnectFlow` / `BuilderConnectFlowOptions` types) from `@agentnative-fork/core/client`. Both hooks already powered the in-framework SettingsPanel's Builder.io connect flow; surfacing them lets templates reuse the same status read + connect-flow state machine in their own settings UIs without duplicating the SSE / popup-handshake plumbing.
 - f400c81: Polish + appearance presets:
   - Sign-in page: add a favicon `<link>` to the onboarding sign-in and reset-password HTML so tabs no longer show the default globe.
   - Sign-in page: suppress the on-screen Google OAuth status overlay ("OAuth exchange redeemed; returning to the app (flow …)" and friends) for end users. Diagnostics still log to the browser console; the overlay can be opted back in with `#oauth-debug` or `?oauth_debug=1` for debugging.
@@ -4791,7 +4791,7 @@ canToggle, isLoading, setCodeMode }`.
   - Slides drag-and-drop fixes: `/api/assets/upload` now routes uploads strictly through the framework `uploadFile()` provider chain. The previous local-disk path that wrote into `public/uploads/` is gone — it didn't persist on serverless deploys and polluted the source tree on dev runs. With no provider configured, the endpoint returns a clear 503 telling the caller to connect Builder.io (or any registered provider). `listAssets` / `deleteAsset` no longer scan local disk; listing is a no-op for now (until a SQL-backed asset index lands), and deletes go through the provider's own API. Drops anywhere on the slides editor — including the chrome and sidebars — are caught instead of letting the browser navigate to the file; drops outside a placeholder/`<img>` open a popover that hands the image off to the agent chat for the user to describe what to do with it.
 
 - f400c81: Two related additions to the realtime + agent layer:
-  - **Per-source change-version primitive.** New `useChangeVersion(source)` / `useChangeVersions(sources)` / `getChangeVersion` / `bumpChangeVersion` exported from `@agent-native/core/client`. Every `recordChange` event carries a `source` and `version`; `useDbSync` now bumps a per-source counter on each event and templates fold the counter into their React Query `queryKey`, so a change to `"dashboards"` only refetches dashboard queries instead of triggering a blanket cache invalidate across the app. Framework-level keys (`action`, `extension`, `application-state`, …) keep their universal invalidate; template data keys (`data`, `dashboards`, `analyses`, `dashboard-views`) no longer do — they react through the per-source counter. Analytics templates updated as the first consumer (CommandPalette / Sidebar / sql-dashboard / AnalysesList).
+  - **Per-source change-version primitive.** New `useChangeVersion(source)` / `useChangeVersions(sources)` / `getChangeVersion` / `bumpChangeVersion` exported from `@agentnative-fork/core/client`. Every `recordChange` event carries a `source` and `version`; `useDbSync` now bumps a per-source counter on each event and templates fold the counter into their React Query `queryKey`, so a change to `"dashboards"` only refetches dashboard queries instead of triggering a blanket cache invalidate across the app. Framework-level keys (`action`, `extension`, `application-state`, …) keep their universal invalidate; template data keys (`data`, `dashboards`, `analyses`, `dashboard-views`) no longer do — they react through the per-source counter. Analytics templates updated as the first consumer (CommandPalette / Sidebar / sql-dashboard / AnalysesList).
   - **Scoped chat tabs in `AgentPanel` / `MultiTabAssistantChat`.** New optional `scope?: ChatThreadScope | null` prop on `AgentPanel`. When set, the tab bar partitions per `(storageKey, scope)` so each deck / dashboard / record shows its own thread list, new chats inherit the scope server-side, and the panel renders a "Working on {label}" badge with a Detach button to escape back to the unscoped tab list. Pairs with the server-side `scope_type` / `scope_id` / `scope_label` columns + `setThreadScope` already in `chat-threads/store.ts`.
 
 - ffd3d00: Add first-class workspace app audience metadata with route-level public/protected page access.
@@ -4805,7 +4805,7 @@ canToggle, isLoading, setCodeMode }`.
   - `useDbSync` reverts to invalidating a small fixed list of framework-internal prefixes (`["action"]`, `["app-state"]`, `["__set_url__"]`, etc.) and no longer touches templates' own data queries. The legacy `queryKeys` option remains in the type signature for backward compatibility but is ignored.
   - Analytics' dashboard / analysis / sidebar / command-palette queries are wired up. Other templates can adopt the same pattern by importing `useChangeVersion` and including it in their query keys; recommended sources include `"dashboards"`, `"analyses"`, `"settings"`, and `"action"` (the agent runner emits `source: "action"` after every successful mutating tool call, so depending on it catches any agent-driven change to the underlying data).
 
-- 5f59f44: New `usePinchZoom` hook exported from `@agent-native/core/client` for canvas-style editors. Wires trackpad pinch (synthesized as `wheel` events with `ctrlKey: true`) and 2-pointer touchscreen pinch onto a scrolling container, with cursor-anchored zoom-to-cursor support and configurable `min` / `max` percentages. The slides template adopts it on the deck-editor canvas; any template with a zoomable surface can drop it in by attaching the returned ref to the scroll container.
+- 5f59f44: New `usePinchZoom` hook exported from `@agentnative-fork/core/client` for canvas-style editors. Wires trackpad pinch (synthesized as `wheel` events with `ctrlKey: true`) and 2-pointer touchscreen pinch onto a scrolling container, with cursor-anchored zoom-to-cursor support and configurable `min` / `max` percentages. The slides template adopts it on the deck-editor canvas; any template with a zoomable surface can drop it in by attaching the returned ref to the scroll container.
 
 ### Patch Changes
 
@@ -4839,11 +4839,11 @@ canToggle, isLoading, setCodeMode }`.
 - 64792af: Clarify Builder Cloud Agent waitlist guidance so agents do not send users to nonexistent org settings.
 - d1a90ac: CLI + dispatch shell fixes from create-workflow feedback:
   - `create`: scaffold `packages/pinpoint` when the user selects `slides` or
-    `videos`. Their `package.json` declares `@agent-native/pinpoint:
+    `videos`. Their `package.json` declares `@agentnative-fork/pinpoint:
 workspace:*`, but the templates-meta entries were missing
     `requiredPackages: ["pinpoint"]`, so `pnpm install` blew up with
     `ERR_PNPM_WORKSPACE_PKG_NOT_FOUND`. The existing e2e test now covers
-    every template with `@agent-native/*` workspace deps so a regression
+    every template with `@agentnative-fork/*` workspace deps so a regression
     surfaces in CI instead of on the user's machine.
   - `create`: per-template progress messages during scaffolding
     (`Scaffolding Slides (3/4)...`, `Adding shared packages...`) and a
@@ -4888,7 +4888,7 @@ workspace:*`, but the templates-meta entries were missing
     had even added an app, which felt confusing.
   - Agent system prompt (chat-in-browser-on-localdev): when a user asks to
     scaffold a new workspace app from a localhost browser tab, point them
-    at \`npx @agent-native/core@latest add-app\` first since they're already in
+    at \`npx @agentnative-fork/core@latest add-app\` first since they're already in
     that terminal. The desktop / Claude Code / Codex / Builder.io
     alternatives still follow for general source-editing work.
 
@@ -4943,7 +4943,7 @@ workspace:*`, but the templates-meta entries were missing
 - 9c991e1: Keep Builder preview Google sign-in from returning to loopback preview URLs.
 - ce9e355: Open primary Google sign-in from Agent Native Desktop through the desktop exchange flow so OAuth can complete in the system browser.
 - ce9e355: Add LLM connection context to tracking events and track Builder connect clicks.
-- 97ca0db: Export `useBuilderStatus` and `useBuilderConnectFlow` from `@agent-native/core/client` so template settings pages can render a connect-builder button that polls for completion instead of a bare `<a target="_blank">` link.
+- 97ca0db: Export `useBuilderStatus` and `useBuilderConnectFlow` from `@agentnative-fork/core/client` so template settings pages can render a connect-builder button that polls for completion instead of a bare `<a target="_blank">` link.
 - 1fd5856: Allow owners to manage legacy unscoped shared resources after joining an organization.
 - d1a90ac: Org polish:
   - `InvitationBanner`: while a join-by-domain or accept-invitation request is in flight, render an in-place "Joining {orgName}…" status so the chat panel doesn't look unchanged until the view abruptly swaps.
@@ -4986,7 +4986,7 @@ workspace:*`, but the templates-meta entries were missing
 
 ### Patch Changes
 
-- db11073: Fix workspace scaffolds of `slides` and `videos` failing with `ERR_PNPM_WORKSPACE_PKG_NOT_FOUND` for `@agent-native/pinpoint`. Both templates depend on pinpoint but were not declaring it in `requiredPackages`, so it never got copied into `packages/pinpoint` and the `workspace:*` reference could not resolve.
+- db11073: Fix workspace scaffolds of `slides` and `videos` failing with `ERR_PNPM_WORKSPACE_PKG_NOT_FOUND` for `@agentnative-fork/pinpoint`. Both templates depend on pinpoint but were not declaring it in `requiredPackages`, so it never got copied into `packages/pinpoint` and the `workspace:*` reference could not resolve.
 
 ## 0.14.7
 
@@ -5116,7 +5116,7 @@ workspace:*`, but the templates-meta entries were missing
 
   Also raise the response truncation cap from 8k to 32k chars so the agent can read a full article or scraped table in one shot.
 
-- 04fe544: feat(onboarding): pick Google sign-in flow with `GOOGLE_AUTH_MODE` env var (`auto` | `popup` | `redirect`, default `auto`). Auto uses a popup in normal browsers, a full-page redirect inside Electron, and a popup inside the Builder.io browser iframe (Google rejects framing). The new `resolveGoogleAuthMode()` server helper is also exported from `@agent-native/core/server/google-auth-mode` for callers that need to pass an explicit mode.
+- 04fe544: feat(onboarding): pick Google sign-in flow with `GOOGLE_AUTH_MODE` env var (`auto` | `popup` | `redirect`, default `auto`). Auto uses a popup in normal browsers, a full-page redirect inside Electron, and a popup inside the Builder.io browser iframe (Google rejects framing). The new `resolveGoogleAuthMode()` server helper is also exported from `@agentnative-fork/core/server/google-auth-mode` for callers that need to pass an explicit mode.
 
 ### Patch Changes
 
@@ -5143,7 +5143,7 @@ workspace:*`, but the templates-meta entries were missing
 - 04fe544: ux(agent prompt): after finishing a task with obvious recurring value (daily triage, weekly digests, monthly cleanup), the agent now offers to save it as a recurring job in one short closing line, then calls `manage-jobs(create)` if the user confirms. Skips the offer for one-shot lookups, single drafts/replies, and prompts that already specify a cadence.
 - 04fe544: fix(dispatch): make the `/dispatch/<appId>` server-side bounce work in production deploys and after live workspace changes by reading the same env-→file-→filesystem manifest fallback chain that the rest of agent discovery uses, instead of only checking `AGENT_NATIVE_WORKSPACE_APPS_JSON`.
 
-  Core now exports `loadWorkspaceAppsManifest()` and the `WorkspaceAppManifestEntry` type from `@agent-native/core/server/agent-discovery`, so other server entrypoints can resolve the workspace manifest without re-implementing the fallback.
+  Core now exports `loadWorkspaceAppsManifest()` and the `WorkspaceAppManifestEntry` type from `@agentnative-fork/core/server/agent-discovery`, so other server entrypoints can resolve the workspace manifest without re-implementing the fallback.
 
 - 04fe544: Strengthen the `create-extension` tool description so the agent generates more
   robust extensions: prefer `<script>` + `Alpine.data('name', () => ({...}))`
@@ -5650,7 +5650,7 @@ workspace:*`, but the templates-meta entries were missing
 
 ### Patch Changes
 
-- 3424455: Fix `agent-native create` failing with "Unrecognized archive format" on freshly published versions. The CLI now tries the changesets per-package tag (`@agent-native/core@<version>`) first, falls back to the legacy `v<version>` tag, and finally to `main` — so it keeps working through the release-tag scheme shift introduced when the framework adopted changesets.
+- 3424455: Fix `agent-native create` failing with "Unrecognized archive format" on freshly published versions. The CLI now tries the changesets per-package tag (`@agentnative-fork/core@<version>`) first, falls back to the legacy `v<version>` tag, and finally to `main` — so it keeps working through the release-tag scheme shift introduced when the framework adopted changesets.
 - 81005c4: Add an optional AgentPanel chat notice render slot.
 - 81005c4: Export a reusable client theme initialization script helper.
 - 81005c4: Avoid stale Vite prebundles for core source aliases in monorepo development.
@@ -5666,7 +5666,7 @@ workspace:*`, but the templates-meta entries were missing
 
 ### Minor Changes
 
-- e375642: Add `@agent-native/core/usage` subpath export for `getUsageSummary` so server-side consumers (Cloudflare Workers / Pages) can import it without hitting the curated browser entry. Switch dispatch's usage-metrics store to the new subpath, fixing the dispatch CF Pages build failure.
+- e375642: Add `@agentnative-fork/core/usage` subpath export for `getUsageSummary` so server-side consumers (Cloudflare Workers / Pages) can import it without hitting the curated browser entry. Switch dispatch's usage-metrics store to the new subpath, fixing the dispatch CF Pages build failure.
 
 ### Patch Changes
 

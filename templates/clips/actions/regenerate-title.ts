@@ -10,13 +10,13 @@
  *   pnpm action regenerate-title --recordingId=<id>
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { writeAppState } from "@agent-native/core/application-state";
-import { assertAccess } from "@agent-native/core/sharing";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { assertAccess } from "@agentnative-fork/core/sharing";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
 import cleanupTranscript from "./cleanup-transcript.js";
 import { loadAgentsMdContext } from "./lib/agents-md-context.js";
 import {

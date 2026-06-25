@@ -1,4 +1,4 @@
-import { getUserSetting } from "@agent-native/core/settings";
+import { getUserSetting } from "@agentnative-fork/core/settings";
 import type { CalendarEvent } from "../../shared/api.js";
 import { createZoomMeeting, getZoomStatus } from "./zoom.js";
 

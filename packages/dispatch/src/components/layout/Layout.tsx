@@ -22,9 +22,9 @@ import {
   useFormatters,
   useT,
   type ChatThreadSummary,
-} from "@agent-native/core/client";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
-import { InvitationBanner, OrgSwitcher } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
+import { InvitationBanner, OrgSwitcher } from "@agentnative-fork/core/client/org";
 import {
   IconArrowUpRight,
   IconApps,

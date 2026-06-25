@@ -102,13 +102,13 @@ Não está pronto para montar o andaime? Você pode adicionar superpoderes nativ
 Se você estiver montando um andaime agora, o comando CLI é:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
-Você receberá um seletor de seleção múltipla. Escolha um aplicativo (autônomo) ou vários (espaço de trabalho — os aplicativos compartilham autenticação, marca, configuração do agente e banco de dados). Cada modelo escolhido é estruturado em `apps/<name>/` com todos os arquivos que você precisa. Para um aplicativo somente de ação em vez de um modelo UI, use `npx @agent-native/core@latest create my-agent --headless`.
+Você receberá um seletor de seleção múltipla. Escolha um aplicativo (autônomo) ou vários (espaço de trabalho — os aplicativos compartilham autenticação, marca, configuração do agente e banco de dados). Cada modelo escolhido é estruturado em `apps/<name>/` com todos os arquivos que você precisa. Para um aplicativo somente de ação em vez de um modelo UI, use `npx @agentnative-fork/core@latest create my-agent --headless`.
 
 Preencha `.env` (principalmente `ANTHROPIC_API_KEY` e `DATABASE_URL`), `pnpm install`, `pnpm dev` e funciona. Sem "TODO: implementar login", sem rotas de espaço reservado.
 
-Destinos de implantação: qualquer host compatível com Nitro (Node, Cloudflare, Netlify, Vercel, Deno, Lambda, Bun) e qualquer banco de dados SQL compatível com Drizzle (SQLite, Postgres, Turso, D1, Supabase, Neon). Para espaços de trabalho, `npx @agent-native/core@latest deploy` cria todos os aplicativos de uma vez e os envia para uma única origem. Consulte [Deployment](/docs/deployment).
+Destinos de implantação: qualquer host compatível com Nitro (Node, Cloudflare, Netlify, Vercel, Deno, Lambda, Bun) e qualquer banco de dados SQL compatível com Drizzle (SQLite, Postgres, Turso, D1, Supabase, Neon). Para espaços de trabalho, `npx @agentnative-fork/core@latest deploy` cria todos os aplicativos de uma vez e os envia para uma única origem. Consulte [Deployment](/docs/deployment).
 
 Para criar e publicar seu próprio modelo, consulte [Creating Templates](/docs/creating-templates).

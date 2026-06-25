@@ -5,7 +5,7 @@
  * When running inside a frame, renders nothing (the frame manages the terminal).
  *
  * Usage:
- *   import { AgentTerminal } from "@agent-native/core/terminal";
+ *   import { AgentTerminal } from "@agentnative-fork/core/terminal";
  *   <AgentTerminal className="w-full h-[400px]" />
  */
 

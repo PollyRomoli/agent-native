@@ -1,7 +1,7 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { buildDeepLink } from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { buildDeepLink } from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 
 function designDeepLink(designId: string): string {

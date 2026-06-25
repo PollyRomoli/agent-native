@@ -5,7 +5,7 @@ import {
   createAgentChatPlugin,
   defaultAuthPlugin,
   type AgentChatPluginOptions,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 
 export function createWorkspaceAgentChatPlugin(
   options?: AgentChatPluginOptions,

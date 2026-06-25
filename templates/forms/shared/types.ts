@@ -4,7 +4,7 @@ import type {
   DataTableColumn,
   DataTableWidget,
   DataWidgetDisplay,
-} from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core/data-widgets";
 
 // ---------------------------------------------------------------------------
 // Form field types

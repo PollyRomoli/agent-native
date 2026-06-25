@@ -10,7 +10,7 @@ import {
 import {
   EmbeddedApp,
   type EmbeddedAppRef,
-} from "@agent-native/core/embedding/react";
+} from "@agentnative-fork/core/embedding/react";
 import {
   IconArrowsMaximize,
   IconArrowsMinimize,
@@ -26,7 +26,7 @@ import {
   IconTrash,
   IconX,
 } from "@tabler/icons-react";
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";

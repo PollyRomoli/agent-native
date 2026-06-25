@@ -1,4 +1,4 @@
-import { registerRequiredSecret } from "@agent-native/core/secrets";
+import { registerRequiredSecret } from "@agentnative-fork/core/secrets";
 
 registerRequiredSecret({
   key: "GEMINI_API_KEY",

@@ -33,7 +33,7 @@ connectors and Claude Code `/mcp` authentication discover the protected
 resource, open the Agent-Native authorization page, and store their own tokens.
 ChatGPT custom MCP connectors use the same URL: choose OAuth, scan/discover
 tools, sign in, and approve the scopes. Local stdio proxying and older clients
-can still use `npx @agent-native/core connect <url>`, which mints a per-user,
+can still use `npx @agentnative-fork/core connect <url>`, which mints a per-user,
 scoped, revocable token from a logged-in browser session; no shared secret is
 copied.
 
@@ -96,9 +96,9 @@ For local stdio proxying, Codex/Cowork compatibility, or clients without
 remote MCP OAuth, use the hosted connect fallback:
 
 ```bash
-npx @agent-native/core@latest connect https://dispatch.agent-native.com
+npx @agentnative-fork/core@latest connect https://dispatch.agent-native.com
 # or, for an isolated app:
-npx @agent-native/core@latest connect https://mail.agent-native.com
+npx @agentnative-fork/core@latest connect https://mail.agent-native.com
 ```
 
 The command opens the app in the browser, the user clicks **Authorize**, and a
@@ -107,7 +107,7 @@ no-CLI equivalent is `https://<app>/_agent-native/mcp/connect`, which shows
 the copyable MCP URL, Claude / ChatGPT / Cursor / Claude Code / Codex / Other
 steps, and static-token fallback for clients that need it.
 
-Re-running `npx @agent-native/core@latest connect <url> --client claude-code` over an older
+Re-running `npx @agentnative-fork/core@latest connect <url> --client claude-code` over an older
 Claude bearer-token entry is the migration path: the CLI replaces
 `Authorization` headers with URL-only OAuth config and tells the user to
 authenticate from `/mcp`.
@@ -116,9 +116,9 @@ To re-authenticate an already-installed local/fallback client without
 reinstalling skills or connectors, use:
 
 ```bash
-npx -y @agent-native/core@latest reconnect https://dispatch.agent-native.com --client codex
+npx -y @agentnative-fork/core@latest reconnect https://dispatch.agent-native.com --client codex
 # or:
-npx -y @agent-native/core@latest connect reconnect https://dispatch.agent-native.com --client codex
+npx -y @agentnative-fork/core@latest connect reconnect https://dispatch.agent-native.com --client codex
 ```
 
 With no URL, `reconnect` searches local client configs for the existing Agent
@@ -205,7 +205,7 @@ external agent knows the tool yields an openable link.
 Real example — mail's `manage-draft` (`templates/mail/actions/manage-draft.ts`):
 
 ```ts
-import { buildDeepLink } from "@agent-native/core/server";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 
 function composeDeepLink(draft: Record<string, string>): string {
   return buildDeepLink({
@@ -252,7 +252,7 @@ same route inline instead of opening a new tab. Keep the `link` fallback even
 when adding `mcpApp` — non-UI clients still need the "Open in … →" link.
 
 ```ts
-import { embedApp } from "@agent-native/core";
+import { embedApp } from "@agentnative-fork/core";
 
 export default defineAction({
   // ...schema, run, link...
@@ -366,8 +366,8 @@ before telling the user they are unauthenticated.
 ## Do
 
 - Do connect local/fallback clients to Dispatch with
-  `npx @agent-native/core@latest connect https://dispatch.agent-native.com`;
-  use `npx -y @agent-native/core@latest reconnect ...` for reauth without
+  `npx @agentnative-fork/core@latest connect https://dispatch.agent-native.com`;
+  use `npx -y @agentnative-fork/core@latest reconnect ...` for reauth without
   reinstalling; use a direct app URL only when the host should be isolated to
   one app.
 - Do add a `link` builder to any action that produces or lists a navigable

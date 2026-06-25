@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import { eq } from "drizzle-orm";
-import { isBlockedToolUrl } from "@agent-native/core/tools/url-safety";
-import { assertAccess } from "@agent-native/core/sharing";
+import { isBlockedToolUrl } from "@agentnative-fork/core/tools/url-safety";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { getSchedulingContext } from "../server/context.js";
 
 function assertWorkflowStepUrlsAllowed(

@@ -164,7 +164,7 @@ describe("installSkills MCP registration", () => {
     expect(fs.existsSync(path.join(codexHome, "config.toml"))).toBe(false);
     expect(result.mcpServers[0]?.files).toEqual([]);
     expect(result.mcpServers[0]?.guidance.join("\n")).toContain(
-      "npx @agent-native/core@latest connect https://plan.agent-native.com --client codex --scope project",
+      "npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex --scope project",
     );
   });
 

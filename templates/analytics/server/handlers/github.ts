@@ -8,7 +8,7 @@ import {
   runApiHandlerWithContext,
   type CredentialContext,
 } from "../lib/credentials";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 import {
   searchPRs,
   searchIssues,

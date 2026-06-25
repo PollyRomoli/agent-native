@@ -3,7 +3,7 @@ import {
   agentNativePath,
   isInBuilderFrame,
   oauthRedirectUri,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import type { GoogleAuthStatus } from "@shared/api";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 

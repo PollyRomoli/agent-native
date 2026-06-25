@@ -3,15 +3,15 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const getDbMock = vi.hoisted(() => vi.fn());
 const assertAccessMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   defineAction: (entry: unknown) => entry,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: assertAccessMock,
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestUserEmail: vi.fn(() => "designer@example.com"),
 }));
 

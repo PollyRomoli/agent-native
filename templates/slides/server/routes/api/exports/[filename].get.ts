@@ -2,7 +2,7 @@ import path from "path";
 import { createReadStream } from "fs";
 import { stat } from "fs/promises";
 import { defineEventHandler, getRouterParam, setResponseStatus } from "h3";
-import { getSession, streamFile } from "@agent-native/core/server";
+import { getSession, streamFile } from "@agentnative-fork/core/server";
 import { tenantExportDir } from "../../../lib/tenant-files.js";
 
 const CONTENT_TYPES: Record<string, string> = {

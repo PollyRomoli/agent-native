@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import { Link } from "react-router";
-import { trackEvent, useLocale, useT } from "@agent-native/core/client";
+import { trackEvent, useLocale, useT } from "@agentnative-fork/core/client";
 import { TemplateDocsLink } from "./template-docs";
 import { sitePathForLocale } from "./docs-locale";
 
@@ -13,7 +13,7 @@ export const templates = [
     slug: "clips",
     replaces: "Replaces or augments Loom, Granola, and Wisprflow",
     cliCommand:
-      "npx @agent-native/core@latest create my-clips-app --template clips",
+      "npx @agentnative-fork/core@latest create my-clips-app --template clips",
     demoUrl: "https://clips.agent-native.com",
     description:
       "Screen recordings with browser debug capture, calendar-synced meeting notes, and Fn-hold voice dictation — all transcribed, summarized, and searchable, with an agent that can edit any of it.",
@@ -25,7 +25,7 @@ export const templates = [
     name: "Plans",
     slug: "plan",
     replaces: "Visual plan mode for Codex, Claude Code, and coding agents",
-    cliCommand: "npx @agent-native/core@latest skills add visual-plan",
+    cliCommand: "npx @agentnative-fork/core@latest skills add visual-plan",
     demoUrl: "https://plan.agent-native.com",
     description:
       "Install visual planning as an app-backed skill. Your coding agent can open structured plans with diagrams, wireframes, prototypes, annotations, comments, and shareable review links.",
@@ -38,7 +38,7 @@ export const templates = [
     slug: "design",
     replaces: "Replaces or augments design prototyping tools",
     cliCommand:
-      "npx @agent-native/core@latest create my-design-app --template design",
+      "npx @agentnative-fork/core@latest create my-design-app --template design",
     demoUrl: "https://design.agent-native.com",
     description:
       "Agent-native HTML prototyping studio. Generate interactive Alpine/Tailwind designs, compare variants, refine live tweak controls, and export the result.",
@@ -51,7 +51,7 @@ export const templates = [
     slug: "content",
     replaces: "Replaces or augments Obsidian for MDX, Notion, Google Docs",
     cliCommand:
-      "npx @agent-native/core@latest create my-content-app --template content",
+      "npx @agentnative-fork/core@latest create my-content-app --template content",
     demoUrl: "https://content.agent-native.com",
     description:
       "Edit local Markdown/MDX files like Obsidian, generate rich interactive custom blocks, and use an AI agent to draft, rewrite, and publish.",
@@ -64,7 +64,7 @@ export const templates = [
     slug: "slides",
     replaces: "Replaces or augments Google Slides, Pitch",
     cliCommand:
-      "npx @agent-native/core@latest create my-slides-app --template slides",
+      "npx @agentnative-fork/core@latest create my-slides-app --template slides",
     demoUrl: "https://slides.agent-native.com",
     description:
       "Generate full presentations from a prompt. Edit visually or conversationally. AI image generation, 8 layouts, and presentation mode built in.",
@@ -77,7 +77,7 @@ export const templates = [
     slug: "video",
     replaces: "Replaces or augments video editing",
     cliCommand:
-      "npx @agent-native/core@latest create my-video-app --template videos",
+      "npx @agentnative-fork/core@latest create my-video-app --template videos",
     demoUrl: "https://videos.agent-native.com",
     description:
       "Build React-based video compositions with Remotion. Keyframe animation, 30+ easing curves, camera controls, and agent-assisted editing.",
@@ -90,7 +90,7 @@ export const templates = [
     slug: "analytics",
     replaces: "Replaces or augments Amplitude, Mixpanel, Looker",
     cliCommand:
-      "npx @agent-native/core@latest create my-analytics-app --template analytics",
+      "npx @agentnative-fork/core@latest create my-analytics-app --template analytics",
     demoUrl: "https://analytics.agent-native.com",
     description:
       "Connect any data source, prompt for any chart, build reusable dashboards. The agent writes SQL, generates visualizations, and evolves the app.",
@@ -103,7 +103,7 @@ export const templates = [
     slug: "mail",
     replaces: "Replaces or augments Superhuman, Gmail",
     cliCommand:
-      "npx @agent-native/core@latest create my-mail-app --template mail",
+      "npx @agentnative-fork/core@latest create my-mail-app --template mail",
     demoUrl: "https://mail.agent-native.com",
     description:
       "Superhuman-style email client with keyboard shortcuts, AI triage, multi-account support, and email automations. Own your inbox workflow.",
@@ -116,7 +116,7 @@ export const templates = [
     slug: "forms",
     replaces: "Replaces or augments Typeform, Google Forms",
     cliCommand:
-      "npx @agent-native/core@latest create my-forms-app --template forms",
+      "npx @agentnative-fork/core@latest create my-forms-app --template forms",
     demoUrl: "https://forms.agent-native.com",
     description:
       "Agent-native form builder. Generate forms from a prompt, edit fields visually or conversationally, and send submissions to Slack, Discord, Google Sheets, or webhooks.",
@@ -130,7 +130,7 @@ export const templates = [
     replaces:
       "Replaces or augments team wikis, Glean-style recall, and institutional memory tools",
     cliCommand:
-      "npx @agent-native/core@latest create my-brain-app --template brain",
+      "npx @agentnative-fork/core@latest create my-brain-app --template brain",
     demoUrl: "https://brain.agent-native.com",
     description:
       "Full-page company chat over cited memory from approved Slack, Clips, Granola, GitHub, and transcript sources, with review gates, evals, and shared connection readiness built in.",
@@ -144,7 +144,7 @@ export const templates = [
     replaces:
       "Replaces or augments DAMs, brand asset libraries, and AI media generators",
     cliCommand:
-      "npx @agent-native/core@latest create my-assets-app --template assets",
+      "npx @agentnative-fork/core@latest create my-assets-app --template assets",
     demoUrl: "https://assets.agent-native.com",
     description:
       "Digital asset manager for uploads, brand libraries, searchable references, and on-brand image/video generation that other apps can call through A2A or embed as a picker.",
@@ -157,7 +157,7 @@ export const templates = [
     slug: "calendar",
     replaces: "Replaces or augments Google Calendar, Calendly",
     cliCommand:
-      "npx @agent-native/core@latest create my-calendar-app --template calendar",
+      "npx @agentnative-fork/core@latest create my-calendar-app --template calendar",
     demoUrl: "https://calendar.agent-native.com",
     description:
       "Full calendar with Google sync, availability management, and a public booking page. The agent finds open slots, creates events, and manages your schedule.",
@@ -170,7 +170,7 @@ export const templates = [
     slug: "dispatch",
     replaces: "Mission control for your agent-native apps",
     cliCommand:
-      "npx @agent-native/core@latest create my-dispatch-app --template dispatch",
+      "npx @agentnative-fork/core@latest create my-dispatch-app --template dispatch",
     demoUrl: "https://dispatch.agent-native.com",
     description:
       "Centralized messaging and management for every agent in your stack. Talk to your agents from Slack, Telegram, or the web; route jobs, hold memory, approve actions, and delegate across apps over A2A.",
@@ -183,7 +183,7 @@ export const templates = [
     slug: "chat",
     replaces: "A minimal ChatGPT-style app for your own agent",
     cliCommand:
-      "npx @agent-native/core@latest create my-chat-app --template chat",
+      "npx @agentnative-fork/core@latest create my-chat-app --template chat",
     demoUrl: "https://chat.agent-native.com",
     description:
       "Chat-first app scaffold with durable threads, a standard sidebar, actions, auth, live sync, and a clean path to add screens or plug in your own agent backend.",

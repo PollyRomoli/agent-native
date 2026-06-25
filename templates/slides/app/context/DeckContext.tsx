@@ -13,7 +13,7 @@ import {
   appBasePath,
   callAction,
   isEmbedAuthActive,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import type { AspectRatio } from "@/lib/aspect-ratios";
 
 // ---------------------------------------------------------------------------

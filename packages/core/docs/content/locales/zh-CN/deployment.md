@@ -20,7 +20,7 @@ description: "将代理原生应用部署到具有 Nitro 预设的任何平台 -
 如果您的项目是 [workspace](/docs/multi-app-workspace)，您可以使用一个命令将其中的每个应用程序发送到单个源：
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
@@ -49,26 +49,26 @@ wrangler pages deploy dist
 对于 Netlify 统一部署，请使用 Netlify 预设：
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 对于 Vercel 统一部署，请使用 Vercel 预设：
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
-配置提供程序构建命令时，请使用与 `--build-only` 相同的命令。 Vercel 应运行 `npx @agent-native/core@latest deploy --preset vercel --build-only`；该命令直接写入 `.vercel/output`，因此工作区路由不需要 `vercel.json`。
+配置提供程序构建命令时，请使用与 `--build-only` 相同的命令。 Vercel 应运行 `npx @agentnative-fork/core@latest deploy --preset vercel --build-only`；该命令直接写入 `.vercel/output`，因此工作区路由不需要 `vercel.json`。
 
 托管工作区构建需要部署提供程序环境中的 `A2A_SECRET`。
 这使得 Slack、入站 webhooks 和跨应用 A2A 通过签名恢复工作
 后台处理器。本地 `--build-only` 工件检查在没有它的情况下仍然可以运行。
 
-仍然支持每个应用程序独立部署 - 只是 `cd apps/<name> && npx @agent-native/core@latest build` 就像独立的脚手架。
+仍然支持每个应用程序独立部署 - 只是 `cd apps/<name> && npx @agentnative-fork/core@latest build` 就像独立的脚手架。
 
 ## 它是如何工作的 {#how-it-works}
 
-当您运行`npx @agent-native/core@latest build`时，Nitro将客户端SPA和服务器API构建为`.output/`：
+当您运行`npx @agentnative-fork/core@latest build`时，Nitro将客户端SPA和服务器API构建为`.output/`：
 
 ```an-file-tree title="构建输出"
 {
@@ -95,7 +95,7 @@ npx @agent-native/core@latest deploy --preset vercel
 默认情况下，Nitro 为 Node.js 构建。要针对不同的平台，请在 `vite.config.ts` 中设置预设：
 
 ```ts
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -106,7 +106,7 @@ export default defineConfig({
 或者在构建时使用 `NITRO_PRESET` 环境变量：
 
 ```bash
-NITRO_PRESET=netlify npx @agent-native/core@latest build
+NITRO_PRESET=netlify npx @agentnative-fork/core@latest build
 ```
 
 ## Node.js（默认） {#nodejs}
@@ -114,7 +114,7 @@ NITRO_PRESET=netlify npx @agent-native/core@latest build
 默认预设。构建并运行：
 
 ```bash
-npx @agent-native/core@latest build
+npx @agentnative-fork/core@latest build
 node .output/server/index.mjs
 ```
 
@@ -163,13 +163,13 @@ vercel deploy
 对于工作区，将每个应用程序构建到一个 Vercel Build Output API 捆绑包中：
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
 对于 Vercel Git 部署，将构建命令设置为：
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 工作区构建将每个应用程序的 Nitro `vercel` 输出复制到根 `.vercel/output` 中，为每个函数提供自己的挂载路径环境，并编写为 `/<app-id>` 处的应用程序提供服务的路由配置。
@@ -190,7 +190,7 @@ export default defineConfig({
 对于工作区，通过运行以下命令从一个 Netlify 站点部署每个应用：
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 工作区构建在 `dist/_workspace_static/` 下写入静态资产，并将每个应用程序路由到自己的 Netlify 函数，而无需强制资产重定向，因此像 `/mail/assets/...` 这样的文件会在服务器函数处理应用程序路由之前静态提供服务。
@@ -230,7 +230,7 @@ export default defineConfig({
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | `PORT`                      | 服务器端口（仅限Node.js）                                                                                                      |
 | `NITRO_PRESET`              | 在构建时覆盖构建预设                                                                                                           |
-| `APP_BASE_PATH`             | 将应用程序安装在前缀下（例如 `/mail`）。由`npx @agent-native/core@latest deploy`自动设置；保持未设置为独立。                   |
+| `APP_BASE_PATH`             | 将应用程序安装在前缀下（例如 `/mail`）。由`npx @agentnative-fork/core@latest deploy`自动设置；保持未设置为独立。                   |
 | `AGENT_PROD_CODE_EXECUTION` | 可选的生产代码执行模式：`off`（默认）、`sandboxed` 或 `trusted`。参见[Production Code Execution](#production-code-execution)。 |
 
 数据库连接变量（`DATABASE_URL`、`DATABASE_AUTH_TOKEN`、每个应用程序 `<APP_NAME>_DATABASE_URL`）位于 [Database](/docs/database#production) 中。

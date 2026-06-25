@@ -20,7 +20,7 @@ Use `DATABASE_AUTH_TOKEN` somente quando seu provedor de banco de dados exigir u
 Se o seu projeto for um [workspace](/docs/multi-app-workspace), você poderá enviar todos os aplicativos nele para uma única origem com um comando:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
@@ -49,26 +49,26 @@ wrangler pages deploy dist
 Para implantações unificadas do Netlify, use a predefinição do Netlify:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 Para implantações unificadas do Vercel, use a predefinição do Vercel:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
-Ao configurar um comando de construção de provedor, use o mesmo comando com `--build-only`. Vercel deve rodar `npx @agent-native/core@latest deploy --preset vercel --build-only`; o comando grava `.vercel/output` diretamente, portanto, nenhum `vercel.json` é necessário para o roteamento do espaço de trabalho.
+Ao configurar um comando de construção de provedor, use o mesmo comando com `--build-only`. Vercel deve rodar `npx @agentnative-fork/core@latest deploy --preset vercel --build-only`; o comando grava `.vercel/output` diretamente, portanto, nenhum `vercel.json` é necessário para o roteamento do espaço de trabalho.
 
 As compilações de espaço de trabalho hospedado exigem `A2A_SECRET` no ambiente do provedor de implantação.
 Isso faz com que Slack, webhooks de entrada e A2A entre aplicativos retomem o trabalho por meio de assinatura
 processadores em segundo plano. As verificações locais do artefato `--build-only` ainda são executadas sem ele.
 
-A implantação independente por aplicativo ainda é suportada — apenas `cd apps/<name> && npx @agent-native/core@latest build` como uma estrutura independente.
+A implantação independente por aplicativo ainda é suportada — apenas `cd apps/<name> && npx @agentnative-fork/core@latest build` como uma estrutura independente.
 
 ## Como funciona {#how-it-works}
 
-Quando você executa `npx @agent-native/core@latest build`, Nitro cria o cliente SPA e o servidor API em `.output/`:
+Quando você executa `npx @agentnative-fork/core@latest build`, Nitro cria o cliente SPA e o servidor API em `.output/`:
 
 ```an-file-tree title="Saída do build"
 {
@@ -95,7 +95,7 @@ A saída é independente – copie `.output/` para qualquer ambiente e execute-o
 Por padrão, Nitro é compilado para Node.js. Para atingir uma plataforma diferente, defina a predefinição em seu `vite.config.ts`:
 
 ```ts
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -106,7 +106,7 @@ export default defineConfig({
 Ou use a variável de ambiente `NITRO_PRESET` no momento da construção:
 
 ```bash
-NITRO_PRESET=netlify npx @agent-native/core@latest build
+NITRO_PRESET=netlify npx @agentnative-fork/core@latest build
 ```
 
 ## Node.js (padrão) {#nodejs}
@@ -114,7 +114,7 @@ NITRO_PRESET=netlify npx @agent-native/core@latest build
 A predefinição padrão. Construir e executar:
 
 ```bash
-npx @agent-native/core@latest build
+npx @agentnative-fork/core@latest build
 node .output/server/index.mjs
 ```
 
@@ -163,13 +163,13 @@ vercel deploy
 Para um espaço de trabalho, crie cada aplicativo em um pacote Vercel Build Output API:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
 Para implantações do Vercel Git, defina o comando build como:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 A compilação do espaço de trabalho copia a saída Nitro `vercel` de cada aplicativo para o `.vercel/output` raiz, fornece a cada função seu próprio ambiente de caminho de montagem e grava a configuração de rota que atende aplicativos em `/<app-id>`.
@@ -190,7 +190,7 @@ export default defineConfig({
 Para um espaço de trabalho, implante todos os aplicativos de um site Netlify executando:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 A construção do espaço de trabalho grava ativos estáticos em `dist/_workspace_static/` e roteia cada aplicativo para sua própria função Netlify sem redirecionamentos forçados de ativos, de modo que arquivos como `/mail/assets/...` sejam servidos estaticamente antes que a função do servidor lide com as rotas do aplicativo.
@@ -230,7 +230,7 @@ export default defineConfig({
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PORT`                      | Porta do servidor (somente Node.js)                                                                                                                               |
 | `NITRO_PRESET`              | Substituir predefinição de compilação no momento da compilação                                                                                                    |
-| `APP_BASE_PATH`             | Monte o aplicativo sob um prefixo (por exemplo, `/mail`). Definido automaticamente por `npx @agent-native/core@latest deploy`; deixe sem definição para autônomo. |
+| `APP_BASE_PATH`             | Monte o aplicativo sob um prefixo (por exemplo, `/mail`). Definido automaticamente por `npx @agentnative-fork/core@latest deploy`; deixe sem definição para autônomo. |
 | `AGENT_PROD_CODE_EXECUTION` | Modo de execução de código de produção opcional: `off` (padrão), `sandboxed` ou `trusted`. Consulte [Production Code Execution](#production-code-execution).      |
 
 Variáveis de conexão de banco de dados (`DATABASE_URL`, `DATABASE_AUTH_TOKEN`, `<APP_NAME>_DATABASE_URL` por aplicativo) residem em [Database](/docs/database#production).

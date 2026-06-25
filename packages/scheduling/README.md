@@ -1,4 +1,4 @@
-# @agent-native/scheduling
+# @agentnative-fork/scheduling
 
 Scheduling primitives for agent-native apps.
 
@@ -14,23 +14,23 @@ Powers the `calendar` template and custom scheduling surfaces. Provides:
 ## Install
 
 ```bash
-pnpm add @agent-native/scheduling
+pnpm add @agentnative-fork/scheduling
 ```
 
-Peer-depends on `@agent-native/core`, `drizzle-orm`, and (optionally) `react`.
+Peer-depends on `@agentnative-fork/core`, `drizzle-orm`, and (optionally) `react`.
 
 ## Compose
 
 Template's `server/db/schema.ts`:
 
 ```ts
-export * from "@agent-native/scheduling/schema";
+export * from "@agentnative-fork/scheduling/schema";
 ```
 
 Template's `actions/create-booking.ts`:
 
 ```ts
-export { default } from "@agent-native/scheduling/actions/create-booking";
+export { default } from "@agentnative-fork/scheduling/actions/create-booking";
 ```
 
 Override by replacing the stub body with a full `defineAction(...)`.
@@ -40,8 +40,8 @@ Override by replacing the stub body with a full `defineAction(...)`.
 Expose the package docs to your AI coding tool via `llms.txt`:
 
 ```
-node_modules/@agent-native/scheduling/docs/llms.txt
-node_modules/@agent-native/scheduling/docs/llms-full.txt
+node_modules/@agentnative-fork/scheduling/docs/llms.txt
+node_modules/@agentnative-fork/scheduling/docs/llms-full.txt
 ```
 
 Or fetch over HTTP when deployed:

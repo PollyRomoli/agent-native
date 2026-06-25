@@ -8,7 +8,7 @@
  *   pnpm action export-insights-csv --organizationId=<id>
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { eq, inArray, sql } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

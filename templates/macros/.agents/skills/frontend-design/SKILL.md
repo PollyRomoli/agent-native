@@ -62,7 +62,7 @@ Default to Apple/Linear-level restraint: make the primary workflow obvious, then
 - Do not build custom dropdowns, menus, popovers, modals, or confirmations with manual absolute positioning and click-outside effects.
 - Never use browser dialogs (`window.alert`, `window.confirm`, `window.prompt`). Use `AlertDialog`, `Dialog`, or app-specific confirmation UI.
 - Use Tabler icons for all first-party UI icons. Do not add Lucide, Heroicons, inline SVG icon sets, or emoji icons.
-- Use `useActionQuery` and `useActionMutation` from `@agent-native/core/client` for action-backed UI. Standard CRUD should go through actions, not custom `/api/` routes.
+- Use `useActionQuery` and `useActionMutation` from `@agentnative-fork/core/client` for action-backed UI. Standard CRUD should go through actions, not custom `/api/` routes.
 - Keep UI optimistic where possible: update cache and navigation immediately, then reconcile or roll back on mutation result.
 - Custom styles belong in Tailwind classes, component CSS, or the existing global CSS theme file; avoid inline styles.
 

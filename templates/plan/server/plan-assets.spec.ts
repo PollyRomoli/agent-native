@@ -57,7 +57,7 @@ vi.mock("./db/index.js", () => ({
 }));
 
 // Prevent file-upload provider from attempting real network calls.
-vi.mock("@agent-native/core/file-upload", () => ({
+vi.mock("@agentnative-fork/core/file-upload", () => ({
   uploadFile: vi.fn(async () => null),
   getActiveFileUploadProvider: vi.fn(() => null),
 }));
@@ -482,7 +482,7 @@ describe("plan-asset access control", () => {
     // This simulates what the route handler does: resolveAccess on a private
     // plan with an empty/anonymous context returns null.
     const { resolveAccess, registerShareableResource } =
-      await import("@agent-native/core/sharing");
+      await import("@agentnative-fork/core/sharing");
     // Register the resource against our test DB for this assertion.
     registerShareableResource({
       type: "plan",

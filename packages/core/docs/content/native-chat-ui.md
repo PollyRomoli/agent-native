@@ -41,16 +41,16 @@ matching payload:
 | `"data-insights"` | `table` and/or `chartSeries` | A combined insight card with chart/table output |
 
 Server actions should import the server-safe helpers and schemas from
-`@agent-native/core/data-widgets`; client code can import the same types from
-`@agent-native/core/client/chat` or `@agent-native/core/client`.
+`@agentnative-fork/core/data-widgets`; client code can import the same types from
+`@agentnative-fork/core/client/chat` or `@agentnative-fork/core/client`.
 
 ```ts
-import { defineAction } from "@agent-native/core/action";
-import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agent-native/core/action-ui";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agentnative-fork/core/action-ui";
 import {
   createDataInsightsWidgetResult,
   dataInsightsWidgetResultSchema,
-} from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core/data-widgets";
 
 export default defineAction({
   description: "Analyze form responses.",
@@ -177,7 +177,7 @@ Register product-specific components by exact renderer id, then declare that id
 on the action:
 
 ```tsx
-import { registerActionChatRenderer } from "@agent-native/core/client/chat";
+import { registerActionChatRenderer } from "@agentnative-fork/core/client/chat";
 
 registerActionChatRenderer({
   id: "crm.deal-card",
@@ -216,15 +216,15 @@ described below.
 }
 ```
 
-All connectors are exported from `@agent-native/core/client/chat` (and the root
-`@agent-native/core/client` entry). Use the generic HTTP runtime when your agent
+All connectors are exported from `@agentnative-fork/core/client/chat` (and the root
+`@agentnative-fork/core/client` entry). Use the generic HTTP runtime when your agent
 can expose a POST endpoint that returns SSE or NDJSON runtime events:
 
 ```tsx
 import {
   AssistantChat,
   createHttpAgentChatRuntime,
-} from "@agent-native/core/client/chat";
+} from "@agentnative-fork/core/client/chat";
 
 const runtime = createHttpAgentChatRuntime({
   id: "external:mastra",
@@ -250,7 +250,7 @@ import {
   createOpenAIAgentsChatRuntime,
   createOpenAIResponsesChatRuntime,
   createVercelAiChatRuntime,
-} from "@agent-native/core/client/chat";
+} from "@agentnative-fork/core/client/chat";
 
 const openAiAgentsRuntime = createOpenAIAgentsChatRuntime({
   endpoint: "/api/openai-agents/chat",
@@ -293,7 +293,7 @@ iframes.
 When you want the built-in Agent-Native transport as a runtime object, use:
 
 ```ts
-import { createAgentNativeChatRuntime } from "@agent-native/core/client/chat";
+import { createAgentNativeChatRuntime } from "@agentnative-fork/core/client/chat";
 
 const runtime = createAgentNativeChatRuntime({
   threadId: "forms-chat",

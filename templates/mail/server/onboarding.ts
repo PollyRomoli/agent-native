@@ -13,7 +13,7 @@
  *      `POST /_agent-native/env-vars`.
  */
 
-import { registerOnboardingStep } from "@agent-native/core/onboarding";
+import { registerOnboardingStep } from "@agentnative-fork/core/onboarding";
 
 registerOnboardingStep({
   id: "gmail",

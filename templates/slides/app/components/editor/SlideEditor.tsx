@@ -5,7 +5,7 @@ import {
   useEffect,
   type MouseEvent as ReactMouseEvent,
 } from "react";
-import { agentChat } from "@agent-native/core";
+import { agentChat } from "@agentnative-fork/core";
 import {
   AgentPresenceChip,
   agentNativePath,
@@ -13,7 +13,7 @@ import {
   usePinchZoom,
   useAvatarUrl,
   type CollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { createPortal } from "react-dom";
 import { enterSelectionMode } from "@/root";
 import type { Slide } from "@/context/DeckContext";

@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — CSS animation freezing
+// @agentnative-fork/pinpoint — CSS animation freezing
 // MIT License
 
 const FREEZE_STYLE_ID = "__pinpoint-css-freeze";

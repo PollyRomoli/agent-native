@@ -87,7 +87,7 @@ describe("builder gateway headers", () => {
       await freshModule();
 
     const headers = getBuilderGatewayRequestHeaders();
-    expect(headers["x-client-name"]).toBe("@agent-native/core");
+    expect(headers["x-client-name"]).toBe("@agentnative-fork/core");
     expect(headers["x-client-version"]).toBe(getBuilderGatewayClientVersion());
   });
 

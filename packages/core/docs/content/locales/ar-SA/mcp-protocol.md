@@ -165,7 +165,7 @@ POST https://your-app.example.com/_agent-native/mcp
 | الوضع                                | كيفية العمل                                                                                                  |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | قياسي MCP OAuth                      | يكتشف العميل المصادقة من `WWW-Authenticate`، ويسجل، ويشغل PKCE، ويرسل `Authorization: Bearer <access-token>` |
-| ربط JWT                              | `npx @agent-native/core@latest connect` / تقوم صفحة الاتصال بإصدار JWT قابل للإلغاء لكل مستخدم               |
+| ربط JWT                              | `npx @agentnative-fork/core@latest connect` / تقوم صفحة الاتصال بإصدار JWT قابل للإلغاء لكل مستخدم               |
 | `ACCESS_TOKEN`                       | الرمز المميز لحامله الثابت — يرسل العميل `Authorization: Bearer <token>`                                     |
 | `ACCESS_TOKENS`                      | قائمة مفصولة بفواصل من الرموز المميزة لحاملها الثابتة الصالحة                                                |
 | `A2A_SECRET`                         | المصادقة المستندة إلى JWT - يتم التحقق من الرموز المميزة تشفيرًا                                             |
@@ -209,7 +209,7 @@ WWW-Authenticate: Bearer resource_metadata="https://dispatch.agent-native.com/.w
 | `mcp:write` | تحور actions و`ask-agent`              |
 | `mcp:apps`  | موارد تطبيقات MCP (موارد `ui://` HTML) |
 
-يتم تخزين الرموز المميزة للتحديث فقط على هيئة تجزئات ويتم تدويرها عند كل تحديث. يقوم `npx @agent-native/core@latest connect` بكتابة إدخال OAuth URL فقط لعملاء Claude Code بشكل افتراضي؛ احتفظ بصفحة الاتصال، و`npx @agent-native/core@latest connect --token <token>`، وتكوين الحامل الثابت لوكيل stdio المحلي، والعملاء الأقدم، وتدفقات الطوارئ/تصحيح الأخطاء.
+يتم تخزين الرموز المميزة للتحديث فقط على هيئة تجزئات ويتم تدويرها عند كل تحديث. يقوم `npx @agentnative-fork/core@latest connect` بكتابة إدخال OAuth URL فقط لعملاء Claude Code بشكل افتراضي؛ احتفظ بصفحة الاتصال، و`npx @agentnative-fork/core@latest connect --token <token>`، وتكوين الحامل الثابت لوكيل stdio المحلي، والعملاء الأقدم، وتدفقات الطوارئ/تصحيح الأخطاء.
 
 ## إعداد MCP مخصص {#custom-setup}
 
@@ -217,8 +217,8 @@ WWW-Authenticate: Bearer resource_metadata="https://dispatch.agent-native.com/.w
 
 ```ts
 // server/plugins/mcp.ts
-import { mountMCP } from "@agent-native/core/mcp";
-import { autoDiscoverActions } from "@agent-native/core/server";
+import { mountMCP } from "@agentnative-fork/core/mcp";
+import { autoDiscoverActions } from "@agentnative-fork/core/server";
 
 export default defineNitroPlugin(async (nitro) => {
   const actions = await autoDiscoverActions(import.meta.url);

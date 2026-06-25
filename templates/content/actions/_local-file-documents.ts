@@ -9,7 +9,7 @@ import {
   type LocalArtifactFile,
   type LocalArtifactFileMeta,
   type LocalArtifactOptions,
-} from "@agent-native/core/local-artifacts";
+} from "@agentnative-fork/core/local-artifacts";
 import type {
   Document,
   DocumentCreateRequest,

@@ -41,16 +41,16 @@ carga útil coincidente:
 | `"data-insights"` | `table` y/o `chartSeries` | Una tarjeta de información combinada con resultados de gráfico/tabla |
 
 El servidor actions debe importar los esquemas y ayudantes seguros para el servidor
-`@agent-native/core/data-widgets`; El código del cliente puede importar los mismos tipos desde
-`@agent-native/core/client/chat` o `@agent-native/core/client`.
+`@agentnative-fork/core/data-widgets`; El código del cliente puede importar los mismos tipos desde
+`@agentnative-fork/core/client/chat` o `@agentnative-fork/core/client`.
 
 ```ts
-import { defineAction } from "@agent-native/core/action";
-import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agent-native/core/action-ui";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agentnative-fork/core/action-ui";
 import {
   createDataInsightsWidgetResult,
   dataInsightsWidgetResultSchema,
-} from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core/data-widgets";
 
 export default defineAction({
   description: "Analyze form responses.",
@@ -177,7 +177,7 @@ Registrar componentes específicos del producto por ID de renderizador exacto y 
 sobre la acción:
 
 ```tsx
-import { registerActionChatRenderer } from "@agent-native/core/client/chat";
+import { registerActionChatRenderer } from "@agentnative-fork/core/client/chat";
 
 registerActionChatRenderer({
   id: "crm.deal-card",
@@ -216,15 +216,15 @@ se describe a continuación.
 }
 ```
 
-Todos los conectores se exportan desde `@agent-native/core/client/chat` (y la raíz
-entrada `@agent-native/core/client`). Utilice el tiempo de ejecución genérico HTTP cuando su agente
+Todos los conectores se exportan desde `@agentnative-fork/core/client/chat` (y la raíz
+entrada `@agentnative-fork/core/client`). Utilice el tiempo de ejecución genérico HTTP cuando su agente
 puede exponer un punto final POST que devuelve eventos de tiempo de ejecución SSE o NDJSON:
 
 ```tsx
 import {
   AssistantChat,
   createHttpAgentChatRuntime,
-} from "@agent-native/core/client/chat";
+} from "@agentnative-fork/core/client/chat";
 
 const runtime = createHttpAgentChatRuntime({
   id: "external:mastra",
@@ -250,7 +250,7 @@ import {
   createOpenAIAgentsChatRuntime,
   createOpenAIResponsesChatRuntime,
   createVercelAiChatRuntime,
-} from "@agent-native/core/client/chat";
+} from "@agentnative-fork/core/client/chat";
 
 const openAiAgentsRuntime = createOpenAIAgentsChatRuntime({
   endpoint: "/api/openai-agents/chat",
@@ -293,7 +293,7 @@ iframes.
 Cuando desee el transporte Agent-Native integrado como objeto de tiempo de ejecución, utilice:
 
 ```ts
-import { createAgentNativeChatRuntime } from "@agent-native/core/client/chat";
+import { createAgentNativeChatRuntime } from "@agentnative-fork/core/client/chat";
 
 const runtime = createAgentNativeChatRuntime({
   threadId: "forms-chat",

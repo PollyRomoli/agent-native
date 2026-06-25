@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import type { ChartJSNodeCanvas as ChartJSNodeCanvasType } from "chartjs-node-canvas";
 import type { ChartConfiguration, ChartType } from "chart.js";

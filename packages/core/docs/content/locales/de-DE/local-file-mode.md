@@ -97,7 +97,7 @@ Installieren Sie für vorhandene Dokumente, Blogs oder MDX-Arbeitsbereiche die l
 Fähigkeit:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 Dadurch wird der `content`-Skill in die Agent-Skill-Ordner des Repositorys kopiert und geschrieben

@@ -10,7 +10,7 @@ import {
   useCommandMenuShortcut,
   useDbSync,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { Layout as AppLayout } from "@/components/layout/Layout";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
@@ -21,7 +21,7 @@ import {
   configureTracking,
   getLocaleInitScript,
   getThemeInitScript,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import changelog from "../CHANGELOG.md?raw";
 import { i18nCatalog } from "./i18n";
 configureTracking({
@@ -159,4 +159,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

@@ -281,11 +281,11 @@ vi.mock("../db/index.js", () => ({
   schema: mocks.schema,
 }));
 
-vi.mock("@agent-native/core/db", () => ({
+vi.mock("@agentnative-fork/core/db", () => ({
   createGetDb: () => () => mocks.db,
 }));
 
-vi.mock("@agent-native/core/db/schema", () => ({
+vi.mock("@agentnative-fork/core/db/schema", () => ({
   createSharesTable: (name: string) => ({ __tableName: name }),
   integer: (name: string) => ({
     name,
@@ -329,14 +329,14 @@ vi.mock("drizzle-orm", () => ({
   },
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestUserEmail: () => mocks.userEmail,
   getRequestOrgId: () => mocks.orgId,
   runWithRequestContext: async (_context: Row, fn: () => Promise<unknown>) =>
     fn(),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getCredentialContext: () => ({
     userEmail: mocks.userEmail,
     orgId: mocks.orgId,
@@ -353,27 +353,27 @@ vi.mock("h3", () => ({
     event.headers?.[name] ?? event.headers?.[name.toLowerCase()],
 }));
 
-vi.mock("@agent-native/core/credentials", () => ({
+vi.mock("@agentnative-fork/core/credentials", () => ({
   resolveCredential: vi.fn(async () => "test-token"),
 }));
 
-vi.mock("@agent-native/core/workspace-connections", () => ({
+vi.mock("@agentnative-fork/core/workspace-connections", () => ({
   listWorkspaceConnections: vi.fn(async () => []),
   listWorkspaceConnectionGrants: vi.fn(async () => []),
 }));
 
-vi.mock("@agent-native/core/secrets", () => ({
+vi.mock("@agentnative-fork/core/secrets", () => ({
   readAppSecret: vi.fn(async () => null),
 }));
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getSetting: vi.fn(async () => mocks.settings),
   putSetting: vi.fn(async (_key: string, value: typeof mocks.settings) => {
     mocks.settings = { ...mocks.settings, ...value };
   }),
 }));
 
-vi.mock("@agent-native/core/resources/store", () => ({
+vi.mock("@agentnative-fork/core/resources/store", () => ({
   SHARED_OWNER: "shared",
   resourceDeleteByPath: vi.fn(async (owner: string, path: string) => {
     mocks.resourceWrites.push({ owner, path, deleted: true });
@@ -392,11 +392,11 @@ vi.mock("@agent-native/core/resources/store", () => ({
   ),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   readAppState: vi.fn(async () => null),
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   accessFilter: () => ({ op: "access" }),
   assertAccess: vi.fn(async (type: string, id: string) => {
     if (type === "brain-source") {

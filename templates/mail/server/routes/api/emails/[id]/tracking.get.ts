@@ -4,7 +4,7 @@ import {
   createError,
   type H3Event,
 } from "h3";
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 import { getTrackingStats } from "../../../../lib/email-tracking.js";
 
 export default defineEventHandler(async (event: H3Event) => {

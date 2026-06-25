@@ -9,7 +9,7 @@ description: "本地开发框架、嵌入式代理面板和云框架 - AI 代理
 承载两者的包装器：它显示您的应用程序并为代理提供一个地方
 聊天、运行和（在开发中）编辑代码。一共有三个框架，共享一个运行时：
 
-- **嵌入式代理面板** - 内置于 `@agent-native/core` 的每个应用程序中。
+- **嵌入式代理面板** - 内置于 `@agentnative-fork/core` 的每个应用程序中。
   这是您的应用在开发和生产过程中自行呈现的侧边栏。
 - **本地开发框架** - 在 iframe 中加载正在运行的应用程序的薄包装器
   并添加相同的代理面板以及旁边的集成 CLI 终端。使用过
@@ -30,10 +30,10 @@ description: "本地开发框架、嵌入式代理面板和云框架 - AI 代理
 ## 嵌入式代理面板 {#embedded-agent}
 
 嵌入式面板是您的应用程序呈现的代理侧边栏。它附带
-`@agent-native/core` - 没有单独的软件包需要安装 - 并且是相同的
+`@agentnative-fork/core` - 没有单独的软件包需要安装 - 并且是相同的
 开发和生产中的组件。
 
-- 从 `@agent-native/core/client` 导出为 `AgentPanel`，带有
+- 从 `@agentnative-fork/core/client` 导出为 `AgentPanel`，带有
   仅限生产的变体 `ProductionAgentPanel`。
 - 提供完整的聊天/CLI/工作空间界面，因此座席输入保持开启
   框架中其他地方使用的共享 Composer 堆栈。
@@ -75,7 +75,7 @@ description: "本地开发框架、嵌入式代理面板和云框架 - AI 代理
 ## 集成终端和CLI切换 {#cli-terminal}
 
 正在开发中，面板包括一个嵌入式终端（`AgentTerminal`，也
-来自 `@agent-native/core/client`），由 PTY 服务器支持。你可以运行一个真正的
+来自 `@agentnative-fork/core/client`），由 PTY 服务器支持。你可以运行一个真正的
 在应用程序旁边编码 CLI 并在它们之间切换；终端重新启动
 与选定的 CLI。
 
@@ -113,7 +113,7 @@ description: "本地开发框架、嵌入式代理面板和云框架 - AI 代理
 
 ## 运行时 APIs {#runtime-apis}
 
-这些随 `@agent-native/core` 一起提供，是您的应用用来与
+这些随 `@agentnative-fork/core` 一起提供，是您的应用用来与
 代理，无论哪个框架托管它：
 
 1. **发送消息** — `sendToAgentChat()` 向代理发送消息。
@@ -134,12 +134,12 @@ description: "本地开发框架、嵌入式代理面板和云框架 - AI 代理
 已经在那里：
 
 ```bash
-npx @agent-native/core@latest create my-app --template mail --standalone
+npx @agentnative-fork/core@latest create my-app --template mail --standalone
 cd my-app
 pnpm dev
 ```
 
-本地开发框架（框架存储库中的私有 `@agent-native/frame` 包）是未发布到 npm 的内部工具包。它将活动应用程序的开发服务器加载到 iframe 中，并在其旁边安装嵌入式面板，通过 `app` 查询参数选择应用程序。集成CLI终端需要Agent Native Desktop，提供终端所需的本地代码和PTY访问；如果没有它，面板将显示聊天界面并提示您打开桌面以使用 CLI。
+本地开发框架（框架存储库中的私有 `@agentnative-fork/frame` 包）是未发布到 npm 的内部工具包。它将活动应用程序的开发服务器加载到 iframe 中，并在其旁边安装嵌入式面板，通过 `app` 查询参数选择应用程序。集成CLI终端需要Agent Native Desktop，提供终端所需的本地代码和PTY访问；如果没有它，面板将显示聊天界面并提示您打开桌面以使用 CLI。
 
 ## 兼容性说明 {#compatibility}
 

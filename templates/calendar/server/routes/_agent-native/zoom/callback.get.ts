@@ -19,7 +19,7 @@ import {
   decodeOAuthState,
   resolveOAuthOwner,
   oauthErrorPage,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { exchangeZoomCode } from "../../../lib/zoom.js";
 
 function zoomConnectedPage(email: string): string {

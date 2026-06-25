@@ -40,16 +40,16 @@ PR Visual Recap 是一个 GitHub 操作，它将每个拉取请求转变为**可
 随时明确：
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --with-github-action
+npx @agentnative-fork/core@latest skills add visual-plan --with-github-action
 ```
 
-这将安装 `visual-plan` 技能（其中包括操作运行的 `visual-recap` 技能）并将 `.github/workflows/pr-visual-recap.yml` 写入您的存储库。工作流程通过 `npx @agent-native/core@latest recap <subcommand>` 调用**发布的 CLI 子命令** — 包括 `gate`、`collect-diff`、`block-reference`、`scan`、`build-prompt`、`publish`、`shot`、`comment`、`check` 和`usage` - 因此没有任何内容作为帮助程序脚本复制到您的存储库中。 `setup`和`doctor`是您本地运行的交互式助手； `gate` 是工作流程在每次回顾之前运行的安全门步骤。
+这将安装 `visual-plan` 技能（其中包括操作运行的 `visual-recap` 技能）并将 `.github/workflows/pr-visual-recap.yml` 写入您的存储库。工作流程通过 `npx @agentnative-fork/core@latest recap <subcommand>` 调用**发布的 CLI 子命令** — 包括 `gate`、`collect-diff`、`block-reference`、`scan`、`build-prompt`、`publish`、`shot`、`comment`、`check` 和`usage` - 因此没有任何内容作为帮助程序脚本复制到您的存储库中。 `setup`和`doctor`是您本地运行的交互式助手； `gate` 是工作流程在每次回顾之前运行的安全门步骤。
 
 然后运行引导设置帮助程序：
 
 ```bash
-npx @agent-native/core@latest recap setup
-npx @agent-native/core@latest recap doctor
+npx @agentnative-fork/core@latest recap setup
+npx @agentnative-fork/core@latest recap doctor
 ```
 
 `recap setup`刷新工作流程，使用`gh`设置GitHub Actions
@@ -59,7 +59,7 @@ npx @agent-native/core@latest recap doctor
 生成的工作流程文件并打开 PR 以查看其运行。
 
 默认情况下，工作流程根据最新捆绑的内容构建其代理提示
-`@agent-native/core@latest` 中的 `visual-recap` 指导，包括任何同级
+`@agentnative-fork/core@latest` 中的 `visual-recap` 指导，包括任何同级
 技能附带的参考文件。如果您的存储库有意定制并且
 固定其提交的`visual-recap`文件夹，设置存储库变量
 `VISUAL_RECAP_SKILL_SOURCE=repo`.
@@ -93,7 +93,7 @@ npx @agent-native/core@latest recap doctor
 
 | 秘密                | 目的                                                                                      |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| `PLAN_RECAP_TOKEN`  | 由 `npx @agent-native/core@latest connect` 铸造的可撤销代币。授权发布回顾计划和截图上传。 |
+| `PLAN_RECAP_TOKEN`  | 由 `npx @agentnative-fork/core@latest connect` 铸造的可撤销代币。授权发布回顾计划和截图上传。 |
 | `ANTHROPIC_API_KEY` | 默认 Claude 代码后端的 LLM 密钥。                                                         |
 
 **团队：使用组织服务令牌。**个人令牌与人员绑定
@@ -105,7 +105,7 @@ npx @agent-native/core@latest recap doctor
 任何组织所有者或管理员都可以列出或撤销它。创建一个（仅限组织所有者/管理员）：
 
 ```bash
-npx @agent-native/core@latest connect https://plan.agent-native.com --service-token pr-recap
+npx @agentnative-fork/core@latest connect https://plan.agent-native.com --service-token pr-recap
 ```
 
 该命令在浏览器中对您进行身份验证，然后打印服务令牌
@@ -113,13 +113,13 @@ npx @agent-native/core@latest connect https://plan.agent-native.com --service-to
 `list-org-service-tokens` 和 `revoke-org-service-token` actions
 计划应用程序。
 
-**Solo：个人代币仍然有效。**用 `npx @agent-native/core@latest connect` 铸造它
+**Solo：个人代币仍然有效。**用 `npx @agentnative-fork/core@latest connect` 铸造它
 针对您的计划应用程序。对于托管应用程序，这还会写入本地
-`npx @agent-native/core@latest recap setup`可以读取的发布令牌文件：
+`npx @agentnative-fork/core@latest recap setup`可以读取的发布令牌文件：
 
 ```bash
-npx @agent-native/core@latest connect https://plan.agent-native.com --client codex
-npx @agent-native/core@latest recap setup
+npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex
+npx @agentnative-fork/core@latest recap setup
 ```
 
 如果您更喜欢手动设置，请将令牌粘贴到 GitHub 密钥中。使用
@@ -134,10 +134,10 @@ npx @agent-native/core@latest recap setup
 | `VISUAL_RECAP_AGENT`     | `claude`                        | 变量。选择编码代理后端（`claude` 或 `codex`）。                                                                              |
 | `VISUAL_RECAP_MODEL`     | 每个CLI的默认值                 | 变量。固定模型 - 例如`gpt-5.5` 表示 Codex，或 Claude 型号 ID。取消设置使用 CLI 自己的默认值。                                |
 | `VISUAL_RECAP_REASONING` | 每个模型的默认值                | 变量。推理深度：`none`、`minimal`、`low`、`medium`、`high` 或 `xhigh`。适用于Codex后端。                                     |
-| `RECAP_CLI_VERSION`      | `latest`                        | 变量。固定工作流程安装的 `@agent-native/core` CLI 版本 - 例如`1.5.0`。参见[Version pinning](#version-pinning-copy-variant)。 |
+| `RECAP_CLI_VERSION`      | `latest`                        | 变量。固定工作流程安装的 `@agentnative-fork/core` CLI 版本 - 例如`1.5.0`。参见[Version pinning](#version-pinning-copy-variant)。 |
 | `PLAN_RECAP_APP_URL`     | `https://plan.agent-native.com` | 秘密。仅当在不同来源自行托管计划应用时。                                                                                     |
 
-工作流自动检测如何调用其助手 CLI（此 monorepo 内的本地源，在其他地方发布的 `@agent-native/core`），因此无需设置 `RECAP_CLI` 变量。
+工作流自动检测如何调用其助手 CLI（此 monorepo 内的本地源，在其他地方发布的 `@agentnative-fork/core`），因此无需设置 `RECAP_CLI` 变量。
 
 ## 评论内嵌截图
 
@@ -220,9 +220,9 @@ GitHub 操作专为托管、可共享的 PR 审核而设计。如果你想要一
 相同的帮助程序在本地文件模式下本地流动：
 
 ```bash
-npx @agent-native/core@latest recap collect-diff --base main --head HEAD --out recap.diff --stat recap.stat
-npx @agent-native/core@latest recap scan --diff recap.diff
-npx @agent-native/core@latest recap build-prompt --pr 123 --diff recap.diff --stat recap.stat --local-files --local-dir plans/pr-123-visual-recap
+npx @agentnative-fork/core@latest recap collect-diff --base main --head HEAD --out recap.diff --stat recap.stat
+npx @agentnative-fork/core@latest recap scan --diff recap.diff
+npx @agentnative-fork/core@latest recap build-prompt --pr 123 --diff recap.diff --stat recap.stat --local-files --local-dir plans/pr-123-visual-recap
 ```
 
 将生成的 `recap-prompt.md` 交给您的编码代理。在本地文件模式
@@ -230,7 +230,7 @@ npx @agent-native/core@latest recap build-prompt --pr 123 --diff recap.diff --st
 加上可选的视觉文件，然后运行：
 
 ```bash
-npx @agent-native/core@latest plan local serve --dir plans/pr-123-visual-recap --kind recap --open
+npx @agentnative-fork/core@latest plan local serve --dir plans/pr-123-visual-recap --kind recap --open
 ```
 
 返回的 URL 打开托管计划 UI，同时浏览器读取回顾 MDX
@@ -252,7 +252,7 @@ npx @agent-native/core@latest plan local serve --dir plans/pr-123-visual-recap -
 
 ## 版本固定（复制变体） {#version-pinning-copy-variant}
 
-默认情况下，复制变体工作流程在运行时安装 `@agent-native/core@latest`，因此每次回顾运行都会自动选择最新的 CLI。如果您的 CI 需要可重现的工具，请设置 **`RECAP_CLI_VERSION`** 存储库变量来固定已安装的版本：
+默认情况下，复制变体工作流程在运行时安装 `@agentnative-fork/core@latest`，因此每次回顾运行都会自动选择最新的 CLI。如果您的 CI 需要可重现的工具，请设置 **`RECAP_CLI_VERSION`** 存储库变量来固定已安装的版本：
 
 1. 转到您的存储库的**设置 → 秘密和变量 → Actions → 变量**。
 2. 创建一个名为 `RECAP_CLI_VERSION` 的变量，其值类似于 `1.5.0`。
@@ -263,7 +263,7 @@ npx @agent-native/core@latest plan local serve --dir plans/pr-123-visual-recap -
 
 ## 秘密扫描白名单
 
-在发布回顾之前，工作流程运行 `npx @agent-native/core@latest recap scan` 以检测差异中可能的秘密。任何其 diff 与已知秘密模式匹配的 PR 都会被阻止并带有解释性注释 - 不会发布摘要，并且不会将 diff 内容发送到编码代理。
+在发布回顾之前，工作流程运行 `npx @agentnative-fork/core@latest recap scan` 以检测差异中可能的秘密。任何其 diff 与已知秘密模式匹配的 PR 都会被阻止并带有解释性注释 - 不会发布摘要，并且不会将 diff 内容发送到编码代理。
 
 在极少数情况下，存储库具有故意的测试装置或表面上类似于秘密模式的非秘密字符串（例如，测试文件中的装置密钥）。要抑制误报，请在存储库的根目录中创建 `.github/recap-scan-allowlist`。
 
@@ -297,7 +297,7 @@ EXAMPLE_API_KEY=placeholder-value
 
 ### 为什么使用可重用变体？
 
-默认安装程序将完整的约 360 行工作流程 YAML 复制到您的存储库中（**复制**选项）。对于气隙存储库或需要审核每一行运行内容的存储库来说，这是正确的选择。缺点是错误修复和改进永远不会到达您的手中 - 您需要在每次发布后手动重新运行 `npx @agent-native/core@latest recap setup`。
+默认安装程序将完整的约 360 行工作流程 YAML 复制到您的存储库中（**复制**选项）。对于气隙存储库或需要审核每一行运行内容的存储库来说，这是正确的选择。缺点是错误修复和改进永远不会到达您的手中 - 您需要在每次发布后手动重新运行 `npx @agentnative-fork/core@latest recap setup`。
 
 **可重用**选项改为编写一个精简的约 20 行调用程序。它通过`uses:`委托给`BuilderIO/agent-native/.github/workflows/pr-visual-recap-reusable.yml`。当工作流程运行时，每个调用者都会自动获取最新逻辑，无需本地更新。
 
@@ -310,7 +310,7 @@ EXAMPLE_API_KEY=placeholder-value
 
 ### 调用者片段
 
-这是`npx @agent-native/core@latest recap setup --reusable`写的（或者你可以手动粘贴）：
+这是`npx @agentnative-fork/core@latest recap setup --reusable`写的（或者你可以手动粘贴）：
 
 ```yaml
 name: PR Visual Recap
@@ -343,7 +343,7 @@ jobs:
       model: ${{ vars.VISUAL_RECAP_MODEL || '' }}
       reasoning: ${{ vars.VISUAL_RECAP_REASONING || '' }}
       skill-source: ${{ vars.VISUAL_RECAP_SKILL_SOURCE || 'auto' }}
-      # cli-version: "latest"  # pin to a specific @agent-native/core version
+      # cli-version: "latest"  # pin to a specific @agentnative-fork/core version
 ```
 
 适用 [Secrets and variables](#secrets-and-variables) 中描述的相同秘密和变量 - 在存储库设置中以与复制变体相同的方式设置它们。
@@ -352,15 +352,15 @@ jobs:
 
 ```bash
 # Write the thin caller instead of the full copy:
-npx @agent-native/core@latest recap setup --reusable
+npx @agentnative-fork/core@latest recap setup --reusable
 
 # Or with a pinned ref for reproducibility:
-npx @agent-native/core@latest recap setup --reusable --ref v1.2.3
+npx @agentnative-fork/core@latest recap setup --reusable --ref v1.2.3
 ```
 
 两种变体都将工作流程写入 `.github/workflows/pr-visual-recap.yml`。如果现有工作流程已存在且有所不同，则该命令会拒绝并告诉您传递 `--force` 进行覆盖。
 
-写入后，照常运行 `npx @agent-native/core@latest recap doctor` 以确认机密已配置。
+写入后，照常运行 `npx @agentnative-fork/core@latest recap doctor` 以确认机密已配置。
 
 ### 版本固定
 
@@ -370,7 +370,7 @@ npx @agent-native/core@latest recap setup --reusable --ref v1.2.3
 uses: BuilderIO/agent-native/.github/workflows/pr-visual-recap-reusable.yml@v1.2.3
 ```
 
-`cli-version` 输入控制工作流程中运行的 `@agent-native/core` CLI 版本 - 将其保留在 `"latest"` 以跟踪最新版本，或将其固定到版本字符串（例如 `"1.5.0"`）以实现完全可重复性。
+`cli-version` 输入控制工作流程中运行的 `@agentnative-fork/core` CLI 版本 - 将其保留在 `"latest"` 以跟踪最新版本，或将其固定到版本字符串（例如 `"1.5.0"`）以实现完全可重复性。
 
 ### workflow_call事件上下文
 

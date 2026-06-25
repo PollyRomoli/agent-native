@@ -52,7 +52,7 @@ Das ist der Punkt. Chat ist eine schlanke, nützliche Standard-Shell für Ihren 
 ## Gerüst {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 cd my-chat-app
 pnpm install
 pnpm dev
@@ -61,7 +61,7 @@ pnpm dev
 Oder beginnen Sie ohne UI und fügen Sie später eine Chat-Oberfläche hinzu:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 Kopieren Sie von dort aus die `/`-Route und die Seitenleisten-Thread-Liste der Chat-Vorlage in Ihre App oder erstellen Sie ein Gerüst für eine Chat-App und verschieben Sie den actions von Ihrem Headless-Agenten in sein `actions/`-Verzeichnis. Die Schlüsselinvariante bleibt gleich: actions sind die gemeinsame Oberfläche für den Chat, UI, HTTP, MCP, A2A und CLI.
@@ -90,7 +90,7 @@ Die Chat-Seite ist absichtlich dünn:
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return (

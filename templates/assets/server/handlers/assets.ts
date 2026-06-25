@@ -9,9 +9,9 @@ import {
 import { nanoid } from "nanoid";
 import { and, eq } from "drizzle-orm";
 import pLimit from "p-limit";
-import { getSession } from "@agent-native/core/server";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
-import { assertAccess } from "@agent-native/core/sharing";
+import { getSession } from "@agentnative-fork/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../db/index.js";
 import { createAssetFromBuffer, mediaTypeFromMime } from "../lib/assets.js";
 import {

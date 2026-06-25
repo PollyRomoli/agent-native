@@ -3,9 +3,9 @@ import {
   deleteOAuthTokens,
   listOAuthAccountsByOwner,
   saveOAuthTokens,
-} from "@agent-native/core/oauth-tokens";
-import { assertAccess } from "@agent-native/core/sharing";
-import { getSession, runWithRequestContext } from "@agent-native/core/server";
+} from "@agentnative-fork/core/oauth-tokens";
+import { assertAccess } from "@agentnative-fork/core/sharing";
+import { getSession, runWithRequestContext } from "@agentnative-fork/core/server";
 import { createError, type H3Event } from "h3";
 import { canonicalizeNfm } from "../../shared/nfm.js";
 

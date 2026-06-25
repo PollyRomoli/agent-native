@@ -28,10 +28,10 @@ import { defineEventHandler, readBody, setResponseStatus } from "h3";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../../db/index.js";
 import { nanoid, shouldCountView } from "../../lib/recordings.js";
-import { getSession, runWithRequestContext } from "@agent-native/core/server";
-import { writeAppState } from "@agent-native/core/application-state";
-import { emit } from "@agent-native/core/event-bus";
-import { resolveAccess } from "@agent-native/core/sharing";
+import { getSession, runWithRequestContext } from "@agentnative-fork/core/server";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { emit } from "@agentnative-fork/core/event-bus";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 
 interface ViewEventBody {
   recordingId?: string;

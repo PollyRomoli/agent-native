@@ -36,7 +36,7 @@ export default function MyPageRoute() {
 
 ## Adding App Data
 
-Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agent-native/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
+Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agentnative-fork/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
 
 ## Adding a Route-Only Endpoint
 
@@ -49,7 +49,7 @@ Each route-only endpoint still exports a default `defineEventHandler`, but keep 
 Startup logic (auth, SSE, etc.) lives in `server/plugins/`. Use `defineNitroPlugin` from core:
 
 ```ts
-import { defineNitroPlugin } from "@agent-native/core";
+import { defineNitroPlugin } from "@agentnative-fork/core";
 
 export default defineNitroPlugin(async (nitroApp) => {
   // Runs once at server startup
@@ -62,9 +62,9 @@ export default defineNitroPlugin(async (nitroApp) => {
 | -------------------------------------------- | -------------------------------------------------------------------------- |
 | `defineNitroPlugin`                          | Define a server plugin (re-exported from Nitro)                            |
 | `createDefaultSSEHandler`                    | Create SSE endpoint for DB change events (server)                          |
-| `readAppState`, `writeAppState`              | Read/write application state (from `@agent-native/core/application-state`) |
-| `readSetting`, `writeSetting`                | Read/write settings (from `@agent-native/core/settings`)                   |
-| `readResource`, `writeResource`              | Read/write resources (from `@agent-native/core/resources`)                 |
+| `readAppState`, `writeAppState`              | Read/write application state (from `@agentnative-fork/core/application-state`) |
+| `readSetting`, `writeSetting`                | Read/write settings (from `@agentnative-fork/core/settings`)                   |
+| `readResource`, `writeResource`              | Read/write resources (from `@agentnative-fork/core/resources`)                 |
 | `defineEventHandler`, `readBody`, `getQuery` | H3 route handler utilities (re-exported)                                   |
 | `sendToAgentChat`                            | Send messages to agent from UI (client-side)                               |
 | `agentChat`                                  | Send messages to agent from scripts (server-side)                          |
@@ -78,7 +78,7 @@ Create `actions/<verb>-<resource>.ts` with `defineAction`. Run with `pnpm action
 **From UI:**
 
 ```ts
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 sendToAgentChat({
   message: "Generate something",
   context: "...",
@@ -89,7 +89,7 @@ sendToAgentChat({
 **From scripts:**
 
 ```ts
-import { agentChat } from "@agent-native/core";
+import { agentChat } from "@agentnative-fork/core";
 agentChat.submit("Generate something");
 ```
 
@@ -106,10 +106,10 @@ Real credential values belong only in local `.env` files, deployment configurati
 
 ## Tech Stack
 
-- **Framework:** @agent-native/core + React Router v7 (framework mode)
+- **Framework:** @agentnative-fork/core + React Router v7 (framework mode)
 - **Frontend:** React 18, Vite, TailwindCSS, shadcn/ui
 - **Routing:** File-based via `flatRoutes()` — SSR shell + client rendering
-- **Backend:** Nitro (via @agent-native/core) — file-based API routing, server plugins, deploy-anywhere presets
+- **Backend:** Nitro (via @agentnative-fork/core) — file-based API routing, server plugins, deploy-anywhere presets
 - **State:** SQL-backed (SSE for real-time updates)
 - **Build:** `pnpm build` (React Router build — client + SSR + Nitro server)
 - **Dev:** `pnpm dev` (Vite dev server with both React Router + Nitro plugins)

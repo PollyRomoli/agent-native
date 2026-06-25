@@ -165,7 +165,7 @@ MCP एंडपॉइंट मानक रिमोट MCP OAuth प्लस
 | मोड                           | यह कैसे काम करता है                                                                                                                   |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | मानक MCP OAuth                | क्लाइंट `WWW-Authenticate` से प्रमाणीकरण खोजता है, रजिस्टर करता है, PKCE चलाता है, और `Authorization: Bearer <access-token>` भेजता है |
-| कनेक्ट-मिंटेड JWT             | `npx @agent-native/core@latest connect` / कनेक्ट पेज प्रति-उपयोगकर्ता, प्रतिसंहरणीय JWT बनाता है                                      |
+| कनेक्ट-मिंटेड JWT             | `npx @agentnative-fork/core@latest connect` / कनेक्ट पेज प्रति-उपयोगकर्ता, प्रतिसंहरणीय JWT बनाता है                                      |
 | `ACCESS_TOKEN`                | स्टेटिक बियरर टोकन - क्लाइंट `Authorization: Bearer <token>` भेजता है                                                                 |
 | `ACCESS_TOKENS`               | मान्य स्थिर वाहक टोकन की अल्पविराम से अलग की गई सूची                                                                                  |
 | `A2A_SECRET`                  | JWT-आधारित प्रमाणीकरण - टोकन को क्रिप्टोग्राफ़िक रूप से सत्यापित किया जाता है                                                         |
@@ -209,7 +209,7 @@ WWW-Authenticate: Bearer resource_metadata="https://dispatch.agent-native.com/.w
 | `mcp:write` | actions और `ask-agent` को परिवर्तित करना |
 | `mcp:apps`  | MCP ऐप्स संसाधन (`ui://` HTML संसाधन)    |
 
-रीफ्रेश टोकन केवल हैश के रूप में संग्रहीत होते हैं और प्रत्येक रीफ्रेश पर घुमाए जाते हैं। `npx @agent-native/core@latest connect` डिफ़ॉल्ट रूप से Claude कोड क्लाइंट के लिए यह URL-केवल OAuth प्रविष्टि लिखता है; स्थानीय stdio प्रॉक्सीइंग, पुराने क्लाइंट और आपातकालीन/डीबग प्रवाह के लिए कनेक्ट पेज, `npx @agent-native/core@latest connect --token <token>` और स्टेटिक बियरर कॉन्फिगरेशन रखें।
+रीफ्रेश टोकन केवल हैश के रूप में संग्रहीत होते हैं और प्रत्येक रीफ्रेश पर घुमाए जाते हैं। `npx @agentnative-fork/core@latest connect` डिफ़ॉल्ट रूप से Claude कोड क्लाइंट के लिए यह URL-केवल OAuth प्रविष्टि लिखता है; स्थानीय stdio प्रॉक्सीइंग, पुराने क्लाइंट और आपातकालीन/डीबग प्रवाह के लिए कनेक्ट पेज, `npx @agentnative-fork/core@latest connect --token <token>` और स्टेटिक बियरर कॉन्फिगरेशन रखें।
 
 ## कस्टम MCP सेटअप {#custom-setup}
 
@@ -217,8 +217,8 @@ MCP सर्वर एजेंट-चैट प्लगइन द्वार
 
 ```ts
 // server/plugins/mcp.ts
-import { mountMCP } from "@agent-native/core/mcp";
-import { autoDiscoverActions } from "@agent-native/core/server";
+import { mountMCP } from "@agentnative-fork/core/mcp";
+import { autoDiscoverActions } from "@agentnative-fork/core/server";
 
 export default defineNitroPlugin(async (nitro) => {
   const actions = await autoDiscoverActions(import.meta.url);

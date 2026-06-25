@@ -23,7 +23,7 @@ import {
   getBrowserTabId,
   readClientAppState,
   useChangeVersions,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Spinner } from "@/components/ui/spinner";

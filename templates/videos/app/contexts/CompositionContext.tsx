@@ -10,7 +10,7 @@ import {
 } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
-import { callAction } from "@agent-native/core/client";
+import { callAction } from "@agentnative-fork/core/client";
 import { compositions, type CompositionEntry } from "@/remotion/registry";
 import type { CompSettings } from "@/components/CompSettingsEditor";
 import type { CompositionCollabData } from "@/hooks/use-composition-collab";

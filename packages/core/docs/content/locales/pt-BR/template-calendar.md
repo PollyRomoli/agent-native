@@ -74,7 +74,7 @@ O restante deste documento é para qualquer pessoa que faça bifurcação do mod
 Crie um novo espaço de trabalho com o modelo Calendário:
 
 ```bash
-npx @agent-native/core@latest create my-app --standalone --template calendar
+npx @agentnative-fork/core@latest create my-app --standalone --template calendar
 cd my-app
 pnpm install
 pnpm dev

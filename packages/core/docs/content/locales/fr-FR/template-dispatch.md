@@ -84,11 +84,11 @@ _Comment ça marche sous le capot (pour les développeurs)._
 
 - **Agent Orchestrator.** Le chat est configuré comme un routeur : il lit `AGENTS.md`, `LEARNINGS.md` et les achemine vers des sous-agents spécialisés ou des agents A2A distants.
 - **Registre d'agent distant.** Les manifestes d'agent A2A sont des entrées d'exécution de l'espace de travail (et non un dossier source de modèle archivé) : dans un espace de travail multi-applications, les applications sœurs sous `apps/` sont automatiquement découvertes en tant que homologues A2A — aucune inscription manuelle n'est nécessaire. Dispatch les appelle à l'aide de l'action `call-agent`.
-- **Schéma Vault.** Tableaux Drizzle pour les secrets, les autorisations, les demandes, les approbations et les journaux d'audit. Ceux-ci se trouvent dans le package `@agent-native/dispatch` (`packages/dispatch/src/db/schema.ts`) et sont réexportés dans le modèle via `templates/dispatch/server/db/index.ts` — il n'y a pas de `server/db/schema.ts` local au modèle. Le runtime de Dispatch est livré dans le package, pas dans la source du modèle (conformément à la note ci-dessous selon laquelle `@agent-native/dispatch` possède le shell, la barre latérale et les pages intégrées).
+- **Schéma Vault.** Tableaux Drizzle pour les secrets, les autorisations, les demandes, les approbations et les journaux d'audit. Ceux-ci se trouvent dans le package `@agentnative-fork/dispatch` (`packages/dispatch/src/db/schema.ts`) et sont réexportés dans le modèle via `templates/dispatch/server/db/index.ts` — il n'y a pas de `server/db/schema.ts` local au modèle. Le runtime de Dispatch est livré dans le package, pas dans la source du modèle (conformément à la note ci-dessous selon laquelle `@agentnative-fork/dispatch` possède le shell, la barre latérale et les pages intégrées).
 - **Plugins Slack / Telegram.** Plugins serveur qui enregistrent webhooks et transmettent les messages entrants à l'agent orchestrateur.
 - **Ressources Workspace MCP.** Ajoutez des définitions de serveur HTTP MCP sous `mcp-servers/*.json` dans Ressources, puis étendez-les à Toutes les applications ou aux subventions d'applications sélectionnées, tout comme skills et le contexte.
 
-```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agent-native/dispatch (packages/dispatch/src/db/schema.ts)."
+```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agentnative-fork/dispatch (packages/dispatch/src/db/schema.ts)."
 {
   "entities": [
     { "id": "secrets", "name": "vault_secrets", "note": "Stored credential values", "fields": [
@@ -170,14 +170,14 @@ pnpm action create-dream-report --allSources true --sourceTimeoutMs 30000 --limi
 ## Échafaudage {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 # pick "Dispatch" in the multi-select picker, plus whichever domain apps you want
 ```
 
 Si vous préférez nommer le modèle directement au lieu d'utiliser le sélecteur :
 
 ```bash
-npx @agent-native/core@latest create my-platform --template dispatch
+npx @agentnative-fork/core@latest create my-platform --template dispatch
 # add more apps in the same workspace as you go
 ```
 
@@ -208,7 +208,7 @@ Dispatch est un modèle complet comme les autres — voir [Templates](/docs/clon
 
 Pour les écrans de gestion spécifiques à l'espace de travail, ajoutez les pages locales du routeur React et
 enregistrez-les dans `app/dispatch-extensions.tsx`. L'espace de travail généré possède
-uniquement l'onglet et l'itinéraire supplémentaires ; `@agent-native/dispatch` continue de posséder le shell,
+uniquement l'onglet et l'itinéraire supplémentaires ; `@agentnative-fork/dispatch` continue de posséder le shell,
 barre latérale, pages intégrées et futures mises à jour du package.
 
 ## Quelle est la prochaine étape

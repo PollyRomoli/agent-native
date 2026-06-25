@@ -20,11 +20,11 @@ import {
   useDbSync,
   appPath,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
-import { Layout as AppLayout } from "@agent-native/dispatch/components";
+import { Layout as AppLayout } from "@agentnative-fork/dispatch/components";
 import type { LinksFunction } from "react-router";
 import { dispatchExtensions } from "./dispatch-extensions";
 import changelog from "../CHANGELOG.md?raw";
@@ -213,4 +213,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

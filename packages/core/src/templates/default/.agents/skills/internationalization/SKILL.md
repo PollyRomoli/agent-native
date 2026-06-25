@@ -37,7 +37,7 @@ Use BCP-47 filenames from the supported set: `en-US`, `zh-CN`, `es-ES`,
   `<LanguagePicker />` in that settings page, usually in a Language or General
   section, and keep the header language icon only as a quick-access shortcut.
 - Settings pages should include an "Agent settings" row/card that calls
-  `openAgentSettings()` from `@agent-native/core/client` to open the right
+  `openAgentSettings()` from `@agentnative-fork/core/client` to open the right
   agent sidebar's Settings tab. Localize the title, description, and button.
 - Use `useFormatters()` for dates, numbers, relative time, and lists instead
   of embedding formatted values in translation strings.

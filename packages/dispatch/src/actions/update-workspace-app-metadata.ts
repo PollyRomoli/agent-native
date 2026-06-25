@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getWorkspaceAppIdValidationError } from "@agent-native/core/shared";
+import { defineAction } from "@agentnative-fork/core";
+import { getWorkspaceAppIdValidationError } from "@agentnative-fork/core/shared";
 import { z } from "zod";
 import { updateWorkspaceAppMetadata } from "../server/lib/app-creation-store.js";
 

@@ -1,7 +1,7 @@
 import {
   resourceGetByPath,
   SHARED_OWNER,
-} from "@agent-native/core/resources/store";
+} from "@agentnative-fork/core/resources/store";
 
 const MAX_AGENTS_MD_CONTEXT_CHARS = 60_000;
 

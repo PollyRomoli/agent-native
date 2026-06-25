@@ -5,7 +5,7 @@ import {
   agentNativePath,
   appBasePath,
   markAgentChatHomeHandoff,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { prewarmPlanRoutePath } from "@/lib/route-prewarm";
 import { TAB_ID } from "@/lib/tab-id";
 

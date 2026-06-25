@@ -1,7 +1,7 @@
 import { and, desc, eq, inArray, ne } from "drizzle-orm";
-import { getSetting, putSetting } from "@agent-native/core/settings";
-import { accessFilter } from "@agent-native/core/sharing";
-import { listWorkspaceConnectionProviderCatalogForApp } from "@agent-native/core/workspace-connections";
+import { getSetting, putSetting } from "@agentnative-fork/core/settings";
+import { accessFilter } from "@agentnative-fork/core/sharing";
+import { listWorkspaceConnectionProviderCatalogForApp } from "@agentnative-fork/core/workspace-connections";
 import { getDb, schema } from "../db/index.js";
 import { nextBrainSourceSyncAt } from "../jobs/sync-sources.js";
 import { parseJson } from "./brain.js";

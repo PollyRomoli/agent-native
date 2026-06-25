@@ -1,5 +1,5 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { accessFilter, currentAccess } from "@agent-native/core/sharing";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { accessFilter, currentAccess } from "@agentnative-fork/core/sharing";
 import { and, desc, eq, isNotNull, isNull, or } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

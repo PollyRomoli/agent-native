@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Split output for sendToAgentChat()
+// @agentnative-fork/pinpoint — Split output for sendToAgentChat()
 // MIT License
 //
 // Splits annotation output into { message, context } for the agent chat bridge.

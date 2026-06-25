@@ -1,4 +1,4 @@
-import type { AgentChatAttachment } from "@agent-native/core/server";
+import type { AgentChatAttachment } from "@agentnative-fork/core/server";
 import path from "path";
 import { saveUploadedReferenceFile } from "../handlers/uploads.js";
 import { isSlidesReferenceFileExtension } from "../../shared/upload-types.js";

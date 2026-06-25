@@ -151,7 +151,7 @@ core:
 
 ## قائمة التحقق من الإعداد
 
-للحصول على مساحة عمل جديدة، بعد تشغيل `npx @agent-native/core@latest create`:
+للحصول على مساحة عمل جديدة، بعد تشغيل `npx @agentnative-fork/core@latest create`:
 
 **جيت وGitHub:**
 

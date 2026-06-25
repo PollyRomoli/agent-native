@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   useCollaborativeDoc,
   type CollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const TAB_ID = `slides-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 

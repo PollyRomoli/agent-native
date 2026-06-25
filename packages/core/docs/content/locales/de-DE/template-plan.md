@@ -53,7 +53,7 @@ Der clientspezifische Authentifizierungs-/Setup-Ablauf erfolgt in einem Schritt,
 gegen eine OAuth-Wand stoßen:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 Der Befehl installiert beide Befehle: `/visual-plan` und `/visual-recap`.
@@ -78,15 +78,15 @@ Standardmäßig zielt der CLI auf jeden unterstützten lokalen Client ab, den er
 Sie möchten die Einrichtung auf einen Host beschränken:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 Übergeben Sie `--no-connect`, um den Connector ohne Authentifizierung zu registrieren, und führen Sie ihn dann aus
-`npx @agent-native/core@latest connect https://plan.agent-native.com --client all`
+`npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client all`
 wann immer Sie bereit sind, oder wählen Sie einen schmaleren `--client`:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --no-connect
+npx @agentnative-fork/core@latest skills add visual-plan --no-connect
 ```
 
 Um bei **jeder Pull-Anfrage** automatisch eine Zusammenfassung zu generieren, übergeben Sie `--with-github-action`.
@@ -95,11 +95,11 @@ postet einen interaktiven Zusammenfassungsplan mit einem Inline-Screenshot als S
 siehe [PR Visual Recap](/docs/pr-visual-recap).
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --with-github-action
+npx @agentnative-fork/core@latest skills add visual-plan --with-github-action
 ```
 
-Nachdem der Workflow geschrieben wurde, führen Sie `npx @agent-native/core@latest recap setup` zur Konfiguration aus
-GitHub Actions Geheimnisse/Variablen, sofern möglich, und `npx @agent-native/core@latest recap doctor`
+Nachdem der Workflow geschrieben wurde, führen Sie `npx @agentnative-fork/core@latest recap setup` zur Konfiguration aus
+GitHub Actions Geheimnisse/Variablen, sofern möglich, und `npx @agentnative-fork/core@latest recap doctor`
 um zu überprüfen, ob das Repo bereit ist.
 
 Wenn Sie die portable Anweisungsdatei nur über das offene Skills CLI wünschen, verwenden Sie:
@@ -231,8 +231,8 @@ Nachdem der Agent den Ordner geschrieben hat, startet er eine kleine Localhost-B
 gehosteter Plan UI für diese nur lokale Quelle:
 
 ```bash
-npx @agent-native/core@latest plan local check --dir plans/<slug>
-npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --open
+npx @agentnative-fork/core@latest plan local check --dir plans/<slug>
+npx @agentnative-fork/core@latest plan local serve --dir plans/<slug> --kind plan --open
 ```
 
 Die Brücke URL sieht aus wie
@@ -251,7 +251,7 @@ HTTPS Planseite vom Abrufen einer HTTP Localhost Bridge. Für Headless
 Fehlerbehebung, führen Sie Folgendes aus:
 
 ```bash
-npx @agent-native/core@latest plan local verify --dir plans/<slug> --kind plan
+npx @agentnative-fork/core@latest plan local verify --dir plans/<slug> --kind plan
 ```
 
 `verify` startet die Bridge, überprüft den Preflight des privaten Netzwerks und JSON
@@ -355,7 +355,7 @@ lokale Dateien berühren.
 
 Wenn ein Plan-Tool jemals `needs auth`, `Unauthorized` oder „Sitzung“ zurückgibt
 terminated`, versuchen Sie es nicht weiter. Authentifizieren Sie den Connector mit
-`npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex` für Codex, oder führen Sie`/mcp` → **Authentifizieren** auf einem OAuth-fähigen Host erneut aus. Starten Sie ein
+`npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex` für Codex, oder führen Sie`/mcp` → **Authentifizieren** auf einem OAuth-fähigen Host erneut aus. Starten Sie ein
 neuer Codex-Thread oder starten/laden Sie den entsprechenden Client neu, bevor Sie das Tool erwarten
 Registrierung zum Aktualisieren.
 
@@ -367,7 +367,7 @@ Die meisten Benutzer sollten den Skill mit CLI installieren, anstatt ein Gerüst
 ### Schnellstart
 
 ```bash
-npx @agent-native/core@latest create my-plans --standalone --template plan
+npx @agentnative-fork/core@latest create my-plans --standalone --template plan
 cd my-plans
 pnpm install
 pnpm dev
@@ -501,7 +501,7 @@ import { z } from "zod";
 import {
   markdown,
   type BlockMdxConfig,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 
 export type RiskCardSeverity = "low" | "medium" | "high";
 
@@ -553,7 +553,7 @@ import {
   defineBlock,
   registerLibraryBlockConfigs,
   registerBlocks,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 import {
   riskCardMdx,
   riskCardSchema,
@@ -590,7 +590,7 @@ import {
   registerLibraryBlocks,
   registerBlocks,
   type BlockReadProps,
-} from "@agent-native/core/blocks";
+} from "@agentnative-fork/core/blocks";
 import {
   riskCardMdx,
   riskCardSchema,

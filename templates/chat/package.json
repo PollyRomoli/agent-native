@@ -17,7 +17,7 @@
     "test": "vitest --run --passWithNoTests"
   },
   "dependencies": {
-    "@agent-native/core": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
     "@fontsource-variable/inter": "^5.2.8",
     "@libsql/client": "^0.15.8",
     "@tabler/icons-react": "catalog:",

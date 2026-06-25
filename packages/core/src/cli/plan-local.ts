@@ -1537,7 +1537,7 @@ export function assertLocalPlanFilesValid(files: LocalPlanFiles): void {
   const overflow =
     issues.length > 8 ? `\n...plus ${issues.length - 8} more issues` : "";
   throw new Error(
-    `Local plan source validation failed:\n${details}${overflow}\nRun \`npx @agent-native/core@latest plan blocks --out plan-blocks.md\` and update the MDX to the documented block shapes.`,
+    `Local plan source validation failed:\n${details}${overflow}\nRun \`npx @agentnative-fork/core@latest plan blocks --out plan-blocks.md\` and update the MDX to the documented block shapes.`,
   );
 }
 

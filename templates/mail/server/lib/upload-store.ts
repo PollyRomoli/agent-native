@@ -1,4 +1,4 @@
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 
 const MEDIA_UPLOADS_KEY = "media-uploads";
 

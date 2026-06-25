@@ -52,7 +52,7 @@ That's the point. Chat is a thin, useful default shell for your own agent, not a
 ## Scaffolding {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 cd my-chat-app
 pnpm install
 pnpm dev
@@ -61,7 +61,7 @@ pnpm dev
 Or start with no UI and add a chat surface later:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 From there, copy the Chat template's `/` route and sidebar thread list into your app, or scaffold a Chat app and move the actions from your headless agent into its `actions/` directory. The key invariant stays the same: actions are the shared surface for chat, UI, HTTP, MCP, A2A, and CLI.
@@ -90,7 +90,7 @@ The chat page is intentionally thin:
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return (

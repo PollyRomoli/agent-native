@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Output exports
+// @agentnative-fork/pinpoint — Output exports
 // MIT License
 
 export { formatPins } from "./formatter.js";

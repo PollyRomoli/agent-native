@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
 import { db, schema } from "../server/db/index.js";
 import { eq, desc, and } from "drizzle-orm";
 import { z } from "zod";

@@ -11,7 +11,7 @@ import type { EventDefinition } from "./types.js";
 
 // Pin to globalThis so multiple ESM graphs (dev-mode Vite + Nitro, symlinks,
 // dist/ vs src/) share a single registry. Same pattern as secrets/register.ts.
-const REGISTRY_KEY = Symbol.for("@agent-native/core/event-bus.registry");
+const REGISTRY_KEY = Symbol.for("@agentnative-fork/core/event-bus.registry");
 interface GlobalWithRegistry {
   [REGISTRY_KEY]?: Map<string, EventDefinition>;
 }

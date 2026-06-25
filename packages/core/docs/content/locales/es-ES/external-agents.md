@@ -114,7 +114,7 @@ Utilice este flujo para clientes de agentes locales en su máquina: Código Clau
 Ejecute el comando de conexión a través de npm:
 
 ```bash
-npx @agent-native/core@latest connect https://dispatch.agent-native.com
+npx @agentnative-fork/core@latest connect https://dispatch.agent-native.com
 ```
 
 El comando pregunta qué clientes de agentes locales deben recibir la configuración MCP. Todos los clientes son preseleccionados la primera vez; después de elegir, la selección se guarda en `~/.agent-native/connect.json` para que la siguiente ejecución pueda reutilizarla con Enter, o puede editar los elementos marcados.
@@ -125,7 +125,7 @@ Mantenga el comando `connect` ejecutándose hasta que se complete la aprobación
 El proceso de espera se detiene antes de tiempo, la aprobación puede realizarse correctamente en el navegador, pero
 la configuración del cliente local no recibirá el token.
 
-Si anteriormente conectó el código Claude a través del antiguo flujo de token de portador, simplemente ejecute el mismo comando `npx @agent-native/core@latest connect ... --client claude-code` nuevamente. El CLI reemplaza los encabezados `Authorization` heredados con la entrada OAuth exclusiva para URL y le indica que se vuelva a autenticar desde `/mcp`.
+Si anteriormente conectó el código Claude a través del antiguo flujo de token de portador, simplemente ejecute el mismo comando `npx @agentnative-fork/core@latest connect ... --client claude-code` nuevamente. El CLI reemplaza los encabezados `Authorization` heredados con la entrada OAuth exclusiva para URL y le indica que se vuelva a autenticar desde `/mcp`.
 
 | Cliente local                     | Configuración escrita por `connect`                       | Flujo de autenticación                           |
 | --------------------------------- | --------------------------------------------------------- | ------------------------------------------------ |
@@ -148,7 +148,7 @@ Utilice `--client codex` (o `--client claude-code`, `--client claude-code-cli`, 
 La aplicación propia skills instala las instrucciones y el conector MCP alojado junto con el Agent Native CLI:
 
 ```bash
-npx @agent-native/core@latest skills add assets              # alias: image-generation
+npx @agentnative-fork/core@latest skills add assets              # alias: image-generation
 ```
 
 La ruta Vercel/open Skills CLI también está disponible cuando solo quieres portátil
@@ -159,7 +159,7 @@ npx skills@latest add BuilderIO/agent-native --skill assets
 ```
 
 El archivo `skills` CLI sin formato instala únicamente archivos `SKILL.md`; Clientes locales MCP todavía
-necesita un conector como `npx @agent-native/core@latest connect https://assets.agent-native.com`.
+necesita un conector como `npx @agentnative-fork/core@latest connect https://assets.agent-native.com`.
 
 | Habilidad | Alias              | Para                       |
 | --------- | ------------------ | -------------------------- |
@@ -171,7 +171,7 @@ Cuando realmente necesitas una aplicación aislada en lugar de la puerta de enla
 ejecute el mismo comando con el host de esa aplicación:
 
 ```bash
-npx @agent-native/core@latest connect https://mail.agent-native.com
+npx @agentnative-fork/core@latest connect https://mail.agent-native.com
 ```
 
 `connect --all` todavía existe para configuraciones de cliente por aplicación heredadas, pero es nuevo
@@ -184,7 +184,7 @@ La conexión es **por usuario, de ámbito y revocable**. En la ruta OAuth, el ho
 Una vez conectado, la autenticación debe persistir a largo plazo: los tokens de acceso duran 30 días de forma predeterminada (anular con `MCP_OAUTH_ACCESS_TOKEN_TTL` en el servidor, por ejemplo, `7d` o `12h`) con una ventana deslizante de actualización de 365 días, por lo que los 401 aleatorios deberían ser raros. Cuando esto suceda, utilice el comando ligero de reconexión en lugar de reinstalar:
 
 ```bash
-npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex
+npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex
 ```
 
 `reconnect` encuentra cualquier entrada de configuración MCP cuyo URL termine en `/_agent-native/mcp` para el host dado y el cliente seleccionado (que coincida con URL independientemente del nombre del conector), luego actualiza o reemplaza el material de autenticación sin tocar su skills instalado ni volver a ejecutar el flujo de instalación completo. Pase la aplicación base URL (por ejemplo, `https://plan.agent-native.com`): se infiere el sufijo `/_agent-native/mcp`. La autenticación y la carga de herramientas son por cliente, así que reinicie/recargue ese cliente después; Codex necesita una nueva sesión antes de que aparezcan las herramientas recién cargadas.
@@ -223,7 +223,7 @@ claude mcp add --transport http agent-native \
   https://dispatch.agent-native.com/_agent-native/mcp
 ```
 
-Esta es la misma entrada exclusiva para URL que `npx @agent-native/core@latest connect https://dispatch.agent-native.com --client claude-code` escribe para usted. Luego ejecute `/mcp` en el código Claude y elija **Autenticar**. El cliente descubre la autenticación del desafío `401 WWW-Authenticate` del servidor MCP, recupera `/.well-known/oauth-protected-resource` y `/.well-known/oauth-authorization-server`, registra dinámicamente un cliente público OAuth, abre la página de autorización de la aplicación y almacena el token resultante de forma segura. Los conectores en modo desarrollador ChatGPT utilizan el mismo servidor URL:
+Esta es la misma entrada exclusiva para URL que `npx @agentnative-fork/core@latest connect https://dispatch.agent-native.com --client claude-code` escribe para usted. Luego ejecute `/mcp` en el código Claude y elija **Autenticar**. El cliente descubre la autenticación del desafío `401 WWW-Authenticate` del servidor MCP, recupera `/.well-known/oauth-protected-resource` y `/.well-known/oauth-authorization-server`, registra dinámicamente un cliente público OAuth, abre la página de autorización de la aplicación y almacena el token resultante de forma segura. Los conectores en modo desarrollador ChatGPT utilizan el mismo servidor URL:
 
 ```text
 https://dispatch.agent-native.com/_agent-native/mcp
@@ -239,7 +239,7 @@ Los alcances actuales son:
 | `mcp:write` | mutando actions y la metaherramienta `ask-agent`                                                   |
 | `mcp:apps`  | Lista/lectura de recursos de aplicaciones MCP y representación en línea de UI donde sea compatible |
 
-Cuando el cliente no solicita ningún alcance explícito, la aplicación concede los tres para que el conector se comporte como el flujo de Connect autorizado por el navegador. Mantenga la página de conexión del token de portador y el respaldo `npx @agent-native/core@latest connect --token <token>` para desarrolladores locales, hosts de respaldo y clientes donde necesite un bloque de configuración listo para pegar.
+Cuando el cliente no solicita ningún alcance explícito, la aplicación concede los tres para que el conector se comporte como el flujo de Connect autorizado por el navegador. Mantenga la página de conexión del token de portador y el respaldo `npx @agentnative-fork/core@latest connect --token <token>` para desarrolladores locales, hosts de respaldo y clientes donde necesite un bloque de configuración listo para pegar.
 
 ## Niveles del catálogo {#catalog-tiers}
 
@@ -273,7 +273,7 @@ La superficie de acción completa de ~105 herramientas se ofrece solo mediante s
 - **Por token**: perfecto con `--full-catalog`, que incorpora un reclamo de `catalog_scope: "full"` en el JWT. Las solicitudes posteriores omiten el filtro compacto para ese token:
 
   ```bash
-  npx @agent-native/core@latest connect https://plan.agent-native.com --códice del cliente --catálogo completo
+  npx @agentnative-fork/core@latest connect https://plan.agent-native.com --códice del cliente --catálogo completo
   ```
 
 - **Por implementación**: configure `AGENT_NATIVE_MCP_FULL_CATALOG=1` (entorno de proceso del servidor) para ofrecer toda la superficie a todas las personas que llaman. Úselo para instancias alojadas de un solo inquilino que desean la superficie completa sin opción de suscripción por token.
@@ -394,7 +394,7 @@ Compile el URL con `buildDeepLink(...)`: es la única fuente de confianza para e
 Ejemplo real: `manage-draft` (`templates/mail/actions/manage-draft.ts`) del correo:
 
 ```ts
-import { buildDeepLink } from "@agent-native/core/server";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 
 function composeDeepLink(draft: Record<string, string>): string {
   return buildDeepLink({
@@ -495,10 +495,10 @@ El flujo alojado `connect` anterior es la ruta recomendada. Las siguientes opcio
 
 ### Desarrollo local {#local-dev}
 
-Ejecute su aplicación localmente (`pnpm dev` / `npx @agent-native/core@latest dev`), luego apunte a un agente local con un comando:
+Ejecute su aplicación localmente (`pnpm dev` / `npx @agentnative-fork/core@latest dev`), luego apunte a un agente local con un comando:
 
 ```bash
-npx @agent-native/core@latest mcp install --client claude-code|claude-code-cli|codex|cowork \
+npx @agentnative-fork/core@latest mcp install --client claude-code|claude-code-cli|codex|cowork \
   [--app <id>] [--scope user|project]
 ```
 
@@ -508,17 +508,17 @@ Aprovisiona un token (un `ACCESS_TOKEN` aleatorio en el espacio de trabajo `.env
 - **cowork**: la misma forma del código Claude JSON en `~/.cowork/mcp.json`.
 - **codex**: un bloque `[mcp_servers.<name>]` en `~/.codex/config.toml`.
 
-La entrada ejecuta `npx @agent-native/core@latest mcp serve --app <id>`, que de forma predeterminada es un **proxy stdio ligero** para el `/_agent-native/mcp` de la aplicación local en ejecución, por lo que el registro de acciones en vivo, HMR y los enlaces profundos correctos siguen siendo la única fuente de verdad. Pase `--standalone` para crear el registro en proceso. Cuando `npx @agent-native/core@latest mcp install` detecta un origen alojado (un `APP_URL` / `BETTER_AUTH_URL` / `AGENT_NATIVE_MCP_URL` que no es un host local en el espacio de trabajo `.env`), escribe una entrada de cliente `http` que apunta a `<origin>/_agent-native/mcp` con un `Bearer` JWT en lugar de una entrada stdio.
+La entrada ejecuta `npx @agentnative-fork/core@latest mcp serve --app <id>`, que de forma predeterminada es un **proxy stdio ligero** para el `/_agent-native/mcp` de la aplicación local en ejecución, por lo que el registro de acciones en vivo, HMR y los enlaces profundos correctos siguen siendo la única fuente de verdad. Pase `--standalone` para crear el registro en proceso. Cuando `npx @agentnative-fork/core@latest mcp install` detecta un origen alojado (un `APP_URL` / `BETTER_AUTH_URL` / `AGENT_NATIVE_MCP_URL` que no es un host local en el espacio de trabajo `.env`), escribe una entrada de cliente `http` que apunta a `<origin>/_agent-native/mcp` con un `Bearer` JWT en lugar de una entrada stdio.
 
 Subcomandos complementarios:
 
 | Comando                                                    | Qué hace                                                                           |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `npx @agent-native/core@latest mcp serve [--app <id>]`     | Ejecute el transporte estándar MCP (qué configuraciones del cliente generan).      |
-| `npx @agent-native/core@latest mcp install --client <c>`   | Aprovisionar un token + escribir la configuración MCP del cliente (idempotente).   |
-| `npx @agent-native/core@latest mcp uninstall --client <c>` | Elimine la entrada denominada MCP de la configuración de un cliente (idempotente). |
-| `npx @agent-native/core@latest mcp status`                 | Mostrar MCP URL/puerto, estado del token y entradas por cliente resueltas.         |
-| `npx @agent-native/core@latest mcp token [--rotate]`       | Imprime (o rota) el `ACCESS_TOKEN` local en el espacio de trabajo `.env`.          |
+| `npx @agentnative-fork/core@latest mcp serve [--app <id>]`     | Ejecute el transporte estándar MCP (qué configuraciones del cliente generan).      |
+| `npx @agentnative-fork/core@latest mcp install --client <c>`   | Aprovisionar un token + escribir la configuración MCP del cliente (idempotente).   |
+| `npx @agentnative-fork/core@latest mcp uninstall --client <c>` | Elimine la entrada denominada MCP de la configuración de un cliente (idempotente). |
+| `npx @agentnative-fork/core@latest mcp status`                 | Mostrar MCP URL/puerto, estado del token y entradas por cliente resueltas.         |
+| `npx @agentnative-fork/core@latest mcp token [--rotate]`       | Imprime (o rota) el `ACCESS_TOKEN` local en el espacio de trabajo `.env`.          |
 
 Reinicie el cliente después de `install` para que seleccione el nuevo servidor MCP.
 
@@ -552,7 +552,7 @@ Cuando ya tenga aplicaciones alojadas propias conectadas y desee probar los camb
 ```bash
 pnpm dev:lazy -- --apps mail,calendar,analytics
 
-npx @agent-native/core@latest connect dev --apps mail,calendar,analytics --client codex
+npx @agentnative-fork/core@latest connect dev --apps mail,calendar,analytics --client codex
 ```
 
 `connect dev` reescribe los mismos nombres de servidor MCP estables (`agent-native-mail`, `agent-native-calendar`, etc.) en la puerta de enlace de desarrollo diferido local, por lo que los nombres de las herramientas no cambian. Realiza una copia de seguridad de las entradas de producción actuales en `~/.agent-native/connect-profiles.json` antes de escribir las entradas de desarrollo. La puerta de enlace predeterminada es `http://127.0.0.1:8080`; use `--gateway <url>` o `--port <n>` si su puerta de enlace se mudó.
@@ -560,7 +560,7 @@ npx @agent-native/core@latest connect dev --apps mail,calendar,analytics --clien
 Volver a cambiar con:
 
 ```bash
-npx @agent-native/core@latest connect prod --apps mail,calendar,analytics --client codex
+npx @agentnative-fork/core@latest connect prod --apps mail,calendar,analytics --client codex
 ```
 
 Si `connect dev` no puede inferir su identidad de propietario local a partir de un JWT conectado existente, pase `--owner-email you@example.com`; esto mantiene las herramientas de desarrollo local en la superficie MCP completamente autenticada en lugar de la escasa superficie de desarrollo no autenticada.
@@ -582,7 +582,7 @@ El flujo `connect` alojado de reserva nunca copia el secreto compartido de la im
 
 **Hacer**
 
-- Conecte su propio agente a Dispatch con `npx @agent-native/core@latest connect https://dispatch.agent-native.com`; use una aplicación directa URL solo cuando desee una aplicación aislada.
+- Conecte su propio agente a Dispatch con `npx @agentnative-fork/core@latest connect https://dispatch.agent-native.com`; use una aplicación directa URL solo cuando desee una aplicación aislada.
 - Agregue un constructor `link` a cualquier acción que produzca o enumere un recurso navegable (borrador, evento, panel, documento).
 - Cree el URL con `buildDeepLink(...)`, la única fuente de confianza para el formato de ruta abierta.
 - Mantenga `link` puro y sincrónico; devuelve `null` cuando no haya nada que abrir.

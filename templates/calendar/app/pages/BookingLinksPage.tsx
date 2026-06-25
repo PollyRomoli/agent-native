@@ -26,7 +26,7 @@ import {
   BookingLinkCreateDialog,
   CustomFieldsEditor as SharedCustomFieldsEditor,
   SlugEditor,
-} from "@agent-native/scheduling/react/components";
+} from "@agentnative-fork/scheduling/react/components";
 import {
   startOfMonth,
   endOfMonth,
@@ -89,7 +89,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { ShareButton, VisibilityBadge } from "@agent-native/core/client";
+import { ShareButton, VisibilityBadge } from "@agentnative-fork/core/client";
 import { useAppHeaderControls } from "@/components/layout/AppLayout";
 import {
   useBookingLinks,

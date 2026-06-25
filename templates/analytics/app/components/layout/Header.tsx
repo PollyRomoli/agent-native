@@ -6,9 +6,9 @@ import {
   useHeaderTitle,
   useHeaderActions,
 } from "./HeaderActions";
-import { AgentToggleButton } from "@agent-native/core/client";
-import { RunsTray } from "@agent-native/core/client/progress";
-import { useT } from "@agent-native/core/client";
+import { AgentToggleButton } from "@agentnative-fork/core/client";
+import { RunsTray } from "@agentnative-fork/core/client/progress";
+import { useT } from "@agentnative-fork/core/client";
 
 const pageTitleKeys: Record<string, string> = {
   "/": "navigation.overview",

@@ -71,7 +71,7 @@ describe("claim middleware — adversarial scoping", () => {
       eq: (col: unknown, val: unknown) => ({ op: "eq", col, val }),
       isNull: (col: unknown) => ({ op: "isNull", col }),
     }));
-    vi.doMock("@agent-native/core/server", () => ({
+    vi.doMock("@agentnative-fork/core/server", () => ({
       getSession: getSessionMock,
     }));
 
@@ -312,7 +312,7 @@ describe("guest-abuse — adversarial counting & windows", () => {
     headers = {};
     for (const k of ENV_KEYS) delete process.env[k];
 
-    vi.doMock("@agent-native/core/db", () => ({
+    vi.doMock("@agentnative-fork/core/db", () => ({
       getDbExec: () => ({ execute }),
     }));
     vi.doMock("h3", () => ({

@@ -1,10 +1,10 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { nanoid } from "nanoid";
 import { getDb, schema } from "../server/db/index.js";
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import {
   hasCollabState,
   applyText,
@@ -12,7 +12,7 @@ import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 
 /** Editor deep link so external agents can surface "Open design". */
 function designDeepLink(designId: string): string {

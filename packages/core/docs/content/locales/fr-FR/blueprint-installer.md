@@ -63,7 +63,7 @@ Le plan généré indique à l'agent de codage de récupérer le URL (et les pag
 
 Déposez un fichier Markdown dans `packages/core/blueprints/<kind>/<name>.md`. Le genre est le sous-répertoire ; le nom est le nom du fichier sans `.md`. Il est récupéré automatiquement : `--list`, la résolution de nom et le catalogue lisent tous le répertoire au moment de l'exécution. Aucun changement de code n'est nécessaire pour l'enregistrer.
 
-Les fichiers Blueprint `.md` sont livrés dans le package publié via l'entrée `blueprints` dans `package.json` `files`, ils sont donc résolus à `node_modules/@agent-native/core/blueprints/**` pour les utilisateurs finaux.
+Les fichiers Blueprint `.md` sont livrés dans le package publié via l'entrée `blueprints` dans `package.json` `files`, ils sont donc résolus à `node_modules/@agentnative-fork/core/blueprints/**` pour les utilisateurs finaux.
 
 Écrivez chaque plan sous la forme d'un jeu d'instructions pour un agent de codage sans autre contexte. Un bon plan doit :
 

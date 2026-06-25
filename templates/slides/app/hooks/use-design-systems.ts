@@ -1,4 +1,4 @@
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 export function useDesignSystems() {
   const { data, isLoading, error, refetch } = useActionQuery<{

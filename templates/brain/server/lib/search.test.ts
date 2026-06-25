@@ -183,16 +183,16 @@ vi.mock("../db/index.js", () => ({
   schema: mocks.schema,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   accessFilter: () => ({ op: "access" }),
 }));
 
-vi.mock("@agent-native/core/workspace-connections", () => ({
+vi.mock("@agentnative-fork/core/workspace-connections", () => ({
   listWorkspaceConnectionProviderCatalogForApp:
     mocks.listWorkspaceConnectionProviderCatalogForApp,
 }));
 
-vi.mock("@agent-native/core/server/agent-discovery", () => ({
+vi.mock("@agentnative-fork/core/server/agent-discovery", () => ({
   discoverAgents: mocks.discoverAgents,
 }));
 

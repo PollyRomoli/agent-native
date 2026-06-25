@@ -164,7 +164,7 @@ O restante deste documento é para qualquer pessoa que faça bifurcação do mod
 ### Início rápido
 
 ```bash
-npx @agent-native/core@latest create my-clips --standalone --template clips
+npx @agentnative-fork/core@latest create my-clips --standalone --template clips
 cd my-clips
 pnpm install
 pnpm dev
@@ -187,7 +187,7 @@ aplicativo de bandeja na sua implantação.
 1. **Crie o aplicativo.**
 
    ```bash
-   npx @agent-native/core@latest criar meus clipes --standalone --template clipes
+   npx @agentnative-fork/core@latest criar meus clipes --standalone --template clipes
    cd meus clipes
    Instalação pnpm
    ```

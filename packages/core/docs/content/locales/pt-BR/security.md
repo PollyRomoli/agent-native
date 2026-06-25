@@ -52,7 +52,7 @@ Use `defineAction` com um Zod `schema:` para cada ação. A estrutura valida a e
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Create a note",
@@ -104,7 +104,7 @@ React escapa automaticamente de todas as expressões JSX. Diretrizes adicionais:
 Qualquer `fetch` do lado do servidor de um URL controlado por usuário ou agente deve passar pela proteção da estrutura SSRF ou pode ser apontado para metadados de nuvem (`169.254.169.254`), `localhost` ou serviços internos:
 
 ```ts
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 
 const res = await ssrfSafeFetch(userProvidedUrl, {}, { maxRedirects: 3 });
 ```
@@ -142,7 +142,7 @@ import {
   text,
   integer,
   ownableColumns,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 // Minimal: just the owner column
 export const notes = table("notes", {
@@ -180,7 +180,7 @@ Para aplicativos multiusuário em que as equipes compartilham dados, adicione um
 O auxiliar de esquema `ownableColumns()` adiciona `owner_email`, `org_id` e `visibility` em uma chamada, para que novas tabelas com reconhecimento de locatário obtenham o contrato de escopo completo por padrão:
 
 ```ts
-import { table, text, ownableColumns } from "@agent-native/core/db/schema";
+import { table, text, ownableColumns } from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),

@@ -25,7 +25,7 @@ vi.mock("h3", () => ({
   setResponseStatus: mocks.setResponseStatus,
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   readBody: vi.fn(async () => mocks.body),
 }));
 

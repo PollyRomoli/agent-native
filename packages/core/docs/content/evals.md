@@ -27,7 +27,7 @@ Drop a `*.eval.ts` file anywhere in the app (or an `evals/*.ts` file). Each file
 
 ```ts
 // evals/greeting.eval.ts
-import { defineEval, contains, llmJudge } from "@agent-native/core/eval";
+import { defineEval, contains, llmJudge } from "@agentnative-fork/core/eval";
 
 export default defineEval({
   name: "greets the user by name",
@@ -65,7 +65,7 @@ interface AgentRunOutput {
 
 ## Built-in scorers {#built-in}
 
-Imported from `@agent-native/core/eval`:
+Imported from `@agentnative-fork/core/eval`:
 
 | Scorer                   | Score                                                             | Model? |
 | ------------------------ | ----------------------------------------------------------------- | ------ |
@@ -97,7 +97,7 @@ generateReason(...) → string     human-readable why (optional)
 `preprocess` and `analyze` default to identity (the scorer sees the raw `AgentRunOutput`). The `analyze` step receives a `ctx` with a provider-agnostic `judge()` helper for LLM-backed scoring:
 
 ```ts
-import { createScorer, clamp01 } from "@agent-native/core/eval";
+import { createScorer, clamp01 } from "@agentnative-fork/core/eval";
 
 // A scorer that rewards short, tool-using answers.
 const concise = createScorer({

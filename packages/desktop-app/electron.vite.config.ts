@@ -4,12 +4,12 @@ import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 
 const workspaceRendererPackages = [
-  "@agent-native/code-agents-ui",
-  "@agent-native/code-agents-ui/code-agents",
-  "@agent-native/core",
-  "@agent-native/core/code-agents/transcript-normalizer",
-  "@agent-native/core/client",
-  "@agent-native/shared-app-config",
+  "@agentnative-fork/code-agents-ui",
+  "@agentnative-fork/code-agents-ui/code-agents",
+  "@agentnative-fork/core",
+  "@agentnative-fork/core/code-agents/transcript-normalizer",
+  "@agentnative-fork/core/client",
+  "@agentnative-fork/shared-app-config",
 ];
 
 export default defineConfig({
@@ -17,9 +17,9 @@ export default defineConfig({
     plugins: [
       externalizeDepsPlugin({
         exclude: [
-          "@agent-native/code-agents-ui",
-          "@agent-native/code-agents-ui/code-agents",
-          "@agent-native/shared-app-config",
+          "@agentnative-fork/code-agents-ui",
+          "@agentnative-fork/code-agents-ui/code-agents",
+          "@agentnative-fork/shared-app-config",
           "electron-updater",
         ],
       }),
@@ -34,9 +34,9 @@ export default defineConfig({
     plugins: [
       externalizeDepsPlugin({
         exclude: [
-          "@agent-native/code-agents-ui",
-          "@agent-native/code-agents-ui/code-agents",
-          "@agent-native/shared-app-config",
+          "@agentnative-fork/code-agents-ui",
+          "@agentnative-fork/code-agents-ui/code-agents",
+          "@agentnative-fork/shared-app-config",
         ],
       }),
     ],

@@ -60,7 +60,7 @@ The rest of this doc is for anyone forking the Forms template or extending it.
 ### Quick start
 
 ```bash
-npx @agent-native/core@latest create my-forms --standalone --template forms
+npx @agentnative-fork/core@latest create my-forms --standalone --template forms
 cd my-forms
 pnpm install
 pnpm dev
@@ -69,7 +69,7 @@ pnpm dev
 For a workspace with Forms alongside other apps:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 Pick Forms and any other templates you want during the workspace setup.

@@ -6,7 +6,7 @@
  */
 import { eq, and } from "drizzle-orm";
 import { nanoid } from "nanoid";
-import { accessFilter } from "@agent-native/core/sharing";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import type {
   EventType,
   Location,

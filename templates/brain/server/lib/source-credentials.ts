@@ -1,4 +1,4 @@
-import { resolveCredential } from "@agent-native/core/credentials";
+import { resolveCredential } from "@agentnative-fork/core/credentials";
 import {
   getWorkspaceConnectionAppAccess,
   listWorkspaceConnectionGrants,
@@ -8,9 +8,9 @@ import {
   type SerializedWorkspaceConnectionGrant,
   type WorkspaceConnectionAppAccessMode,
   type WorkspaceConnectionCredentialRef,
-} from "@agent-native/core/workspace-connections";
-import { readAppSecret, type SecretRef } from "@agent-native/core/secrets";
-import type { CredentialContext } from "@agent-native/core/credentials";
+} from "@agentnative-fork/core/workspace-connections";
+import { readAppSecret, type SecretRef } from "@agentnative-fork/core/secrets";
+import type { CredentialContext } from "@agentnative-fork/core/credentials";
 import type { BrainSourceProvider } from "../../shared/types.js";
 
 const APP_ID = "brain";

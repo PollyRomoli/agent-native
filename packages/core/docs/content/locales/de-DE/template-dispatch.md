@@ -84,11 +84,11 @@ _Wie es unter der Haube funktioniert (für Entwickler)._
 
 - **Orchestrator-Agent.** Der Chat ist als Router eingerichtet: Er liest `AGENTS.md`, `LEARNINGS.md` und leitet an spezialisierte Unteragenten oder entfernte A2A-Agenten weiter.
 - **Remote-Agent-Registrierung.** A2A-Agent-Manifeste sind Workspace-Runtime-Einträge (kein eingecheckter Vorlagenquellordner): In einem Multi-App-Arbeitsbereich werden gleichgeordnete Apps unter `apps/` automatisch als A2A-Peers erkannt – eine manuelle Registrierung ist nicht erforderlich. Dispatch ruft sie mit der Aktion `call-agent` auf.
-- **Vault-Schema.** Drizzle-Tabellen für Geheimnisse, Gewährungen, Anforderungen, Genehmigungen und Prüfprotokolle. Diese befinden sich im `@agent-native/dispatch`-Paket (`packages/dispatch/src/db/schema.ts`) und werden über `templates/dispatch/server/db/index.ts` erneut in die Vorlage exportiert – es gibt kein template-lokales `server/db/schema.ts`. Die Dispatch-Laufzeit wird im Paket und nicht in der Vorlagenquelle geliefert (im Einklang mit dem Hinweis unten, dass `@agent-native/dispatch` Eigentümer der Shell, der Seitenleiste und der integrierten Seiten ist).
+- **Vault-Schema.** Drizzle-Tabellen für Geheimnisse, Gewährungen, Anforderungen, Genehmigungen und Prüfprotokolle. Diese befinden sich im `@agentnative-fork/dispatch`-Paket (`packages/dispatch/src/db/schema.ts`) und werden über `templates/dispatch/server/db/index.ts` erneut in die Vorlage exportiert – es gibt kein template-lokales `server/db/schema.ts`. Die Dispatch-Laufzeit wird im Paket und nicht in der Vorlagenquelle geliefert (im Einklang mit dem Hinweis unten, dass `@agentnative-fork/dispatch` Eigentümer der Shell, der Seitenleiste und der integrierten Seiten ist).
 - **Slack / Telegram-Plugins.** Server-Plugins, die webhooks registrieren und eingehende Nachrichten an den Orchestrator-Agenten weiterleiten.
 - **Workspace MCP-Ressourcen.** Fügen Sie HTTP MCP-Serverdefinitionen unter `mcp-servers/*.json` in „Ressourcen“ hinzu und beschränken Sie sie dann auf „Alle Apps“ oder „Ausgewählte App-Zuweisungen“, genau wie „skills“ und „Kontext“.
 
-```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agent-native/dispatch (packages/dispatch/src/db/schema.ts)."
+```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agentnative-fork/dispatch (packages/dispatch/src/db/schema.ts)."
 {
   "entities": [
     { "id": "secrets", "name": "vault_secrets", "note": "Stored credential values", "fields": [
@@ -170,14 +170,14 @@ pnpm action create-dream-report --allSources true --sourceTimeoutMs 30000 --limi
 ## Gerüst {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 # pick "Dispatch" in the multi-select picker, plus whichever domain apps you want
 ```
 
 Wenn Sie die Vorlage lieber direkt benennen möchten, anstatt die Auswahl zu verwenden:
 
 ```bash
-npx @agent-native/core@latest create my-platform --template dispatch
+npx @agentnative-fork/core@latest create my-platform --template dispatch
 # add more apps in the same workspace as you go
 ```
 
@@ -208,7 +208,7 @@ Dispatch ist eine vollständige Vorlage wie jede andere – siehe [Templates](/d
 
 Für arbeitsplatzspezifische Verwaltungsbildschirme fügen Sie lokale React Router-Seiten und hinzu
 registrieren Sie sie in `app/dispatch-extensions.tsx`. Der generierte Arbeitsbereich besitzt
-nur die zusätzliche Registerkarte und Route; `@agent-native/dispatch` bleibt Eigentümer der Shell
+nur die zusätzliche Registerkarte und Route; `@agentnative-fork/dispatch` bleibt Eigentümer der Shell
 Seitenleiste, integrierte Seiten und zukünftige Paketaktualisierungen.
 
 ## Was kommt als nächstes?

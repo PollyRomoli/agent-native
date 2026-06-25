@@ -1,4 +1,4 @@
-import { resolveBuilderCredential } from "@agent-native/core/server";
+import { resolveBuilderCredential } from "@agentnative-fork/core/server";
 import { EventEmitter } from "node:events";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
@@ -6,7 +6,7 @@ import {
   extractBuilderCmsWriteEntryId,
 } from "./_builder-cms-write-client";
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   resolveBuilderCredential: vi.fn(),
 }));
 

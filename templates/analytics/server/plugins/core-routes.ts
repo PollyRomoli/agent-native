@@ -1,4 +1,4 @@
-import { createCoreRoutesPlugin } from "@agent-native/core/server";
+import { createCoreRoutesPlugin } from "@agentnative-fork/core/server";
 
 // Land external-agent deep links straight on the real SPA route. Without
 // this, `/_agent-native/open?app=analytics&view=adhoc&dashboardId=…` falls

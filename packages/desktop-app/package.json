@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/desktop-app",
+  "name": "@agentnative-fork/desktop-app",
   "version": "0.1.7",
   "private": true,
   "repository": {
@@ -26,9 +26,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@agent-native/code-agents-ui": "workspace:*",
-    "@agent-native/core": "workspace:*",
-    "@agent-native/shared-app-config": "workspace:*",
+    "@agentnative-fork/code-agents-ui": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
+    "@agentnative-fork/shared-app-config": "workspace:*",
     "@radix-ui/react-select": "2.2.6",
     "@tabler/icons-react": "^3.40.0",
     "electron-updater": "^6.8.3",

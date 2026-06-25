@@ -5,7 +5,7 @@
  *   - generate stub action files in the consumer's `actions/` folder
  *   - symlink/copy skill files into the consumer's `.agents/skills/`
  *   - append required secret declarations
- *   - print the list in `agent-native info @agent-native/scheduling`
+ *   - print the list in `agent-native info @agentnative-fork/scheduling`
  */
 
 export interface SchedulingManifest {
@@ -23,7 +23,7 @@ export interface SchedulingManifest {
 }
 
 export const MANIFEST: SchedulingManifest = {
-  name: "@agent-native/scheduling",
+  name: "@agentnative-fork/scheduling",
   version: "0.1.0",
   actions: [
     // Event types
@@ -102,7 +102,7 @@ export const MANIFEST: SchedulingManifest = {
     "submit-routing-form-response",
     "list-routing-form-responses",
   ],
-  schemaEntryPoint: "@agent-native/scheduling/schema",
+  schemaEntryPoint: "@agentnative-fork/scheduling/schema",
   docs: {
     llms: "docs/llms.txt",
     llmsFull: "docs/llms-full.txt",

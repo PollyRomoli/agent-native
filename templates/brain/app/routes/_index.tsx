@@ -3,7 +3,7 @@ import {
   AgentChatSurface,
   markAgentChatHomeHandoff,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 const SEO_TITLE =

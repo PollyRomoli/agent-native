@@ -1,7 +1,7 @@
 # Blueprint: add a new multi-surface action
 
 You are a coding agent working inside an **agent-native** app (a repo built on
-`@agent-native/core`). Apply this blueprint as real source changes on the
+`@agentnative-fork/core`). Apply this blueprint as real source changes on the
 current branch. Do not just describe the work — do it, then verify.
 
 ## Goal
@@ -34,7 +34,7 @@ Read the `actions` skill. The rules that matter most here:
 
    ```ts
    import { z } from "zod";
-   import { defineAction } from "@agent-native/core";
+   import { defineAction } from "@agentnative-fork/core";
    import { getDb } from "../server/db/index.js";
    import { things } from "../server/db/schema.js";
 

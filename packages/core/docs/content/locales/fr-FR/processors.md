@@ -30,7 +30,7 @@ Un processeur implémente n'importe quel sous-ensemble de trois hooks de cycle d
 Chaque processeur obtient son propre objet `state` mutable, à portée d'exécution, qui persiste dans chacun de ses appels de hook au cours d'une seule exécution et est **isolé** de l'état des autres processeurs.
 
 ```ts
-import type { Processor } from "@agent-native/core";
+import type { Processor } from "@agentnative-fork/core";
 
 const noSecretsInOutput: Processor = {
   name: "no-secrets",
@@ -64,7 +64,7 @@ const coverageGate: Processor = {
 Un hook arrête l'exécution en appelant `abort(reason, meta?)`, qui renvoie un **`TripWire`**. La boucle l'attrape, émet un seul événement **`tripwire`**, s'arrête proprement et fait apparaître la raison comme message final de l'assistant.
 
 ```ts
-import { TripWire } from "@agent-native/core";
+import { TripWire } from "@agentnative-fork/core";
 ```
 
 L'événement `tripwire` porte :

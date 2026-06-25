@@ -2,7 +2,7 @@
  * Visual block support for the docs site.
  *
  * The docs reuse the exact same first-party block library that powers Visual
- * Plans and Visual Recaps (`@agent-native/core/blocks`): hand-drawn rough.js
+ * Plans and Visual Recaps (`@agentnative-fork/core/blocks`): hand-drawn rough.js
  * diagrams, expandable API-endpoint and OpenAPI specs, schema/data-model tables,
  * annotated code walkthroughs, file trees, callouts, tabs, and columns. They
  * share the global sketchy/clean preference (localStorage `plan-wireframe-style`)
@@ -31,8 +31,8 @@ import {
   useBlockRegistry,
   type BlockRenderContext,
   type NestedBlock,
-} from "@agent-native/core/blocks";
-import { useT } from "@agent-native/core/client";
+} from "@agentnative-fork/core/blocks";
+import { useT } from "@agentnative-fork/core/client";
 import { renderMarkdownToHtml } from "./MarkdownRenderer";
 
 /* -------------------------------------------------------------------------- */

@@ -80,7 +80,7 @@ The rest of this doc is for anyone forking the Analytics template or extending i
 Create a new Analytics app from the CLI:
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 Local dev:
@@ -162,7 +162,7 @@ low-scope login client stays separate from Google API integration clients.
 
 Core tables (see `templates/analytics/server/db/schema.ts`):
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ Core tables (see `templates/analytics/server/db/schema.ts`):
 }
 ```
 
-Plus per-resource share tables (`dashboard_shares`, `analysis_shares`) and the org tables (`organizations`, `org_members`, `org_invitations`) provided by `@agent-native/core/org`. The data dictionary lives in the framework's `settings` table under scoped keys.
+Plus per-resource share tables (`dashboard_shares`, `analysis_shares`) and the org tables (`organizations`, `org_members`, `org_invitations`) provided by `@agentnative-fork/core/org`. The data dictionary lives in the framework's `settings` table under scoped keys.
 
 - **`dashboards`** — both Explorer and SQL dashboards. `kind` is `"explorer"` or `"sql"`; `config` is a JSON blob matching `SqlDashboardConfig`.
 - **`dashboard_shares`** — per-resource share grants (principal, role).
@@ -222,7 +222,7 @@ Plus per-resource share tables (`dashboard_shares`, `analysis_shares`) and the o
 - **`analysis_shares`** — per-resource share grants for analyses.
 - **`bigquery_cache`** — query result cache keyed by SQL hash with bytes-processed accounting.
 
-Plus the org tables (`organizations`, `org_members`, `org_invitations`) provided by `@agent-native/core/org`.
+Plus the org tables (`organizations`, `org_members`, `org_invitations`) provided by `@agentnative-fork/core/org`.
 
 The data dictionary lives in the framework's `settings` table under scoped keys; see the `list-data-dictionary` and `save-data-dictionary-entry` actions for the full shape.
 

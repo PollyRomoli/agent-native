@@ -32,11 +32,11 @@ vi.mock("../server/db/index.js", () => ({
   schema: { decks: { id: "id_col", data: "data_col", updatedAt: "ua_col" } },
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: (...args: unknown[]) => mockAssertAccess(...args),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   writeAppState: (...args: unknown[]) => mockWriteAppState(...args),
 }));
 

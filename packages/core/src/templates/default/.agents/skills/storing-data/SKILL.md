@@ -15,7 +15,7 @@ metadata:
 
 All application data lives in **SQL** (SQLite locally, persistent database in production). The agent and UI share the same database. Do not store durable app data in the filesystem unless the app is explicitly running a Local File Mode artifact flow described below.
 
-**Local File Mode exception:** some artifact apps (Content, Plans, Slides, Dashboards, Designs, etc.) can intentionally use repo files as the source of truth for the artifact itself. This must be explicit via `agent-native.json`, `AGENT_NATIVE_MODE=local-files`, or an app-owned local-file action helper. In that mode, the UI and agent still go through app actions, but those actions read/write scoped files through `@agent-native/core/local-artifacts` instead of SQL rows. App state, auth, settings, credentials, collaboration metadata, and hosted database mode remain SQL. File-to-database or file-to-provider synchronization is an explicit sync step, not an implicit side effect of editing.
+**Local File Mode exception:** some artifact apps (Content, Plans, Slides, Dashboards, Designs, etc.) can intentionally use repo files as the source of truth for the artifact itself. This must be explicit via `agent-native.json`, `AGENT_NATIVE_MODE=local-files`, or an app-owned local-file action helper. In that mode, the UI and agent still go through app actions, but those actions read/write scoped files through `@agentnative-fork/core/local-artifacts` instead of SQL rows. App state, auth, settings, credentials, collaboration metadata, and hosted database mode remain SQL. File-to-database or file-to-provider synchronization is an explicit sync step, not an implicit side effect of editing.
 
 When you add a data model, a list, or a read path, also follow the `performance` skill: project only the columns a list renders, index the columns hot queries filter/sort on, and avoid query waterfalls — so apps stay fast as data grows.
 
@@ -31,8 +31,8 @@ For app code, use Drizzle's schema/query DSL by default. Raw SQL is an escape ha
 | ------------------- | ---------------------------------------------------- | ------------------------------------------ |
 | `application_state` | Ephemeral UI state (compose windows, navigation)     | `readAppState()` / `writeAppState()`       |
 | `settings`          | Persistent KV config (preferences, app settings)     | `getSetting()` / `putSetting()`            |
-| `oauth_tokens`      | OAuth credentials                                    | `@agent-native/core/oauth-tokens`          |
-| `sessions`          | Auth sessions                                        | `@agent-native/core/server`               |
+| `oauth_tokens`      | OAuth credentials                                    | `@agentnative-fork/core/oauth-tokens`          |
+| `sessions`          | Auth sessions                                        | `@agentnative-fork/core/server`               |
 
 ### Domain Data (per-template)
 
@@ -40,7 +40,7 @@ Define schema with the framework Drizzle helpers in `server/db/schema.ts`. Get a
 
 ```ts
 import { eq } from "drizzle-orm";
-import { table, text, integer, now } from "@agent-native/core/db/schema";
+import { table, text, integer, now } from "@agentnative-fork/core/db/schema";
 
 export const tasks = table("tasks", {
   id: text("id").primaryKey(),
@@ -54,7 +54,7 @@ export const tasks = table("tasks", {
 const rows = await db.select().from(tasks).where(eq(tasks.id, taskId));
 ```
 
-Never import `sqliteTable` / `pgTable` or column helpers from `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core` in app templates. Use `@agent-native/core/db/schema` so the same schema can run against SQLite, Postgres, libSQL/Turso, D1, and other supported backends.
+Never import `sqliteTable` / `pgTable` or column helpers from `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core` in app templates. Use `@agentnative-fork/core/db/schema` so the same schema can run against SQLite, Postgres, libSQL/Turso, D1, and other supported backends.
 
 | Template     | Tables                                        |
 | ------------ | --------------------------------------------- |
@@ -95,7 +95,7 @@ All of these honor the per-user / per-org data scoping — you can't read or wri
 The frontend calls actions using React Query hooks from the client API. The framework owns the HTTP transport behind these hooks, so components should not call action routes with raw `fetch`.
 
 ```ts
-import { useActionQuery, useActionMutation } from "@agent-native/core/client";
+import { useActionQuery, useActionMutation } from "@agentnative-fork/core/client";
 
 // Read data
 const { data } = useActionQuery("list-meals", { date: "2025-01-01" });
@@ -124,7 +124,7 @@ Polling streams database changes to the UI. When the agent writes to the databas
 
 - Use Drizzle ORM for structured domain data (forms, bookings, documents)
 - Use Drizzle query builder methods (`select`, `insert`, `update`, `delete`) and portable operators from `drizzle-orm` (`eq`, `and`, `or`, `inArray`, `desc`, etc.) for app reads/writes
-- Use framework schema helpers from `@agent-native/core/db/schema`, not dialect-specific Drizzle imports
+- Use framework schema helpers from `@agentnative-fork/core/db/schema`, not dialect-specific Drizzle imports
 - Use the `settings` store for app configuration and user preferences
 - Use `application-state` for ephemeral UI state that the agent and UI share
 - Use `oauth-tokens` for OAuth credentials

@@ -103,8 +103,8 @@ function pickFields(data: unknown, fields: string[]): unknown {
 // Owner email resolution (for CLI scripts without a request context)
 // ---------------------------------------------------------------------------
 
-import { getDbExec } from "@agent-native/core/db";
-import { getRequestUserEmail } from "@agent-native/core/server";
+import { getDbExec } from "@agentnative-fork/core/db";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
 
 /**
  * Resolve the current user's email for OAuth token lookups.
@@ -142,7 +142,7 @@ export async function resolveOwnerEmail(): Promise<string> {
 import {
   listOAuthAccountsByOwner,
   saveOAuthTokens,
-} from "@agent-native/core/oauth-tokens";
+} from "@agentnative-fork/core/oauth-tokens";
 import {
   createOAuth2Client,
   gmailListLabels,

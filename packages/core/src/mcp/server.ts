@@ -29,7 +29,7 @@ import {
 } from "./oauth-route.js";
 
 // Re-export the shared MCP server builder + types so the stdio transport and
-// any (future) external importer of `@agent-native/core/mcp` keep resolving
+// any (future) external importer of `@agentnative-fork/core/mcp` keep resolving
 // against `./server.js` exactly as before this refactor.
 export {
   createMCPServerForRequest,
@@ -213,10 +213,10 @@ function buildUnauthorizedBody(event: H3Event): {
   const mcpUrl = getMcpOAuthResource(event);
   const resourceMetadataUrl = getMcpOAuthProtectedResourceMetadataUrl(event);
   const command = issuer
-    ? `npx -y @agent-native/core@latest reconnect ${issuer}`
+    ? `npx -y @agentnative-fork/core@latest reconnect ${issuer}`
     : undefined;
   const firstTimeCommand = issuer
-    ? `npx @agent-native/core@latest connect ${issuer}`
+    ? `npx @agentnative-fork/core@latest connect ${issuer}`
     : undefined;
   const authorizeUrl = issuer
     ? `${issuer}/_agent-native/mcp/oauth/authorize`

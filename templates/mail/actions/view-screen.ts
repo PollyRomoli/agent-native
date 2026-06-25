@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { readAppState } from "@agent-native/core/application-state";
-import { getRequestUserEmail } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { readAppState } from "@agentnative-fork/core/application-state";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import {
   isConnected,
@@ -12,7 +12,7 @@ import {
 } from "../server/lib/google-auth.js";
 import { buildGmailEmailSearchQuery } from "../server/lib/gmail-query.js";
 import { gmailGetThread } from "../server/lib/google-api.js";
-import { getSetting } from "@agent-native/core/settings";
+import { getSetting } from "@agentnative-fork/core/settings";
 import { getAccessTokens, fetchLabelMap } from "./helpers.js";
 import {
   listQueuedDrafts,

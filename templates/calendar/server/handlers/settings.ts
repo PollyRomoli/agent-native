@@ -5,8 +5,8 @@ import {
   getUserSetting,
   putUserSetting,
   putSetting,
-} from "@agent-native/core/settings";
-import { readBody, getSession } from "@agent-native/core/server";
+} from "@agentnative-fork/core/settings";
+import { readBody, getSession } from "@agentnative-fork/core/server";
 
 const DEFAULT_SETTINGS: Settings = {
   timezone: "America/New_York",

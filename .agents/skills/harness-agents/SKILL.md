@@ -10,7 +10,7 @@ scope: dev
 ## Rule
 
 Full agent harnesses are not `AgentEngine` providers. Use the `AgentHarness`
-substrate in `@agent-native/core/agent/harness`.
+substrate in `@agentnative-fork/core/agent/harness`.
 
 ## Why
 
@@ -28,7 +28,7 @@ session lifecycle semantics.
 import {
   registerBuiltinAgentHarnesses,
   resolveAgentHarness,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 registerBuiltinAgentHarnesses();
 const harness = resolveAgentHarness("ai-sdk-harness:codex");
@@ -37,7 +37,7 @@ const harness = resolveAgentHarness("ai-sdk-harness:codex");
 2. Start a turn through the run-manager bridge.
 
 ```ts
-import { startAgentHarnessRun } from "@agent-native/core/agent/harness";
+import { startAgentHarnessRun } from "@agentnative-fork/core/agent/harness";
 
 startAgentHarnessRun({
   runId,
@@ -82,7 +82,7 @@ chat/A2A transport.
 import {
   registerBuiltinAgentHarnesses,
   resolveAgentHarness,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 registerBuiltinAgentHarnesses();
 

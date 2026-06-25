@@ -769,14 +769,14 @@ describe("local-core dev aliases and router dedupe", () => {
       path.join(tmpDir, "package.json"),
       JSON.stringify({
         dependencies: {
-          "@agent-native/core": pathToFileURL(coreRoot).href,
+          "@agentnative-fork/core": pathToFileURL(coreRoot).href,
           "react-router": "^7.16.0",
         },
       }),
     );
 
     const deps = _getDefaultOptimizeDeps(tmpDir);
-    expect(deps).not.toContain("@agent-native/core/client");
+    expect(deps).not.toContain("@agentnative-fork/core/client");
     expect(deps).toContain("@assistant-ui/react");
     expect(deps).toContain("@tiptap/react");
     expect(deps).toContain("@xterm/xterm");
@@ -797,7 +797,7 @@ describe("local-core dev aliases and router dedupe", () => {
     fs.writeFileSync(
       path.join(fakeCore, "package.json"),
       JSON.stringify({
-        name: "@agent-native/core",
+        name: "@agentnative-fork/core",
         peerDependencies: {
           sonner: "^2.0.0",
         },
@@ -810,7 +810,7 @@ describe("local-core dev aliases and router dedupe", () => {
       path.join(tmpDir, "package.json"),
       JSON.stringify({
         dependencies: {
-          "@agent-native/core": pathToFileURL(fakeCore).href,
+          "@agentnative-fork/core": pathToFileURL(fakeCore).href,
         },
       }),
     );
@@ -890,14 +890,14 @@ describe("local-core dev aliases and router dedupe", () => {
     }
   });
 
-  it("resolves file:@agent-native/core to a package root with src/index.ts", () => {
+  it("resolves file:@agentnative-fork/core to a package root with src/index.ts", () => {
     const coreRoot = path.resolve(import.meta.dirname, "../..");
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "an-vite-core-root-"));
     fs.writeFileSync(
       path.join(tmpDir, "package.json"),
       JSON.stringify({
         dependencies: {
-          "@agent-native/core": pathToFileURL(coreRoot).href,
+          "@agentnative-fork/core": pathToFileURL(coreRoot).href,
         },
       }),
     );

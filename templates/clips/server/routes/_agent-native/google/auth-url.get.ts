@@ -11,7 +11,7 @@ import {
   resolveGoogleSignInCredentials,
   resolveOAuthRedirectUri,
   safeReturnPath,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { CLIPS_GOOGLE_OAUTH_APP_ID } from "../../../lib/google-calendar-oauth.js";
 import {
   GOOGLE_AUTH_URL,

@@ -25,7 +25,7 @@ import {
   PromptComposer,
   type CollabUser,
   useAvatarUrl,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { GoogleDocImportHint } from "@/components/editor/GoogleDocImportHint";
 import {
   Tooltip,

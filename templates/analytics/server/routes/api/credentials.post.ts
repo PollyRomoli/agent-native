@@ -9,7 +9,7 @@ import {
   optionalCredentialKeys,
   partitionCredentialUpdate,
 } from "../../lib/credential-keys";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 import {
   getScopedSettingRecord,
   putScopedSettingRecord,

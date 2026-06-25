@@ -112,7 +112,7 @@ createAISDKEngine("openrouter", {
 ## Registering a Custom Engine
 
 Register custom engines in a server plugin at startup. Import from the
-`@agent-native/core/agent/engine` subpath:
+`@agentnative-fork/core/agent/engine` subpath:
 
 ```ts
 // server/plugins/my-engine.ts
@@ -121,7 +121,7 @@ import {
   type AgentEngine,
   type EngineEvent,
   type EngineStreamOptions,
-} from "@agent-native/core/agent/engine";
+} from "@agentnative-fork/core/agent/engine";
 
 registerAgentEngine({
   name: "my-engine",

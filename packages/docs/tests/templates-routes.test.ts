@@ -6,7 +6,7 @@ import {
   loader,
   meta as genericTemplateMeta,
 } from "../app/routes/templates.$slug";
-import { AGENT_NATIVE_SOCIAL_IMAGE_CACHE_BUSTER } from "@agent-native/core/shared";
+import { AGENT_NATIVE_SOCIAL_IMAGE_CACHE_BUSTER } from "@agentnative-fork/core/shared";
 import { meta as docsIndexMeta } from "../app/routes/docs._index";
 import { meta as localizedDocsMeta } from "../app/routes/docs.$locale.$slug";
 import { meta as docsSlugMeta } from "../app/routes/docs.$slug";

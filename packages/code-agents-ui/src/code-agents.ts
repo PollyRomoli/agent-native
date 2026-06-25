@@ -2,7 +2,7 @@ import {
   getTemplate,
   templateToAppConfig,
   type AppConfig,
-} from "@agent-native/shared-app-config";
+} from "@agentnative-fork/shared-app-config";
 
 export const CODE_AGENTS_SURFACE_ID = "code-agents";
 export const MIGRATION_APP_ID = "migration";

@@ -1,8 +1,8 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getRequestUserEmail,
   todayInTimezone,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { db, schema } from "../server/db/index.js";
 import { z } from "zod";
 

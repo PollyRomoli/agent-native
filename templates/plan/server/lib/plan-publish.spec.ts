@@ -88,7 +88,7 @@ describe("plan-publish auth resolution", () => {
 
   it("builds the connect command", () => {
     expect(planConnectCommand("https://plan.example.com")).toBe(
-      "npx @agent-native/core@latest connect https://plan.example.com",
+      "npx @agentnative-fork/core@latest connect https://plan.example.com",
     );
   });
 });

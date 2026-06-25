@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ExtensionViewerPage } from "@agent-native/core/client/extensions";
+import { ExtensionViewerPage } from "@agentnative-fork/core/client/extensions";
 import { useAppHeaderControls } from "@/components/layout/AppLayout";
 
 export default function ExtensionViewerRoute() {

@@ -9,7 +9,7 @@ Todo aplicativo nativo do agente é multilocatário pronto para uso. Organizaç�
 
 ## O que você ganha de graça {#free}
 
-Um novo andaime `npx @agent-native/core@latest create` já vem com:
+Um novo andaime `npx @agentnative-fork/core@latest create` já vem com:
 
 - **Registro e login do usuário** — consulte [Authentication](/docs/authentication).
 - **Organizações** — os usuários criam organizações e convidam membros por e-mail. Cada organização é um locatário totalmente isolado.

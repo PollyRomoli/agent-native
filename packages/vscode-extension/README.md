@@ -18,7 +18,7 @@ code --install-extension Builder.agent-native
 - **Agent Native: Open Agent Native URL** opens any `http(s)` Agent Native app
   URL or `vscode://builder.agent-native/open?url=...` handoff link.
 - **Agent Native: Connect Workspace to Agent Native MCP** runs the existing
-  `@agent-native/core` connect flow for VS Code / GitHub Copilot MCP.
+  `@agentnative-fork/core` connect flow for VS Code / GitHub Copilot MCP.
 
 ## Handoff URL
 

@@ -1,4 +1,4 @@
-import { appStateGet } from "@agent-native/core/application-state";
+import { appStateGet } from "@agentnative-fork/core/application-state";
 
 const HUBSPOT_BASE_URL = "https://api.hubapi.com";
 

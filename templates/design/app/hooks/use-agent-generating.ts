@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   sendToAgentChat,
   type AgentChatMessage,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 // This is only a lost-signal recovery guard. Large design prompts can
 // legitimately take several minutes, so avoid treating normal latency as

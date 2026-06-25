@@ -1,18 +1,18 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   getRequestContext,
   getRequestOrgId,
   getRequestUserEmail,
   runWithRequestContext,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import {
   accessFilter,
   assertAccess,
   currentAccess,
   ForbiddenError,
-} from "@agent-native/core/sharing";
-import setResourceVisibilityAction from "@agent-native/core/sharing/actions/set-resource-visibility";
-import { resolveOrgIdForEmail } from "@agent-native/core/org";
+} from "@agentnative-fork/core/sharing";
+import setResourceVisibilityAction from "@agentnative-fork/core/sharing/actions/set-resource-visibility";
+import { resolveOrgIdForEmail } from "@agentnative-fork/core/org";
 import { and, desc, eq, isNull } from "drizzle-orm";
 import { z } from "zod";
 import importVisualPlanSourceAction from "./import-visual-plan-source.js";

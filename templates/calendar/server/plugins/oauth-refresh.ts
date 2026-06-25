@@ -1,4 +1,4 @@
-import { startGoogleTokenRefreshLoop } from "@agent-native/core/oauth-tokens";
+import { startGoogleTokenRefreshLoop } from "@agentnative-fork/core/oauth-tokens";
 
 export default () => {
   startGoogleTokenRefreshLoop();

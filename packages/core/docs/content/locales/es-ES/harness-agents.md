@@ -13,7 +13,7 @@ search: "agentes de aprovechamiento AgentHarness ai-sdk HarnessAgent Claude Cód
 Un agente de aprovechamiento es un tiempo de ejecución de agente completo (código Claude, Codex, Pi y similares)
 que posee su propio bucle, espacio de trabajo, herramientas de archivos nativos, estado de sesión, compactación,
 modelo de aprobación y comportamiento de la zona de pruebas. Agent-Native los ejecuta a través del
-**`AgentHarness`** sustrato en `@agent-native/core/agent/harness`, transmite su
+**`AgentHarness`** sustrato en `@agentnative-fork/core/agent/harness`, transmite su
 eventos en la transcripción normal y persiste su sesión nativa en un hilo
 puede pausar y reanudar.
 
@@ -25,7 +25,7 @@ llamada modelo.
 
 ```an-diagram title="Un arnés es dueño de su bucle; Agent-Native dirige la sesión" summary="El AgentHarness sustrato creates/resumes la sesión nativa, transmite sus eventos a la transcripción normal y persiste resumeState en SQL entre turnos."
 {
-  "html": "<div class=\"diagram-harness\"><div class=\"diagram-box\" data-rough><strong>AgentHarness substrate</strong><small class=\"diagram-muted\">@agent-native/core/agent/harness</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-panel center\" data-rough><strong>Native harness loop</strong><small class=\"diagram-muted\">Claude Code · Codex · Pi — own tools, sandbox, compaction</small></div><div class=\"diagram-col\"><div class=\"diagram-pill accent\">events &rarr; transcript</div><div class=\"diagram-pill ok\">resumeState &rarr; SQL session</div></div></div>",
+  "html": "<div class=\"diagram-harness\"><div class=\"diagram-box\" data-rough><strong>AgentHarness substrate</strong><small class=\"diagram-muted\">@agentnative-fork/core/agent/harness</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-panel center\" data-rough><strong>Native harness loop</strong><small class=\"diagram-muted\">Claude Code · Codex · Pi — own tools, sandbox, compaction</small></div><div class=\"diagram-col\"><div class=\"diagram-pill accent\">events &rarr; transcript</div><div class=\"diagram-pill ok\">resumeState &rarr; SQL session</div></div></div>",
   "css": ".diagram-harness{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.diagram-harness .diagram-col{display:flex;flex-direction:column;gap:8px}.diagram-harness .diagram-arrow{font-size:22px;line-height:1}.diagram-harness .center{display:flex;flex-direction:column;align-items:center;gap:4px}"
 }
 ```
@@ -92,7 +92,7 @@ de lo contrario, se degrada a una sesión nueva.
 import {
   registerBuiltinAgentHarnesses,
   resolveAgentHarness,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 registerBuiltinAgentHarnesses();
 
@@ -138,7 +138,7 @@ Hay dos superficies Codex y se autentican de forma diferente:
   autenticación en su lugar.
 
 Entonces, si alguien pregunta qué paquete lleva la ruta Codex OAuth: para codificación local
-sesiones, use `@agent-native/core` / Desktop más el instalado
+sesiones, use `@agentnative-fork/core` / Desktop más el instalado
 `@openai/codex` CLI y `codex login`. Para `ai-sdk-harness:codex` en zona de pruebas,
 use la opción de suscripción explícita `codexCliAuth` al copiar ese inicio de sesión en el sandbox
 es aceptable.
@@ -160,7 +160,7 @@ apunta a un inicio de sesión local diferente, pasa
 import {
   registerBuiltinAgentHarnesses,
   resolveAgentHarness,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 registerBuiltinAgentHarnesses();
 const adapter = resolveAgentHarness("ai-sdk-harness:codex");
@@ -181,7 +181,7 @@ gira, traduce cada evento de arnés en eventos de transcripción y separa el
 estado reanudable cuando se completa el turno.
 
 ```ts
-import { startAgentHarnessRun } from "@agent-native/core/agent/harness";
+import { startAgentHarnessRun } from "@agentnative-fork/core/agent/harness";
 
 const run = startAgentHarnessRun({
   runId,
@@ -224,7 +224,7 @@ lo interpreta.
 import {
   getLatestAgentHarnessSessionForThread,
   listAgentHarnessSessions,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 const last = await getLatestAgentHarnessSessionForThread(threadId);
 // Feed last?.resumeState into createSession.resumeState on the next turn.
@@ -290,7 +290,7 @@ crea sesiones; una sesión expone `streamTurn` y `continueTurn` opcional,
 import {
   registerAgentHarness,
   type AgentHarnessAdapter,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 const myHarness: AgentHarnessAdapter = {
   name: "acme:my-coder",

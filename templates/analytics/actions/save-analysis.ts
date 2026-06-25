@@ -2,13 +2,13 @@ import {
   AgentActionStopError,
   defineAction,
   embedApp,
-} from "@agent-native/core";
+} from "@agentnative-fork/core";
 import {
   getRequestRunContext,
   getRequestUserEmail,
   getRequestOrgId,
   buildDeepLink,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { z } from "zod";
 import { upsertAnalysis } from "../server/lib/dashboards-store";
 import { hasDataQueryAttempt } from "../server/lib/real-data-actions";

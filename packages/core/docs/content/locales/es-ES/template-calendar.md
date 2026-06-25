@@ -74,7 +74,7 @@ El resto de este documento es para cualquiera que bifurque la plantilla de Calen
 Crea un nuevo espacio de trabajo con la plantilla Calendario:
 
 ```bash
-npx @agent-native/core@latest create my-app --standalone --template calendar
+npx @agentnative-fork/core@latest create my-app --standalone --template calendar
 cd my-app
 pnpm install
 pnpm dev

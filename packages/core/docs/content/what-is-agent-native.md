@@ -147,7 +147,7 @@ Agent-native apps follow a fork-and-customize model. You start from a **template
 
 Because it's _your_ app, not shared infrastructure, the agent can safely evolve the code. Your app keeps improving as you use it. See [Templates](/docs/cloneable-saas) for the full story.
 
-Not ready to fork a whole template? You can also try agent-native by adding a **skill** to a coding agent you already use — install the Plans skill with `npx @agent-native/core@latest skills add visual-plan`. See the [Skills Guide](/docs/skills-guide#app-backed-skills).
+Not ready to fork a whole template? You can also try agent-native by adding a **skill** to a coding agent you already use — install the Plans skill with `npx @agentnative-fork/core@latest skills add visual-plan`. See the [Skills Guide](/docs/skills-guide#app-backed-skills).
 
 ## Composable agents {#composable-agents}
 
@@ -163,7 +163,7 @@ If you're building or extending an agent-native app, here's the central pattern:
 {
   "filename": "actions/reply-to-email.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread\",\n  schema: z.object({ emailId: z.string(), body: z.string() }),\n  run: async ({ emailId, body }) => {\n    // db and schema come from your app's server/db setup\n    await db.insert(schema.replies).values({ emailId, body });\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread\",\n  schema: z.object({ emailId: z.string(), body: z.string() }),\n  run: async ({ emailId, body }) => {\n    // db and schema come from your app's server/db setup\n    await db.insert(schema.replies).values({ emailId, body });\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Tool surface", "note": "The `description` is what the agent reads to decide when to call this as a tool." },
     { "lines": "6", "label": "Typed contract", "note": "One zod `schema` validates input from **every** surface — agent, UI, HTTP, MCP, and A2A." },
@@ -183,7 +183,7 @@ const { mutate } = useActionMutation("reply-to-email");
 
 ```tsx
 // And the agent panel mounted anywhere in your app
-import { AgentSidebar } from "@agent-native/core/client";
+import { AgentSidebar } from "@agentnative-fork/core/client";
 
 <AgentSidebar />;
 ```

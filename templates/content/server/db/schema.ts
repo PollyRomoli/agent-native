@@ -5,7 +5,7 @@ import {
   now,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const documents = table("documents", {
   id: text("id").primaryKey(),

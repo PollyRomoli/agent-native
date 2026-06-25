@@ -1,8 +1,8 @@
 import type {
   IncomingMessage,
   PlatformAdapter,
-} from "@agent-native/core/server";
-import { resolveOrgIdForEmail } from "@agent-native/core/org";
+} from "@agentnative-fork/core/server";
+import { resolveOrgIdForEmail } from "@agentnative-fork/core/org";
 import crypto from "node:crypto";
 import { consumeLinkToken, resolveLinkedOwner } from "./dispatch-store.js";
 import { handleRemoteCodeCommand } from "./dispatch-remote-commands.js";

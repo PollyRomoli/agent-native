@@ -1,8 +1,8 @@
 import {
   readAppState,
   writeAppState,
-} from "@agent-native/core/application-state";
-import { getRequestRunContext } from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/application-state";
+import { getRequestRunContext } from "@agentnative-fork/core/server/request-context";
 import {
   appStateKeyForBrowserTab,
   normalizeBrowserTabId,

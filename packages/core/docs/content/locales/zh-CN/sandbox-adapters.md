@@ -178,7 +178,7 @@ registerSandboxAdapter(new RemoteSandboxAdapter());
 另一个适配器接缝包装单个命令行工具（`gh`、`ffmpeg`、`stripe`、`aws`），以便代理可以发现它，检查它是否已安装，并以一致的 stdout/stderr/exit-code 结果运行它。每个 CLI 适配器都实现 `CliAdapter`：
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -197,7 +197,7 @@ interface CliResult {
 对于大多数 CLI，`ShellCliAdapter` 使用合理的默认值包装任何二进制文件，而 `CliRegistry` 收集适配器以进行运行时发现：
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(

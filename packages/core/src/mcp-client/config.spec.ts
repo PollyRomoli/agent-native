@@ -60,7 +60,7 @@ describe("loadMcpConfig", () => {
     // Mark as workspace root via package.json agent-native.workspaceCore
     writeJson(path.join(workspaceDir, "package.json"), {
       name: "ws",
-      "agent-native": { workspaceCore: "@agent-native/core" },
+      "agent-native": { workspaceCore: "@agentnative-fork/core" },
     });
     writeJson(path.join(workspaceDir, "mcp.config.json"), {
       servers: { ws: { command: "workspace-bin" } },

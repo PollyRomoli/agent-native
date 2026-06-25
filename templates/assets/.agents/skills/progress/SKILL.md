@@ -66,10 +66,10 @@ Mounted at `/_agent-native/runs/*` by `core-routes-plugin`. **Read-only** over H
 
 ## UI Surface
 
-Ships as `<RunsTray />` at `@agent-native/core/client/progress`:
+Ships as `<RunsTray />` at `@agentnative-fork/core/client/progress`:
 
 ```tsx
-import { RunsTray } from "@agent-native/core/client/progress";
+import { RunsTray } from "@agentnative-fork/core/client/progress";
 
 export function HeaderBar() {
   return (

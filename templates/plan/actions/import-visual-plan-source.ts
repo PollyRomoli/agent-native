@@ -1,8 +1,8 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

@@ -60,7 +60,7 @@ function isNeonUrl(url: string): boolean {
  *
  * Usage:
  * ```ts
- * import { createDrizzleConfig } from "@agent-native/core/db/drizzle-config";
+ * import { createDrizzleConfig } from "@agentnative-fork/core/db/drizzle-config";
  * export default createDrizzleConfig();
  * ```
  */
@@ -73,7 +73,7 @@ export function createDrizzleConfig(
     sqliteFile = "./data/app.db",
   } = opts;
 
-  // Mirror getDatabaseUrl / getDatabaseAuthToken from @agent-native/core (db/client)
+  // Mirror getDatabaseUrl / getDatabaseAuthToken from @agentnative-fork/core (db/client)
   // without importing — drizzle-kit configs should stay side-effect-free.
   const appName = process.env.APP_NAME?.toUpperCase().replace(/-/g, "_");
   const envUrl =

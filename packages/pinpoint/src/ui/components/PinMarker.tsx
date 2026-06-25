@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Pin markers: outline + numbered badge per element
+// @agentnative-fork/pinpoint — Pin markers: outline + numbered badge per element
 // MIT License
 //
 // Each pin gets a wrapper div containing:

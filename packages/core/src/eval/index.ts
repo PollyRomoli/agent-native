@@ -5,7 +5,7 @@
  * defineEval(...)`, compose scorers with `createScorer` / the built-ins, and
  * run them with `agent-native eval` (which gates CI on the thresholds).
  *
- * This is complementary to `@agent-native/core`'s observability run-scoring:
+ * This is complementary to `@agentnative-fork/core`'s observability run-scoring:
  * that scores real production runs after the fact; this actively runs the
  * agent against fixed inputs as a deterministic gate. See `types.ts`.
  */

@@ -9,11 +9,11 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "agent-native",
-    "@agent-native/desktop-app",
-    "@agent-native/code-agents-ui",
-    "@agent-native/shared-app-config",
-    "@agent-native/embedding",
-    "@agent-native/migrate"
+    "@agentnative-fork/desktop-app",
+    "@agentnative-fork/code-agents-ui",
+    "@agentnative-fork/shared-app-config",
+    "@agentnative-fork/embedding",
+    "@agentnative-fork/migrate"
   ],
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "onlyUpdatePeerDependentsWhenOutOfRange": true

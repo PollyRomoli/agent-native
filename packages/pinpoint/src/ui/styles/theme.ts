@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — CSS theme and styles
+// @agentnative-fork/pinpoint — CSS theme and styles
 // MIT License
 //
 // Compiled CSS for Shadow DOM injection via CSSStyleSheet.

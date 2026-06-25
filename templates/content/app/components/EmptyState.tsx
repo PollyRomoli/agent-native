@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useCreateDocument } from "@/hooks/use-documents";
 import type { Document } from "@shared/api";
 import { toast } from "sonner";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 function nanoid(size = 12): string {
   const chars =

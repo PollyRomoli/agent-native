@@ -32,8 +32,8 @@ interface QueuedEvent {
 
 // Use globalThis so multiple ESM graph instances (Vite dev + Nitro symlinks)
 // share one queue, matching the same pattern as the tracking registry.
-const QUEUE_KEY = Symbol.for("@agent-native/core/tracking.queue");
-const TIMER_KEY = Symbol.for("@agent-native/core/tracking.timer");
+const QUEUE_KEY = Symbol.for("@agentnative-fork/core/tracking.queue");
+const TIMER_KEY = Symbol.for("@agentnative-fork/core/tracking.timer");
 
 interface GlobalWithQueue {
   [QUEUE_KEY]?: QueuedEvent[];

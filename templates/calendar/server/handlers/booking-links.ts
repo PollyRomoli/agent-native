@@ -8,17 +8,17 @@ import {
 } from "h3";
 import { nanoid } from "nanoid";
 import { desc, eq } from "drizzle-orm";
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+import { accessFilter, assertAccess } from "@agentnative-fork/core/sharing";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { getDb, schema } from "../db/index.js";
 import {
   getSession,
   readBody,
   runWithRequestContext,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { ensureBookingUsername } from "./booking-usernames.js";
 import { normalizeBookingDurationInput } from "../lib/booking-durations.js";
 import {

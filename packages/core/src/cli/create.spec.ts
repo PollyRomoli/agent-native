@@ -96,13 +96,13 @@ describe("createApp", { timeout: 30000 }, () => {
     );
   });
 
-  it("normalizes @agent-native/core for blank standalone apps", async () => {
+  it("normalizes @agentnative-fork/core for blank standalone apps", async () => {
     await createApp("my-app", { template: "blank" });
     const pkg = JSON.parse(
       fs.readFileSync(path.join(tmpDir, "my-app", "package.json"), "utf-8"),
     );
 
-    expect(pkg.dependencies["@agent-native/core"]).toBe(
+    expect(pkg.dependencies["@agentnative-fork/core"]).toBe(
       _getCoreDependencyVersion(),
     );
   });
@@ -117,7 +117,7 @@ describe("createApp", { timeout: 30000 }, () => {
     );
     // Imports from the bare package root, which is server-safe so a headless
     // app loads it without React / @tanstack/react-query installed.
-    expect(hello).toContain('from "@agent-native/core"');
+    expect(hello).toContain('from "@agentnative-fork/core"');
     expect(hello).toContain("defineAction");
     expect(hello).toContain('http: { method: "GET" }');
     expect(hello).toContain("readOnly: true");

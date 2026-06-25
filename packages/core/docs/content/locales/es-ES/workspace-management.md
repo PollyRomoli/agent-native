@@ -151,7 +151,7 @@ Para conocer el modelo de recursos y las rutas canónicas, consulte [Workspace �
 
 ## Lista de verificación de configuración
 
-Para un nuevo espacio de trabajo, después de ejecutar `npx @agent-native/core@latest create`:
+Para un nuevo espacio de trabajo, después de ejecutar `npx @agentnative-fork/core@latest create`:
 
 **Git y GitHub:**
 

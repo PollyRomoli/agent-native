@@ -178,7 +178,7 @@ registerSandboxAdapter(new RemoteSandboxAdapter());
 もう一方のアダプター シームは単一のコマンド ライン ツール (`gh`、`ffmpeg`、`stripe`、`aws`) をラップしているため、エージェントはそれを検出し、インストールされているかどうかを確認し、一貫した stdout/stderr/exit-code 結果で実行できます。すべての CLI アダプターは `CliAdapter` を実装します。
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -197,7 +197,7 @@ interface CliResult {
 ほとんどの CLI では、`ShellCliAdapter` は適切なデフォルトでバイナリをラップし、`CliRegistry` はランタイム検出用のアダプターを収集します。
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(

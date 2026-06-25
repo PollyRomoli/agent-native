@@ -8,7 +8,7 @@ const agentChatHomeMock = vi.hoisted(() => vi.fn());
 const navigateWithAgentChatViewTransitionMock = vi.hoisted(() => vi.fn());
 const navigateMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core/client", () => ({
+vi.mock("@agentnative-fork/core/client", () => ({
   AgentChatHome: (props: Record<string, unknown>) => {
     agentChatHomeMock(props);
     return (

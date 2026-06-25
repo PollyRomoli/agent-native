@@ -5,8 +5,8 @@ import {
   setResponseStatus,
   type H3Event,
 } from "h3";
-import { appStateGet } from "@agent-native/core/application-state";
-import { getSession } from "@agent-native/core/server";
+import { appStateGet } from "@agentnative-fork/core/application-state";
+import { getSession } from "@agentnative-fork/core/server";
 
 // POST /api/pylon/validate — verify a key without saving it
 export const pylonValidate = defineEventHandler(async (event: H3Event) => {

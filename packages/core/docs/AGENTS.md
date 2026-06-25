@@ -1,11 +1,11 @@
 # Agent Native Package Lookup For Agents
 
 The version-matched docs and source corpus are bundled with
-`@agent-native/core` and installed at:
+`@agentnative-fork/core` and installed at:
 
 ```txt
-node_modules/@agent-native/core/docs
-node_modules/@agent-native/core/corpus
+node_modules/@agentnative-fork/core/docs
+node_modules/@agentnative-fork/core/corpus
 ```
 
 Use these version-matched markdown docs before coding against Agent Native
@@ -33,14 +33,14 @@ tools with the same options.
 If the action runner is unavailable, search the package files directly:
 
 ```bash
-rg -n "actions|automations|a2a|sharing" node_modules/@agent-native/core/docs
-rg -n "defineAction|useActionQuery" node_modules/@agent-native/core/corpus
+rg -n "actions|automations|a2a|sharing" node_modules/@agentnative-fork/core/docs
+rg -n "defineAction|useActionQuery" node_modules/@agentnative-fork/core/corpus
 ```
 
-Then read the matching files under `node_modules/@agent-native/core/docs/content/`.
+Then read the matching files under `node_modules/@agentnative-fork/core/docs/content/`.
 For source examples, read matching files under
-`node_modules/@agent-native/core/corpus/core/` or
-`node_modules/@agent-native/core/corpus/templates/`.
+`node_modules/@agentnative-fork/core/corpus/core/` or
+`node_modules/@agentnative-fork/core/corpus/templates/`.
 
 ## What To Read First
 

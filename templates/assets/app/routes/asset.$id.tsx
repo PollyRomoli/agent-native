@@ -11,7 +11,7 @@ import {
   useActionMutation,
   useActionQuery,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   IconArrowLeft,
   IconClipboard,

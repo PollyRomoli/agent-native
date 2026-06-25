@@ -11,7 +11,7 @@ import {
   registerLibraryBlockConfigs,
   type LibraryBlockConfigOverrides,
   type BlockAgentDoc,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 
 /**
  * Server / shared plan block registry. Registers the React-free parts of each

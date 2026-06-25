@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { IconSend, IconChevronDown, IconCalendar } from "@tabler/icons-react";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 interface SendLaterButtonProps {
   onSend: () => void;

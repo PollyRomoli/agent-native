@@ -11,7 +11,7 @@ import {
   useAgentChatHomeHandoff,
   useAgentChatHomeHandoffLinks,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { APP_TITLE } from "@/lib/app-config";
 import { TAB_ID } from "@/lib/tab-id";
 import { Button } from "@/components/ui/button";

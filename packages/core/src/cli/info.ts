@@ -40,7 +40,7 @@ export function runInfo(pkgName?: string): void {
     }
   }
 
-  // Check for an @agent-native/-style manifest.
+  // Check for an @agentnative-fork/-style manifest.
   const manifestPath = path.join(pkgDir, "dist", "manifest.js");
   if (fs.existsSync(manifestPath)) {
     console.log("");

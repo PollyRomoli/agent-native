@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Origin validation for cross-frame communication
+// @agentnative-fork/pinpoint — Origin validation for cross-frame communication
 // MIT License
 
 /**

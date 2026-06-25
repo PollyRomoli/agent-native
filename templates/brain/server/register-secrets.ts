@@ -1,4 +1,4 @@
-import { registerRequiredSecret } from "@agent-native/core/secrets";
+import { registerRequiredSecret } from "@agentnative-fork/core/secrets";
 
 registerRequiredSecret({
   key: "SLACK_BOT_TOKEN",

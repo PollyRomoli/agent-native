@@ -1,4 +1,4 @@
-import { createIntegrationsPlugin } from "@agent-native/core/server";
+import { createIntegrationsPlugin } from "@agentnative-fork/core/server";
 import {
   beforeDispatchProcess,
   resolveDispatchOwner,

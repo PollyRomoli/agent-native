@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Open file in editor
+// @agentnative-fork/pinpoint — Open file in editor
 // MIT License
 
 /**

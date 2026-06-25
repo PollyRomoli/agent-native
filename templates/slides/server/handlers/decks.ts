@@ -6,13 +6,13 @@ import {
 } from "h3";
 import { and, eq, desc } from "drizzle-orm";
 import { getDb, schema } from "../db";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 import {
   accessFilter,
   resolveAccess,
   assertAccess,
   ForbiddenError,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import { ASPECT_RATIO_VALUES } from "../../shared/aspect-ratios.js";
 import {
   resolveSlidesRequestAuthContext,

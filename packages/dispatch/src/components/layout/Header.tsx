@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router";
 import { useHeaderTitle, useHeaderActions } from "./HeaderActions";
-import { AgentToggleButton, LanguagePicker } from "@agent-native/core/client";
-import { RunsTray } from "@agent-native/core/client/progress";
+import { AgentToggleButton, LanguagePicker } from "@agentnative-fork/core/client";
+import { RunsTray } from "@agentnative-fork/core/client/progress";
 import { Button } from "@/components/ui/button";
 import { IconLayoutSidebar } from "@tabler/icons-react";
 

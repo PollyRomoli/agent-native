@@ -4,7 +4,7 @@ import {
   appApiPath,
   useActionQuery,
   useActionMutation,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 // ---------------------------------------------------------------------------
 // Admin hooks (authenticated)

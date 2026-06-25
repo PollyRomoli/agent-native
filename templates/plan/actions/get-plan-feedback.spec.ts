@@ -6,8 +6,8 @@ import type {
   PlanSection,
 } from "../shared/types.js";
 
-vi.mock("@agent-native/core", async (importOriginal) => ({
-  ...(await importOriginal<typeof import("@agent-native/core")>()),
+vi.mock("@agentnative-fork/core", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@agentnative-fork/core")>()),
   defineAction: (entry: unknown) => entry,
   embedApp: vi.fn(() => ({ title: "stub" })),
 }));

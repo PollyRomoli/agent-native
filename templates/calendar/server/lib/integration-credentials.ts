@@ -19,9 +19,9 @@ import {
   saveCredential,
   deleteCredential,
   type CredentialContext,
-} from "@agent-native/core/credentials";
-import { getSession } from "@agent-native/core/server";
-import { getOrgContext } from "@agent-native/core/org";
+} from "@agentnative-fork/core/credentials";
+import { getSession } from "@agentnative-fork/core/server";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import { type H3Event } from "h3";
 
 export type IntegrationProvider = "apollo" | "hubspot" | "gong" | "pylon";

@@ -76,7 +76,7 @@ Anthropic Claude、OpenAI (GPT-5 ファミリー)、Google Gemini、および Op
 
 ### テンプレートでカバーされていないものを構築できますか? {#build-from-scratch}
 
-はい。基本的なチャット アプリが必要な場合は、`npx @agent-native/core@latest create my-chat-app --template chat` を実行します。耐久性のあるチャット スレッド、actions、認証、SQL に基づくランタイム状態、および独自の画面を追加する余地が得られます。 UI を持たない最小のアクション優先アプリが必要な場合は、`npx @agent-native/core@latest create my-agent --headless` を実行します。 [Getting Started](/docs/getting-started)、[Pure-Agent Apps](/docs/pure-agent-apps)、および [Chat](/docs/template-chat) を参照してください。
+はい。基本的なチャット アプリが必要な場合は、`npx @agentnative-fork/core@latest create my-chat-app --template chat` を実行します。耐久性のあるチャット スレッド、actions、認証、SQL に基づくランタイム状態、および独自の画面を追加する余地が得られます。 UI を持たない最小のアクション優先アプリが必要な場合は、`npx @agentnative-fork/core@latest create my-agent --headless` を実行します。 [Getting Started](/docs/getting-started)、[Pure-Agent Apps](/docs/pure-agent-apps)、および [Chat](/docs/template-chat) を参照してください。
 
 ### テンプレートをフォークせずに試してみることはできますか? {#try-with-a-skill}
 

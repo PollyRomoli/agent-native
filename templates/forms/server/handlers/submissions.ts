@@ -15,8 +15,8 @@ import {
   readBody,
   runWithRequestContext,
   verifyCaptcha,
-} from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../db/index.js";
 import type {
   FormField,
@@ -257,7 +257,7 @@ export const submitForm = defineEventHandler(async (event: H3Event) => {
   // Write submission notification to application state (SQL-backed)
   try {
     const { appStatePut } =
-      await import("@agent-native/core/application-state");
+      await import("@agentnative-fork/core/application-state");
     await appStatePut(form.ownerEmail, "new-submission", {
       formId: id,
       responseId,

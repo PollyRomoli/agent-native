@@ -53,7 +53,7 @@ description: "配置文件上传存储 - 用于开发的 SQL 后备、Builder.io
 
 ```ts
 // server/plugins/file-upload.ts
-import { registerFileUploadProvider } from "@agent-native/core/file-upload";
+import { registerFileUploadProvider } from "@agentnative-fork/core/file-upload";
 
 export default defineNitroPlugin(() => {
   registerFileUploadProvider({
@@ -103,10 +103,10 @@ interface FileUploadResult {
 }
 ```
 
-在 actions 或服务器代码中使用 `@agent-native/core/file-upload` 中的 `uploadFile()`：
+在 actions 或服务器代码中使用 `@agentnative-fork/core/file-upload` 中的 `uploadFile()`：
 
 ```ts
-import { uploadFile } from "@agent-native/core/file-upload";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
 
 const result = await uploadFile({
   data: fileBuffer,

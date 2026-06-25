@@ -49,7 +49,7 @@ needs a custom surface, add or reuse a real app route/component first and embed
 that route.
 
 ```ts
-import { embedApp } from "@agent-native/core";
+import { embedApp } from "@agentnative-fork/core";
 
 export default defineAction({
   // ...schema, run, link...

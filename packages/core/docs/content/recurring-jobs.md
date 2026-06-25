@@ -78,7 +78,7 @@ The agent writes the file for you.
 Drop a Markdown file in `jobs/` via the framework's resource APIs:
 
 ```ts
-import { resourcePut } from "@agent-native/core/resources";
+import { resourcePut } from "@agentnative-fork/core/resources";
 
 await resourcePut(
   ownerEmail,
@@ -127,10 +127,10 @@ A single `manage-jobs` tool is registered in every template. The `action` parame
 
 ## Different from the scheduling package {#vs-scheduling-package}
 
-Don't confuse recurring jobs with `@agent-native/scheduling`:
+Don't confuse recurring jobs with `@agentnative-fork/scheduling`:
 
 - **Recurring jobs (this page)** — cron-scheduled _prompts_ the agent runs in the background. Framework-level. Lives in the workspace. Runs on any agent-native app.
-- **`@agent-native/scheduling`** — a reusable domain package for building calendar/booking features (event types, availability windows, bookings). Powers the `calendar` template and custom scheduling surfaces.
+- **`@agentnative-fork/scheduling`** — a reusable domain package for building calendar/booking features (event types, availability windows, bookings). Powers the `calendar` template and custom scheduling surfaces.
 
 Recurring jobs are "how do I make the agent act on its own?" The scheduling package is "how do I build a calendar app?" Different concerns.
 

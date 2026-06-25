@@ -1,9 +1,9 @@
 import { useCallback } from "react";
-import { useAgentChatGenerating } from "@agent-native/core/client";
+import { useAgentChatGenerating } from "@agentnative-fork/core/client";
 
 /**
  * Tracks whether an agent chat submission is in progress.
- * Wraps @agent-native/core's useAgentChatGenerating hook.
+ * Wraps @agentnative-fork/core's useAgentChatGenerating hook.
  */
 export function useAgentGenerating() {
   const [generating, send] = useAgentChatGenerating();

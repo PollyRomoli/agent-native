@@ -13,8 +13,8 @@ import {
   useAgentChatHomeHandoff,
   useAgentChatHomeHandoffLinks,
   useT,
-} from "@agent-native/core/client";
-import { InvitationBanner } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { InvitationBanner } from "@agentnative-fork/core/client/org";
 import { useNavigationState } from "@/hooks/use-navigation-state";
 import { ASSETS_CHAT_STORAGE_KEY } from "@/lib/chat";
 import { cn } from "@/lib/utils";

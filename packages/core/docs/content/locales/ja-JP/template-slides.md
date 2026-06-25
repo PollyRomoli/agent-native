@@ -67,7 +67,7 @@ description: "プロンプトからデッキを生成し、視覚的に編集し
 CLI から新しいスライド アプリを作成します:
 
 ```bash
-npx @agent-native/core@latest create my-slides --standalone --template slides
+npx @agentnative-fork/core@latest create my-slides --standalone --template slides
 cd my-slides
 pnpm install
 pnpm dev

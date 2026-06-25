@@ -5,7 +5,7 @@ description: The pure `computeAvailableSlots` function — inputs, outputs, inva
 
 # Slot engine
 
-`import { computeAvailableSlots } from "@agent-native/scheduling/core"`
+`import { computeAvailableSlots } from "@agentnative-fork/scheduling/core"`
 
 ## Inputs
 - Event type config (duration, buffers, minimum notice, period, limits,

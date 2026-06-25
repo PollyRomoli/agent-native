@@ -52,7 +52,7 @@ description: "一个最小的聊天优先代理本机应用程序：持久的聊
 ## 脚手架 {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 cd my-chat-app
 pnpm install
 pnpm dev
@@ -61,7 +61,7 @@ pnpm dev
 或者从没有 UI 开始，然后添加聊天界面：
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 从那里，将聊天模板的 `/` 路由和侧边栏线程列表复制到您的应用程序中，或者构建聊天应用程序并将 actions 从无头代理移动到其 `actions/` 目录中。关键不变量保持不变：actions 是聊天的共享界面，UI、HTTP、MCP、A2A 和 CLI。
@@ -90,7 +90,7 @@ npx @agent-native/core@latest create my-agent --headless
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return (

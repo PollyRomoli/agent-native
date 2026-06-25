@@ -28,7 +28,7 @@ import {
   useOrg,
   useSwitchOrg,
   useCreateOrg,
-} from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client/org";
 
 interface OrganizationSwitcherProps {
   className?: string;

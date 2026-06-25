@@ -76,7 +76,7 @@ Yjs 状態は、base64 でエンコードされたバイナリとして `_collab
 現在表示されているピアの中にあります。エージェントの認識エントリは
 `AGENT_CLIENT_ID` (max int) なので、リードになることはありません。クライアントの編集
 常に単独でリードします。選挙は決定的であり、調整は行われない
-往復 (`isReconcileLeadClient` から `@agent-native/core/client`)。
+往復 (`isReconcileLeadClient` から `@agentnative-fork/core/client`)。
 
 ### 5. SSE 高速パス + ポーリング フォールバック (トランスポート)
 
@@ -122,7 +122,7 @@ pnpm add @tiptap/extension-collaboration @tiptap/extension-collaboration-caret @
 ```ts
 // vite.config.ts
 import { reactRouter } from "@react-router/dev/vite";
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -149,7 +149,7 @@ export default defineConfig({
 
 ```ts
 // server/plugins/collab.ts
-import { createCollabPlugin } from "@agent-native/core/server";
+import { createCollabPlugin } from "@agentnative-fork/core/server";
 
 export default createCollabPlugin({
   table: "documents",
@@ -166,7 +166,7 @@ import {
   useCollaborativeDoc,
   emailToColor,
   emailToName,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const TAB_ID = generateTabId(); // or Math.random().toString(36)
 
@@ -273,7 +273,7 @@ import {
   RemoteSelectionRings,
   useCollaborativeDoc,
   usePresence,
-} from "@agent-native/core/client/collab";
+} from "@agentnative-fork/core/client/collab";
 ```
 
 サーバー側のエージェント プレゼンス ヘルパーは、下位​​レベルのコラボレーション パッケージに残ります。
@@ -283,7 +283,7 @@ import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 ```
 
 ### パブリック API {#presence-public-api}
@@ -336,7 +336,7 @@ import {
 リモート参加者の反応リストとローカル プレゼンス ペイロードのセッターを返します。
 
 ```ts
-import { usePresence } from "@agent-native/core/client";
+import { usePresence } from "@agentnative-fork/core/client";
 
 const { others, setPresence } = usePresence(awareness, ydoc?.clientID);
 
@@ -359,7 +359,7 @@ setPresence({ cursor: { x: 0.4, y: 0.7 }, selection: "#hero" });
 リモート カーソルをコンテナ要素上の絶対位置のラベルとしてレンダリングします。
 
 ```tsx
-import { LiveCursorOverlay } from "@agent-native/core/client";
+import { LiveCursorOverlay } from "@agentnative-fork/core/client";
 
 // cursor positions stored as { x, y } normalized 0–1 under presence.cursor
 <div ref={containerRef} style={{ position: "relative" }}>
@@ -379,7 +379,7 @@ import { LiveCursorOverlay } from "@agent-native/core/client";
 リモートで選択された要素上に色付きのアウトライン リングと名前タグをレンダリングします:
 
 ```tsx
-import { RemoteSelectionRings } from "@agent-native/core/client";
+import { RemoteSelectionRings } from "@agentnative-fork/core/client";
 
 <div ref={containerRef} style={{ position: "relative" }}>
   {content}
@@ -399,7 +399,7 @@ import { RemoteSelectionRings } from "@agent-native/core/client";
 フォローされている参加者のビューポートが変更されるたびにコールバックを呼び出します。
 
 ```ts
-import { useFollowUser } from "@agent-native/core/client";
+import { useFollowUser } from "@agentnative-fork/core/client";
 
 const { isFollowing, stopFollowing } = useFollowUser({
   others,
@@ -434,7 +434,7 @@ const { isFollowing, stopFollowing } = useFollowUser({
 ### 正規化された座標ヘルパー {#norm-coords}
 
 ```ts
-import { toNormalized, fromNormalized } from "@agent-native/core/client";
+import { toNormalized, fromNormalized } from "@agentnative-fork/core/client";
 
 // In a pointer event handler:
 const norm = toNormalized(
@@ -457,7 +457,7 @@ import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 
 agentEnterDocument(docId);
 agentUpdateSelection(docId, {
@@ -656,7 +656,7 @@ undoManager.redo(); // Shift+Cmd+Z
   (永続的なプレゼンスのハートビート)。
 
 `emailToColor(email)` と `emailToName(email)` を使用
-`@agent-native/core/client` は一貫したカーソルの色を生成し、表示します
+`@agentnative-fork/core/client` は一貫したカーソルの色を生成し、表示します
 電子メール アドレスからの名前。
 
 `activeUsers` でレンダリングされた `PresenceBar` には、生きた人間とエージェントが表示されます

@@ -50,7 +50,7 @@ Use `defineAction` with a Zod schema (required for new actions):
 ```ts
 // actions/list-meals.ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { getDb } from "../server/db/index.js";
 import { meals } from "../server/db/schema.js";
 
@@ -121,7 +121,7 @@ action trio instead:
   provider host, injects configured credentials, blocks private/internal URLs,
   and redacts secrets.
 
-Use `@agent-native/core/provider-api` as the shared substrate. A template should
+Use `@agentnative-fork/core/provider-api` as the shared substrate. A template should
 only add a thin credential adapter when it has app-specific credential lookup
 rules. If the app stores a built-in provider's OAuth grant under a narrower
 local provider id, use the runtime's `oauthProviderOverrides` instead of
@@ -249,12 +249,12 @@ When the gate is truthy and the call isn't yet approved, the loop emits an `appr
 
 ## Frontend Hooks
 
-The frontend calls actions using React Query hooks from `@agent-native/core/client`. Components should not hand-write `fetch("/_agent-native/actions/...")`; add or reuse a client hook/helper instead. Use `callAction` from the same package for imperative cases that do not fit a hook, such as debounced search, prefetching, or non-React event handlers.
+The frontend calls actions using React Query hooks from `@agentnative-fork/core/client`. Components should not hand-write `fetch("/_agent-native/actions/...")`; add or reuse a client hook/helper instead. Use `callAction` from the same package for imperative cases that do not fit a hook, such as debounced search, prefetching, or non-React event handlers.
 
 ### `useActionQuery` — for GET actions
 
 ```ts
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 function MealList() {
   // Types are auto-inferred from the action's schema + return type — no manual generic needed
@@ -268,7 +268,7 @@ function MealList() {
 ### `useActionMutation` — for POST/PUT/DELETE actions
 
 ```ts
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 function AddMealButton() {
   // Types are auto-inferred — no manual generic needed
@@ -288,7 +288,7 @@ Mutations automatically invalidate all `["action"]` query keys on success, so GE
 ### `callAction` — for imperative client code
 
 ```ts
-import { callAction } from "@agent-native/core/client";
+import { callAction } from "@agentnative-fork/core/client";
 
 const people = await callAction("search-people", { query }, { method: "GET" });
 ```
@@ -307,7 +307,7 @@ pnpm action my-action --input data/source.json --output data/result.json
 The default template uses core's `runScript()` in `actions/run.ts`:
 
 ```ts
-import { runScript } from "@agent-native/core";
+import { runScript } from "@agentnative-fork/core";
 runScript();
 ```
 
@@ -329,7 +329,7 @@ If it's a standard CRUD operation, data query, or a wrapper around an action, us
 Older actions use a bare async function export with `parseArgs`:
 
 ```ts
-import { parseArgs, loadEnv, fail } from "@agent-native/core";
+import { parseArgs, loadEnv, fail } from "@agentnative-fork/core";
 
 export default async function myAction(args: string[]) {
   loadEnv();
@@ -353,7 +353,7 @@ This still works but is not auto-exposed as HTTP. Prefer `defineAction` for all 
   credentials belong in the encrypted secrets/credential/OAuth stores, never as
   hardcoded literals or shared env fallbacks.
 - **Use `fail()`** for user-friendly error messages (exits with message, no stack trace).
-- **Import action primitives from `@agent-native/core/action`** and CLI helpers such as `parseArgs()` from `@agent-native/core` — do not redefine framework utilities locally.
+- **Import action primitives from `@agentnative-fork/core/action`** and CLI helpers such as `parseArgs()` from `@agentnative-fork/core` — do not redefine framework utilities locally.
 - **Do not re-export actions as REST.** The mounted `/_agent-native/actions/:name` endpoint is the REST surface; duplicating it under `/api/*` creates drift and hides the operation from agents.
 
 ## Common Patterns
@@ -362,7 +362,7 @@ This still works but is not auto-exposed as HTTP. Prefer `defineAction` for all 
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "List calendar events",
@@ -381,7 +381,7 @@ export default defineAction({
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Log a meal",
@@ -401,7 +401,7 @@ export default defineAction({
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Navigate the UI to a view",

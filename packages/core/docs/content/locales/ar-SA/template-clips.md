@@ -164,7 +164,7 @@ API، لذا فإن النماذج التي تقبل النص أو الصور ا
 ### بداية سريعة
 
 ```bash
-npx @agent-native/core@latest create my-clips --standalone --template clips
+npx @agentnative-fork/core@latest create my-clips --standalone --template clips
 cd my-clips
 pnpm install
 pnpm dev
@@ -187,7 +187,7 @@ Clips عبارة عن قالب أكبر حجمًا يحتوي على مسجل أ
 1. **إنشاء التطبيق.**
 
    ```باش
-   npx @agent-native/core@latest قم بإنشاء مقاطعي --standalone --template clips
+   npx @agentnative-fork/core@latest قم بإنشاء مقاطعي --standalone --template clips
    قرص مضغوط خاص بي
    تثبيت pnpm
    ```

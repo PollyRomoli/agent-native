@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { appBasePath, captureClientException } from "@agent-native/core/client";
+import { appBasePath, captureClientException } from "@agentnative-fork/core/client";
 import { IconBolt, IconPlayerPlay } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { Spinner } from "@/components/ui/spinner";

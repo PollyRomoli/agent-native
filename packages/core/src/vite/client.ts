@@ -234,8 +234,8 @@ function findCorePackageRoot(cwd: string): string | null {
       devDependencies?: Record<string, string>;
     };
     const spec =
-      pkg.dependencies?.["@agent-native/core"] ??
-      pkg.devDependencies?.["@agent-native/core"];
+      pkg.dependencies?.["@agentnative-fork/core"] ??
+      pkg.devDependencies?.["@agentnative-fork/core"];
     if (typeof spec === "string" && spec.startsWith("file:")) {
       const rooted = fileURLToPath(spec);
       if (fs.existsSync(path.join(rooted, "src/index.ts"))) return rooted;
@@ -247,7 +247,7 @@ function findCorePackageRoot(cwd: string): string | null {
   const candidates = [
     path.resolve(cwd, "../../packages/core"), // templates/<name>/
     path.resolve(cwd, "../core"), // packages/<name>/
-    path.resolve(cwd, "node_modules/@agent-native/core"),
+    path.resolve(cwd, "node_modules/@agentnative-fork/core"),
   ];
   for (const candidate of candidates) {
     try {
@@ -268,7 +268,7 @@ function findCoreSrcDir(cwd: string): string | null {
 
 /**
  * Pin react-router imports to the consuming app's install. pnpm keeps a peer
- * copy under `@agent-native/core/node_modules/react-router`; `resolve.dedupe`
+ * copy under `@agentnative-fork/core/node_modules/react-router`; `resolve.dedupe`
  * alone can still leave SSR `Meta`/`Links` on a different FrameworkContext
  * than React Router's dev server router.
  */
@@ -291,37 +291,37 @@ function getReactRouterAliases(
 }
 
 /**
- * Every `@agent-native/core` subpath that gets a source alias. Must stay in
+ * Every `@agentnative-fork/core` subpath that gets a source alias. Must stay in
  * sync with `getCoreSourceAliases`. Used by `getDefaultOptimizeDeps` to skip
  * prebundling in monorepo mode, and by the consumer config to add them to
  * `optimizeDeps.exclude` so Vite always resolves them through the source
  * alias on every request — never from a stale dist/ snapshot.
  */
 const CORE_CLIENT_SUBPATHS = [
-  "@agent-native/core",
-  "@agent-native/core/client",
-  "@agent-native/core/client/chat",
-  "@agent-native/core/client/collab",
-  "@agent-native/core/client/composer",
-  "@agent-native/core/client/conversation",
-  "@agent-native/core/client/editor",
-  "@agent-native/core/client/resources",
+  "@agentnative-fork/core",
+  "@agentnative-fork/core/client",
+  "@agentnative-fork/core/client/chat",
+  "@agentnative-fork/core/client/collab",
+  "@agentnative-fork/core/client/composer",
+  "@agentnative-fork/core/client/conversation",
+  "@agentnative-fork/core/client/editor",
+  "@agentnative-fork/core/client/resources",
   // Dedicated subpath that exports ONLY appBasePath/agentNativePath/appPath.
   // entry.client.tsx imports from here so it never pulls the full client barrel
   // (and its transitive ~650-700 KB gzip chat stack) onto the critical path.
-  "@agent-native/core/client/api-path",
-  "@agent-native/core/blocks",
-  "@agent-native/core/blocks/server",
-  "@agent-native/core/client/extensions",
-  "@agent-native/core/client/tools", // legacy alias
-  "@agent-native/core/client/org",
-  "@agent-native/core/client/db-admin",
-  "@agent-native/core/client/observability",
-  "@agent-native/core/client/onboarding",
-  "@agent-native/core/client/sharing",
-  "@agent-native/core/client/notifications",
-  "@agent-native/core/client/progress",
-  "@agent-native/core/client/transcription/use-live-transcription",
+  "@agentnative-fork/core/client/api-path",
+  "@agentnative-fork/core/blocks",
+  "@agentnative-fork/core/blocks/server",
+  "@agentnative-fork/core/client/extensions",
+  "@agentnative-fork/core/client/tools", // legacy alias
+  "@agentnative-fork/core/client/org",
+  "@agentnative-fork/core/client/db-admin",
+  "@agentnative-fork/core/client/observability",
+  "@agentnative-fork/core/client/onboarding",
+  "@agentnative-fork/core/client/sharing",
+  "@agentnative-fork/core/client/notifications",
+  "@agentnative-fork/core/client/progress",
+  "@agentnative-fork/core/client/transcription/use-live-transcription",
 ];
 
 function getDefaultOptimizeDeps(cwd: string): string[] {
@@ -333,48 +333,48 @@ function getDefaultOptimizeDeps(cwd: string): string[] {
     ...(inMonorepo
       ? []
       : ([
-          { specifier: "@agent-native/core" },
+          { specifier: "@agentnative-fork/core" },
           {
-            specifier: "@agent-native/core/client",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client",
+            packageName: "@agentnative-fork/core",
           },
           {
-            specifier: "@agent-native/core/client/chat",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/chat",
+            packageName: "@agentnative-fork/core",
           },
           {
-            specifier: "@agent-native/core/client/collab",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/collab",
+            packageName: "@agentnative-fork/core",
           },
           {
-            specifier: "@agent-native/core/client/composer",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/composer",
+            packageName: "@agentnative-fork/core",
           },
           {
-            specifier: "@agent-native/core/client/conversation",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/conversation",
+            packageName: "@agentnative-fork/core",
           },
           {
-            specifier: "@agent-native/core/client/editor",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/editor",
+            packageName: "@agentnative-fork/core",
           },
           {
-            specifier: "@agent-native/core/client/resources",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/resources",
+            packageName: "@agentnative-fork/core",
           },
           {
-            specifier: "@agent-native/core/client/org",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/org",
+            packageName: "@agentnative-fork/core",
           },
           {
-            specifier: "@agent-native/core/client/extensions",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/extensions",
+            packageName: "@agentnative-fork/core",
           },
           {
-            // Legacy alias — prior name for @agent-native/core/client/extensions.
+            // Legacy alias — prior name for @agentnative-fork/core/client/extensions.
             // Keep so deployed templates that haven't been updated still resolve.
-            specifier: "@agent-native/core/client/tools",
-            packageName: "@agent-native/core",
+            specifier: "@agentnative-fork/core/client/tools",
+            packageName: "@agentnative-fork/core",
           },
         ] as Array<{ specifier: string; packageName?: string }>)),
     { specifier: "@libsql/client" },
@@ -538,12 +538,12 @@ function getDefaultOptimizeDeps(cwd: string): string[] {
 }
 
 /**
- * In monorepo dev mode, resolve @agent-native/core imports to source (src/)
+ * In monorepo dev mode, resolve @agentnative-fork/core imports to source (src/)
  * instead of dist/ so that Vite HMR picks up changes without rebuilding.
  *
  * Returns Vite array-style aliases with exact matching (regex anchored with $)
- * to prevent `@agent-native/core` from prefix-matching and swallowing
- * sub-path imports like `@agent-native/core/client`.
+ * to prevent `@agentnative-fork/core` from prefix-matching and swallowing
+ * sub-path imports like `@agentnative-fork/core/client`.
  */
 function getCoreSourceAliases(
   cwd: string,
@@ -551,135 +551,135 @@ function getCoreSourceAliases(
   const coreSrc = findCoreSrcDir(cwd);
   if (!coreSrc) return []; // Not in monorepo — use dist as normal
 
-  // Map every @agent-native/core/* export to its src/ equivalent.
+  // Map every @agentnative-fork/core/* export to its src/ equivalent.
   // Each entry uses a regex with $ anchor for exact matching.
   const entries: Record<string, string> = {
-    "@agent-native/core": path.join(coreSrc, "index.browser.ts"),
-    "@agent-native/core/server": path.join(coreSrc, "server/index.ts"),
-    "@agent-native/core/client": path.join(coreSrc, "client/index.ts"),
-    "@agent-native/core/client/chat": path.join(
+    "@agentnative-fork/core": path.join(coreSrc, "index.browser.ts"),
+    "@agentnative-fork/core/server": path.join(coreSrc, "server/index.ts"),
+    "@agentnative-fork/core/client": path.join(coreSrc, "client/index.ts"),
+    "@agentnative-fork/core/client/chat": path.join(
       coreSrc,
       "client/chat/index.ts",
     ),
-    "@agent-native/core/client/collab": path.join(
+    "@agentnative-fork/core/client/collab": path.join(
       coreSrc,
       "client/collab/index.ts",
     ),
-    "@agent-native/core/client/composer": path.join(
+    "@agentnative-fork/core/client/composer": path.join(
       coreSrc,
       "client/composer/index.ts",
     ),
-    "@agent-native/core/client/conversation": path.join(
+    "@agentnative-fork/core/client/conversation": path.join(
       coreSrc,
       "client/conversation/index.ts",
     ),
-    "@agent-native/core/client/editor": path.join(
+    "@agentnative-fork/core/client/editor": path.join(
       coreSrc,
       "client/editor/index.ts",
     ),
-    "@agent-native/core/client/resources": path.join(
+    "@agentnative-fork/core/client/resources": path.join(
       coreSrc,
       "client/resources/index.ts",
     ),
     // Dedicated thin subpath — only the URL helpers, no chat stack in the closure.
-    "@agent-native/core/client/api-path": path.join(
+    "@agentnative-fork/core/client/api-path": path.join(
       coreSrc,
       "client/api-path.ts",
     ),
-    "@agent-native/core/blocks": path.join(coreSrc, "client/blocks/index.ts"),
-    "@agent-native/core/blocks/server": path.join(
+    "@agentnative-fork/core/blocks": path.join(coreSrc, "client/blocks/index.ts"),
+    "@agentnative-fork/core/blocks/server": path.join(
       coreSrc,
       "client/blocks/server.ts",
     ),
-    "@agent-native/core/client/extensions": path.join(
+    "@agentnative-fork/core/client/extensions": path.join(
       coreSrc,
       "client/extensions/index.ts",
     ),
     // Legacy alias — see exports map note above.
-    "@agent-native/core/client/tools": path.join(
+    "@agentnative-fork/core/client/tools": path.join(
       coreSrc,
       "client/extensions/index.ts",
     ),
-    "@agent-native/core/client/org": path.join(coreSrc, "client/org/index.ts"),
-    "@agent-native/core/client/db-admin": path.join(
+    "@agentnative-fork/core/client/org": path.join(coreSrc, "client/org/index.ts"),
+    "@agentnative-fork/core/client/db-admin": path.join(
       coreSrc,
       "client/db-admin/index.ts",
     ),
-    "@agent-native/core/client/observability": path.join(
+    "@agentnative-fork/core/client/observability": path.join(
       coreSrc,
       "client/observability/index.ts",
     ),
-    "@agent-native/core/client/onboarding": path.join(
+    "@agentnative-fork/core/client/onboarding": path.join(
       coreSrc,
       "client/onboarding/index.ts",
     ),
-    "@agent-native/core/client/sharing": path.join(
+    "@agentnative-fork/core/client/sharing": path.join(
       coreSrc,
       "client/sharing/index.ts",
     ),
-    "@agent-native/core/client/notifications": path.join(
+    "@agentnative-fork/core/client/notifications": path.join(
       coreSrc,
       "client/notifications/index.ts",
     ),
-    "@agent-native/core/client/progress": path.join(
+    "@agentnative-fork/core/client/progress": path.join(
       coreSrc,
       "client/progress/index.ts",
     ),
-    "@agent-native/core/client/transcription/use-live-transcription": path.join(
+    "@agentnative-fork/core/client/transcription/use-live-transcription": path.join(
       coreSrc,
       "client/transcription/use-live-transcription.ts",
     ),
-    "@agent-native/core/db": path.join(coreSrc, "db/index.ts"),
-    "@agent-native/core/db/schema": path.join(coreSrc, "db/schema.ts"),
-    "@agent-native/core/shared": path.join(coreSrc, "shared/index.ts"),
-    "@agent-native/core/scripts": path.join(coreSrc, "scripts/index.ts"),
-    "@agent-native/core/application-state": path.join(
+    "@agentnative-fork/core/db": path.join(coreSrc, "db/index.ts"),
+    "@agentnative-fork/core/db/schema": path.join(coreSrc, "db/schema.ts"),
+    "@agentnative-fork/core/shared": path.join(coreSrc, "shared/index.ts"),
+    "@agentnative-fork/core/scripts": path.join(coreSrc, "scripts/index.ts"),
+    "@agentnative-fork/core/application-state": path.join(
       coreSrc,
       "application-state/index.ts",
     ),
-    "@agent-native/core/settings": path.join(coreSrc, "settings/index.ts"),
-    "@agent-native/core/credentials": path.join(
+    "@agentnative-fork/core/settings": path.join(coreSrc, "settings/index.ts"),
+    "@agentnative-fork/core/credentials": path.join(
       coreSrc,
       "credentials/index.ts",
     ),
-    "@agent-native/core/resources": path.join(coreSrc, "resources/index.ts"),
-    "@agent-native/core/oauth-tokens": path.join(
+    "@agentnative-fork/core/resources": path.join(coreSrc, "resources/index.ts"),
+    "@agentnative-fork/core/oauth-tokens": path.join(
       coreSrc,
       "oauth-tokens/index.ts",
     ),
-    "@agent-native/core/workspace-connections": path.join(
+    "@agentnative-fork/core/workspace-connections": path.join(
       coreSrc,
       "workspace-connections/index.ts",
     ),
-    "@agent-native/core/provider-api": path.join(
+    "@agentnative-fork/core/provider-api": path.join(
       coreSrc,
       "provider-api/index.ts",
     ),
-    "@agent-native/core/a2a": path.join(coreSrc, "a2a/index.ts"),
-    "@agent-native/core/router": path.join(coreSrc, "router/index.ts"),
-    "@agent-native/core/terminal": path.join(
+    "@agentnative-fork/core/a2a": path.join(coreSrc, "a2a/index.ts"),
+    "@agentnative-fork/core/router": path.join(coreSrc, "router/index.ts"),
+    "@agentnative-fork/core/terminal": path.join(
       coreSrc,
       "client/terminal/index.ts",
     ),
-    "@agent-native/core/terminal/server": path.join(
+    "@agentnative-fork/core/terminal/server": path.join(
       coreSrc,
       "terminal/index.ts",
     ),
-    "@agent-native/core/adapters/cli": path.join(
+    "@agentnative-fork/core/adapters/cli": path.join(
       coreSrc,
       "adapters/cli/index.ts",
     ),
-    "@agent-native/core/usage": path.join(coreSrc, "usage/store.ts"),
-    "@agent-native/core/brand-kit": path.join(coreSrc, "brand-kit/index.ts"),
-    "@agent-native/core/data-widgets": path.join(
+    "@agentnative-fork/core/usage": path.join(coreSrc, "usage/store.ts"),
+    "@agentnative-fork/core/brand-kit": path.join(coreSrc, "brand-kit/index.ts"),
+    "@agentnative-fork/core/data-widgets": path.join(
       coreSrc,
       "data-widgets/index.ts",
     ),
-    "@agent-native/core/server/design-token-utils": path.join(
+    "@agentnative-fork/core/server/design-token-utils": path.join(
       coreSrc,
       "server/design-token-utils.ts",
     ),
-    "@agent-native/core/server/entry-server": path.join(
+    "@agentnative-fork/core/server/entry-server": path.join(
       coreSrc,
       "server/entry-server.tsx",
     ),
@@ -688,7 +688,7 @@ function getCoreSourceAliases(
     // copy at dist/styles/. From src/styles/ the `@source "../client/**"`
     // directive resolves to the real .tsx source, which is what dev should
     // scan for Tailwind classes anyway.
-    "@agent-native/core/styles/agent-native.css": path.join(
+    "@agentnative-fork/core/styles/agent-native.css": path.join(
       coreSrc,
       "styles/agent-native.css",
     ),
@@ -1930,7 +1930,7 @@ function createAgentNativeConfig(
             // same FrameworkContext instance.
             ...(hasDep("react-router", cwd) ? [/^react-router(\/.*)?$/] : []),
             ...(hasDep("react-router-dom", cwd) ? ["react-router-dom"] : []),
-            // Radix UI primitives are transitive deps of @agent-native/core
+            // Radix UI primitives are transitive deps of @agentnative-fork/core
             // (used by FeedbackButton, AgentSidebar, ShareDialog, etc.). When
             // a consumer app SSRs a component that imports Radix, Node's
             // externalized resolver can't find @radix-ui/* from the app cwd
@@ -1944,7 +1944,7 @@ function createAgentNativeConfig(
             // `@/components`. Adding it to noExternal makes Vite process it
             // through the module pipeline, where the consumer app's `@` →
             // `./app` alias is already registered.
-            ...(hasDep("@agent-native/scheduling", cwd)
+            ...(hasDep("@agentnative-fork/scheduling", cwd)
               ? [/^@agent-native\/scheduling(\/.*)?$/]
               : []),
             ...workspaceCoreNoExternal,
@@ -1961,13 +1961,13 @@ function createAgentNativeConfig(
       ...(userConfig.optimizeDeps ?? {}),
       include: [
         ...getDefaultOptimizeDeps(cwd),
-        ...(hasDep("@agent-native/pinpoint", cwd)
-          ? ["@agent-native/pinpoint/react"]
+        ...(hasDep("@agentnative-fork/pinpoint", cwd)
+          ? ["@agentnative-fork/pinpoint/react"]
           : []),
         ...(userConfig.optimizeDeps?.include ?? []),
         ...(options.optimizeDeps?.include ?? []),
       ],
-      // In monorepo mode: explicitly exclude @agent-native/core subpaths so
+      // In monorepo mode: explicitly exclude @agentnative-fork/core subpaths so
       // Vite never prebundles them from dist/. The source alias above
       // (`getCoreSourceAliases`) resolves every import to src/ on every
       // request, so HMR picks up new exports immediately. Without exclude,
@@ -1993,9 +1993,9 @@ function createAgentNativeConfig(
       alias: [
         // Published npm installs: one react-router instance for app + core.
         ...getReactRouterAliases(cwd),
-        // In monorepo dev: resolve @agent-native/core to source for HMR.
+        // In monorepo dev: resolve @agentnative-fork/core to source for HMR.
         // Uses regex with $ anchor for exact matching to prevent
-        // @agent-native/core from prefix-matching @agent-native/core/client.
+        // @agentnative-fork/core from prefix-matching @agentnative-fork/core/client.
         ...getCoreSourceAliases(cwd),
         // Standard path aliases (prefix matching is fine here)
         { find: "@", replacement: path.resolve(cwd, "./app") },
@@ -2019,7 +2019,7 @@ function createAgentNativeConfig(
  * ```ts
  * import { defineConfig } from "vite";
  * import { reactRouter } from "@react-router/dev/vite";
- * import { agentNative } from "@agent-native/core/vite";
+ * import { agentNative } from "@agentnative-fork/core/vite";
  *
  * export default defineConfig({
  *   plugins: [reactRouter(), agentNative({ ssrStubs: ["shiki"] })],

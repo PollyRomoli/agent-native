@@ -8,7 +8,7 @@
  * runs first because of file-name sort.
  */
 
-import { registerOnboardingStep } from "@agent-native/core/onboarding";
+import { registerOnboardingStep } from "@agentnative-fork/core/onboarding";
 
 export default async (): Promise<void> => {
   registerOnboardingStep({

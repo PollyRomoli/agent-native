@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { assertAccess } from "@agent-native/core/sharing";
-import { writeAppState } from "@agent-native/core/application-state";
+import { assertAccess } from "@agentnative-fork/core/sharing";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { ASPECT_RATIO_VALUES } from "../shared/aspect-ratios.js";
 import { notifyClients } from "../server/handlers/decks.js";
 import { createDeckVersionSnapshot } from "../server/lib/deck-versions.js";

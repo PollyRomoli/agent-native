@@ -1,10 +1,10 @@
-# @agent-native/embedding
+# @agentnative-fork/embedding
 
 Embed Agent-Native apps, pickers, and agents inside React or plain browser
 apps.
 
 ```tsx
-import { EmbeddedApp } from "@agent-native/embedding";
+import { EmbeddedApp } from "@agentnative-fork/embedding";
 
 <EmbeddedApp
   url="https://assets.agent-native.com/picker"
@@ -22,7 +22,7 @@ import { EmbeddedApp } from "@agent-native/embedding";
 Inside the embedded app:
 
 ```ts
-import { sendEmbeddedAppMessage } from "@agent-native/embedding/bridge";
+import { sendEmbeddedAppMessage } from "@agentnative-fork/embedding/bridge";
 
 sendEmbeddedAppMessage("chooseImage", {
   url: "https://cdn.example.com/image.png",
@@ -32,7 +32,7 @@ sendEmbeddedAppMessage("chooseImage", {
 Agent helpers:
 
 ```ts
-import { getA2AUrl, getMcpUrl, sendMessage } from "@agent-native/embedding";
+import { getA2AUrl, getMcpUrl, sendMessage } from "@agentnative-fork/embedding";
 
 console.log(getMcpUrl("https://assets.agent-native.com"));
 console.log(getA2AUrl("https://assets.agent-native.com"));

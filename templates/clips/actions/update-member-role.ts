@@ -9,9 +9,9 @@
  *   pnpm action update-member-role --email=alice@example.com --role=admin
  */
 
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { orgMembers } from "@agent-native/core/org";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { orgMembers } from "@agentnative-fork/core/org";
 import { z } from "zod";
 import { requireOrganizationAccess } from "../server/lib/recordings.js";
 import { and, eq, sql } from "drizzle-orm";

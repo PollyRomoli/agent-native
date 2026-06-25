@@ -5,7 +5,7 @@ import {
   appBasePath,
   isInAgentEmbed,
   postNavigate,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import SlideRenderer from "@/components/deck/SlideRenderer";
 import type { Slide } from "@/context/DeckContext";
 import type { AspectRatio } from "@/lib/aspect-ratios";

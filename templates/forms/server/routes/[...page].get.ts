@@ -1,5 +1,5 @@
-import { createH3SSRHandler } from "@agent-native/core/server/ssr-handler";
-import { getAppBasePath } from "@agent-native/core/server";
+import { createH3SSRHandler } from "@agentnative-fork/core/server/ssr-handler";
+import { getAppBasePath } from "@agentnative-fork/core/server";
 import { defineEventHandler, getRequestURL } from "h3";
 import { renderPublicForm } from "../lib/public-form-ssr.js";
 

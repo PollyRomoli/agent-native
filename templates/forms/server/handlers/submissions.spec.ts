@@ -28,18 +28,18 @@ vi.mock("h3", () => ({
   getRequestIP: () => "1.2.3.4",
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getSession: async () => null,
   readBody: async () => state.body,
   runWithRequestContext: (_ctx: unknown, fn: () => unknown) => fn(),
   verifyCaptcha: async () => ({ success: true }),
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   appStatePut: async () => {},
 }));
 

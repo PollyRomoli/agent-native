@@ -1,4 +1,4 @@
-import { createCoreRoutesPlugin } from "@agent-native/core/server";
+import { createCoreRoutesPlugin } from "@agentnative-fork/core/server";
 
 // Map a deep-link `view` to the real Brain SPA path so
 // `/_agent-native/open?app=brain&view=…` lands on the right surface before the

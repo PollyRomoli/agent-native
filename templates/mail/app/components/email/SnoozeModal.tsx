@@ -5,7 +5,7 @@ import { useParseDate, useSnoozeEmail } from "@/hooks/use-scheduled-jobs";
 import { toast } from "sonner";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 interface SnoozeModalProps {
   open: boolean;

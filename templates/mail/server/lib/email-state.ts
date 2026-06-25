@@ -7,12 +7,12 @@
  * notes inline.
  */
 import type { EmailMessage, Label } from "@shared/types.js";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 import {
   getOAuthTokens,
   listOAuthAccountsByOwner,
   saveOAuthTokens,
-} from "@agent-native/core/oauth-tokens";
+} from "@agentnative-fork/core/oauth-tokens";
 import {
   createOAuth2Client,
   gmailGetMessage,

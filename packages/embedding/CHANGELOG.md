@@ -1,4 +1,4 @@
-# @agent-native/embedding
+# @agentnative-fork/embedding
 
 ## 0.2.0
 

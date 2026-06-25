@@ -1,5 +1,5 @@
 /**
- * MCP client module — symmetric counterpart to `@agent-native/core/mcp`
+ * MCP client module — symmetric counterpart to `@agentnative-fork/core/mcp`
  * (the MCP server). Connects to local MCP servers configured in
  * `mcp.config.json` or the `MCP_SERVERS` env var and exposes their tools
  * to the agent-chat tool-use loop.

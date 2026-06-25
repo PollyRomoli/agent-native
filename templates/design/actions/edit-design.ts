@@ -1,8 +1,8 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+import { accessFilter, assertAccess } from "@agentnative-fork/core/sharing";
 import {
   hasCollabState,
   getText,
@@ -11,7 +11,7 @@ import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 import { applyEdits } from "../shared/apply-edits.js";
 
 export default defineAction({

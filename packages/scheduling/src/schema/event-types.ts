@@ -15,7 +15,7 @@ import {
   integer,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const eventTypes = table("event_types", {
   id: text("id").primaryKey(),

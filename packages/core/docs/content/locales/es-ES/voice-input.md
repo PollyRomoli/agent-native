@@ -68,7 +68,7 @@ Establezca `GEMINI_API_KEY`, `GROQ_API_KEY` o `OPENAI_API_KEY` como una variable
 }
 ```
 
-No es necesario llamar a esto directamente: el compositor lo hace. Si está creando una superficie de entrada personalizada, primero reutilice las piezas compartidas del compositor/cliente de voz de `@agent-native/core/client`. Trate esta ruta como el límite de transporte de bajo nivel para los asistentes personalizados que necesitan enviar audio multiparte.
+No es necesario llamar a esto directamente: el compositor lo hace. Si está creando una superficie de entrada personalizada, primero reutilice las piezas compartidas del compositor/cliente de voz de `@agentnative-fork/core/client`. Trate esta ruta como el límite de transporte de bajo nivel para los asistentes personalizados que necesitan enviar audio multiparte.
 
 ## Personalizar el proveedor {#customizing}
 

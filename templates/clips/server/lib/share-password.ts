@@ -14,7 +14,7 @@ import {
   encryptSecretValue,
   decryptSecretValue,
   isEncryptedSecretValue,
-} from "@agent-native/core/secrets/crypto";
+} from "@agentnative-fork/core/secrets/crypto";
 
 /**
  * Encrypt a share password for storage. Empty / nullish clears it (returns

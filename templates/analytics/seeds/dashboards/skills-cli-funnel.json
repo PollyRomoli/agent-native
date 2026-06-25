@@ -1,6 +1,6 @@
 {
   "name": "Skills CLI Funnel",
-  "description": "Install funnel for the `npx @agent-native/skills@latest` and `npx @agent-native/core@latest skills` CLIs, tracked via first-party analytics. Each run is a distinct session_id; unique installs are distinct anonymous_id. Source: first-party analytics_events.",
+  "description": "Install funnel for the `npx @agentnative-fork/skills@latest` and `npx @agentnative-fork/core@latest skills` CLIs, tracked via first-party analytics. Each run is a distinct session_id; unique installs are distinct anonymous_id. Source: first-party analytics_events.",
   "columns": 3,
   "panels": [
     {
@@ -108,7 +108,7 @@
         "xKey": "cli",
         "yKey": "count",
         "color": "#10b981",
-        "description": "@agent-native/skills (skills-installer) vs core"
+        "description": "@agentnative-fork/skills (skills-installer) vs core"
       }
     },
     {

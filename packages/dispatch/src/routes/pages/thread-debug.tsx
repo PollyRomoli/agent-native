@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { agentNativePath, useActionQuery } from "@agent-native/core/client";
+import { agentNativePath, useActionQuery } from "@agentnative-fork/core/client";
 import {
   IconDatabase,
   IconFileSearch,

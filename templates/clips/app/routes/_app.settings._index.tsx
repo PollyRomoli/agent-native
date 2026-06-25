@@ -24,7 +24,7 @@ import {
   ChangelogSettingsCard,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import changelog from "../../CHANGELOG.md?raw";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";

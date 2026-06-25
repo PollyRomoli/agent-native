@@ -30,7 +30,7 @@ description: "모델의 스트리밍된 출력과 도구 호출을 중간에 관
 각 프로세서는 단일 실행 내의 모든 후크 호출에서 지속되고 다른 프로세서의 상태로부터 **격리**되는 자체 변경 가능한 실행 범위 `state` 개체를 가져옵니다.
 
 ```ts
-import type { Processor } from "@agent-native/core";
+import type { Processor } from "@agentnative-fork/core";
 
 const noSecretsInOutput: Processor = {
   name: "no-secrets",
@@ -64,7 +64,7 @@ const coverageGate: Processor = {
 후크는 **`TripWire`**를 발생시키는 `abort(reason, meta?)`를 호출하여 실행을 중단합니다. 루프는 이를 포착하고 단일 **`tripwire` 이벤트**를 발생시키고 완전히 중지한 후 최종 보조 메시지로 이유를 표시합니다.
 
 ```ts
-import { TripWire } from "@agent-native/core";
+import { TripWire } from "@agentnative-fork/core";
 ```
 
 `tripwire` 이벤트는 다음을 수행합니다:

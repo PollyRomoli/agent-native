@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 import { appStateKeyForBrowserTab } from "@shared/app-state-tabs";
 

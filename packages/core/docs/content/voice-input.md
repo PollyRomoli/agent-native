@@ -68,7 +68,7 @@ Set `GEMINI_API_KEY`, `GROQ_API_KEY`, or `OPENAI_API_KEY` as an environment vari
 }
 ```
 
-You don't need to call this directly — the composer does. If you're building a custom input surface, first reuse the shared composer/voice client pieces from `@agent-native/core/client`. Treat this route as the low-level transport boundary for custom helpers that need to send multipart audio.
+You don't need to call this directly — the composer does. If you're building a custom input surface, first reuse the shared composer/voice client pieces from `@agentnative-fork/core/client`. Treat this route as the low-level transport boundary for custom helpers that need to send multipart audio.
 
 ## Customizing the provider {#customizing}
 

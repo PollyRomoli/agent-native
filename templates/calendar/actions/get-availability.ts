@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getRequestTimezone,
   getRequestUserEmail,
-} from "@agent-native/core/server";
-import { getUserSetting } from "@agent-native/core/settings";
+} from "@agentnative-fork/core/server";
+import { getUserSetting } from "@agentnative-fork/core/settings";
 import { z } from "zod";
 import type { AvailabilityConfig } from "../shared/api.js";
 import { ensureBookingUsername } from "../server/handlers/booking-usernames.js";

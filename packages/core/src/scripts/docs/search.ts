@@ -2,7 +2,7 @@
  * Core script: docs-search
  *
  * Search and read agent-native framework documentation.
- * Docs are bundled in @agent-native/core so they're always the right version.
+ * Docs are bundled in @agentnative-fork/core so they're always the right version.
  *
  * Usage:
  *   pnpm action docs-search --query "actions"

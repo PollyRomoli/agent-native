@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import type {
   IncomingMessage,
   PlatformAdapter,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   handleRemoteCodeCommand,
   parseTelegramCodeCommand,

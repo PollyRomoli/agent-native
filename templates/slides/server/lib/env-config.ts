@@ -1,4 +1,4 @@
-import type { EnvKeyConfig } from "@agent-native/core/server";
+import type { EnvKeyConfig } from "@agentnative-fork/core/server";
 
 export const envKeys: EnvKeyConfig[] = [
   { key: "DATABASE_URL", label: "Database URL", required: false },

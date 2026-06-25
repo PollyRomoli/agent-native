@@ -4,14 +4,14 @@ This guide is for development-mode agents editing this app's source code. For ma
 
 ## Tech Stack
 
-- **Framework**: `@agent-native/core`
+- **Framework**: `@agentnative-fork/core`
 - **Package manager**: `pnpm`
 - **Frontend**: React 18, React Router 6, TypeScript, Vite, TailwindCSS
-- **Backend**: Nitro (via @agent-native/core)
+- **Backend**: Nitro (via @agentnative-fork/core)
 - **UI**: Radix UI + shadcn/ui
 - **Icons**: `@tabler/icons-react` — use Tabler icons for all icons. Do not use Lucide or inline SVGs.
 - **Themes**: next-themes (dark/light/system)
-- **State**: SQL-backed via `@agent-native/core/settings` and `@agent-native/core/application-state`
+- **State**: SQL-backed via `@agentnative-fork/core/settings` and `@agentnative-fork/core/application-state`
 - **Database**: Drizzle ORM over portable SQL (`DATABASE_URL`; local dev defaults to SQLite)
 
 ## Project Structure
@@ -38,9 +38,9 @@ data/
   app.db          # Local development database fallback
 ```
 
-## Framework Basics (Nitro + @agent-native/core)
+## Framework Basics (Nitro + @agentnative-fork/core)
 
-This app uses **Nitro** (via `@agent-native/core`) for the server. All server code lives in `server/`.
+This app uses **Nitro** (via `@agentnative-fork/core`) for the server. All server code lives in `server/`.
 
 ### Server Directory
 
@@ -54,7 +54,7 @@ server/
 
 ### Adding App Data
 
-Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agent-native/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
+Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agentnative-fork/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
 
 ### Adding a Route-Only Endpoint
 
@@ -67,7 +67,7 @@ Each route-only endpoint still exports a default `defineEventHandler`, but keep 
 Startup logic (DB migrations, auth) lives in `server/plugins/`. Use `defineNitroPlugin` from core:
 
 ```ts
-import { defineNitroPlugin } from "@agent-native/core";
+import { defineNitroPlugin } from "@agentnative-fork/core";
 
 export default defineNitroPlugin(async (nitroApp) => {
   // Runs once at server startup
@@ -76,7 +76,7 @@ export default defineNitroPlugin(async (nitroApp) => {
 
 ## Key Imports
 
-### From `@agent-native/core`
+### From `@agentnative-fork/core`
 
 | Import                                       | Purpose                                           |
 | -------------------------------------------- | ------------------------------------------------- |
@@ -86,13 +86,13 @@ export default defineNitroPlugin(async (nitroApp) => {
 | `sendToAgentChat`                            | Send messages to agent from UI (client-side)      |
 | `agentChat`                                  | Send messages to agent from scripts (server-side) |
 
-### From `@agent-native/core/settings`
+### From `@agentnative-fork/core/settings`
 
 | Import                                   | Purpose                                     |
 | ---------------------------------------- | ------------------------------------------- |
 | `getSetting(key)` / `setSetting(key, v)` | Read/write settings from SQL settings store |
 
-### From `@agent-native/core/application-state`
+### From `@agentnative-fork/core/application-state`
 
 | Import                                        | Purpose                               |
 | --------------------------------------------- | ------------------------------------- |

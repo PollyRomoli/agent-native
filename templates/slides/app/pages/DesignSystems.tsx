@@ -8,7 +8,7 @@ import {
   useSetHeaderActions,
   useSetPageTitle,
 } from "@/components/layout/HeaderActions";
-import { callAction, useT } from "@agent-native/core/client";
+import { callAction, useT } from "@agentnative-fork/core/client";
 import type { DesignSystemData } from "../../shared/api";
 
 export default function DesignSystems() {

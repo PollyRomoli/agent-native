@@ -40,16 +40,16 @@ automatic PR Visual Recaps. Say yes to write the GitHub Action, or add it
 explicitly at any time:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --with-github-action
+npx @agentnative-fork/core@latest skills add visual-plan --with-github-action
 ```
 
-This installs the `visual-plan` skill (which includes the `visual-recap` skill the action runs) and writes `.github/workflows/pr-visual-recap.yml` into your repo. The workflow calls **published CLI subcommands** through `npx @agent-native/core@latest recap <subcommand>` — including `gate`, `collect-diff`, `block-reference`, `scan`, `build-prompt`, `publish`, `shot`, `comment`, `check`, and `usage` — so nothing is copied into your repo as helper scripts. `setup` and `doctor` are the interactive helpers you run locally; `gate` is the security-gate step the workflow runs before every recap.
+This installs the `visual-plan` skill (which includes the `visual-recap` skill the action runs) and writes `.github/workflows/pr-visual-recap.yml` into your repo. The workflow calls **published CLI subcommands** through `npx @agentnative-fork/core@latest recap <subcommand>` — including `gate`, `collect-diff`, `block-reference`, `scan`, `build-prompt`, `publish`, `shot`, `comment`, `check`, and `usage` — so nothing is copied into your repo as helper scripts. `setup` and `doctor` are the interactive helpers you run locally; `gate` is the security-gate step the workflow runs before every recap.
 
 Then run the guided setup helper:
 
 ```bash
-npx @agent-native/core@latest recap setup
-npx @agent-native/core@latest recap doctor
+npx @agentnative-fork/core@latest recap setup
+npx @agentnative-fork/core@latest recap doctor
 ```
 
 `recap setup` refreshes the workflow, uses `gh` to set GitHub Actions
@@ -59,7 +59,7 @@ set. Secret values are sent to `gh` through stdin, not command arguments. Commit
 the generated workflow file and open a PR to see it run.
 
 By default, the workflow builds its agent prompt from the latest bundled
-`visual-recap` guidance in `@agent-native/core@latest`, including any sibling
+`visual-recap` guidance in `@agentnative-fork/core@latest`, including any sibling
 reference files the skill ships with. If your repo intentionally customizes and
 pins its committed `visual-recap` folder, set the repository variable
 `VISUAL_RECAP_SKILL_SOURCE=repo`.
@@ -93,7 +93,7 @@ Set these in your repository's **Settings → Secrets and variables → Actions*
 
 | Secret              | Purpose                                                                                                                            |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `PLAN_RECAP_TOKEN`  | Revocable token minted by `npx @agent-native/core@latest connect`. Authorizes publishing the recap plan and the screenshot upload. |
+| `PLAN_RECAP_TOKEN`  | Revocable token minted by `npx @agentnative-fork/core@latest connect`. Authorizes publishing the recap plan and the screenshot upload. |
 | `ANTHROPIC_API_KEY` | The LLM key for the default Claude Code backend.                                                                                   |
 
 **Teams: use an org service token.** A personal token is bound to the person
@@ -105,7 +105,7 @@ survives any individual leaving, the recaps it publishes are org-visible, and
 any org owner or admin can list or revoke it. Mint one (org owner/admin only):
 
 ```bash
-npx @agent-native/core@latest connect https://plan.agent-native.com --service-token pr-recap
+npx @agentnative-fork/core@latest connect https://plan.agent-native.com --service-token pr-recap
 ```
 
 The command authenticates you in the browser, then prints the service token
@@ -113,13 +113,13 @@ exactly once — store it as the `PLAN_RECAP_TOKEN` secret. Manage it later with
 the `list-org-service-tokens` and `revoke-org-service-token` actions on the
 Plans app.
 
-**Solo: a personal token still works.** Mint it with `npx @agent-native/core@latest connect`
+**Solo: a personal token still works.** Mint it with `npx @agentnative-fork/core@latest connect`
 against your Plans app. For the hosted app, this also writes a local
-publish-token file that `npx @agent-native/core@latest recap setup` can read:
+publish-token file that `npx @agentnative-fork/core@latest recap setup` can read:
 
 ```bash
-npx @agent-native/core@latest connect https://plan.agent-native.com --client codex
-npx @agent-native/core@latest recap setup
+npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex
+npx @agentnative-fork/core@latest recap setup
 ```
 
 If you prefer manual setup, paste the token into the GitHub secret. Use a
@@ -134,10 +134,10 @@ real token.
 | `VISUAL_RECAP_AGENT`     | `claude`                        | Variable. Selects the coding-agent backend (`claude` or `codex`).                                                                               |
 | `VISUAL_RECAP_MODEL`     | each CLI's default              | Variable. Pins the model — e.g. `gpt-5.5` for Codex, or a Claude model id. Unset uses the CLI's own default.                                    |
 | `VISUAL_RECAP_REASONING` | each model's default            | Variable. Reasoning depth: `none`, `minimal`, `low`, `medium`, `high`, or `xhigh`. Applies to the Codex backend.                                |
-| `RECAP_CLI_VERSION`      | `latest`                        | Variable. Pins the `@agent-native/core` CLI version the workflow installs — e.g. `1.5.0`. See [Version pinning](#version-pinning-copy-variant). |
+| `RECAP_CLI_VERSION`      | `latest`                        | Variable. Pins the `@agentnative-fork/core` CLI version the workflow installs — e.g. `1.5.0`. See [Version pinning](#version-pinning-copy-variant). |
 | `PLAN_RECAP_APP_URL`     | `https://plan.agent-native.com` | Secret. Only when self-hosting the Plans app at a different origin.                                                                             |
 
-The workflow auto-detects how to invoke its helper CLI (local source inside this monorepo, the published `@agent-native/core` elsewhere), so there is no `RECAP_CLI` variable to set.
+The workflow auto-detects how to invoke its helper CLI (local source inside this monorepo, the published `@agentnative-fork/core` elsewhere), so there is no `RECAP_CLI` variable to set.
 
 ## Inline screenshot in the comment
 
@@ -220,9 +220,9 @@ recap without sending recap content to the Agent-Native Plan database, run the
 same helper flow locally in local-files mode instead:
 
 ```bash
-npx @agent-native/core@latest recap collect-diff --base main --head HEAD --out recap.diff --stat recap.stat
-npx @agent-native/core@latest recap scan --diff recap.diff
-npx @agent-native/core@latest recap build-prompt --pr 123 --diff recap.diff --stat recap.stat --local-files --local-dir plans/pr-123-visual-recap
+npx @agentnative-fork/core@latest recap collect-diff --base main --head HEAD --out recap.diff --stat recap.stat
+npx @agentnative-fork/core@latest recap scan --diff recap.diff
+npx @agentnative-fork/core@latest recap build-prompt --pr 123 --diff recap.diff --stat recap.stat --local-files --local-dir plans/pr-123-visual-recap
 ```
 
 Give the generated `recap-prompt.md` to your coding agent. In local-files mode
@@ -230,7 +230,7 @@ the prompt instructs the agent to write `plans/pr-123-visual-recap/plan.mdx`
 plus optional visual files and then run:
 
 ```bash
-npx @agent-native/core@latest plan local serve --dir plans/pr-123-visual-recap --kind recap --open
+npx @agentnative-fork/core@latest plan local serve --dir plans/pr-123-visual-recap --kind recap --open
 ```
 
 The returned URL opens the hosted Plan UI while the browser reads the recap MDX
@@ -252,7 +252,7 @@ The recap is a review aid layered on top of the normal PR flow:
 
 ## Version pinning (copy variant) {#version-pinning-copy-variant}
 
-By default the copy-variant workflow installs `@agent-native/core@latest` at run time so every recap run automatically picks up the newest CLI. If your CI needs reproducible tooling, set the **`RECAP_CLI_VERSION`** repository variable to pin the installed version:
+By default the copy-variant workflow installs `@agentnative-fork/core@latest` at run time so every recap run automatically picks up the newest CLI. If your CI needs reproducible tooling, set the **`RECAP_CLI_VERSION`** repository variable to pin the installed version:
 
 1. Go to your repo's **Settings → Secrets and variables → Actions → Variables**.
 2. Create a variable named `RECAP_CLI_VERSION` with a value like `1.5.0`.
@@ -263,7 +263,7 @@ For the reusable-caller variant, use the `cli-version` input instead (see [Versi
 
 ## Secret-scan allowlist
 
-Before publishing a recap the workflow runs `npx @agent-native/core@latest recap scan` to detect likely secrets in the diff. Any PR whose diff matches a known-secret pattern is blocked with an explanatory comment — the recap is not published, and no diff content is sent to the coding agent.
+Before publishing a recap the workflow runs `npx @agentnative-fork/core@latest recap scan` to detect likely secrets in the diff. Any PR whose diff matches a known-secret pattern is blocked with an explanatory comment — the recap is not published, and no diff content is sent to the coding agent.
 
 In rare cases a repo has intentional test fixtures or non-secret strings that superficially resemble secret patterns (e.g., a fixture key in a test file). To suppress a false positive, create `.github/recap-scan-allowlist` in the root of your repository.
 
@@ -297,7 +297,7 @@ The allowlist is only consulted by the secret-scan gate. It does not affect what
 
 ### Why use the reusable variant?
 
-The default installer copies the full ~360-line workflow YAML into your repo (the **copy** option). This is the right choice for air-gapped repos or repos that need to audit every line of what runs. The downside is that bug fixes and improvements never reach you — you need to re-run `npx @agent-native/core@latest recap setup` manually after each release.
+The default installer copies the full ~360-line workflow YAML into your repo (the **copy** option). This is the right choice for air-gapped repos or repos that need to audit every line of what runs. The downside is that bug fixes and improvements never reach you — you need to re-run `npx @agentnative-fork/core@latest recap setup` manually after each release.
 
 The **reusable** option writes a thin ~20-line caller instead. It delegates to `BuilderIO/agent-native/.github/workflows/pr-visual-recap-reusable.yml` via `uses:`. Every caller automatically picks up the latest logic when the workflow runs, with no local update needed.
 
@@ -310,7 +310,7 @@ The **reusable** option writes a thin ~20-line caller instead. It delegates to `
 
 ### Caller snippet
 
-This is what `npx @agent-native/core@latest recap setup --reusable` writes (or you can paste it manually):
+This is what `npx @agentnative-fork/core@latest recap setup --reusable` writes (or you can paste it manually):
 
 ```yaml
 name: PR Visual Recap
@@ -343,7 +343,7 @@ jobs:
       model: ${{ vars.VISUAL_RECAP_MODEL || '' }}
       reasoning: ${{ vars.VISUAL_RECAP_REASONING || '' }}
       skill-source: ${{ vars.VISUAL_RECAP_SKILL_SOURCE || 'auto' }}
-      # cli-version: "latest"  # pin to a specific @agent-native/core version
+      # cli-version: "latest"  # pin to a specific @agentnative-fork/core version
 ```
 
 The same secrets and variables described in [Secrets and variables](#secrets-and-variables) apply — set them in your repo settings the same way as for the copy variant.
@@ -352,15 +352,15 @@ The same secrets and variables described in [Secrets and variables](#secrets-and
 
 ```bash
 # Write the thin caller instead of the full copy:
-npx @agent-native/core@latest recap setup --reusable
+npx @agentnative-fork/core@latest recap setup --reusable
 
 # Or with a pinned ref for reproducibility:
-npx @agent-native/core@latest recap setup --reusable --ref v1.2.3
+npx @agentnative-fork/core@latest recap setup --reusable --ref v1.2.3
 ```
 
 Both variants write the workflow to `.github/workflows/pr-visual-recap.yml`. If an existing workflow is already there and differs, the command refuses and tells you to pass `--force` to overwrite.
 
-After writing, run `npx @agent-native/core@latest recap doctor` as usual to confirm secrets are configured.
+After writing, run `npx @agentnative-fork/core@latest recap doctor` as usual to confirm secrets are configured.
 
 ### Version pinning
 
@@ -370,7 +370,7 @@ By default the caller references `@main`, which always uses the latest published
 uses: BuilderIO/agent-native/.github/workflows/pr-visual-recap-reusable.yml@v1.2.3
 ```
 
-The `cli-version` input controls which `@agent-native/core` CLI version runs inside the workflow — leave it at `"latest"` to track the newest release, or pin it to a version string (e.g. `"1.5.0"`) for full reproducibility.
+The `cli-version` input controls which `@agentnative-fork/core` CLI version runs inside the workflow — leave it at `"latest"` to track the newest release, or pin it to a version string (e.g. `"1.5.0"`) for full reproducibility.
 
 ### workflow_call event context
 

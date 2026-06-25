@@ -1,7 +1,7 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
-import { writeAppState } from "@agent-native/core/application-state";
-import { assertAccess } from "@agent-native/core/sharing";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import "../server/db/index.js"; // ensure registerShareableResource runs
 

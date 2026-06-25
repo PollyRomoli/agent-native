@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { and, count, desc, eq, ne } from "drizzle-orm";
 import { z } from "zod";
-import { accessFilter } from "@agent-native/core/sharing";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../server/db/index.js";
 import { parseJson, serializeSource } from "../server/lib/brain.js";
 import { nextBrainSourceSyncAt } from "../server/jobs/sync-sources.js";

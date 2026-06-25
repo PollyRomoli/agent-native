@@ -1,5 +1,5 @@
 /**
- * Generic action dispatcher for @agent-native/core apps.
+ * Generic action dispatcher for @agentnative-fork/core apps.
  *
  * Dynamically imports and runs actions from the app's actions/ directory.
  * Falls back to scripts/ directory for backwards compatibility, then to
@@ -52,7 +52,7 @@ async function runAppDbPluginIfPresent(): Promise<void> {
 /**
  * Run the action dispatcher. Call this from your app's actions/run.ts (or scripts/run.ts):
  *
- *   import { runScript } from "@agent-native/core";
+ *   import { runScript } from "@agentnative-fork/core";
  *   runScript();
  */
 export async function runScript(options: RunScriptOptions = {}): Promise<void> {
@@ -293,7 +293,7 @@ async function dispatchAction(
     }
   }
 
-  // 2. Try package-contributed actions (e.g. @agent-native/dispatch)
+  // 2. Try package-contributed actions (e.g. @agentnative-fork/dispatch)
   const packageAction = options.packageActions?.[actionName];
   if (packageAction) {
     try {

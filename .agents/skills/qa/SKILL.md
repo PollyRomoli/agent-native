@@ -307,7 +307,7 @@ Common causes:
 - Missing `node_modules` — run `pnpm install` from root first
 - Missing `.env` file — some apps need one even if empty. Check `.env.example`
 - Port conflict — kill stale processes (see above)
-- Build error in core — run `pnpm --filter @agent-native/core build` first
+- Build error in core — run `pnpm --filter @agentnative-fork/core build` first
 
 ### Playwright MCP not responding
 

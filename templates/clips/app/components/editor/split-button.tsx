@@ -1,6 +1,6 @@
 import { IconCut } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import {
   Tooltip,

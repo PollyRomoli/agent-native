@@ -1,5 +1,5 @@
-import { useT } from "@agent-native/core/client";
-import { TeamPage } from "@agent-native/core/client/org";
+import { useT } from "@agentnative-fork/core/client";
+import { TeamPage } from "@agentnative-fork/core/client/org";
 
 export function meta() {
   return [{ title: "Team - Design" }];

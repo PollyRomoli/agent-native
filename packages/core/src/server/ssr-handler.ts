@@ -4,7 +4,7 @@
  * Templates wire this up via:
  *
  *   // server/routes/[...page].get.ts
- *   import { createH3SSRHandler } from "@agent-native/core/server/ssr-handler";
+ *   import { createH3SSRHandler } from "@agentnative-fork/core/server/ssr-handler";
  *   export default createH3SSRHandler(
  *     () => import("virtual:react-router/server-build"),
  *   );

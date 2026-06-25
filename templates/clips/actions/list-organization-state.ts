@@ -8,13 +8,13 @@
  *   pnpm action list-organization-state
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { and, asc, desc, eq, isNotNull, or } from "drizzle-orm";
 import {
   organizations,
   orgInvitations,
   orgMembers,
-} from "@agent-native/core/org";
+} from "@agentnative-fork/core/org";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
 import {

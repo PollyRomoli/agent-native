@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { assertAccess } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { and, asc, eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js"; // ensure registerShareableResource runs

@@ -5,7 +5,7 @@ import {
   defaultSocialImageMeta as coreDefaultSocialImageMeta,
   withAgentNativeSocialImageCacheBuster,
   withDefaultSocialImage as coreWithDefaultSocialImage,
-} from "@agent-native/core/shared";
+} from "@agentnative-fork/core/shared";
 
 const SITE_URL = "https://www.agent-native.com";
 const DOCS_SOCIAL_IMAGE_ACCENT = "Agent-Native Docs";

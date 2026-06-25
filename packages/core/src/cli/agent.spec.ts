@@ -52,7 +52,7 @@ describe("agent CLI", () => {
     expect(entry.tool.description).toContain("version-matched");
 
     const result = await entry.run({ slug: "agent-native-docs" });
-    expect(result).toContain("node_modules/@agent-native/core/docs");
+    expect(result).toContain("node_modules/@agentnative-fork/core/docs");
   });
 
   it("exposes source-search to the headless agent loop", async () => {

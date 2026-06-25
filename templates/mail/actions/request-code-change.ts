@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   resolveBuilderBranchProjectId,
   resolveBuilderCredentials,
   runBuilderAgent,
-} from "@agent-native/core/server";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
 import { z } from "zod";
 
 export default defineAction({

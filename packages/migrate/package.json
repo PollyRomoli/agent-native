@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/migrate",
+  "name": "@agentnative-fork/migrate",
   "version": "0.0.7",
   "type": "module",
   "description": "Migration Workbench engine for moving existing apps to agent-native with verifiable, resumable migration runs.",

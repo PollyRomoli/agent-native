@@ -21,19 +21,19 @@ import {
   useCommandMenuShortcut,
   useDbSync,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { Layout as AppLayout } from "@/components/layout/Layout";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import { useQueryClient } from "@tanstack/react-query";
 import type { LinksFunction } from "react-router";
 import stylesheet from "./global.css?url";
-import { configureTracking } from "@agent-native/core/client";
+import { configureTracking } from "@agentnative-fork/core/client";
 import changelog from "../CHANGELOG.md?raw";
 import {
   getLocaleInitScript,
   getThemeInitScript,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 import { i18nCatalog } from "./i18n";
 configureTracking({
@@ -252,4 +252,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

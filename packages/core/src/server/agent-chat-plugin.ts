@@ -1445,7 +1445,7 @@ async function createDbScriptEntries(
 
 /**
  * Creates read-only package lookup tools so agents can inspect version-matched
- * framework docs and source bundled in @agent-native/core at runtime.
+ * framework docs and source bundled in @agentnative-fork/core at runtime.
  */
 async function createDocsScriptEntries(): Promise<Record<string, ActionEntry>> {
   const entries: Record<string, ActionEntry> = {};
@@ -1489,7 +1489,7 @@ async function createDocsScriptEntries(): Promise<Record<string, ActionEntry>> {
     entries["source-search"] = wrapCliScript(
       {
         description:
-          "Search and read the packaged Agent Native source corpus under node_modules/@agent-native/core/corpus. Use --list for sections, --query to search core/template source, and --path to read a file.",
+          "Search and read the packaged Agent Native source corpus under node_modules/@agentnative-fork/core/corpus. Use --list for sections, --query to search core/template source, and --path to read a file.",
         parameters: {
           type: "object",
           properties: {
@@ -3563,7 +3563,7 @@ When \`provider-corpus-job\` is available, prefer it for transcript/message/tick
  * Usage in templates:
  * ```ts
  * // server/plugins/agent-chat.ts
- * import { readBody, createAgentChatPlugin } from "@agent-native/core/server";
+ * import { readBody, createAgentChatPlugin } from "@agentnative-fork/core/server";
  * import { scriptRegistry } from "../../scripts/registry.js";
  *
  * export default createAgentChatPlugin({
@@ -5618,7 +5618,7 @@ When the user asks to add a feature, edit a component, fix a bug in the app itse
 
 1. Do NOT use dev shell/filesystem tools, write code inline, list source files, propose patches, or describe file-level implementation steps from this chat.
 2. For host-app source changes in Act mode, call \`connect-builder\` when that tool is available so a separate Builder/cloud agent can do the work. If Builder is unavailable, give a short handoff to the outer dev frame, Agent Native Desktop, Claude Code, or Codex in the project directory.
-3. If the request is specifically to add or scaffold a new workspace app and no Builder handoff is available, mention \`npx @agent-native/core@latest add-app\` in this workspace directory as the CLI path.
+3. If the request is specifically to add or scaffold a new workspace app and no Builder handoff is available, mention \`npx @agentnative-fork/core@latest add-app\` in this workspace directory as the CLI path.
 
 Non-code requests are still fine on this surface: read data, navigate the UI, summarize, search, create/update extensions (sandboxed Alpine.js mini-apps stored in SQL), and call template actions. The restriction is specifically about direct edits to the host app's own source files.
 </app-rendered-chat-no-direct-code-edits>`;

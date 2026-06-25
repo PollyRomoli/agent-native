@@ -6,8 +6,8 @@
  * token in app_secrets and writes only metadata + secret refs to SQL.
  */
 
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
 import { z } from "zod";
 import { SLACK_UNFURL_SCOPES } from "../server/lib/slack-oauth.js";
 

@@ -1,6 +1,6 @@
 // guard:allow-unscoped -- schema migrations and data backfills run system-wide
 // during startup, not in a user-scoped request path.
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [

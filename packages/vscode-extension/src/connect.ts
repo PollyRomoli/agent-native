@@ -16,7 +16,7 @@ export function buildConnectCommand(input: ConnectCommandInput): string {
   return [
     "npx",
     "-y",
-    "@agent-native/core@latest",
+    "@agentnative-fork/core@latest",
     "connect",
     shellQuote(input.appUrl),
     "--client",

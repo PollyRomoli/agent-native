@@ -15,11 +15,11 @@ import {
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../../../../db/index.js";
 import { getEventOwnerContext } from "../../../../lib/recordings.js";
-import { runWithRequestContext } from "@agent-native/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
 import {
   writeAppState,
   deleteAppStateByPrefix,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 
 export default defineEventHandler(async (event: H3Event) => {
   const recordingId = getRouterParam(event, "recordingId");

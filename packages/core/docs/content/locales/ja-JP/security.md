@@ -52,7 +52,7 @@ description: "エージェント ネイティブ アプリのセキュリティ 
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Create a note",
@@ -104,7 +104,7 @@ React はすべての JSX 式を自動エスケープします。追加のガイ
 ユーザーまたはエージェントによって制御される URL のサーバー側 `fetch` は、フレームワーク SSRF ガードを通過する必要があります。または、クラウド メタデータ (`169.254.169.254`)、`localhost`、または内部サービスを指すこともできます。
 
 ```ts
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 
 const res = await ssrfSafeFetch(userProvidedUrl, {}, { maxRedirects: 3 });
 ```
@@ -142,7 +142,7 @@ import {
   text,
   integer,
   ownableColumns,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 // Minimal: just the owner column
 export const notes = table("notes", {
@@ -180,7 +180,7 @@ CREATE TEMPORARY VIEW "notes" AS
 `ownableColumns()` スキーマ ヘルパーは、1 回の呼び出しで `owner_email`、`org_id`、および `visibility` を追加するため、新しいテナント対応テーブルはデフォルトで完全なスコープ コントラクトを取得します。
 
 ```ts
-import { table, text, ownableColumns } from "@agent-native/core/db/schema";
+import { table, text, ownableColumns } from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),

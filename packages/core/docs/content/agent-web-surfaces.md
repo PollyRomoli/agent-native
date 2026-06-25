@@ -15,7 +15,7 @@ The docs site is the reference implementation. Today it ships:
 - Markdown mirrors such as `/docs/getting-started.md`.
 - `Accept: text/markdown` responses for public docs pages after a production build.
 - JSON-LD for base organization, website, and page metadata.
-- An audit CLI (`npx @agent-native/core@latest audit-agent-web`) that checks all of the above.
+- An audit CLI (`npx @agentnative-fork/core@latest audit-agent-web`) that checks all of the above.
 
 Setting `publicMcp: true` additionally exposes opted-in actions as a public MCP endpoint, allowing external agents to call them directly (see [MCP Protocol](/docs/mcp-protocol)).
 
@@ -99,13 +99,13 @@ To expose an action through a public agent protocol, the action must opt in:
 
 ## Build-time files {#build-time}
 
-Framework utilities in `@agent-native/core/agent-web` generate the common files from one page list:
+Framework utilities in `@agentnative-fork/core/agent-web` generate the common files from one page list:
 
 ```ts
 import {
   buildAgentWebStaticFiles,
   normalizeAgentWebConfig,
-} from "@agent-native/core/agent-web";
+} from "@agentnative-fork/core/agent-web";
 
 const config = normalizeAgentWebConfig(
   { crawlerPolicy: "discoverable-no-training" },
@@ -130,14 +130,14 @@ const files = buildAgentWebStaticFiles({
 });
 ```
 
-Vite apps can use `createAgentWebVitePlugin` from `@agent-native/core/vite` to write those files into `public`, `dist`, `dist/client`, `dist/server/public`, or `build/client` during production builds.
+Vite apps can use `createAgentWebVitePlugin` from `@agentnative-fork/core/vite` to write those files into `public`, `dist`, `dist/client`, `dist/server/public`, or `build/client` during production builds.
 
 ## Audit a site {#audit}
 
 Use the CLI audit against a deployed site or a local production server:
 
 ```bash
-npx @agent-native/core@latest audit-agent-web --url https://www.agent-native.com
+npx @agentnative-fork/core@latest audit-agent-web --url https://www.agent-native.com
 ```
 
 The audit checks for:

@@ -1,4 +1,4 @@
-# @agent-native/code-agents-ui
+# @agentnative-fork/code-agents-ui
 
 ## 0.1.75
 
@@ -16,14 +16,14 @@
 - Updated dependencies [ff0fae2]
 - Updated dependencies [ff0fae2]
 - Updated dependencies [ff0fae2]
-  - @agent-native/core@0.24.2
+  - @agentnative-fork/core@0.24.2
 
 ## 0.1.73
 
 ### Patch Changes
 
 - Updated dependencies [7aa1703]
-  - @agent-native/core@0.24.1
+  - @agentnative-fork/core@0.24.1
 
 ## 0.1.72
 
@@ -35,7 +35,7 @@
 - Updated dependencies [9f3a798]
 - Updated dependencies [9f3a798]
 - Updated dependencies [9f3a798]
-  - @agent-native/core@0.24.0
+  - @agentnative-fork/core@0.24.0
 
 ## 0.1.71
 
@@ -46,28 +46,28 @@
 - Updated dependencies [2ea399e]
 - Updated dependencies [2ea399e]
 - Updated dependencies [2ea399e]
-  - @agent-native/core@0.23.0
+  - @agentnative-fork/core@0.23.0
 
 ## 0.1.70
 
 ### Patch Changes
 
 - Updated dependencies [4bed290]
-  - @agent-native/core@0.22.45
+  - @agentnative-fork/core@0.22.45
 
 ## 0.1.69
 
 ### Patch Changes
 
 - Updated dependencies [7ca6c99]
-  - @agent-native/core@0.22.44
+  - @agentnative-fork/core@0.22.44
 
 ## 0.1.68
 
 ### Patch Changes
 
 - Updated dependencies [bcf54ce]
-  - @agent-native/core@0.22.43
+  - @agentnative-fork/core@0.22.43
 
 ## 0.1.67
 
@@ -75,42 +75,42 @@
 
 - Updated dependencies [5f82202]
 - Updated dependencies [5f82202]
-  - @agent-native/core@0.22.42
+  - @agentnative-fork/core@0.22.42
 
 ## 0.1.66
 
 ### Patch Changes
 
 - Updated dependencies [c790686]
-  - @agent-native/core@0.22.41
+  - @agentnative-fork/core@0.22.41
 
 ## 0.1.65
 
 ### Patch Changes
 
 - Updated dependencies [4a8e279]
-  - @agent-native/core@0.22.40
+  - @agentnative-fork/core@0.22.40
 
 ## 0.1.64
 
 ### Patch Changes
 
 - Updated dependencies [1ed3ef8]
-  - @agent-native/core@0.22.39
+  - @agentnative-fork/core@0.22.39
 
 ## 0.1.63
 
 ### Patch Changes
 
 - Updated dependencies [9e22f33]
-  - @agent-native/core@0.22.38
+  - @agentnative-fork/core@0.22.38
 
 ## 0.1.62
 
 ### Patch Changes
 
 - Updated dependencies [12d3c0f]
-  - @agent-native/core@0.22.37
+  - @agentnative-fork/core@0.22.37
 
 ## 0.1.61
 
@@ -122,14 +122,14 @@
 - Updated dependencies [1c0b51e]
 - Updated dependencies [1c0b51e]
 - Updated dependencies [1c0b51e]
-  - @agent-native/core@0.22.36
+  - @agentnative-fork/core@0.22.36
 
 ## 0.1.60
 
 ### Patch Changes
 
 - Updated dependencies [6f76cbe]
-  - @agent-native/core@0.22.35
+  - @agentnative-fork/core@0.22.35
 
 ## 0.1.59
 
@@ -139,7 +139,7 @@
 - Updated dependencies [bc9c866]
 - Updated dependencies [bc9c866]
 - Updated dependencies [bc9c866]
-  - @agent-native/core@0.22.34
+  - @agentnative-fork/core@0.22.34
 
 ## 0.1.58
 
@@ -147,42 +147,42 @@
 
 - Updated dependencies [d0a107e]
 - Updated dependencies [d0a107e]
-  - @agent-native/core@0.22.33
+  - @agentnative-fork/core@0.22.33
 
 ## 0.1.57
 
 ### Patch Changes
 
 - Updated dependencies [5c6b741]
-  - @agent-native/core@0.22.32
+  - @agentnative-fork/core@0.22.32
 
 ## 0.1.56
 
 ### Patch Changes
 
 - Updated dependencies [11362a2]
-  - @agent-native/core@0.22.31
+  - @agentnative-fork/core@0.22.31
 
 ## 0.1.55
 
 ### Patch Changes
 
 - Updated dependencies [3b1a0e5]
-  - @agent-native/core@0.22.30
+  - @agentnative-fork/core@0.22.30
 
 ## 0.1.54
 
 ### Patch Changes
 
 - Updated dependencies [a899300]
-  - @agent-native/core@0.22.29
+  - @agentnative-fork/core@0.22.29
 
 ## 0.1.53
 
 ### Patch Changes
 
 - Updated dependencies [4a5dc8d]
-  - @agent-native/core@0.22.28
+  - @agentnative-fork/core@0.22.28
 
 ## 0.1.52
 
@@ -190,28 +190,28 @@
 
 - Updated dependencies [5986cd0]
 - Updated dependencies [5986cd0]
-  - @agent-native/core@0.22.27
+  - @agentnative-fork/core@0.22.27
 
 ## 0.1.51
 
 ### Patch Changes
 
 - Updated dependencies [0efeaec]
-  - @agent-native/core@0.22.26
+  - @agentnative-fork/core@0.22.26
 
 ## 0.1.50
 
 ### Patch Changes
 
 - Updated dependencies [b76bf4f]
-  - @agent-native/core@0.22.25
+  - @agentnative-fork/core@0.22.25
 
 ## 0.1.49
 
 ### Patch Changes
 
 - Updated dependencies [b275383]
-  - @agent-native/core@0.22.24
+  - @agentnative-fork/core@0.22.24
 
 ## 0.1.48
 
@@ -219,21 +219,21 @@
 
 - Updated dependencies [75223dd]
 - Updated dependencies [75223dd]
-  - @agent-native/core@0.22.23
+  - @agentnative-fork/core@0.22.23
 
 ## 0.1.47
 
 ### Patch Changes
 
 - Updated dependencies [1a9d1c0]
-  - @agent-native/core@0.22.22
+  - @agentnative-fork/core@0.22.22
 
 ## 0.1.46
 
 ### Patch Changes
 
 - Updated dependencies [56e5abc]
-  - @agent-native/core@0.22.21
+  - @agentnative-fork/core@0.22.21
 
 ## 0.1.45
 
@@ -242,21 +242,21 @@
 - Updated dependencies [7918065]
 - Updated dependencies [7918065]
 - Updated dependencies [7918065]
-  - @agent-native/core@0.22.20
+  - @agentnative-fork/core@0.22.20
 
 ## 0.1.44
 
 ### Patch Changes
 
 - Updated dependencies [1750384]
-  - @agent-native/core@0.22.19
+  - @agentnative-fork/core@0.22.19
 
 ## 0.1.43
 
 ### Patch Changes
 
 - Updated dependencies [bf1cb24]
-  - @agent-native/core@0.22.18
+  - @agentnative-fork/core@0.22.18
 
 ## 0.1.42
 
@@ -270,14 +270,14 @@
 - Updated dependencies [5173662]
 - Updated dependencies [5173662]
 - Updated dependencies [5173662]
-  - @agent-native/core@0.22.17
+  - @agentnative-fork/core@0.22.17
 
 ## 0.1.41
 
 ### Patch Changes
 
 - Updated dependencies [6de0eaf]
-  - @agent-native/core@0.22.16
+  - @agentnative-fork/core@0.22.16
 
 ## 0.1.40
 
@@ -288,14 +288,14 @@
 - Updated dependencies [0ba051e]
 - Updated dependencies [0ba051e]
 - Updated dependencies [0ba051e]
-  - @agent-native/core@0.22.15
+  - @agentnative-fork/core@0.22.15
 
 ## 0.1.39
 
 ### Patch Changes
 
 - Updated dependencies [b09db79]
-  - @agent-native/core@0.22.14
+  - @agentnative-fork/core@0.22.14
 
 ## 0.1.38
 
@@ -304,35 +304,35 @@
 - Updated dependencies [0b4ade2]
 - Updated dependencies [9482ec9]
 - Updated dependencies [54f295b]
-  - @agent-native/core@0.22.13
+  - @agentnative-fork/core@0.22.13
 
 ## 0.1.37
 
 ### Patch Changes
 
 - Updated dependencies [c43d534]
-  - @agent-native/core@0.22.12
+  - @agentnative-fork/core@0.22.12
 
 ## 0.1.36
 
 ### Patch Changes
 
 - Updated dependencies [e3b219b]
-  - @agent-native/core@0.22.11
+  - @agentnative-fork/core@0.22.11
 
 ## 0.1.35
 
 ### Patch Changes
 
 - Updated dependencies [ce325de]
-  - @agent-native/core@0.22.10
+  - @agentnative-fork/core@0.22.10
 
 ## 0.1.34
 
 ### Patch Changes
 
 - Updated dependencies [e834a27]
-  - @agent-native/core@0.22.9
+  - @agentnative-fork/core@0.22.9
 
 ## 0.1.33
 
@@ -342,7 +342,7 @@
 - Updated dependencies [bbaa675]
 - Updated dependencies [bbaa675]
 - Updated dependencies [bbaa675]
-  - @agent-native/core@0.22.8
+  - @agentnative-fork/core@0.22.8
 
 ## 0.1.32
 
@@ -350,7 +350,7 @@
 
 - Updated dependencies [2fcecb9]
 - Updated dependencies [2fcecb9]
-  - @agent-native/core@0.22.7
+  - @agentnative-fork/core@0.22.7
 
 ## 0.1.31
 
@@ -361,7 +361,7 @@
 - Updated dependencies [789ba7d]
 - Updated dependencies [789ba7d]
 - Updated dependencies [789ba7d]
-  - @agent-native/core@0.22.6
+  - @agentnative-fork/core@0.22.6
 
 ## 0.1.30
 
@@ -371,14 +371,14 @@
 - Updated dependencies [7873242]
 - Updated dependencies [7873242]
 - Updated dependencies [7873242]
-  - @agent-native/core@0.22.5
+  - @agentnative-fork/core@0.22.5
 
 ## 0.1.29
 
 ### Patch Changes
 
 - Updated dependencies [b5fc3b7]
-  - @agent-native/core@0.22.4
+  - @agentnative-fork/core@0.22.4
 
 ## 0.1.28
 
@@ -386,14 +386,14 @@
 
 - Updated dependencies [5a5b620]
 - Updated dependencies [5a5b620]
-  - @agent-native/core@0.22.3
+  - @agentnative-fork/core@0.22.3
 
 ## 0.1.27
 
 ### Patch Changes
 
 - Updated dependencies [4a35c70]
-  - @agent-native/core@0.22.2
+  - @agentnative-fork/core@0.22.2
 
 ## 0.1.26
 
@@ -401,7 +401,7 @@
 
 - Updated dependencies [570923a]
 - Updated dependencies [570923a]
-  - @agent-native/core@0.22.1
+  - @agentnative-fork/core@0.22.1
 
 ## 0.1.25
 
@@ -415,7 +415,7 @@
 - Updated dependencies [819cf59]
 - Updated dependencies [819cf59]
 - Updated dependencies [819cf59]
-  - @agent-native/core@0.22.0
+  - @agentnative-fork/core@0.22.0
 
 ## 0.1.24
 
@@ -425,7 +425,7 @@
 - Updated dependencies [65d43fd]
 - Updated dependencies [65d43fd]
 - Updated dependencies [15d9967]
-  - @agent-native/core@0.21.0
+  - @agentnative-fork/core@0.21.0
 
 ## 0.1.23
 
@@ -436,49 +436,49 @@
 - Updated dependencies [482e9db]
 - Updated dependencies [482e9db]
 - Updated dependencies [482e9db]
-  - @agent-native/core@0.20.9
+  - @agentnative-fork/core@0.20.9
 
 ## 0.1.22
 
 ### Patch Changes
 
 - Updated dependencies [a07d19c]
-  - @agent-native/core@0.20.8
+  - @agentnative-fork/core@0.20.8
 
 ## 0.1.21
 
 ### Patch Changes
 
 - Updated dependencies [e06d8ab]
-  - @agent-native/core@0.20.7
+  - @agentnative-fork/core@0.20.7
 
 ## 0.1.20
 
 ### Patch Changes
 
 - Updated dependencies [52adc2d]
-  - @agent-native/core@0.20.6
+  - @agentnative-fork/core@0.20.6
 
 ## 0.1.19
 
 ### Patch Changes
 
 - Updated dependencies [a470349]
-  - @agent-native/core@0.20.5
+  - @agentnative-fork/core@0.20.5
 
 ## 0.1.18
 
 ### Patch Changes
 
 - Updated dependencies [dab88cd]
-  - @agent-native/core@0.20.4
+  - @agentnative-fork/core@0.20.4
 
 ## 0.1.17
 
 ### Patch Changes
 
 - Updated dependencies [76b5268]
-  - @agent-native/core@0.20.3
+  - @agentnative-fork/core@0.20.3
 
 ## 0.1.16
 
@@ -489,14 +489,14 @@
 - Updated dependencies [f343737]
 - Updated dependencies [f343737]
 - Updated dependencies [f343737]
-  - @agent-native/core@0.20.2
+  - @agentnative-fork/core@0.20.2
 
 ## 0.1.15
 
 ### Patch Changes
 
 - Updated dependencies [6f3002f]
-  - @agent-native/core@0.20.1
+  - @agentnative-fork/core@0.20.1
 
 ## 0.1.14
 
@@ -508,21 +508,21 @@
 - Updated dependencies [3eb86c8]
 - Updated dependencies [3eb86c8]
 - Updated dependencies [3eb86c8]
-  - @agent-native/core@0.20.0
+  - @agentnative-fork/core@0.20.0
 
 ## 0.1.13
 
 ### Patch Changes
 
 - Updated dependencies [39b4db3]
-  - @agent-native/core@0.19.3
+  - @agentnative-fork/core@0.19.3
 
 ## 0.1.12
 
 ### Patch Changes
 
 - Updated dependencies [046a8f2]
-  - @agent-native/core@0.19.2
+  - @agentnative-fork/core@0.19.2
 
 ## 0.1.11
 
@@ -532,7 +532,7 @@
 - Updated dependencies [310c02f]
 - Updated dependencies [310c02f]
 - Updated dependencies [310c02f]
-  - @agent-native/core@0.19.1
+  - @agentnative-fork/core@0.19.1
 
 ## 0.1.10
 
@@ -543,28 +543,28 @@
 - Updated dependencies [b3de2db]
 - Updated dependencies [b3de2db]
 - Updated dependencies [b3de2db]
-  - @agent-native/core@0.19.0
+  - @agentnative-fork/core@0.19.0
 
 ## 0.1.9
 
 ### Patch Changes
 
 - Updated dependencies [24049a6]
-  - @agent-native/core@0.18.1
+  - @agentnative-fork/core@0.18.1
 
 ## 0.1.8
 
 ### Patch Changes
 
 - Updated dependencies [921715a]
-  - @agent-native/core@0.18.0
+  - @agentnative-fork/core@0.18.0
 
 ## 0.1.7
 
 ### Patch Changes
 
 - Updated dependencies [480c078]
-  - @agent-native/core@0.17.2
+  - @agentnative-fork/core@0.17.2
 
 ## 0.1.6
 
@@ -574,14 +574,14 @@
 - Updated dependencies [8b0a941]
 - Updated dependencies [8b0a941]
 - Updated dependencies [8b0a941]
-  - @agent-native/core@0.17.1
+  - @agentnative-fork/core@0.17.1
 
 ## 0.1.5
 
 ### Patch Changes
 
 - Updated dependencies [a21633b]
-  - @agent-native/core@0.17.0
+  - @agentnative-fork/core@0.17.0
 
 ## 0.1.4
 
@@ -599,21 +599,21 @@
 - Updated dependencies [dbf8db4]
 - Updated dependencies [dbf8db4]
 - Updated dependencies [dbf8db4]
-  - @agent-native/core@0.16.3
+  - @agentnative-fork/core@0.16.3
 
 ## 0.1.3
 
 ### Patch Changes
 
 - Updated dependencies [5b9bdd7]
-  - @agent-native/core@0.16.2
+  - @agentnative-fork/core@0.16.2
 
 ## 0.1.2
 
 ### Patch Changes
 
 - Updated dependencies [85d6554]
-  - @agent-native/core@0.16.1
+  - @agentnative-fork/core@0.16.1
 
 ## 0.1.1
 
@@ -651,4 +651,4 @@
 - Updated dependencies [79a0eb9]
 - Updated dependencies [79a0eb9]
 - Updated dependencies [79a0eb9]
-  - @agent-native/core@0.16.0
+  - @agentnative-fork/core@0.16.0

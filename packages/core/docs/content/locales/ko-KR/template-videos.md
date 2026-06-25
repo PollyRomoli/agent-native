@@ -71,7 +71,7 @@ description: "모션 그래픽, 제품 데모 및 키네틱 텍스트를 위한 
 CLI의 새로운 비디오 앱을 스캐폴드하세요:
 
 ```bash
-npx @agent-native/core@latest create my-video-app --standalone --template videos
+npx @agentnative-fork/core@latest create my-video-app --standalone --template videos
 cd my-video-app
 pnpm install
 pnpm dev

@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { nanoid } from "nanoid";
-import { useActionQuery, useActionMutation } from "@agent-native/core/client";
+import { useActionQuery, useActionMutation } from "@agentnative-fork/core/client";
 import { appApiPath } from "@/lib/api-path";
 import type {
   BookingHost,

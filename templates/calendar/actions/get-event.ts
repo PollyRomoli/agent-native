@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail, buildDeepLink } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail, buildDeepLink } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import type { CalendarEvent } from "../shared/api.js";
 import * as googleCalendar from "../server/lib/google-calendar.js";

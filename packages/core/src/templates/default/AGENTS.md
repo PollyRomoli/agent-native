@@ -2,12 +2,12 @@
 
 This app follows the agent-native core philosophy: the agent and UI are equal partners. Everything the UI can do, the agent can do via actions. The agent always knows what you're looking at via application state. Use the framework docs lookup below for version-matched Agent Native documentation.
 
-This is an **@agent-native/core** application -- the AI agent and UI share state through a SQL database, with SSE for in-process live sync and polling as the cross-process/serverless fallback.
+This is an **@agentnative-fork/core** application -- the AI agent and UI share state through a SQL database, with SSE for in-process live sync and polling as the cross-process/serverless fallback.
 
 ### Core Principles
 
 1. **Shared SQL database** -- All app state lives in SQL. Local SQLite at `data/app.db` is the zero-setup dev fallback; deployed apps need a persistent `DATABASE_URL` so data survives container/serverless restarts. Turso is optional, not required: Neon, Supabase, Turso/libSQL, plain Postgres, durable SQLite, D1 bindings, and Builder.io-managed environments are all valid when supported by the deploy. Core stores: `application_state`, `settings`, `oauth_tokens`, `sessions`, `resources`.
-2. **AI through the right framework surface** -- Product workflows delegate to the agent via `sendToAgentChat()` / `agentChat.submit()`. Use `sendToAgentChat({ message, context, submit })` for simple UI handoffs and prefill/review flows; add `newTab: true, background: true, openSidebar: false` when the agent should work silently without focusing the sidebar. Only use the agent-chat context state helpers (`useAgentChatContext`, `setAgentChatContextItem`, `listAgentChatContext`, `removeAgentChatContextItem`, `clearAgentChatContext`) when the UI needs two-way sync with staged context chips. For rare server-side text transforms that intentionally need no tools, chat history, or run state, use `completeText()` from `@agent-native/core/server` inside an action instead of importing provider SDKs directly.
+2. **AI through the right framework surface** -- Product workflows delegate to the agent via `sendToAgentChat()` / `agentChat.submit()`. Use `sendToAgentChat({ message, context, submit })` for simple UI handoffs and prefill/review flows; add `newTab: true, background: true, openSidebar: false` when the agent should work silently without focusing the sidebar. Only use the agent-chat context state helpers (`useAgentChatContext`, `setAgentChatContextItem`, `listAgentChatContext`, `removeAgentChatContextItem`, `clearAgentChatContext`) when the UI needs two-way sync with staged context chips. For rare server-side text transforms that intentionally need no tools, chat history, or run state, use `completeText()` from `@agentnative-fork/core/server` inside an action instead of importing provider SDKs directly.
 3. **Actions for app operations** -- `pnpm action <name>` dispatches to callable action files in `actions/`; `defineAction` also auto-exposes those operations at `/_agent-native/actions/:name` for the UI. Do not create custom REST routes that re-export actions.
 4. **Live sync keeps the UI current** -- Database writes stream over `/_agent-native/events` first, with `/_agent-native/poll` as the fallback. **When you (the agent) write data, the UI must reflect the change without a manual refresh.** This is non-negotiable. Use `useActionQuery` / `useActionMutation` for action-backed data (preferred). If you use raw `useQuery`, fold `useChangeVersions([<source>, "action"])` into the key for targeted refreshes. See the `real-time-sync` and `adding-a-feature` skills.
 5. **Agent can update code** -- The agent can modify this app's source code directly.
@@ -15,9 +15,9 @@ This is an **@agent-native/core** application -- the AI agent and UI share state
 
 ## Framework Docs Lookup
 
-Version-matched Agent Native docs ship with `@agent-native/core` in
-`node_modules/@agent-native/core/docs`. A source-only corpus of core and
-first-party template patterns ships in `node_modules/@agent-native/core/corpus`.
+Version-matched Agent Native docs ship with `@agentnative-fork/core` in
+`node_modules/@agentnative-fork/core/docs`. A source-only corpus of core and
+first-party template patterns ships in `node_modules/@agentnative-fork/core/corpus`.
 
 - Use `pnpm action docs-search --query "<topic>"` to search framework docs,
   bundled `AGENTS.md`, and codebase skills.
@@ -30,22 +30,22 @@ first-party template patterns ships in `node_modules/@agent-native/core/corpus`.
   implementation examples or template best practices, and
   `pnpm action source-search --path <path>` to read a specific corpus file.
 - If the action runner is unavailable, read
-  `node_modules/@agent-native/core/docs/AGENTS.md` and search
-  `node_modules/@agent-native/core/docs/content/` directly with `rg`. Search
-  `node_modules/@agent-native/core/corpus/` for source examples.
+  `node_modules/@agentnative-fork/core/docs/AGENTS.md` and search
+  `node_modules/@agentnative-fork/core/docs/content/` directly with `rg`. Search
+  `node_modules/@agentnative-fork/core/corpus/` for source examples.
 
 Read these local package docs before implementing advanced Agent Native
 features. Prefer this app's own `AGENTS.md` and `.agents/skills/` for
 app-specific rules, then use the corpus for reusable framework/template
 patterns.
-After updating `@agent-native/core`, run `pnpm skills:update` or
-`npx @agent-native/core@latest skills update scaffold --project` from the app
+After updating `@agentnative-fork/core`, run `pnpm skills:update` or
+`npx @agentnative-fork/core@latest skills update scaffold --project` from the app
 root to refresh framework-provided `.agents/skills` and repair `CLAUDE.md` /
 `.claude/skills` compatibility links.
 
 ### Database Code
 
-- Define tables with `@agent-native/core/db/schema` helpers (`table`, `text`, `integer`, `real`, `now`, sharing helpers), never `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core`.
+- Define tables with `@agentnative-fork/core/db/schema` helpers (`table`, `text`, `integer`, `real`, `now`, sharing helpers), never `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core`.
 - Use Drizzle's query builder (`db.select`, `db.insert`, `db.update`, `db.delete`) plus portable operators from `drizzle-orm` (`eq`, `and`, `or`, `inArray`, `desc`, etc.) for app reads and writes.
 - Keep raw SQL out of normal actions, handlers, and stores. Use it only for additive migrations, health checks, or last-resort maintenance, and keep it parameterized and dialect-agnostic.
 - Do not write SQLite-only or Postgres-only syntax in product code. The same app should run on SQLite, Postgres, libSQL/Turso, D1, and other supported Drizzle backends.
@@ -81,7 +81,7 @@ agents can use the equivalent `pnpm action resource-*` commands.
 
 ## Application State
 
-Ephemeral UI state is stored in the SQL `application_state` table, accessed via `readAppState(key)` and `writeAppState(key, value)` from `@agent-native/core/application-state`.
+Ephemeral UI state is stored in the SQL `application_state` table, accessed via `readAppState(key)` and `writeAppState(key, value)` from `@agentnative-fork/core/application-state`.
 
 | State Key    | Purpose                                   | Direction                  |
 | ------------ | ----------------------------------------- | -------------------------- |
@@ -91,7 +91,7 @@ Ephemeral UI state is stored in the SQL `application_state` table, accessed via 
 The `navigation` key is written by the UI whenever the route changes. The `navigate` key is a one-shot command: the agent writes it, the UI reads and executes the navigation, then deletes it.
 
 UI code should use `useAgentRouteState` / `useSemanticNavigationState` from
-`@agent-native/core/client` for navigation sync instead of hand-written
+`@agentnative-fork/core/client` for navigation sync instead of hand-written
 `fetch("/_agent-native/application-state/...")` calls. Keep shareable filters
 in URL query params; the framework exposes them as `<current-url>` and the
 built-in agent can update them with `set-search-params`.

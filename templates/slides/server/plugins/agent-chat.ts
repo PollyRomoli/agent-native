@@ -1,9 +1,9 @@
 import {
   createAgentChatPlugin,
   loadActionsFromStaticRegistry,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import actionsRegistry from "../../.generated/actions-registry.js";
-import { getOrgContext } from "@agent-native/core/org";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import { prepareSlidesChatAttachments } from "../lib/chat-attachments.js";
 import "../register-secrets.js";
 
@@ -46,7 +46,7 @@ Slides' Google Drive provider API uses the user's connected Google Docs OAuth ac
     const { getDb } = await import("../db/index.js");
     const { decks, deckShares } = await import("../db/schema.js");
     const { like, desc, and } = await import("drizzle-orm");
-    const { accessFilter } = await import("@agent-native/core/sharing");
+    const { accessFilter } = await import("@agentnative-fork/core/sharing");
     return {
       decks: {
         label: "Decks",

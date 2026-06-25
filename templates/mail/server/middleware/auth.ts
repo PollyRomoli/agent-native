@@ -8,7 +8,7 @@
  * Page routes (/, /settings) and API routes (/api/*) would bypass auth.
  */
 import { defineEventHandler } from "h3";
-import { runAuthGuard } from "@agent-native/core/server";
+import { runAuthGuard } from "@agentnative-fork/core/server";
 
 export default defineEventHandler(async (event) => {
   return runAuthGuard(event);

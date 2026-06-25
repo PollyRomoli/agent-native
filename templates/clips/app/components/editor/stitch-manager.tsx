@@ -20,7 +20,7 @@ import {
   agentNativePath,
   useActionMutation,
   useActionQuery,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { exportConcat } from "@/lib/ffmpeg-export";
 import { toast } from "sonner";
 

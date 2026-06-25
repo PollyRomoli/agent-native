@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
-import { assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server/request-context";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { and, eq, inArray, ne } from "drizzle-orm";
 import { nanoid } from "nanoid";
 import { z } from "zod";

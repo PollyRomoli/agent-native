@@ -54,13 +54,13 @@ export interface RegisteredSecret {
   oauthConnectUrl?: string;
 }
 
-// Pin the registry to globalThis so templates that load `@agent-native/core`
+// Pin the registry to globalThis so templates that load `@agentnative-fork/core`
 // via more than one ESM graph (e.g. dev-mode Vite + Nitro, symlinked
 // node_modules, dist/ vs src/) share a single registry. Without this, a
 // template's `register-secrets.ts` side-effect module may populate one
 // registry instance while the /_agent-native/secrets route reads from
 // another — net effect: the UI sees an empty list.
-const REGISTRY_KEY = Symbol.for("@agent-native/core/secrets.registry");
+const REGISTRY_KEY = Symbol.for("@agentnative-fork/core/secrets.registry");
 interface GlobalWithRegistry {
   [REGISTRY_KEY]?: Map<string, RegisteredSecret>;
 }

@@ -84,11 +84,11 @@ _كيفية العمل تحت الغطاء (للمطورين)._
 
 - **وكيل Orchestrator.** تم إعداد الدردشة كجهاز توجيه: فهو يقرأ `AGENTS.md`، و`LEARNINGS.md`، ويوجه إلى وكلاء فرعيين متخصصين أو وكلاء A2A عن بعد.
 - **تسجيل الوكيل البعيد.** بيانات وكيل A2A هي إدخالات وقت تشغيل مساحة العمل (وليست مجلد مصدر قالب تم تسجيل الدخول): في مساحة عمل متعددة التطبيقات، يتم اكتشاف التطبيقات الشقيقة ضمن `apps/` تلقائيًا باعتبارها نظيرات A2A - لا حاجة للتسجيل اليدوي. تستدعيهم Dispatch باستخدام الإجراء `call-agent`.
-- **مخطط Vault.** جداول Drizzle للأسرار والمنح والطلبات والموافقات وسجلات التدقيق. هذه موجودة في حزمة `@agent-native/dispatch` (`packages/dispatch/src/db/schema.ts`) ويتم إعادة تصديرها إلى القالب عبر `templates/dispatch/server/db/index.ts` - لا يوجد `server/db/schema.ts` للقالب المحلي. يتم شحن وقت تشغيل Dispatch في الحزمة، وليس في مصدر القالب (بما يتوافق مع الملاحظة أدناه بأن `@agent-native/dispatch` يمتلك الصدفة والشريط الجانبي والصفحات المضمنة).
+- **مخطط Vault.** جداول Drizzle للأسرار والمنح والطلبات والموافقات وسجلات التدقيق. هذه موجودة في حزمة `@agentnative-fork/dispatch` (`packages/dispatch/src/db/schema.ts`) ويتم إعادة تصديرها إلى القالب عبر `templates/dispatch/server/db/index.ts` - لا يوجد `server/db/schema.ts` للقالب المحلي. يتم شحن وقت تشغيل Dispatch في الحزمة، وليس في مصدر القالب (بما يتوافق مع الملاحظة أدناه بأن `@agentnative-fork/dispatch` يمتلك الصدفة والشريط الجانبي والصفحات المضمنة).
 - **مكونات Slack / Telegram الإضافية.** مكونات إضافية للخادم تسجل webhooks وتعيد توجيه الرسائل الواردة إلى وكيل المنسق.
 - **موارد مساحة العمل MCP.** أضف تعريفات خادم HTTP MCP ضمن `mcp-servers/*.json` في الموارد، ثم قم بنطاقها لتشمل جميع التطبيقات أو منح التطبيقات المحددة تمامًا مثل skills والسياق.
 
-```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agent-native/dispatch (packages/dispatch/src/db/schema.ts)."
+```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agentnative-fork/dispatch (packages/dispatch/src/db/schema.ts)."
 {
   "entities": [
     { "id": "secrets", "name": "vault_secrets", "note": "Stored credential values", "fields": [
@@ -170,14 +170,14 @@ pnpm action create-dream-report --allSources true --sourceTimeoutMs 30000 --limi
 ## السقالات {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 # pick "Dispatch" in the multi-select picker, plus whichever domain apps you want
 ```
 
 إذا كنت تفضل تسمية القالب مباشرةً بدلاً من استخدام المنتقي:
 
 ```bash
-npx @agent-native/core@latest create my-platform --template dispatch
+npx @agentnative-fork/core@latest create my-platform --template dispatch
 # add more apps in the same workspace as you go
 ```
 
@@ -208,7 +208,7 @@ Dispatch هو قالب كامل مثل أي قالب آخر - راجع [Template
 
 بالنسبة لشاشات الإدارة الخاصة بمساحة العمل، أضف صفحات جهاز التوجيه React المحلية و
 قم بتسجيلهم في `app/dispatch-extensions.tsx`. تمتلك مساحة العمل التي تم إنشاؤها
-فقط علامة التبويب والمسار الإضافيين؛ يستمر `@agent-native/dispatch` في امتلاك الصدفة،
+فقط علامة التبويب والمسار الإضافيين؛ يستمر `@agentnative-fork/dispatch` في امتلاك الصدفة،
 الشريط الجانبي والصفحات المضمنة وتحديثات الحزمة المستقبلية.
 
 ## ما هي الخطوة التالية

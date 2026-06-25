@@ -71,7 +71,7 @@ description: "استديو فيديو برمجي للرسومات المتحرك
 دعم تطبيق فيديو جديد من CLI:
 
 ```bash
-npx @agent-native/core@latest create my-video-app --standalone --template videos
+npx @agentnative-fork/core@latest create my-video-app --standalone --template videos
 cd my-video-app
 pnpm install
 pnpm dev

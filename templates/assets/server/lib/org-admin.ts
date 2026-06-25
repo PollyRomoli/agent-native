@@ -1,7 +1,7 @@
 /**
  * Org-admin gate for the audit-log surface.
  *
- * Placed locally in the template (not in `@agent-native/core`) because
+ * Placed locally in the template (not in `@agentnative-fork/core`) because
  * "audit log" is an Assets-app feature today; if other templates need it
  * later we'll lift this into core. The check is read-only and only used
  * to gate `list-audit-runs` / `get-audit-run` / `export-audit-csv` and
@@ -24,11 +24,11 @@
  * have email + orgId to work with.
  */
 
-import { orgMembers } from "@agent-native/core/org";
+import { orgMembers } from "@agentnative-fork/core/org";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { and, eq, sql } from "drizzle-orm";
 import { getDb } from "../db/index.js";
 

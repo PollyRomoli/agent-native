@@ -1,4 +1,4 @@
-import { ExtensionViewerPage } from "@agent-native/core/client/extensions";
+import { ExtensionViewerPage } from "@agentnative-fork/core/client/extensions";
 
 export function meta() {
   return [{ title: "Tool — Macros" }];

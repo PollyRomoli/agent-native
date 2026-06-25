@@ -1,5 +1,5 @@
 import { reactRouter } from "@react-router/dev/vite";
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -15,7 +15,7 @@ export default defineConfig({
         "mermaid",
         "@excalidraw/excalidraw",
         "@excalidraw/mermaid-to-excalidraw",
-        "@agent-native/pinpoint",
+        "@agentnative-fork/pinpoint",
       ],
     }),
   ],

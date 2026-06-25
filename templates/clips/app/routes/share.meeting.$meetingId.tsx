@@ -8,9 +8,9 @@ import {
   IconWand,
 } from "@tabler/icons-react";
 import { and, eq, isNull } from "drizzle-orm";
-import { PoweredByBadge, appPath } from "@agent-native/core/client";
-import { getRequestUserEmail } from "@agent-native/core/server";
-import { resolveAccess } from "@agent-native/core/sharing";
+import { PoweredByBadge, appPath } from "@agentnative-fork/core/client";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import {

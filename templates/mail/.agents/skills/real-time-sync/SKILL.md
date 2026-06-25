@@ -26,7 +26,7 @@ The agent modifies data in SQL, but the UI runs in the browser. SSE bridges same
 2. **Client** listens for sync events and updates per-source change counters:
 
    ```ts
-   import { useDbSync } from "@agent-native/core/client";
+   import { useDbSync } from "@agentnative-fork/core/client";
    useDbSync({ queryClient });
    ```
 
@@ -35,7 +35,7 @@ The agent modifies data in SQL, but the UI runs in the browser. SSE bridges same
 3. **Templates fold per-source counters into their query keys.** This is the pattern that makes "agent writes show up without a manual refresh" reliable:
 
    ```ts
-   import { useChangeVersion } from "@agent-native/core/client";
+   import { useChangeVersion } from "@agentnative-fork/core/client";
    import { useQuery } from "@tanstack/react-query";
 
    const v = useChangeVersion("dashboards");
@@ -110,7 +110,7 @@ When the agent writes to application-state via script helpers (`writeAppState`, 
 
 ### How it works
 
-1. **Agent writes** are tagged: the script helpers in `@agent-native/core/application-state` pass `{ requestSource: "agent" }` to the store.
+1. **Agent writes** are tagged: the script helpers in `@agentnative-fork/core/application-state` pass `{ requestSource: "agent" }` to the store.
 2. **UI writes** are tagged: templates send a per-tab ID via the `X-Request-Source` header on PUT/DELETE requests to application-state endpoints.
 3. **Sync filters**: `useDbSync()` accepts an `ignoreSource` option. The UI passes its own tab ID so it ignores events from its own writes — but still picks up events from agents, other tabs, and scripts.
 
@@ -183,7 +183,7 @@ When the agent renames the record, the query refetches, `props.title` updates, b
 **Derived-state surfaces (form fields, inline editors, popovers): use `useReconciledState`.** It re-adopts the authoritative external value when it changes, except while the user is actively editing that field — so agent mutations show up live without clobbering in-progress typing:
 
 ```ts
-import { useReconciledState } from "@agent-native/core/client";
+import { useReconciledState } from "@agentnative-fork/core/client";
 
 // `active` = true while the user is editing this field (focused / dirty).
 const [title, setTitle] = useReconciledState(props.title, { active: isEditing });

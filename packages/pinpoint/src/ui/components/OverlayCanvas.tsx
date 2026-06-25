@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Canvas-based selection overlay + draw mode
+// @agentnative-fork/pinpoint — Canvas-based selection overlay + draw mode
 // MIT License
 //
 // Uses <canvas> for hover highlight, drag rectangle, pin outlines,

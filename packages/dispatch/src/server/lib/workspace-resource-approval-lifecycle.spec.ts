@@ -38,7 +38,7 @@ beforeEach(async () => {
   vi.resetModules();
 
   const [{ runMigrations }, { dispatchMigrations }] = await Promise.all([
-    import("@agent-native/core/db"),
+    import("@agentnative-fork/core/db"),
     import("../../db/migrations.js"),
   ]);
   await runMigrations(dispatchMigrations, {
@@ -48,7 +48,7 @@ beforeEach(async () => {
 
 afterEach(async () => {
   try {
-    const { closeDbExec } = await import("@agent-native/core/db");
+    const { closeDbExec } = await import("@agentnative-fork/core/db");
     await closeDbExec();
   } catch {}
   restoreEnv();
@@ -72,10 +72,10 @@ describe("workspace resource approval lifecycle", () => {
         listWorkspaceResourcesForApp,
       },
     ] = await Promise.all([
-      import("@agent-native/core/db"),
-      import("@agent-native/core/server"),
-      import("@agent-native/core/resources/store"),
-      import("@agent-native/core/settings"),
+      import("@agentnative-fork/core/db"),
+      import("@agentnative-fork/core/server"),
+      import("@agentnative-fork/core/resources/store"),
+      import("@agentnative-fork/core/settings"),
       import("./workspace-resources-store.js").then(async (resourcesStore) => {
         const dispatchStore = await import("./dispatch-store.js");
         return {

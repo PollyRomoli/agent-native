@@ -16,10 +16,10 @@ import {
   appBasePath,
   useActionMutation,
   useActionQuery,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 
-// Client-side app-state helpers — the `@agent-native/core/application-state`
+// Client-side app-state helpers — the `@agentnative-fork/core/application-state`
 // module is server-only (requires DB access). In the browser we hit the
 // framework's auto-mounted route, which handles per-session scoping.
 async function readAppStateClient<T = unknown>(key: string): Promise<T | null> {

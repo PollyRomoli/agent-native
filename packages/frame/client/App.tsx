@@ -22,11 +22,11 @@ import {
   getTemplate,
   getTemplateGatewayAppUrl,
   getTemplateGatewayUrl,
-} from "@agent-native/shared-app-config";
+} from "@agentnative-fork/shared-app-config";
 
 // Lazy-load the AgentPanel; it provides the full Chat/CLI/Workspace UI.
 const AgentPanel = lazy(() =>
-  import("@agent-native/core/client").then((m) => ({
+  import("@agentnative-fork/core/client").then((m) => ({
     default: m.AgentPanel,
   })),
 );

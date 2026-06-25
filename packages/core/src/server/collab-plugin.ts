@@ -4,7 +4,7 @@
  * Templates opt in with one line:
  * ```ts
  * // server/plugins/collab.ts
- * import { createCollabPlugin } from "@agent-native/core/server";
+ * import { createCollabPlugin } from "@agentnative-fork/core/server";
  * export default createCollabPlugin({ table: "documents", contentColumn: "content" });
  * ```
  */

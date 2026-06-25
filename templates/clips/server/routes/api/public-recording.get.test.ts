@@ -28,7 +28,7 @@ vi.mock("drizzle-orm", () => ({
   eq: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getSession: (...args: unknown[]) => mockGetSession(...args),
   signShortLivedToken: (...args: unknown[]) => mockSignShortLivedToken(...args),
 }));

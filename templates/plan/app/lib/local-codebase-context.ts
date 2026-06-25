@@ -1,4 +1,4 @@
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import { collectLocalControlResourceFiles } from "./local-control-resources";
 
 type PermissionState = "granted" | "denied" | "prompt";

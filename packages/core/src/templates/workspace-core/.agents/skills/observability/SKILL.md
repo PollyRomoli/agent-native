@@ -78,11 +78,11 @@ const criteria: EvalCriteria = {
 
 #### Evals (CI gate)
 
-The three layers above score *real production runs* after the fact. For an active, deterministic gate, use the first-class `*.eval.ts` primitive from `@agent-native/core/eval` (source: `packages/core/src/eval/*`). It runs the actual agent loop against fixed inputs and exits non-zero below threshold, so it gates CI/deploys.
+The three layers above score *real production runs* after the fact. For an active, deterministic gate, use the first-class `*.eval.ts` primitive from `@agentnative-fork/core/eval` (source: `packages/core/src/eval/*`). It runs the actual agent loop against fixed inputs and exits non-zero below threshold, so it gates CI/deploys.
 
 ```ts
 // evals/faq.eval.ts
-import { defineEval, contains, llmJudge } from "@agent-native/core/eval";
+import { defineEval, contains, llmJudge } from "@agentnative-fork/core/eval";
 
 export default defineEval({
   name: "answers the FAQ",
@@ -101,7 +101,7 @@ export default defineEval({
 A/B testing with sticky user-level assignment:
 
 ```ts
-import { insertExperiment, updateExperiment } from "@agent-native/core/observability";
+import { insertExperiment, updateExperiment } from "@agentnative-fork/core/observability";
 
 const exp = {
   id: crypto.randomUUID(),
@@ -138,7 +138,7 @@ Compute results with `POST /_agent-native/observability/experiments/:id/results`
 Add a dashboard route to any template:
 ```tsx
 // app/routes/observability.tsx
-import { ObservabilityDashboard } from "@agent-native/core/client";
+import { ObservabilityDashboard } from "@agentnative-fork/core/client";
 
 export default function ObservabilityPage() {
   return (

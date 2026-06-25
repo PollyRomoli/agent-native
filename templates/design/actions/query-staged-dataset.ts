@@ -1,13 +1,13 @@
 /**
  * Thin Design re-export of the staged dataset query helper, pre-bound to appId="design".
  */
-import { defineAction } from "@agent-native/core";
-import { runAggregateQuery } from "@agent-native/core/provider-api/staged-datasets-aggregate";
+import { defineAction } from "@agentnative-fork/core";
+import { runAggregateQuery } from "@agentnative-fork/core/provider-api/staged-datasets-aggregate";
 import {
   getStagedDatasetMeta,
   getStagedDatasetRows,
-} from "@agent-native/core/provider-api/staged-datasets-store";
-import { getCredentialContext } from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/provider-api/staged-datasets-store";
+import { getCredentialContext } from "@agentnative-fork/core/server/request-context";
 import { z } from "zod";
 import { DESIGN_APP_ID } from "../server/lib/provider-api.js";
 

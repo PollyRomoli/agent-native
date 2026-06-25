@@ -36,7 +36,7 @@ const execute = vi.fn(async (input: { sql: string; args: unknown[] }) => {
   return { rows: [] };
 });
 
-vi.mock("@agent-native/core/db", () => ({
+vi.mock("@agentnative-fork/core/db", () => ({
   getDbExec: () => ({ execute }),
 }));
 

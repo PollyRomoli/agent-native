@@ -1,4 +1,4 @@
-import { appBasePath, appPath } from "@agent-native/core/client";
+import { appBasePath, appPath } from "@agentnative-fork/core/client";
 
 function stripBasePath(pathname: string): string {
   const basePath = appBasePath();

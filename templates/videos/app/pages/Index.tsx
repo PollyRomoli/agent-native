@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useParams, Navigate } from "react-router";
-import { AgentSidebar, useT } from "@agent-native/core/client";
-import { InvitationBanner } from "@agent-native/core/client/org";
+import { AgentSidebar, useT } from "@agentnative-fork/core/client";
+import { InvitationBanner } from "@agentnative-fork/core/client/org";
 import { compositions } from "@/remotion/registry";
 import { Spinner } from "@/components/ui/spinner";
 import { Sidebar } from "@/components/Sidebar";

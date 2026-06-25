@@ -6,7 +6,7 @@ import {
 } from "h3";
 import { and, eq } from "drizzle-orm";
 import { db, schema } from "../db/index.js";
-import { readBody, getSession } from "@agent-native/core/server";
+import { readBody, getSession } from "@agentnative-fork/core/server";
 import * as chrono from "chrono-node";
 import {
   cancelScheduledJobForOwner,

@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const getAssetOrThrowMock = vi.hoisted(() => vi.fn());
 const generateImageRunMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   defineAction: (entry: unknown) => entry,
 }));
 

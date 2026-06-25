@@ -1,12 +1,12 @@
-import { defineAction } from "@agent-native/core";
-import { resolveAccess } from "@agent-native/core/sharing";
-import { buildDeepLink, getRequestUserEmail } from "@agent-native/core/server";
-import { hasCollabState } from "@agent-native/core/collab";
+import { defineAction } from "@agentnative-fork/core";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
+import { buildDeepLink, getRequestUserEmail } from "@agentnative-fork/core/server";
+import { hasCollabState } from "@agentnative-fork/core/collab";
 import {
   appStateGet,
   appStatePut,
   appStateDelete,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 import "../server/db/index.js";
 import {

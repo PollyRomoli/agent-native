@@ -7,15 +7,15 @@ const mockSignShortLivedToken = vi.hoisted(() => vi.fn());
 const mockVerifyShortLivedToken = vi.hoisted(() => vi.fn());
 const mockRecordings = vi.hoisted(() => ({ rows: [] as any[] }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   appStateGet: (...args: unknown[]) => mockAppStateGet(...args),
 }));
 
-vi.mock("@agent-native/core/extensions/url-safety", () => ({
+vi.mock("@agentnative-fork/core/extensions/url-safety", () => ({
   ssrfSafeFetch: (...args: unknown[]) => mockSsrfSafeFetch(...args),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getSession: (...args: unknown[]) => mockGetSession(...args),
   signShortLivedToken: (...args: unknown[]) => mockSignShortLivedToken(...args),
   verifyShortLivedToken: (...args: unknown[]) =>

@@ -91,7 +91,7 @@ Additional tool: `web-request` — outbound HTTP with `${keys.NAME}` substitutio
 Integrations register events at module load time. The bus validates payloads against Standard Schema definitions and dispatches to subscribers.
 
 ```ts
-import { registerEvent, emit } from "@agent-native/core/event-bus";
+import { registerEvent, emit } from "@agentnative-fork/core/event-bus";
 import { z } from "zod";
 
 // Register an event type (typically in a server plugin)

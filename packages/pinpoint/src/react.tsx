@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — React component wrapper
+// @agentnative-fork/pinpoint — React component wrapper
 // MIT License
 //
 // Thin lifecycle wrapper around mountPinpoint(). Renders nothing —
@@ -16,7 +16,7 @@ export type PinpointProps = Omit<PinpointConfig, "target">;
  * Mount the Pinpoint overlay as a React component.
  *
  * ```tsx
- * import { Pinpoint } from "@agent-native/pinpoint/react";
+ * import { Pinpoint } from "@agentnative-fork/pinpoint/react";
  *
  * function App() {
  *   return (

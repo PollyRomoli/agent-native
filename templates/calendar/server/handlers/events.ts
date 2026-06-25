@@ -7,8 +7,8 @@ import {
   type H3Event,
 } from "h3";
 import type { CalendarEvent } from "../../shared/api.js";
-import { readBody, getSession } from "@agent-native/core/server";
-import { emit } from "@agent-native/core/event-bus";
+import { readBody, getSession } from "@agentnative-fork/core/server";
+import { emit } from "@agentnative-fork/core/event-bus";
 import * as googleCalendar from "../lib/google-calendar.js";
 import { prepareZoomMeetingPatch } from "../lib/event-video-conferencing.js";
 import {

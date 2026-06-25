@@ -12,7 +12,7 @@
  *
  * Usage in entry.server.tsx:
  * ```ts
- * import { wrapWithAnalytics } from "@agent-native/core/server";
+ * import { wrapWithAnalytics } from "@agentnative-fork/core/server";
  * return new Response(wrapWithAnalytics(body), { ... });
  * ```
  */

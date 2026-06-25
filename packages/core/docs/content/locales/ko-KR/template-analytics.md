@@ -80,7 +80,7 @@ description: "평이한 영어로 분석 질문을 하고 차트와 대시보드
 CLI에서 새 Analytics 앱 만들기:
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 로컬 개발자:
@@ -162,7 +162,7 @@ GCP 콘솔 → APIs & 서비스 → 자격 증명 → OAuth 클라이언트 ID, 
 
 핵심 테이블(`templates/analytics/server/db/schema.ts` 참조):
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ GCP 콘솔 → APIs & 서비스 → 자격 증명 → OAuth 클라이언트 ID, 
 }
 ```
 
-또한 `@agent-native/core/org`에서 제공하는 리소스별 공유 테이블(`dashboard_shares`, `analysis_shares`) 및 조직 테이블(`organizations`, `org_members`, `org_invitations`)도 있습니다. 데이터 사전은 범위가 지정된 키 아래 프레임워크의 `settings` 테이블에 있습니다.
+또한 `@agentnative-fork/core/org`에서 제공하는 리소스별 공유 테이블(`dashboard_shares`, `analysis_shares`) 및 조직 테이블(`organizations`, `org_members`, `org_invitations`)도 있습니다. 데이터 사전은 범위가 지정된 키 아래 프레임워크의 `settings` 테이블에 있습니다.
 
 - **`dashboards`** — Explorer 및 SQL 대시보드 모두. `kind`는 `"explorer"` 또는 `"sql"`이고; `config`는 `SqlDashboardConfig`와 일치하는 JSON 얼룩입니다.
 - **`dashboard_shares`** — 리소스별 공유 부여(주체, 역할).
@@ -222,7 +222,7 @@ GCP 콘솔 → APIs & 서비스 → 자격 증명 → OAuth 클라이언트 ID, 
 - **`analysis_shares`** — 분석을 위한 리소스별 공유 부여.
 - **`bigquery_cache`** — 바이트 처리 계정을 사용하여 SQL 해시로 입력된 쿼리 결과 캐시.
 
-또한 `@agent-native/core/org`에서 제공하는 조직 테이블(`organizations`, `org_members`, `org_invitations`)도 있습니다.
+또한 `@agentnative-fork/core/org`에서 제공하는 조직 테이블(`organizations`, `org_members`, `org_invitations`)도 있습니다.
 
 데이터 사전은 범위가 지정된 키 아래 프레임워크의 `settings` 테이블에 있습니다. 전체 모양은 `list-data-dictionary` 및 `save-data-dictionary-entry` actions를 참조하세요.
 

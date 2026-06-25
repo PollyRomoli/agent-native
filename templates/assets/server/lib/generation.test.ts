@@ -10,7 +10,7 @@ const resolveBuilderCredentialsMock = vi.hoisted(() => vi.fn());
 const resolveSecretMock = vi.hoisted(() => vi.fn());
 const resolveHasBuilderPrivateKeyMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core/server", () => {
+vi.mock("@agentnative-fork/core/server", () => {
   class FeatureNotConfiguredError extends Error {
     readonly requiredCredential: string;
     readonly builderConnectUrl?: string;

@@ -1,5 +1,7 @@
 # Agent-Native
 
+> **Fork modifications**: This fork adds a **SaaS customization layer** (`@agentnative-fork/saas` package) that enables white-labeling, platform-managed credentials, custom billing, and UI overrides. All packages are published under the `@agentnative-fork` scope. See [SaaS Customization Layer](#saas-customization-layer) below for details.
+
 ## The framework for agent-native apps
 
 Agent-Native is an open-source framework for building robust agents that act inside real apps, not just chat next to them. It gives you primitives for product-grade agentic software: shared actions, SQL-backed state, identity, tools, skills, jobs, observability, and UI surfaces that all work together. Bring your own database, hosting provider, model stack, and app code.
@@ -117,7 +119,7 @@ The agent and the UI are equal citizens of one system. Every action works both w
 Don't want to scaffold a whole app yet? Add visual planning and PR recaps to Claude Code, Codex, Cursor, Pi, OpenCode, GitHub Copilot / VS Code, and similar agents with one command:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 ![Visual plan and recap in action](https://raw.githubusercontent.com/builderio/skills/main/media/visual-recap.gif)
@@ -134,7 +136,7 @@ See the **[Skills Guide](https://agent-native.com/docs/skills-guide#app-backed-s
 One command to start a new project locally.
 
 ```bash
-npx @agent-native/core@latest create my-app
+npx @agentnative-fork/core@latest create my-app
 cd my-app
 pnpm install
 pnpm dev
@@ -156,6 +158,128 @@ Prefer flags? `create my-app --template mail`, `--headless`, or `--standalone` s
 | **AI**            | Bolted on          | Powerful                | Shallowly connected        | Agent-first, integrated |
 | **Customization** | Can't              | Instructions and skills | Full, but high maintenance | Agent modifies the app  |
 | **Ownership**     | Rented             | Somewhat yours          | You own the code           | You own the code        |
+
+## SaaS Customization Layer
+
+This fork adds a `@agentnative-fork/saas` package and extensibility hooks throughout `@agentnative-fork/core` for white-labeling and SaaS deployment.
+
+### What's new
+
+| Feature | Description |
+| ------- | ----------- |
+| **Theme injection** | Override app name, logo, colors, fonts, and legal links on the login page and onboarding HTML |
+| **Credential modes** | `byok` (default), `platform` (owner provides all API keys), or `platform-with-override` (platform keys with user override) |
+| **Model catalog overrides** | Register custom model configs for Builder, Anthropic, or AI SDK providers |
+| **Billing hooks** | Custom pricing resolvers, cost calculators, and credits conversion for usage-based billing |
+| **Settings panel customization** | Hide built-in sections, register custom sections, override section labels |
+| **Sidebar customization** | Hide built-in header actions/nav items, register custom header actions and nav items |
+| **Template registry override** | Hide or restrict which templates appear in pickers |
+| **Auto-hide API key UI** | Secrets section automatically hidden when credential mode is `platform` |
+
+### Installation
+
+#### Option 1 — Clone the full monorepo (recommended)
+
+All packages resolve locally via pnpm workspaces. Best for personal use and customization.
+
+```bash
+git clone https://github.com/PollyRomoli/agent-native.git
+cd agent-native
+pnpm install
+pnpm dev
+```
+
+The `@agentnative-fork/saas` package is automatically linked as a workspace dependency. No npm or external registry required.
+
+#### Option 2 — Install into an existing project from GitHub
+
+If you already have a project and just want the SaaS layer, install directly from this GitHub repo. No npm account needed.
+
+```bash
+pnpm add https://github.com/PollyRomoli/agent-native.git#packages/saas
+```
+
+> **Note**: This installs only the `@agentnative-fork/saas` package. It depends on `@agentnative-fork/core` and `@agentnative-fork/shared-app-config` which also need to be installed from this fork since they contain hooks not in the upstream npm package:
+>
+> ```bash
+> pnpm add https://github.com/PollyRomoli/agent-native.git#packages/core
+> pnpm add https://github.com/PollyRomoli/agent-native.git#packages/shared-app-config
+> ```
+
+Then in your server entry:
+
+```ts
+import { applySaasConfig } from "@agentnative-fork/saas";
+import config from "./saas.config.js";
+
+applySaasConfig(config);
+```
+
+#### Option 3 — Install from npm (optional, for public distribution)
+
+If you want to publish to npm for wider distribution, all three packages are scoped under `@agentnative-fork`. After setting up the npm org and trusted publishing (see `.github/workflows/auto-publish.yml`), users can install with:
+
+```bash
+pnpm add @agentnative-fork/saas @agentnative-fork/core @agentnative-fork/shared-app-config
+```
+
+This option requires npm setup but is not needed for personal use or GitHub-based installation.
+
+### Usage
+
+Create a `saas.config.ts` in your app:
+
+```ts
+import { defineConfig, presets } from "@agentnative-fork/saas";
+
+export default defineConfig(
+  presets.platformManaged({
+    appName: "MyAI",
+    platformResolver: async (key) => {
+      // Return platform-managed API keys
+      return process.env[key] ?? null;
+    },
+    creditsPerDollar: 1000,
+  }),
+);
+```
+
+Apply it at server startup:
+
+```ts
+import { applySaasConfig } from "@agentnative-fork/saas";
+import config from "./saas.config.js";
+
+applySaasConfig(config);
+```
+
+### Modified files
+
+**`packages/core/src/`**:
+- `server/onboarding-html.ts` — `ThemeConfig` interface, `setTheme`/`getTheme`, theme-aware HTML generation
+- `server/auth.ts` — `theme` property in `AuthOptions`, theme-aware login HTML
+- `server/credential-provider.ts` — `CredentialMode` type, `setCredentialMode`/`getCredentialMode`, platform credential resolver
+- `server/builder-browser.ts` — `credentialMode` in `BuilderBrowserStatus`
+- `agent/model-config.ts` — `registerModelConfig`/`getModelConfig`, mutable model registry
+- `agent/default-model.ts` — Re-exports new model registry functions
+- `usage/store.ts` — `BillingHooks` interface, `setBillingHooks`/`setBillingMode`/`setCustomPricingResolver`
+- `client/settings/registry.ts` — **New**: settings section registry (hide/show/register/label override)
+- `client/settings/SettingsPanel.tsx` — Conditional rendering via registry, auto-hide secrets in platform mode
+- `client/settings/useBuilderStatus.ts` — `credentialMode` in `BuilderStatus`
+- `client/sidebar-registry.ts` — **New**: sidebar action/nav item registry
+- `client/AgentPanel.tsx` — Conditional rendering of sidebar actions via registry
+- `server/index.ts`, `client/index.ts`, `index.ts` — Exports for new functions and types
+
+**`packages/shared-app-config/`**:
+- `templates.ts` — `setHiddenTemplates`/`setAllowedTemplates`/`isTemplateVisible`/`visibleTemplatesWithOverrides`
+
+**`packages/saas/`** — **New package**:
+- `package.json`, `tsconfig.json`
+- `src/schema.ts` — `SaasConfig` and sub-config interfaces
+- `src/define-config.ts` — `defineConfig()` with validation
+- `src/loader.ts` — `applySaasConfig()` wiring config to core hooks
+- `src/presets.ts` — Ready-made theme, credential, billing, and composite presets
+- `src/index.ts` — Public API exports
 
 ## Community
 

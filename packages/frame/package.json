@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/frame",
+  "name": "@agentnative-fork/frame",
   "version": "0.1.154",
   "private": true,
   "type": "module",
@@ -36,12 +36,12 @@
     "listhen": "catalog:"
   },
   "peerDependencies": {
-    "@agent-native/core": ">=0.24.0",
-    "@agent-native/shared-app-config": ">=0.1.0"
+    "@agentnative-fork/core": ">=0.24.0",
+    "@agentnative-fork/shared-app-config": ">=0.1.0"
   },
   "devDependencies": {
-    "@agent-native/core": "workspace:*",
-    "@agent-native/shared-app-config": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
+    "@agentnative-fork/shared-app-config": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",

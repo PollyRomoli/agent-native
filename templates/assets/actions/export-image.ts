@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { getPresignedObjectUrl } from "../server/lib/storage.js";
 import { absoluteUrl } from "../server/lib/json.js";

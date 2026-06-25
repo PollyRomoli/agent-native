@@ -67,7 +67,7 @@ El resto de este documento es para cualquiera que bifurque la plantilla de Prese
 Cree una nueva aplicación de Presentaciones desde CLI:
 
 ```bash
-npx @agent-native/core@latest create my-slides --standalone --template slides
+npx @agentnative-fork/core@latest create my-slides --standalone --template slides
 cd my-slides
 pnpm install
 pnpm dev

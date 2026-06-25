@@ -80,7 +80,7 @@ description: "एनालिटिक्स प्रश्न सादे अ
 CLI से एक नया एनालिटिक्स ऐप बनाएं:
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 स्थानीय देव:
@@ -162,7 +162,7 @@ GCP कंसोल → APIs और सेवाएँ → क्रेडें
 
 कोर टेबल (`templates/analytics/server/db/schema.ts` देखें):
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ GCP कंसोल → APIs और सेवाएँ → क्रेडें
 }
 ```
 
-साथ ही `@agent-native/core/org` द्वारा प्रदान की गई प्रति-संसाधन शेयर टेबल (`dashboard_shares`, `analysis_shares`) और ऑर्ग टेबल (`organizations`, `org_members`, `org_invitations`)। डेटा डिक्शनरी फ्रेमवर्क की `settings` तालिका में स्कोप्ड कुंजियों के अंतर्गत रहती है।
+साथ ही `@agentnative-fork/core/org` द्वारा प्रदान की गई प्रति-संसाधन शेयर टेबल (`dashboard_shares`, `analysis_shares`) और ऑर्ग टेबल (`organizations`, `org_members`, `org_invitations`)। डेटा डिक्शनरी फ्रेमवर्क की `settings` तालिका में स्कोप्ड कुंजियों के अंतर्गत रहती है।
 
 - **`dashboards`** - एक्सप्लोरर और SQL दोनों डैशबोर्ड। `kind` `"explorer"` या `"sql"` है; `config` एक JSON ब्लॉब है जो `SqlDashboardConfig` से मेल खाता है।
 - **`dashboard_shares`** - प्रति-संसाधन शेयर अनुदान (मूलधन, भूमिका)।
@@ -222,7 +222,7 @@ GCP कंसोल → APIs और सेवाएँ → क्रेडें
 - **`analysis_shares`** - विश्लेषण के लिए प्रति-संसाधन शेयर अनुदान।
 - **`bigquery_cache`** - बाइट्स-संसाधित लेखांकन के साथ SQL हैश द्वारा कुंजीबद्ध क्वेरी परिणाम कैश।
 
-साथ ही `@agent-native/core/org` द्वारा प्रदान की गई ऑर्ग टेबल (`organizations`, `org_members`, `org_invitations`)।
+साथ ही `@agentnative-fork/core/org` द्वारा प्रदान की गई ऑर्ग टेबल (`organizations`, `org_members`, `org_invitations`)।
 
 डेटा डिक्शनरी फ्रेमवर्क की `settings` तालिका में स्कोप्ड कुंजियों के अंतर्गत रहती है; पूर्ण आकार के लिए `list-data-dictionary` और `save-data-dictionary-entry` actions देखें।
 

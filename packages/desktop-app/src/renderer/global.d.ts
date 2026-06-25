@@ -686,18 +686,18 @@ interface ElectronAPI {
   };
 
   appConfig: {
-    load(): Promise<import("@agent-native/shared-app-config").AppConfig[]>;
+    load(): Promise<import("@agentnative-fork/shared-app-config").AppConfig[]>;
     add(
-      app: import("@agent-native/shared-app-config").AppConfig,
-    ): Promise<import("@agent-native/shared-app-config").AppConfig[]>;
+      app: import("@agentnative-fork/shared-app-config").AppConfig,
+    ): Promise<import("@agentnative-fork/shared-app-config").AppConfig[]>;
     remove(
       id: string,
-    ): Promise<import("@agent-native/shared-app-config").AppConfig[]>;
+    ): Promise<import("@agentnative-fork/shared-app-config").AppConfig[]>;
     update(
       id: string,
-      updates: Partial<import("@agent-native/shared-app-config").AppConfig>,
-    ): Promise<import("@agent-native/shared-app-config").AppConfig[]>;
-    reset(): Promise<import("@agent-native/shared-app-config").AppConfig[]>;
+      updates: Partial<import("@agentnative-fork/shared-app-config").AppConfig>,
+    ): Promise<import("@agentnative-fork/shared-app-config").AppConfig[]>;
+    reset(): Promise<import("@agentnative-fork/shared-app-config").AppConfig[]>;
     chooseLocalFolder(): Promise<LocalAppFolderSelectResult>;
   };
 }

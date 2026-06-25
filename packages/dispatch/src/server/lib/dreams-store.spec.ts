@@ -48,14 +48,14 @@ vi.mock("./thread-debug-store.js", () => ({
   listThreadDebugSources: mocks.listThreadDebugSources,
 }));
 
-vi.mock("@agent-native/core/resources/store", () => ({
+vi.mock("@agentnative-fork/core/resources/store", () => ({
   SHARED_OWNER: "__shared__",
   resourceGetByPath: mocks.resourceGetByPath,
   resourceList: mocks.resourceList,
   resourcePut: mocks.resourcePut,
 }));
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getOrgSetting: mocks.getOrgSetting,
   getUserSetting: mocks.getUserSetting,
   putOrgSetting: mocks.putOrgSetting,

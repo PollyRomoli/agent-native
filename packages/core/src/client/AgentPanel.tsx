@@ -31,6 +31,10 @@ import React, {
   Suspense,
   startTransition,
 } from "react";
+import {
+  getCustomSidebarHeaderActions,
+  isSidebarActionHidden,
+} from "./sidebar-registry.js";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import {
   Tooltip,
@@ -961,7 +965,7 @@ function AgentPanelInner({
             </TooltipTrigger>
             <TooltipContent>{t("agentPanel.chatMode")}</TooltipContent>
           </Tooltip>
-          {showCliMode && (
+          {showCliMode && !isSidebarActionHidden("cli") && (
             <Tooltip>
               <TooltipTrigger asChild>
                 <button
@@ -986,6 +990,7 @@ function AgentPanelInner({
               </TooltipContent>
             </Tooltip>
           )}
+          {!isSidebarActionHidden("resources") && (
           <Tooltip>
             <TooltipTrigger asChild>
               <button
@@ -1005,6 +1010,7 @@ function AgentPanelInner({
             </TooltipTrigger>
             <TooltipContent>{t("agentPanel.workspaceMode")}</TooltipContent>
           </Tooltip>
+          )}
         </div>
       </TooltipProvider>
     ),
@@ -1350,6 +1356,22 @@ function AgentPanelInner({
               showHistory,
               tabs,
               toggleHistory,
+            })}
+            {getCustomSidebarHeaderActions().map((action) => {
+              if (action.component) {
+                const Cmp = action.component;
+                return <Cmp key={action.id} />;
+              }
+              return (
+                <button
+                  key={action.id}
+                  onClick={action.onClick}
+                  aria-label={action.label}
+                  className="agent-sidebar-hover-reveal flex h-6 w-6 items-center justify-center rounded text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                >
+                  {action.icon}
+                </button>
+              );
             })}
           </div>
         </div>

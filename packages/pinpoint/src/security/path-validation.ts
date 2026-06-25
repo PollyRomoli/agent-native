@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Path validation for file operations
+// @agentnative-fork/pinpoint — Path validation for file operations
 // MIT License
 
 import { resolve, relative } from "path";

@@ -1,9 +1,9 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   ForbiddenError,
   currentAccess,
   resolveAccess,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import { and, eq, isNull } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
@@ -17,7 +17,7 @@ import { notifyPlanCommentRecipients } from "../server/lib/comment-notifications
 import {
   getRequestUserEmail,
   getRequestUserName,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import {
   buildUpdatedPlanCommentRows,
   commentResolutionFields,

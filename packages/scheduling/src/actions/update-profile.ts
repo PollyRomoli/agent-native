@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { currentUserEmail } from "./_helpers.js";
 
@@ -22,7 +22,7 @@ export default defineAction({
     // The consumer template wires a `profile-settings` settings key; we just
     // read/merge/write it. Accessed via dynamic import to avoid a hard dep on
     // the core settings API here (different consumers may use alternate stores).
-    const core: any = await import("@agent-native/core");
+    const core: any = await import("@agentnative-fork/core");
     if (core.writeSetting) {
       const existing = (await core.readSetting?.("profile-settings")) ?? {};
       await core.writeSetting("profile-settings", {

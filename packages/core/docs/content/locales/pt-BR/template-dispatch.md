@@ -84,11 +84,11 @@ _Como funciona nos bastidores (para desenvolvedores)._
 
 - **Agente orquestrador.** O chat é configurado como um roteador: ele lê `AGENTS.md`, `LEARNINGS.md` e encaminha para subagentes especializados ou agentes A2A remotos.
 - **Registro de agente remoto.** Os manifestos do agente A2A são entradas de tempo de execução do espaço de trabalho (não uma pasta de origem do modelo com check-in): em um espaço de trabalho com vários aplicativos, os aplicativos irmãos em `apps/` são descobertos automaticamente como pares A2A — sem necessidade de registro manual. O Dispatch os chama usando a ação `call-agent`.
-- **Esquema do Vault.** Tabelas Drizzle para segredos, concessões, solicitações, aprovações e registros de auditoria. Eles residem no pacote `@agent-native/dispatch` (`packages/dispatch/src/db/schema.ts`) e são reexportados para o modelo via `templates/dispatch/server/db/index.ts` - não há `server/db/schema.ts` local de modelo. O tempo de execução do Dispatch é fornecido no pacote, não na fonte do modelo (consistente com a observação abaixo de que `@agent-native/dispatch` possui o shell, a barra lateral e as páginas integradas).
+- **Esquema do Vault.** Tabelas Drizzle para segredos, concessões, solicitações, aprovações e registros de auditoria. Eles residem no pacote `@agentnative-fork/dispatch` (`packages/dispatch/src/db/schema.ts`) e são reexportados para o modelo via `templates/dispatch/server/db/index.ts` - não há `server/db/schema.ts` local de modelo. O tempo de execução do Dispatch é fornecido no pacote, não na fonte do modelo (consistente com a observação abaixo de que `@agentnative-fork/dispatch` possui o shell, a barra lateral e as páginas integradas).
 - **Plugins Slack / Telegram.** Plug-ins de servidor que registram webhooks e encaminham mensagens recebidas para o agente orquestrador.
 - **Recursos MCP do espaço de trabalho.** Adicione definições de servidor HTTP MCP em `mcp-servers/*.json` em Recursos e, em seguida, coloque-as no escopo de Todos os aplicativos ou concessões de aplicativos selecionados, assim como skills e contexto.
 
-```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agent-native/dispatch (packages/dispatch/src/db/schema.ts)."
+```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agentnative-fork/dispatch (packages/dispatch/src/db/schema.ts)."
 {
   "entities": [
     { "id": "secrets", "name": "vault_secrets", "note": "Stored credential values", "fields": [
@@ -170,14 +170,14 @@ pnpm action create-dream-report --allSources true --sourceTimeoutMs 30000 --limi
 ## Andaimes {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 # pick "Dispatch" in the multi-select picker, plus whichever domain apps you want
 ```
 
 Se preferir nomear o modelo diretamente em vez de usar o seletor:
 
 ```bash
-npx @agent-native/core@latest create my-platform --template dispatch
+npx @agentnative-fork/core@latest create my-platform --template dispatch
 # add more apps in the same workspace as you go
 ```
 
@@ -208,7 +208,7 @@ Dispatch é um modelo completo como qualquer outro — consulte [Templates](/doc
 
 Para telas de gerenciamento específicas do espaço de trabalho, adicione páginas locais do roteador React e
 registrá-los em `app/dispatch-extensions.tsx`. O espaço de trabalho gerado possui
-apenas a guia e rota extras; `@agent-native/dispatch` continua possuindo o shell,
+apenas a guia e rota extras; `@agentnative-fork/dispatch` continua possuindo o shell,
 barra lateral, páginas integradas e futuras atualizações de pacotes.
 
 ## O que vem a seguir

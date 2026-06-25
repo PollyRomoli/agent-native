@@ -23,7 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 import { useUpdateEvent, useDeleteEvent } from "@/hooks/use-events";
 import { getEventDisplayColor } from "@/lib/event-colors";
 import { shortcutModifierLabel } from "@/lib/utils";

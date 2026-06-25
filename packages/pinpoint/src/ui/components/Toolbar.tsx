@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Pill-style floating toolbar with mode tabs
+// @agentnative-fork/pinpoint — Pill-style floating toolbar with mode tabs
 // MIT License
 //
 // Collapsed: small pill with pin count. Expanded: mode-tabbed controls.

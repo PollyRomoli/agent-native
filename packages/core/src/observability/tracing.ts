@@ -20,7 +20,7 @@
  *     core. The host owns the provider/exporter wiring; core only emits spans.
  */
 
-const TRACER_NAME = "@agent-native/core/agent-loop";
+const TRACER_NAME = "@agentnative-fork/core/agent-loop";
 
 /**
  * Minimal structural subset of the OpenTelemetry `Span` we use. Declared

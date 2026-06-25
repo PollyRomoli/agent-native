@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   ForbiddenError,
   currentAccess,
   resolveAccess,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import { and, desc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

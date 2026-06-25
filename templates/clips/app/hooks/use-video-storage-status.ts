@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 
 export interface VideoStorageStatus {
   configured: boolean;

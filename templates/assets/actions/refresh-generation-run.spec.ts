@@ -16,11 +16,11 @@ const schemaMock = vi.hoisted(() => ({
   },
 }));
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   defineAction: (entry: unknown) => entry,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: assertAccessMock,
 }));
 

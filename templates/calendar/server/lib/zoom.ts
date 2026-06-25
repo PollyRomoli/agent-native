@@ -18,8 +18,8 @@ import {
   saveOAuthTokens,
   listOAuthAccountsByOwner,
   deleteOAuthTokens,
-} from "@agent-native/core/oauth-tokens";
-import { createZoomProvider } from "@agent-native/scheduling/server/providers";
+} from "@agentnative-fork/core/oauth-tokens";
+import { createZoomProvider } from "@agentnative-fork/scheduling/server/providers";
 
 const PROVIDER = "zoom_video";
 const SCOPES = [

@@ -13,9 +13,9 @@ import {
   it,
   vi,
 } from "vitest";
-import { registerShareableResource } from "@agent-native/core/sharing";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
-import { closeDbExec } from "@agent-native/core/db";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
+import { closeDbExec } from "@agentnative-fork/core/db";
 import * as planSchema from "../server/db/schema.js";
 
 let client: Client;

@@ -7,22 +7,22 @@ const neMock = vi.hoisted(() =>
   vi.fn((column, value) => ({ op: "ne", column, value })),
 );
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   defineAction: (entry: unknown) => entry,
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   buildDeepLink: vi.fn(({ app, view, params }) =>
     JSON.stringify({ app, view, params }),
   ),
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestUserEmail: vi.fn(() => "designer@example.com"),
   getRequestOrgId: vi.fn(() => "org-1"),
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: assertAccessMock,
 }));
 

@@ -532,7 +532,7 @@ function printMigrationStatus(opts: MigrateCliOptions): void {
   if (!fs.existsSync(appDir)) {
     console.error(`No Migration Workbench found at ${appDir}.`);
     console.error(
-      `Create one with: npx @agent-native/core@latest code /migrate <source>`,
+      `Create one with: npx @agentnative-fork/core@latest code /migrate <source>`,
     );
     console.error(
       `The direct migrate command is a shortcut into that same Agent-Native Code slash command.`,
@@ -615,7 +615,7 @@ function printMigrationResume(opts: MigrateCliOptions): void {
   const seed = readJsonIfExists(seedPath);
   if (!fs.existsSync(appDir) || !seed) {
     console.error(
-      "No resumable Migration Workbench seed found. Run `npx @agent-native/core@latest code /migrate <source>` first.",
+      "No resumable Migration Workbench seed found. Run `npx @agentnative-fork/core@latest code /migrate <source>` first.",
     );
     process.exit(1);
   }
@@ -660,8 +660,8 @@ function renderWorkbenchReady(args: {
     "  pnpm dev",
     "",
     "npx-friendly commands:",
-    `  npx @agent-native/core@latest code /migrate ${sourceCommand} --out ${shellQuote(path.relative(process.cwd(), args.outputRoot) || ".")}`,
-    `  npx @agent-native/core@latest code /migrate ${sourceCommand} --emit ${shellQuote(defaultDossierDirForDisplay(args.source))}`,
+    `  npx @agentnative-fork/core@latest code /migrate ${sourceCommand} --out ${shellQuote(path.relative(process.cwd(), args.outputRoot) || ".")}`,
+    `  npx @agentnative-fork/core@latest code /migrate ${sourceCommand} --emit ${shellQuote(defaultDossierDirForDisplay(args.source))}`,
     "",
     "Workbench URL:",
     `  http://localhost:${MIGRATION_DEV_PORT}/`,
@@ -690,7 +690,7 @@ function renderCodeAgentMigrationSession(
     `  Source:  ${run.subtitle ?? "not set"}`,
     `  Output:  ${stringMetadata(run, "outputRoot") ?? "not set"}`,
     `  Dossier: ${stringMetadata(run, "dossierRoot") ?? dossier.dossierRoot}`,
-    `  Engine:  ${dossier.usedMigrateHelpers ? "@agent-native/migrate helpers" : "safe local fallback"}`,
+    `  Engine:  ${dossier.usedMigrateHelpers ? "@agentnative-fork/migrate helpers" : "safe local fallback"}`,
     "",
     "Artifacts:",
     ...dossier.files
@@ -805,7 +805,7 @@ function renderEmitResult(result: EmitDossierResult): string {
     `  Source:  ${formatSourceForDisplay(result.source)}`,
     `  Dossier: ${result.dossierRoot}`,
     `  IR:      ${result.files.includes("ir.json") ? "included" : "not available from this input"}`,
-    `  Engine:  ${result.usedMigrateHelpers ? "@agent-native/migrate helpers" : "safe local fallback"}`,
+    `  Engine:  ${result.usedMigrateHelpers ? "@agentnative-fork/migrate helpers" : "safe local fallback"}`,
     "",
     "Files:",
     ...result.files.map((file) => `  - ${file}`),
@@ -831,10 +831,10 @@ function migrateUsage(): string {
     "  agent-native migrate stop --last",
     "",
     "Examples:",
-    "  npx @agent-native/core@latest code /migrate ./my-next-app --out ../migrated-app",
-    "  npx @agent-native/core@latest migrate ./my-next-app --out ../migrated-app",
-    '  npx @agent-native/core@latest code /migrate https://example.com --describe "marketing site" --emit ../migration-dossier',
-    '  npx @agent-native/core@latest code /migrate --describe "A Rails admin app with reporting dashboards" --emit',
+    "  npx @agentnative-fork/core@latest code /migrate ./my-next-app --out ../migrated-app",
+    "  npx @agentnative-fork/core@latest migrate ./my-next-app --out ../migrated-app",
+    '  npx @agentnative-fork/core@latest code /migrate https://example.com --describe "marketing site" --emit ../migration-dossier',
+    '  npx @agentnative-fork/core@latest code /migrate --describe "A Rails admin app with reporting dashboards" --emit',
     "",
     "Default:",
     "  Migration is an Agent-Native Code slash command. The legacy hidden migration app has been removed.",
@@ -937,7 +937,7 @@ async function readMigrationPlanInputs(
   }
 
   try {
-    const migratePackage = "@agent-native/migrate";
+    const migratePackage = "@agentnative-fork/migrate";
     const migrate = (await import(migratePackage)) as {
       parseMigrationPlanInputsText?: (
         text: string,
@@ -1102,7 +1102,7 @@ async function writeAssessmentWithMigrateHelpers(args: {
   write(relativePath: string, content: string): void;
 }): Promise<boolean> {
   try {
-    const migratePackage = "@agent-native/migrate";
+    const migratePackage = "@agentnative-fork/migrate";
     const migrate = (await import(migratePackage)) as any;
     const adapter = migrate.nextjsSourceAdapter;
 

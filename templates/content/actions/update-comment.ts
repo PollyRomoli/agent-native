@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
-import { assertAccess } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

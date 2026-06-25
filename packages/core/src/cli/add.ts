@@ -21,7 +21,7 @@
  *
  * Blueprint `.md` files ship in the published package via the `blueprints`
  * entry in `package.json` `files`, so they live at
- * `node_modules/@agent-native/core/blueprints/**` at runtime. Resolution works
+ * `node_modules/@agentnative-fork/core/blueprints/**` at runtime. Resolution works
  * both from source (tsx: `src/cli` → `../../blueprints`) and from the compiled
  * package (`dist/cli` → `../../blueprints`), with an upward-walk fallback.
  */
@@ -157,7 +157,7 @@ export function buildGenericUrlBlueprint(kind: string, url: string): string {
   return `# Blueprint: integrate a new ${kind} from a URL
 
 You are a coding agent working inside an **agent-native** app (a repo built on
-\`@agent-native/core\`). Apply this blueprint as real source changes on the
+\`@agentnative-fork/core\`). Apply this blueprint as real source changes on the
 current branch. Do not just describe the work — research, implement, then verify.
 
 ## Research seed
@@ -183,7 +183,7 @@ A new **${kind}** integration. ${kindGuidance}
   add \`/api/*\` or Nitro pass-through routes that just wrap an action.
 - **Prefer the provider-api substrate for external HTTP.** For ad-hoc reads
   against a third-party API, register the provider with
-  \`@agent-native/core/provider-api\` and expose the
+  \`@agentnative-fork/core/provider-api\` and expose the
   \`provider-api-catalog\` / \`provider-api-docs\` / \`provider-api-request\` trio
   instead of one rigid action per endpoint. First-class actions are shortcuts,
   not capability limits.
@@ -216,7 +216,7 @@ const GENERIC_DEFAULT_GUIDANCE =
 
 const GENERIC_KIND_GUIDANCE: Record<string, string> = {
   provider:
-    "Wire it into the provider-api substrate (`@agent-native/core/provider-api`): " +
+    "Wire it into the provider-api substrate (`@agentnative-fork/core/provider-api`): " +
     "register the base URL, auth style, credential key, and docs URLs, then expose " +
     "the `provider-api-catalog` / `provider-api-docs` / `provider-api-request` trio " +
     "so any endpoint is reachable without one action per endpoint.",

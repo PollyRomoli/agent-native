@@ -10,7 +10,7 @@ import CollaborationCaret from "@tiptap/extension-collaboration-caret";
 import { useEffect, useRef, useCallback, useState } from "react";
 import type * as Y from "yjs";
 import type { Awareness } from "y-protocols/awareness";
-import { isReconcileLeadClient } from "@agent-native/core/client";
+import { isReconcileLeadClient } from "@agentnative-fork/core/client";
 import type { Slide } from "@/context/DeckContext";
 import { SlideBubbleMenu } from "./SlideBubbleMenu";
 import {

@@ -8,8 +8,8 @@ import {
   registerLibraryBlocks,
   type BlockRenderContext,
   type NestedBlock,
-} from "@agent-native/core/blocks";
-import { sendToAgentChat } from "@agent-native/core/client";
+} from "@agentnative-fork/core/blocks";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 import { useEffect, useRef, useState } from "react";
 import {
   Popover,

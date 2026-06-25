@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import pLimit from "p-limit";
 import { nanoid } from "nanoid";
 import { eq } from "drizzle-orm";
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import generateImage from "./generate-image.js";
 import { requireGenerationSessionInLibrary } from "./_helpers.js";
 import { getDb, schema } from "../server/db/index.js";

@@ -40,16 +40,16 @@ Resúmenes visuales de relaciones públicas automáticos. Di sí a escribir la a
 explícitamente en cualquier momento:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --with-github-action
+npx @agentnative-fork/core@latest skills add visual-plan --with-github-action
 ```
 
-Esto instala la habilidad `visual-plan` (que incluye la habilidad `visual-recap` que ejecuta la acción) y escribe `.github/workflows/pr-visual-recap.yml` en su repositorio. El flujo de trabajo llama a **subcomandos CLI publicados** a través de `npx @agent-native/core@latest recap <subcommand>`, incluidos `gate`, `collect-diff`, `block-reference`, `scan`, `build-prompt`, `publish`, `shot`, `comment`, `check` y `usage`, por lo que no se copia nada en su repositorio como scripts de ayuda. `setup` y `doctor` son los ayudantes interactivos que ejecuta localmente; `gate` es el paso de seguridad que ejecuta el flujo de trabajo antes de cada resumen.
+Esto instala la habilidad `visual-plan` (que incluye la habilidad `visual-recap` que ejecuta la acción) y escribe `.github/workflows/pr-visual-recap.yml` en su repositorio. El flujo de trabajo llama a **subcomandos CLI publicados** a través de `npx @agentnative-fork/core@latest recap <subcommand>`, incluidos `gate`, `collect-diff`, `block-reference`, `scan`, `build-prompt`, `publish`, `shot`, `comment`, `check` y `usage`, por lo que no se copia nada en su repositorio como scripts de ayuda. `setup` y `doctor` son los ayudantes interactivos que ejecuta localmente; `gate` es el paso de seguridad que ejecuta el flujo de trabajo antes de cada resumen.
 
 Luego ejecute el asistente de configuración guiada:
 
 ```bash
-npx @agent-native/core@latest recap setup
-npx @agent-native/core@latest recap doctor
+npx @agentnative-fork/core@latest recap setup
+npx @agentnative-fork/core@latest recap doctor
 ```
 
 `recap setup` actualiza el flujo de trabajo, usa `gh` para configurar GitHub Actions
@@ -59,7 +59,7 @@ conjunto. Los valores secretos se envían a `gh` a través de la entrada estánd
 el archivo de flujo de trabajo generado y abra un PR para verlo ejecutar.
 
 De forma predeterminada, el flujo de trabajo crea el mensaje del agente a partir del último paquete
-Guía de `visual-recap` en `@agent-native/core@latest`, incluido cualquier hermano
+Guía de `visual-recap` en `@agentnative-fork/core@latest`, incluido cualquier hermano
 archivos de referencia con los que se envía la habilidad. Si su repositorio personaliza intencionalmente y
 fija su carpeta `visual-recap` comprometida, establece la variable del repositorio
 `VISUAL_RECAP_SKILL_SOURCE=repo`.
@@ -93,7 +93,7 @@ Configúrelos en **Configuración → Secretos y variables → Actions** de su r
 
 | Secreto             | Propósito                                                                                                                                              |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `PLAN_RECAP_TOKEN`  | Token revocable acuñado por `npx @agent-native/core@latest connect`. Autoriza la publicación del plan de resumen y la carga de la captura de pantalla. |
+| `PLAN_RECAP_TOKEN`  | Token revocable acuñado por `npx @agentnative-fork/core@latest connect`. Autoriza la publicación del plan de resumen y la carga de la captura de pantalla. |
 | `ANTHROPIC_API_KEY` | La clave LLM para el backend predeterminado del código Claude.                                                                                         |
 
 **Equipos: utilice un token de servicio de la organización.** Un token personal está vinculado a la persona
@@ -105,7 +105,7 @@ sobrevive a cualquier partida individual, los resúmenes que publica son visible
 cualquier propietario o administrador de la organización puede incluirlo o revocarlo. Mint one (solo propietario/administrador de la organización):
 
 ```bash
-npx @agent-native/core@latest connect https://plan.agent-native.com --service-token pr-recap
+npx @agentnative-fork/core@latest connect https://plan.agent-native.com --service-token pr-recap
 ```
 
 El comando lo autentica en el navegador y luego imprime el token de servicio
@@ -113,13 +113,13 @@ exactamente una vez: guárdelo como el secreto `PLAN_RECAP_TOKEN`. Administrelo 
 el `list-org-service-tokens` y el `revoke-org-service-token` actions en el
 Aplicación de planes.
 
-**Solo: un token personal todavía funciona.** Acuñalo con `npx @agent-native/core@latest connect`
+**Solo: un token personal todavía funciona.** Acuñalo con `npx @agentnative-fork/core@latest connect`
 contra tu aplicación de Planes. Para la aplicación alojada, esto también escribe un local
-archivo de token de publicación que `npx @agent-native/core@latest recap setup` puede leer:
+archivo de token de publicación que `npx @agentnative-fork/core@latest recap setup` puede leer:
 
 ```bash
-npx @agent-native/core@latest connect https://plan.agent-native.com --client codex
-npx @agent-native/core@latest recap setup
+npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex
+npx @agentnative-fork/core@latest recap setup
 ```
 
 Si prefiere la configuración manual, pegue el token en el secreto GitHub. Utilice un
@@ -134,10 +134,10 @@ token real.
 | `VISUAL_RECAP_AGENT`     | `claude`                            | Variable. Selecciona el backend del agente de codificación (`claude` o `codex`).                                                                      |
 | `VISUAL_RECAP_MODEL`     | el valor predeterminado de cada CLI | Variable. Fija el modelo, p.e. `gpt-5.5` para Codex, o una identificación de modelo Claude. Unset utiliza el valor predeterminado del CLI.            |
 | `VISUAL_RECAP_REASONING` | valor predeterminado de cada modelo | Variable. Profundidad de razonamiento: `none`, `minimal`, `low`, `medium`, `high` o `xhigh`. Se aplica al backend Codex.                              |
-| `RECAP_CLI_VERSION`      | `latest`                            | Variable. Fija la versión `@agent-native/core` CLI que instala el flujo de trabajo, p. `1.5.0`. Ver [Version pinning](#version-pinning-copy-variant). |
+| `RECAP_CLI_VERSION`      | `latest`                            | Variable. Fija la versión `@agentnative-fork/core` CLI que instala el flujo de trabajo, p. `1.5.0`. Ver [Version pinning](#version-pinning-copy-variant). |
 | `PLAN_RECAP_APP_URL`     | `https://plan.agent-native.com`     | Secreto. Solo cuando se aloja la aplicación Planes en un origen diferente.                                                                            |
 
-El flujo de trabajo detecta automáticamente cómo invocar su asistente CLI (fuente local dentro de este monorepo, el `@agent-native/core` publicado en otro lugar), por lo que no hay ninguna variable `RECAP_CLI` para configurar.
+El flujo de trabajo detecta automáticamente cómo invocar su asistente CLI (fuente local dentro de este monorepo, el `@agentnative-fork/core` publicado en otro lugar), por lo que no hay ninguna variable `RECAP_CLI` para configurar.
 
 ## Captura de pantalla en línea en el comentario
 
@@ -220,9 +220,9 @@ recapitular sin enviar el contenido del resumen a la base de datos del plan Agen
 en su lugar, el mismo flujo de ayuda local en modo de archivos locales:
 
 ```bash
-npx @agent-native/core@latest recap collect-diff --base main --head HEAD --out recap.diff --stat recap.stat
-npx @agent-native/core@latest recap scan --diff recap.diff
-npx @agent-native/core@latest recap build-prompt --pr 123 --diff recap.diff --stat recap.stat --local-files --local-dir plans/pr-123-visual-recap
+npx @agentnative-fork/core@latest recap collect-diff --base main --head HEAD --out recap.diff --stat recap.stat
+npx @agentnative-fork/core@latest recap scan --diff recap.diff
+npx @agentnative-fork/core@latest recap build-prompt --pr 123 --diff recap.diff --stat recap.stat --local-files --local-dir plans/pr-123-visual-recap
 ```
 
 Entregue el `recap-prompt.md` generado a su agente codificador. En modo de archivos locales
@@ -230,7 +230,7 @@ el mensaje indica al agente que escriba `plans/pr-123-visual-recap/plan.mdx`
 más archivos visuales opcionales y luego ejecute:
 
 ```bash
-npx @agent-native/core@latest plan local serve --dir plans/pr-123-visual-recap --kind recap --open
+npx @agentnative-fork/core@latest plan local serve --dir plans/pr-123-visual-recap --kind recap --open
 ```
 
 El URL devuelto abre el Plan alojado UI mientras el navegador lee el resumen MDX
@@ -252,7 +252,7 @@ El resumen es una ayuda de revisión que se suma al flujo normal de relaciones p
 
 ## Fijación de versión (variante de copia) {#version-pinning-copy-variant}
 
-De forma predeterminada, el flujo de trabajo de variante de copia instala `@agent-native/core@latest` en tiempo de ejecución, de modo que cada ejecución de resumen selecciona automáticamente el CLI más reciente. Si su CI necesita herramientas reproducibles, configure la variable de repositorio **`RECAP_CLI_VERSION`** para fijar la versión instalada:
+De forma predeterminada, el flujo de trabajo de variante de copia instala `@agentnative-fork/core@latest` en tiempo de ejecución, de modo que cada ejecución de resumen selecciona automáticamente el CLI más reciente. Si su CI necesita herramientas reproducibles, configure la variable de repositorio **`RECAP_CLI_VERSION`** para fijar la versión instalada:
 
 1. Vaya a **Configuración → Secretos y variables → Actions → Variables** de su repositorio.
 2. Cree una variable llamada `RECAP_CLI_VERSION` con un valor como `1.5.0`.
@@ -263,7 +263,7 @@ Para la variante de llamada reutilizable, utilice la entrada `cli-version` (cons
 
 ## Lista permitida de escaneo secreto
 
-Antes de publicar un resumen, el flujo de trabajo ejecuta `npx @agent-native/core@latest recap scan` para detectar posibles secretos en la diferencia. Cualquier PR cuya diferencia coincida con un patrón secreto conocido se bloquea con un comentario explicativo: el resumen no se publica y no se envía ningún contenido de diferencia al agente codificador.
+Antes de publicar un resumen, el flujo de trabajo ejecuta `npx @agentnative-fork/core@latest recap scan` para detectar posibles secretos en la diferencia. Cualquier PR cuya diferencia coincida con un patrón secreto conocido se bloquea con un comentario explicativo: el resumen no se publica y no se envía ningún contenido de diferencia al agente codificador.
 
 En casos excepcionales, un repositorio tiene dispositivos de prueba intencionales o cadenas no secretas que superficialmente se parecen a patrones secretos (por ejemplo, una clave de dispositivo en un archivo de prueba). Para suprimir un falso positivo, cree `.github/recap-scan-allowlist` en la raíz de su repositorio.
 
@@ -297,7 +297,7 @@ La lista de permitidos solo la consulta la puerta de escaneo secreto. No afecta 
 
 ### ¿Por qué utilizar la variante reutilizable?
 
-El instalador predeterminado copia el flujo de trabajo completo de ~360 líneas YAML en su repositorio (la opción **copiar**). Esta es la opción correcta para repositorios aislados o repositorios que necesitan auditar cada línea de lo que se ejecuta. La desventaja es que las correcciones de errores y las mejoras nunca llegan a usted: debe volver a ejecutar `npx @agent-native/core@latest recap setup` manualmente después de cada versión.
+El instalador predeterminado copia el flujo de trabajo completo de ~360 líneas YAML en su repositorio (la opción **copiar**). Esta es la opción correcta para repositorios aislados o repositorios que necesitan auditar cada línea de lo que se ejecuta. La desventaja es que las correcciones de errores y las mejoras nunca llegan a usted: debe volver a ejecutar `npx @agentnative-fork/core@latest recap setup` manualmente después de cada versión.
 
 En su lugar, la opción **reutilizable** escribe una persona que llama delgada de ~20 líneas. Delega a `BuilderIO/agent-native/.github/workflows/pr-visual-recap-reusable.yml` vía `uses:`. Cada persona que llama selecciona automáticamente la lógica más reciente cuando se ejecuta el flujo de trabajo, sin necesidad de actualización local.
 
@@ -310,7 +310,7 @@ En su lugar, la opción **reutilizable** escribe una persona que llama delgada d
 
 ### Fragmento de la persona que llama
 
-Esto es lo que escribe `npx @agent-native/core@latest recap setup --reusable` (o puedes pegarlo manualmente):
+Esto es lo que escribe `npx @agentnative-fork/core@latest recap setup --reusable` (o puedes pegarlo manualmente):
 
 ```yaml
 name: PR Visual Recap
@@ -343,7 +343,7 @@ jobs:
       model: ${{ vars.VISUAL_RECAP_MODEL || '' }}
       reasoning: ${{ vars.VISUAL_RECAP_REASONING || '' }}
       skill-source: ${{ vars.VISUAL_RECAP_SKILL_SOURCE || 'auto' }}
-      # cli-version: "latest"  # pin to a specific @agent-native/core version
+      # cli-version: "latest"  # pin to a specific @agentnative-fork/core version
 ```
 
 Se aplican los mismos secretos y variables descritos en [Secrets and variables](#secrets-and-variables); configúrelos en la configuración de su repositorio de la misma manera que para la variante de copia.
@@ -352,15 +352,15 @@ Se aplican los mismos secretos y variables descritos en [Secrets and variables](
 
 ```bash
 # Write the thin caller instead of the full copy:
-npx @agent-native/core@latest recap setup --reusable
+npx @agentnative-fork/core@latest recap setup --reusable
 
 # Or with a pinned ref for reproducibility:
-npx @agent-native/core@latest recap setup --reusable --ref v1.2.3
+npx @agentnative-fork/core@latest recap setup --reusable --ref v1.2.3
 ```
 
 Ambas variantes escriben el flujo de trabajo en `.github/workflows/pr-visual-recap.yml`. Si ya existe un flujo de trabajo existente y es diferente, el comando lo rechaza y le indica que pase `--force` para sobrescribirlo.
 
-Después de escribir, ejecute `npx @agent-native/core@latest recap doctor` como de costumbre para confirmar que los secretos estén configurados.
+Después de escribir, ejecute `npx @agentnative-fork/core@latest recap doctor` como de costumbre para confirmar que los secretos estén configurados.
 
 ### Fijar versión
 
@@ -370,7 +370,7 @@ De forma predeterminada, la persona que llama hace referencia a `@main`, que sie
 uses: BuilderIO/agent-native/.github/workflows/pr-visual-recap-reusable.yml@v1.2.3
 ```
 
-La entrada `cli-version` controla qué versión de `@agent-native/core` CLI se ejecuta dentro del flujo de trabajo; déjela en `"latest"` para realizar un seguimiento de la versión más reciente o fíjela a una cadena de versión (por ejemplo, `"1.5.0"`) para una reproducibilidad total.
+La entrada `cli-version` controla qué versión de `@agentnative-fork/core` CLI se ejecuta dentro del flujo de trabajo; déjela en `"latest"` para realizar un seguimiento de la versión más reciente o fíjela a una cadena de versión (por ejemplo, `"1.5.0"`) para una reproducibilidad total.
 
 ### contexto del evento workflow_call
 

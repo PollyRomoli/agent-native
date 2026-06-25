@@ -15,8 +15,8 @@ import {
   setResponseStatus,
 } from "h3";
 import path from "node:path";
-import { getSession } from "@agent-native/core/server";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+import { getSession } from "@agentnative-fork/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 import { assertOrgAdmin } from "../../../lib/org-admin.js";
 import { getObject } from "../../../lib/storage.js";
 

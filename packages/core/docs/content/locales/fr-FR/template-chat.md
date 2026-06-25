@@ -52,7 +52,7 @@ C'est ça le point. Chat est un shell par défaut mince et utile pour votre prop
 ## Échafaudage {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 cd my-chat-app
 pnpm install
 pnpm dev
@@ -61,7 +61,7 @@ pnpm dev
 Ou commencez sans UI et ajoutez une surface de discussion plus tard :
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 À partir de là, copiez l'itinéraire `/` et la liste de fils de discussion de la barre latérale du modèle Chat dans votre application, ou créez une application Chat et déplacez le actions de votre agent sans tête vers son répertoire `actions/`. L'invariant clé reste le même : actions est la surface partagée pour le chat, UI, HTTP, MCP, A2A et CLI.
@@ -90,7 +90,7 @@ La page de discussion est intentionnellement fine :
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return (

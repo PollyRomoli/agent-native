@@ -1,5 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { useActionQuery, useActionMutation } from "@agent-native/core/client";
+import { useActionQuery, useActionMutation } from "@agentnative-fork/core/client";
 import type { AvailabilityConfig } from "@shared/api";
 
 export function useAvailability() {

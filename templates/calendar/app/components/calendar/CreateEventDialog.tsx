@@ -26,7 +26,7 @@ import { useCreateEvent, useDeleteEvent } from "@/hooks/use-events";
 import { useSettings } from "@/hooks/use-settings";
 import { useConnectZoom, useZoomStatus } from "@/hooks/use-zoom-auth";
 import { setUndoAction } from "@/hooks/use-undo";
-import { agentNativePath, sendToAgentChat } from "@agent-native/core/client";
+import { agentNativePath, sendToAgentChat } from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import type { CalendarEventDraft } from "@shared/api";
 import {

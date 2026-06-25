@@ -19,7 +19,7 @@ import {
   IconRefresh,
   IconTrash,
 } from "@tabler/icons-react";
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";

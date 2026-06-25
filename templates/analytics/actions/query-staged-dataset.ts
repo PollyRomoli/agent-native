@@ -2,14 +2,14 @@
  * Thin analytics re-export of the core query-staged-dataset action,
  * pre-bound to appId="analytics".
  */
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
-import { getCredentialContext } from "@agent-native/core/server/request-context";
+import { getCredentialContext } from "@agentnative-fork/core/server/request-context";
 import {
   getStagedDatasetRows,
   getStagedDatasetMeta,
-} from "@agent-native/core/provider-api/staged-datasets-store";
-import { runAggregateQuery } from "@agent-native/core/provider-api/staged-datasets-aggregate";
+} from "@agentnative-fork/core/provider-api/staged-datasets-store";
+import { runAggregateQuery } from "@agentnative-fork/core/provider-api/staged-datasets-aggregate";
 import { ANALYTICS_APP_ID } from "../server/lib/provider-credentials";
 
 const WhereSchema = z.object({

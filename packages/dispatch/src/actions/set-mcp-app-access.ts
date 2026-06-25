@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
-import { discoverAgents } from "@agent-native/core/server/agent-discovery";
+import { discoverAgents } from "@agentnative-fork/core/server/agent-discovery";
 import { setDispatchMcpAppAccessSettings } from "../server/lib/mcp-access-store.js";
 import { recordAudit } from "../server/lib/dispatch-store.js";
 import listMcpAppAccess from "./list-mcp-app-access.js";

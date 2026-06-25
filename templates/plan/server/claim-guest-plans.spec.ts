@@ -11,7 +11,7 @@ vi.mock("drizzle-orm", () => ({
 }));
 
 const getSessionMock = vi.fn();
-vi.mock("@agent-native/core/server", () => ({ getSession: getSessionMock }));
+vi.mock("@agentnative-fork/core/server", () => ({ getSession: getSessionMock }));
 
 const updateSpy = vi.fn();
 const setSpy = vi.fn();

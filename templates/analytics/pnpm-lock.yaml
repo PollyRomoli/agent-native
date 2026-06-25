@@ -23,7 +23,7 @@ importers:
 
   .:
     dependencies:
-      '@agent-native/core':
+      '@agentnative-fork/core':
         specifier: 0.4.5
         version: 0.4.5(@opentelemetry/api@1.9.0)(@tanstack/react-query@5.84.2(react@18.3.1))(@types/node@24.2.1)(@types/react@18.3.23)(@vitejs/plugin-react-swc@4.0.0(vite@7.1.2(@types/node@24.2.1)(jiti@2.6.1)(terser@5.46.1)(tsx@4.20.3)(yaml@2.8.1)))(autoprefixer@10.4.21(postcss@8.5.6))(jiti@2.6.1)(postcss@8.5.6)(react-dom@18.3.1(react@18.3.1))(react-router@7.14.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17)(terser@5.46.1)(tsx@4.20.3)(typescript@5.9.2)(vite@7.1.2(@types/node@24.2.1)(jiti@2.6.1)(terser@5.46.1)(tsx@4.20.3)(yaml@2.8.1))(ws@8.20.0)(yaml@2.8.1)(zod@3.25.76)
       '@dnd-kit/core':
@@ -273,7 +273,7 @@ importers:
 
 packages:
 
-  '@agent-native/core@0.4.5':
+  '@agentnative-fork/core@0.4.5':
     resolution: {integrity: sha512-9sbsccPMXMxpUft3kX94vDRQHeYY58oCWuqcAQTQQRQrnFEQteOvaY9hQB513oilcI8yl4f9FQeEfESlUqmIkg==}
     hasBin: true
     peerDependencies:
@@ -4876,7 +4876,7 @@ packages:
 
 snapshots:
 
-  '@agent-native/core@0.4.5(@opentelemetry/api@1.9.0)(@tanstack/react-query@5.84.2(react@18.3.1))(@types/node@24.2.1)(@types/react@18.3.23)(@vitejs/plugin-react-swc@4.0.0(vite@7.1.2(@types/node@24.2.1)(jiti@2.6.1)(terser@5.46.1)(tsx@4.20.3)(yaml@2.8.1)))(autoprefixer@10.4.21(postcss@8.5.6))(jiti@2.6.1)(postcss@8.5.6)(react-dom@18.3.1(react@18.3.1))(react-router@7.14.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17)(terser@5.46.1)(tsx@4.20.3)(typescript@5.9.2)(vite@7.1.2(@types/node@24.2.1)(jiti@2.6.1)(terser@5.46.1)(tsx@4.20.3)(yaml@2.8.1))(ws@8.20.0)(yaml@2.8.1)(zod@3.25.76)':
+  '@agentnative-fork/core@0.4.5(@opentelemetry/api@1.9.0)(@tanstack/react-query@5.84.2(react@18.3.1))(@types/node@24.2.1)(@types/react@18.3.23)(@vitejs/plugin-react-swc@4.0.0(vite@7.1.2(@types/node@24.2.1)(jiti@2.6.1)(terser@5.46.1)(tsx@4.20.3)(yaml@2.8.1)))(autoprefixer@10.4.21(postcss@8.5.6))(jiti@2.6.1)(postcss@8.5.6)(react-dom@18.3.1(react@18.3.1))(react-router@7.14.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17))(tailwindcss@3.4.17)(terser@5.46.1)(tsx@4.20.3)(typescript@5.9.2)(vite@7.1.2(@types/node@24.2.1)(jiti@2.6.1)(terser@5.46.1)(tsx@4.20.3)(yaml@2.8.1))(ws@8.20.0)(yaml@2.8.1)(zod@3.25.76)':
     dependencies:
       '@anthropic-ai/sdk': 0.82.0(zod@3.25.76)
       '@libsql/client': 0.15.15

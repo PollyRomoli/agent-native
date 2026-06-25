@@ -93,7 +93,7 @@ standalone repo layout, configuration, custom MDX components, local
 To install the Content local-files skill into an existing repo:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 The installer copies the `content` skill for your coding agent and writes or
@@ -114,7 +114,7 @@ The rest of this doc is for anyone forking the Content template or extending it.
 Scaffold a new workspace with the Content template:
 
 ```bash
-npx @agent-native/core@latest create my-workspace --standalone --template content
+npx @agentnative-fork/core@latest create my-workspace --standalone --template content
 cd my-workspace
 pnpm install
 pnpm dev

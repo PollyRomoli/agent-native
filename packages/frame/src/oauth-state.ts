@@ -1,1 +1,1 @@
-export { extractOAuthStateAppId as extractAppFromState } from "@agent-native/core/shared";
+export { extractOAuthStateAppId as extractAppFromState } from "@agentnative-fork/core/shared";

@@ -1,12 +1,12 @@
 # Upgrading the Calendar template
 
 The calendar template is migrating from its own lightweight booking schema
-(`bookingLinks` + `bookings`) to the shared `@agent-native/scheduling`
+(`bookingLinks` + `bookings`) to the shared `@agentnative-fork/scheduling`
 package (event types, availability schedules, teams, workflows).
 
 ## What changed
 
-- New dependency: `@agent-native/scheduling` — provides the schema, server
+- New dependency: `@agentnative-fork/scheduling` — provides the schema, server
   repos, availability engine, booking service, calendar/video providers,
   actions, and React hooks.
 - The `scheduling` sibling template is the full scheduling app that
@@ -25,7 +25,7 @@ Your schema exposes both the legacy tables and the new scheduling tables:
 
 ```ts
 // server/db/schema.ts
-export * from "@agent-native/scheduling/schema"; // event_types, bookings, …
+export * from "@agentnative-fork/scheduling/schema"; // event_types, bookings, …
 // plus existing tables:
 export * from "./legacy-schema.js"; // bookingLinks, bookings(legacy)
 ```

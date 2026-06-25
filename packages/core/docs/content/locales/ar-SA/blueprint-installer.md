@@ -63,7 +63,7 @@ agent-native add provider https://docs.example.com/api | claude
 
 أسقط ملف Markdown في `packages/core/blueprints/<kind>/<name>.md`. هذا النوع هو الدليل الفرعي؛ الاسم هو اسم الملف بدون `.md`. يتم التقاطه تلقائيًا - يقرأ كل من `--list` وتحليل الاسم والكتالوج الدليل في وقت التشغيل. ليست هناك حاجة إلى تغيير الرمز لتسجيله.
 
-يتم شحن ملفات Blueprint `.md` في الحزمة المنشورة عبر إدخال `blueprints` في `package.json` `files`، بحيث يتم حلها عند `node_modules/@agent-native/core/blueprints/**` للمستخدمين النهائيين.
+يتم شحن ملفات Blueprint `.md` في الحزمة المنشورة عبر إدخال `blueprints` في `package.json` `files`، بحيث يتم حلها عند `node_modules/@agentnative-fork/core/blueprints/**` للمستخدمين النهائيين.
 
 اكتب كل مخطط كمجموعة تعليمات لوكيل الترميز بدون سياق آخر. يحتوي المخطط الجيد على:
 

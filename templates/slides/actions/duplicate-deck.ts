@@ -1,11 +1,11 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
-import { resolveAccess } from "@agent-native/core/sharing";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { nanoid } from "nanoid";
 import { getDeckUrl } from "./_app-url.js";
 

@@ -151,7 +151,7 @@ export async function readBodyWithSizeLimit<T = any>(
  * Convert a Node `ReadStream` (e.g. from `fs.createReadStream`) into a web
  * `ReadableStream`, suitable for returning directly from an h3 v2 handler.
  *
- *   import { streamFile } from "@agent-native/core/server";
+ *   import { streamFile } from "@agentnative-fork/core/server";
  *   import fs from "node:fs";
  *
  *   return streamFile(fs.createReadStream(filePath));

@@ -6,8 +6,8 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
-import { DispatchShell } from "@agent-native/dispatch/components";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
+import { DispatchShell } from "@agentnative-fork/dispatch/components";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,10 +17,10 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@agent-native/dispatch/components/ui/alert-dialog";
-import { Badge } from "@agent-native/dispatch/components/ui/badge";
-import { Button } from "@agent-native/dispatch/components/ui/button";
-import { Checkbox } from "@agent-native/dispatch/components/ui/checkbox";
+} from "@agentnative-fork/dispatch/components/ui/alert-dialog";
+import { Badge } from "@agentnative-fork/dispatch/components/ui/badge";
+import { Button } from "@agentnative-fork/dispatch/components/ui/button";
+import { Checkbox } from "@agentnative-fork/dispatch/components/ui/checkbox";
 import {
   Dialog,
   DialogContent,
@@ -28,21 +28,21 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@agent-native/dispatch/components/ui/dialog";
-import { Input } from "@agent-native/dispatch/components/ui/input";
-import { Label } from "@agent-native/dispatch/components/ui/label";
+} from "@agentnative-fork/dispatch/components/ui/dialog";
+import { Input } from "@agentnative-fork/dispatch/components/ui/input";
+import { Label } from "@agentnative-fork/dispatch/components/ui/label";
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@agent-native/dispatch/components/ui/radio-group";
+} from "@agentnative-fork/dispatch/components/ui/radio-group";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@agent-native/dispatch/components/ui/select";
-import { Switch } from "@agent-native/dispatch/components/ui/switch";
+} from "@agentnative-fork/dispatch/components/ui/select";
+import { Switch } from "@agentnative-fork/dispatch/components/ui/switch";
 import { useQueryClient } from "@tanstack/react-query";
 import {
   IconAlertTriangle,

@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/code-agents-ui",
+  "name": "@agentnative-fork/code-agents-ui",
   "version": "0.1.75",
   "type": "module",
   "description": "Reusable React UI for Agent-Native Code surfaces.",
@@ -54,14 +54,14 @@
     "sonner": "^2.0.7"
   },
   "peerDependencies": {
-    "@agent-native/core": ">=0.24.0",
-    "@agent-native/shared-app-config": ">=0.1.0",
+    "@agentnative-fork/core": ">=0.24.0",
+    "@agentnative-fork/shared-app-config": ">=0.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@agent-native/core": "workspace:*",
-    "@agent-native/shared-app-config": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
+    "@agentnative-fork/shared-app-config": "workspace:*",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "typescript": "^6.0.3"

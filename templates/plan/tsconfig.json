@@ -1,5 +1,5 @@
 {
-  "extends": "@agent-native/core/tsconfig.base.json",
+  "extends": "@agentnative-fork/core/tsconfig.base.json",
   "compilerOptions": {
     // TODO: flip after in-flight work lands (fenced concurrent agent work)
     "strict": false,

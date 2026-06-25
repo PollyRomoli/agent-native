@@ -4,9 +4,9 @@ import {
   readMultipartFormData,
 } from "h3";
 import path from "path";
-import { getSession } from "@agent-native/core/server";
-import { uploadFile } from "@agent-native/core/file-upload";
-import { runWithRequestContext } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
 
 export const MAX_ASSET_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 

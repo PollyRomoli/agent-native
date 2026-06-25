@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Root SolidJS application component
+// @agentnative-fork/pinpoint — Root SolidJS application component
 // MIT License
 
 import {
@@ -119,7 +119,7 @@ export const PinpointApp: Component<PinpointAppProps> = (props) => {
     }
 
     try {
-      const { sendToAgentChat } = await import("@agent-native/core/client");
+      const { sendToAgentChat } = await import("@agentnative-fork/core/client");
       sendToAgentChat(agentOutput);
     } catch {
       await navigator.clipboard.writeText(

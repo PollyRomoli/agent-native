@@ -1,4 +1,4 @@
-import { registerRequiredSecret } from "@agent-native/core/secrets";
+import { registerRequiredSecret } from "@agentnative-fork/core/secrets";
 
 // ── File upload provider + onboarding step ────────────────────────────
 // Registered in server/plugins/onboarding.ts (not here) because Nitro

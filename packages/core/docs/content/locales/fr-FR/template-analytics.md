@@ -80,7 +80,7 @@ Le reste de ce document s'adresse à toute personne qui crée ou étend le modè
 Créez une nouvelle application Analytics à partir du CLI :
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 Développeur local :
@@ -162,7 +162,7 @@ Le client de connexion à faible portée reste distinct des clients d'intégrati
 
 Tableaux de base (voir `templates/analytics/server/db/schema.ts`) :
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ Tableaux de base (voir `templates/analytics/server/db/schema.ts`) :
 }
 ```
 
-Plus les tables de partage par ressource (`dashboard_shares`, `analysis_shares`) et les tables d'organisation (`organizations`, `org_members`, `org_invitations`) fournies par `@agent-native/core/org`. Le dictionnaire de données se trouve dans la table `settings` du framework sous les clés de portée.
+Plus les tables de partage par ressource (`dashboard_shares`, `analysis_shares`) et les tables d'organisation (`organizations`, `org_members`, `org_invitations`) fournies par `@agentnative-fork/core/org`. Le dictionnaire de données se trouve dans la table `settings` du framework sous les clés de portée.
 
 - **`dashboards`** : tableaux de bord Explorer et SQL. `kind` est `"explorer"` ou `"sql"` ; `config` est un blob JSON correspondant à `SqlDashboardConfig`.
 - **`dashboard_shares`** – attributions de partages par ressource (principal, rôle).
@@ -222,7 +222,7 @@ Plus les tables de partage par ressource (`dashboard_shares`, `analysis_shares`)
 - **`analysis_shares`** – attributions de partage par ressource pour les analyses.
 - **`bigquery_cache`** — cache des résultats de la requête saisi par le hachage SQL avec comptabilité traitée en octets.
 
-Plus les tables organisationnelles (`organizations`, `org_members`, `org_invitations`) fournies par `@agent-native/core/org`.
+Plus les tables organisationnelles (`organizations`, `org_members`, `org_invitations`) fournies par `@agentnative-fork/core/org`.
 
 Le dictionnaire de données se trouve dans la table `settings` du framework sous les clés de portée ; voir les modèles `list-data-dictionary` et `save-data-dictionary-entry` actions pour la forme complète.
 

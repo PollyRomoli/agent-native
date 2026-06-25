@@ -52,7 +52,7 @@ Utilisez `defineAction` avec un Zod `schema:` pour chaque action. Le framework v
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Create a note",
@@ -104,7 +104,7 @@ React échappe automatiquement toutes les expressions JSX. Consignes supplément
 Tout `fetch` côté serveur d'un URL contrôlé par un utilisateur ou un agent doit passer par le framework SSRF guard, ou il peut être pointé vers des métadonnées cloud (`169.254.169.254`), `localhost` ou des services internes :
 
 ```ts
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 
 const res = await ssrfSafeFetch(userProvidedUrl, {}, { maxRedirects: 3 });
 ```
@@ -142,7 +142,7 @@ import {
   text,
   integer,
   ownableColumns,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 // Minimal: just the owner column
 export const notes = table("notes", {
@@ -180,7 +180,7 @@ Pour les applications multi-utilisateurs dans lesquelles les équipes partagent 
 L'assistant de schéma `ownableColumns()` ajoute `owner_email`, `org_id` et `visibility` en un seul appel, de sorte que les nouvelles tables prenant en compte les locataires obtiennent le contrat de portée complet par défaut :
 
 ```ts
-import { table, text, ownableColumns } from "@agent-native/core/db/schema";
+import { table, text, ownableColumns } from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),

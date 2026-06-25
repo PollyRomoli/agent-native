@@ -5,9 +5,9 @@ description: "React hooks and utilities for agent-native apps: sendToAgentChat, 
 
 # Client
 
-`@agent-native/core` provides React hooks and utilities for the browser-side of agent-native apps.
+`@agentnative-fork/core` provides React hooks and utilities for the browser-side of agent-native apps.
 
-These client/React APIs are exported from both `@agent-native/core` and `@agent-native/core/client`. Import them from `@agent-native/core/client` (the browser entry) for clarity and correct bundling, since the bare `@agent-native/core` root resolves to the Node build by default.
+These client/React APIs are exported from both `@agentnative-fork/core` and `@agentnative-fork/core/client`. Import them from `@agentnative-fork/core/client` (the browser entry) for clarity and correct bundling, since the bare `@agentnative-fork/core` root resolves to the Node build by default.
 
 For file-based routing — adding pages, dynamic params, and navigation — see [Routing](/docs/routing).
 
@@ -27,7 +27,7 @@ import {
   useActionQuery,
   useActionMutation,
   callAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 // Read: auto-cached, auto-invalidated on mutations
 const { data, isLoading } = useActionQuery("get-lead", { leadId });
@@ -45,7 +45,7 @@ await callAction("archive-lead", { leadId });
 Send a message to the agent chat via postMessage — the common way to delegate an AI task from a UI interaction. Pass `context` for hidden model context and `submit: true` to send immediately, or `submit: false` to prefill a draft the user reviews first.
 
 ```ts
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 // Auto-submit a prompt with hidden context
 sendToAgentChat({
@@ -136,7 +136,7 @@ the agent sidebar's Settings tab. Pass a section id such as `"llm"`, `"secrets"`
 `"automations"`, `"voice"`, or `"limits"` to open a specific section.
 
 ```ts
-import { openAgentSettings } from "@agent-native/core/client";
+import { openAgentSettings } from "@agentnative-fork/core/client";
 
 openAgentSettings();
 openAgentSettings("secrets");
@@ -145,7 +145,7 @@ openAgentSettings("secrets");
 Prefer this helper over dispatching `agent-panel:open-settings` directly.
 
 ```tsx
-import { useAgentChatContext } from "@agent-native/core/client";
+import { useAgentChatContext } from "@agentnative-fork/core/client";
 
 function SelectionContextButton({ record }: { record: { id: string } }) {
   const chatContext = useAgentChatContext();
@@ -204,7 +204,7 @@ kicks off agent work — instead of building a custom modal. Reach for the
 composer for freeform detail, and a form/popover for multi-field input.
 
 ```tsx
-import { askUserQuestion, sendToAgentChat } from "@agent-native/core/client";
+import { askUserQuestion, sendToAgentChat } from "@agentnative-fork/core/client";
 
 const length = await askUserQuestion({
   question: "How long should this deck be?",
@@ -238,7 +238,7 @@ agent ask when _it_ hits a genuine fork it can't resolve from context; use
 
 Routes embedded as MCP Apps should be URL-first: load the current artifact from
 path/query params, render the real React route or a focused shared component,
-and use the host bridge only for host-owned behavior. `@agent-native/core/client`
+and use the host bridge only for host-owned behavior. `@agentnative-fork/core/client`
 exports the helpers embedded routes call:
 
 ```ts
@@ -248,7 +248,7 @@ import {
   requestMcpAppDisplayMode,
   updateMcpAppModelContext,
   useMcpAppHostContext,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 ```
 
 `getMcpAppHostContext()` reads the latest pushed host context snapshot;
@@ -283,7 +283,7 @@ Set `dynamicSuggestions={false}` to keep only static chips. Pass `getSuggestions
 React hook that wraps sendToAgentChat with loading state tracking:
 
 ```ts
-import { useAgentChatGenerating } from "@agent-native/core/client";
+import { useAgentChatGenerating } from "@agentnative-fork/core/client";
 
 function GenerateButton() {
   const [isGenerating, send] = useAgentChatGenerating();
@@ -310,7 +310,7 @@ function GenerateButton() {
 React hook (formerly `useFileWatcher`) that listens for database changes over SSE, falls back to polling, and invalidates the framework query caches that keep the UI aligned with agent writes:
 
 ```ts
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 function App() {
@@ -355,7 +355,7 @@ When any server-side database mutation occurs, the server records a change event
 
 ```tsx
 import { useQuery } from "@tanstack/react-query";
-import { useChangeVersion } from "@agent-native/core/client";
+import { useChangeVersion } from "@agentnative-fork/core/client";
 
 function DashboardView({ id }) {
   // Get version for dashboards domain source
@@ -388,7 +388,7 @@ function DashboardView({ id }) {
 Utility for merging class names (clsx + tailwind-merge):
 
 ```ts
-import { cn } from "@agent-native/core/client";
+import { cn } from "@agentnative-fork/core/client";
 
 <div className={cn(
   "px-4 py-2 rounded",

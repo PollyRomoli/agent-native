@@ -14,7 +14,7 @@ function migrateGlobalCss(filePath) {
   let src = fs.readFileSync(filePath, "utf8");
 
   const v4Imports = `@import "tailwindcss";
-@import "@agent-native/core/styles/agent-native.css";
+@import "@agentnative-fork/core/styles/agent-native.css";
 
 @source "./**/*.{ts,tsx}";`;
 

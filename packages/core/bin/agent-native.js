@@ -14,7 +14,7 @@ if (existsSync(distEntry)) {
   const sourceEntry = join(binDir, "../src/cli/index.ts");
   if (!existsSync(sourceEntry)) {
     console.error(
-      "agent-native CLI build output is missing. Run `pnpm --filter @agent-native/core build` and try again.",
+      "agent-native CLI build output is missing. Run `pnpm --filter @agentnative-fork/core build` and try again.",
     );
     process.exit(1);
   }

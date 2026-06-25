@@ -209,7 +209,7 @@ const RULES: Rule[] = [
     pattern: /getDb\s*\}\s*from\s*["'`]@agent-native\/core\/db["'`]/,
     scope: "all",
     message:
-      "getDb is not exported from @agent-native/core/db; import it from the app's server/db/index.js (it's created via createGetDb(schema)).",
+      "getDb is not exported from @agentnative-fork/core/db; import it from the app's server/db/index.js (it's created via createGetDb(schema)).",
   },
   {
     id: "nested-auth-session-shape",

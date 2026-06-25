@@ -4,7 +4,7 @@ import {
   runApiHandlerWithContext,
 } from "../lib/credentials";
 import { runQuery } from "../lib/bigquery";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 
 export const handleQuery = defineEventHandler((event) =>
   runApiHandlerWithContext(event, async () => {

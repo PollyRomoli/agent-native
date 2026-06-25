@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Express middleware for pin CRUD
+// @agentnative-fork/pinpoint — Express middleware for pin CRUD
 // MIT License
 //
 // REST routes: GET (list), GET/:id, POST, PATCH/:id, DELETE/:id
@@ -24,7 +24,7 @@ export interface PinRoutesOptions {
  *
  * Usage:
  * ```ts
- * import { pagePinRoutes } from '@agent-native/pinpoint/server';
+ * import { pagePinRoutes } from '@agentnative-fork/pinpoint/server';
  * app.use('/api/pins', pagePinRoutes());
  * ```
  */

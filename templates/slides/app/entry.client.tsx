@@ -1,6 +1,6 @@
 import { hydrateRoot } from "react-dom/client";
 import { HydratedRouter } from "react-router/dom";
-import { appBasePath } from "@agent-native/core/client/api-path";
+import { appBasePath } from "@agentnative-fork/core/client/api-path";
 
 const basePath = appBasePath();
 const pathname = window.location.pathname;

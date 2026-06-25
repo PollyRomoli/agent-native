@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import type { ApolloPersonResult } from "@shared/api";
 import { appApiPath } from "@/lib/api-path";
 

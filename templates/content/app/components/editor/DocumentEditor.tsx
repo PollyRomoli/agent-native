@@ -31,7 +31,7 @@ import {
   appApiPath,
   agentNativePath,
   type CollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { CommentsSidebar } from "./CommentsSidebar";
 import { useComments } from "@/hooks/use-comments";
 import type { CommentTextAnchor } from "./comment-anchors";
@@ -42,7 +42,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useLocalStorage } from "@/hooks/use-local-storage";
 import { useQueryClient } from "@tanstack/react-query";
 import { IconLock } from "@tabler/icons-react";
-import { BlockRegistryProvider } from "@agent-native/core/blocks";
+import { BlockRegistryProvider } from "@agentnative-fork/core/blocks";
 import {
   contentBlockRegistry,
   createContentBlockRenderContext,

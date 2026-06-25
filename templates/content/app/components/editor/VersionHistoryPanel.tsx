@@ -27,7 +27,7 @@ import {
 } from "@/hooks/use-document-versions";
 import { toast } from "sonner";
 import type { DocumentVersion } from "@shared/api";
-import type { CollabUser } from "@agent-native/core/client";
+import type { CollabUser } from "@agentnative-fork/core/client";
 
 function formatRelativeTime(dateStr: string): string {
   const now = Date.now();

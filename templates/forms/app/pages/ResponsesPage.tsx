@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useFormatters, useT } from "@agent-native/core/client";
+import { useFormatters, useT } from "@agentnative-fork/core/client";
 import { cn } from "@/lib/utils";
 import { normalizeFields } from "@/lib/normalize-fields";
 import { useForm } from "@/hooks/use-forms";

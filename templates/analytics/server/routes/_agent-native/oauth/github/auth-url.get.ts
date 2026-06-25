@@ -10,7 +10,7 @@ import {
   getSession,
   isElectron,
   resolveOAuthRedirectUri,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   getGitHubOAuthAuthUrl,
   isGitHubOAuthConfigured,

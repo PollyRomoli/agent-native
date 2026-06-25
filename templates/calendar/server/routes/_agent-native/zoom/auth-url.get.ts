@@ -16,7 +16,7 @@ import {
   resolveOAuthRedirectUri,
   encodeOAuthState,
   isElectron,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { getZoomAuthUrl, isZoomConfigured } from "../../../lib/zoom.js";
 
 const OAUTH_STATE_APP_ID = process.env.APP_NAME || "calendar";

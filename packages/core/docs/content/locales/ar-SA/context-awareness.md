@@ -73,7 +73,7 @@ description: "كيف يعرف الوكيل ما ينظر إليه المستخد
 يقرأ الوكيل هذا قبل التصرف:
 
 ```ts
-import { readAppState } from "@agent-native/core/application-state";
+import { readAppState } from "@agentnative-fork/core/application-state";
 
 const navigation = await readAppState("navigation");
 // { view: "inbox", threadId: "thread-123", label: "important" }
@@ -143,7 +143,7 @@ if (url?.searchParams) {
 اكتبه من UI عندما يقوم المستخدم بتحديد كائنات ذات معنى أو التركيز عليها أو تحديدها بشكل متعدد:
 
 ```tsx
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 
 async function syncSelection(selection: unknown | null) {
   await setClientAppState("selection", selection, { keepalive: true });
@@ -173,7 +173,7 @@ async function syncSelection(selection: unknown | null) {
 يمكن للمحررين المخصصين كتابة نفس المفتاح عندما لا يتم تمثيل اختيارهم بواسطة تحديد المتصفح الأصلي:
 
 ```tsx
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 
 await setClientAppState(
   "pending-selection-context",
@@ -195,7 +195,7 @@ await setClientAppState(
 {
   "filename": "actions/view-screen.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { readAppState } from \"@agent-native/core/application-state\";\nimport { eq, inArray } from \"drizzle-orm\";\nimport { z } from \"zod\";\nimport { getDb, schema } from \"../server/db/index.js\";\n\nexport default defineAction({\n  description:\n    \"See what the user is currently looking at on screen.\",\n  schema: z.object({}),\n  http: false,\n  run: async () => {\n    const navigation = (await readAppState(\"navigation\")) as any;\n    const selection = (await readAppState(\"selection\")) as any;\n    const screen: Record<string, unknown> = {};\n    if (navigation) screen.navigation = navigation;\n    if (selection) screen.selection = selection;\n\n    const db = getDb();\n\n    // Fetch data based on what the user is viewing\n    if (navigation?.view === \"inbox\") {\n      screen.emailList = await db\n        .select()\n        .from(schema.emails)\n        .where(eq(schema.emails.label, navigation.label));\n    }\n    if (navigation?.threadId) {\n      screen.thread = await db\n        .select()\n        .from(schema.threads)\n        .where(eq(schema.threads.id, navigation.threadId));\n    }\n    if (selection?.kind === \"email.messages\") {\n      screen.selectedMessages = await db\n        .select()\n        .from(schema.emails)\n        .where(inArray(schema.emails.id, selection.messageIds));\n    }\n\n    if (Object.keys(screen).length === 0) {\n      return \"No application state found. Is the app running?\";\n    }\n    return screen;\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { readAppState } from \"@agentnative-fork/core/application-state\";\nimport { eq, inArray } from \"drizzle-orm\";\nimport { z } from \"zod\";\nimport { getDb, schema } from \"../server/db/index.js\";\n\nexport default defineAction({\n  description:\n    \"See what the user is currently looking at on screen.\",\n  schema: z.object({}),\n  http: false,\n  run: async () => {\n    const navigation = (await readAppState(\"navigation\")) as any;\n    const selection = (await readAppState(\"selection\")) as any;\n    const screen: Record<string, unknown> = {};\n    if (navigation) screen.navigation = navigation;\n    if (selection) screen.selection = selection;\n\n    const db = getDb();\n\n    // Fetch data based on what the user is viewing\n    if (navigation?.view === \"inbox\") {\n      screen.emailList = await db\n        .select()\n        .from(schema.emails)\n        .where(eq(schema.emails.label, navigation.label));\n    }\n    if (navigation?.threadId) {\n      screen.thread = await db\n        .select()\n        .from(schema.threads)\n        .where(eq(schema.threads.id, navigation.threadId));\n    }\n    if (selection?.kind === \"email.messages\") {\n      screen.selectedMessages = await db\n        .select()\n        .from(schema.emails)\n        .where(inArray(schema.emails.id, selection.messageIds));\n    }\n\n    if (Object.keys(screen).length === 0) {\n      return \"No application state found. Is the app running?\";\n    }\n    return screen;\n  },\n});",
   "annotations": [
     {
       "lines": "10-11",
@@ -235,7 +235,7 @@ await setClientAppState(
 في بعض الأحيان، لا يجب أن يكون السياق موجودًا في حالة التطبيق فحسب. ينقر المستخدم على زر، ويسقط دبوس تعليق، ويحدد عنصرًا ويختار "اسأل الوكيل"، أو يضغط على أمر AI في شريط الأدوات. تلك النقرة هي تعليمات. في المتصفح UI، قم بتسليمها إلى الوكيل باستخدام `sendToAgentChat()`.
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 function askAgentAboutSelection(selection: {
   documentId: string;
@@ -290,7 +290,7 @@ function askAgentAboutSelection(selection: {
 
 ```ts
 // Agent side -- write a navigate command
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 
 await writeAppState("navigate", { view: "inbox", threadId: "thread-123" });
 ```
@@ -315,11 +315,11 @@ await writeAppState("navigate", { view: "inbox", threadId: "thread-123" });
 - **الخارج (UI → الوكيل):** يكتب مفتاح `navigation` كلما تغير المسار، بحيث يعرف الوكيل دائمًا العرض الحالي.
 - **الوارد (الوكيل → UI):** يستقصي أمر `navigate`، ويقوم بتشغيل التنقل، ويحذف الأمر.
 
-يظل قصيرًا لأنه عبارة عن غلاف رفيع حول إطار العمل الحقيقي البدائي، `useAgentRouteState` (المصدر من `@agent-native/core/client`). أنت توفر وظيفتين خاصتين بالتطبيق ويتولى إطار العمل الباقي:
+يظل قصيرًا لأنه عبارة عن غلاف رفيع حول إطار العمل الحقيقي البدائي، `useAgentRouteState` (المصدر من `@agentnative-fork/core/client`). أنت توفر وظيفتين خاصتين بالتطبيق ويتولى إطار العمل الباقي:
 
 ```tsx
 // app/hooks/use-navigation-state.ts -- this file lives in YOUR app
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 interface NavigationState {
@@ -361,7 +361,7 @@ export function useNavigationState() {
 
 عندما يكتب الوكيل إلى حالة التطبيق، قد يتسبب نظام المزامنة في قيام UI بإعادة جلب البيانات التي كتبها للتو. وهذا يخلق غضب. الحل هو وضع علامات على المصدر:
 
-استخدم `setClientAppState`، و`writeClientAppState`، و`readClientAppState`، و`deleteClientAppState` من `@agent-native/core/client` للوصول إلى حالة التطبيق من جانب المتصفح. تمرير `{ requestSource: TAB_ID }` على UI يكتب عند الاقتران مع `useDbSync({ ignoreSource: TAB_ID })`؛ قم بتمرير `{ keepalive: true }` لعمليات الكتابة قصيرة الأمد مثل تنظيف التحديد أثناء التفريغ.
+استخدم `setClientAppState`، و`writeClientAppState`، و`readClientAppState`، و`deleteClientAppState` من `@agentnative-fork/core/client` للوصول إلى حالة التطبيق من جانب المتصفح. تمرير `{ requestSource: TAB_ID }` على UI يكتب عند الاقتران مع `useDbSync({ ignoreSource: TAB_ID })`؛ قم بتمرير `{ keepalive: true }` لعمليات الكتابة قصيرة الأمد مثل تنظيف التحديد أثناء التفريغ.
 
 ```ts
 // app/root.tsx

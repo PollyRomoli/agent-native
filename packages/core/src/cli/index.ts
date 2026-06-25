@@ -227,7 +227,7 @@ process.on("unhandledRejection", (reason: any) => {
   Sentry.flush(2000).finally(() => process.exit(1));
 });
 
-// Surface a self-heal hint when an interrupted `npx @agent-native/core@latest ...`
+// Surface a self-heal hint when an interrupted `npx @agentnative-fork/core@latest ...`
 // leaves a half-extracted package in the npx cache and a follow-up run fails
 // to load one of our own sub-modules.
 function handleScaffoldImportError(err: any): never {
@@ -241,7 +241,7 @@ function handleScaffoldImportError(err: any): never {
     );
   if (looksLikeCorruptCache) {
     console.error(
-      `\n  Failed to load the scaffolder. This usually means an earlier\n  \`npx\` run was interrupted and left a corrupt cache.\n\n  Clear the npx cache and try again:\n    rm -rf ~/.npm/_npx\n    npx @agent-native/core@latest create\n\n  Original error: ${msg}\n`,
+      `\n  Failed to load the scaffolder. This usually means an earlier\n  \`npx\` run was interrupted and left a corrupt cache.\n\n  Clear the npx cache and try again:\n    rm -rf ~/.npm/_npx\n    npx @agentnative-fork/core@latest create\n\n  Original error: ${msg}\n`,
     );
   } else {
     console.error(`\n  Failed to load the scaffolder: ${msg}\n`);
@@ -781,7 +781,7 @@ switch (command) {
   }
 
   case "info": {
-    // Print read-only info about an installable package (e.g. @agent-native/scheduling).
+    // Print read-only info about an installable package (e.g. @agentnative-fork/scheduling).
     // Lists subpath exports, source paths in node_modules, and docs pointers.
     import("./info.js").then((m) => m.runInfo(args[0]));
     break;

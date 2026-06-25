@@ -1,5 +1,5 @@
 import { defineEventHandler } from "h3";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 import {
   putScopedSettingRecord,
   resolveSettingsScope,

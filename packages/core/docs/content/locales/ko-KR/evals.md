@@ -27,7 +27,7 @@ description: "고정 입력에 대해 실제 에이전트를 실행하고 구성
 
 ```ts
 // evals/greeting.eval.ts
-import { defineEval, contains, llmJudge } from "@agent-native/core/eval";
+import { defineEval, contains, llmJudge } from "@agentnative-fork/core/eval";
 
 export default defineEval({
   name: "greets the user by name",
@@ -65,7 +65,7 @@ interface AgentRunOutput {
 
 ## 내장 득점자 {#built-in}
 
-`@agent-native/core/eval`에서 가져옴:
+`@agentnative-fork/core/eval`에서 가져옴:
 
 | 득점자                   | 점수                                                            | 모델?  |
 | ------------------------ | --------------------------------------------------------------- | ------ |
@@ -97,7 +97,7 @@ generateReason(...) → string     human-readable why (optional)
 `preprocess` 및 `analyze`는 ​​기본적으로 ID로 설정됩니다(기록원은 원시 `AgentRunOutput`를 볼 수 있음). `analyze` 단계는 LLM 지원 점수를 위해 공급자에 구애받지 않는 `judge()` 도우미와 함께 `ctx`를 받습니다.
 
 ```ts
-import { createScorer, clamp01 } from "@agent-native/core/eval";
+import { createScorer, clamp01 } from "@agentnative-fork/core/eval";
 
 // A scorer that rewards short, tool-using answers.
 const concise = createScorer({

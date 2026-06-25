@@ -111,7 +111,7 @@ Las tiendas principales SQL se crean automáticamente y están disponibles en ca
 
 ```ts
 // Drizzle schema for domain data
-import { table, text, integer } from "@agent-native/core/db/schema";
+import { table, text, integer } from "@agentnative-fork/core/db/schema";
 
 export const forms = table("forms", {
   id: text("id").primaryKey(),
@@ -145,7 +145,7 @@ El UI nunca llama directamente a un LLM. Cuando un usuario hace clic en "Generar
 
 ```ts
 // In a React component — delegate AI work to the agent
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 sendToAgentChat({
   message: "Generate a chart showing signups by source",
@@ -167,7 +167,7 @@ Cuando el agente necesita hacer algo complejo (llamar a un API, procesar datos, 
 
 ```ts
 // actions/fetch-data.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -198,7 +198,7 @@ Los cambios en la base de datos se sincronizan con el UI a través del `useDbSyn
 
 ```ts
 // Client: subscribe to agent/UI data changes once near the app shell
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 
 useDbSync({ queryClient });
 ```
@@ -266,7 +266,7 @@ No hay ningún código base compartido que pueda romperse. Eres el propietario d
 
 Dos reglas arquitectónicas mantienen las aplicaciones portátiles entre bases de datos y hosts:
 
-- **Independiente de la base de datos.** Escriba esquemas con `@agent-native/core/db/schema` y lea/escriba con la consulta portátil DSL de Drizzle para que el mismo código se ejecute en cualquier proveedor compatible. Utilice SQL sin formato solo para migraciones aditivas o mantenimiento único, mantenido parametrizado e independiente del dialecto. Ver [Database](/docs/database).
+- **Independiente de la base de datos.** Escriba esquemas con `@agentnative-fork/core/db/schema` y lea/escriba con la consulta portátil DSL de Drizzle para que el mismo código se ejecute en cualquier proveedor compatible. Utilice SQL sin formato solo para migraciones aditivas o mantenimiento único, mantenido parametrizado e independiente del dialecto. Ver [Database](/docs/database).
 - **Independiente del alojamiento.** El servidor se ejecuta en Nitro y se compila en cualquier destino de implementación. Nunca utilice API específicos de nodo (`fs`, `child_process`, `path`) en rutas o complementos del servidor, y nunca asuma un proceso de servidor persistente: sin servidor y perimetral no tienen estado, por lo tanto, mantenga todo el estado en SQL. Ver [Deployment](/docs/deployment).
 
 ## Espacio de trabajo {#workspace}

@@ -72,8 +72,8 @@ escotilla.
 
 ```ts
 // actions/classify-message.ts
-import { defineAction } from "@agent-native/core/action";
-import { completeText } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core/action";
+import { completeText } from "@agentnative-fork/core/server";
 import { z } from "zod";
 
 export default defineAction({
@@ -107,7 +107,7 @@ Actions montado por el marco se ejecuta automáticamente con el contexto de soli
 {
   "filename": "server/routes/api/projects.get.ts",
   "language": "ts",
-  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agent-native/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agent-native/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.projectCompartirs));\n    },\n  );\n});",
+  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agentnative-fork/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agentnative-fork/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.projectCompartirs));\n    },\n  );\n});",
   "annotations": [
     {
       "lines": "7-10",
@@ -128,7 +128,7 @@ Actions montado por el marco se ejecuta automáticamente con el contexto de soli
 }
 ```
 
-`getDb` se crea por aplicación a través de `createGetDb(schema)` en `server/db/index.ts`, por lo que las rutas personalizadas se importan desde la plantilla (`../../db/index.js`), no desde `@agent-native/core/db`; ver [Database — Where the DB Client Lives](/docs/database#db-client). No ejecute `db.select().from(ownableTable)` sin ámbito en rutas personalizadas.
+`getDb` se crea por aplicación a través de `createGetDb(schema)` en `server/db/index.ts`, por lo que las rutas personalizadas se importan desde la plantilla (`../../db/index.js`), no desde `@agentnative-fork/core/db`; ver [Database — Where the DB Client Lives](/docs/database#db-client). No ejecute `db.select().from(ownableTable)` sin ámbito en rutas personalizadas.
 
 ## Complementos de servidor {#server-plugins}
 
@@ -136,7 +136,7 @@ Los complementos se encuentran en `server/plugins/` y se ejecutan al inicio. Ús
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -236,7 +236,7 @@ Para paquetes personalizados o pruebas que necesitan una aplicación H3 directam
 devuelve una aplicación y un enrutador preconfigurados:
 
 ```ts
-import { createServer } from "@agent-native/core/server";
+import { createServer } from "@agentnative-fork/core/server";
 import { defineEventHandler } from "h3";
 
 const { app, router } = createServer();
@@ -256,7 +256,7 @@ de lo contrario, personalice el agente a través de `AGENTS.md`, skills, actions
 complemento de chat para agentes.
 
 ```ts
-import { createProductionAgentHandler } from "@agent-native/core/server";
+import { createProductionAgentHandler } from "@agentnative-fork/core/server";
 
 const handler = createProductionAgentHandler({
   scripts,

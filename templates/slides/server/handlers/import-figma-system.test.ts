@@ -15,7 +15,7 @@ vi.mock("h3", () => ({
   setResponseStatus: (...args: unknown[]) => mockSetResponseStatus(...args),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getSession: (...args: unknown[]) => mockGetSession(...args),
 }));
 

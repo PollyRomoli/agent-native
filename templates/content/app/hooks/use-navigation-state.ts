@@ -1,4 +1,4 @@
-import { useAgentRouteState, getBrowserTabId } from "@agent-native/core/client";
+import { useAgentRouteState, getBrowserTabId } from "@agentnative-fork/core/client";
 
 interface NavigationState {
   view: string;

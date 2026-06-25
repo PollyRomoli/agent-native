@@ -1,12 +1,12 @@
-import { defineAction } from "@agent-native/core";
-import { readAppStateForCurrentTab } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core";
+import { readAppStateForCurrentTab } from "@agentnative-fork/core/application-state";
 import {
   hasCollabState,
   getText,
   applyText,
   seedFromText,
-} from "@agent-native/core/collab";
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/collab";
+import { accessFilter, assertAccess } from "@agentnative-fork/core/sharing";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

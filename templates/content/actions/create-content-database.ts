@@ -1,11 +1,11 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { buildDeepLink } from "@agent-native/core/server";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
-import { assertAccess, type ShareRole } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server/request-context";
+import { assertAccess, type ShareRole } from "@agentnative-fork/core/sharing";
 import { and, eq, sql } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

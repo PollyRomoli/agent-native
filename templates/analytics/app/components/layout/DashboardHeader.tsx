@@ -2,7 +2,7 @@ import { IconUser, IconCalendar } from "@tabler/icons-react";
 import { useMemo } from "react";
 import { useParams } from "react-router";
 import { dashboards } from "@/pages/adhoc/registry";
-import { useFormatters, useT } from "@agent-native/core/client";
+import { useFormatters, useT } from "@agentnative-fork/core/client";
 
 interface DashboardHeaderProps {
   title?: string;

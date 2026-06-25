@@ -3,7 +3,7 @@ import {
   resolveCredential,
   withRequestContextFromEvent,
 } from "../../../lib/credentials";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

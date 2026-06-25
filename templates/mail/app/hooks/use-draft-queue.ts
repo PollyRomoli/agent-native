@@ -1,4 +1,4 @@
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 
 export type QueuedDraftStatus = "queued" | "in_review" | "sent" | "dismissed";
 

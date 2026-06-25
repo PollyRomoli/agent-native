@@ -16,7 +16,7 @@ import {
   useActionMutation,
   useActionQuery,
   useSession,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { useSetPageTitle } from "@/components/layout/HeaderActions";

@@ -178,7 +178,7 @@ Register it under a new `AGENT_NATIVE_SANDBOX` value (e.g. `remote`) and/or via 
 The other adapter seam wraps a single command-line tool (`gh`, `ffmpeg`, `stripe`, `aws`) so the agent can discover it, check whether it's installed, and run it with a consistent stdout/stderr/exit-code result. Every CLI adapter implements `CliAdapter`:
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -197,7 +197,7 @@ interface CliResult {
 For most CLIs, `ShellCliAdapter` wraps any binary with sensible defaults, and `CliRegistry` collects adapters for runtime discovery:
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(

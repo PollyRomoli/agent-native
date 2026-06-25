@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Vue 3 adapter
+// @agentnative-fork/pinpoint — Vue 3 adapter
 // MIT License
 //
 // Detects Vue 3 apps via window.__VUE__ or [data-v-] attributes.

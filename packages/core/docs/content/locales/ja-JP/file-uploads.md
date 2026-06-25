@@ -53,7 +53,7 @@ description: "ファイル アップロード ストレージを構成します 
 
 ```ts
 // server/plugins/file-upload.ts
-import { registerFileUploadProvider } from "@agent-native/core/file-upload";
+import { registerFileUploadProvider } from "@agentnative-fork/core/file-upload";
 
 export default defineNitroPlugin(() => {
   registerFileUploadProvider({
@@ -103,10 +103,10 @@ interface FileUploadResult {
 }
 ```
 
-actions またはサーバー コードで `@agent-native/core/file-upload` の `uploadFile()` を使用します。
+actions またはサーバー コードで `@agentnative-fork/core/file-upload` の `uploadFile()` を使用します。
 
 ```ts
-import { uploadFile } from "@agent-native/core/file-upload";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
 
 const result = await uploadFile({
   data: fileBuffer,

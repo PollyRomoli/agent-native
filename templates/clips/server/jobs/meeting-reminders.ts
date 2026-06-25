@@ -21,8 +21,8 @@
 
 import { and, eq, gte, isNull, lte } from "drizzle-orm";
 import { z } from "zod";
-import { emit, registerEvent } from "@agent-native/core/event-bus";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+import { emit, registerEvent } from "@agentnative-fork/core/event-bus";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 import { getDb, schema } from "../db/index.js";
 
 const REMINDER_INTERVAL_MS = 60 * 1000;

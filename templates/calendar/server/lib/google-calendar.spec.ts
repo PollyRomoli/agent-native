@@ -13,12 +13,12 @@ const calendarFreeBusyMock = vi.hoisted(() => vi.fn());
 const calendarPatchEventMock = vi.hoisted(() => vi.fn());
 const dbExecuteMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getOAuthAccounts: getOAuthAccountsMock,
   isOAuthConnected: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/oauth-tokens", () => ({
+vi.mock("@agentnative-fork/core/oauth-tokens", () => ({
   getOAuthTokens: vi.fn(),
   saveOAuthTokens: saveOAuthTokensMock,
   deleteOAuthTokens: deleteOAuthTokensMock,
@@ -26,7 +26,7 @@ vi.mock("@agent-native/core/oauth-tokens", () => ({
   hasOAuthTokens: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/db", () => ({
+vi.mock("@agentnative-fork/core/db", () => ({
   getDbExec: () => ({ execute: dbExecuteMock }),
 }));
 

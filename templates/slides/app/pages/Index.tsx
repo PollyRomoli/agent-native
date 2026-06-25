@@ -18,7 +18,7 @@ import {
   askUserQuestion,
   callAction,
   useSession,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { extractGoogleDocUrls } from "@shared/google-docs";
 import {
   AlertDialog,

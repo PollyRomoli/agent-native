@@ -102,13 +102,13 @@ Nicht bereit für den Gerüstbau? Sie können einem Codierungsagenten, den Sie b
 Wenn Sie jetzt ein Gerüst erstellen, lautet der CLI-Befehl:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
-Sie erhalten eine Mehrfachauswahl-Auswahl. Wählen Sie eine App (eigenständig) oder mehrere (Arbeitsbereich – Apps teilen sich Authentifizierung, Marke, Agentenkonfiguration und Datenbank). Jede ausgewählte Vorlage wird mit jeder benötigten Datei in `apps/<name>/` eingebunden. Für eine reine Aktions-App anstelle einer Vorlage UI verwenden Sie `npx @agent-native/core@latest create my-agent --headless`.
+Sie erhalten eine Mehrfachauswahl-Auswahl. Wählen Sie eine App (eigenständig) oder mehrere (Arbeitsbereich – Apps teilen sich Authentifizierung, Marke, Agentenkonfiguration und Datenbank). Jede ausgewählte Vorlage wird mit jeder benötigten Datei in `apps/<name>/` eingebunden. Für eine reine Aktions-App anstelle einer Vorlage UI verwenden Sie `npx @agentnative-fork/core@latest create my-agent --headless`.
 
 Geben Sie `.env` (hauptsächlich `ANTHROPIC_API_KEY` und `DATABASE_URL`), `pnpm install`, `pnpm dev` ein und es funktioniert. Kein „TODO: Login implementieren“, keine Platzhalterrouten.
 
-Ziele bereitstellen: jeder Nitro-kompatible Host (Node, Cloudflare, Netlify, Vercel, Deno, Lambda, Bun) und jede Drizzle-kompatible SQL-Datenbank (SQLite, Postgres, Turso, D1, Supabase, Neon). Für Arbeitsbereiche erstellt `npx @agent-native/core@latest deploy` jede App auf einmal und versendet sie hinter einem einzigen Ursprung. Siehe [Deployment](/docs/deployment).
+Ziele bereitstellen: jeder Nitro-kompatible Host (Node, Cloudflare, Netlify, Vercel, Deno, Lambda, Bun) und jede Drizzle-kompatible SQL-Datenbank (SQLite, Postgres, Turso, D1, Supabase, Neon). Für Arbeitsbereiche erstellt `npx @agentnative-fork/core@latest deploy` jede App auf einmal und versendet sie hinter einem einzigen Ursprung. Siehe [Deployment](/docs/deployment).
 
 Informationen zum Erstellen und Veröffentlichen Ihrer eigenen Vorlage finden Sie unter [Creating Templates](/docs/creating-templates).

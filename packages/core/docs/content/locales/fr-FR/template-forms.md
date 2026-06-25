@@ -60,7 +60,7 @@ Le reste de ce document s'adresse à toute personne qui crée ou étend le modè
 ### Démarrage rapide
 
 ```bash
-npx @agent-native/core@latest create my-forms --standalone --template forms
+npx @agentnative-fork/core@latest create my-forms --standalone --template forms
 cd my-forms
 pnpm install
 pnpm dev
@@ -69,7 +69,7 @@ pnpm dev
 Pour un espace de travail avec Forms aux côtés d’autres applications :
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 Sélectionnez les formulaires et tout autre modèle souhaité lors de la configuration de l'espace de travail.

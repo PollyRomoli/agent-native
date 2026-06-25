@@ -17,15 +17,15 @@ const mocks = vi.hoisted(() => ({
   seedFromText: vi.fn(async () => undefined),
 }));
 
-vi.mock("@agent-native/core", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@agent-native/core")>();
+vi.mock("@agentnative-fork/core", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@agentnative-fork/core")>();
   return {
     ...actual,
     embedApp: vi.fn((value: unknown) => value),
   };
 });
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   buildDeepLink: vi.fn(
     ({
       app,
@@ -44,7 +44,7 @@ vi.mock("@agent-native/core/server", () => ({
   getRequestUserEmail: () => "alice@example.com",
 }));
 
-vi.mock("@agent-native/core/collab", () => ({
+vi.mock("@agentnative-fork/core/collab", () => ({
   applyText: mocks.applyText,
   hasCollabState: mocks.hasCollabState,
   seedFromText: mocks.seedFromText,

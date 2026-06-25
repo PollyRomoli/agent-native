@@ -1,7 +1,7 @@
 import { useMemo, type ReactNode } from "react";
 import { toast } from "sonner";
 import { IconLink, IconMail } from "@tabler/icons-react";
-import { appPath, useActionQuery } from "@agent-native/core/client";
+import { appPath, useActionQuery } from "@agentnative-fork/core/client";
 import {
   Popover,
   PopoverContent,

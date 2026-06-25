@@ -269,3 +269,32 @@ export function getTemplate(name: string): TemplateMeta | undefined {
 export function allTemplateNames(): string[] {
   return TEMPLATES.map((t) => t.name);
 }
+
+// ---------------------------------------------------------------------------
+// SaaS override layer
+// ---------------------------------------------------------------------------
+
+let _hiddenTemplateIds = new Set<string>();
+let _allowedTemplateIds: Set<string> | null = null;
+
+/** Hide specific template IDs from all pickers. */
+export function setHiddenTemplates(ids: string[]): void {
+  _hiddenTemplateIds = new Set(ids);
+}
+
+/** Restrict visible templates to only the given IDs. Pass null to reset. */
+export function setAllowedTemplates(ids: string[] | null): void {
+  _allowedTemplateIds = ids ? new Set(ids) : null;
+}
+
+/** Check if a template is visible after applying SaaS overrides. */
+export function isTemplateVisible(name: string): boolean {
+  if (_hiddenTemplateIds.has(name)) return false;
+  if (_allowedTemplateIds !== null && !_allowedTemplateIds.has(name)) return false;
+  return true;
+}
+
+/** Return templates visible in user-facing pickers, after SaaS overrides. */
+export function visibleTemplatesWithOverrides(): TemplateMeta[] {
+  return TEMPLATES.filter((t) => !t.hidden && isTemplateVisible(t.name));
+}

@@ -9,10 +9,10 @@
  *   pnpm action accept-invite --token=<token>
  */
 
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { orgInvitations, orgMembers } from "@agent-native/core/org";
-import { putUserSetting } from "@agent-native/core/settings";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { orgInvitations, orgMembers } from "@agentnative-fork/core/org";
+import { putUserSetting } from "@agentnative-fork/core/settings";
 import { z } from "zod";
 import { getCurrentOwnerEmail, nanoid } from "../server/lib/recordings.js";
 import { and, eq, sql } from "drizzle-orm";

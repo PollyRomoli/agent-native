@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — SVG icons from Tabler Icons (MIT)
+// @agentnative-fork/pinpoint — SVG icons from Tabler Icons (MIT)
 // https://github.com/tabler/tabler-icons
 //
 // All icons: 24x24 viewBox, stroke-width 2, stroke-linecap round,

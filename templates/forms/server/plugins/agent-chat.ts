@@ -1,9 +1,9 @@
 import {
   createAgentChatPlugin,
   loadActionsFromStaticRegistry,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import actionsRegistry from "../../.generated/actions-registry.js";
-import { getOrgContext } from "@agent-native/core/org";
+import { getOrgContext } from "@agentnative-fork/core/org";
 
 const FORMS_SYSTEM_PROMPT = `## Agent-Native Forms
 
@@ -54,7 +54,7 @@ export default createAgentChatPlugin({
     const { getDb } = await import("../db/index.js");
     const { forms, formShares } = await import("../db/schema.js");
     const { desc, and, isNull, sql } = await import("drizzle-orm");
-    const { accessFilter } = await import("@agent-native/core/sharing");
+    const { accessFilter } = await import("@agentnative-fork/core/sharing");
     return {
       forms: {
         label: "Forms",

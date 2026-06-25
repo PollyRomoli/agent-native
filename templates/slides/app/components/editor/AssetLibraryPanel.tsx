@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import { IconUpload, IconTrash, IconLoader2, IconX } from "@tabler/icons-react";
-import { appBasePath } from "@agent-native/core/client";
+import { appBasePath } from "@agentnative-fork/core/client";
 
 interface Asset {
   url: string;

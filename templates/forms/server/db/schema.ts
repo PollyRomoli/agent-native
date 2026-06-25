@@ -3,7 +3,7 @@ import {
   text,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const forms = table("forms", {
   id: text("id").primaryKey(),

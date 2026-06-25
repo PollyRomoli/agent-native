@@ -60,7 +60,7 @@ description: "مدير أصول رقمية أصلي للوكيل وخدمة إن
 - **تحميل ووصف المراجع.** أضف صورًا أو مقاطع فيديو من المكتبة UI أو زر إرفاق المؤلف الفوري، ثم ابحث حسب العنوان أو الوصف أو النص البديل أو المطالبة أو النموذج أو نوع الوسائط أو الحالة أو الدور أو المجلد أو المجموعة.
 - **احتفظ بسجل تدقيق الإنشاء.** تسجل كل عملية تشغيل المطالبات والنموذج ونسبة العرض إلى الارتفاع والمراجع وأصول المصدر والنسب والأصول التي تم إنشاؤها والحالة والأخطاء والطوابع الزمنية لمراجعة التصميم لاحقًا.
 - **الحفاظ على دقة الشعار.** يمكن للوكيل إنشاء منطقة نائب ويقوم الخادم بتركيب الشعار الأساسي الذي تم تحميله على الصورة النهائية بدلاً من الاعتماد على نموذج الصورة لإعادة رسمه.
-- **التضمين كمنتقي.** يمكن للتطبيقات الأخرى وضع إطار iframe لـ `/picker` والاستماع إلى حدث `chooseAsset` من `@agent-native/embedding`، وتحويل الأصول إلى منتقي/مولد أصول لمحرري المدونات، ومنشئي المواقع، ومجموعات الشرائح، والتطبيقات المخصصة. يقوم المنتقي أيضًا بإصدار الاسم المستعار `chooseImage` القديم لمضيفي الصور فقط الحاليين.
+- **التضمين كمنتقي.** يمكن للتطبيقات الأخرى وضع إطار iframe لـ `/picker` والاستماع إلى حدث `chooseAsset` من `@agentnative-fork/embedding`، وتحويل الأصول إلى منتقي/مولد أصول لمحرري المدونات، ومنشئي المواقع، ومجموعات الشرائح، والتطبيقات المخصصة. يقوم المنتقي أيضًا بإصدار الاسم المستعار `chooseImage` القديم لمضيفي الصور فقط الحاليين.
 - **التثبيت كمهارة مدعومة بالتطبيق.** يصدر بيان `agent-native.app-skill.json` مهارة الأصول بالإضافة إلى البيانات التعريفية لموصل MCP حتى تتمكن الأسواق من تثبيت التطبيق وتعليماته ومنتقيه معًا.
 - **خدمة وكلاء آخرين.** يمكن للشرائح والتصميم والمحتوى والبريد والإرسال استدعاء الأصول من خلال A2A لسرد المكتبات وإنشاء الدفعات وإنشاء مقاطع الفيديو وتحسين الأصل وجلب الصادرات وتقديم المعاينات المضمنة حيث يُسمح بالتضمين.
 
@@ -71,7 +71,7 @@ description: "مدير أصول رقمية أصلي للوكيل وخدمة إن
 1. **التثبيت مرة واحدة.** يؤدي ذلك إلى إضافة تعليمات المهارة وتسجيل موصل MCP المستضاف معًا:
 
    ```باش
-   npx @agent-native/core@latest skills إضافة الأصول # الاسم المستعار: إنشاء الصور
+   npx @agentnative-fork/core@latest skills إضافة الأصول # الاسم المستعار: إنشاء الصور
    ```
 
    العميل الافتراضي هو `codex`؛ أضف `--client claude-code` أو `--client all` للآخرين.
@@ -109,7 +109,7 @@ description: "مدير أصول رقمية أصلي للوكيل وخدمة إن
 ### السقالات
 
 ```bash
-npx @agent-native/core@latest create my-assets --standalone --template assets
+npx @agentnative-fork/core@latest create my-assets --standalone --template assets
 ```
 
 ### نموذج البيانات
@@ -210,7 +210,7 @@ npx @agent-native/core@latest create my-assets --standalone --template assets
 تريد تصفح/تحديد الفيديو:
 
 ```tsx
-import { EmbeddedApp } from "@agent-native/embedding";
+import { EmbeddedApp } from "@agentnative-fork/embedding";
 
 <EmbeddedApp
   url="https://assets.agent-native.com/picker?mediaType=image"
@@ -254,19 +254,19 @@ import { EmbeddedApp } from "@agent-native/embedding";
 
 ```bash
 # Easiest hosted install: exported skill instructions plus MCP connector.
-npx @agent-native/core@latest skills add assets
+npx @agentnative-fork/core@latest skills add assets
 
 # Vercel/open Skills CLI install: exported instructions only, no MCP config.
 npx skills@latest add BuilderIO/agent-native --skill assets
 
 # Hosted install: URL-only MCP connector, no shared secrets in skill files.
-npx @agent-native/core@latest app-skill ensure --manifest templates/assets/agent-native.app-skill.json
+npx @agentnative-fork/core@latest app-skill ensure --manifest templates/assets/agent-native.app-skill.json
 
 # Local editable launch.
-npx @agent-native/core@latest app-skill launch --manifest templates/assets/agent-native.app-skill.json --local --into ./assets-local
+npx @agentnative-fork/core@latest app-skill launch --manifest templates/assets/agent-native.app-skill.json --local --into ./assets-local
 
 # Marketplace package, including Claude Code marketplace and Vercel Labs skills adapters.
-npx @agent-native/core@latest app-skill pack --manifest templates/assets/agent-native.app-skill.json --out ./dist/assets-skill
+npx @agentnative-fork/core@latest app-skill pack --manifest templates/assets/agent-native.app-skill.json --out ./dist/assets-skill
 
 # Install a local exported Assets bundle with the open skills CLI.
 npx skills@latest add ./dist/assets-skill --skill assets -a codex -y
@@ -291,7 +291,7 @@ claude plugin install agent-native-assets@agent-native-apps
 موصل MCP مستضاف حتى تتمكن هذه التعليمات من استدعاء تطبيق الأصول المباشرة:
 
 ```bash
-npx @agent-native/core@latest app-skill ensure --manifest ./dist/assets-skill/agent-native.app-skill.json --yes
+npx @agentnative-fork/core@latest app-skill ensure --manifest ./dist/assets-skill/agent-native.app-skill.json --yes
 ```
 
 ## ما هي الخطوة التالية

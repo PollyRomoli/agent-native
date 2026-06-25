@@ -63,7 +63,7 @@ Der generierte Blueprint weist den Coding-Agent an, das URL (und die Seiten, auf
 
 Legen Sie eine Markdown-Datei in `packages/core/blueprints/<kind>/<name>.md` ab. Die Art ist das Unterverzeichnis; Der Name ist der Dateiname ohne `.md`. Es wird automatisch erfasst – `--list`, Namensauflösung und der Katalog lesen das Verzeichnis zur Laufzeit. Für die Registrierung ist keine Codeänderung erforderlich.
 
-Blueprint-`.md`-Dateien werden im veröffentlichten Paket über den `blueprints`-Eintrag in `package.json` `files` ausgeliefert, sodass sie für Endbenutzer bei `node_modules/@agent-native/core/blueprints/**` aufgelöst werden.
+Blueprint-`.md`-Dateien werden im veröffentlichten Paket über den `blueprints`-Eintrag in `package.json` `files` ausgeliefert, sodass sie für Endbenutzer bei `node_modules/@agentnative-fork/core/blueprints/**` aufgelöst werden.
 
 Schreiben Sie jeden Blueprint als Befehlssatz für einen Codierungsagenten ohne anderen Kontext. Ein guter Bauplan hat:
 

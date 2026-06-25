@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 import { assetPreviewSources } from "@/lib/asset-preview-sources";
 
 export default function RunEmbed() {

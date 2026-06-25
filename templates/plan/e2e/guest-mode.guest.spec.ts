@@ -26,7 +26,7 @@ import {
 
 const APP_ORIGIN = process.env.PLAN_BASE_URL || "http://localhost:8081";
 const PLAN_SKILL_INSTALL_COMMAND =
-  "npx @agent-native/core@latest skills add visual-plans";
+  "npx @agentnative-fork/core@latest skills add visual-plans";
 
 function makeE2ePassword(label: string): string {
   return ["example", label, Date.now().toString(36), "pw"].join("-");

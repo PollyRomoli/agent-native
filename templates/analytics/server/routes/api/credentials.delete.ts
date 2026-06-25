@@ -4,7 +4,7 @@ import {
   deleteCredential,
   getCredentialContextFromEvent,
 } from "../../lib/credentials";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 
 const ALLOWED_KEYS = new Set(credentialKeys.map((k) => k.key));
 

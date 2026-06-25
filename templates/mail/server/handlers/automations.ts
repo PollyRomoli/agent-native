@@ -1,7 +1,7 @@
 import { defineEventHandler, getRouterParam, createError } from "h3";
 import { nanoid } from "nanoid";
 import { eq, and } from "drizzle-orm";
-import { readBody, getSession } from "@agent-native/core/server";
+import { readBody, getSession } from "@agentnative-fork/core/server";
 import { db, schema } from "../db/index.js";
 import { triggerAutomationsDebounced } from "../lib/automation-engine.js";
 import type { AutomationRule } from "@shared/types.js";

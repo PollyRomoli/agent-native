@@ -24,7 +24,7 @@ import {
   IconSend,
   IconWand,
 } from "@tabler/icons-react";
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {

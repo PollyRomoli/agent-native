@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { appBasePath, useT } from "@agent-native/core/client";
+import { appBasePath, useT } from "@agentnative-fork/core/client";
 import { trackEvent } from "../components/TemplateCard";
 import {
   IconAppWindow,
@@ -345,7 +345,7 @@ export default function DownloadPage() {
             {t("downloadPage.runFromSourceBody")}
           </p>
           <pre className="overflow-x-auto rounded-md bg-[var(--docs-code-bg,rgba(0,0,0,0.04))] px-4 py-3 text-xs">
-            <code>{`npx @agent-native/core@latest create my-platform
+            <code>{`npx @agentnative-fork/core@latest create my-platform
 cd my-platform
 pnpm install && pnpm dev`}</code>
           </pre>

@@ -165,7 +165,7 @@ Le point de terminaison MCP prend en charge le modèle distant standard MCP OAut
 | Mode                                  | Comment ça marche                                                                                                                        |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | MCP standard OAuth                    | Le client découvre l'authentification de `WWW-Authenticate`, s'enregistre, exécute PKCE et envoie `Authorization: Bearer <access-token>` |
-| JWT créé par Connect                  | `npx @agent-native/core@latest connect` / la page Connect crée un JWT révocable par utilisateur                                          |
+| JWT créé par Connect                  | `npx @agentnative-fork/core@latest connect` / la page Connect crée un JWT révocable par utilisateur                                          |
 | `ACCESS_TOKEN`                        | Jeton de support statique — le client envoie `Authorization: Bearer <token>`                                                             |
 | `ACCESS_TOKENS`                       | Liste de jetons de support statiques valides, séparés par des virgules                                                                   |
 | `A2A_SECRET`                          | Authentification basée sur JWT : les jetons sont vérifiés cryptographiquement                                                            |
@@ -209,7 +209,7 @@ Les jetons d'accès sont des JWT signés dont l'audience est exactement la resso
 | `mcp:write` | mutation de actions et `ask-agent`                      |
 | `mcp:apps`  | Ressources d'applications MCP (ressources `ui://` HTML) |
 
-Les jetons d'actualisation sont stockés uniquement sous forme de hachages et font l'objet d'une rotation à chaque actualisation. `npx @agent-native/core@latest connect` écrit par défaut cette entrée OAuth uniquement URL pour les clients de code Claude ; conservez la page Connect, `npx @agent-native/core@latest connect --token <token>` et la configuration du support statique pour le proxy stdio local, les clients plus anciens et les flux d'urgence/débogage.
+Les jetons d'actualisation sont stockés uniquement sous forme de hachages et font l'objet d'une rotation à chaque actualisation. `npx @agentnative-fork/core@latest connect` écrit par défaut cette entrée OAuth uniquement URL pour les clients de code Claude ; conservez la page Connect, `npx @agentnative-fork/core@latest connect --token <token>` et la configuration du support statique pour le proxy stdio local, les clients plus anciens et les flux d'urgence/débogage.
 
 ## Configuration MCP personnalisée {#custom-setup}
 
@@ -217,8 +217,8 @@ Le serveur MCP est monté automatiquement par le plugin agent-chat. Pour la plup
 
 ```ts
 // server/plugins/mcp.ts
-import { mountMCP } from "@agent-native/core/mcp";
-import { autoDiscoverActions } from "@agent-native/core/server";
+import { mountMCP } from "@agentnative-fork/core/mcp";
+import { autoDiscoverActions } from "@agentnative-fork/core/server";
 
 export default defineNitroPlugin(async (nitro) => {
   const actions = await autoDiscoverActions(import.meta.url);

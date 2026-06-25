@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Turnstile } from "@agent-native/core/client";
+import { Turnstile } from "@agentnative-fork/core/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";

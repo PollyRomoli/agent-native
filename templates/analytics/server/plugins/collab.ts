@@ -1,4 +1,4 @@
-import { createCollabPlugin } from "@agent-native/core/server";
+import { createCollabPlugin } from "@agentnative-fork/core/server";
 
 // Dashboard configs are JSON stored as text in the `config` column.
 // The collab plugin seeds Y.Text("content") from the config column so

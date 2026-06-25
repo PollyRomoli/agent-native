@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — React update freezing
+// @agentnative-fork/pinpoint — React update freezing
 // MIT License
 //
 // Patches React's dispatcher to queue state updates instead of applying them.

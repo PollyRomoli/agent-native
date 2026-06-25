@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { listEventTypes } from "../server/event-types-repo.js";
 import { assertTeamMember, currentUserEmailOrNull } from "./_helpers.js";

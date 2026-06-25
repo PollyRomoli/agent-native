@@ -1,6 +1,6 @@
 import { defineEventHandler, getRouterParam, setResponseStatus } from "h3";
-import { readBody } from "@agent-native/core/server";
-import { getOrgContext } from "@agent-native/core/org";
+import { readBody } from "@agentnative-fork/core/server";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import {
   listDashboardViews as loadViews,
   saveDashboardView as storeView,

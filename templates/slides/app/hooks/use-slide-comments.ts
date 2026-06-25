@@ -4,7 +4,7 @@ import {
   emailToColor,
   useActionMutation,
   useActionQuery,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export interface SlideComment {
   id: string;

@@ -15,7 +15,7 @@ El sitio de documentos es la implementación de referencia. Hoy se envía:
 - Espejos Markdown como `/docs/getting-started.md`.
 - Respuestas `Accept: text/markdown` para páginas de documentos públicos después de una compilación de producción.
 - JSON-LD para metadatos de página, sitio web y organización base.
-- Una auditoría CLI (`npx @agent-native/core@latest audit-agent-web`) que comprueba todo lo anterior.
+- Una auditoría CLI (`npx @agentnative-fork/core@latest audit-agent-web`) que comprueba todo lo anterior.
 
 La configuración de `publicMcp: true` también expone el actions habilitado como punto final público de MCP, lo que permite a los agentes externos llamarlos directamente (consulte [MCP Protocol](/docs/mcp-protocol)).
 
@@ -99,13 +99,13 @@ Para exponer una acción a través de un protocolo de agente público, la acció
 
 ## Archivos en tiempo de compilación {#build-time}
 
-Las utilidades de Framework en `@agent-native/core/agent-web` generan los archivos comunes a partir de una lista de páginas:
+Las utilidades de Framework en `@agentnative-fork/core/agent-web` generan los archivos comunes a partir de una lista de páginas:
 
 ```ts
 import {
   buildAgentWebStaticFiles,
   normalizeAgentWebConfig,
-} from "@agent-native/core/agent-web";
+} from "@agentnative-fork/core/agent-web";
 
 const config = normalizeAgentWebConfig(
   { crawlerPolicy: "discoverable-no-training" },
@@ -130,14 +130,14 @@ const files = buildAgentWebStaticFiles({
 });
 ```
 
-Las aplicaciones Vite pueden usar `createAgentWebVitePlugin` de `@agent-native/core/vite` para escribir esos archivos en `public`, `dist`, `dist/client`, `dist/server/public` o `build/client` durante las compilaciones de producción.
+Las aplicaciones Vite pueden usar `createAgentWebVitePlugin` de `@agentnative-fork/core/vite` para escribir esos archivos en `public`, `dist`, `dist/client`, `dist/server/public` o `build/client` durante las compilaciones de producción.
 
 ## Auditar un sitio {#audit}
 
 Utilice la auditoría CLI en un sitio implementado o en un servidor de producción local:
 
 ```bash
-npx @agent-native/core@latest audit-agent-web --url https://www.agent-native.com
+npx @agentnative-fork/core@latest audit-agent-web --url https://www.agent-native.com
 ```
 
 La auditoría comprueba:

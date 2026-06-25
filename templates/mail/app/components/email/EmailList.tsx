@@ -53,7 +53,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 type EmailsPage = { emails: EmailMessage[]; nextPageToken?: string };
 type InfiniteEmails = InfiniteData<EmailsPage, string | undefined>;

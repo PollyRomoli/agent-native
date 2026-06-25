@@ -61,11 +61,11 @@ vi.mock("../server/db/index.js", () => ({
   },
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: (...args: unknown[]) => mockAssertAccess(...args),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   writeAppState: (...args: unknown[]) => mockWriteAppState(...args),
 }));
 
@@ -77,7 +77,7 @@ vi.mock("../server/lib/deck-versions.js", () => ({
   createDeckVersionSnapshot: vi.fn(async () => ({ created: true })),
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestUserEmail: () => mockGetUserEmail(),
   getRequestOrgId: () => mockGetOrgId(),
 }));

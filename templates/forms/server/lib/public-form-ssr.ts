@@ -1,14 +1,14 @@
 import { getMethod, getRequestURL, type H3Event } from "h3";
 import { eq } from "drizzle-orm";
-import { getAppBasePath } from "@agent-native/core/server";
-import { DEFAULT_SSR_CACHE_HEADERS } from "@agent-native/core/server/ssr-handler";
+import { getAppBasePath } from "@agentnative-fork/core/server";
+import { DEFAULT_SSR_CACHE_HEADERS } from "@agentnative-fork/core/server/ssr-handler";
 import {
   AGENT_NATIVE_SOCIAL_IMAGE_ALT,
   AGENT_NATIVE_SOCIAL_IMAGE_HEIGHT,
   AGENT_NATIVE_SOCIAL_IMAGE_TYPE,
   AGENT_NATIVE_SOCIAL_IMAGE_WIDTH,
   withAgentNativeSocialImageCacheBuster,
-} from "@agent-native/core/shared";
+} from "@agentnative-fork/core/shared";
 import { getDb, schema } from "../db/index.js";
 import {
   toPublicFormSettings,

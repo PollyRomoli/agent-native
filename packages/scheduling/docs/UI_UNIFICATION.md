@@ -1,10 +1,10 @@
 # UI Unification — booking-link / event-type editor
 
-As of 0.1.x the `@agent-native/scheduling` package ships a small set of
+As of 0.1.x the `@agentnative-fork/scheduling` package ships a small set of
 shared React components for calendar and scheduling surfaces so apps can
 keep visual parity without duplicating logic.
 
-Exported from `@agent-native/scheduling/react/components`:
+Exported from `@agentnative-fork/scheduling/react/components`:
 
 | Component                 | Purpose                                                                                                                       |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@ depends on it).
 
 | Old home (calendar template)             | New home                                                              |
 | ---------------------------------------- | --------------------------------------------------------------------- |
-| `ConferencingEditor` in BookingLinksPage | `ConferencingSelector` in `@agent-native/scheduling/react/components` |
+| `ConferencingEditor` in BookingLinksPage | `ConferencingSelector` in `@agentnative-fork/scheduling/react/components` |
 | `EditableBookingUrl` in BookingLinksPage | `SlugEditor` in the package                                           |
 | `CustomFieldsEditor` in BookingLinksPage | `CustomFieldsEditor` in the package                                   |
 

@@ -34,14 +34,14 @@ description: "قم بتضمين ملف جانبي Agent-Native في تطبيق S
 طرق العمل.
 
 ```bash
-pnpm add @agent-native/core
+pnpm add @agentnative-fork/core
 ```
 
 على الخادم:
 
 ```ts
 // server/plugins/agent-native.ts
-import { createAgentNativeEmbeddedPlugin } from "@agent-native/core/server";
+import { createAgentNativeEmbeddedPlugin } from "@agentnative-fork/core/server";
 import { builderActions } from "../agent-native/actions";
 import { getBuilderSession } from "../auth";
 
@@ -73,7 +73,7 @@ export default createAgentNativeEmbeddedPlugin({
 import {
   AgentNativeEmbedded,
   defineClientAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export function BuilderAppShell({ children, content, editor }) {
   return (
@@ -146,27 +146,27 @@ export default createAgentNativeEmbeddedPlugin({
 
 | الوضع                            | استخدمه عندما                                                                                                           | الحزمة                                 |
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| **منتقي التطبيقات المضمنة**      | إطلاق تطبيق Agent-Native كامل كإطار iframe مركّز (منتقي الأصول، منشئ النماذج، لوحة الموافقة).                           | `@agent-native/embedding`              |
-| **الجسر المضيف `<AgentNative>`** | تطبيقات جانبية مستقلة أو إطارات iframe مشتركة الأصل تربط سياق الصفحة والعميل actions يدويًا.                            | `@agent-native/core/client`            |
-| **الامتدادات المحمولة**          | السماح للمستخدمين المضيفين بإنشاء تطبيقات صغيرة في وضع الحماية عندما تمتلك SaaS بالفعل مساحة تخزين/موافقة على الامتداد. | فتحة تمديد `@agent-native/core/client` |
+| **منتقي التطبيقات المضمنة**      | إطلاق تطبيق Agent-Native كامل كإطار iframe مركّز (منتقي الأصول، منشئ النماذج، لوحة الموافقة).                           | `@agentnative-fork/embedding`              |
+| **الجسر المضيف `<AgentNative>`** | تطبيقات جانبية مستقلة أو إطارات iframe مشتركة الأصل تربط سياق الصفحة والعميل actions يدويًا.                            | `@agentnative-fork/core/client`            |
+| **الامتدادات المحمولة**          | السماح للمستخدمين المضيفين بإنشاء تطبيقات صغيرة في وضع الحماية عندما تمتلك SaaS بالفعل مساحة تخزين/موافقة على الامتداد. | فتحة تمديد `@agentnative-fork/core/client` |
 
-تكشف حزمة `@agent-native/embedding` ذات المستوى الأدنى عن:
+تكشف حزمة `@agentnative-fork/embedding` ذات المستوى الأدنى عن:
 
 | مسار الاستيراد                     | ما يقدمه                                                                           |
 | ---------------------------------- | ---------------------------------------------------------------------------------- |
-| `@agent-native/embedding`          | مكون منتقي `EmbeddedApp`، `getA2AUrl`، `getMcpUrl`، `sendMessage` (بث A2A)         |
-| `@agent-native/embedding/react`    | الخطافات والمكونات الخاصة بـ React                                                 |
-| `@agent-native/embedding/bridge`   | `announceEmbeddedAppReady`، `sendEmbeddedAppMessage` - يُستخدم داخل التطبيق المضمن |
-| `@agent-native/embedding/agent`    | مساعدي نقطة النهاية للوكيل                                                         |
-| `@agent-native/embedding/protocol` | أنواع البروتوكولات                                                                 |
+| `@agentnative-fork/embedding`          | مكون منتقي `EmbeddedApp`، `getA2AUrl`، `getMcpUrl`، `sendMessage` (بث A2A)         |
+| `@agentnative-fork/embedding/react`    | الخطافات والمكونات الخاصة بـ React                                                 |
+| `@agentnative-fork/embedding/bridge`   | `announceEmbeddedAppReady`، `sendEmbeddedAppMessage` - يُستخدم داخل التطبيق المضمن |
+| `@agentnative-fork/embedding/agent`    | مساعدي نقطة النهاية للوكيل                                                         |
+| `@agentnative-fork/embedding/protocol` | أنواع البروتوكولات                                                                 |
 
 ```bash
-pnpm add @agent-native/embedding
+pnpm add @agentnative-fork/embedding
 ```
 
 ### التطبيق المضمن ووضع المنتقي
 
-استخدم `@agent-native/embedding` عندما يريد المنتج المضيف تشغيل منتج كامل
+استخدم `@agentnative-fork/embedding` عندما يريد المنتج المضيف تشغيل منتج كامل
 تطبيق Agent-Native كسطح iframe مركّز: منتقي الأصول، ومنشئ الأصول،
 أداة إنشاء النماذج، أو منتقي فتحات التقويم، أو لوحة الموافقة، أو أي مهمة أخرى خاصة
 سير العمل. وهذا أصغر عمدًا من جسر مضيف العربة الجانبية الموجود أدناه:
@@ -174,7 +174,7 @@ pnpm add @agent-native/embedding
 يمكن للتطبيق إرسال أحداث النطاق مثل `chooseAsset` أو `close`.
 
 ```tsx
-import { EmbeddedApp } from "@agent-native/embedding";
+import { EmbeddedApp } from "@agentnative-fork/embedding";
 
 export function AssetPickerDialog({ close }) {
   return (
@@ -207,7 +207,7 @@ export function AssetPickerDialog({ close }) {
 import {
   announceEmbeddedAppReady,
   sendEmbeddedAppMessage,
-} from "@agent-native/embedding/bridge";
+} from "@agentnative-fork/embedding/bridge";
 
 announceEmbeddedAppReady({ app: "assets", mode: "picker" });
 sendEmbeddedAppMessage("chooseAsset", {
@@ -230,7 +230,7 @@ sendEmbeddedAppMessage("chooseAsset", {
 تدفق النص عبر A2A:
 
 ```ts
-import { getA2AUrl, getMcpUrl, sendMessage } from "@agent-native/embedding";
+import { getA2AUrl, getMcpUrl, sendMessage } from "@agentnative-fork/embedding";
 
 getMcpUrl("https://assets.agent-native.com");
 getA2AUrl("https://assets.agent-native.com");
@@ -252,7 +252,7 @@ for await (const chunk of sendMessage(
 بالنسبة للتطبيقات الجانبية المستقلة أو إطارات iframe المشتركة الأصل، استخدم `<AgentNative />` ذات المستوى الأدنى. فهو يعرض سياق صفحة iframe الجانبية وwires، والعميل المباشر actions، وأوامر التحديث/التنقل للمضيف في مكان واحد:
 
 ```tsx
-import { AgentNative, defineClientAction } from "@agent-native/core/client";
+import { AgentNative, defineClientAction } from "@agentnative-fork/core/client";
 
 export function AssistantDock({ customer, sessionToken }) {
   return (
@@ -340,7 +340,7 @@ import {
   requestAgentNativeHostContext,
   runAgentNativeHostAction,
   sendAgentNativeHostCommand,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 announceAgentNativeFrameReady({ hostOrigin: "https://app.example.com" });
 
@@ -384,7 +384,7 @@ const hostTools = createAgentNativeHostTools({
 
 ```tsx
 import { useEffect } from "react";
-import { startAgentNativeBrowserSessionBridge } from "@agent-native/core/client";
+import { startAgentNativeBrowserSessionBridge } from "@agentnative-fork/core/client";
 
 export function SidecarRuntime() {
   useEffect(() => {
@@ -437,7 +437,7 @@ import {
   AgentNativeExtensionSlot,
   createHttpAgentNativeExtensionStorage,
   defineClientAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const storage = createHttpAgentNativeExtensionStorage({
   endpoint: "/api/agent-native/extensions/storage",

@@ -27,7 +27,7 @@ Every app in this workspace inherits cross-cutting behavior automatically:
 2. **Workspace shared** (middle) — `packages/shared/src/server/`,
    `packages/shared/src/client/`, `packages/shared/actions/`,
    `packages/shared/.agents/skills/`, `packages/shared/AGENTS.md`.
-3. **Framework** (lowest) — `@agent-native/core` defaults.
+3. **Framework** (lowest) — `@agentnative-fork/core` defaults.
 
 Apps don't need any configuration to opt in. Discovery happens via the
 `agent-native.workspaceCore` field in this root `package.json`, which names
@@ -36,8 +36,8 @@ the shared package (`@{{APP_NAME}}/shared`).
 The workspace root also links `.agents/skills` to the shared package so coding
 agents launched from the root can discover the same workspace-wide skills.
 Run `pnpm skills:update` (or
-`npx @agent-native/core@latest skills update scaffold --project`) after updating
-`@agent-native/core` to refresh framework-provided shared skills and repair
+`npx @agentnative-fork/core@latest skills update scaffold --project`) after updating
+`@agentnative-fork/core` to refresh framework-provided shared skills and repair
 Claude compatibility links.
 
 Runtime-editable global resources live in Dispatch, not in `packages/shared`.

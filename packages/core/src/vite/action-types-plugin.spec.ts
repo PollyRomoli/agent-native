@@ -13,7 +13,7 @@ describe("generateActionRegistryForProject", () => {
       fs.writeFileSync(path.join(root, ".gitignore"), "");
       fs.writeFileSync(
         path.join(actionsDir, "real-action.ts"),
-        `import { defineAction } from "@agent-native/core";\nexport default defineAction({ tool: { description: "ok", parameters: {} }, run: async () => ({ ok: true }) });\n`,
+        `import { defineAction } from "@agentnative-fork/core";\nexport default defineAction({ tool: { description: "ok", parameters: {} }, run: async () => ({ ok: true }) });\n`,
       );
       fs.writeFileSync(
         path.join(actionsDir, "real-action.spec.ts"),

@@ -35,17 +35,17 @@ const deleteCredentialMock = vi.hoisted(() => vi.fn());
 const getSessionMock = vi.hoisted(() => vi.fn());
 const getOrgContextMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core/credentials", () => ({
+vi.mock("@agentnative-fork/core/credentials", () => ({
   resolveCredential: resolveCredentialMock,
   saveCredential: saveCredentialMock,
   deleteCredential: deleteCredentialMock,
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getSession: getSessionMock,
 }));
 
-vi.mock("@agent-native/core/org", () => ({
+vi.mock("@agentnative-fork/core/org", () => ({
   getOrgContext: getOrgContextMock,
 }));
 

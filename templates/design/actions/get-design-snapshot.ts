@@ -1,6 +1,6 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
-import { resolveAccess } from "@agent-native/core/sharing";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { schema } from "../server/db/index.js";
 import { buildDesignSnapshot } from "../server/lib/design-snapshot.js";

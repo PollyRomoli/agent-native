@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { agentNativePath } from "@agent-native/core/client";
-import { appApiPath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 
 // ─── Generic integration credentials (via application-state) ────────────────
 

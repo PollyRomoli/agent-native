@@ -41,7 +41,7 @@ Execute `create` sem sinalizadores e ele perguntará como você deseja iniciar (
 Chat ou Headless) antes de mais nada:
 
 ```bash
-npx @agent-native/core@latest create my-app
+npx @agentnative-fork/core@latest create my-app
 ```
 
 Ou passe um sinalizador para ignorar o prompt:
@@ -50,14 +50,14 @@ Ou passe um sinalizador para ignorar o prompt:
 bate-papo personalizável UI, e cada ação que você adiciona aparece nele automaticamente:
 
 ```bash
-npx @agent-native/core@latest create my-app --template chat
+npx @agentnative-fork/core@latest create my-app --template chat
 ```
 
 **Apenas o primitivo sem cabeça?** Comece sem cabeça — o mesmo actions e agente
 loop, sem shell UI:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 Em seguida, instale a partir da pasta que você criou:
@@ -78,7 +78,7 @@ envie com este exemplo:
 {
   "filename": "actions/hello.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Diga olá a partir do agente local.\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Diga olá a partir do agente local.\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Descrição da ferramenta", "note": "O agente lê `description` para decidir quando chamar isto como ferramenta." },
     { "lines": "6-8", "label": "Contrato tipado", "note": "Um `schema` zod valida entradas de todas as superfícies: agente, UI, HTTP, MCP e A2A." },
@@ -149,7 +149,7 @@ Se você começou a partir do modelo Chat, o UI é seu para editar. O bate-papo 
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return <AgentChatSurface mode="page" className="h-full" />;

@@ -1,5 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 import type {
   ConfigureDocumentPropertyRequest,
   DeleteDocumentPropertyRequest,

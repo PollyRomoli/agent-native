@@ -30,8 +30,8 @@ This builds core first, then starts every template app in parallel on sequential
 ```bash
 pnpm --filter mail dev        # run the mail template
 pnpm --filter calendar dev    # run the calendar template
-pnpm --filter @agent-native/core dev   # watch-build core
-pnpm --filter @agent-native/docs dev   # run the docs site
+pnpm --filter @agentnative-fork/core dev   # watch-build core
+pnpm --filter @agentnative-fork/docs dev   # run the docs site
 ```
 
 ### Electron desktop app
@@ -49,7 +49,7 @@ This is a pnpm monorepo. Workspaces are defined in `pnpm-workspace.yaml`.
 
 | Package             | Description                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `core`              | Core framework library (`@agent-native/core`) -- CLI, server plugins, agent tools, Vite plugin                      |
+| `core`              | Core framework library (`@agentnative-fork/core`) -- CLI, server plugins, agent tools, Vite plugin                      |
 | `code-agents-ui`    | Reusable React UI for Agent-Native Code surfaces                                                                    |
 | `desktop-app`       | Electron desktop app                                                                                                |
 | `dispatch`          | Workspace control plane -- vault, integrations, destinations, scheduled jobs, and cross-app delegation as a drop-in |
@@ -145,6 +145,6 @@ pnpm run build    # build all packages and templates
 Individual packages:
 
 ```bash
-pnpm --filter @agent-native/core build
+pnpm --filter @agentnative-fork/core build
 pnpm --filter mail build
 ```

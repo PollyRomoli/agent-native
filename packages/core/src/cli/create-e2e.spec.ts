@@ -251,7 +251,7 @@ describe("standalone scaffold — headless template", { timeout: 60000 }, () => 
     );
 
     expect(pkg.name).toBe("test-app");
-    expect(pkg.dependencies?.["@agent-native/core"]).toBe(
+    expect(pkg.dependencies?.["@agentnative-fork/core"]).toBe(
       _getCoreDependencyVersion(),
     );
     expect(pkg.dependencies?.postgres).toBeDefined();
@@ -291,7 +291,7 @@ describe("standalone scaffold — headless template", { timeout: 60000 }, () => 
  *
  *   1. tsconfig inherited `types: ["vite/client"]` from the UI base config, but
  *      a headless app has no Vite dep, so tsc died with TS2688.
- *   2. `import { defineAction } from "@agent-native/core"` resolved to the Node
+ *   2. `import { defineAction } from "@agentnative-fork/core"` resolved to the Node
  *      `default` entry, which re-exported the React client barrel and pulled
  *      `@tanstack/react-query` (uninstalled in a headless app) into the load
  *      graph, crashing at module load.
@@ -324,7 +324,7 @@ describe("headless onboarding guards", { timeout: 60000 }, () => {
 
   it("keeps the package root (Node default) entry free of the React client barrel", () => {
     // Importing `defineAction` (or anything else) from the bare
-    // "@agent-native/core" specifier must stay server-safe: the Node `default`
+    // "@agentnative-fork/core" specifier must stay server-safe: the Node `default`
     // entry must not statically re-export "./client/index.js", which would drag
     // react / react-router / @tanstack/react-query into a headless load graph.
     const rootEntry = fs.readFileSync(ROOT_ENTRY_SRC, "utf-8");
@@ -395,7 +395,7 @@ describe.skipIf(!RUN_HEADLESS_INSTALL_E2E)(
       // The scaffold must be linked to the local core build (file: URL), not
       // the published "latest", so the test exercises THIS branch's code.
       const pkg = readPkg(appDir);
-      expect(pkg.dependencies["@agent-native/core"]).toMatch(/^file:/);
+      expect(pkg.dependencies["@agentnative-fork/core"]).toMatch(/^file:/);
 
       const install = runPnpm(["install", "--prefer-offline"], appDir);
       expect(
@@ -424,7 +424,7 @@ describe.skipIf(!RUN_HEADLESS_INSTALL_E2E)(
           "--input-type=module",
           "-e",
           [
-            'const { autoDiscoverActions } = await import("@agent-native/core/server");',
+            'const { autoDiscoverActions } = await import("@agentnative-fork/core/server");',
             'const actions = await autoDiscoverActions("auto");',
             'if (!actions.hello) throw new Error("hello action was not discovered");',
             'console.log(Object.keys(actions).sort().join(","));',
@@ -494,7 +494,7 @@ describe("workspace scaffold — required packages", { timeout: 60000 }, () => {
   });
 
   it("backs first-party workspace deps with scaffolded packages", async () => {
-    // Includes every template that declares an @agent-native/* workspace:*
+    // Includes every template that declares an @agentnative-fork/* workspace:*
     // dep so a missing `requiredPackages` entry surfaces here instead of as
     // ERR_PNPM_WORKSPACE_PKG_NOT_FOUND on the user's machine.
     const apps = ["assets", "calendar", "design", "slides", "videos"];
@@ -506,7 +506,7 @@ describe("workspace scaffold — required packages", { timeout: 60000 }, () => {
         if (
           typeof version !== "string" ||
           !version.startsWith("workspace:") ||
-          !depName.startsWith("@agent-native/")
+          !depName.startsWith("@agentnative-fork/")
         ) {
           continue;
         }
@@ -522,15 +522,15 @@ describe("workspace scaffold — required packages", { timeout: 60000 }, () => {
     }
   });
 
-  it("converts @agent-native/core workspace:* in scaffolded packages", async () => {
+  it("converts @agentnative-fork/core workspace:* in scaffolded packages", async () => {
     const wsDir = await scaffoldWorkspace("my-ws", ["calendar"]);
     const schedPkg = readPkg(path.join(wsDir, "packages", "scheduling"));
     for (const depType of ["dependencies", "devDependencies"] as const) {
-      const val = schedPkg[depType]?.["@agent-native/core"];
+      const val = schedPkg[depType]?.["@agentnative-fork/core"];
       if (val) {
         expect(
           val,
-          `${depType}["@agent-native/core"] must not be workspace:*`,
+          `${depType}["@agentnative-fork/core"] must not be workspace:*`,
         ).not.toMatch(/^workspace:/);
         expect(val).toBe(_getCoreDependencyVersion());
       }
@@ -540,10 +540,10 @@ describe("workspace scaffold — required packages", { timeout: 60000 }, () => {
   it("preserves non-core workspace:* deps in app package.json", async () => {
     const wsDir = await scaffoldWorkspace("my-ws", ["calendar"]);
     const calPkg = readPkg(path.join(wsDir, "apps", "calendar"));
-    expect(calPkg.dependencies["@agent-native/scheduling"]).toBe("workspace:*");
+    expect(calPkg.dependencies["@agentnative-fork/scheduling"]).toBe("workspace:*");
   });
 
-  it("resolves @agent-native/dispatch to latest in workspacified apps", async () => {
+  it("resolves @agentnative-fork/dispatch to latest in workspacified apps", async () => {
     // Pin the default (non-local-linking) behaviour regardless of an ambient
     // AGENT_NATIVE_CREATE_USE_LOCAL_CORE set by the headless install e2e.
     const previous = process.env.AGENT_NATIVE_CREATE_USE_LOCAL_CORE;
@@ -551,7 +551,7 @@ describe("workspace scaffold — required packages", { timeout: 60000 }, () => {
     try {
       const wsDir = await scaffoldWorkspace("my-ws", ["dispatch"]);
       const dispatchPkg = readPkg(path.join(wsDir, "apps", "dispatch"));
-      expect(dispatchPkg.dependencies["@agent-native/dispatch"]).toBe("latest");
+      expect(dispatchPkg.dependencies["@agentnative-fork/dispatch"]).toBe("latest");
     } finally {
       if (previous === undefined) {
         delete process.env.AGENT_NATIVE_CREATE_USE_LOCAL_CORE;
@@ -567,7 +567,7 @@ describe("workspace scaffold — required packages", { timeout: 60000 }, () => {
     try {
       const wsDir = await scaffoldWorkspace("my-ws", ["dispatch"]);
       const dispatchPkg = readPkg(path.join(wsDir, "apps", "dispatch"));
-      expect(dispatchPkg.dependencies["@agent-native/dispatch"]).toMatch(
+      expect(dispatchPkg.dependencies["@agentnative-fork/dispatch"]).toMatch(
         /^file:\/\//,
       );
     } finally {
@@ -635,10 +635,10 @@ describe("workspace scaffold — required packages", { timeout: 60000 }, () => {
     );
   });
 
-  it("resolves @agent-native/core in workspacified apps", async () => {
+  it("resolves @agentnative-fork/core in workspacified apps", async () => {
     const wsDir = await scaffoldWorkspace("my-ws", ["chat"]);
     const appPkg = readPkg(path.join(wsDir, "apps", "chat"));
-    expect(appPkg.dependencies["@agent-native/core"]).toBe(
+    expect(appPkg.dependencies["@agentnative-fork/core"]).toBe(
       _getCoreDependencyVersion(),
     );
   });
@@ -676,10 +676,10 @@ describe("workspace scaffold — required packages", { timeout: 60000 }, () => {
     expect(agentChatPlugin).toContain("loadActionsFromStaticRegistry");
   });
 
-  it("resolves @agent-native/core at the workspace root for the gateway", async () => {
+  it("resolves @agentnative-fork/core at the workspace root for the gateway", async () => {
     const wsDir = await scaffoldWorkspace("my-ws", ["chat"]);
     const rootPkg = readPkg(wsDir);
-    expect(rootPkg.dependencies["@agent-native/core"]).toBe(
+    expect(rootPkg.dependencies["@agentnative-fork/core"]).toBe(
       _getCoreDependencyVersion(),
     );
   });
@@ -809,7 +809,7 @@ describe("workspace scaffold defaults", () => {
     await _scaffoldWorkspaceRoot(wsDir, "my-ws");
     const rootPkg = readPkg(wsDir);
     expect(rootPkg.scripts?.dev).toBe("agent-native dev");
-    expect(rootPkg.dependencies?.["@agent-native/core"]).toBe(
+    expect(rootPkg.dependencies?.["@agentnative-fork/core"]).toBe(
       _getCoreDependencyVersion(),
     );
     expect(fs.existsSync(path.join(wsDir, "scripts", "workspace-dev.ts"))).toBe(

@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import {
   registerActionChatRenderer,
   type ToolRendererProps,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 // Heavy plan-block rendering bundle (diagram/wireframe/api-spec/data-model/…) is
 // loaded only when a visual answer actually renders in chat, not at app start.

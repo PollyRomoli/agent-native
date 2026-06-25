@@ -7,14 +7,14 @@ import {
   IconUsers,
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
 import {
   DevDatabaseLink,
   FeedbackButton,
   appPath,
   useT,
-} from "@agent-native/core/client";
-import { OrgSwitcher } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { OrgSwitcher } from "@agentnative-fork/core/client/org";
 
 const navItems = [
   { icon: IconVideo, labelKey: "navigation.animations", href: "/" },

@@ -1,5 +1,5 @@
 /**
- * `@agent-native/core/blocks/server` — the React-free subset of the block
+ * `@agentnative-fork/core/blocks/server` — the React-free subset of the block
  * registry for server / agent code (MDX serialize/parse, the registry, schema
  * introspection, the `markdown()` helper, agent schema export). Importing this
  * entry never pulls React into the server bundle.
@@ -62,7 +62,7 @@ export {
 
 // Standard block library — React-free schema + MDX config only. The React
 // `Read`/`Edit` live in `./library/checklist.tsx` (imported from the full
-// `@agent-native/core/blocks` entry), never from here.
+// `@agentnative-fork/core/blocks` entry), never from here.
 export {
   checklistSchema,
   checklistMdx,
@@ -108,7 +108,7 @@ export {
 
 // Dev-doc block library — React-free schema + MDX config only. The React
 // `Read`/`Edit` live in the matching `./library/<Name>Block.tsx` (imported from
-// the full `@agent-native/core/blocks` entry), never from here.
+// the full `@agentnative-fork/core/blocks` entry), never from here.
 export {
   mermaidSchema,
   mermaidMdx,

@@ -1,8 +1,8 @@
 import { useLocation } from "react-router";
-import { useActionQuery, useT } from "@agent-native/core/client";
+import { useActionQuery, useT } from "@agentnative-fork/core/client";
 import { useHeaderTitle, useHeaderActions } from "./HeaderActions";
-import { AgentToggleButton } from "@agent-native/core/client";
-import { RunsTray } from "@agent-native/core/client/progress";
+import { AgentToggleButton } from "@agentnative-fork/core/client";
+import { RunsTray } from "@agentnative-fork/core/client/progress";
 
 const pageTitleKeys: Record<string, string> = {
   "/": "navigation.designs",

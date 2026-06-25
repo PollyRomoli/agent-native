@@ -1,9 +1,9 @@
-// @agent-native/pinpoint — Storage exports
+// @agentnative-fork/pinpoint — Storage exports
 // MIT License
 
 export { MemoryStore } from "./memory-store.js";
 export { RestClient } from "./rest-client.js";
-// FileStore is server-only — exported from @agent-native/pinpoint/server
+// FileStore is server-only — exported from @agentnative-fork/pinpoint/server
 export {
   PinSchema,
   ElementInfoSchema,

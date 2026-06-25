@@ -9,7 +9,7 @@
  *
  *   1. app local           (highest priority — app's own server/plugins/, actions/, etc.)
  *   2. workspace core      (middle — packages/shared/ in the enterprise monorepo)
- *   3. @agent-native/core  (lowest — framework defaults)
+ *   3. @agentnative-fork/core  (lowest — framework defaults)
  *
  * Discovery works by walking up from the build cwd looking for a package.json
  * that declares `"agent-native": { "workspaceCore": "@company/shared" }`.

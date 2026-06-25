@@ -1,1 +1,1 @@
-export { dispatchAuthPlugin as default } from "@agent-native/dispatch/server";
+export { dispatchAuthPlugin as default } from "@agentnative-fork/dispatch/server";

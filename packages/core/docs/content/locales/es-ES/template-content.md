@@ -93,7 +93,7 @@ Widgets `extensions/` y guía de seguridad de producción.
 Para instalar la habilidad de archivos locales de contenido en un repositorio existente:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 El instalador copia la habilidad `content` para su agente de codificación y escribe o
@@ -114,7 +114,7 @@ El resto de este documento es para cualquiera que bifurque la plantilla de conte
 Crea un nuevo espacio de trabajo con la plantilla Contenido:
 
 ```bash
-npx @agent-native/core@latest create my-workspace --standalone --template content
+npx @agentnative-fork/core@latest create my-workspace --standalone --template content
 cd my-workspace
 pnpm install
 pnpm dev

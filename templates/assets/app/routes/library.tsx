@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router";
 import {
   createEmbeddedAppBridge,
   type EmbeddedAppBridge,
-} from "@agent-native/core/embedding/bridge";
+} from "@agentnative-fork/core/embedding/bridge";
 import {
   agentNativePath,
   appPath,
@@ -15,7 +15,7 @@ import {
   updateMcpAppModelContext,
   useActionMutation,
   useActionQuery,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   IconArrowUpRight,
   IconCheck,

@@ -5,7 +5,7 @@
  * framework-level share actions (`share-resource`, `list-resource-shares`,
  * etc.) can dispatch to the correct tables.
  *
- *   import { registerShareableResource } from "@agent-native/core/sharing";
+ *   import { registerShareableResource } from "@agentnative-fork/core/sharing";
  *   import * as schema from "./schema.js";
  *
  *   registerShareableResource({
@@ -81,7 +81,7 @@ export interface ShareableResourceRegistration {
 }
 
 // Stash the registry on globalThis so it survives SSR bundle duplication.
-// Vite SSR's `noExternal: /^(?!node:)/` policy means @agent-native/core gets
+// Vite SSR's `noExternal: /^(?!node:)/` policy means @agentnative-fork/core gets
 // inlined into every server bundle that imports it — and each bundle gets its
 // own module-level state. A plain `new Map()` here would create one Map per
 // bundle, so the template's `registerShareableResource()` (called from the

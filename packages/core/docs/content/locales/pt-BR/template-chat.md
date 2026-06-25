@@ -52,7 +52,7 @@ Esse é o ponto. O Chat é um shell padrão fino e útil para seu próprio agent
 ## Andaimes {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 cd my-chat-app
 pnpm install
 pnpm dev
@@ -61,7 +61,7 @@ pnpm dev
 Ou comece sem UI e adicione uma superfície de chat mais tarde:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 A partir daí, copie a rota `/` do modelo de bate-papo e a lista de tópicos da barra lateral em seu aplicativo ou crie um aplicativo de bate-papo e mova o actions de seu agente headless para seu diretório `actions/`. A chave invariante permanece a mesma: actions é a superfície compartilhada para bate-papo, UI, HTTP, MCP, A2A e CLI.
@@ -90,7 +90,7 @@ A página de bate-papo é intencionalmente estreita:
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return (

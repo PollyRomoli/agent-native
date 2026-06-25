@@ -74,7 +74,7 @@ description: "تقويم مدعوم من الوكيل مع مزامنة Google C
 قم بإنشاء مساحة عمل جديدة باستخدام قالب التقويم:
 
 ```bash
-npx @agent-native/core@latest create my-app --standalone --template calendar
+npx @agentnative-fork/core@latest create my-app --standalone --template calendar
 cd my-app
 pnpm install
 pnpm dev

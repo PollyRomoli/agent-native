@@ -10,7 +10,7 @@ Une fonction, plusieurs destinations. Appelez `notify()` à partir de n'importe 
 Les notifications sont des alertes unidirectionnelles envoyées dans la boîte de réception de l'application (plus la diffusion du webhook). Pour _converser_ avec votre agent depuis Slack/email/Telegram/WhatsApp, voir [Messaging](/docs/messaging).
 
 ```ts
-import { notify } from "@agent-native/core/notifications";
+import { notify } from "@agentnative-fork/core/notifications";
 
 await notify(
   { severity: "info", title: "Booking confirmed", body: "Jane at 3pm" },
@@ -77,7 +77,7 @@ await notify(
 Enregistrez un canal personnalisé à partir de n'importe quel plugin de serveur.
 
 ```ts
-import { registerNotificationChannel } from "@agent-native/core/notifications";
+import { registerNotificationChannel } from "@agentnative-fork/core/notifications";
 
 registerNotificationChannel({
   name: "slack-ops",
@@ -105,7 +105,7 @@ import {
   markNotificationRead,
   markAllNotificationsRead,
   deleteNotification,
-} from "@agent-native/core/notifications";
+} from "@agentnative-fork/core/notifications";
 
 const rows = await listNotifications("steve@builder.io", {
   unreadOnly: true,
@@ -174,7 +174,7 @@ Monté sur `/_agent-native/notifications/*` par le plugin core-routes. Toutes le
 ## Composant UI {#ui}
 
 ```tsx
-import { NotificationsBell } from "@agent-native/core/client/notifications";
+import { NotificationsBell } from "@agentnative-fork/core/client/notifications";
 
 export function HeaderBar() {
   return (

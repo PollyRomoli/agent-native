@@ -20,7 +20,7 @@ import {
   safeReturnPath,
   setDesktopExchange,
   setDesktopExchangeError,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   getAuthUrl,
   exchangeCode,
@@ -30,12 +30,12 @@ import {
   setAccountDisplayName,
 } from "../lib/google-auth.js";
 import { googleFetch } from "../lib/google-api.js";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 import { htmlSignatureToMarkdown } from "../../shared/gmail-signature.js";
 import {
   OAuthAccountOwnedByOtherUserError,
   setOAuthDisplayName,
-} from "@agent-native/core/oauth-tokens";
+} from "@agentnative-fork/core/oauth-tokens";
 
 const OAUTH_STATE_APP_ID = process.env.APP_NAME || "mail";
 

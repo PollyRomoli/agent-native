@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   parseDocumentFavorite,
   parseDocumentHideFromSearch,
 } from "../server/lib/documents.js";
-import { resolveAccess } from "@agent-native/core/sharing";
-import { buildDeepLink } from "@agent-native/core/server";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import {
   listPropertiesForDocument,

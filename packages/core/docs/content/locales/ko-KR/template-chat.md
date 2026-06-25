@@ -52,7 +52,7 @@ description: "최소 채팅 우선 에이전트 기본 앱: 내구성 있는 채
 ## 비계 {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 cd my-chat-app
 pnpm install
 pnpm dev
@@ -61,7 +61,7 @@ pnpm dev
 또는 UI 없이 시작하고 나중에 채팅 화면을 추가하세요.
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 여기서 Chat 템플릿의 `/` 경로 및 사이드바 스레드 목록을 앱에 복사하거나 Chat 앱을 스캐폴드하고 헤드리스 에이전트의 actions를 `actions/` 디렉터리로 이동합니다. 주요 불변성은 동일하게 유지됩니다. actions는 채팅의 공유 영역이고, UI, HTTP, MCP, A2A 및 CLI입니다.
@@ -90,7 +90,7 @@ npx @agent-native/core@latest create my-agent --headless
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return (

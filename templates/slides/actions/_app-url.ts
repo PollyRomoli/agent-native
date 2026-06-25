@@ -1,4 +1,4 @@
-import { withConfiguredAppBasePath } from "@agent-native/core/server";
+import { withConfiguredAppBasePath } from "@agentnative-fork/core/server";
 
 const FALLBACK_SLIDES_APP_URL = "https://slides.agent-native.com";
 

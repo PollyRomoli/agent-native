@@ -8,7 +8,7 @@ import type { ReactElement } from "react";
 vi.mock("next-themes", () => ({
   useTheme: vi.fn(),
 }));
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   cn: (...args: unknown[]) =>
     args
       .flat(Infinity)

@@ -52,7 +52,7 @@ Use `defineAction` with a Zod `schema:` for every action. The framework validate
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Create a note",
@@ -104,7 +104,7 @@ React auto-escapes all JSX expressions. Additional guidelines:
 Any server-side `fetch` of a user- or agent-controlled URL must go through the framework SSRF guard, or it can be pointed at cloud metadata (`169.254.169.254`), `localhost`, or internal services:
 
 ```ts
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 
 const res = await ssrfSafeFetch(userProvidedUrl, {}, { maxRedirects: 3 });
 ```
@@ -142,7 +142,7 @@ import {
   text,
   integer,
   ownableColumns,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 // Minimal: just the owner column
 export const notes = table("notes", {
@@ -180,7 +180,7 @@ For multi-user apps where teams share data, add an `org_id` column. When both co
 The `ownableColumns()` schema helper adds `owner_email`, `org_id`, and `visibility` in one call, so new tenant-aware tables get the full scoping contract by default:
 
 ```ts
-import { table, text, ownableColumns } from "@agent-native/core/db/schema";
+import { table, text, ownableColumns } from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),

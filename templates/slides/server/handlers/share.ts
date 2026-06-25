@@ -1,8 +1,8 @@
 import { defineEventHandler, getRouterParam, setResponseStatus } from "h3";
 import crypto from "crypto";
 import { eq, lt } from "drizzle-orm";
-import { readBody } from "@agent-native/core/server";
-import { assertAccess, ForbiddenError } from "@agent-native/core/sharing";
+import { readBody } from "@agentnative-fork/core/server";
+import { assertAccess, ForbiddenError } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../db";
 import {
   resolveSlidesRequestAuthContext,

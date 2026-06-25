@@ -32,7 +32,7 @@ registerEvent({
   },
 });
 
-const REGISTRY_KEY = Symbol.for("@agent-native/core/notifications.registry");
+const REGISTRY_KEY = Symbol.for("@agentnative-fork/core/notifications.registry");
 interface GlobalWithRegistry {
   [REGISTRY_KEY]?: Map<string, NotificationChannel>;
 }

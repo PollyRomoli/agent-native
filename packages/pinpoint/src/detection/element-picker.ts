@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Element selection via document.elementFromPoint()
+// @agentnative-fork/pinpoint — Element selection via document.elementFromPoint()
 // MIT License
 //
 // rAF-gated throttling (60fps). Target-identity short-circuit.

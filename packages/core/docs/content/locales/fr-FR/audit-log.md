@@ -81,7 +81,7 @@ Deux actions en lecture sont disponibles pour l'agent **et** le frontend dans ch
 Créez un flux d'activité ou une ligne « qui a modifié cela » en appelant `list-audit-events` à partir du UI avec `useActionQuery` — n'écrivez jamais manuellement une récupération dans la table d'audit :
 
 ```tsx
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 const { data } = useActionQuery("list-audit-events", {
   targetType: "recording",

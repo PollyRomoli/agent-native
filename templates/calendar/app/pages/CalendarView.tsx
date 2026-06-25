@@ -73,7 +73,7 @@ import {
   AgentToggleButton,
   agentNativePath,
   NotificationsBell,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { toast } from "sonner";
 import { setUndoAction, runUndo } from "@/hooks/use-undo";

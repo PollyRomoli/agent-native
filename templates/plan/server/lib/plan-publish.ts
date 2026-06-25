@@ -128,5 +128,5 @@ export function resolvePlanPublishAuth(): PlanPublishAuth | null {
 
 /** The command a user runs to connect an account for publishing. */
 export function planConnectCommand(hostedUrl: string): string {
-  return `npx @agent-native/core@latest connect ${hostedUrl}`;
+  return `npx @agentnative-fork/core@latest connect ${hostedUrl}`;
 }

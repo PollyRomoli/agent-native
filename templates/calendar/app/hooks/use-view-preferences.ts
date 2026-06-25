@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import {
   CALENDAR_COLOR_MODE_KEY,
   CALENDAR_SINGLE_COLOR_KEY,

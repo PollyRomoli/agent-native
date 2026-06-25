@@ -64,10 +64,10 @@ L'ensemble complet d'actions `agent-teams` est :
 
 ### 3. Apparition programmatique {#programmatic-spawn}
 
-Pour les intégrations au niveau du framework, utilisez `spawnTask()` à partir de `@agent-native/core/server` :
+Pour les intégrations au niveau du framework, utilisez `spawnTask()` à partir de `@agentnative-fork/core/server` :
 
 ```ts
-import { spawnTask } from "@agent-native/core/server";
+import { spawnTask } from "@agentnative-fork/core/server";
 
 const task = await spawnTask({
   description: "Draft an outreach email to this lead",
@@ -105,7 +105,7 @@ au lieu de bloquer de manière invisible.
 Depuis le code du serveur ou autre actions :
 
 ```ts
-import { getTask, listTasks } from "@agent-native/core/server";
+import { getTask, listTasks } from "@agentnative-fork/core/server";
 
 const task = await getTask(taskId); // single task
 const tasks = await listTasks(); // all tasks for the user (sorted newest first)

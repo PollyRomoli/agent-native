@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import fs from "fs/promises";
 import path from "path";
-import { assertAccess, resolveAccess } from "@agent-native/core/sharing";
+import { assertAccess, resolveAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../server/db/index.js";
 
 export default defineAction({

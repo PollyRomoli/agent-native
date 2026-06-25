@@ -30,7 +30,7 @@ Ein Prozessor implementiert eine beliebige Teilmenge von drei optionalen Lebensz
 Jeder Prozessor erhält sein eigenes veränderbares, laufbereichsbezogenes `state`-Objekt, das bei jedem seiner Hook-Aufrufe innerhalb eines einzelnen Laufs bestehen bleibt und vom Status anderer Prozessoren **isoliert** ist.
 
 ```ts
-import type { Processor } from "@agent-native/core";
+import type { Processor } from "@agentnative-fork/core";
 
 const noSecretsInOutput: Processor = {
   name: "no-secrets",
@@ -64,7 +64,7 @@ const coverageGate: Processor = {
 Ein Hook stoppt die Ausführung durch den Aufruf von `abort(reason, meta?)`, der ein **`TripWire`** auslöst. Die Schleife fängt es ab, gibt ein einzelnes **`tripwire`-Ereignis** aus, stoppt sauber und zeigt den Grund als letzte Assistentenmeldung an.
 
 ```ts
-import { TripWire } from "@agent-native/core";
+import { TripWire } from "@agentnative-fork/core";
 ```
 
 Das `tripwire`-Ereignis trägt:

@@ -10,8 +10,8 @@ import {
   Modal,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import type { AppConfig } from "@agent-native/shared-app-config";
-import { generateAppId } from "@agent-native/shared-app-config";
+import type { AppConfig } from "@agentnative-fork/shared-app-config";
+import { generateAppId } from "@agentnative-fork/shared-app-config";
 
 const ICON_PRESETS: { name: string; icon: keyof typeof Feather.glyphMap }[] = [
   { name: "Globe", icon: "globe" },

@@ -1,6 +1,6 @@
 import { defineEventHandler, setResponseStatus, type H3Event } from "h3";
 import * as googleCalendar from "../lib/google-calendar.js";
-import { getSession, readBody } from "@agent-native/core/server";
+import { getSession, readBody } from "@agentnative-fork/core/server";
 
 export const syncGoogleCalendar = defineEventHandler(async (event: H3Event) => {
   try {

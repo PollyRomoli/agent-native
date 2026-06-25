@@ -5,13 +5,13 @@ import {
   resourceList,
   resourcePut,
   SHARED_OWNER,
-} from "@agent-native/core/resources/store";
+} from "@agentnative-fork/core/resources/store";
 import {
   getOrgSetting,
   getUserSetting,
   putOrgSetting,
   putUserSetting,
-} from "@agent-native/core/settings";
+} from "@agentnative-fork/core/settings";
 import { getDb, schema } from "../../db/index.js";
 import {
   createApprovalRequest,

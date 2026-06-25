@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — A2A agent registration
+// @agentnative-fork/pinpoint — A2A agent registration
 // MIT License
 //
 // Exposes annotations via the Agent-to-Agent (A2A) protocol.
@@ -25,7 +25,7 @@ interface A2AConfig {
  * Call this after creating your express app.
  *
  * ```ts
- * import { registerPinpointA2A } from '@agent-native/pinpoint/server';
+ * import { registerPinpointA2A } from '@agentnative-fork/pinpoint/server';
  * registerPinpointA2A(app);
  * ```
  */
@@ -87,9 +87,9 @@ export function registerPinpointA2A(
     },
   };
 
-  // Try to use @agent-native/core's enableA2A
+  // Try to use @agentnative-fork/core's enableA2A
   try {
-    const { enableA2A } = require("@agent-native/core/a2a");
+    const { enableA2A } = require("@agentnative-fork/core/a2a");
     enableA2A(app, config);
   } catch {
     // If enableA2A is not available, set up basic A2A endpoints manually

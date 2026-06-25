@@ -1,5 +1,5 @@
 /**
- * `@agent-native/core/brand-kit`
+ * `@agentnative-fork/core/brand-kit`
  *
  * The shared, template-agnostic Brand Kit surface. A Brand Kit unifies what
  * `design` and `slides` previously copy-pasted as a "design system": design

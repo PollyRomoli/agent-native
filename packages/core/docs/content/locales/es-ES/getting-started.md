@@ -41,7 +41,7 @@ Ejecute `create` sin indicadores y le preguntará cómo desea comenzar (una plan
 Chat o Headless) antes que nada:
 
 ```bash
-npx @agent-native/core@latest create my-app
+npx @agentnative-fork/core@latest create my-app
 ```
 
 O pase una marca para omitir el mensaje:
@@ -50,14 +50,14 @@ O pase una marca para omitir el mensaje:
 Chat personalizable UI, y cada acción que agregas se muestra automáticamente en él:
 
 ```bash
-npx @agent-native/core@latest create my-app --template chat
+npx @agentnative-fork/core@latest create my-app --template chat
 ```
 
 **¿Solo la primitiva sin cabeza?** Comience sin cabeza: el mismo actions y agente
 bucle, sin shell UI:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 Luego instálelo desde la carpeta que creó:
@@ -78,7 +78,7 @@ envío con este ejemplo:
 {
   "filename": "actions/hello.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Saluda desde el agente local.\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Saluda desde el agente local.\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Descripción de herramienta", "note": "El agente lee `description` para decidir cuándo llamarla como herramienta." },
     { "lines": "6-8", "label": "Contrato tipado", "note": "Un `schema` de zod valida entradas desde cada superficie: agente, UI, HTTP, MCP y A2A." },
@@ -149,7 +149,7 @@ es una pequeña ruta construida sobre el componente `<AgentChatSurface>`:
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return <AgentChatSurface mode="page" className="h-full" />;

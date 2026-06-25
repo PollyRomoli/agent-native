@@ -5,19 +5,19 @@ const mocks = vi.hoisted(() => ({
   resolveAccess: vi.fn(),
 }));
 
-// The pure scraping/normalize helpers now live in @agent-native/core/brand-kit
+// The pure scraping/normalize helpers now live in @agentnative-fork/core/brand-kit
 // and are unit-tested there. Here we only verify the action wires inputs through.
-vi.mock("@agent-native/core/brand-kit", async () => {
+vi.mock("@agentnative-fork/core/brand-kit", async () => {
   const actual = await vi.importActual<
-    typeof import("@agent-native/core/brand-kit")
-  >("@agent-native/core/brand-kit");
+    typeof import("@agentnative-fork/core/brand-kit")
+  >("@agentnative-fork/core/brand-kit");
   return {
     ...actual,
     fetchBrandWebsiteSignals: mocks.fetchBrandWebsiteSignals,
   };
 });
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   resolveAccess: mocks.resolveAccess,
 }));
 

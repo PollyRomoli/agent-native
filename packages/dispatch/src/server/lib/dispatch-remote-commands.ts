@@ -1,7 +1,7 @@
 import type {
   IncomingMessage,
   PlatformAdapter,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 
 export type RemoteCodeCommand =
   | { type: "create"; prompt: string }
@@ -331,7 +331,7 @@ function formatDate(value: RemoteCodeRunSummary["updatedAt"]): string | null {
 async function tryCoreRemoteCommandHelper(
   envelope: RemoteCodeCommandEnvelope,
 ): Promise<RemoteCodeCommandResult | null> {
-  const core = (await import("@agent-native/core/server")) as Record<
+  const core = (await import("@agentnative-fork/core/server")) as Record<
     string,
     unknown
   >;

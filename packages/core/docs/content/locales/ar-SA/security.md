@@ -52,7 +52,7 @@ description: "نموذج الأمان لتطبيقات الوكيل الأصلي
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Create a note",
@@ -104,7 +104,7 @@ await exec(`INSERT INTO notes (title) VALUES ('${title}')`);
 يجب أن تمر أي `fetch` من جانب الخادم لـ URL التي يتحكم فيها المستخدم أو الوكيل عبر إطار حماية SSRF، أو يمكن الإشارة إليها في البيانات الوصفية السحابية (`169.254.169.254`)، أو `localhost`، أو الخدمات الداخلية:
 
 ```ts
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 
 const res = await ssrfSafeFetch(userProvidedUrl, {}, { maxRedirects: 3 });
 ```
@@ -142,7 +142,7 @@ import {
   text,
   integer,
   ownableColumns,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 // Minimal: just the owner column
 export const notes = table("notes", {
@@ -180,7 +180,7 @@ CREATE TEMPORARY VIEW "notes" AS
 يضيف مساعد المخطط `ownableColumns()` `owner_email`، و`org_id`، و`visibility` في مكالمة واحدة، بحيث تحصل الجداول الجديدة المدركة للمستأجر على عقد النطاق الكامل بشكل افتراضي:
 
 ```ts
-import { table, text, ownableColumns } from "@agent-native/core/db/schema";
+import { table, text, ownableColumns } from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),

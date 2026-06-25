@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { and, eq } from "drizzle-orm";
-import { accessFilter } from "@agent-native/core/sharing";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import { getSchedulingContext } from "../server/context.js";
 import { assertTeamMember, currentUserEmailOrNull } from "./_helpers.js";
 

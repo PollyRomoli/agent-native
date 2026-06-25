@@ -35,7 +35,7 @@ describe("dispatch Tailwind styles", () => {
     );
 
     expect(globalCss).toContain(
-      '@import "@agent-native/dispatch/styles/dispatch.css";',
+      '@import "@agentnative-fork/dispatch/styles/dispatch.css";',
     );
   });
 });
@@ -50,7 +50,7 @@ describe("dispatch route shells", () => {
     expect(indexRoute).toContain("loader");
     expect(indexRoute).toContain("clientLoader");
     expect(indexRoute).toContain("HydrateFallback");
-    expect(indexRoute).toContain("@agent-native/dispatch/routes/pages/_index");
+    expect(indexRoute).toContain("@agentnative-fork/dispatch/routes/pages/_index");
   });
 
   it("re-exports the chat route from the Dispatch template", () => {
@@ -59,6 +59,6 @@ describe("dispatch route shells", () => {
       "utf-8",
     );
 
-    expect(chatRoute).toContain("@agent-native/dispatch/routes/pages/chat");
+    expect(chatRoute).toContain("@agentnative-fork/dispatch/routes/pages/chat");
   });
 });

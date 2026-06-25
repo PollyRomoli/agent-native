@@ -88,7 +88,7 @@ description: "具有自然语言条件的事件触发和计划自动化"
 在服务器插件中注册事件类型，然后从 actions 或 webhook 处理程序发出它：
 
 ```ts
-import { registerEvent, emit } from "@agent-native/core/event-bus";
+import { registerEvent, emit } from "@agentnative-fork/core/event-bus";
 import { z } from "zod";
 
 // Register the event type (once, at module load)

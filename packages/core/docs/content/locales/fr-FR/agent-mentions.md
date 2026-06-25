@@ -123,7 +123,7 @@ Les modèles peuvent enregistrer des fournisseurs de mentions personnalisés pou
 {
   "filename": "server/mentions/contacts.ts",
   "language": "ts",
-  "code": "import type { MentionProvider } from \"@agent-native/core/server\";\n\nconst contactsProvider: MentionProvider = {\n  id: \"contacts\",\n  label: \"Contacts\",\n\n  // Search for mentionable items\n  async search(query: string) {\n    const contacts = await db.query.contacts.findMany({\n      where: like(contacts.name, `%${query}%`),\n      limit: 10,\n    });\n    return contacts.map((c) => ({\n      id: c.id,\n      label: c.name,\n      description: c.email,\n      type: \"contact\",\n    }));\n  },\n\n  // Resolve a mention into context for the agent\n  async resolve(id: string) {\n    const contact = await db.query.contacts.findFirst({\n      where: eq(contacts.id, id),\n    });\n    return {\n      type: \"context\",\n      text: `Contact: ${contact.name} (${contact.email})`,\n    };\n  },\n};",
+  "code": "import type { MentionProvider } from \"@agentnative-fork/core/server\";\n\nconst contactsProvider: MentionProvider = {\n  id: \"contacts\",\n  label: \"Contacts\",\n\n  // Search for mentionable items\n  async search(query: string) {\n    const contacts = await db.query.contacts.findMany({\n      where: like(contacts.name, `%${query}%`),\n      limit: 10,\n    });\n    return contacts.map((c) => ({\n      id: c.id,\n      label: c.name,\n      description: c.email,\n      type: \"contact\",\n    }));\n  },\n\n  // Resolve a mention into context for the agent\n  async resolve(id: string) {\n    const contact = await db.query.contacts.findFirst({\n      where: eq(contacts.id, id),\n    });\n    return {\n      type: \"context\",\n      text: `Contact: ${contact.name} (${contact.email})`,\n    };\n  },\n};",
   "annotations": [
     { "lines": "4-5", "label": "Identity", "note": "`id` namespaces the provider; `label` is the section heading shown in the `@` popover." },
     { "lines": "8-9", "label": "search", "note": "Runs as the user types after `@`. Return up to a handful of matches as `{ id, label, description, type }`." },
@@ -136,7 +136,7 @@ Enregistrez les fournisseurs dans la configuration du plugin agent-chat :
 
 ```ts
 // server/plugins/agent-chat.ts
-import { createAgentChatPlugin } from "@agent-native/core/server";
+import { createAgentChatPlugin } from "@agentnative-fork/core/server";
 
 export default createAgentChatPlugin({
   actions: scriptRegistry,

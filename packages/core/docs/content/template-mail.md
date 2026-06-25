@@ -95,7 +95,7 @@ The rest of this doc is for anyone forking the Mail template or extending it.
 Create a new workspace with the Mail template:
 
 ```bash
-npx @agent-native/core@latest create my-mail --standalone --template mail
+npx @agentnative-fork/core@latest create my-mail --standalone --template mail
 cd my-mail
 pnpm install
 pnpm dev
@@ -104,7 +104,7 @@ pnpm dev
 Or add Mail to an existing agent-native workspace:
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 To connect Gmail in dev, you need a Google OAuth client:
@@ -230,7 +230,7 @@ Mail is yours to change. Everything important lives in a handful of places — s
 
 **Changing how the agent behaves.** Agent guidance lives in `templates/mail/AGENTS.md` and the skills in `templates/mail/.agents/skills/` (`email-drafts`, `real-time-sync`, `security`, `self-modifying-code`, and others). Agent behavior is changed by editing markdown — not code.
 
-**Changing data or settings.** Schemas for the tracking tables and related structures are in `templates/mail/server/db/`. Settings reads and writes go through `readSetting` / `writeSetting` from `@agent-native/core/settings`. Application state (navigation, drafts, one-shot commands) uses `readAppState` / `writeAppState` from `@agent-native/core/application-state`.
+**Changing data or settings.** Schemas for the tracking tables and related structures are in `templates/mail/server/db/`. Settings reads and writes go through `readSetting` / `writeSetting` from `@agentnative-fork/core/settings`. Application state (navigation, drafts, one-shot commands) uses `readAppState` / `writeAppState` from `@agentnative-fork/core/application-state`.
 
 **Adding a new automation action type.** Extend the action schema in `templates/mail/actions/manage-automations.ts` and the executor in `templates/mail/actions/trigger-automations.ts`.
 

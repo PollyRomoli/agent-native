@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import fs from "fs";
 import path from "path";
 import { z } from "zod";
-import { resolveAccess } from "@agent-native/core/sharing";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 import "../server/db/index.js"; // ensure registerShareableResource runs
 import {
   safeGeneratedFilename,

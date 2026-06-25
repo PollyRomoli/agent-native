@@ -47,7 +47,7 @@ import {
   gfmToProseJSON,
   proseJSONToGfm,
   type JSONContent,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 import {
   createPlanBlockId,

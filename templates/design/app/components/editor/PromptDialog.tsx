@@ -3,12 +3,12 @@ import { createPortal } from "react-dom";
 import {
   EmbeddedApp,
   type EmbeddedAppRef,
-} from "@agent-native/core/embedding/react";
+} from "@agentnative-fork/core/embedding/react";
 import {
   appBasePath,
   PromptComposer,
   type PromptComposerSubmitOptions,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   IconPalette,
   IconPhoto,

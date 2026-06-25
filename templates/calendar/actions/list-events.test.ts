@@ -9,16 +9,16 @@ const listGoogleEventsMock = vi.hoisted(() => vi.fn());
 const listOverlayEventsMock = vi.hoisted(() => vi.fn());
 const fetchICalEventsMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getRequestTimezone: getRequestTimezoneMock,
   getRequestUserEmail: getRequestUserEmailMock,
 }));
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getUserSetting: getUserSettingMock,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   accessFilter: vi.fn(() => ({ kind: "access-filter" })),
 }));
 

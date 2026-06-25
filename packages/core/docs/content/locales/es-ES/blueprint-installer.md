@@ -63,7 +63,7 @@ El plano generado le indica al agente de codificación que busque el URL (y las 
 
 Coloque un archivo Markdown en `packages/core/blueprints/<kind>/<name>.md`. El tipo es el subdirectorio; el nombre es el nombre del archivo sin `.md`. Se recoge automáticamente: `--list`, la resolución de nombres y el catálogo leen el directorio en tiempo de ejecución. No es necesario cambiar el código para registrarlo.
 
-Los archivos Blueprint `.md` se envían en el paquete publicado a través de la entrada `blueprints` en `package.json` `files`, por lo que se resuelven en `node_modules/@agent-native/core/blueprints/**` para los usuarios finales.
+Los archivos Blueprint `.md` se envían en el paquete publicado a través de la entrada `blueprints` en `package.json` `files`, por lo que se resuelven en `node_modules/@agentnative-fork/core/blueprints/**` para los usuarios finales.
 
 Escriba cada plano como un conjunto de instrucciones para un agente de codificación sin otro contexto. Un buen plano tiene:
 

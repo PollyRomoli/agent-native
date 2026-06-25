@@ -1,4 +1,4 @@
-import { registerRequiredSecret } from "@agent-native/core/secrets";
+import { registerRequiredSecret } from "@agentnative-fork/core/secrets";
 
 // ── Image generation provider secrets ────────────────────────────────
 // Two providers are supported: Gemini (with style reference matching)

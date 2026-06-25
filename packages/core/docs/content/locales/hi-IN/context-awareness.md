@@ -73,7 +73,7 @@ UI प्रत्येक रूट परिवर्तन पर एप्�
 एजेंट कार्रवाई करने से पहले इसे पढ़ता है:
 
 ```ts
-import { readAppState } from "@agent-native/core/application-state";
+import { readAppState } from "@agentnative-fork/core/application-state";
 
 const navigation = await readAppState("navigation");
 // { view: "inbox", threadId: "thread-123", label: "important" }
@@ -143,7 +143,7 @@ if (url?.searchParams) {
 जब उपयोगकर्ता सार्थक वस्तुओं का चयन, फोकस, या बहु-चयन करता है तो इसे UI से लिखें:
 
 ```tsx
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 
 async function syncSelection(selection: unknown | null) {
   await setClientAppState("selection", selection, { keepalive: true });
@@ -173,7 +173,7 @@ async function syncSelection(selection: unknown | null) {
 कस्टम संपादक वही कुंजी लिख सकते हैं जब उनका चयन मूल ब्राउज़र चयन द्वारा दर्शाया नहीं जाता है:
 
 ```tsx
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 
 await setClientAppState(
   "pending-selection-context",
@@ -195,7 +195,7 @@ await setClientAppState(
 {
   "filename": "actions/view-screen.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { readAppState } from \"@agent-native/core/application-state\";\nimport { eq, inArray } from \"drizzle-orm\";\nimport { z } from \"zod\";\nimport { getDb, schema } from \"../server/db/index.js\";\n\nexport default defineAction({\n  description:\n    \"See what the user is currently looking at on screen.\",\n  schema: z.object({}),\n  http: false,\n  run: async () => {\n    const navigation = (await readAppState(\"navigation\")) as any;\n    const selection = (await readAppState(\"selection\")) as any;\n    const screen: Record<string, unknown> = {};\n    if (navigation) screen.navigation = navigation;\n    if (selection) screen.selection = selection;\n\n    const db = getDb();\n\n    // Fetch data based on what the user is viewing\n    if (navigation?.view === \"inbox\") {\n      screen.emailList = await db\n        .select()\n        .from(schema.emails)\n        .where(eq(schema.emails.label, navigation.label));\n    }\n    if (navigation?.threadId) {\n      screen.thread = await db\n        .select()\n        .from(schema.threads)\n        .where(eq(schema.threads.id, navigation.threadId));\n    }\n    if (selection?.kind === \"email.messages\") {\n      screen.selectedMessages = await db\n        .select()\n        .from(schema.emails)\n        .where(inArray(schema.emails.id, selection.messageIds));\n    }\n\n    if (Object.keys(screen).length === 0) {\n      return \"No application state found. Is the app running?\";\n    }\n    return screen;\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { readAppState } from \"@agentnative-fork/core/application-state\";\nimport { eq, inArray } from \"drizzle-orm\";\nimport { z } from \"zod\";\nimport { getDb, schema } from \"../server/db/index.js\";\n\nexport default defineAction({\n  description:\n    \"See what the user is currently looking at on screen.\",\n  schema: z.object({}),\n  http: false,\n  run: async () => {\n    const navigation = (await readAppState(\"navigation\")) as any;\n    const selection = (await readAppState(\"selection\")) as any;\n    const screen: Record<string, unknown> = {};\n    if (navigation) screen.navigation = navigation;\n    if (selection) screen.selection = selection;\n\n    const db = getDb();\n\n    // Fetch data based on what the user is viewing\n    if (navigation?.view === \"inbox\") {\n      screen.emailList = await db\n        .select()\n        .from(schema.emails)\n        .where(eq(schema.emails.label, navigation.label));\n    }\n    if (navigation?.threadId) {\n      screen.thread = await db\n        .select()\n        .from(schema.threads)\n        .where(eq(schema.threads.id, navigation.threadId));\n    }\n    if (selection?.kind === \"email.messages\") {\n      screen.selectedMessages = await db\n        .select()\n        .from(schema.emails)\n        .where(inArray(schema.emails.id, selection.messageIds));\n    }\n\n    if (Object.keys(screen).length === 0) {\n      return \"No application state found. Is the app running?\";\n    }\n    return screen;\n  },\n});",
   "annotations": [
     { "lines": "10-11", "label": "Tool surface", "note": "The agent reads this description to know it can call `view-screen` to see the current UI." },
     { "lines": "13", "label": "http: false", "note": "Internal action — not exposed over HTTP. The agent and `pnpm action` call it, not the browser." },
@@ -219,7 +219,7 @@ await setClientAppState(
 कभी-कभी संदर्भ केवल ऐप स्थिति में नहीं रहना चाहिए। उपयोगकर्ता एक बटन क्लिक करता है, एक टिप्पणी पिन छोड़ता है, एक आइटम का चयन करता है और "एजेंट से पूछें" चुनता है, या टूलबार में एआई कमांड दबाता है। वह क्लिक एक निर्देश है. ब्राउज़र UI में, इसे `sendToAgentChat()` वाले एजेंट को सौंप दें।
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 function askAgentAboutSelection(selection: {
   documentId: string;
@@ -274,7 +274,7 @@ function askAgentAboutSelection(selection: {
 
 ```ts
 // Agent side -- write a navigate command
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 
 await writeAppState("navigate", { view: "inbox", threadId: "thread-123" });
 ```
@@ -299,11 +299,11 @@ UI की तरफ आप कभी भी इस कुंजी को हा
 - **आउटबाउंड (UI → एजेंट):** जब भी मार्ग बदलता है तो `navigation` कुंजी लिखता है, इसलिए एजेंट को हमेशा वर्तमान दृश्य पता होता है।
 - **इनबाउंड (एजेंट → UI):** `navigate` कमांड को पोल करता है, नेविगेशन चलाता है, और कमांड को हटा देता है।
 
-यह छोटा रहता है क्योंकि यह वास्तविक फ्रेमवर्क आदिम, `useAgentRouteState` (`@agent-native/core/client` से निर्यातित) के चारों ओर एक पतला आवरण है। आप दो ऐप-विशिष्ट फ़ंक्शन प्रदान करते हैं और फ़्रेमवर्क बाकी काम करता है:
+यह छोटा रहता है क्योंकि यह वास्तविक फ्रेमवर्क आदिम, `useAgentRouteState` (`@agentnative-fork/core/client` से निर्यातित) के चारों ओर एक पतला आवरण है। आप दो ऐप-विशिष्ट फ़ंक्शन प्रदान करते हैं और फ़्रेमवर्क बाकी काम करता है:
 
 ```tsx
 // app/hooks/use-navigation-state.ts -- this file lives in YOUR app
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 interface NavigationState {
@@ -345,7 +345,7 @@ export function useNavigationState() {
 
 जब एजेंट एप्लिकेशन-स्टेट पर लिखता है, तो सिंक सिस्टम UI को उसके द्वारा अभी लिखे गए डेटा को दोबारा लाने का कारण बन सकता है। इससे घबराहट पैदा होती है. समाधान स्रोत टैगिंग है:
 
-ब्राउज़र-साइड एप्लिकेशन-स्टेट एक्सेस के लिए `@agent-native/core/client` से `setClientAppState`, `writeClientAppState`, `readClientAppState` और `deleteClientAppState` का उपयोग करें। UI पर `{ requestSource: TAB_ID }` पास करें, `useDbSync({ ignoreSource: TAB_ID })` के साथ युग्मित होने पर लिखता है; अनलोड के दौरान चयन सफाई जैसे अल्पकालिक लेखन के लिए `{ keepalive: true }` पास करें।
+ब्राउज़र-साइड एप्लिकेशन-स्टेट एक्सेस के लिए `@agentnative-fork/core/client` से `setClientAppState`, `writeClientAppState`, `readClientAppState` और `deleteClientAppState` का उपयोग करें। UI पर `{ requestSource: TAB_ID }` पास करें, `useDbSync({ ignoreSource: TAB_ID })` के साथ युग्मित होने पर लिखता है; अनलोड के दौरान चयन सफाई जैसे अल्पकालिक लेखन के लिए `{ keepalive: true }` पास करें।
 
 ```ts
 // app/root.tsx

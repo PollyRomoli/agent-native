@@ -21,13 +21,13 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   uploadEditorImage,
   type RichMarkdownCollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   BlockView,
   SchemaBlockEditor,
   blockEditSurface,
   useOptionalBlockRegistry,
-} from "@agent-native/core/blocks";
+} from "@agentnative-fork/core/blocks";
 import { cn } from "@/lib/utils";
 import { imageDataSchema, type PlanBlock } from "@shared/plan-content";
 import { Wireframe } from "./wireframe/Wireframe";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 interface TocItem {
   id: string;

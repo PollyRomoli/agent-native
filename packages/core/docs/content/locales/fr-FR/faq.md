@@ -76,7 +76,7 @@ C'est là tout l'intérêt. Créez un modèle et personnalisez-le en le demandan
 
 ### Puis-je créer quelque chose que les modèles ne couvrent pas ? {#build-from-scratch}
 
-Oui. Si vous souhaitez une application de chat de base, exécutez `npx @agent-native/core@latest create my-chat-app --template chat` ; vous bénéficiez de fils de discussion durables, de actions, d'une authentification, d'un état d'exécution soutenu par SQL et d'un espace pour ajouter vos propres écrans. Si vous souhaitez la plus petite application axée sur l'action sans UI, exécutez `npx @agent-native/core@latest create my-agent --headless`. Voir [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps) et [Chat](/docs/template-chat).
+Oui. Si vous souhaitez une application de chat de base, exécutez `npx @agentnative-fork/core@latest create my-chat-app --template chat` ; vous bénéficiez de fils de discussion durables, de actions, d'une authentification, d'un état d'exécution soutenu par SQL et d'un espace pour ajouter vos propres écrans. Si vous souhaitez la plus petite application axée sur l'action sans UI, exécutez `npx @agentnative-fork/core@latest create my-agent --headless`. Voir [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps) et [Chat](/docs/template-chat).
 
 ### Puis-je l'essayer sans créer de modèle ? {#try-with-a-skill}
 

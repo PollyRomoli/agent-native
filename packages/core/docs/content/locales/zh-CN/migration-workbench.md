@@ -17,14 +17,14 @@ description: "迁移是 Agent-Native 代码工作区中的内置 /migrate 目标
 ```
 
 ```bash
-npx @agent-native/core@latest code /migrate ./my-next-app --out ../migrated-app
-npx @agent-native/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
-npx @agent-native/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
+npx @agentnative-fork/core@latest code /migrate ./my-next-app --out ../migrated-app
+npx @agentnative-fork/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
+npx @agentnative-fork/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
 ```
 
 完整指南 - 输入形状（路径/URL/描述）、`--emit` 档案，
 计划与自动模式、运行控件、凭据、桌面深层链接以及
-`@agent-native/migrate` 包导出 — 位于
+`@agentnative-fork/migrate` 包导出 — 位于
 [Agent-Native Code UI → Migrating to Agent-Native](/docs/code-agents-ui#migrate).
 
 > [!NOTE]

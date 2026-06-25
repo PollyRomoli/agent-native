@@ -1,4 +1,4 @@
-import { ExtensionsListPage } from "@agent-native/core/client/extensions";
+import { ExtensionsListPage } from "@agentnative-fork/core/client/extensions";
 import { APP_TITLE } from "@/lib/app-config";
 
 export function meta() {

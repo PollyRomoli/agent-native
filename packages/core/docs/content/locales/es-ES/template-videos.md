@@ -71,7 +71,7 @@ El estudio se ejecuta en el `<Player>` de Remotion para la vista previa y en el 
 Crea una nueva aplicación de vídeo desde CLI:
 
 ```bash
-npx @agent-native/core@latest create my-video-app --standalone --template videos
+npx @agentnative-fork/core@latest create my-video-app --standalone --template videos
 cd my-video-app
 pnpm install
 pnpm dev

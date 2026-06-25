@@ -34,14 +34,14 @@ Agent-Native utilise le déploiement de l'hôte, la session hôte et la configur
 itinéraires d'action.
 
 ```bash
-pnpm add @agent-native/core
+pnpm add @agentnative-fork/core
 ```
 
 Sur le serveur :
 
 ```ts
 // server/plugins/agent-native.ts
-import { createAgentNativeEmbeddedPlugin } from "@agent-native/core/server";
+import { createAgentNativeEmbeddedPlugin } from "@agentnative-fork/core/server";
 import { builderActions } from "../agent-native/actions";
 import { getBuilderSession } from "../auth";
 
@@ -73,7 +73,7 @@ Sur le client :
 import {
   AgentNativeEmbedded,
   defineClientAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export function BuilderAppShell({ children, content, editor }) {
   return (
@@ -146,27 +146,27 @@ uniquement lorsque cela correspond mieux à votre situation :
 
 | Mode                                   | Utilisez-le quand                                                                                                                                     | Forfait                                             |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| **Sélecteur d'applications intégrées** | Lancement d'une application Agent-Native complète en tant qu'iframe ciblée (sélecteur d'actifs, générateur de formulaires, panneau d'approbation).    | `@agent-native/embedding`                           |
-| **Pont hôte `<AgentNative>`**          | Applications side-car autonomes ou iframes d'origine croisée qui relient manuellement le contexte de la page et le client actions.                    | `@agent-native/core/client`                         |
-| **Extensions portables**               | Permettre aux utilisateurs hôtes de créer des mini-applications en bac à sable lorsque le SaaS possède déjà le stockage/l'approbation des extensions. | Emplacement d'extension `@agent-native/core/client` |
+| **Sélecteur d'applications intégrées** | Lancement d'une application Agent-Native complète en tant qu'iframe ciblée (sélecteur d'actifs, générateur de formulaires, panneau d'approbation).    | `@agentnative-fork/embedding`                           |
+| **Pont hôte `<AgentNative>`**          | Applications side-car autonomes ou iframes d'origine croisée qui relient manuellement le contexte de la page et le client actions.                    | `@agentnative-fork/core/client`                         |
+| **Extensions portables**               | Permettre aux utilisateurs hôtes de créer des mini-applications en bac à sable lorsque le SaaS possède déjà le stockage/l'approbation des extensions. | Emplacement d'extension `@agentnative-fork/core/client` |
 
-Le package `@agent-native/embedding` de niveau inférieur expose :
+Le package `@agentnative-fork/embedding` de niveau inférieur expose :
 
 | Chemin d'importation               | Ce qu'il fournit                                                                              |
 | ---------------------------------- | --------------------------------------------------------------------------------------------- |
-| `@agent-native/embedding`          | Composant de sélecteur `EmbeddedApp`, `getA2AUrl`, `getMcpUrl`, `sendMessage` (diffusion A2A) |
-| `@agent-native/embedding/react`    | Crochets et composants spécifiques à React                                                    |
-| `@agent-native/embedding/bridge`   | `announceEmbeddedAppReady`, `sendEmbeddedAppMessage` — utilisés dans l'application intégrée   |
-| `@agent-native/embedding/agent`    | Assistants de point de terminaison d'agent                                                    |
-| `@agent-native/embedding/protocol` | Types de protocoles                                                                           |
+| `@agentnative-fork/embedding`          | Composant de sélecteur `EmbeddedApp`, `getA2AUrl`, `getMcpUrl`, `sendMessage` (diffusion A2A) |
+| `@agentnative-fork/embedding/react`    | Crochets et composants spécifiques à React                                                    |
+| `@agentnative-fork/embedding/bridge`   | `announceEmbeddedAppReady`, `sendEmbeddedAppMessage` — utilisés dans l'application intégrée   |
+| `@agentnative-fork/embedding/agent`    | Assistants de point de terminaison d'agent                                                    |
+| `@agentnative-fork/embedding/protocol` | Types de protocoles                                                                           |
 
 ```bash
-pnpm add @agent-native/embedding
+pnpm add @agentnative-fork/embedding
 ```
 
 ### Application intégrée et mode sélecteur
 
-Utilisez `@agent-native/embedding` lorsque le produit hôte souhaite lancer une version complète
+Utilisez `@agentnative-fork/embedding` lorsque le produit hôte souhaite lancer une version complète
 Application Agent-Native en tant que surface iframe ciblée : un sélecteur d'éléments, un générateur d'éléments,
 Générateur de formulaires, sélecteur d'emplacements de calendrier, panneau d'approbation ou tout autre outil spécifique à une tâche
 flux de travail. Celui-ci est intentionnellement plus petit que le pont hôte side-car ci-dessous : le
@@ -174,7 +174,7 @@ iframe annonce qu'il est prêt, l'hôte peut envoyer des messages nommés et les
 l'application peut émettre des événements de domaine tels que `chooseAsset` ou `close`.
 
 ```tsx
-import { EmbeddedApp } from "@agent-native/embedding";
+import { EmbeddedApp } from "@agentnative-fork/embedding";
 
 export function AssetPickerDialog({ close }) {
   return (
@@ -207,7 +207,7 @@ Dans l'application intégrée, utilisez le pont du navigateur pour annoncer que 
 import {
   announceEmbeddedAppReady,
   sendEmbeddedAppMessage,
-} from "@agent-native/embedding/bridge";
+} from "@agentnative-fork/embedding/bridge";
 
 announceEmbeddedAppReady({ app: "assets", mode: "picker" });
 sendEmbeddedAppMessage("chooseAsset", {
@@ -230,7 +230,7 @@ Le même package inclut des assistants de point de terminaison d'agent pour la d
 diffusion de texte sur A2A :
 
 ```ts
-import { getA2AUrl, getMcpUrl, sendMessage } from "@agent-native/embedding";
+import { getA2AUrl, getMcpUrl, sendMessage } from "@agentnative-fork/embedding";
 
 getMcpUrl("https://assets.agent-native.com");
 getA2AUrl("https://assets.agent-native.com");
@@ -252,7 +252,7 @@ for await (const chunk of sendMessage(
 Pour les applications side-car autonomes ou les iframes d'origine croisée, utilisez le `<AgentNative />` de niveau inférieur. Il restitue le contexte de la page side-car et des fils iframe, le client en direct actions et les commandes d'actualisation/navigation de l'hôte en un seul endroit :
 
 ```tsx
-import { AgentNative, defineClientAction } from "@agent-native/core/client";
+import { AgentNative, defineClientAction } from "@agentnative-fork/core/client";
 
 export function AssistantDock({ customer, sessionToken }) {
   return (
@@ -340,7 +340,7 @@ import {
   requestAgentNativeHostContext,
   runAgentNativeHostAction,
   sendAgentNativeHostCommand,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 announceAgentNativeFrameReady({ hostOrigin: "https://app.example.com" });
 
@@ -384,7 +384,7 @@ Dans l'application side-car, démarrez le pont de session de navigateur une fois
 
 ```tsx
 import { useEffect } from "react";
-import { startAgentNativeBrowserSessionBridge } from "@agent-native/core/client";
+import { startAgentNativeBrowserSessionBridge } from "@agentnative-fork/core/client";
 
 export function SidecarRuntime() {
   useEffect(() => {
@@ -437,7 +437,7 @@ import {
   AgentNativeExtensionSlot,
   createHttpAgentNativeExtensionStorage,
   defineClientAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const storage = createHttpAgentNativeExtensionStorage({
   endpoint: "/api/agent-native/extensions/storage",

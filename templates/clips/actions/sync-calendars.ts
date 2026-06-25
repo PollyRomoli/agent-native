@@ -12,13 +12,13 @@
  * row.
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { randomUUID } from "node:crypto";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { accessFilter } from "@agent-native/core/sharing";
-import { readAppSecret, writeAppSecret } from "@agent-native/core/secrets";
+import { accessFilter } from "@agentnative-fork/core/sharing";
+import { readAppSecret, writeAppSecret } from "@agentnative-fork/core/secrets";
 import {
   listEvents,
   resolveGoogleOAuthCredentialCandidates,
@@ -26,8 +26,8 @@ import {
   pickJoinUrl,
   type CalendarEvent,
 } from "../server/lib/google-calendar-client.js";
-import { writeAppState } from "@agent-native/core/application-state";
-import { emit } from "@agent-native/core/event-bus";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { emit } from "@agentnative-fork/core/event-bus";
 
 interface AccessTokenBundle {
   accessToken: string;

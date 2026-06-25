@@ -3,7 +3,7 @@ import {
   useSendToAgentChat,
   PromptComposer,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   Popover,
   PopoverContent,

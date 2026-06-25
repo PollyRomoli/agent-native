@@ -122,7 +122,7 @@ The rest of this doc is for anyone forking the Brain template or extending it.
 ### Quick start
 
 ```bash
-npx @agent-native/core@latest create my-brain --standalone --template brain
+npx @agentnative-fork/core@latest create my-brain --standalone --template brain
 cd my-brain
 pnpm install
 pnpm dev

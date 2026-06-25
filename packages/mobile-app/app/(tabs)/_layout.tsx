@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Tabs, useRouter } from "expo-router";
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
-import type { AppConfig } from "@agent-native/shared-app-config";
+import type { AppConfig } from "@agentnative-fork/shared-app-config";
 import { useApps } from "../../lib/use-apps";
 
 /** Map app IDs in the config to their tab file name. */

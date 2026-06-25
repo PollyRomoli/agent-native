@@ -165,7 +165,7 @@ El punto final MCP admite MCP OAuth remoto estándar más el respaldo de token d
 | Modo                                          | Cómo funciona                                                                                                                     |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | Estándar MCP OAuth                            | El cliente descubre la autenticación de `WWW-Authenticate`, registra, ejecuta PKCE y envía `Authorization: Bearer <access-token>` |
-| JWT creado por Connect                        | `npx @agent-native/core@latest connect` / la página Conectar crea un JWT revocable por usuario                                    |
+| JWT creado por Connect                        | `npx @agentnative-fork/core@latest connect` / la página Conectar crea un JWT revocable por usuario                                    |
 | `ACCESS_TOKEN`                                | Token de portador estático: el cliente envía `Authorization: Bearer <token>`                                                      |
 | `ACCESS_TOKENS`                               | Lista separada por comas de tokens portadores estáticos válidos                                                                   |
 | `A2A_SECRET`                                  | Autenticación basada en JWT: los tokens se verifican criptográficamente                                                           |
@@ -209,7 +209,7 @@ Los tokens de acceso son JWT firmados cuya audiencia es exactamente el recurso M
 | `mcp:write` | mutando actions y `ask-agent`                        |
 | `mcp:apps`  | Recursos de aplicaciones MCP (recursos `ui://` HTML) |
 
-Los tokens de actualización se almacenan solo como hashes y se rotan en cada actualización. `npx @agent-native/core@latest connect` escribe esta entrada OAuth exclusiva de URL para clientes de código Claude de forma predeterminada; mantenga la página Conectar, `npx @agent-native/core@latest connect --token <token>` y la configuración del portador estático para el proxy stdio local, clientes antiguos y flujos de emergencia/depuración.
+Los tokens de actualización se almacenan solo como hashes y se rotan en cada actualización. `npx @agentnative-fork/core@latest connect` escribe esta entrada OAuth exclusiva de URL para clientes de código Claude de forma predeterminada; mantenga la página Conectar, `npx @agentnative-fork/core@latest connect --token <token>` y la configuración del portador estático para el proxy stdio local, clientes antiguos y flujos de emergencia/depuración.
 
 ## Configuración personalizada de MCP {#custom-setup}
 
@@ -217,8 +217,8 @@ El servidor MCP se monta automáticamente mediante el complemento de chat del ag
 
 ```ts
 // server/plugins/mcp.ts
-import { mountMCP } from "@agent-native/core/mcp";
-import { autoDiscoverActions } from "@agent-native/core/server";
+import { mountMCP } from "@agentnative-fork/core/mcp";
+import { autoDiscoverActions } from "@agentnative-fork/core/server";
 
 export default defineNitroPlugin(async (nitro) => {
   const actions = await autoDiscoverActions(import.meta.url);

@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { FieldRenderer } from "@/components/builder/FieldRenderer";
-import { Turnstile, PoweredByBadge } from "@agent-native/core/client";
+import { Turnstile, PoweredByBadge } from "@agentnative-fork/core/client";
 import { cn } from "@/lib/utils";
 import { normalizeFields } from "@/lib/normalize-fields";
 import { ThemeToggle } from "@/components/ThemeToggle";

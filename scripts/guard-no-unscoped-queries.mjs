@@ -1096,7 +1096,7 @@ if (violations.length > 0 || mentionViolations.length > 0) {
   console.error(
     "      .where(accessFilter(schema.<table>, schema.<table>Shares))",
   );
-  console.error('      from "@agent-native/core/sharing"');
+  console.error('      from "@agentnative-fork/core/sharing"');
   console.error("  - For read-by-id, replace the manual select with:");
   console.error('      const access = await resolveAccess("<type>", id);');
   console.error("  - For write/delete-by-id, gate with:");

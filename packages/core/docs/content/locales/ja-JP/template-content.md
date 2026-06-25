@@ -93,7 +93,7 @@ SQL-backed sharing. See [Local File Mode](/docs/local-file-mode) for the
 コンテンツ ローカル ファイル スキルを既存のリポジトリにインストールするには:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 インストーラーはコーディング エージェントの `content` スキルをコピーし、または
@@ -114,7 +114,7 @@ npx @agent-native/core@latest skills add content --mode local-files --scope proj
 コンテンツ テンプレートを使用して新しいワークスペースを足場にします:
 
 ```bash
-npx @agent-native/core@latest create my-workspace --standalone --template content
+npx @agentnative-fork/core@latest create my-workspace --standalone --template content
 cd my-workspace
 pnpm install
 pnpm dev

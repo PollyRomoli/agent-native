@@ -1,17 +1,17 @@
-import { defineAction } from "@agent-native/core";
-import { getDbExec } from "@agent-native/core/db";
+import { defineAction } from "@agentnative-fork/core";
+import { getDbExec } from "@agentnative-fork/core/db";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import {
   addFirstPartyRemoteServer,
   isFirstPartyRemoteEndpointTrusted,
   listRemoteServers,
   removeRemoteServer,
-} from "@agent-native/core/mcp-client";
-import { fetchOrgApps } from "@agent-native/core/mcp";
-import { refreshGlobalMcpManager } from "@agent-native/core/server";
+} from "@agentnative-fork/core/mcp-client";
+import { fetchOrgApps } from "@agentnative-fork/core/mcp";
+import { refreshGlobalMcpManager } from "@agentnative-fork/core/server";
 import { z } from "zod";
 
 const SERVER_NAME = "assets";

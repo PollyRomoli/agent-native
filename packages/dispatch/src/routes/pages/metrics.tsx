@@ -1,5 +1,5 @@
 import { useMemo, useState, type ReactNode } from "react";
-import { useActionQuery, useT } from "@agent-native/core/client";
+import { useActionQuery, useT } from "@agentnative-fork/core/client";
 import {
   IconActivity,
   IconAlertTriangle,

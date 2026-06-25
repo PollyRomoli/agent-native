@@ -1,4 +1,4 @@
-# @agent-native/dispatch
+# @agentnative-fork/dispatch
 
 ## 0.12.3
 
@@ -126,7 +126,7 @@
   user/org-scoped provider registrations so the agent can call APIs that are not
   in the 24 built-in PROVIDER_CONFIGS:
   - `upsertCustomProvider`, `deleteCustomProvider`, `listCustomProviders`,
-    `getCustomProvider` — CRUD helpers exported from `@agent-native/core/provider-api`.
+    `getCustomProvider` — CRUD helpers exported from `@agentnative-fork/core/provider-api`.
   - `validateCustomBaseUrl` — SSRF-safe URL validation for registration time.
   - `createProviderApiRuntime` now accepts `getCustomProviders?: () => Promise<CustomProviderConfig[]>`.
     Custom providers are merged into the catalog after built-ins; they cannot
@@ -454,11 +454,11 @@
 
 - d1a90ac: CLI + dispatch shell fixes from create-workflow feedback:
   - `create`: scaffold `packages/pinpoint` when the user selects `slides` or
-    `videos`. Their `package.json` declares `@agent-native/pinpoint:
+    `videos`. Their `package.json` declares `@agentnative-fork/pinpoint:
 workspace:*`, but the templates-meta entries were missing
     `requiredPackages: ["pinpoint"]`, so `pnpm install` blew up with
     `ERR_PNPM_WORKSPACE_PKG_NOT_FOUND`. The existing e2e test now covers
-    every template with `@agent-native/*` workspace deps so a regression
+    every template with `@agentnative-fork/*` workspace deps so a regression
     surfaces in CI instead of on the user's machine.
   - `create`: per-template progress messages during scaffolding
     (`Scaffolding Slides (3/4)...`, `Adding shared packages...`) and a
@@ -503,7 +503,7 @@ workspace:*`, but the templates-meta entries were missing
     had even added an app, which felt confusing.
   - Agent system prompt (chat-in-browser-on-localdev): when a user asks to
     scaffold a new workspace app from a localhost browser tab, point them
-    at \`npx @agent-native/core@latest add-app\` first since they're already in
+    at \`npx @agentnative-fork/core@latest add-app\` first since they're already in
     that terminal. The desktop / Claude Code / Codex / Builder.io
     alternatives still follow for general source-editing work.
 
@@ -555,7 +555,7 @@ workspace:*`, but the templates-meta entries were missing
 - 04fe544: fix: bounce `/dispatch/<workspace-app-id>` to `/<workspace-app-id>` so Builder.io's "navigate to /<id>" calls — and any OAuth round-trip whose callbackURL captured that wrong path — land on the actual workspace app instead of a 404 inside Dispatch's chrome.
 - 04fe544: fix(dispatch): make the `/dispatch/<appId>` server-side bounce work in production deploys and after live workspace changes by reading the same env-→file-→filesystem manifest fallback chain that the rest of agent discovery uses, instead of only checking `AGENT_NATIVE_WORKSPACE_APPS_JSON`.
 
-  Core now exports `loadWorkspaceAppsManifest()` and the `WorkspaceAppManifestEntry` type from `@agent-native/core/server/agent-discovery`, so other server entrypoints can resolve the workspace manifest without re-implementing the fallback.
+  Core now exports `loadWorkspaceAppsManifest()` and the `WorkspaceAppManifestEntry` type from `@agentnative-fork/core/server/agent-discovery`, so other server entrypoints can resolve the workspace manifest without re-implementing the fallback.
 
 ## 0.5.1
 
@@ -705,10 +705,10 @@ workspace:*`, but the templates-meta entries were missing
 
 ### Patch Changes
 
-- e375642: Add `@agent-native/core/usage` subpath export for `getUsageSummary` so server-side consumers (Cloudflare Workers / Pages) can import it without hitting the curated browser entry. Switch dispatch's usage-metrics store to the new subpath, fixing the dispatch CF Pages build failure.
+- e375642: Add `@agentnative-fork/core/usage` subpath export for `getUsageSummary` so server-side consumers (Cloudflare Workers / Pages) can import it without hitting the curated browser entry. Switch dispatch's usage-metrics store to the new subpath, fixing the dispatch CF Pages build failure.
 - Updated dependencies [bcb2069]
 - Updated dependencies [e375642]
-  - @agent-native/core@0.8.0
+  - @agentnative-fork/core@0.8.0
 
 ## 0.2.1
 
@@ -716,7 +716,7 @@ workspace:*`, but the templates-meta entries were missing
 
 - 4e3631b: Add `publishConfig.provenance: true` so `pnpm publish` (called by `changeset publish` from the auto-publish workflow) requests an OIDC token from GitHub Actions and publishes via npm trusted publisher. Without this, `pnpm publish` looked for token-based auth and failed with `ENEEDAUTH`.
 - Updated dependencies [4e3631b]
-  - @agent-native/core@0.7.85
+  - @agentnative-fork/core@0.7.85
 
 ## 0.2.0
 
@@ -732,4 +732,4 @@ workspace:*`, but the templates-meta entries were missing
 - Updated dependencies [a75a89c]
 - Updated dependencies [a75a89c]
 - Updated dependencies [a75a89c]
-  - @agent-native/core@0.7.84
+  - @agentnative-fork/core@0.7.84

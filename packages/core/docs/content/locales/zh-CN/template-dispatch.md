@@ -84,11 +84,11 @@ _它的底层工作原理（对于开发人员）。_
 
 - **Orchestrator 代理。** 聊天设置为路由器：它读取 `AGENTS.md`、`LEARNINGS.md`，并路由到专业子代理或远程 A2A 代理。
 - **远程代理注册表。** A2A 代理清单是工作区运行时条目（不是签入的模板源文件夹）：在多应用工作区中，`apps/` 下的同级应用程序会自动发现为 A2A 对等应用程序 — 无需手动注册。 Dispatch 使用 `call-agent` 操作调用它们。
-- **Vault 架构。** Drizzle 表，用于存储机密、授权、请求、批准和审核日志。它们位于 `@agent-native/dispatch` 包 (`packages/dispatch/src/db/schema.ts`) 中，并通过 `templates/dispatch/server/db/index.ts` 重新导出到模板中 — 没有模板本地 `server/db/schema.ts`。 Dispatch 的运行时在包中提供，而不是在模板源中提供（与下面 `@agent-native/dispatch` 拥有 shell、侧边栏和内置页面的注释一致）。
+- **Vault 架构。** Drizzle 表，用于存储机密、授权、请求、批准和审核日志。它们位于 `@agentnative-fork/dispatch` 包 (`packages/dispatch/src/db/schema.ts`) 中，并通过 `templates/dispatch/server/db/index.ts` 重新导出到模板中 — 没有模板本地 `server/db/schema.ts`。 Dispatch 的运行时在包中提供，而不是在模板源中提供（与下面 `@agentnative-fork/dispatch` 拥有 shell、侧边栏和内置页面的注释一致）。
 - **Slack / Telegram 插件。**注册 webhooks 并将传入消息转发到 Orchestrator 代理的服务器插件。
 - **工作区 MCP 资源。** 在资源中的 `mcp-servers/*.json` 下添加 HTTP MCP 服务器定义，然后将其范围限定为所有应用或选定的应用授权，就像 skills 和上下文一样。
 
-```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agent-native/dispatch (packages/dispatch/src/db/schema.ts)."
+```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agentnative-fork/dispatch (packages/dispatch/src/db/schema.ts)."
 {
   "entities": [
     { "id": "secrets", "name": "vault_secrets", "note": "Stored credential values", "fields": [
@@ -170,14 +170,14 @@ pnpm action create-dream-report --allSources true --sourceTimeoutMs 30000 --limi
 ## 脚手架 {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 # pick "Dispatch" in the multi-select picker, plus whichever domain apps you want
 ```
 
 如果您更喜欢直接命名模板而不是使用选择器：
 
 ```bash
-npx @agent-native/core@latest create my-platform --template dispatch
+npx @agentnative-fork/core@latest create my-platform --template dispatch
 # add more apps in the same workspace as you go
 ```
 
@@ -208,7 +208,7 @@ Dispatch 是一个像其他模板一样的完整模板 — 请参阅 [Templates]
 
 对于特定于工作区的管理屏幕，添加本地 React 路由器页面和
 将它们注册到`app/dispatch-extensions.tsx`中。生成的工作空间拥有
-只有额外的选项卡和路线； `@agent-native/dispatch` 继续拥有 shell，
+只有额外的选项卡和路线； `@agentnative-fork/dispatch` 继续拥有 shell，
 侧边栏、内置页面和未来的软件包更新。
 
 ## 下一步是什么

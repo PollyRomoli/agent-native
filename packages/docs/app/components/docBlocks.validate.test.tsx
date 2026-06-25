@@ -3,7 +3,7 @@
  * schema, and render through the same SSR path prod uses. This is what keeps a
  * one-off JSON typo or a bad block field from shipping a broken docs page.
  *
- * It scans the real doc sources in `@agent-native/core/docs/content`, extracts
+ * It scans the real doc sources in `@agentnative-fork/core/docs/content`, extracts
  * every fenced block segment, and for each one:
  *   1. validates the body against the block's zod schema (precise error), and
  *   2. server-renders it via `renderToStaticMarkup` (catches render crashes).

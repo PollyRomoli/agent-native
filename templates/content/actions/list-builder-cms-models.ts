@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import type { BuilderCmsModelsResponse } from "../shared/api.js";
 import { listBuilderCmsModels } from "./_builder-cms-read-client.js";

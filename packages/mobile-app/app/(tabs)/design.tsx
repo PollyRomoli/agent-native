@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet } from "react-native";
 import AppWebView from "@/components/AppWebView";
-import { TEMPLATE_APPS } from "@agent-native/shared-app-config";
+import { TEMPLATE_APPS } from "@agentnative-fork/shared-app-config";
 import { getAppUrl } from "@/lib/get-app-url";
 
 const design = TEMPLATE_APPS.find((a) => a.id === "design")!;

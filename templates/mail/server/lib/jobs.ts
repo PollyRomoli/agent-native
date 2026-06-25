@@ -1,11 +1,11 @@
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 import {
   getOAuthTokens,
   saveOAuthTokens,
   listOAuthAccounts,
   listOAuthAccountsByOwner,
   setOAuthDisplayName,
-} from "@agent-native/core/oauth-tokens";
+} from "@agentnative-fork/core/oauth-tokens";
 import { and, eq, inArray, lte } from "drizzle-orm";
 import { nanoid } from "nanoid";
 import type { ComposeAttachment, EmailMessage } from "@shared/types.js";

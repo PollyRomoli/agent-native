@@ -29,26 +29,26 @@ vi.mock("h3", () => ({
   setCookie: (...args: unknown[]) => mockSetCookie(...args),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   readAppState: (...args: unknown[]) => mockReadAppState(...args),
 }));
 
-vi.mock("@agent-native/core/extensions/url-safety", () => ({
+vi.mock("@agentnative-fork/core/extensions/url-safety", () => ({
   createSsrfSafeDispatcher: (...args: unknown[]) =>
     mockCreateSsrfSafeDispatcher(...args),
   isBlockedExtensionUrlWithDns: (...args: unknown[]) =>
     mockIsBlockedExtensionUrlWithDns(...args),
 }));
 
-vi.mock("@agent-native/core/org", () => ({
+vi.mock("@agentnative-fork/core/org", () => ({
   getOrgContext: (...args: unknown[]) => mockGetOrgContext(...args),
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   resolveAccess: (...args: unknown[]) => mockResolveAccess(...args),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getSession: (...args: unknown[]) => mockGetSession(...args),
   runWithRequestContext: (...args: unknown[]) =>
     mockRunWithRequestContext(...args),

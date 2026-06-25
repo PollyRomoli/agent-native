@@ -11,7 +11,7 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { useApps } from "@/lib/use-apps";
 import AppForm from "@/components/AppForm";
-import type { AppConfig } from "@agent-native/shared-app-config";
+import type { AppConfig } from "@agentnative-fork/shared-app-config";
 
 export default function SettingsScreen() {
   const { apps, updateApp, addApp, removeApp, resetToDefaults } = useApps();

@@ -46,7 +46,7 @@ Agregue el panel a cualquier plantilla con una única ruta:
 
 ```tsx
 // app/routes/observability.tsx
-import { ObservabilityDashboard } from "@agent-native/core/client";
+import { ObservabilityDashboard } from "@agentnative-fork/core/client";
 
 export default function ObservabilityPage() {
   return (
@@ -106,7 +106,7 @@ Cinco puntuadores deterministas se ejecutan después de cada ejecución del agen
 Habilite la evaluación basada en LLM de muestra configurando `evalSampleRate`:
 
 ```ts
-import { putSetting } from "@agent-native/core/settings";
+import { putSetting } from "@agentnative-fork/core/settings";
 
 await putSetting("observability-config", {
   enabled: true,
@@ -269,7 +269,7 @@ Cada plantilla hereda esto automáticamente: no hay nada que importar. Para las 
 
 ```ts
 // server/plugins/sentry.ts
-import { createSentryPlugin } from "@agent-native/core/server";
+import { createSentryPlugin } from "@agentnative-fork/core/server";
 export default createSentryPlugin();
 ```
 

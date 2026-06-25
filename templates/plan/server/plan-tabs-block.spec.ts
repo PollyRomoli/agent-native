@@ -6,7 +6,7 @@ import {
   prop,
   tabsSchema,
   tabsMdx,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 import { registerPlanBlocks } from "../shared/plan-block-registry.js";
 import { planContentSchema, type PlanContent } from "../shared/plan-content.js";
 import {
@@ -15,7 +15,7 @@ import {
 } from "./plan-mdx.js";
 
 /**
- * Proves the standard `tabs` block (moved to `@agent-native/core/blocks`)
+ * Proves the standard `tabs` block (moved to `@agentnative-fork/core/blocks`)
  * round-trips through the registry MDX path BYTE-IDENTICALLY to the legacy
  * `<TabsBlock … tabs={[…]} />` encoding — including nested child blocks encoded
  * as a single JSON `tabs` prop (NOT nested MDX). This is the backward-compat

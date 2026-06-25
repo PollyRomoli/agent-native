@@ -1,1 +1,1 @@
-export { default, meta } from "@agent-native/dispatch/routes/pages/vault";
+export { default, meta } from "@agentnative-fork/dispatch/routes/pages/vault";

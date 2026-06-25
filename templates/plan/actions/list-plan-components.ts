@@ -2,8 +2,8 @@ import {
   ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER,
   dataInsightsWidgetResultSchema,
   defineAction,
-} from "@agent-native/core";
-import { createDataInsightsWidgetResult } from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core";
+import { createDataInsightsWidgetResult } from "@agentnative-fork/core/data-widgets";
 import { z } from "zod";
 import { describePlanBlocksForAgent } from "../shared/plan-block-registry.js";
 

@@ -31,7 +31,7 @@ Verbinden Sie Slack einmal und gewähren Sie es Brain and Analytics:
 import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 await upsertWorkspaceConnection({
   id: "acme-slack",
@@ -98,7 +98,7 @@ await upsertWorkspaceConnectionGrant({
 Bevor Sie einen Benutzer auffordern, einen neuen Schlüssel einzufügen, prüfen Sie zunächst die Bereitschaft:
 
 ```ts
-import { listWorkspaceConnectionProviderCatalogForApp } from "@agent-native/core/workspace-connections";
+import { listWorkspaceConnectionProviderCatalogForApp } from "@agentnative-fork/core/workspace-connections";
 
 const catalog = await listWorkspaceConnectionProviderCatalogForApp({
   appId: "brain",
@@ -120,14 +120,14 @@ if (slack.readiness.status === "needs_credentials") {
 
 ### Anbieterkatalog
 
-Katalog aus `@agent-native/core/connections` importieren:
+Katalog aus `@agentnative-fork/core/connections` importieren:
 
 ```ts
 import {
   getWorkspaceConnectionProvider,
   listWorkspaceConnectionProvidersForTemplate,
   workspaceConnectionProviderSupports,
-} from "@agent-native/core/connections";
+} from "@agentnative-fork/core/connections";
 
 const brainProviders = listWorkspaceConnectionProvidersForTemplate("brain");
 const slack = getWorkspaceConnectionProvider("slack");
@@ -165,7 +165,7 @@ import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
   revokeWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 const connections = await listWorkspaceConnections({ includeDisabled: true });
 const grants = await listWorkspaceConnectionGrants({ appId: "brain" });
@@ -232,8 +232,8 @@ Die meisten Live-Handler bleiben auch heute noch im Besitz von Vorlagen, was bed
 
 Apps, die gemeinsam genutzte Anbieteranmeldeinformationen nutzen, sollten eine schreibgeschützte Bereitschaftsaktion und eine kleine Setup-Oberfläche bereitstellen, die Folgendes abdeckt:
 
-- **Anbieterkatalog:** Anbieter-ID, Bezeichnung, Funktionen, empfohlene Vorlagenverwendungen und erforderliche Anmeldeinformationsschlüsselnamen von `@agent-native/core/connections`.
-- **Zusammenfassung des Arbeitsbereichs:** Verbindungsanzahl, aktive/gewährte Anzahl, Gewährungsstatus, Namen von Anmeldeinformationsreferenzen und nicht geheime Kontobezeichnungen von `@agent-native/core/workspace-connections`.
+- **Anbieterkatalog:** Anbieter-ID, Bezeichnung, Funktionen, empfohlene Vorlagenverwendungen und erforderliche Anmeldeinformationsschlüsselnamen von `@agentnative-fork/core/connections`.
+- **Zusammenfassung des Arbeitsbereichs:** Verbindungsanzahl, aktive/gewährte Anzahl, Gewährungsstatus, Namen von Anmeldeinformationsreferenzen und nicht geheime Kontobezeichnungen von `@agentnative-fork/core/workspace-connections`.
 - **Anbieterbereitschaft:** `ready`, `needs_credentials`, `needs_attention`, `checking`, `disabled` oder `not_configured` über `summarizeWorkspaceConnectionProviderReadiness()`.
 - **Quellenstatus:** App-lokal konfigurierte Quellen, Cursor, Synchronisierungsstatus und nächste Aktion.
 
@@ -243,8 +243,8 @@ Die Quellenseite von Brain ist die Referenzimplementierung. Es zeigt wiederverwe
 
 Wenn ein neuer Anbieter über mehrere Vorlagen hinweg funktionieren soll:
 
-1. **Anbietermetadaten:** Fügen Sie einen Anbieter in `@agent-native/core/connections` hinzu oder verwenden Sie ihn wieder. Dabei handelt es sich um die stabile ID, die Anzeigebezeichnung, die Funktionsliste, die empfohlenen Vorlagenverwendungen und die Namen der Anmeldeinformationsschlüssel.
-2. **Workspace-Verbindung:** Dispatch oder eine andere Workspace-Setup-Oberfläche speichert die sicheren Metadaten, den Status, die Bereiche, `credentialRefs` und App-Zuweisungen des verbundenen Kontos über `@agent-native/core/workspace-connections`.
+1. **Anbietermetadaten:** Fügen Sie einen Anbieter in `@agentnative-fork/core/connections` hinzu oder verwenden Sie ihn wieder. Dabei handelt es sich um die stabile ID, die Anzeigebezeichnung, die Funktionsliste, die empfohlenen Vorlagenverwendungen und die Namen der Anmeldeinformationsschlüssel.
+2. **Workspace-Verbindung:** Dispatch oder eine andere Workspace-Setup-Oberfläche speichert die sicheren Metadaten, den Status, die Bereiche, `credentialRefs` und App-Zuweisungen des verbundenen Kontos über `@agentnative-fork/core/workspace-connections`.
 3. **App-lokale Quelle:** Brain, Analytics, Mail oder eine andere App speichert nur die app-spezifischen Auswahlmöglichkeiten, die sie besitzt, wie z. B. Slack-Kanäle, GitHub-Repositorys, HubSpot-Objektfilter, Synchronisierungscursor oder Abfragerhythmus.
 
 ZxQ6QXZ/Token-Speicher nicht in jeder App duplizieren. Im Verbindungsdatensatz steht: „Dies ist Acme Slack und sein Token befindet sich bei `SLACK_BOT_TOKEN`“; In der App-lokalen Quelle heißt es: „Brain kann `#product` und `#dev-fusion` von dieser Slack-Verbindung aufnehmen.“

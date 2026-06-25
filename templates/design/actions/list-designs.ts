@@ -1,8 +1,8 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { desc, inArray } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { accessFilter } from "@agent-native/core/sharing";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 
 // Truncate preview HTML so the listing payload stays reasonable. The home
 // screen only needs enough HTML to render a recognizable thumbnail; full

@@ -7,7 +7,7 @@ process.env.SECRETS_ENCRYPTION_KEY ||= "clips-share-password-test-key";
 const { encryptSharePassword, verifySharePassword } =
   await import("./share-password.js");
 const { isEncryptedSecretValue } =
-  await import("@agent-native/core/secrets/crypto");
+  await import("@agentnative-fork/core/secrets/crypto");
 
 describe("share-password storage", () => {
   it("clears the password for empty / nullish input", () => {

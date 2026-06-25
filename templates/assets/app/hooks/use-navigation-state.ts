@@ -2,7 +2,7 @@ import {
   markAgentChatHomeHandoff,
   useAgentRouteState,
   getBrowserTabId,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useLocation } from "react-router";
 import { ASSETS_CHAT_STORAGE_KEY } from "@/lib/chat";
 

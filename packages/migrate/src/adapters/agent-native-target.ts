@@ -47,7 +47,7 @@ export async function scaffoldAgentNativeTarget(
   await write("vite.config.ts", viteConfig());
   await write(
     "actions/run.ts",
-    'import { runScript } from "@agent-native/core/scripts";\nrunScript();\n',
+    'import { runScript } from "@agentnative-fork/core/scripts";\nrunScript();\n',
   );
   await write("actions/view-screen.ts", viewScreenAction());
   await write("actions/navigate.ts", navigateAction());
@@ -167,7 +167,7 @@ function packageJson(): string {
         action: "agent-native action",
       },
       dependencies: {
-        "@agent-native/core": "latest",
+        "@agentnative-fork/core": "latest",
         "@tabler/icons-react": "^3.41.1",
         "@tanstack/react-query": "^5.99.2",
         "@vitejs/plugin-react": "^6.0.1",
@@ -204,7 +204,7 @@ This app was scaffolded by Migration Workbench. Complete each migration task thr
 
 function tsconfigJson(): string {
   return `{
-  "extends": "@agent-native/core/tsconfig.base.json",
+  "extends": "@agentnative-fork/core/tsconfig.base.json",
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
     "rootDirs": [".", "./.react-router/types"],
@@ -232,7 +232,7 @@ export default {
 
 function viteConfig(): string {
   return `import { reactRouter } from "@react-router/dev/vite";
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -247,8 +247,8 @@ export default defineConfig({
 }
 
 function viewScreenAction(): string {
-  return `import { defineAction } from "@agent-native/core";
-import { readAppState } from "@agent-native/core/application-state";
+  return `import { defineAction } from "@agentnative-fork/core";
+import { readAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -264,8 +264,8 @@ export default defineAction({
 }
 
 function navigateAction(): string {
-  return `import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
+  return `import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -284,7 +284,7 @@ export default defineAction({
 }
 
 function authPlugin(): string {
-  return `import { createAuthPlugin } from "@agent-native/core/server";
+  return `import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   marketing: {
@@ -297,8 +297,8 @@ export default createAuthPlugin({
 }
 
 function agentChatPlugin(): string {
-  return `import { createAgentChatPlugin, loadActionsFromStaticRegistry } from "@agent-native/core/server";
-import { getOrgContext } from "@agent-native/core/org";
+  return `import { createAgentChatPlugin, loadActionsFromStaticRegistry } from "@agentnative-fork/core/server";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import actionsRegistry from "../../.generated/actions-registry.js";
 
 export default createAgentChatPlugin({
@@ -310,7 +310,7 @@ export default createAgentChatPlugin({
 }
 
 function ssrRoute(): string {
-  return `import { createH3SSRHandler } from "@agent-native/core/server/ssr-handler";
+  return `import { createH3SSRHandler } from "@agentnative-fork/core/server/ssr-handler";
 
 export default createH3SSRHandler(() => import("virtual:react-router/server-build"));
 `;
@@ -345,7 +345,7 @@ import { ServerRouter } from "react-router";
 import ReactDOMServer from "react-dom/server.browser";
 const { renderToReadableStream } = ReactDOMServer;
 import { isbot } from "isbot";
-import { wrapWithAnalytics } from "@agent-native/core/server";
+import { wrapWithAnalytics } from "@agentnative-fork/core/server";
 
 export const streamTimeout = 5_000;
 
@@ -403,8 +403,8 @@ function rootTsx(): string {
   return `import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
-import { ClientOnly, DefaultSpinner } from "@agent-native/core/client";
-import { AgentSidebar } from "@agent-native/core/client";
+import { ClientOnly, DefaultSpinner } from "@agentnative-fork/core/client";
+import { AgentSidebar } from "@agentnative-fork/core/client";
 import stylesheet from "./global.css?url";
 import type { ReactNode } from "react";
 import type { LinksFunction } from "react-router";
@@ -445,7 +445,7 @@ export default function Root() {
 }
 
 function globalCss(): string {
-  return `@import "@agent-native/core/styles/agent-native.css";
+  return `@import "@agentnative-fork/core/styles/agent-native.css";
 `;
 }
 

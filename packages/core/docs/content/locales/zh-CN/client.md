@@ -5,9 +5,9 @@ description: "用于代理本机应用程序的 React 挂钩和实用程序：se
 
 # 客户端
 
-`@agent-native/core` 为代理本机应用程序的浏览器端提供 React 挂钩和实用程序。
+`@agentnative-fork/core` 为代理本机应用程序的浏览器端提供 React 挂钩和实用程序。
 
-这些客户端/React API 是从 `@agent-native/core` 和 `@agent-native/core/client` 导出的。为了清晰和正确的捆绑，从 `@agent-native/core/client`（浏览器条目）导入它们，因为默认情况下裸 `@agent-native/core` 根解析为 Node 构建。
+这些客户端/React API 是从 `@agentnative-fork/core` 和 `@agentnative-fork/core/client` 导出的。为了清晰和正确的捆绑，从 `@agentnative-fork/core/client`（浏览器条目）导入它们，因为默认情况下裸 `@agentnative-fork/core` 根解析为 Node 构建。
 
 对于基于文件的路由 - 添加页面、动态参数和导航 - 请参阅 [Routing](/docs/routing)。
 
@@ -27,7 +27,7 @@ import {
   useActionQuery,
   useActionMutation,
   callAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 // Read: auto-cached, auto-invalidated on mutations
 const { data, isLoading } = useActionQuery("get-lead", { leadId });
@@ -45,7 +45,7 @@ await callAction("archive-lead", { leadId });
 通过 postMessage 向代理聊天发送消息——这是从 UI 交互中委派 AI 任务的常用方法。传递 `context` 来隐藏模型上下文，传递 `submit: true` 来立即发送，或者传递 `submit: false` 来预先填写用户首先审阅的草稿。
 
 ```ts
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 // Auto-submit a prompt with hidden context
 sendToAgentChat({
@@ -136,7 +136,7 @@ overwrite the user's active conversation. Use the returned `tabId` if the UI
 `"automations"`、`"voice"` 或 `"limits"` 打开特定部分。
 
 ```ts
-import { openAgentSettings } from "@agent-native/core/client";
+import { openAgentSettings } from "@agentnative-fork/core/client";
 
 openAgentSettings();
 openAgentSettings("secrets");
@@ -145,7 +145,7 @@ openAgentSettings("secrets");
 更喜欢这个助手而不是直接调度 `agent-panel:open-settings`。
 
 ```tsx
-import { useAgentChatContext } from "@agent-native/core/client";
+import { useAgentChatContext } from "@agentnative-fork/core/client";
 
 function SelectionContextButton({ record }: { record: { id: string } }) {
   const chatContext = useAgentChatContext();
@@ -204,7 +204,7 @@ function SelectionContextButton({ record }: { record: { id: string } }) {
 用于自由形式细节的组合器，以及用于多字段输入的表单/弹出框。
 
 ```tsx
-import { askUserQuestion, sendToAgentChat } from "@agent-native/core/client";
+import { askUserQuestion, sendToAgentChat } from "@agentnative-fork/core/client";
 
 const length = await askUserQuestion({
   question: "How long should this deck be?",
@@ -238,7 +238,7 @@ if (length) {
 
 作为 MCP 应用嵌入的路由应该是 URL-first：加载当前工件
 路径/查询参数，渲染真实的React路由或聚焦的共享组件，
-并且仅将主机桥用于主机拥有的行为。 `@agent-native/core/client`
+并且仅将主机桥用于主机拥有的行为。 `@agentnative-fork/core/client`
 导出助手嵌入的路由调用：
 
 ```ts
@@ -248,7 +248,7 @@ import {
   requestMcpAppDisplayMode,
   updateMcpAppModelContext,
   useMcpAppHostContext,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 ```
 
 `getMcpAppHostContext()`读取最新推送的主机上下文快照；
@@ -283,7 +283,7 @@ import {
 React 钩子，通过加载状态跟踪包装 sendToAgentChat：
 
 ```ts
-import { useAgentChatGenerating } from "@agent-native/core/client";
+import { useAgentChatGenerating } from "@agentnative-fork/core/client";
 
 function GenerateButton() {
   const [isGenerating, send] = useAgentChatGenerating();
@@ -310,7 +310,7 @@ function GenerateButton() {
 React 挂钩（以前称为 `useFileWatcher`），用于侦听 SSE 上的数据库更改，回退到轮询，并使保持 UI 与代理写入保持一致的框架查询缓存无效：
 
 ```ts
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 function App() {
@@ -355,7 +355,7 @@ function App() {
 
 ```tsx
 import { useQuery } from "@tanstack/react-query";
-import { useChangeVersion } from "@agent-native/core/client";
+import { useChangeVersion } from "@agentnative-fork/core/client";
 
 function DashboardView({ id }) {
   // Get version for dashboards domain source
@@ -388,7 +388,7 @@ function DashboardView({ id }) {
 合并类名的实用程序（clsx + tailwind-merge）：
 
 ```ts
-import { cn } from "@agent-native/core/client";
+import { cn } from "@agentnative-fork/core/client";
 
 <div className={cn(
   "px-4 py-2 rounded",

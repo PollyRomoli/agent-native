@@ -76,7 +76,7 @@ en el Y.Doc compartido. El líder es la pestaña con el Yjs más bajo `clientID`
 entre los pares actualmente visibles. La entrada de conocimiento del agente utiliza
 `AGENT_CLIENT_ID` (max int) por lo que nunca puede ser el líder. Un cliente editando
 solo es siempre el líder. La elección es determinista y no hay coordinación
-ida y vuelta (`isReconcileLeadClient` desde `@agent-native/core/client`).
+ida y vuelta (`isReconcileLeadClient` desde `@agentnative-fork/core/client`).
 
 ### 5. SSE ruta rápida + respaldo de sondeo (transporte)
 
@@ -122,7 +122,7 @@ Evita que Vite vuelva a empaquetar TipTap de forma incompatible durante el desar
 ```ts
 // vite.config.ts
 import { reactRouter } from "@react-router/dev/vite";
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -149,7 +149,7 @@ registra una advertencia única.
 
 ```ts
 // server/plugins/collab.ts
-import { createCollabPlugin } from "@agent-native/core/server";
+import { createCollabPlugin } from "@agentnative-fork/core/server";
 
 export default createCollabPlugin({
   table: "documents",
@@ -166,7 +166,7 @@ import {
   useCollaborativeDoc,
   emailToColor,
   emailToName,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const TAB_ID = generateTabId(); // or Math.random().toString(36)
 
@@ -273,7 +273,7 @@ import {
   RemoteSelectionRings,
   useCollaborativeDoc,
   usePresence,
-} from "@agent-native/core/client/collab";
+} from "@agentnative-fork/core/client/collab";
 ```
 
 Los asistentes de presencia del agente del lado del servidor permanecen en el paquete de colaboración de nivel inferior:
@@ -283,7 +283,7 @@ import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 ```
 
 ### Público API {#presence-public-api}
@@ -336,7 +336,7 @@ Los cambios en el estado de concientización ahora se propagan a ~150 ms en luga
 Devuelve una lista reactiva de participantes remotos y un configurador para la carga útil de presencia local:
 
 ```ts
-import { usePresence } from "@agent-native/core/client";
+import { usePresence } from "@agentnative-fork/core/client";
 
 const { others, setPresence } = usePresence(awareness, ydoc?.clientID);
 
@@ -359,7 +359,7 @@ El agente (AGENT_CLIENT_ID) aparece como un participante de primera clase con `i
 Representa cursores remotos como etiquetas absolutamente posicionadas sobre un elemento contenedor:
 
 ```tsx
-import { LiveCursorOverlay } from "@agent-native/core/client";
+import { LiveCursorOverlay } from "@agentnative-fork/core/client";
 
 // cursor positions stored as { x, y } normalized 0–1 under presence.cursor
 <div ref={containerRef} style={{ position: "relative" }}>
@@ -379,7 +379,7 @@ El cursor del agente se muestra claramente con un icono brillante. Los cursores 
 Representa anillos de contorno de colores + etiquetas de nombre sobre elementos seleccionados de forma remota:
 
 ```tsx
-import { RemoteSelectionRings } from "@agent-native/core/client";
+import { RemoteSelectionRings } from "@agentnative-fork/core/client";
 
 <div ref={containerRef} style={{ position: "relative" }}>
   {content}
@@ -399,7 +399,7 @@ import { RemoteSelectionRings } from "@agent-native/core/client";
 Invoque una devolución de llamada cada vez que cambie la ventana gráfica del participante seguido:
 
 ```ts
-import { useFollowUser } from "@agent-native/core/client";
+import { useFollowUser } from "@agentnative-fork/core/client";
 
 const { isFollowing, stopFollowing } = useFollowUser({
   others,
@@ -434,7 +434,7 @@ El componente `PresenceBar` ahora acepta accesorios de modo de seguimiento opcio
 ### Ayudantes de coordenadas normalizadas {#norm-coords}
 
 ```ts
-import { toNormalized, fromNormalized } from "@agent-native/core/client";
+import { toNormalized, fromNormalized } from "@agentnative-fork/core/client";
 
 // In a pointer event handler:
 const norm = toNormalized(
@@ -457,7 +457,7 @@ import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 
 agentEnterDocument(docId);
 agentUpdateSelection(docId, {
@@ -656,7 +656,7 @@ El gancho `useCollaborativeDoc` devuelve:
   (latido del corazón de presencia duradera).
 
 Utilice `emailToColor(email)` y `emailToName(email)` de
-`@agent-native/core/client` para generar colores de cursor y visualización consistentes
+`@agentnative-fork/core/client` para generar colores de cursor y visualización consistentes
 nombres de direcciones de correo electrónico.
 
 Un `PresenceBar` renderizado con `activeUsers` muestra un humano y un agente en vivo

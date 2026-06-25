@@ -78,7 +78,7 @@ O agente grava o arquivo para você.
 Solte um arquivo Markdown em `jobs/` por meio do recurso APIs da estrutura:
 
 ```ts
-import { resourcePut } from "@agent-native/core/resources";
+import { resourcePut } from "@agentnative-fork/core/resources";
 
 await resourcePut(
   ownerEmail,
@@ -127,10 +127,10 @@ Uma única ferramenta `manage-jobs` é registrada em cada modelo. O parâmetro `
 
 ## Diferente do pacote de agendamento {#vs-scheduling-package}
 
-Não confunda trabalhos recorrentes com `@agent-native/scheduling`:
+Não confunda trabalhos recorrentes com `@agentnative-fork/scheduling`:
 
 - **Trabalhos recorrentes (esta página)** — _prompts_ agendados em cron que o agente executa em segundo plano. Nível de estrutura. Mora no espaço de trabalho. Funciona em qualquer aplicativo nativo do agente.
-- **`@agent-native/scheduling`** — um pacote de domínio reutilizável para criar recursos de calendário/reserva (tipos de eventos, janelas de disponibilidade, reservas). Ativa o modelo `calendar` e superfícies de agendamento personalizadas.
+- **`@agentnative-fork/scheduling`** — um pacote de domínio reutilizável para criar recursos de calendário/reserva (tipos de eventos, janelas de disponibilidade, reservas). Ativa o modelo `calendar` e superfícies de agendamento personalizadas.
 
 Trabalhos recorrentes são "como faço para o agente agir por conta própria?" O pacote de agendamento é "como faço para construir um aplicativo de calendário?" Preocupações diferentes.
 

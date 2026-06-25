@@ -76,7 +76,7 @@ Esse é o ponto principal. Bifurque um modelo e personalize-o perguntando ao age
 
 ### Posso criar algo que os modelos não cobrem? {#build-from-scratch}
 
-Sim. Se você deseja um aplicativo de bate-papo básico, execute `npx @agent-native/core@latest create my-chat-app --template chat`; você obtém threads de bate-papo duráveis, actions, autenticação, estado de tempo de execução apoiado por SQL e espaço para adicionar suas próprias telas. Se você deseja o menor aplicativo de ação sem UI, execute `npx @agent-native/core@latest create my-agent --headless`. Consulte [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps) e [Chat](/docs/template-chat).
+Sim. Se você deseja um aplicativo de bate-papo básico, execute `npx @agentnative-fork/core@latest create my-chat-app --template chat`; você obtém threads de bate-papo duráveis, actions, autenticação, estado de tempo de execução apoiado por SQL e espaço para adicionar suas próprias telas. Se você deseja o menor aplicativo de ação sem UI, execute `npx @agentnative-fork/core@latest create my-agent --headless`. Consulte [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps) e [Chat](/docs/template-chat).
 
 ### Posso experimentar sem bifurcar um modelo? {#try-with-a-skill}
 

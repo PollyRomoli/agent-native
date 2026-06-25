@@ -71,7 +71,7 @@ O estúdio roda no `<Player>` do Remotion para visualização e no Remotion CLI 
 Estruture um novo aplicativo de vídeo do CLI:
 
 ```bash
-npx @agent-native/core@latest create my-video-app --standalone --template videos
+npx @agentnative-fork/core@latest create my-video-app --standalone --template videos
 cd my-video-app
 pnpm install
 pnpm dev

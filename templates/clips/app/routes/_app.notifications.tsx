@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { IconSend } from "@tabler/icons-react";
-import { useActionQuery, useActionMutation } from "@agent-native/core/client";
+import { useActionQuery, useActionMutation } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";

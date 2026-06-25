@@ -21,7 +21,7 @@ describe("VisualEditor read-only mode", () => {
     // editability gate — lives in core, so assert it against the core source.
     const reexport = readEditorSource("./extensions/DragHandle.tsx");
     expect(reexport).toContain(
-      'import { DragHandle as CoreDragHandle } from "@agent-native/core/client"',
+      'import { DragHandle as CoreDragHandle } from "@agentnative-fork/core/client"',
     );
     expect(reexport).toContain('wrapperSelector: ".visual-editor-wrapper"');
 

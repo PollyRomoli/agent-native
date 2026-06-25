@@ -3,7 +3,7 @@ import {
   appPath,
   markAgentChatHomeHandoff,
   useAgentRouteState,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useLocation } from "react-router";
 import { pathFromView, viewFromPath, type BrainView } from "@/lib/brain";
 import { TAB_ID } from "@/lib/tab-id";

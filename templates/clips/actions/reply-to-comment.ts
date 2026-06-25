@@ -7,14 +7,14 @@
  *   pnpm action reply-to-comment --commentId=<id> --content="..."
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
 import { nanoid } from "../server/lib/recordings.js";
-import { writeAppState } from "@agent-native/core/application-state";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
-import { assertAccess } from "@agent-native/core/sharing";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 
 export default defineAction({
   description:

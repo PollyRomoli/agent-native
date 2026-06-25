@@ -1,6 +1,6 @@
 import { and, desc, eq } from "drizzle-orm";
-import { getCredentialContext } from "@agent-native/core/server";
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+import { getCredentialContext } from "@agentnative-fork/core/server";
+import { accessFilter, assertAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../db/index.js";
 import {
   inspectSourceCredentialAvailability,

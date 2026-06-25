@@ -15,7 +15,7 @@ import {
   agentNativePath,
   callAction,
   sendToAgentChat,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useRecordings, type RecordingSummary } from "./use-library";
 
 const DEFAULT_TITLE = "Untitled recording";

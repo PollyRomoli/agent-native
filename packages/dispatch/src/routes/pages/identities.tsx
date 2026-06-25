@@ -1,4 +1,4 @@
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import { DispatchShell } from "@/components/dispatch-shell";
 import { Button } from "@/components/ui/button";

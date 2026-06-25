@@ -9,7 +9,7 @@
  *   pnpm action create-recording --title="Quick demo"
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { getDb, schema } from "../server/db/index.js";
 import {
   getCurrentOwnerEmail,
@@ -17,7 +17,7 @@ import {
   requireOrganizationAccess,
   stringifySpaceIds,
 } from "../server/lib/recordings.js";
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { DEFAULT_RECORDING_TITLE } from "./lib/title-source.js";
 import { createRecordingSchema } from "./lib/create-recording-schema.js";
 

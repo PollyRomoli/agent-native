@@ -1,5 +1,5 @@
 import "../db/index.js";
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 const LEGACY_DEV_OWNER_SQL = "'local@localhost'"; // guard:allow-localhost-fallback - migration marker for legacy dev-owned rows, not an auth fallback
 

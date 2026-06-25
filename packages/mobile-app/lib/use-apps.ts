@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import type { AppConfig } from "@agent-native/shared-app-config";
+import type { AppConfig } from "@agentnative-fork/shared-app-config";
 import * as AppStore from "./app-store";
 
 export function useApps() {

@@ -3,7 +3,7 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { DispatchShell } from "@/components/dispatch-shell";
 import { Button } from "@/components/ui/button";
 import {

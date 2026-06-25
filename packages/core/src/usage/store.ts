@@ -60,6 +60,54 @@ export function usageBillingForEngine(
     : USD_USAGE_BILLING;
 }
 
+// ---------------------------------------------------------------------------
+// Billing hooks — allows SaaS owners to customize billing mode, pricing,
+// and extend usage queries without modifying the core usage store.
+// ---------------------------------------------------------------------------
+
+export interface BillingHooks {
+  /** Custom billing mode. When set, overrides the default per-engine mode. */
+  billingMode?: UsageBillingMode;
+  /** Custom pricing resolver. Receives model id, returns pricing or undefined to fall back to built-in. */
+  resolvePricing?: (model: string) => ModelPricing | undefined;
+  /** Custom cost calculator. Receives raw token counts and model, returns cost in centicents. */
+  calculateCost?: (
+    inputTokens: number,
+    outputTokens: number,
+    model: string,
+    cacheReadTokens: number,
+    cacheWriteTokens: number,
+  ) => number | undefined;
+  /** Custom usage credit decoder. Receives cost in cents, returns credits/units. */
+  convertCostToCredits?: (cents: number) => number;
+}
+
+let _billingHooks: BillingHooks | undefined;
+
+export function setBillingHooks(hooks: BillingHooks | undefined): void {
+  _billingHooks = hooks;
+}
+
+export function getBillingHooks(): BillingHooks | undefined {
+  return _billingHooks;
+}
+
+/** Set a custom billing mode used across all usage displays. */
+export function setBillingMode(mode: UsageBillingMode | undefined): void {
+  if (!_billingHooks) _billingHooks = {};
+  _billingHooks.billingMode = mode;
+}
+
+/** Set a custom pricing resolver. Returns the previous resolver if any. */
+export function setCustomPricingResolver(
+  fn: ((model: string) => ModelPricing | undefined) | undefined,
+): ((model: string) => ModelPricing | undefined) | undefined {
+  const prev = _billingHooks?.resolvePricing;
+  if (!_billingHooks) _billingHooks = {};
+  _billingHooks.resolvePricing = fn;
+  return prev;
+}
+
 export function builderCreditsFromCostCents(cents: number): number {
   if (!Number.isFinite(cents) || cents <= 0) return 0;
   const dollars = cents / 100;
@@ -265,7 +313,19 @@ export function calculateCost(
   cacheReadTokens = 0,
   cacheWriteTokens = 0,
 ): number {
-  const p = pricingFor(model);
+  // Custom cost calculator hook takes precedence.
+  if (_billingHooks?.calculateCost) {
+    const custom = _billingHooks.calculateCost(
+      inputTokens,
+      outputTokens,
+      model,
+      cacheReadTokens,
+      cacheWriteTokens,
+    );
+    if (custom !== undefined) return custom;
+  }
+
+  const p = _billingHooks?.resolvePricing?.(model) ?? pricingFor(model);
   const rawCenticents =
     (inputTokens / 1_000_000) * p.input * 100 +
     (outputTokens / 1_000_000) * p.output * 100 +
@@ -540,7 +600,7 @@ export async function getUsageSummary(
   }));
 
   return {
-    billing: USD_USAGE_BILLING,
+    billing: _billingHooks?.billingMode ?? USD_USAGE_BILLING,
     totalCents: Number(t.cents ?? 0) / 100,
     totalCalls: Number(t.calls ?? 0),
     totalInputTokens: Number(t.in_tok ?? 0),

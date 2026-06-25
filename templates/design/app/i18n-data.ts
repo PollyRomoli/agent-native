@@ -1,4 +1,4 @@
-import type { LocaleCode } from "@agent-native/core/client";
+import type { LocaleCode } from "@agentnative-fork/core/client";
 
 const enUS = {
   root: {

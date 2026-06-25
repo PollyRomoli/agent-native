@@ -41,7 +41,7 @@ Run `create` with no flags and it asks how you want to start (a full template,
 Chat, or Headless) before anything else:
 
 ```bash
-npx @agent-native/core@latest create my-app
+npx @agentnative-fork/core@latest create my-app
 ```
 
 Or pass a flag to skip the prompt:
@@ -50,14 +50,14 @@ Or pass a flag to skip the prompt:
 customizable chat UI, and every action you add shows up in it automatically:
 
 ```bash
-npx @agent-native/core@latest create my-app --template chat
+npx @agentnative-fork/core@latest create my-app --template chat
 ```
 
 **Just the headless primitive?** Start headless — the same actions and agent
 loop, no UI shell:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 Then install from the folder you created:
@@ -78,7 +78,7 @@ ship with this example:
 {
   "filename": "actions/hello.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Say hello from the local agent.\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Say hello from the local agent.\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Tool description", "note": "The agent reads `description` to decide when to call this as a tool." },
     { "lines": "6-8", "label": "Typed contract", "note": "One zod `schema` validates input from every surface — agent, UI, HTTP, MCP, and A2A." },
@@ -149,7 +149,7 @@ is one small route built on the `<AgentChatSurface>` component:
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return <AgentChatSurface mode="page" className="h-full" />;

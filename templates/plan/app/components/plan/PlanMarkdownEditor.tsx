@@ -8,7 +8,7 @@ import {
   DEFAULT_SLASH_COMMANDS,
   type RichMarkdownCollabUser,
   type CollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { cn } from "@/lib/utils";
 import { PlanImageNode } from "./PlanImageNode";
 

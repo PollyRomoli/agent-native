@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
-import { extractDesignTokensFromUrl } from "@agent-native/core/server/design-token-utils";
+import { extractDesignTokensFromUrl } from "@agentnative-fork/core/server/design-token-utils";
 
 export default defineAction({
   description:

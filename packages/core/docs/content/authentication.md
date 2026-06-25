@@ -174,7 +174,7 @@ Unauthenticated MCP requests return a `WWW-Authenticate` challenge pointing at `
 
 Access tokens are signed with `A2A_SECRET` when set, otherwise `BETTER_AUTH_SECRET`. They carry the signed user/org identity and the `mcp:read`, `mcp:write`, and/or `mcp:apps` scopes, and are audience-bound to the exact MCP resource URL. Refresh tokens are stored only as hashes and rotate on every refresh. Tool calls and MCP Apps resource reads run inside the same request context as the signed-in user; the embedded MCP App iframe never receives raw OAuth tokens.
 
-`npx @agent-native/core@latest connect <url> --client claude-code` writes the URL-only MCP entry for this standard flow. For clients that cannot perform remote MCP OAuth, use the Connect page or `npx @agent-native/core@latest connect --token <token>` fallback to write an explicit bearer-token entry.
+`npx @agentnative-fork/core@latest connect <url> --client claude-code` writes the URL-only MCP entry for this standard flow. For clients that cannot perform remote MCP OAuth, use the Connect page or `npx @agentnative-fork/core@latest connect --token <token>` fallback to write an explicit bearer-token entry.
 
 ## Bring Your Own Auth {#byoa}
 
@@ -182,7 +182,7 @@ Pass a custom `getSession` callback to use any auth provider (Clerk, Auth0, Fire
 
 ```ts
 // server/plugins/auth.ts
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   getSession: async (event) => {
@@ -250,7 +250,7 @@ interface AuthSession {
 On the client, use the `useSession()` hook:
 
 ```ts
-import { useSession } from "@agent-native/core/client";
+import { useSession } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const { session, isLoading } = useSession();

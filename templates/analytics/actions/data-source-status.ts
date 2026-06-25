@@ -1,15 +1,15 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getWorkspaceConnectionProvider,
   listWorkspaceConnectionProvidersForTemplate,
-} from "@agent-native/core/connections";
+} from "@agentnative-fork/core/connections";
 import {
   listWorkspaceConnectionGrants,
   listWorkspaceConnections,
   summarizeWorkspaceConnectionProviderForApp,
   type SerializedWorkspaceConnectionGrant,
   type SerializedWorkspaceConnection,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 import { z } from "zod";
 import { hasCredential } from "../server/lib/credentials";
 import {

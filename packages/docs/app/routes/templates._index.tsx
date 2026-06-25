@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useLocale, useT } from "@agent-native/core/client";
+import { useLocale, useT } from "@agentnative-fork/core/client";
 import {
   featuredTemplates,
   TemplateCard,

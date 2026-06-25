@@ -24,7 +24,7 @@ CLI 어댑터는 단일 명령줄 도구(`gh`, `ffmpeg`, `stripe`, `aws`)를 래
 모든 CLI 어댑터는 `CliAdapter`를 구현합니다:
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -45,7 +45,7 @@ interface CliResult {
 대부분의 CLI에는 사용자 정의 클래스가 필요하지 않습니다. `ShellCliAdapter`는 합리적인 기본값으로 모든 바이너리를 래핑합니다.
 
 ```ts
-import { ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const gh = new ShellCliAdapter({
   command: "gh",
@@ -69,7 +69,7 @@ const ffmpeg = new ShellCliAdapter({
 `CliRegistry`는 에이전트가 런타임 시 사용 가능한 항목을 검색할 수 있도록 어댑터를 수집합니다.
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(
@@ -90,8 +90,8 @@ const result = await gh?.execute(["pr", "list", "--json", "title,url"]);
 
 ```ts
 // actions/list-prs.ts
-import { defineAction } from "@agent-native/core/action";
-import { ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 import { z } from "zod";
 
 const gh = new ShellCliAdapter({ command: "gh", description: "GitHub CLI" });

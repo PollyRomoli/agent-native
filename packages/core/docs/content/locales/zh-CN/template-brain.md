@@ -122,7 +122,7 @@ Brain 将只读、引用支持的检索公开为其公共 A2A 功能
 ### 快速入门
 
 ```bash
-npx @agent-native/core@latest create my-brain --standalone --template brain
+npx @agentnative-fork/core@latest create my-brain --standalone --template brain
 cd my-brain
 pnpm install
 pnpm dev

@@ -10,11 +10,11 @@
  * Agent actions (update-slide, add-slide, etc.) continue to use their own
  * dedicated actions which also use the same per-deck lock.
  */
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { notifyClients } from "../server/handlers/decks.js";
 import { normalizeSlidePadding } from "../app/lib/normalize-slide-padding.js";
 

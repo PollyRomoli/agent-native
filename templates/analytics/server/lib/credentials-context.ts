@@ -4,7 +4,7 @@
  * a CredentialContext. To avoid threading the context through every public
  * method of every helper (which would force every action and every script to
  * pass it explicitly), the helpers grab it from the active request context
- * via `getCredentialContext()` from `@agent-native/core/server`.
+ * via `getCredentialContext()` from `@agentnative-fork/core/server`.
  *
  * Where the context comes from:
  *   - Framework actions auto-mounted at `/_agent-native/actions/...` —
@@ -22,8 +22,8 @@
 import {
   getCredentialContext,
   type RequestContext,
-} from "@agent-native/core/server";
-import type { CredentialContext } from "@agent-native/core/credentials";
+} from "@agentnative-fork/core/server";
+import type { CredentialContext } from "@agentnative-fork/core/credentials";
 
 /**
  * Read the current request's credential context, or throw a helpful error

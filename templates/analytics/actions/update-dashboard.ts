@@ -1,9 +1,9 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   getRequestUserEmail,
   getRequestOrgId,
   buildDeepLink,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { z } from "zod";
 import { getDashboard, upsertDashboard } from "../server/lib/dashboards-store";
 import { dryRunQuery } from "../server/lib/bigquery";
@@ -14,7 +14,7 @@ import {
   hasCollabState,
   applyText,
   seedFromText,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 
 /**
  * Same validation shape used in the sql-dashboard save path.

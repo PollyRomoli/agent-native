@@ -97,7 +97,7 @@ Para documentos, blogs ou espaço de trabalho MDX existentes, instale os arquivo
 habilidade:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 Isso copia a habilidade `content` nas pastas de habilidades do agente do repositório e grava

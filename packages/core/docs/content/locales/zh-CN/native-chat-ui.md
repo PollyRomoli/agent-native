@@ -41,16 +41,16 @@ description: "操作声明的本机聊天渲染器、可重用的 DataTable/Data
 | `"data-insights"` | `table` 和/或 `chartSeries` | 带有图表/表格输出的组合洞察卡 |
 
 服务器 actions 应从
-`@agent-native/core/data-widgets`；客户端代码可以从
-`@agent-native/core/client/chat` 或 `@agent-native/core/client`。
+`@agentnative-fork/core/data-widgets`；客户端代码可以从
+`@agentnative-fork/core/client/chat` 或 `@agentnative-fork/core/client`。
 
 ```ts
-import { defineAction } from "@agent-native/core/action";
-import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agent-native/core/action-ui";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agentnative-fork/core/action-ui";
 import {
   createDataInsightsWidgetResult,
   dataInsightsWidgetResultSchema,
-} from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core/data-widgets";
 
 export default defineAction({
   description: "Analyze form responses.",
@@ -177,7 +177,7 @@ export default defineAction({
 关于行动：
 
 ```tsx
-import { registerActionChatRenderer } from "@agent-native/core/client/chat";
+import { registerActionChatRenderer } from "@agentnative-fork/core/client/chat";
 
 registerActionChatRenderer({
   id: "crm.deal-card",
@@ -216,15 +216,15 @@ export default defineAction({
 }
 ```
 
-所有连接器均从 `@agent-native/core/client/chat` 导出（以及根
-`@agent-native/core/client` 条目）。当您的代理使用通用 HTTP 运行时
+所有连接器均从 `@agentnative-fork/core/client/chat` 导出（以及根
+`@agentnative-fork/core/client` 条目）。当您的代理使用通用 HTTP 运行时
 可以公开返回 SSE 或 NDJSON 运行时事件的 POST 端点：
 
 ```tsx
 import {
   AssistantChat,
   createHttpAgentChatRuntime,
-} from "@agent-native/core/client/chat";
+} from "@agentnative-fork/core/client/chat";
 
 const runtime = createHttpAgentChatRuntime({
   id: "external:mastra",
@@ -250,7 +250,7 @@ import {
   createOpenAIAgentsChatRuntime,
   createOpenAIResponsesChatRuntime,
   createVercelAiChatRuntime,
-} from "@agent-native/core/client/chat";
+} from "@agentnative-fork/core/client/chat";
 
 const openAiAgentsRuntime = createOpenAIAgentsChatRuntime({
   endpoint: "/api/openai-agents/chat",
@@ -293,7 +293,7 @@ iframe。
 当您希望内置 Agent-Native 传输作为运行时对象时，请使用：
 
 ```ts
-import { createAgentNativeChatRuntime } from "@agent-native/core/client/chat";
+import { createAgentNativeChatRuntime } from "@agentnative-fork/core/client/chat";
 
 const runtime = createAgentNativeChatRuntime({
   threadId: "forms-chat",

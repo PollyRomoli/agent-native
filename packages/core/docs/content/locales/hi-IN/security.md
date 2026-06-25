@@ -52,7 +52,7 @@ description: "एजेंट-नेटिव ऐप्स के लिए स�
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Create a note",
@@ -104,7 +104,7 @@ React सभी JSX अभिव्यक्तियों को स्वत�
 उपयोगकर्ता या एजेंट-नियंत्रित URL के किसी भी सर्वर-साइड `fetch` को फ्रेमवर्क SSRF गार्ड से गुजरना होगा, या इसे क्लाउड मेटाडेटा (`169.254.169.254`), `localhost`, या आंतरिक सेवाओं पर इंगित किया जा सकता है:
 
 ```ts
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 
 const res = await ssrfSafeFetch(userProvidedUrl, {}, { maxRedirects: 3 });
 ```
@@ -142,7 +142,7 @@ import {
   text,
   integer,
   ownableColumns,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 // Minimal: just the owner column
 export const notes = table("notes", {
@@ -180,7 +180,7 @@ CREATE TEMPORARY VIEW "notes" AS
 `ownableColumns()` स्कीमा सहायक एक कॉल में `owner_email`, `org_id`, और `visibility` जोड़ता है, इसलिए नई किरायेदार-जागरूक तालिकाओं को डिफ़ॉल्ट रूप से पूर्ण स्कोपिंग अनुबंध मिलता है:
 
 ```ts
-import { table, text, ownableColumns } from "@agent-native/core/db/schema";
+import { table, text, ownableColumns } from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),

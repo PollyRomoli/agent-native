@@ -60,7 +60,7 @@ Der Rest dieses Dokuments richtet sich an alle, die die Forms-Vorlage verzweigen
 ### Schnellstart
 
 ```bash
-npx @agent-native/core@latest create my-forms --standalone --template forms
+npx @agentnative-fork/core@latest create my-forms --standalone --template forms
 cd my-forms
 pnpm install
 pnpm dev
@@ -69,7 +69,7 @@ pnpm dev
 Für einen Arbeitsbereich mit Forms neben anderen Apps:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 Wählen Sie bei der Einrichtung des Arbeitsbereichs Formulare und andere gewünschte Vorlagen aus.

@@ -31,7 +31,7 @@ Connect Slack once and grant it to Brain and Analytics:
 import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 await upsertWorkspaceConnection({
   id: "acme-slack",
@@ -98,7 +98,7 @@ await upsertWorkspaceConnectionGrant({
 Before asking a user to paste a new key, check readiness first:
 
 ```ts
-import { listWorkspaceConnectionProviderCatalogForApp } from "@agent-native/core/workspace-connections";
+import { listWorkspaceConnectionProviderCatalogForApp } from "@agentnative-fork/core/workspace-connections";
 
 const catalog = await listWorkspaceConnectionProviderCatalogForApp({
   appId: "brain",
@@ -120,14 +120,14 @@ if (slack.readiness.status === "needs_credentials") {
 
 ### Provider Catalog
 
-Import the catalog from `@agent-native/core/connections`:
+Import the catalog from `@agentnative-fork/core/connections`:
 
 ```ts
 import {
   getWorkspaceConnectionProvider,
   listWorkspaceConnectionProvidersForTemplate,
   workspaceConnectionProviderSupports,
-} from "@agent-native/core/connections";
+} from "@agentnative-fork/core/connections";
 
 const brainProviders = listWorkspaceConnectionProvidersForTemplate("brain");
 const slack = getWorkspaceConnectionProvider("slack");
@@ -165,7 +165,7 @@ import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
   revokeWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 const connections = await listWorkspaceConnections({ includeDisabled: true });
 const grants = await listWorkspaceConnectionGrants({ appId: "brain" });
@@ -232,8 +232,8 @@ Most live handlers remain template-owned today, which means Brain still owns Sla
 
 Apps that consume shared provider credentials should expose a read-only readiness action and a small setup surface covering:
 
-- **Provider catalog:** provider id, label, capabilities, recommended template uses, and required credential key names from `@agent-native/core/connections`.
-- **Workspace summary:** connection count, active/granted counts, grant state, credential ref names, and non-secret account labels from `@agent-native/core/workspace-connections`.
+- **Provider catalog:** provider id, label, capabilities, recommended template uses, and required credential key names from `@agentnative-fork/core/connections`.
+- **Workspace summary:** connection count, active/granted counts, grant state, credential ref names, and non-secret account labels from `@agentnative-fork/core/workspace-connections`.
 - **Provider readiness:** `ready`, `needs_credentials`, `needs_attention`, `checking`, `disabled`, or `not_configured` via `summarizeWorkspaceConnectionProviderReadiness()`.
 - **Source state:** app-local configured sources, cursors, sync status, and next action.
 
@@ -243,8 +243,8 @@ Brain's Sources page is the reference implementation. It shows reusable workspac
 
 When a new provider should work across multiple templates:
 
-1. **Provider metadata:** add or reuse a provider in `@agent-native/core/connections`. This is the stable id, display label, capability list, recommended template uses, and credential key names.
-2. **Workspace connection:** Dispatch or another workspace setup surface stores the connected account's safe metadata, status, scopes, `credentialRefs`, and app grants through `@agent-native/core/workspace-connections`.
+1. **Provider metadata:** add or reuse a provider in `@agentnative-fork/core/connections`. This is the stable id, display label, capability list, recommended template uses, and credential key names.
+2. **Workspace connection:** Dispatch or another workspace setup surface stores the connected account's safe metadata, status, scopes, `credentialRefs`, and app grants through `@agentnative-fork/core/workspace-connections`.
 3. **App-local source:** Brain, Analytics, Mail, or another app stores only the app-specific choices it owns, such as Slack channels, GitHub repositories, HubSpot object filters, sync cursors, or polling cadence.
 
 Do not duplicate OAuth/token storage in each app. The connection record says "this is Acme Slack and its token lives at `SLACK_BOT_TOKEN`"; the app-local source says "Brain may ingest `#product` and `#dev-fusion` from that Slack connection."

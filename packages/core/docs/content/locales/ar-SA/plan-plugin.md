@@ -30,7 +30,7 @@ description: "قم بتثبيت خطة Agent-Native skills (/visual-plan، /visu
 عندما يحدث ذلك، يكون الإصلاح الخفيف هو:
 
 ```bash
-npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex
+npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex
 ```
 
 يقوم `reconnect` بالبحث عن الموصل وتحديثه بواسطة URL للموضع المحلي المحدد
@@ -44,7 +44,7 @@ npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --clien
 `canvas.mdx`، و`prototype.mdx`، و`.plan-state.json`، ثم قم بالمعاينة محليًا باستخدام:
 
 ```bash
-npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --open
+npx @agentnative-fork/core@latest plan local serve --dir plans/<slug> --kind plan --open
 ```
 
 يؤدي هذا إلى بدء جسر مضيف محلي صغير وفتح الخطة UI مقابل المضيف المحلي
@@ -65,7 +65,7 @@ npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --
   إلغاء stdout `serve` طويل الأمد. تعامل معه كملف رمزي محلي و
   لا ترتكبها.
 - **التحقق بدون مراقبة** في حالة عدم توفر متصفح:
-  يبدأ `npx @agent-native/core@latest plan local verify --dir plans/<slug>`
+  يبدأ `npx @agentnative-fork/core@latest plan local verify --dir plans/<slug>`
   الجسر، يتحقق من الاختبار المبدئي للشبكة الخاصة وحمولة JSON، ويطبع
   التشخيص، والخروج من الصفر عند الفشل - لا حاجة إلى عيون بشرية.
 - **قم بتشغيل `plan local check` أولاً.** فهو يتحقق من صحة MDX مقابل الخطة
@@ -106,13 +106,13 @@ npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --
 يعمل مع أي مضيف - Claude Code، وCodex، وCursor، وCline، وGoose، وتطبيقات ChatGPT المخصصة MCP، وClaude Cowork، وأي شيء آخر متوافق مع MCP. يقوم Agent-Native CLI بتثبيت كل من skills، وتسجيل موصل الخطة المستضافة MCP، ** وتشغيل المصادقة للعميل (العملاء) المحليين المحددين في نفس الخطوة **، بحيث لا يصل استدعاء الأداة الأول إلى جدار OAuth:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 يؤدي هذا إلى تثبيت `visual-plan` بالإضافة إلى مهارة `visual-recap` المصاحبة، ثم تسجيل موصل `plan`، ثم تشغيل المصادقة (مطالبة OAuth بالمشاركة المستضافة/المدعومة بالحساب). إشارات مفيدة:
 
 - `--client codex|claude-code|claude-code-cli|cowork|all` — أي الوكلاء المحليين سيكتبون تهيئة MCP لهم (`all` الافتراضي).
-- `--no-connect` - تسجيل الموصل دون المصادقة؛ قم بتشغيل `npx @agent-native/core@latest connect https://plan.agent-native.com --client all` لاحقًا، أو اختر `--client` الأضيق.
+- `--no-connect` - تسجيل الموصل دون المصادقة؛ قم بتشغيل `npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client all` لاحقًا، أو اختر `--client` الأضيق.
 - `--mode hosted|local-files|self-hosted` - اختر المشاركة المستضافة، أو ملفات MDX المحلية بالكامل، أو تطبيق الخطة الخاص بك.
 - `--mcp-url <url>` — قم بتوجيه الموصل إلى أصل مخصص (نفق ngrok، أو خادم تطوير محلي، أو نشر مستضاف ذاتيًا) بدلاً من المصدر الافتراضي المستضاف.
 - `--with-github-action` - اكتب أيضًا إجراء PR Visual Recap GitHub (راجع [PR Visual Recap](/docs/pr-visual-recap)).
@@ -122,8 +122,8 @@ npx @agent-native/core@latest skills add visual-plan
 مع `--with-github-action`. بعد كتابة سير العمل، قم بتشغيل:
 
 ```bash
-npx @agent-native/core@latest recap setup
-npx @agent-native/core@latest recap doctor
+npx @agentnative-fork/core@latest recap setup
+npx @agentnative-fork/core@latest recap doctor
 ```
 
 يقوم `recap setup` بتكوين أسرار إجراء GitHub ومتغيراته حيثما أمكن ذلك،
@@ -159,9 +159,9 @@ codex plugin add agent-native-visual-plans@agent-native-apps
 codex mcp login plan   # OAuth in the browser
 ```
 
-بعد التثبيت، **ابدأ سلسلة Codex جديدة** حتى يتم تحميل الأدوات skills وMCP في الجلسة. يشحن البرنامج المساعد موصل URL فقط (`[mcp_servers.plan]` → `https://plan.agent-native.com/_agent-native/mcp`)؛ يقوم `codex mcp login plan` بتشغيل التدفق OAuth. يعمل مسار CLI العالمي أعلاه أيضًا مع Codex (`npx @agent-native/core@latest skills add visual-plan --client codex`) إذا كنت تفضل أمرًا واحدًا يتم تثبيته والمصادقة عليه معًا، أو عندما تريد الملفات المحلية أو وضع الاستضافة الذاتية.
+بعد التثبيت، **ابدأ سلسلة Codex جديدة** حتى يتم تحميل الأدوات skills وMCP في الجلسة. يشحن البرنامج المساعد موصل URL فقط (`[mcp_servers.plan]` → `https://plan.agent-native.com/_agent-native/mcp`)؛ يقوم `codex mcp login plan` بتشغيل التدفق OAuth. يعمل مسار CLI العالمي أعلاه أيضًا مع Codex (`npx @agentnative-fork/core@latest skills add visual-plan --client codex`) إذا كنت تفضل أمرًا واحدًا يتم تثبيته والمصادقة عليه معًا، أو عندما تريد الملفات المحلية أو وضع الاستضافة الذاتية.
 
-> **عمليات التثبيت الأقدم:** إذا كان التكوين الخاص بك لا يزال يحتوي على إدخال `agent-native-plans` يشير إلى نفس URL، أو تشغيل `npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex` لـ Codex، أو نفس الأمر مع هدفك `--client`، فسيتم دمجه في اسم `plan` المتعارف عليه.
+> **عمليات التثبيت الأقدم:** إذا كان التكوين الخاص بك لا يزال يحتوي على إدخال `agent-native-plans` يشير إلى نفس URL، أو تشغيل `npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex` لـ Codex، أو نفس الأمر مع هدفك `--client`، فسيتم دمجه في اسم `plan` المتعارف عليه.
 
 ## التحديثات {#updates}
 
@@ -169,7 +169,7 @@ codex mcp login plan   # OAuth in the browser
 
 - **Claude Code** — يقوم إدخال السوق بتعيين `autoUpdate: true` ويستخدم المكون الإضافي إصدار الالتزام-SHA، لذلك يسحب كود Claude الإصدارات الجديدة من الريبو عند بدء التشغيل؛ قم بتشغيل `/reload-plugins` للتنشيط. كل دفعة إلى فرع الريبو الافتراضي تصل إلى المستخدمين المثبتين تلقائيًا.
 - **Codex** — يقوم المكون الإضافي `version` بتضمين تجزئة محتوى لنقطة النهاية skills وMCP المجمعة (على سبيل المثال، `1.0.0+codex.<hash>`)، لذا فإن أي تغيير في المهارة أو نقطة النهاية يؤدي إلى إصدار جديد. تعمل الترقية التلقائية لبدء التشغيل Codex على إعادة تثبيت أسواق git التي تم تكوينها من تلقاء نفسها؛ ما عليك سوى **بدء موضوع جديد** لمتابعة التغيير. ليست هناك حاجة إلى دليل `codex plugin marketplace upgrade` للتحديثات الروتينية.
-- **مسار CLI العالمي** — قم بتشغيل `npx @agent-native/core@latest skills status visual-plan` للتحقق من مجلدات المهارات المنسوخة، أو `npx @agent-native/core@latest skills update visual-plan` لتحديثها في مكانها. لا تزال إعادة تشغيل `skills add visual-plan` تعمل عندما تريد أيضًا إعادة تسجيل/مصادقة الموصل. يقوم `@latest` دائمًا بسحب skills الحالي من حزمة `@agent-native/core` المنشورة.
+- **مسار CLI العالمي** — قم بتشغيل `npx @agentnative-fork/core@latest skills status visual-plan` للتحقق من مجلدات المهارات المنسوخة، أو `npx @agentnative-fork/core@latest skills update visual-plan` لتحديثها في مكانها. لا تزال إعادة تشغيل `skills add visual-plan` تعمل عندما تريد أيضًا إعادة تسجيل/مصادقة الموصل. يقوم `@latest` دائمًا بسحب skills الحالي من حزمة `@agentnative-fork/core` المنشورة.
 
 يشير الموصل إلى تطبيق **مستضاف**، وبالتالي فإن actions لتطبيق Plan وسطح الأداة المباشرة يعكسان دائمًا الإصدار المنشور بغض النظر عن وقت تثبيتك؛ فقط تعليمات المهارات المجمعة تتبع آليات التحديث المذكورة أعلاه.
 
@@ -190,7 +190,7 @@ codex mcp login plan   # OAuth in the browser
 
 **المهارة** هي ملف تعليمات `SKILL.md` واحد يقرأه الوكيل عند تطابق المهمة. **المكون الإضافي** (المكون الإضافي لسوق Claude أو المكون الإضافي Codex) عبارة عن حزمة تضم واحدًا أو أكثر من skills **زائد** موصل وبيانات وصفية MCP، بحيث يمكن للمضيف تثبيت كل شيء في خطوة واحدة.
 
-تحت الغطاء، يتم إنتاج جميع المسارات الثلاثة من نفس المصدر بواسطة `npx @agent-native/core@latest app-skill` CLI: `app-skill pack` يبني محولات السوق/المكونات الإضافية، و`skills add` هو برنامج التثبيت السهل بخطوة واحدة الذي يقوم أيضًا بتسجيل موصل MCP والمصادقة عليه. راجع [Skills Guide](/docs/skills-guide) للتعرف على تنسيق بيان مهارات التطبيق، و[External Agents](/docs/external-agents) لتوصيل أي مضيف MCP وتدفق `npx @agent-native/core@latest connect`.
+تحت الغطاء، يتم إنتاج جميع المسارات الثلاثة من نفس المصدر بواسطة `npx @agentnative-fork/core@latest app-skill` CLI: `app-skill pack` يبني محولات السوق/المكونات الإضافية، و`skills add` هو برنامج التثبيت السهل بخطوة واحدة الذي يقوم أيضًا بتسجيل موصل MCP والمصادقة عليه. راجع [Skills Guide](/docs/skills-guide) للتعرف على تنسيق بيان مهارات التطبيق، و[External Agents](/docs/external-agents) لتوصيل أي مضيف MCP وتدفق `npx @agentnative-fork/core@latest connect`.
 
 ## ما هي الخطوة التالية {#whats-next}
 

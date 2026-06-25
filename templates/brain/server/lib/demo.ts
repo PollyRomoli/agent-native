@@ -1,5 +1,5 @@
 import { and, desc, eq } from "drizzle-orm";
-import { accessFilter } from "@agent-native/core/sharing";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../db/index.js";
 import {
   createCapture,

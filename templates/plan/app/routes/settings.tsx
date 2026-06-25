@@ -4,7 +4,7 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useSetPageTitle } from "@/components/layout/HeaderActions";
 import { Button } from "@/components/ui/button";
 import {

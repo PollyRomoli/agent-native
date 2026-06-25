@@ -38,7 +38,7 @@ description: "在一个单一存储库中托管许多代理本机应用程序，
 工作区是代理本机项目的默认形状。脚手架一具有：
 
 ```bash
-npx @agent-native/core@latest create my-company-platform
+npx @agentnative-fork/core@latest create my-company-platform
 ```
 
 CLI 显示每个第一方模板的多选选择器。选择任意数量的邮件 + 日历 + 表单，例如，它们都会被搭建到同一个工作区中，共享身份验证和数据库默认值。
@@ -87,13 +87,13 @@ pnpm dev                         # opens Dispatch; other apps start on first vis
 从工作区内的任何位置：
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 CLI 再次显示模板选择器，其中已过滤掉您已安装的应用程序。选择一个或多个，它们就会被搭建在 `apps/` 下。非交互式变体：
 
 ```bash
-npx @agent-native/core@latest add-app crm --template content
+npx @agentnative-fork/core@latest add-app crm --template content
 ```
 
 任何第一方模板都可以用作工作区应用程序 - CLI 在模板上运行一个小型 **workspacify** 转换，将共享包添加为 dep 并解析 `workspace:*` 引用。无需维护并行的“工作空间应用程序”脚手架。
@@ -111,13 +111,13 @@ pnpm dev
 
 1. **应用程序本地** — `apps/<name>/` 内的文件（最高优先级）
 2. **工作空间共享** — `packages/shared/`（共享中间层）内的文件
-3. **框架默认** — `@agent-native/core`（最低）
+3. **框架默认** — `@agentnative-fork/core`（最低）
 
 合并按文件名进行。如果应用程序提供的本地文件也存在于上游，则本地文件获胜。如果没有，则应用工作区共享版本。如果共享也没有提供，则框架默认启动。这适用于插件、skills、actions 和 `AGENTS.md`。
 
 ```an-diagram title="三层，按文件名合并" summary="每个应用程序首先从应用程序本地解析插件、技能、操作和 AGENTS.md，然后是共享包，然后是框架默认值。"
 {
-  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agent-native/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
+  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agentnative-fork/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
   "css": ".layer{display:flex;flex-direction:column;align-items:center;gap:6px}.layer .diagram-card{display:flex;flex-direction:column;gap:3px;padding:12px 16px;width:320px}.layer .diagram-arrow{font-size:18px;line-height:1}.layer .diagram-box{margin-top:2px}"
 }
 ```
@@ -187,7 +187,7 @@ my-company-platform/
 
 ## 共享凭据 {#shared-credentials}
 
-默认情况下，同一工作区中的应用程序指向同一 `DATABASE_URL`，因此框架凭证存储可以使凭证可供每个应用程序使用，而无需每个应用程序配置。直接使用 `@agent-native/core/credentials`，或者如果您的工作区需要更严格的命名约定，则在 `packages/shared` 中添加瘦助手。
+默认情况下，同一工作区中的应用程序指向同一 `DATABASE_URL`，因此框架凭证存储可以使凭证可供每个应用程序使用，而无需每个应用程序配置。直接使用 `@agentnative-fork/core/credentials`，或者如果您的工作区需要更严格的命名约定，则在 `packages/shared` 中添加瘦助手。
 
 ## 共享设计令牌 {#design-tokens}
 
@@ -217,13 +217,13 @@ my-company-platform/
 一个命令构建工作区中的每个应用程序，并将它们发送到单个源，每个应用程序一个路径：
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
 ```
 
-每个应用程序均使用 `APP_BASE_PATH=/<name>` 和 `VITE_APP_BASE_PATH=/<name>` 构建，并通过选定的 Nitro 预设发出。 Cloudflare Pages 是默认预设，并使用 `dist/_worker.js` 和 `_routes.json` 的调度程序工作人员。 `npx @agent-native/core@latest deploy --preset netlify` 支持 Netlify；它在 `.netlify/functions-internal/<app>-server` 下发出应用程序功能，并生成重定向，使静态资产不受强制，因此 CDN 首先提供文件。 `npx @agent-native/core@latest deploy --preset vercel` 支持 Vercel；它使用 Vercel 的构建输出 API 编写根 `.vercel/output` 包。
+每个应用程序均使用 `APP_BASE_PATH=/<name>` 和 `VITE_APP_BASE_PATH=/<name>` 构建，并通过选定的 Nitro 预设发出。 Cloudflare Pages 是默认预设，并使用 `dist/_worker.js` 和 `_routes.json` 的调度程序工作人员。 `npx @agentnative-fork/core@latest deploy --preset netlify` 支持 Netlify；它在 `.netlify/functions-internal/<app>-server` 下发出应用程序功能，并生成重定向，使静态资产不受强制，因此 CDN 首先提供文件。 `npx @agentnative-fork/core@latest deploy --preset vercel` 支持 Vercel；它使用 Vercel 的构建输出 API 编写根 `.vercel/output` 包。
 
 ```an-diagram title="统一部署：一个源，每个应用一个路径" summary="每个应用程序都遵循单一来源，因此登录会话和跨应用程序 A2A 是免费的。"
 {
@@ -247,13 +247,13 @@ wrangler pages deploy dist
 对于 Netlify：
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify --build-only
+npx @agentnative-fork/core@latest deploy --preset netlify --build-only
 ```
 
 对于 Vercel Git 部署，将构建命令设置为：
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 ### 公共应用路由
@@ -287,7 +287,7 @@ npx @agent-native/core@latest deploy --preset vercel --build-only
 
 ### 每个应用独立部署
 
-更喜欢每个应用程序在自己的域中（`mail.company.com`、`calendar.company.com`）？工作区中的每个应用程序仍然是独立可部署的 - `cd apps/mail && npx @agent-native/core@latest build` 的行为与独立脚手架完全相同。然后，跨应用程序 A2A 通过具有共享 `A2A_SECRET` 的标准 JWT 签名路径。单独部署的应用程序之间的跨域 SSO 由以 Dispatch 作为中心的身份联合处理 - 请参阅 [Cross-App SSO](/docs/cross-app-sso)；统一的单源部署避免了需要它。
+更喜欢每个应用程序在自己的域中（`mail.company.com`、`calendar.company.com`）？工作区中的每个应用程序仍然是独立可部署的 - `cd apps/mail && npx @agentnative-fork/core@latest build` 的行为与独立脚手架完全相同。然后，跨应用程序 A2A 通过具有共享 `A2A_SECRET` 的标准 JWT 签名路径。单独部署的应用程序之间的跨域 SSO 由以 Dispatch 作为中心的身份联合处理 - 请参阅 [Cross-App SSO](/docs/cross-app-sso)；统一的单源部署避免了需要它。
 
 ### 共享数据库、共享凭证
 

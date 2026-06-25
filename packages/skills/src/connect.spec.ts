@@ -459,7 +459,7 @@ describe("registerMcpServer", () => {
       "Codex: skipped MCP config because this client needs a bearer token.",
     );
     expect(guidance).toContain(
-      "npx @agent-native/core@latest connect https://plan.agent-native.com --client codex --scope user",
+      "npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex --scope user",
     );
   });
 

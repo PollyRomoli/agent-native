@@ -109,7 +109,7 @@ export async function createDevScriptRegistry(
   const databaseWriteToolsEnabled = databaseToolsMode === "write";
   if (databaseToolsMode !== "off") {
     try {
-      // Dynamic imports — these are part of @agent-native/core
+      // Dynamic imports — these are part of @agentnative-fork/core
       const [dbSchema, dbQuery, dbCheckScoping] = await Promise.all([
         import("../db/schema.js"),
         import("../db/query.js"),

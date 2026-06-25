@@ -95,7 +95,7 @@ O restante deste documento é para qualquer pessoa que faça bifurcação do mod
 Crie um novo espaço de trabalho com o modelo Mail:
 
 ```bash
-npx @agent-native/core@latest create my-mail --standalone --template mail
+npx @agentnative-fork/core@latest create my-mail --standalone --template mail
 cd my-mail
 pnpm install
 pnpm dev
@@ -104,7 +104,7 @@ pnpm dev
 Ou adicione o Mail a um espaço de trabalho nativo do agente existente:
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 Para conectar Gmail no desenvolvimento, você precisa de um cliente Google OAuth:
@@ -230,7 +230,7 @@ O correio é seu para alterar. Tudo o que é importante reside em alguns lugares
 
 **Mudando o comportamento do agente.** A orientação do agente reside em `templates/mail/AGENTS.md` e a skills em `templates/mail/.agents/skills/` (`email-drafts`, `real-time-sync`, `security`, `self-modifying-code` e outros). O comportamento do agente é alterado pela edição do markdown, não pelo código.
 
-**Alteração de dados ou configurações.** Os esquemas para as tabelas de rastreamento e estruturas relacionadas estão em `templates/mail/server/db/`. As leituras e gravações das configurações passam por `readSetting` / `writeSetting` de `@agent-native/core/settings`. O estado do aplicativo (navegação, rascunhos, comandos únicos) usa `readAppState` / `writeAppState` de `@agent-native/core/application-state`.
+**Alteração de dados ou configurações.** Os esquemas para as tabelas de rastreamento e estruturas relacionadas estão em `templates/mail/server/db/`. As leituras e gravações das configurações passam por `readSetting` / `writeSetting` de `@agentnative-fork/core/settings`. O estado do aplicativo (navegação, rascunhos, comandos únicos) usa `readAppState` / `writeAppState` de `@agentnative-fork/core/application-state`.
 
 **Adicionando um novo tipo de ação de automação.** Estenda o esquema de ação em `templates/mail/actions/manage-automations.ts` e o executor em `templates/mail/actions/trigger-automations.ts`.
 

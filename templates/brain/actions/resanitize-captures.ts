@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { and, desc, eq, inArray, like, or } from "drizzle-orm";
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+import { accessFilter, assertAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
 import {

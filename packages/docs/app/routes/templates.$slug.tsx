@@ -19,7 +19,7 @@ import {
 } from "../components/TemplateCard";
 import { TemplateDocsLink } from "../components/template-docs";
 import { withDefaultSocialImage, withTemplateSocialImage } from "../seo";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 function findTemplate(slug: string | undefined) {
   if (slug === "videos") slug = "video";

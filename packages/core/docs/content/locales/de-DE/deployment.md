@@ -20,7 +20,7 @@ Verwenden Sie `DATABASE_AUTH_TOKEN` nur, wenn Ihr Datenbankanbieter ein separate
 Wenn es sich bei Ihrem Projekt um ein [workspace](/docs/multi-app-workspace) handelt, können Sie jede darin enthaltene App mit einem einzigen Befehl an einen einzigen Ursprung senden:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
@@ -49,26 +49,26 @@ wrangler pages deploy dist
 Verwenden Sie für einheitliche Netlify-Bereitstellungen die Netlify-Voreinstellung:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 Verwenden Sie für einheitliche Vercel-Bereitstellungen die Vercel-Voreinstellung:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
-Verwenden Sie beim Konfigurieren eines Provider-Build-Befehls denselben Befehl mit `--build-only`. Vercel sollte `npx @agent-native/core@latest deploy --preset vercel --build-only` ausführen; Der Befehl schreibt `.vercel/output` direkt, sodass für das Workspace-Routing kein `vercel.json` erforderlich ist.
+Verwenden Sie beim Konfigurieren eines Provider-Build-Befehls denselben Befehl mit `--build-only`. Vercel sollte `npx @agentnative-fork/core@latest deploy --preset vercel --build-only` ausführen; Der Befehl schreibt `.vercel/output` direkt, sodass für das Workspace-Routing kein `vercel.json` erforderlich ist.
 
 Gehostete Workspace-Builds erfordern `A2A_SECRET` in der Bereitstellungsanbieterumgebung.
 Dadurch nehmen Slack, eingehender webhooks und appübergreifender A2A die Arbeit über signiert wieder auf
 Hintergrundprozessoren. Lokale `--build-only`-Artefaktprüfungen werden auch ohne ausgeführt.
 
-Die unabhängige Bereitstellung pro App wird weiterhin unterstützt – nur `cd apps/<name> && npx @agent-native/core@latest build` wie ein eigenständiges Gerüst.
+Die unabhängige Bereitstellung pro App wird weiterhin unterstützt – nur `cd apps/<name> && npx @agentnative-fork/core@latest build` wie ein eigenständiges Gerüst.
 
 ## Wie es funktioniert {#how-it-works}
 
-Wenn Sie `npx @agent-native/core@latest build` ausführen, erstellt Nitro sowohl den Client SPA als auch den Server API in `.output/`:
+Wenn Sie `npx @agentnative-fork/core@latest build` ausführen, erstellt Nitro sowohl den Client SPA als auch den Server API in `.output/`:
 
 ```an-file-tree title="Build-Ausgabe"
 {
@@ -95,7 +95,7 @@ Die Ausgabe ist in sich geschlossen – kopieren Sie `.output/` in eine beliebig
 Standardmäßig erstellt Nitro für Node.js. Um eine andere Plattform anzusprechen, legen Sie die Voreinstellung in Ihrem `vite.config.ts` fest:
 
 ```ts
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -106,7 +106,7 @@ export default defineConfig({
 Oder verwenden Sie zur Build-Zeit die Umgebungsvariable `NITRO_PRESET`:
 
 ```bash
-NITRO_PRESET=netlify npx @agent-native/core@latest build
+NITRO_PRESET=netlify npx @agentnative-fork/core@latest build
 ```
 
 ## Node.js (Standard) {#nodejs}
@@ -114,7 +114,7 @@ NITRO_PRESET=netlify npx @agent-native/core@latest build
 Die Standardvoreinstellung. Erstellen und ausführen:
 
 ```bash
-npx @agent-native/core@latest build
+npx @agentnative-fork/core@latest build
 node .output/server/index.mjs
 ```
 
@@ -163,13 +163,13 @@ vercel deploy
 Erstellen Sie für einen Arbeitsbereich jede App in einem Vercel Build Output API-Bundle:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
 Legen Sie für Vercel Git-Bereitstellungen den Build-Befehl auf Folgendes fest:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 Der Workspace-Build kopiert die Nitro `vercel`-Ausgabe jeder App in das Stammverzeichnis `.vercel/output`, gibt jeder Funktion eine eigene Mount-Pfad-Umgebung und schreibt die Routenkonfiguration, die Apps unter `/<app-id>` bereitstellt.
@@ -190,7 +190,7 @@ export default defineConfig({
 Stellen Sie für einen Arbeitsbereich jede App von einer Netlify-Site bereit, indem Sie Folgendes ausführen:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 Der Workspace-Build schreibt statische Assets unter `dist/_workspace_static/` und leitet jede App ohne erzwungene Asset-Umleitungen an ihre eigene Netlify-Funktion weiter, sodass Dateien wie `/mail/assets/...` statisch bereitgestellt werden, bevor die Serverfunktion App-Routen verarbeitet.
@@ -230,7 +230,7 @@ export default defineConfig({
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PORT`                      | Server-Port (nur Node.js)                                                                                                                                        |
 | `NITRO_PRESET`              | Build-Voreinstellung zum Build-Zeitpunkt überschreiben                                                                                                           |
-| `APP_BASE_PATH`             | Mounten Sie die App unter einem Präfix (z. B. `/mail`). Automatisch eingestellt durch `npx @agent-native/core@latest deploy`; Für Standalone deaktiviert lassen. |
+| `APP_BASE_PATH`             | Mounten Sie die App unter einem Präfix (z. B. `/mail`). Automatisch eingestellt durch `npx @agentnative-fork/core@latest deploy`; Für Standalone deaktiviert lassen. |
 | `AGENT_PROD_CODE_EXECUTION` | Optionaler Produktionscode-Ausführungsmodus: `off` (Standard), `sandboxed` oder `trusted`. Siehe [Production Code Execution](#production-code-execution).        |
 
 Datenbankverbindungsvariablen (`DATABASE_URL`, `DATABASE_AUTH_TOKEN`, pro App `<APP_NAME>_DATABASE_URL`) leben in [Database](/docs/database#production).

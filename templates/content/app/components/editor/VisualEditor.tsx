@@ -52,7 +52,7 @@ import {
   RegistryBlockDataProvider,
   type RegistryBlockSideMapBlock,
   type UseCollabReconcileResult,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { RegistryBlockNode } from "./extensions/registryBlocks";
 import {
   LOCAL_FILE_USER_EDIT_META,

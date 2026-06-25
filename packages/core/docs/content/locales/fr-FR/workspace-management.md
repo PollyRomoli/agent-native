@@ -151,7 +151,7 @@ Pour le modèle de ressource et les chemins canoniques, voir [Workspace — Glob
 
 ## Liste de contrôle de configuration
 
-Pour un nouvel espace de travail, après avoir exécuté `npx @agent-native/core@latest create` :
+Pour un nouvel espace de travail, après avoir exécuté `npx @agentnative-fork/core@latest create` :
 
 **Git & GitHub :**
 

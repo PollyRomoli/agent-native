@@ -1,8 +1,8 @@
-import { callAgent, signA2AToken } from "@agent-native/core/a2a";
+import { callAgent, signA2AToken } from "@agentnative-fork/core/a2a";
 import {
   buildMcpToolName,
   McpClientManager,
-} from "@agent-native/core/mcp-client";
+} from "@agentnative-fork/core/mcp-client";
 import {
   buildDeepLink,
   buildEmbedStartPath,
@@ -10,12 +10,12 @@ import {
   getRequestContext,
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   discoverAgents,
   type DiscoveredAgent,
-} from "@agent-native/core/server/agent-discovery";
-import { getOrgA2ASecret, getOrgDomain } from "@agent-native/core/org";
+} from "@agentnative-fork/core/server/agent-discovery";
+import { getOrgA2ASecret, getOrgDomain } from "@agentnative-fork/core/org";
 import {
   getDispatchMcpAppAccessSettings,
   isAppAllowedByMcpAccess,

@@ -52,7 +52,7 @@ Verwenden Sie `defineAction` mit einem Zod `schema:` für jede Aktion. Das Frame
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 
 export default defineAction({
   description: "Create a note",
@@ -104,7 +104,7 @@ React maskiert automatisch alle JSX-Ausdrücke. Zusätzliche Richtlinien:
 Jeder serverseitige `fetch` eines benutzer- oder agentengesteuerten URL muss den Framework-SSRF-Guard durchlaufen, oder er kann auf Cloud-Metadaten (`169.254.169.254`), `localhost` oder interne Dienste verweisen:
 
 ```ts
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 
 const res = await ssrfSafeFetch(userProvidedUrl, {}, { maxRedirects: 3 });
 ```
@@ -142,7 +142,7 @@ import {
   text,
   integer,
   ownableColumns,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 // Minimal: just the owner column
 export const notes = table("notes", {
@@ -180,7 +180,7 @@ Fügen Sie für Mehrbenutzer-Apps, in denen Teams Daten teilen, eine `org_id`-Sp
 Der `ownableColumns()`-Schemahelfer fügt `owner_email`, `org_id` und `visibility` in einem Aufruf hinzu, sodass neue mandantenfähige Tabellen standardmäßig den vollständigen Scoping-Vertrag erhalten:
 
 ```ts
-import { table, text, ownableColumns } from "@agent-native/core/db/schema";
+import { table, text, ownableColumns } from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),

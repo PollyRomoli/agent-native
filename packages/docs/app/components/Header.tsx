@@ -2,7 +2,7 @@ import { Link, NavLink, useLocation } from "react-router";
 import ThemeToggle from "./ThemeToggle";
 import { useState, useEffect, lazy, Suspense } from "react";
 import { IconMessage } from "@tabler/icons-react";
-import { FeedbackButton, useLocale, useT } from "@agent-native/core/client";
+import { FeedbackButton, useLocale, useT } from "@agentnative-fork/core/client";
 import DocsLanguagePicker from "./DocsLanguagePicker";
 import { DEFAULT_DOCS_LOCALE, sitePathForLocale } from "./docs-locale";
 

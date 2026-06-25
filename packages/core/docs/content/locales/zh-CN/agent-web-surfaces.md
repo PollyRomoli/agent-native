@@ -15,7 +15,7 @@ description: "使公共路线可爬行、可读、可引用，并可选择由代
 - Markdown 镜像，例如 `/docs/getting-started.md`。
 - 生产构建后公共文档页面的 `Accept: text/markdown` 响应。
 - JSON-LD 用于基础组织、网站和页面元数据。
-- 审核 CLI (`npx @agent-native/core@latest audit-agent-web`)，检查上述所有内容。
+- 审核 CLI (`npx @agentnative-fork/core@latest audit-agent-web`)，检查上述所有内容。
 
 设置 `publicMcp: true` 还会将选择加入的 actions 公开为公共 MCP 端点，允许外部代理直接调用它们（请参阅 [MCP Protocol](/docs/mcp-protocol)）。
 
@@ -99,13 +99,13 @@ description: "使公共路线可爬行、可读、可引用，并可选择由代
 
 ## 构建时文件 {#build-time}
 
-`@agent-native/core/agent-web` 中的框架实用程序从一页列表生成通用文件：
+`@agentnative-fork/core/agent-web` 中的框架实用程序从一页列表生成通用文件：
 
 ```ts
 import {
   buildAgentWebStaticFiles,
   normalizeAgentWebConfig,
-} from "@agent-native/core/agent-web";
+} from "@agentnative-fork/core/agent-web";
 
 const config = normalizeAgentWebConfig(
   { crawlerPolicy: "discoverable-no-training" },
@@ -130,14 +130,14 @@ const files = buildAgentWebStaticFiles({
 });
 ```
 
-Vite 应用可以在生产构建期间使用 `@agent-native/core/vite` 中的 `createAgentWebVitePlugin` 将这些文件写入 `public`、`dist`、`dist/client`、`dist/server/public` 或 `build/client`。
+Vite 应用可以在生产构建期间使用 `@agentnative-fork/core/vite` 中的 `createAgentWebVitePlugin` 将这些文件写入 `public`、`dist`、`dist/client`、`dist/server/public` 或 `build/client`。
 
 ## 审核网站 {#audit}
 
 对已部署站点或本地生产服务器使用 CLI 审核：
 
 ```bash
-npx @agent-native/core@latest audit-agent-web --url https://www.agent-native.com
+npx @agentnative-fork/core@latest audit-agent-web --url https://www.agent-native.com
 ```
 
 审核检查：

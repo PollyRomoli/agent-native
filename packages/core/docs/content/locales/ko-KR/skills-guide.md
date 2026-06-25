@@ -200,24 +200,24 @@ scope: dev
 
 ```bash
 # Happy path: exported instructions plus hosted MCP connector.
-npx @agent-native/core@latest skills add visual-plan
-npx @agent-native/core@latest skills add assets
+npx @agentnative-fork/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add assets
 
 # Repo-first Content docs/blog/MDX editing.
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 
 # Vercel/open Skills CLI: exported instructions only, no MCP config.
 npx skills@latest add BuilderIO/agent-native --skill assets
 
 # Register a hosted MCP connector for local agent clients.
-npx @agent-native/core@latest app-skill ensure --manifest templates/assets/agent-native.app-skill.json
+npx @agentnative-fork/core@latest app-skill ensure --manifest templates/assets/agent-native.app-skill.json
 
 # Materialize and run editable local source.
-npx @agent-native/core@latest app-skill launch --manifest templates/assets/agent-native.app-skill.json --local --into ./assets-local
+npx @agentnative-fork/core@latest app-skill launch --manifest templates/assets/agent-native.app-skill.json --local --into ./assets-local
 
 # Build marketplace adapters: Codex plugin, Claude marketplace, Vercel skills,
 # plain/Claude skills, and MCP configs.
-npx @agent-native/core@latest app-skill pack --manifest templates/assets/agent-native.app-skill.json --out ./dist/assets-skill
+npx @agentnative-fork/core@latest app-skill pack --manifest templates/assets/agent-native.app-skill.json --out ./dist/assets-skill
 
 # Install a local exported bundle with the Vercel/open Skills CLI.
 npx skills@latest add ./dist/assets-skill --skill assets -a codex -y
@@ -257,8 +257,8 @@ Plan 앱은 저장소 루트에 바로 추가할 수 있는 마켓플레이스�
 플러그인 마켓플레이스에서는 CLI 신선도 명령을 사용하세요:
 
 ```bash
-npx @agent-native/core@latest skills status visual-plan
-npx @agent-native/core@latest skills update visual-plan
+npx @agentnative-fork/core@latest skills status visual-plan
+npx @agentnative-fork/core@latest skills update visual-plan
 ```
 
 `skills update`는 알려진 Codex/Claude 프로젝트 및 사용자 기술 폴더를 검색하고 비교합니다.
@@ -273,7 +273,7 @@ npx @agent-native/core@latest skills update visual-plan
 ```bash
 npm run skills:update
 # or, without relying on the local package script:
-npx @agent-native/core@latest skills update scaffold --project
+npx @agentnative-fork/core@latest skills update scaffold --project
 ```
 
 `AGENTS.md` 및 `.agents/skills`는 표준을 유지합니다. 업데이트 명령도 복구됩니다

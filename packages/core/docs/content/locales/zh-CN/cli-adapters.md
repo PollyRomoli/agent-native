@@ -24,7 +24,7 @@ CLI 适配器包装单个命令行工具（`gh`、`ffmpeg`、`stripe`、`aws`）
 每个 CLI 适配器都实现 `CliAdapter`：
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -45,7 +45,7 @@ interface CliResult {
 对于大多数 CLI，您不需要自定义类 - `ShellCliAdapter` 使用合理的默认值包装任何二进制文件：
 
 ```ts
-import { ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const gh = new ShellCliAdapter({
   command: "gh",
@@ -69,7 +69,7 @@ const ffmpeg = new ShellCliAdapter({
 `CliRegistry` 收集适配器，以便代理可以发现运行时可用的内容：
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(
@@ -90,8 +90,8 @@ const result = await gh?.execute(["pr", "list", "--json", "title,url"]);
 
 ```ts
 // actions/list-prs.ts
-import { defineAction } from "@agent-native/core/action";
-import { ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 import { z } from "zod";
 
 const gh = new ShellCliAdapter({ command: "gh", description: "GitHub CLI" });

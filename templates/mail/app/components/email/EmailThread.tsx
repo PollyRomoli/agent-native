@@ -34,7 +34,7 @@ import {
 import { useQueryClient } from "@tanstack/react-query";
 import { ensureThread, warmThreads } from "@/lib/thread-cache";
 import { getResolvedTheme } from "@/lib/theme";
-import { appApiPath, useT } from "@agent-native/core/client";
+import { appApiPath, useT } from "@agentnative-fork/core/client";
 import {
   decodeHtmlEntities,
   processHtmlImages,

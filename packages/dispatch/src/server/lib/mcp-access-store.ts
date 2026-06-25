@@ -3,11 +3,11 @@ import {
   getUserSetting,
   putOrgSetting,
   putUserSetting,
-} from "@agent-native/core/settings";
+} from "@agentnative-fork/core/settings";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 
 export const MCP_APP_ACCESS_SETTINGS_KEY = "dispatch-mcp-app-access";
 

@@ -52,7 +52,7 @@ description: "最小限のチャットファーストのエージェントネイ
 ## 足場 {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 cd my-chat-app
 pnpm install
 pnpm dev
@@ -61,7 +61,7 @@ pnpm dev
 または、UI なしで開始し、後でチャット サーフェスを追加します。
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 そこから、チャット テンプレートの `/` ルートとサイドバー スレッド リストをアプリにコピーするか、チャット アプリをスキャフォールディングして actions をヘッドレス エージェントから `actions/` ディレクトリに移動します。重要な不変条件は変わりません。actions はチャット、UI、HTTP、MCP、A2A、CLI の共有サーフェスです。
@@ -90,7 +90,7 @@ npx @agent-native/core@latest create my-agent --headless
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return (

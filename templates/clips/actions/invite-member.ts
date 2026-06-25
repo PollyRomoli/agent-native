@@ -10,16 +10,16 @@
  *   pnpm action invite-member --email=alice@example.com --role=admin
  */
 
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { emit } from "@agent-native/core/event-bus";
-import { organizations, orgInvitations } from "@agent-native/core/org";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { emit } from "@agentnative-fork/core/event-bus";
+import { organizations, orgInvitations } from "@agentnative-fork/core/org";
 import {
   sendEmail,
   isEmailConfigured,
   renderEmail,
   emailStrong,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { z } from "zod";
 import {
   getCurrentOwnerEmail,

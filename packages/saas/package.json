@@ -1,0 +1,48 @@
+{
+  "name": "@agentnative-fork/saas",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "SaaS customization layer for Agent-Native — config schema, SDK, and presets for white-labeling, credential modes, billing, and UI hooks.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PollyRomoli/agent-native",
+    "directory": "packages/saas"
+  },
+  "bugs": {
+    "url": "https://github.com/PollyRomoli/agent-native/issues"
+  },
+  "homepage": "https://github.com/PollyRomoli/agent-native#readme",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@agentnative-fork/core": "workspace:*",
+    "@agentnative-fork/shared-app-config": "workspace:*"
+  },
+  "publishConfigDependencies": {
+    "@agentnative-fork/core": "^0.76.12",
+    "@agentnative-fork/shared-app-config": "^0.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

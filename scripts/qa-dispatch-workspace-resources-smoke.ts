@@ -40,7 +40,7 @@ const approvedContent = `# ${resourceName}\n\nApproved All-app workspace default
 const sharedOverrideContent = `# ${resourceName}\n\nOrganization override wins.`;
 
 function buildCurrentPackages() {
-  for (const pkg of ["@agent-native/core", "@agent-native/dispatch"]) {
+  for (const pkg of ["@agentnative-fork/core", "@agentnative-fork/dispatch"]) {
     execFileSync("pnpm", ["--filter", pkg, "build"], {
       cwd: repoRoot,
       stdio: "inherit",

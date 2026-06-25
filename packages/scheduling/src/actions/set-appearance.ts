@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 
 export default defineAction({
@@ -11,7 +11,7 @@ export default defineAction({
     hideBranding: z.boolean().optional(),
   }),
   run: async (args) => {
-    const core: any = await import("@agent-native/core");
+    const core: any = await import("@agentnative-fork/core");
     if (core.writeSetting) {
       const existing = (await core.readSetting?.("profile-settings")) ?? {};
       await core.writeSetting("profile-settings", {

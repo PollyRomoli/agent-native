@@ -9,10 +9,10 @@
  * Clips recording, builds a RawCapturePayload, and posts it to Brain.
  */
 
-import { defineAction } from "@agent-native/core";
-import { resolveCredential } from "@agent-native/core/credentials";
-import { getCredentialContext } from "@agent-native/core/server/request-context";
-import { assertAccess } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { resolveCredential } from "@agentnative-fork/core/credentials";
+import { getCredentialContext } from "@agentnative-fork/core/server/request-context";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { asc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

@@ -135,12 +135,12 @@ if (!skipDocs) {
 }
 
 // Prebuild core once before templates boot. Templates import from
-// @agent-native/core/server; if tsc --watch is mid-rewrite of dist/ when a
+// @agentnative-fork/core/server; if tsc --watch is mid-rewrite of dist/ when a
 // template SSR-imports it, named exports come back undefined (e.g.
 // "createAgentChatPlugin is not a function"). Building first guarantees a
 // complete dist; tsc --watch then takes over for incremental rebuilds.
-console.log(`\x1b[36m[dev-eager]\x1b[0m Prebuilding @agent-native/core...`);
-execSync("pnpm --filter @agent-native/core build", { stdio: "inherit" });
+console.log(`\x1b[36m[dev-eager]\x1b[0m Prebuilding @agentnative-fork/core...`);
+execSync("pnpm --filter @agentnative-fork/core build", { stdio: "inherit" });
 
 const names: string[] = [];
 const commands: string[] = [];
@@ -178,20 +178,20 @@ templatePorts.forEach(({ name, port }, i) => {
 // Core TypeScript watch
 names.push("core");
 commands.push(
-  "pnpm --filter @agent-native/core exec tsc --watch --preserveWatchOutput",
+  "pnpm --filter @agentnative-fork/core exec tsc --watch --preserveWatchOutput",
 );
 
 // Local Dev Frame
 if (!skipFrame) {
   names.push("frame");
-  commands.push("pnpm --filter @agent-native/frame dev");
+  commands.push("pnpm --filter @agentnative-fork/frame dev");
   console.log(`\x1b[36m[dev-eager]\x1b[0m frame: http://localhost:3334`);
 }
 
 // Docs site
 if (!skipDocs) {
   names.push("docs");
-  commands.push(`pnpm --filter @agent-native/docs dev`);
+  commands.push(`pnpm --filter @agentnative-fork/docs dev`);
 }
 
 // Desktop tray (Tauri)

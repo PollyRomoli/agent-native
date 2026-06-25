@@ -17,7 +17,7 @@
     "test": "vitest --run"
   },
   "dependencies": {
-    "@agent-native/core": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
     "@excalidraw/excalidraw": "0.18.1",
     "@excalidraw/mermaid-to-excalidraw": "2.2.2",
     "@libsql/client": "^0.15.8",

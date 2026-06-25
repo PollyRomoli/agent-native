@@ -67,7 +67,7 @@ Design は、エージェントネイティブの HTML プロトタイピング 
 ### クイックスタート
 
 ```bash
-npx @agent-native/core@latest create my-design --standalone --template design
+npx @agentnative-fork/core@latest create my-design --standalone --template design
 cd my-design
 pnpm install
 pnpm dev

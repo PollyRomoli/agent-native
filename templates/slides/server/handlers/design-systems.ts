@@ -1,13 +1,13 @@
 import { defineEventHandler, getRouterParam, setResponseStatus } from "h3";
 import { eq, desc } from "drizzle-orm";
 import { getDb, schema } from "../db";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 import {
   accessFilter,
   resolveAccess,
   assertAccess,
   ForbiddenError,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import { withSlidesRequestContext } from "./request-auth-context.js";
 
 /**

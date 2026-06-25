@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { z } from "zod";
-import { getAllSettings, listOrgSettings } from "@agent-native/core/settings";
+import { getAllSettings, listOrgSettings } from "@agentnative-fork/core/settings";
 
 const KEY_PREFIX = "data-dict-";
 

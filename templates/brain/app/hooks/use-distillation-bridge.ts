@@ -4,7 +4,7 @@ import {
   callAction,
   sendToAgentChat,
   useActionQuery,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import type { BrainCaptureReviewItem, CapturesResponse } from "@/lib/brain";
 
 const POLL_INTERVAL_MS = 5000;

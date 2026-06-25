@@ -53,7 +53,7 @@ Registrieren Sie einen benutzerdefinierten Anbieter in einem Server-Plugin, um e
 
 ```ts
 // server/plugins/file-upload.ts
-import { registerFileUploadProvider } from "@agent-native/core/file-upload";
+import { registerFileUploadProvider } from "@agentnative-fork/core/file-upload";
 
 export default defineNitroPlugin(() => {
   registerFileUploadProvider({
@@ -103,10 +103,10 @@ interface FileUploadResult {
 }
 ```
 
-Verwenden Sie `uploadFile()` von `@agent-native/core/file-upload` in actions oder Servercode:
+Verwenden Sie `uploadFile()` von `@agentnative-fork/core/file-upload` in actions oder Servercode:
 
 ```ts
-import { uploadFile } from "@agent-native/core/file-upload";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
 
 const result = await uploadFile({
   data: fileBuffer,

@@ -1,7 +1,7 @@
 # Blueprint: implement a Docker sandbox adapter
 
 You are a coding agent working inside an **agent-native** app (a repo built on
-`@agent-native/core`). Apply this blueprint as real source changes on the
+`@agentnative-fork/core`). Apply this blueprint as real source changes on the
 current branch. Do not just describe the work — do it, then verify.
 
 ## Goal
@@ -70,7 +70,7 @@ augment `env` with the parent's environment and never see app secrets.
 
 ## Verify
 
-1. `tsc --noEmit` for `@agent-native/core` passes.
+1. `tsc --noEmit` for `@agentnative-fork/core` passes.
 2. `docker-adapter.spec.ts` passes.
 3. With Docker available, set `AGENT_NATIVE_SANDBOX=docker` and run a `run-code`
    task that uses `appAction`/`providerFetch` through the loopback bridge;

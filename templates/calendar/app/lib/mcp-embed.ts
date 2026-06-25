@@ -10,7 +10,7 @@
  * a same-origin placeholder when embedded.
  *
  * Mirrors `templates/mail/app/lib/mcp-embed.ts` (added in PR #883). A future
- * refactor could lift this to `@agent-native/core/client` so every template
+ * refactor could lift this to `@agentnative-fork/core/client` so every template
  * uses one helper — for now keep it template-local to match the Mail PR.
  */
 export function isMcpEmbedSurface(): boolean {

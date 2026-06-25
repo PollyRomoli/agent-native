@@ -4,7 +4,7 @@ const readAppStateMock = vi.hoisted(() => vi.fn());
 const writeAppStateMock = vi.hoisted(() => vi.fn());
 const deleteAppStateMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   readAppState: readAppStateMock,
   writeAppState: writeAppStateMock,
   deleteAppState: deleteAppStateMock,

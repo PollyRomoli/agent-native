@@ -1,7 +1,7 @@
 /**
  * Client entry for the framework onboarding system.
  *
- * Subpath: `@agent-native/core/client/onboarding`
+ * Subpath: `@agentnative-fork/core/client/onboarding`
  */
 
 export { useOnboarding, type UseOnboardingResult } from "./use-onboarding.js";

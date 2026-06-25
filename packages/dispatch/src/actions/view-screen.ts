@@ -7,8 +7,8 @@
  *   pnpm action view-screen
  */
 
-import { defineAction } from "@agent-native/core";
-import { readAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core";
+import { readAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 import { listOverview } from "../server/lib/dispatch-store.js";
 import {

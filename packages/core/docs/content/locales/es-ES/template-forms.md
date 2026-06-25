@@ -60,7 +60,7 @@ El resto de este documento es para cualquiera que bifurque la plantilla de Formu
 ### Inicio rápido
 
 ```bash
-npx @agent-native/core@latest create my-forms --standalone --template forms
+npx @agentnative-fork/core@latest create my-forms --standalone --template forms
 cd my-forms
 pnpm install
 pnpm dev
@@ -69,7 +69,7 @@ pnpm dev
 Para un espacio de trabajo con Formularios junto con otras aplicaciones:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 Elija formularios y cualquier otra plantilla que desee durante la configuración del espacio de trabajo.

@@ -75,7 +75,7 @@ stay invisible until rolled up.
 
 ## Wiring the in-app surface (once per template)
 
-Templates already get the rendering for free from `@agent-native/core`. To
+Templates already get the rendering for free from `@agentnative-fork/core`. To
 expose it in an app:
 
 1. **Command menu** — pass the app's own changelog to `CommandMenu`:
@@ -94,7 +94,7 @@ expose it in an app:
 2. **Settings** (optional) — drop the card on the settings page:
 
    ```tsx
-   import { ChangelogSettingsCard } from "@agent-native/core/client";
+   import { ChangelogSettingsCard } from "@agentnative-fork/core/client";
    import changelog from "../CHANGELOG.md?raw";
    // ...
    <ChangelogSettingsCard markdown={changelog} />

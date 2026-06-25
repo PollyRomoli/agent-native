@@ -1,4 +1,4 @@
-import { getUserSetting } from "@agent-native/core/settings";
+import { getUserSetting } from "@agentnative-fork/core/settings";
 import type { AvailabilityConfig } from "../../shared/api.js";
 
 export const DEFAULT_BOOKING_TIMEZONE = "America/New_York";

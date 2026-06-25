@@ -4,7 +4,7 @@ import { normalizeFields } from "@/lib/normalize-fields";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { isInAgentEmbed, postNavigate } from "@agent-native/core/client";
+import { isInAgentEmbed, postNavigate } from "@agentnative-fork/core/client";
 import {
   IconAlertCircle,
   IconExternalLink,

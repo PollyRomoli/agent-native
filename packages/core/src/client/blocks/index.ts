@@ -1,5 +1,5 @@
 /**
- * `@agent-native/core/blocks` — the first-party block registry.
+ * `@agentnative-fork/core/blocks` — the first-party block registry.
  *
  * A block registry unifies structured document blocks under one `defineBlock`
  * contract: a zod `schema` for the data, an `mdx` config for byte-stable MDX
@@ -11,7 +11,7 @@
  * types, so existing documents keep working unchanged.
  *
  * This entry includes the React surface. For server/agent code that must stay
- * React-free, import from `@agent-native/core/blocks/server`.
+ * React-free, import from `@agentnative-fork/core/blocks/server`.
  */
 
 // Types + authoring

@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
-import { writeAppState } from "@agent-native/core/application-state";
-import { ROLE_RANK, resolveAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server/request-context";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { ROLE_RANK, resolveAccess } from "@agentnative-fork/core/sharing";
 import { and, desc, eq, inArray, isNull } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

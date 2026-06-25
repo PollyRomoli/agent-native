@@ -12,7 +12,7 @@ const { toastMock } = vi.hoisted(() => ({
   toastMock: vi.fn(),
 }));
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   cn: (...args: unknown[]) =>
     args
       .flat(Infinity)
@@ -20,8 +20,8 @@ vi.mock("@agent-native/core", () => ({
       .join(" "),
 }));
 
-vi.mock("@agent-native/core/client", () => ({
-  // `@/lib/utils` re-exports `cn` from `@agent-native/core/client`, so the
+vi.mock("@agentnative-fork/core/client", () => ({
+  // `@/lib/utils` re-exports `cn` from `@agentnative-fork/core/client`, so the
   // client mock must provide it or DropdownMenu crashes on first render.
   cn: (...args: unknown[]) =>
     args

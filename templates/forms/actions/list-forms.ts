@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   accessFilter,
   currentAccess,
   ROLE_RANK,
   type ShareRole,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import {
   and,
   desc,

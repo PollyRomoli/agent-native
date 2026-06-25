@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getWorkspaceConnectionProvider } from "@agent-native/core/connections";
+import { defineAction } from "@agentnative-fork/core";
+import { getWorkspaceConnectionProvider } from "@agentnative-fork/core/connections";
 import { z } from "zod";
 import upsertWorkspaceConnection from "./upsert-workspace-connection.js";
 

@@ -6,7 +6,7 @@ description: "Localize aplicativos Agent Native com catálogos de localidade com
 # Internacionalização
 
 Os aplicativos Agent Native podem localizar a estrutura e o modelo UI por meio do compartilhamento
-Tempo de execução `@agent-native/core/client/i18n`. A estrutura armazena
+Tempo de execução `@agentnative-fork/core/client/i18n`. A estrutura armazena
 escolha de idioma nas configurações de SQL, expõe-no como actions e volta para
 Inglês quando um aplicativo ainda não traduziu uma string.
 
@@ -15,7 +15,7 @@ Inglês quando um aplicativo ainda não traduziu uma string.
 Use o provedor por meio de `AppProviders`:
 
 ```tsx
-import { AppProviders, getLocaleInitScript } from "@agent-native/core/client";
+import { AppProviders, getLocaleInitScript } from "@agentnative-fork/core/client";
 import { i18nCatalog } from "./i18n";
 
 const LOCALE_INIT_SCRIPT = getLocaleInitScript();
@@ -32,7 +32,7 @@ const LOCALE_INIT_SCRIPT = getLocaleInitScript();
 
 `getLocaleInitScript()` define os valores iniciais `lang`, `dir` e
 `window.__AGENT_NATIVE_LOCALE__` antes de React hidratar. Rotas públicas SSR podem
-chame `resolveLocaleFromRequest()` de `@agent-native/core/server` e passe o
+chame `resolveLocaleFromRequest()` de `@agentnative-fork/core/server` e passe o
 localidade/catálogo resolvidos nesse script para evitar incompatibilidades de hidratação.
 
 ## Catálogos
@@ -42,7 +42,7 @@ Cada modelo localizado mantém catálogos em `app/i18n/`:
 ```ts
 // app/i18n/index.ts
 import enUS from "./en-US";
-import type { AgentNativeI18nCatalog } from "@agent-native/core/client";
+import type { AgentNativeI18nCatalog } from "@agentnative-fork/core/client";
 
 export const i18nCatalog = {
   sourceLocale: "en-US",
@@ -73,7 +73,7 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 function SettingsPage() {
   const t = useT();

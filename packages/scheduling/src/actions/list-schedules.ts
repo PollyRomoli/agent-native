@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { listSchedules } from "../server/schedules-repo.js";
 import { currentUserEmailOrNull } from "./_helpers.js";

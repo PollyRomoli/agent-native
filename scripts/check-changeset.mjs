@@ -134,7 +134,7 @@ function packagesCoveredBy(changesetPath) {
     .map((line) => line.trim())
     .filter(Boolean)
     .map((line) => {
-      // Lines look like:  "@agent-native/core": patch
+      // Lines look like:  "@agentnative-fork/core": patch
       const mm = line.match(/^["']?([^"':]+)["']?\s*:\s*(\w+)\s*$/);
       return mm ? mm[1].trim() : null;
     })

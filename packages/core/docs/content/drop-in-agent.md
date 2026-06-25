@@ -25,7 +25,7 @@ You don't need to build agent-native from scratch. The agent chat, workspace tab
 | `sendToAgentChat()`   | Programmatically send a message to the chat                                           | A button that hands work to the agent instead of running inline |
 | `useActionMutation()` | Typesafe frontend wrapper around an action                                            | The UI needs to run the same operation an agent tool would run  |
 
-All of these are exported from `@agent-native/core/client`.
+All of these are exported from `@agentnative-fork/core/client`.
 
 ```an-diagram title="The mount model" summary="<AgentSidebar> wraps your existing layout. Your routes render in the main area; the agent panel mounts beside them. <AgentPanel> is the same panel without the wrapper."
 {
@@ -44,7 +44,7 @@ children stays in the main app area. The agent chat is the side panel.
 {
   "filename": "app/root.tsx",
   "language": "tsx",
-  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agent-native/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
+  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agentnative-fork/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
   "annotations": [
     { "lines": "6", "label": "Wrapper", "note": "`<AgentSidebar>` wraps your whole layout. It adds the toggleable side panel; everything you pass as children stays in the main app area." },
     { "lines": "8-12", "label": "Starter prompts", "note": "`suggestions` render as clickable chips on the empty chat." },
@@ -73,7 +73,7 @@ When you need full control over layout — a dedicated `/chat` route, an embedde
 
 ```tsx
 // app/routes/agent.tsx
-import { AgentPanel } from "@agent-native/core/client";
+import { AgentPanel } from "@agentnative-fork/core/client";
 
 export default function AgentRoute() {
   return (
@@ -94,14 +94,14 @@ export default function AgentRoute() {
 - **`isFullscreen`** / **`onToggleFullscreen`** — wire up external fullscreen state if you want a Claude-style centered column.
 - **`storageKey`** — namespace for `localStorage` keys. Useful when you render multiple panels (different app instances or workspaces) in the same page.
 
-Full props: `AgentPanelProps` in `@agent-native/core/client`.
+Full props: `AgentPanelProps` in `@agentnative-fork/core/client`.
 
 ## Programmatic messages: `sendToAgentChat()` {#send}
 
 A button that hands work off to the agent (instead of running an inline `llm()` call — the anti-pattern from the [ladder](/docs/what-is-agent-native#the-ladder)):
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 <Button
   onClick={() =>
@@ -151,7 +151,7 @@ When the same route is embedded as an MCP App, submitted
 If you want a loading state, use the `useSendToAgentChat()` hook — it returns both `send` and `isGenerating`:
 
 ```ts
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 
 const { send, isGenerating } = useSendToAgentChat();
 ```
@@ -186,7 +186,7 @@ client code does not learn a second, ad hoc transport.
 When the UI needs to run the same operation an agent tool would run — rung 3 of the [ladder](/docs/what-is-agent-native#rung-three) — use `useActionMutation`:
 
 ```tsx
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 const { mutate, isPending } = useActionMutation("reply-to-email");
 
@@ -218,7 +218,7 @@ import {
   AgentSidebar,
   AgentToggleButton,
   sendToAgentChat,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export default function Root() {
   return (

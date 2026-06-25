@@ -2,7 +2,7 @@
 /**
  * Dev-server smoke for the public standalone Chat create flow:
  *
- *   npx @agent-native/core@latest create <name> --standalone --template chat
+ *   npx @agentnative-fork/core@latest create <name> --standalone --template chat
  *   cd <name> && pnpm install && pnpm dev
  *
  * Starts a real Vite dev server, hits the same auto-login redirect path local
@@ -128,7 +128,7 @@ function scaffoldStandaloneChat(): void {
   log(`scaffolding ${appName} into ${scaffoldParent}`);
   if (!fs.existsSync(cliEntry)) {
     throw new Error(
-      `Missing ${cliEntry}. Run pnpm --filter @agent-native/core build first.`,
+      `Missing ${cliEntry}. Run pnpm --filter @agentnative-fork/core build first.`,
     );
   }
   run(

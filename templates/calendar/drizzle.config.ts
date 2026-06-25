@@ -1,3 +1,3 @@
-import { createDrizzleConfig } from "@agent-native/core/db/drizzle-config";
+import { createDrizzleConfig } from "@agentnative-fork/core/db/drizzle-config";
 
 export default createDrizzleConfig();

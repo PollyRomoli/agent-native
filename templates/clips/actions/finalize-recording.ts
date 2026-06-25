@@ -8,7 +8,7 @@
  *   pnpm action finalize-recording --id=<recordingId>
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
@@ -18,10 +18,10 @@ import {
   readAppState,
   writeAppState,
   deleteAppState,
-} from "@agent-native/core/application-state";
-import { uploadFile } from "@agent-native/core/file-upload";
-import { emit } from "@agent-native/core/event-bus";
-import { captureRouteError } from "@agent-native/core/server";
+} from "@agentnative-fork/core/application-state";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
+import { emit } from "@agentnative-fork/core/event-bus";
+import { captureRouteError } from "@agentnative-fork/core/server";
 import {
   applyFaststart,
   hasPlayableMp4Metadata,

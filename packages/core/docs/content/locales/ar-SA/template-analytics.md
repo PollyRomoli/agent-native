@@ -80,7 +80,7 @@ description: "اطرح أسئلة تحليلية باللغة الإنجليزي
 إنشاء تطبيق Analytics جديد من CLI:
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 التطوير المحلي:
@@ -162,7 +162,7 @@ pnpm dev
 
 الجداول الأساسية (راجع `templates/analytics/server/db/schema.ts`):
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ pnpm dev
 }
 ```
 
-بالإضافة إلى جداول المشاركة لكل مورد (`dashboard_shares`، `analysis_shares`) والجداول التنظيمية (`organizations`، `org_members`، `org_invitations`) المقدمة من `@agent-native/core/org`. يوجد قاموس البيانات في جدول `settings` الخاص بإطار العمل ضمن المفاتيح المحددة النطاق.
+بالإضافة إلى جداول المشاركة لكل مورد (`dashboard_shares`، `analysis_shares`) والجداول التنظيمية (`organizations`، `org_members`، `org_invitations`) المقدمة من `@agentnative-fork/core/org`. يوجد قاموس البيانات في جدول `settings` الخاص بإطار العمل ضمن المفاتيح المحددة النطاق.
 
 - **`dashboards`** — لوحتا معلومات Explorer وSQL. `kind` هو `"explorer"` أو `"sql"`؛ `config` عبارة عن كائن ثنائي كبير الحجم JSON يطابق `SqlDashboardConfig`.
 - **`dashboard_shares`** — منح المشاركة لكل مورد (الرئيسي، الدور).
@@ -222,7 +222,7 @@ pnpm dev
 - **`analysis_shares`** — منح المشاركة لكل مورد لإجراء التحليلات.
 - **`bigquery_cache`** — ذاكرة التخزين المؤقت لنتائج الاستعلام التي يتم إدخالها بواسطة تجزئة SQL مع المحاسبة التي تتم معالجتها بالبايت.
 
-بالإضافة إلى الجداول التنظيمية (`organizations`، `org_members`، `org_invitations`) المقدمة من `@agent-native/core/org`.
+بالإضافة إلى الجداول التنظيمية (`organizations`، `org_members`، `org_invitations`) المقدمة من `@agentnative-fork/core/org`.
 
 يعيش قاموس البيانات في جدول `settings` الخاص بإطار العمل ضمن المفاتيح المحددة النطاق؛ راجع `list-data-dictionary` و`save-data-dictionary-entry` actions لمعرفة الشكل الكامل.
 

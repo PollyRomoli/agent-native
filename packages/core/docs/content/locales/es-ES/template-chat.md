@@ -52,7 +52,7 @@ Ese es el punto. Chat es un shell predeterminado ligero y útil para su propio a
 ## Andamios {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 cd my-chat-app
 pnpm install
 pnpm dev
@@ -61,7 +61,7 @@ pnpm dev
 O comience sin UI y agregue una superficie de chat más tarde:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 Desde allí, copie la ruta `/` de la plantilla de Chat y la lista de subprocesos de la barra lateral en su aplicación, o cree una aplicación de Chat y mueva el actions de su agente sin cabeza a su directorio `actions/`. La invariante clave sigue siendo la misma: actions es la superficie compartida para el chat, UI, HTTP, MCP, A2A y CLI.
@@ -90,7 +90,7 @@ La página de chat es intencionalmente delgada:
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return (

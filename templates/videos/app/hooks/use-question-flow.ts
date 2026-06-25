@@ -1,4 +1,4 @@
-import { useGuidedQuestionFlow } from "@agent-native/core/client";
+import { useGuidedQuestionFlow } from "@agentnative-fork/core/client";
 
 /**
  * Polls the `show-questions` application state key.

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { IconX, IconSearch, IconLoader2 } from "@tabler/icons-react";
-import { appBasePath } from "@agent-native/core/client";
+import { appBasePath } from "@agentnative-fork/core/client";
 import {
   Tooltip,
   TooltipContent,

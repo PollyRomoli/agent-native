@@ -13,7 +13,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { IconExternalLink, IconTrash } from "@tabler/icons-react";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 
 export interface ConnectedAgent {
   id: string;

@@ -1,4 +1,5 @@
 import { agentNativePath } from "../api-path.js";
+import { isSettingsSectionHidden, getCustomSettingsSections } from "./registry.js";
 import React, {
   Suspense,
   lazy,
@@ -2131,6 +2132,7 @@ export function SettingsPanel({
   const orgName = builder?.orgName;
   const envManaged = !!builder?.envManaged;
   const credentialSource = builder?.credentialSource;
+  const credentialMode = builder?.credentialMode;
   const builderBranchesAvailable = !!builder?.builderEnabled;
   const builderFlow = useBuilderConnectFlow({
     popupUrl: connectUrl,
@@ -2244,12 +2246,15 @@ export function SettingsPanel({
       />
 
       {/* Account */}
+      {!isSettingsSectionHidden("account") && (
       <AccountSectionInner
         open={openSection === "account"}
         onToggle={() => toggle("account")}
       />
+      )}
 
       {/* LLM */}
+      {!isSettingsSectionHidden("llm") && (
       <LLMSectionInner
         builderFlow={builderFlow}
         builderLoading={builderLoading}
@@ -2261,6 +2266,7 @@ export function SettingsPanel({
         open={openSection === "llm"}
         onToggle={() => toggle("llm")}
       />
+      )}
 
       {/* App default model */}
       <AppModelDefaultsSectionInner
@@ -2308,6 +2314,7 @@ export function SettingsPanel({
       </SettingsSection>
 
       {/* API Keys & Connections */}
+      {!isSettingsSectionHidden("secrets") && credentialMode !== "platform" && (
       <SettingsSection
         id={settingsSectionDomId("secrets")}
         icon={<IconKey size={14} />}
@@ -2318,6 +2325,7 @@ export function SettingsPanel({
       >
         <SecretsSection focusKey={focusSecretKey} />
       </SettingsSection>
+      )}
 
       {/* Hosting */}
       <SettingsSection
@@ -2514,6 +2522,24 @@ export function SettingsPanel({
       >
         <AgentsSection />
       </SettingsSection>
+
+      {/* Custom sections from registry */}
+      {getCustomSettingsSections().map((section) => {
+        const Component = section.component;
+        return (
+          <SettingsSection
+            key={section.id}
+            id={settingsSectionDomId(section.id)}
+            icon={section.icon}
+            title={section.label}
+            subtitle={section.subtitle}
+            open={openSection === section.id}
+            onToggle={() => toggle(section.id)}
+          >
+            <Component />
+          </SettingsSection>
+        );
+      })}
     </div>
   );
 }

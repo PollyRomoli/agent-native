@@ -17,7 +17,7 @@ import {
   sendToAgentChat,
   openAgentSidebar,
   appApiPath,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { toast } from "@/hooks/use-toast";
 import {
   Dialog,

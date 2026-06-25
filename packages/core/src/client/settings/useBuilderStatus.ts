@@ -14,6 +14,7 @@ export interface BuilderStatus {
    */
   envManaged?: boolean;
   credentialSource?: "user" | "org" | "workspace" | "env";
+  credentialMode?: "byok" | "platform" | "platform-with-override";
   connectUrl: string;
   cliAuthUrl?: string;
   appHost: string;
@@ -596,6 +597,7 @@ export function useBuilderConnectFlow(
         connectUrl?: string;
         cliAuthUrl?: string;
         credentialSource?: "user" | "org" | "workspace" | "env";
+        credentialMode?: "byok" | "platform" | "platform-with-override";
         connectError?: { message: string; at: number };
         authError?: { message: string; at: number };
       };

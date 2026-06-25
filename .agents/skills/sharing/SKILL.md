@@ -50,7 +50,7 @@ import {
   now,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const decks = table("decks", {
   id: text("id").primaryKey(),
@@ -69,8 +69,8 @@ Then register it **in `server/db/index.ts`** (not the schema file — keeps the 
 ```ts
 // server/db/index.ts
 import * as schema from "./schema.js";
-import { createGetDb } from "@agent-native/core/db";
-import { registerShareableResource } from "@agent-native/core/sharing";
+import { createGetDb } from "@agentnative-fork/core/db";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
 
 export const getDb = createGetDb(schema);
 export { schema };
@@ -111,7 +111,7 @@ Defaults match historical behaviour: `allowPublic: true`, `requireOrgMemberForUs
 ## Filter list/read queries
 
 ```ts
-import { accessFilter } from "@agent-native/core/sharing";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 
 const rows = await db
   .select()
@@ -124,7 +124,7 @@ const rows = await db
 ## Guard write actions
 
 ```ts
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 
 export default defineAction({
   schema: z.object({ id: z.string(), title: z.string() }),
@@ -145,7 +145,7 @@ When inserting a new row, fill `ownerEmail` and `orgId` from the request context
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 
 const ownerEmail = getRequestUserEmail();
 // Never fall back to a sentinel like "local@localhost" — that pools every
@@ -167,7 +167,7 @@ await db.insert(schema.decks).values({
 ## Drop in the share UI
 
 ```tsx
-import { ShareButton } from "@agent-native/core/client";
+import { ShareButton } from "@agentnative-fork/core/client";
 
 // In the resource's header/toolbar:
 <ShareButton

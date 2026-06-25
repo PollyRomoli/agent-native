@@ -4,10 +4,10 @@ This guide is for development-mode agents editing this app's source code. For ap
 
 ## Tech Stack
 
-- **Framework**: @agent-native/core
+- **Framework**: @agentnative-fork/core
 - **Package manager**: pnpm
 - **Frontend**: React 18, React Router 7, TypeScript, Vite, TailwindCSS
-- **Backend**: Nitro (via @agent-native/core)
+- **Backend**: Nitro (via @agentnative-fork/core)
 - **Database**: Drizzle ORM over portable SQL (`DATABASE_URL`; local dev defaults to SQLite)
 - **UI**: Radix UI + Lucide icons + shadcn/ui
 - **Captcha**: Cloudflare Turnstile (opt-in)
@@ -38,7 +38,7 @@ data/            # Local development SQLite file only
 
 ## Database Schema (Drizzle ORM)
 
-Form data lives in SQL via Drizzle ORM. Use `@agent-native/core/db/schema` helpers for schema and Drizzle's query builder for reads/writes so the same code runs across SQLite, Postgres, libSQL/Turso, D1, and other supported backends:
+Form data lives in SQL via Drizzle ORM. Use `@agentnative-fork/core/db/schema` helpers for schema and Drizzle's query builder for reads/writes so the same code runs across SQLite, Postgres, libSQL/Turso, D1, and other supported backends:
 
 | Table       | Contents                                                           |
 | ----------- | ------------------------------------------------------------------ |

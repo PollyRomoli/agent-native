@@ -1,6 +1,6 @@
 import { createContext, useContext, type ReactNode } from "react";
-import { useSession, type AuthSession } from "@agent-native/core/client";
-import { agentNativePath } from "@agent-native/core/client";
+import { useSession, type AuthSession } from "@agentnative-fork/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 
 interface AuthContextValue {
   auth: AuthSession | null;

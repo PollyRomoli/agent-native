@@ -1,7 +1,7 @@
 # Blueprint: integrate the Stripe API
 
 You are a coding agent working inside an **agent-native** app (a repo built on
-`@agent-native/core`). Apply this blueprint as real source changes on the
+`@agentnative-fork/core`). Apply this blueprint as real source changes on the
 current branch. Do not just describe the work — do it, then verify.
 
 ## Goal
@@ -21,7 +21,7 @@ can hit any Stripe endpoint with the user's configured credentials, behind host
 allow-listing, credential injection, private-network blocking, and secret
 redaction.
 
-The substrate lives in `@agent-native/core/provider-api`:
+The substrate lives in `@agentnative-fork/core/provider-api`:
 
 - `provider-api-catalog` — lists provider base URLs, auth style, credential
   keys, docs/spec URLs, placeholders, and examples (never secrets).
@@ -56,7 +56,7 @@ The substrate lives in `@agent-native/core/provider-api`:
    ```
 
 2. **Expose the three provider-api actions** if the app does not already export
-   them. Re-use `@agent-native/core/provider-api`; do **not** re-implement the
+   them. Re-use `@agentnative-fork/core/provider-api`; do **not** re-implement the
    request/redaction logic. Keep `provider-api-request` `http: false` unless this
    app has a separate UI permission model for arbitrary provider writes.
 

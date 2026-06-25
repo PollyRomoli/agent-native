@@ -1,4 +1,4 @@
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 // SEO data: map of blog handle -> { etv, ranked_keywords, ... }
 export interface BlogPageSeo {

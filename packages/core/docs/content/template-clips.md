@@ -164,7 +164,7 @@ The rest of this doc is for anyone forking the Clips template or extending it.
 ### Quick start
 
 ```bash
-npx @agent-native/core@latest create my-clips --standalone --template clips
+npx @agentnative-fork/core@latest create my-clips --standalone --template clips
 cd my-clips
 pnpm install
 pnpm dev
@@ -187,7 +187,7 @@ tray app at your deployment.
 1. **Create the app.**
 
    ```bash
-   npx @agent-native/core@latest create my-clips --standalone --template clips
+   npx @agentnative-fork/core@latest create my-clips --standalone --template clips
    cd my-clips
    pnpm install
    ```

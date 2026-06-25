@@ -60,7 +60,7 @@ Forms عبارة عن أداة إنشاء نماذج أصلية للوكيل. ق
 ### بداية سريعة
 
 ```bash
-npx @agent-native/core@latest create my-forms --standalone --template forms
+npx @agentnative-fork/core@latest create my-forms --standalone --template forms
 cd my-forms
 pnpm install
 pnpm dev
@@ -69,7 +69,7 @@ pnpm dev
 بالنسبة لمساحة العمل التي تحتوي على النماذج إلى جانب التطبيقات الأخرى:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 اختر النماذج وأي قوالب أخرى تريدها أثناء إعداد مساحة العمل.

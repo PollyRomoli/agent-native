@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useApolloStatus, useApolloConnect } from "@/hooks/use-apollo";
 import type { CalendarEvent } from "@shared/api";
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 import { IntegrationsSidebar } from "./IntegrationsSidebar";
 
 // ─── Apollo logo SVG ────────────────────────────────────────────────────────

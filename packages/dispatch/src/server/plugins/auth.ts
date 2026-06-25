@@ -1,4 +1,4 @@
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 import { getDispatchConfig } from "../index.js";
 
 const DEFAULT_MARKETING = {

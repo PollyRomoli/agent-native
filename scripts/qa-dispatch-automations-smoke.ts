@@ -39,7 +39,7 @@ const nextRun = new Date(Date.now() + 15 * 60_000).toISOString();
 const lastError = `Synthetic smoke failure ${runId}`;
 
 function buildCurrentPackages() {
-  for (const pkg of ["@agent-native/core", "@agent-native/dispatch"]) {
+  for (const pkg of ["@agentnative-fork/core", "@agentnative-fork/dispatch"]) {
     execFileSync("pnpm", ["--filter", pkg, "build"], {
       cwd: repoRoot,
       stdio: "inherit",

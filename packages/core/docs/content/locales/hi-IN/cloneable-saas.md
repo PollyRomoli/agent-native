@@ -102,13 +102,13 @@ description: "एक कार्यशील SaaS उत्पाद को फ
 यदि आप अभी मचान बना रहे हैं, तो CLI कमांड है:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
-आपको एक बहु-चयन पिकर मिलेगा। एक ऐप (स्टैंडअलोन) या कई (वर्कस्पेस - ऐप्स शेयर ऑथ, ब्रांड, एजेंट कॉन्फ़िगरेशन और डेटाबेस) चुनें। प्रत्येक चयनित टेम्प्लेट को आपकी आवश्यक प्रत्येक फ़ाइल के साथ `apps/<name>/` में रखा गया है। टेम्पलेट UI के बजाय केवल एक्शन ऐप के लिए, `npx @agent-native/core@latest create my-agent --headless` का उपयोग करें।
+आपको एक बहु-चयन पिकर मिलेगा। एक ऐप (स्टैंडअलोन) या कई (वर्कस्पेस - ऐप्स शेयर ऑथ, ब्रांड, एजेंट कॉन्फ़िगरेशन और डेटाबेस) चुनें। प्रत्येक चयनित टेम्प्लेट को आपकी आवश्यक प्रत्येक फ़ाइल के साथ `apps/<name>/` में रखा गया है। टेम्पलेट UI के बजाय केवल एक्शन ऐप के लिए, `npx @agentnative-fork/core@latest create my-agent --headless` का उपयोग करें।
 
 `.env` (ज्यादातर `ANTHROPIC_API_KEY` और `DATABASE_URL`), `pnpm install`, `pnpm dev` भरें और यह काम करता है। नहीं "TODO: लॉगिन लागू करें," कोई प्लेसहोल्डर रूट नहीं।
 
-परिनियोजन लक्ष्य: कोई भी Nitro-संगत होस्ट (नोड, क्लाउडफ्लेयर, नेटलिफाई, वर्सेल, डेनो, लैम्ब्डा, बन) और कोई भी Drizzle-संगत SQL डेटाबेस (SQLite, Postgres, Turso, D1, Supabase, Neon)। कार्यस्थानों के लिए, `npx @agent-native/core@latest deploy` प्रत्येक ऐप को एक ही बार में बनाता है और उन्हें एक ही मूल में शिप करता है। [Deployment](/docs/deployment) देखें.
+परिनियोजन लक्ष्य: कोई भी Nitro-संगत होस्ट (नोड, क्लाउडफ्लेयर, नेटलिफाई, वर्सेल, डेनो, लैम्ब्डा, बन) और कोई भी Drizzle-संगत SQL डेटाबेस (SQLite, Postgres, Turso, D1, Supabase, Neon)। कार्यस्थानों के लिए, `npx @agentnative-fork/core@latest deploy` प्रत्येक ऐप को एक ही बार में बनाता है और उन्हें एक ही मूल में शिप करता है। [Deployment](/docs/deployment) देखें.
 
 अपना स्वयं का टेम्पलेट लिखने और प्रकाशित करने के लिए, [Creating Templates](/docs/creating-templates) देखें।

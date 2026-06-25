@@ -81,7 +81,7 @@ Two read actions are available to the agent **and** the frontend in every app, s
 Build an activity feed or a "who changed this" line by calling `list-audit-events` from the UI with `useActionQuery` — never hand-write a fetch to the audit table:
 
 ```tsx
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 const { data } = useActionQuery("list-audit-events", {
   targetType: "recording",

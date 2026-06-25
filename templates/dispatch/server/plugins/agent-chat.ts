@@ -1,1 +1,1 @@
-export { dispatchAgentChatPlugin as default } from "@agent-native/dispatch/server";
+export { dispatchAgentChatPlugin as default } from "@agentnative-fork/dispatch/server";

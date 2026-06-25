@@ -7,11 +7,11 @@
  *   pnpm action view-screen
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   readAppState,
   readAppStateForCurrentTab,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({

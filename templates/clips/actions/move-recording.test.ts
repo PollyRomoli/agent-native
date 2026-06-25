@@ -15,11 +15,11 @@ vi.mock("drizzle-orm", () => ({
   inArray: (...args: unknown[]) => ({ op: "inArray", args }),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   writeAppState: (...args: unknown[]) => mockWriteAppState(...args),
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: (...args: unknown[]) => mockAssertAccess(...args),
   registerShareableResource: vi.fn(),
 }));

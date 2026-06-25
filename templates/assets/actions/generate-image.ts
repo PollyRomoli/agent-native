@@ -1,17 +1,17 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   readAppState,
   writeAppState,
   deleteAppState,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import { eq } from "drizzle-orm";
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { getDb, schema } from "../server/db/index.js";
 import { createAssetFromBuffer } from "../server/lib/assets.js";
 import { compositeLogo } from "../server/lib/image-processing.js";

@@ -12,7 +12,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 import type { CalendarEvent, DeleteEventScope } from "@shared/api";
 import { getGuestAttendeeCount } from "@/components/calendar/GuestNotificationDialog";
 

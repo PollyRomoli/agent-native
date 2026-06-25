@@ -28,7 +28,7 @@ describe("createWebSearchToolEntry", () => {
       getBuilderWebSearchBaseUrl: () =>
         "https://builder.test/agent-native/web-search/v1",
       getBuilderRequestHeaders: () => ({
-        "x-client-name": "@agent-native/core",
+        "x-client-name": "@agentnative-fork/core",
         "x-client-version": "test",
       }),
     })["web-search"];
@@ -45,7 +45,7 @@ describe("createWebSearchToolEntry", () => {
           Authorization: "Bearer bpk-builder",
           "x-builder-api-key": "space-123",
           "x-builder-user-id": "user-123",
-          "x-client-name": "@agent-native/core",
+          "x-client-name": "@agentnative-fork/core",
         }),
       }),
     );

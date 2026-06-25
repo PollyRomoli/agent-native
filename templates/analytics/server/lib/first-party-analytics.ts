@@ -1,5 +1,5 @@
 import { and, eq, isNull, or } from "drizzle-orm";
-import { getDbExec } from "@agent-native/core/db";
+import { getDbExec } from "@agentnative-fork/core/db";
 import { getDb, schema } from "../db/index.js";
 
 export interface AnalyticsScope {

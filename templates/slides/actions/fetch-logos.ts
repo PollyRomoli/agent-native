@@ -1,4 +1,4 @@
-import { parseArgs } from "@agent-native/core";
+import { parseArgs } from "@agentnative-fork/core";
 
 export default async function (args: string[]) {
   const { domains: domainsArg } = parseArgs(args);

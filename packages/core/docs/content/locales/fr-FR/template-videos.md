@@ -71,7 +71,7 @@ Le studio fonctionne sur le `<Player>` de Remotion pour la prévisualisation et 
 Élaborez une nouvelle application vidéo à partir du CLI :
 
 ```bash
-npx @agent-native/core@latest create my-video-app --standalone --template videos
+npx @agentnative-fork/core@latest create my-video-app --standalone --template videos
 cd my-video-app
 pnpm install
 pnpm dev

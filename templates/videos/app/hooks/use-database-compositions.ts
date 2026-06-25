@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 import { compositions, type CompositionEntry } from "@/remotion/registry";
 import {
   databaseRowToComposition,

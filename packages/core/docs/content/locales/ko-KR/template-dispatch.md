@@ -84,11 +84,11 @@ _내부적으로 작동하는 방식(개발자용)._
 
 - **Orchestrator 에이전트.** 채팅은 라우터로 설정됩니다. 즉, `AGENTS.md`, `LEARNINGS.md`를 읽고 전문 하위 에이전트 또는 원격 A2A 에이전트로 라우팅됩니다.
 - **원격 에이전트 레지스트리.** A2A 에이전트 매니페스트는 작업 영역 런타임 항목입니다(체크인된 템플릿 소스 폴더 아님). 다중 앱 작업 영역에서 `apps/` 아래의 형제 앱은 A2A 피어로 자동 검색되므로 수동 등록이 필요하지 않습니다. Dispatch는 `call-agent` 작업을 사용하여 호출합니다.
-- **Vault 스키마.** 비밀, 권한 부여, 요청, 승인 및 감사 로그에 대한 Drizzle 테이블입니다. 이는 `@agent-native/dispatch` 패키지(`packages/dispatch/src/db/schema.ts`)에 있으며 `templates/dispatch/server/db/index.ts`를 통해 템플릿으로 다시 내보내집니다. 템플릿 로컬 `server/db/schema.ts`는 없습니다. Dispatch의 런타임은 템플릿 소스가 아닌 패키지에 제공됩니다(`@agent-native/dispatch`가 셸, 사이드바 및 내장 페이지를 소유한다는 아래 참고 사항과 일치).
+- **Vault 스키마.** 비밀, 권한 부여, 요청, 승인 및 감사 로그에 대한 Drizzle 테이블입니다. 이는 `@agentnative-fork/dispatch` 패키지(`packages/dispatch/src/db/schema.ts`)에 있으며 `templates/dispatch/server/db/index.ts`를 통해 템플릿으로 다시 내보내집니다. 템플릿 로컬 `server/db/schema.ts`는 없습니다. Dispatch의 런타임은 템플릿 소스가 아닌 패키지에 제공됩니다(`@agentnative-fork/dispatch`가 셸, 사이드바 및 내장 페이지를 소유한다는 아래 참고 사항과 일치).
 - **Slack / 텔레그램 플러그인.** webhooks를 등록하고 수신 메시지를 오케스트레이터 에이전트에 전달하는 서버 플러그인.
 - **작업 공간 MCP 리소스.** 리소스의 `mcp-servers/*.json` 아래에 HTTP MCP 서버 정의를 추가한 다음 skills 및 컨텍스트와 마찬가지로 모든 앱 또는 선택한 앱 부여로 범위를 지정합니다.
 
-```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agent-native/dispatch (packages/dispatch/src/db/schema.ts)."
+```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agentnative-fork/dispatch (packages/dispatch/src/db/schema.ts)."
 {
   "entities": [
     { "id": "secrets", "name": "vault_secrets", "note": "Stored credential values", "fields": [
@@ -170,14 +170,14 @@ pnpm action create-dream-report --allSources true --sourceTimeoutMs 30000 --limi
 ## 발판 {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 # pick "Dispatch" in the multi-select picker, plus whichever domain apps you want
 ```
 
 선택기를 사용하는 대신 템플릿 이름을 직접 지정하려는 경우:
 
 ```bash
-npx @agent-native/core@latest create my-platform --template dispatch
+npx @agentnative-fork/core@latest create my-platform --template dispatch
 # add more apps in the same workspace as you go
 ```
 
@@ -208,7 +208,7 @@ Dispatch는 다른 템플릿과 마찬가지로 전체 템플릿입니다. [Temp
 
 작업공간별 관리 화면의 경우 로컬 React 라우터 페이지를 추가하고
 `app/dispatch-extensions.tsx`에 등록하세요. 생성된 작업공간은
-추가 탭과 경로만; `@agent-native/dispatch`는 계속해서 쉘을 소유하고 있습니다.
+추가 탭과 경로만; `@agentnative-fork/dispatch`는 계속해서 쉘을 소유하고 있습니다.
 사이드바, 내장 페이지 및 향후 패키지 업데이트
 
 ## 다음 단계

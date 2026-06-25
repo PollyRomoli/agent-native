@@ -29,7 +29,7 @@ const config = async () => {
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
 import { dirname, join } from "path";
 import pLimit from "p-limit";
-import { isBlockedExtensionUrlWithDns } from "@agent-native/core/extensions/url-safety";
+import { isBlockedExtensionUrlWithDns } from "@agentnative-fork/core/extensions/url-safety";
 import { DEFAULT_STYLE_REFERENCE_URLS } from "../shared/api.js";
 
 function parseArgs(args: string[]): Record<string, string> {
@@ -148,7 +148,7 @@ Options:
   ).trim();
   if (imagesA2AUrl) {
     try {
-      const { callAgent } = await import("@agent-native/core/a2a");
+      const { callAgent } = await import("@agentnative-fork/core/a2a");
       const slideHints: string[] = [];
       if (opts["deck-id"]) slideHints.push(`deckId: ${opts["deck-id"]}`);
       if (opts["slide-id"]) slideHints.push(`slideId: ${opts["slide-id"]}`);

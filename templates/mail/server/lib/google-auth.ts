@@ -19,9 +19,9 @@ import {
   listOAuthAccounts,
   listOAuthAccountsByOwner,
   setOAuthDisplayName,
-} from "@agent-native/core/oauth-tokens";
-import { isOAuthConnected, getOAuthAccounts } from "@agent-native/core/server";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+} from "@agentnative-fork/core/oauth-tokens";
+import { isOAuthConnected, getOAuthAccounts } from "@agentnative-fork/core/server";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 import { decodeCommonHtmlEntities } from "@shared/markdown.js";
 import { resolveGoogleSenderIdentity } from "./sender-identity.js";
 

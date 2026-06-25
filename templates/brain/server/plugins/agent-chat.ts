@@ -2,9 +2,9 @@ import "../register-secrets.js";
 import {
   createAgentChatPlugin,
   loadActionsFromStaticRegistry,
-} from "@agent-native/core/server";
-import { getOrgContext } from "@agent-native/core/org";
-import { accessFilter } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { getOrgContext } from "@agentnative-fork/core/org";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import { and, desc, like, or } from "drizzle-orm";
 import actionsRegistry from "../../.generated/actions-registry.js";
 import { tryAnswerBrainA2AQuestion } from "../lib/a2a-fallback.js";

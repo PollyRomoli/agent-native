@@ -20,8 +20,8 @@ import type {
 // ---------------------------------------------------------------------------
 // get-plan-feedback action under test (mock the action runtime + plan loader)
 // ---------------------------------------------------------------------------
-vi.mock("@agent-native/core", async (importOriginal) => ({
-  ...(await importOriginal<typeof import("@agent-native/core")>()),
+vi.mock("@agentnative-fork/core", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@agentnative-fork/core")>()),
   defineAction: (entry: unknown) => entry,
   embedApp: vi.fn(() => ({ title: "stub" })),
 }));
@@ -53,7 +53,7 @@ vi.mock("drizzle-orm", () => ({
   and: vi.fn((...args: unknown[]) => ({ and: args })),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   emailStrong: (value: string) => `<strong>${value}</strong>`,
   getAppProductionUrl: () => "https://plans.example.test",
   isEmailConfigured: () => isEmailConfiguredMock(),
@@ -62,7 +62,7 @@ vi.mock("@agent-native/core/server", () => ({
   buildDeepLink: (args: unknown) => `deeplink:${JSON.stringify(args)}`,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: vi.fn(),
   resolveAccess: vi.fn(),
 }));

@@ -12,7 +12,7 @@
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { schedulingMessage, useSchedulingT } from "../../i18n.js";
-import type { LocaleCode } from "@agent-native/core/client";
+import type { LocaleCode } from "@agentnative-fork/core/client";
 
 export type DayKey =
   | "monday"

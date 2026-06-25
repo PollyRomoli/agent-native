@@ -9,7 +9,7 @@
  *
  * Example (`evals/greeting.eval.ts`):
  * ```ts
- * import { defineEval, contains, llmJudge } from "@agent-native/core/eval";
+ * import { defineEval, contains, llmJudge } from "@agentnative-fork/core/eval";
  *
  * export default defineEval({
  *   name: "greets the user by name",

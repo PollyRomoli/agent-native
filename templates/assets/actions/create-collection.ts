@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { nanoid } from "nanoid";
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../server/db/index.js";
 import { nowIso, stringifyJson } from "../server/lib/json.js";
 import { ASPECT_RATIOS, IMAGE_CATEGORIES, IMAGE_SIZES } from "../shared/api.js";

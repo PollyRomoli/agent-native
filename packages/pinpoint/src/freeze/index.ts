@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Freeze exports
+// @agentnative-fork/pinpoint — Freeze exports
 // MIT License
 
 export {

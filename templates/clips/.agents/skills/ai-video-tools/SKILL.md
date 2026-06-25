@@ -41,7 +41,7 @@ The agent is already the user's primary interface — it has full project contex
 From an action, kick work over to the agent chat in **background mode** so the user doesn't see a new message bubble mid-playback:
 
 ```ts
-import { defineAction, sendToAgentChat } from "@agent-native/core";
+import { defineAction, sendToAgentChat } from "@agentnative-fork/core";
 import { z } from "zod";
 import { getRecordingOrThrow } from "../server/lib/recordings.js";
 
@@ -128,7 +128,7 @@ It is not marked `required: true` — videos still upload and play without a Gro
 
 ## Live transcription during recording
 
-The `useLiveTranscription` hook (from `@agent-native/core/client/transcription`) runs the browser's Web Speech API alongside any recording. It accumulates final transcript text in real time with no API key required. When the user stops, the client calls `save-browser-transcript` to persist the result. `request-transcript` preserves that native result and only falls back to cloud transcription when native text is missing.
+The `useLiveTranscription` hook (from `@agentnative-fork/core/client/transcription`) runs the browser's Web Speech API alongside any recording. It accumulates final transcript text in real time with no API key required. When the user stops, the client calls `save-browser-transcript` to persist the result. `request-transcript` preserves that native result and only falls back to cloud transcription when native text is missing.
 
 A future pass could add server-side streaming transcription (Deepgram Nova-3 / AssemblyAI) via WebSocket for even higher quality real-time output — but the browser path already gives useful text from second zero.
 

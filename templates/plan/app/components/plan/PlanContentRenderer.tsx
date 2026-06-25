@@ -13,11 +13,11 @@ import {
 } from "react";
 import { IconBrandGithub } from "@tabler/icons-react";
 import type { PlanFileTreeBlock } from "@shared/plan-content";
-import type { RichMarkdownCollabUser } from "@agent-native/core/client";
+import type { RichMarkdownCollabUser } from "@agentnative-fork/core/client";
 import {
   BlockRegistryProvider,
   type BlockRenderContext,
-} from "@agent-native/core/blocks";
+} from "@agentnative-fork/core/blocks";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import type {

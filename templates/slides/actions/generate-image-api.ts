@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import type { ImageGenResponse } from "@shared/api";
 import { DEFAULT_STYLE_REFERENCE_URLS } from "../shared/api.js";
 import { z } from "zod";

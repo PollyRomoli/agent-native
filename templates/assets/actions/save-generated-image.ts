@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   deleteAppState,
   readAppState,
   writeAppState,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { markAssetSaved } from "../server/handlers/assets.js";
 import { getAssetOrThrow, serializeAsset } from "./_helpers.js";
 import type { AssetVariantState } from "../shared/api.js";

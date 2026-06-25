@@ -71,7 +71,7 @@ The studio runs on Remotion's `<Player>` for preview and the Remotion CLI for fi
 Scaffold a new Video app from the CLI:
 
 ```bash
-npx @agent-native/core@latest create my-video-app --standalone --template videos
+npx @agentnative-fork/core@latest create my-video-app --standalone --template videos
 cd my-video-app
 pnpm install
 pnpm dev

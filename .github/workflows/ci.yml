@@ -217,12 +217,12 @@ jobs:
         # types) and `pnpm action hello` (server-safe package root, no React /
         # react-query in the load graph) out of the box. AGENT_NATIVE_CREATE_USE_LOCAL_CORE
         # is set at the job level, so the gated heavyweight guard actually runs.
-        run: pnpm --filter @agent-native/core exec vitest run src/cli/create-e2e.spec.ts
+        run: pnpm --filter @agentnative-fork/core exec vitest run src/cli/create-e2e.spec.ts
 
       - name: Scaffold workspace (chat + calendar + dispatch) and verify pnpm install + build
         # Dispatch is in the combo because it exercises the
         # workspacify.ts dispatch-rewrite path (workspace:* → "latest" for
-        # @agent-native/dispatch, the only published package consumed as a
+        # @agentnative-fork/dispatch, the only published package consumed as a
         # workspace app). Calendar covers the requiredPackages →
         # packages/scheduling scaffold path. Together they guard the two
         # distinct ways a workspace template can break `pnpm install`.
@@ -242,7 +242,7 @@ jobs:
           fi
           # Every workspace:* dep in scaffolded apps must resolve to a
           # package actually present in the workspace. Catches the class of
-          # bug Sami hit: a template depended on @agent-native/dispatch
+          # bug Sami hit: a template depended on @agentnative-fork/dispatch
           # (a published package, not a workspace member) and `pnpm install`
           # blew up with ERR_PNPM_WORKSPACE_PKG_NOT_FOUND.
           node -e '
@@ -310,11 +310,11 @@ jobs:
       # Build core (plan's only @agent-native workspace dep) so the deploy
       # build's CLI is available, then produce the real serverless bundle.
       - name: Build core
-        run: pnpm --filter @agent-native/core build
+        run: pnpm --filter @agentnative-fork/core build
 
       # The `plan` template exercises the Excalidraw/Mermaid diagram blocks, so
       # its server bundle is the canonical reproducer for browser-only libs
-      # leaking into SSR. The fix lives in @agent-native/core, so one template
+      # leaking into SSR. The fix lives in @agentnative-fork/core, so one template
       # guards the whole fleet.
       - name: Build plan template (netlify preset)
         run: NITRO_PRESET=netlify pnpm --filter plan build

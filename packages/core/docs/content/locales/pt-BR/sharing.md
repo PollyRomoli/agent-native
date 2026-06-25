@@ -81,7 +81,7 @@ Todo recurso compartilhável recebe um botão de compartilhamento em seu cabeça
 O botão de compartilhamento é uma importação única:
 
 ```tsx
-import { ShareButton } from "@agent-native/core/client";
+import { ShareButton } from "@agentnative-fork/core/client";
 
 <ShareButton
   resourceType="deck"
@@ -115,7 +115,7 @@ import {
   text,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const decks = table("decks", {
   id: text("id").primaryKey(),
@@ -166,7 +166,7 @@ export const deckShares = createSharesTable("deck_shares");
 Uma chamada de registro em `server/db/index.ts`:
 
 ```ts
-import { registerShareableResource } from "@agent-native/core/sharing";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
 
 registerShareableResource({
   type: "deck",

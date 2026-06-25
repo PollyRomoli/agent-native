@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Unified freeze controller
+// @agentnative-fork/pinpoint — Unified freeze controller
 // MIT License
 //
 // Lazy initialization — nothing is patched until first freeze() call.

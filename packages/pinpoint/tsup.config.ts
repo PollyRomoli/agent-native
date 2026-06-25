@@ -39,7 +39,7 @@ export default defineConfig([
       "solid-js",
       "solid-js/web",
       "@modelcontextprotocol/sdk",
-      "@agent-native/core",
+      "@agentnative-fork/core",
       "@medv/finder",
       "bippy",
       "element-source",

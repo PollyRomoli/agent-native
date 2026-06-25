@@ -3,7 +3,7 @@ name: agent-native-docs
 description: >-
   How to find version-matched Agent Native framework docs bundled in
   node_modules. Use before implementing or answering questions about
-  @agent-native/core APIs, generated apps, workspaces, or advanced features.
+  @agentnative-fork/core APIs, generated apps, workspaces, or advanced features.
 metadata:
   internal: true
 ---
@@ -13,7 +13,7 @@ metadata:
 ## Rule
 
 Before implementing or explaining non-trivial Agent Native behavior, read the
-version-matched docs installed with `@agent-native/core`.
+version-matched docs installed with `@agentnative-fork/core`.
 
 ## Why
 
@@ -37,11 +37,11 @@ The headless `pnpm agent` loop and built-in app agent also expose a read-only
 If the action runner is unavailable, search the package docs directly:
 
 ```bash
-rg -n "actions|automations|a2a|sharing" node_modules/@agent-native/core/docs
+rg -n "actions|automations|a2a|sharing" node_modules/@agentnative-fork/core/docs
 ```
 
-Then read `node_modules/@agent-native/core/docs/AGENTS.md` or the matching file
-under `node_modules/@agent-native/core/docs/content/`.
+Then read `node_modules/@agentnative-fork/core/docs/AGENTS.md` or the matching file
+under `node_modules/@agentnative-fork/core/docs/content/`.
 
 ## Useful Slugs
 

@@ -1,4 +1,4 @@
-import { getBrowserTabId, useAgentRouteState } from "@agent-native/core/client";
+import { getBrowserTabId, useAgentRouteState } from "@agentnative-fork/core/client";
 
 export type ClipsView =
   | "library"

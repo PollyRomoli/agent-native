@@ -5,7 +5,7 @@ import {
   IconSettings,
   IconChevronLeft,
 } from "@tabler/icons-react";
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 import {
   useIntegration,
   useAllIntegrations,

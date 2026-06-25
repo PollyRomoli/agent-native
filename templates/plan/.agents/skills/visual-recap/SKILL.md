@@ -29,11 +29,11 @@ exception to the hosted publish rule below.
 In local-files mode:
 
 - Read the diff/stat/source context from local files and shell commands only.
-  The existing `npx @agent-native/core@latest recap collect-diff`, `scan`, and
+  The existing `npx @agentnative-fork/core@latest recap collect-diff`, `scan`, and
   `build-prompt --local-files` helpers are safe to use because they operate on
   local files and do not write to the Plan database.
 - Fetch/read the block catalog before writing structured MDX. Use
-  `npx @agent-native/core@latest plan blocks --out plan-blocks.md` when the Plan
+  `npx @agentnative-fork/core@latest plan blocks --out plan-blocks.md` when the Plan
   MCP connector is not registered; it calls the public no-auth
   `get-plan-blocks` route and sends no recap content. If network access is
   unavailable, use the bundled references and validate the MDX with
@@ -51,9 +51,9 @@ In local-files mode:
   `kind: "recap"` and `localOnly: true` in frontmatter/state when authoring the
   source. Use that exact chosen folder as `<plan-dir>` in every local CLI command
   below.
-- Run `npx @agent-native/core@latest plan local check --dir <plan-dir>` before
+- Run `npx @agentnative-fork/core@latest plan local check --dir <plan-dir>` before
   any preview. When the hosted Plan UI is reachable, run
-  `npx @agent-native/core@latest plan local serve --dir <plan-dir> --kind recap --open`.
+  `npx @agentnative-fork/core@latest plan local serve --dir <plan-dir> --kind recap --open`.
   Report the returned local bridge URL from stdout or `<plan-dir>/.plan-url`.
   Treat `.plan-url` as a local token file and do not commit it. The URL opens
   the hosted Plan UI but reads from the localhost bridge on this machine, so it
@@ -65,7 +65,7 @@ In local-files mode:
   path after `plan local check` and note that interactive preview requires either
   network access to the hosted Plan UI or a running local Plan app.
 - For headless verification, run
-  `npx @agent-native/core@latest plan local verify --dir <plan-dir> --kind recap`.
+  `npx @agentnative-fork/core@latest plan local verify --dir <plan-dir> --kind recap`.
   It starts the bridge, checks the private-network preflight and JSON payload,
   prints diagnostics, and exits. If the browser hangs on "Loading plan", fetch
   the `bridgeUrl` from the verify/serve JSON to read the concrete validation
@@ -114,7 +114,7 @@ cause is a connector that did not finish connecting this session (it registers
 zero tools), NOT necessarily an auth problem — so do not assume the user must
 authenticate. Stop and tell the user how to restore it for their current client: in
 Codex/Codex Desktop, run
-`npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex`
+`npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex`
 and start a new Codex session; in Claude Code, run `/mcp` and choose
 Authenticate/Reconnect, or run the reconnect command with `--client claude-code`
 and restart Claude. Auth is stored per client config/session; `--client all`
@@ -311,7 +311,7 @@ assume it used the legacy kit path and replace it with an HTML screen.
 
 In local-files privacy mode, run `plan local check` first, then report the local
 bridge URL from
-`npx @agent-native/core@latest plan local serve --dir <plan-dir> --kind recap --open`
+`npx @agentnative-fork/core@latest plan local serve --dir <plan-dir> --kind recap --open`
 or from `<plan-dir>/.plan-url`. It opens the hosted Plan UI but reads from the
 localhost bridge on this machine, so it is not shareable across machines. If the
 Plan app itself is running locally with the same `PLAN_LOCAL_DIR`, the
@@ -474,7 +474,7 @@ hosted or self-hosted mode, call `get-plan-blocks` on the Plan MCP connector
 lazy-loading client, search/load them through the host's tool discovery surface
 first (`tool_search` when available). In local-files mode, or when the skill was
 installed as plain text and no MCP tools are registered after discovery, run
-`npx @agent-native/core@latest plan blocks --out plan-blocks.md` and read that
+`npx @agentnative-fork/core@latest plan blocks --out plan-blocks.md` and read that
 file first. The CLI command calls the public no-auth `get-plan-blocks` route and
 sends no plan/recap content. If network access is unavailable, use the bundled
 references and validate with `plan local check`; run `plan local serve` only

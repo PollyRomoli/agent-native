@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import {
   readBrainAgentGuidance,

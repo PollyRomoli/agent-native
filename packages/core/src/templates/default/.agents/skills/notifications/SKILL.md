@@ -50,7 +50,7 @@ The webhook channel resolves `${keys.NAME}` server-side — the raw value never 
 
 ```ts
 // server/plugins/notifications-slack.ts
-import { registerNotificationChannel } from "@agent-native/core/notifications";
+import { registerNotificationChannel } from "@agentnative-fork/core/notifications";
 
 export default () => {
   registerNotificationChannel({
@@ -81,7 +81,7 @@ Mounted at `/_agent-native/notifications/*` by `core-routes-plugin`, all session
 ## UI
 
 ```tsx
-import { NotificationsBell } from "@agent-native/core/client/notifications";
+import { NotificationsBell } from "@agentnative-fork/core/client/notifications";
 
 <NotificationsBell browserNotifications />
 ```

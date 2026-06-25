@@ -14,7 +14,7 @@ import {
   IconPlayerPlay,
   IconPlayerStop,
 } from "@tabler/icons-react";
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

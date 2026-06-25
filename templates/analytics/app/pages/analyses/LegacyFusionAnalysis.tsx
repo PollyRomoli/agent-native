@@ -1,5 +1,5 @@
 import { useEffect, type ComponentType, type ReactNode } from "react";
-import { captureError } from "@agent-native/core/client";
+import { captureError } from "@agentnative-fork/core/client";
 import {
   IconAlertTriangle,
   IconChecks,

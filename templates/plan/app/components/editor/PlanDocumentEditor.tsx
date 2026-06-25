@@ -20,12 +20,12 @@ import {
   type DragHandleDropContext,
   type DragHandleOptions,
   type RichMarkdownCollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   useOptionalBlockRegistry,
   type BlockRegistry,
   type BlockDataChangeMeta,
-} from "@agent-native/core/blocks";
+} from "@agentnative-fork/core/blocks";
 import {
   createPlanBlockId,
   type PlanBlock,

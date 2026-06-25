@@ -29,8 +29,8 @@ import {
   vi,
 } from "vitest";
 import * as planSchema from "../server/db/schema.js";
-import { registerShareableResource } from "@agent-native/core/sharing";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 
 let client: Client;
 let db: LibSQLDatabase<typeof planSchema>;

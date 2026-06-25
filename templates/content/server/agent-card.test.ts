@@ -1,8 +1,8 @@
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { generateAgentCard } from "@agent-native/core/a2a";
-import { loadActionsFromStaticRegistry } from "@agent-native/core/server";
-import { generateActionRegistryForProject } from "@agent-native/core/vite";
+import { generateAgentCard } from "@agentnative-fork/core/a2a";
+import { loadActionsFromStaticRegistry } from "@agentnative-fork/core/server";
+import { generateActionRegistryForProject } from "@agentnative-fork/core/vite";
 import { describe, expect, it } from "vitest";
 
 const projectRoot = path.resolve(

@@ -285,7 +285,7 @@ export async function ssrfSafeFetch(
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Legacy aliases — predate the Tools → Extensions rename. Templates import
-// these via the legacy `@agent-native/core/tools/url-safety` subpath; keep
+// these via the legacy `@agentnative-fork/core/tools/url-safety` subpath; keep
 // the names exported so they keep resolving until every consumer updates.
 // ─────────────────────────────────────────────────────────────────────────────
 

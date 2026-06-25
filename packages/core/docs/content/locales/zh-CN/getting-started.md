@@ -41,7 +41,7 @@ UI改变表面；指令、skills 和 actions 为代理提供
 聊天，或无头）先于其他：
 
 ```bash
-npx @agent-native/core@latest create my-app
+npx @agentnative-fork/core@latest create my-app
 ```
 
 或者传递一个标志来跳过提示：
@@ -50,14 +50,14 @@ npx @agent-native/core@latest create my-app
 可自定义的聊天UI，您添加的每个操作都会自动显示在其中：
 
 ```bash
-npx @agent-native/core@latest create my-app --template chat
+npx @agentnative-fork/core@latest create my-app --template chat
 ```
 
 **只是无头原语？**开始无头 - 相同的 actions 和代理
 循环，无 UI shell：
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 然后从您创建的文件夹安装：
@@ -78,7 +78,7 @@ pnpm install
 {
   "filename": "actions/hello.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"从本地代理问好。\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"从本地代理问好。\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "工具描述", "note": "代理会读取 `description`，判断何时把它作为工具调用。" },
     { "lines": "6-8", "label": "类型化契约", "note": "一个 zod `schema` 会校验来自每个入口的输入：代理、UI、HTTP、MCP 和 A2A。" },
@@ -149,7 +149,7 @@ pnpm dev
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return <AgentChatSurface mode="page" className="h-full" />;

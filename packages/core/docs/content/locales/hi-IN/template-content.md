@@ -93,7 +93,7 @@ SQL-backed sharing. See [Local File Mode](/docs/local-file-mode) for the
 सामग्री स्थानीय-फ़ाइल कौशल को मौजूदा रेपो में स्थापित करने के लिए:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 इंस्टॉलर आपके कोडिंग एजेंट के लिए `content` कौशल की प्रतिलिपि बनाता है और लिखता है या
@@ -114,7 +114,7 @@ npx @agent-native/core@latest skills add content --mode local-files --scope proj
 सामग्री टेम्पलेट के साथ एक नया कार्यक्षेत्र तैयार करें:
 
 ```bash
-npx @agent-native/core@latest create my-workspace --standalone --template content
+npx @agentnative-fork/core@latest create my-workspace --standalone --template content
 cd my-workspace
 pnpm install
 pnpm dev

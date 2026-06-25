@@ -38,7 +38,7 @@ whole first app:
 
 ```ts
 // actions/hello.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -83,7 +83,7 @@ around actions, not a required prerequisite for the action itself.
 {
   "filename": "actions/reply-to-email.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread in the user's voice.\",\n  schema: z.object({\n    emailId: z.string().describe(\"The id of the email to reply to.\"),\n    body: z.string().describe(\"The reply body, in markdown.\"),\n  }),\n  run: async ({ emailId, body }) => {\n    await db.insert(replies).values({ emailId, body });\n    return { ok: true, emailId };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread in the user's voice.\",\n  schema: z.object({\n    emailId: z.string().describe(\"The id of the email to reply to.\"),\n    body: z.string().describe(\"The reply body, in markdown.\"),\n  }),\n  run: async ({ emailId, body }) => {\n    await db.insert(replies).values({ emailId, body });\n    return { ok: true, emailId };\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Tool surface", "note": "`description` is what the agent reads to decide when to call this. The per-field `.describe()` calls flow into the JSON Schema too." },
     { "lines": "6-9", "label": "Typed contract", "note": "One schema validates input from **every** surface and is converted to JSON Schema for the model. Invalid inputs never reach `run`." },
@@ -286,7 +286,7 @@ User-owned tables must scope reads through `accessFilter` and writes through `as
 
 ```ts
 // actions/create-lead.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 import { getDb } from "../server/db/index.js";
 import * as schema from "../server/db/schema.js";
@@ -353,14 +353,14 @@ Other knobs: `audit: { onRead: true }` audits a sensitive read (secret access, b
 
 ## Calling it from the UI {#ui}
 
-Two hooks, both in `@agent-native/core/client`. Types are inferred from your `defineAction` schemas — no manual type declarations.
+Two hooks, both in `@agentnative-fork/core/client`. Types are inferred from your `defineAction` schemas — no manual type declarations.
 
 ### `useActionMutation` {#use-action-mutation}
 
 For actions that change state:
 
 ```tsx
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 const { mutate, isPending } = useActionMutation("reply-to-email");
 
@@ -379,7 +379,7 @@ On success, the framework emits a change event with `source: "action"` so `useAc
 For read-only GET actions:
 
 ```ts
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 const { data, isLoading } = useActionQuery("get-lead", { leadId });
 ```
@@ -394,12 +394,12 @@ summaries, and insight cards; use [MCP Apps](/docs/mcp-apps) for inline UI in
 external MCP hosts.
 
 ```ts
-import { defineAction } from "@agent-native/core/action";
-import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agent-native/core/action-ui";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agentnative-fork/core/action-ui";
 import {
   createDataInsightsWidgetResult,
   dataInsightsWidgetResultSchema,
-} from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core/data-widgets";
 
 export default defineAction({
   description: "Summarize response trends.",
@@ -434,7 +434,7 @@ export default defineAction({
 
 The built-in discriminants are `"data-table"`, `"data-chart"`, and
 `"data-insights"`, with server-safe builders and schemas in
-`@agent-native/core/data-widgets`. See [Native Chat UI](/docs/native-chat-ui)
+`@agentnative-fork/core/data-widgets`. See [Native Chat UI](/docs/native-chat-ui)
 for the full result contract and BYO runtime guidance, or
 [Agent Surfaces](/docs/agent-surfaces) for how the same action can stay
 headless, render in chat, or grow into a full screen.
@@ -462,7 +462,7 @@ With MCP enabled, your actions show up in the framework's MCP server at `/_agent
 For UI-capable MCP hosts, an action can declare an optional MCP Apps resource via the `mcpApp` field (plus a matching `link`) so capable hosts render the result inline. When `link` and `mcpApp` should point at the same route, `embedRoute()` builds both from one pure path builder:
 
 ```ts
-import { embedRoute } from "@agent-native/core";
+import { embedRoute } from "@agentnative-fork/core";
 
 export default defineAction({
   description: "Create an email draft for review.",
@@ -491,8 +491,8 @@ Reads the current navigation state, fetches contextual data, and returns a snaps
 
 ```ts
 // actions/view-screen.ts
-import { defineAction } from "@agent-native/core/action";
-import { readAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { readAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -518,8 +518,8 @@ Writes a one-shot navigation command to application state. The UI reads it, navi
 
 ```ts
 // actions/navigate.ts
-import { defineAction } from "@agent-native/core/action";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -541,7 +541,7 @@ The framework still supports older `export default async function(args)` actions
 
 ```ts
 // actions/debug-dump.ts — CLI-only
-import { parseArgs } from "@agent-native/core";
+import { parseArgs } from "@agentnative-fork/core";
 
 export default async function main(args: string[]) {
   const { table } = parseArgs(args);
@@ -556,7 +556,7 @@ New code should prefer `defineAction()`. Reach for this pattern only when you de
 Helper for legacy-style actions. Parses CLI arguments in `--key value` or `--key=value` format:
 
 ```ts
-import { parseArgs } from "@agent-native/core";
+import { parseArgs } from "@agentnative-fork/core";
 
 const args = parseArgs(["--name", "Steve", "--verbose", "--count=3"]);
 // { name: "Steve", verbose: "true", count: "3" }

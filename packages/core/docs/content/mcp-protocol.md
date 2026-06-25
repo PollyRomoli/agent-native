@@ -165,7 +165,7 @@ The MCP endpoint supports standard remote MCP OAuth plus the existing bearer-tok
 | Mode                        | How it works                                                                                                          |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | Standard MCP OAuth          | Client discovers auth from `WWW-Authenticate`, registers, runs PKCE, and sends `Authorization: Bearer <access-token>` |
-| Connect-minted JWT          | `npx @agent-native/core@latest connect` / the Connect page mints a per-user, revocable JWT                            |
+| Connect-minted JWT          | `npx @agentnative-fork/core@latest connect` / the Connect page mints a per-user, revocable JWT                            |
 | `ACCESS_TOKEN`              | Static bearer token — client sends `Authorization: Bearer <token>`                                                    |
 | `ACCESS_TOKENS`             | Comma-separated list of valid static bearer tokens                                                                    |
 | `A2A_SECRET`                | JWT-based auth — tokens are verified cryptographically                                                                |
@@ -209,7 +209,7 @@ Access tokens are signed JWTs whose audience is the exact MCP resource URL. The 
 | `mcp:write` | mutating actions and `ask-agent`            |
 | `mcp:apps`  | MCP Apps resources (`ui://` HTML resources) |
 
-Refresh tokens are stored only as hashes and are rotated on every refresh. `npx @agent-native/core@latest connect` writes this URL-only OAuth entry for Claude Code clients by default; keep the Connect page, `npx @agent-native/core@latest connect --token <token>`, and static bearer config for local stdio proxying, older clients, and emergency/debug flows.
+Refresh tokens are stored only as hashes and are rotated on every refresh. `npx @agentnative-fork/core@latest connect` writes this URL-only OAuth entry for Claude Code clients by default; keep the Connect page, `npx @agentnative-fork/core@latest connect --token <token>`, and static bearer config for local stdio proxying, older clients, and emergency/debug flows.
 
 ## Custom MCP setup {#custom-setup}
 
@@ -217,8 +217,8 @@ The MCP server is auto-mounted by the agent-chat plugin. For most apps, no confi
 
 ```ts
 // server/plugins/mcp.ts
-import { mountMCP } from "@agent-native/core/mcp";
-import { autoDiscoverActions } from "@agent-native/core/server";
+import { mountMCP } from "@agentnative-fork/core/mcp";
+import { autoDiscoverActions } from "@agentnative-fork/core/server";
 
 export default defineNitroPlugin(async (nitro) => {
   const actions = await autoDiscoverActions(import.meta.url);

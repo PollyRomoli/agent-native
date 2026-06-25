@@ -5,11 +5,11 @@ const requireGenerationSessionInLibraryMock = vi.hoisted(() => vi.fn());
 const generateImageRunMock = vi.hoisted(() => vi.fn());
 const getDbMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   defineAction: (entry: unknown) => entry,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: assertAccessMock,
 }));
 

@@ -3,7 +3,7 @@ import {
   getOAuthTokens,
   listOAuthAccountsByOwner,
   saveOAuthTokens,
-} from "@agent-native/core/oauth-tokens";
+} from "@agentnative-fork/core/oauth-tokens";
 
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";

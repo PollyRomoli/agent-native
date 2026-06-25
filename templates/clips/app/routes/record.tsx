@@ -18,8 +18,8 @@ import {
   appBasePath,
   callAction,
   captureClientException,
-} from "@agent-native/core/client";
-import { useLiveTranscription } from "@agent-native/core/client/transcription/use-live-transcription";
+} from "@agentnative-fork/core/client";
+import { useLiveTranscription } from "@agentnative-fork/core/client/transcription/use-live-transcription";
 import { useDesktopPromo } from "@/hooks/use-desktop-promo";
 import {
   fetchVideoStorageStatus,

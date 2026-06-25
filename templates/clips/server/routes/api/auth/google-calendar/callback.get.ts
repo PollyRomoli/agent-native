@@ -8,7 +8,7 @@
  */
 
 import { defineEventHandler, getQuery, type H3Event } from "h3";
-import { decodeOAuthState, getAppUrl } from "@agent-native/core/server";
+import { decodeOAuthState, getAppUrl } from "@agentnative-fork/core/server";
 import { handleGoogleCalendarCallback } from "../../../../lib/google-calendar-oauth.js";
 
 export default defineEventHandler(async (event: H3Event) => {

@@ -1,7 +1,7 @@
 import { defineEventHandler } from "h3";
-import { readBody } from "@agent-native/core/server";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
-import { getSession } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
+import { getSession } from "@agentnative-fork/core/server";
 
 export default defineEventHandler(async (event) => {
   const session = await getSession(event);

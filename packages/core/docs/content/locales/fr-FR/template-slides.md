@@ -67,7 +67,7 @@ Le reste de ce document s'adresse à toute personne qui crée ou étend le modè
 Créez une nouvelle application Slides à partir du CLI :
 
 ```bash
-npx @agent-native/core@latest create my-slides --standalone --template slides
+npx @agentnative-fork/core@latest create my-slides --standalone --template slides
 cd my-slides
 pnpm install
 pnpm dev

@@ -22,13 +22,13 @@ Um bom modelo:
 Use o modelo de bate-papo quando quiser um aplicativo mínimo com a estrutura já instalada:
 
 ```bash
-npx @agent-native/core@latest create my-template --template chat --standalone
+npx @agentnative-fork/core@latest create my-template --template chat --standalone
 ```
 
 Para um workspace com vários aplicativos, execute o seletor e inclua o Chat com os modelos de domínio desejados:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 O Chat oferece autenticação, threads de bate-papo duráveis, recursos apoiados por SQL, ferramentas, estado do aplicativo, actions e sincronização de pesquisa. Você adiciona o modelo de domínio e o produto UI.
@@ -87,7 +87,7 @@ import {
   now,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),
@@ -112,7 +112,7 @@ Para leituras e gravações de aplicativos, use o construtor de consultas do Dri
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -145,7 +145,7 @@ Actions são a única fonte de verdade sobre o comportamento do aplicativo. O ag
 {
   "filename": "actions/create-project.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { getDb } from \"../server/db/index.js\";\nimport { nanoid } from \"nanoid\";\nimport { z } from \"zod\";\nimport * as schema from \"../server/db/schema\";\n\nexport default defineAction({\n  description: \"Create a project.\",\n  schema: z.object({\n    title: z.string().min(1).describe(\"Project title\"),\n  }),\n  run: async ({ title }, ctx) => {\n    const db = getDb();\n    const id = nanoid();\n    await db.insert(schema.projects).values({\n      id,\n      title,\n      ownerEmail: ctx.userEmail,\n      orgId: ctx.orgId,\n    });\n    return { id, title };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { getDb } from \"../server/db/index.js\";\nimport { nanoid } from \"nanoid\";\nimport { z } from \"zod\";\nimport * as schema from \"../server/db/schema\";\n\nexport default defineAction({\n  description: \"Create a project.\",\n  schema: z.object({\n    title: z.string().min(1).describe(\"Project title\"),\n  }),\n  run: async ({ title }, ctx) => {\n    const db = getDb();\n    const id = nanoid();\n    await db.insert(schema.projects).values({\n      id,\n      title,\n      ownerEmail: ctx.userEmail,\n      orgId: ctx.orgId,\n    });\n    return { id, title };\n  },\n});",
   "annotations": [
     { "lines": "2", "note": "`getDb` is created per app via `createGetDb(schema)` in `server/db/index.ts`." },
     { "lines": "8", "label": "Tool surface", "note": "The `description` is what the agent reads to decide when to call this action as a tool." },
@@ -162,7 +162,7 @@ Use `http: { method: "GET" }` ou `readOnly: true` para actions somente leitura. 
 As rotas residem em `app/routes/` e usam o roteamento de arquivos do React Router v7. Consulte dados por meio de manipuladores actions ou API e torne as mutações otimistas por padrão.
 
 ```tsx
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 
 export default function ProjectsPage() {
   const { data: projects = [] } = useActionQuery("list-projects", {});
@@ -179,7 +179,7 @@ export default function ProjectsPage() {
 Conecte a sincronização ao vivo uma vez perto do shell do aplicativo para que os caches de consulta React sejam atualizados quando o agente, outra guia ou uma ação alterar os dados:
 
 ```tsx
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 export function AppSync() {
@@ -192,7 +192,7 @@ export function AppSync() {
 **A promessa do agente nativo: as gravações do agente aparecem no UI sem uma atualização manual.** `useActionQuery` é o caminho mais fácil — cada gancho é buscado novamente quando uma ação mutante emite `source: "action"`. Se você acessar `useQuery` bruto com uma chave personalizada (por exemplo, um auxiliar de cliente de baixo nível que lê o status de integração), inclua o contador por origem no queryKey para atualizações direcionadas:
 
 ```tsx
-import { useChangeVersions } from "@agent-native/core/client";
+import { useChangeVersions } from "@agentnative-fork/core/client";
 
 const v = useChangeVersions(["dashboards", "action"]);
 useQuery({
@@ -215,7 +215,7 @@ O estado da aplicação é como o agente sabe o que o usuário está vendo. No m
 Use `useAgentRouteState` para o gancho UI para que gravações no estado do aplicativo, leituras de comandos com escopo de guia, exclusão após leitura e proteção de comando duplicado permaneçam consistentes:
 
 ```tsx
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 export function useNavigationState() {
@@ -240,8 +240,8 @@ essa chave é reservada para as ferramentas da estrutura URL e alterações de f
 
 ```ts
 // actions/navigate.ts
-import { defineAction } from "@agent-native/core/action";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -335,8 +335,8 @@ Se um modelo precisar de uma chave API, conexão OAuth ou conta de provedor, reg
 
 ```ts
 // server/plugins/onboarding.ts
-import { defineNitroPlugin } from "@agent-native/core/server";
-import { registerOnboardingStep } from "@agent-native/core/onboarding";
+import { defineNitroPlugin } from "@agentnative-fork/core/server";
+import { registerOnboardingStep } from "@agentnative-fork/core/onboarding";
 
 export default defineNitroPlugin(() => {
   registerOnboardingStep({
@@ -389,7 +389,7 @@ Antes de compartilhar:
 Os modelos de comunidade podem ser criados a partir de um repositório GitHub:
 
 ```bash
-npx @agent-native/core@latest create my-app --template github:user/repo
+npx @agentnative-fork/core@latest create my-app --template github:user/repo
 ```
 
 ## Contribuindo para a estrutura monorepo {#contributing}
@@ -401,11 +401,11 @@ workspace para usar pacotes não publicados ou alterações de modelo, execute c
 sinalizador de pacote local:
 
 ```bash
-AGENT_NATIVE_CREATE_USE_LOCAL_CORE=1 pnpm --filter @agent-native/core create my-platform
+AGENT_NATIVE_CREATE_USE_LOCAL_CORE=1 pnpm --filter @agentnative-fork/core create my-platform
 ```
 
-O espaço de trabalho gerado vincula o `@agent-native/core` local e
-Pacotes `@agent-native/dispatch`, portanto, mudanças nos Core APIs, espaço de trabalho Dispatch
+O espaço de trabalho gerado vincula o `@agentnative-fork/core` local e
+Pacotes `@agentnative-fork/dispatch`, portanto, mudanças nos Core APIs, espaço de trabalho Dispatch
 comportamento ou modelos próprios podem ser testados antes da publicação. O pacote
 Os scripts `prepack` constroem `dist` antes da vinculação, o que mantém o gerado
 espaço de trabalho apontado para a saída atual do build.

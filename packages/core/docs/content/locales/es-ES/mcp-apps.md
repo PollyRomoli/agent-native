@@ -39,7 +39,7 @@ No escriba a mano aplicaciones únicas HTML MCP para el producto UI; si la acci�
 ```
 
 ```ts
-import { embedApp } from "@agent-native/core";
+import { embedApp } from "@agentnative-fork/core";
 
 export default defineAction({
   // ...description, schema, run, link...
@@ -58,7 +58,7 @@ export default defineAction({
 {
   "filename": "actions/review-draft.ts",
   "language": "ts",
-  "code": "import { embedApp } from \"@agent-native/core\";\n\nexport default defineAction({\n  // ...description, schema, run, link...\n  mcpApp: {\n    resource: embedApp({\n      title: \"Review draft\",\n      description: \"Open the generated draft in the real Mail compose UI.\",\n      iframeTitle: \"Agent-Native Mail\",\n      openLabel: \"Open in Mail\",\n    }),\n  },\n});",
+  "code": "import { embedApp } from \"@agentnative-fork/core\";\n\nexport default defineAction({\n  // ...description, schema, run, link...\n  mcpApp: {\n    resource: embedApp({\n      title: \"Review draft\",\n      description: \"Open the generated draft in the real Mail compose UI.\",\n      iframeTitle: \"Agent-Native Mail\",\n      openLabel: \"Open in Mail\",\n    }),\n  },\n});",
   "annotations": [
     { "lines": "6", "label": "Progressive enhancement", "note": "`mcpApp.resource` advertises an inline UI for hosts that support the MCP Apps extension. Keep the action's `link` builder too — CLI-only and older hosts ignore the UI metadata and still need the deep link." },
     { "lines": "7", "label": "Embed = the link target", "note": "`embedApp()` uses the action's `link` as its launch target: it calls `create_embed_session`, exchanges a one-time SQL ticket at `/_agent-native/embed/start`, and navigates the MCP App frame to the same signed app route." },
@@ -103,7 +103,7 @@ El shell de recursos posee el tamaño del host externo. `embedApp({ height })` t
 
 Claude utiliza la ruta de trasplante de fotograma único de forma predeterminada. También puede forzarlo en otros hosts con `embedMode: "transplant"` o `frame: "transplant"` al depurar el comportamiento de carga del módulo del host. Puede forzar el iframe de diagnóstico anidado con `embedMode: "iframe"`, `renderMode: "iframe"`, `nested: true` o `frame: "iframe"`. Si el iframe está bloqueado, `embedApp()` lo reemplaza con una alternativa de aplicación abierta: el usuario puede volver a intentarlo en línea, abrir una sesión de inserción recién creada a través del host o usar la ruta visible URL. Mantén útil el objetivo `link` de la acción por sí solo porque sigue siendo la trampilla de escape universal.
 
-Al probar Claude a través de ngrok, utilice una compilación de producción (`npx @agent-native/core@latest build` y luego `npx @agent-native/core@latest start`) o una vista previa/producción implementada de URL. La ruta de trasplante de fotograma único de Claude funciona con fragmentos de activos de producción; Los módulos de desarrollo Vite sin formato, como `/app/root.tsx`, pueden protegerse mediante la autenticación de la aplicación y fallar en las importaciones dinámicas desde el origen del recurso Claude.
+Al probar Claude a través de ngrok, utilice una compilación de producción (`npx @agentnative-fork/core@latest build` y luego `npx @agentnative-fork/core@latest start`) o una vista previa/producción implementada de URL. La ruta de trasplante de fotograma único de Claude funciona con fragmentos de activos de producción; Los módulos de desarrollo Vite sin formato, como `/app/root.tsx`, pueden protegerse mediante la autenticación de la aplicación y fallar en las importaciones dinámicas desde el origen del recurso Claude.
 
 ## Puente de host API {#host-bridge}
 
@@ -120,7 +120,7 @@ El puente del host es deliberadamente pequeño:
 | ChatGPT / ruta iframe | `agentNative.embeddedAppReady`        | Confirmar la ruta iframe cargada                                     |
 | ChatGPT / ruta iframe | `agentNative.mcpHost.*` / `.response` | Retransmisión de contenedor para solicitudes de host                 |
 
-Las rutas integradas pueden usar `updateMcpAppModelContext()`, `openMcpAppHostLink()`, `requestMcpAppDisplayMode()`, `getMcpAppHostContext()` y `useMcpAppHostContext()` de `@agent-native/core/client`. `sendToAgentChat()` utiliza la misma ruta desde las inserciones de la aplicación completa para los mensajes enviados automáticamente.
+Las rutas integradas pueden usar `updateMcpAppModelContext()`, `openMcpAppHostLink()`, `requestMcpAppDisplayMode()`, `getMcpAppHostContext()` y `useMcpAppHostContext()` de `@agentnative-fork/core/client`. `sendToAgentChat()` utiliza la misma ruta desde las inserciones de la aplicación completa para los mensajes enviados automáticamente.
 
 El modo de visualización es el mejor esfuerzo. El `McpAppRenderer` en la aplicación actualmente informa un contexto de alojamiento web en línea y un modo de visualización solo en línea; Los hosts externos pueden aceptar solicitudes de visualización más grandes, ignorarlas o responder con un error de modo no compatible. Mantenga siempre utilizable la ruta en línea.
 

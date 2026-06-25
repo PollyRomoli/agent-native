@@ -1,15 +1,15 @@
-export { default } from "@agent-native/dispatch/routes/pages/chat";
+export { default } from "@agentnative-fork/dispatch/routes/pages/chat";
 import type { LoaderFunctionArgs } from "react-router";
 import {
   buildThreadLinkPreviewMeta,
   type ThreadLinkPreview,
-} from "@agent-native/dispatch/lib/thread-link-preview";
+} from "@agentnative-fork/dispatch/lib/thread-link-preview";
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
   const threadId =
     params.threadId ?? new URL(request.url).searchParams.get("thread");
   const { loadThreadLinkPreview } =
-    await import("@agent-native/dispatch/server/lib/thread-link-preview");
+    await import("@agentnative-fork/dispatch/server/lib/thread-link-preview");
   return {
     threadPreview: await loadThreadLinkPreview(threadId),
   };

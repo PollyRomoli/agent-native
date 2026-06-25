@@ -24,19 +24,19 @@ export {
   saveCredential,
   deleteCredential,
   type CredentialContext,
-} from "@agent-native/core/credentials";
+} from "@agentnative-fork/core/credentials";
 import {
   resolveCredential,
   type CredentialContext,
-} from "@agent-native/core/credentials";
+} from "@agentnative-fork/core/credentials";
 import {
   getSession,
   getCredentialContext as getCredentialContextFromRequest,
   runWithRequestContext,
-} from "@agent-native/core/server";
-import { getOrgContext } from "@agent-native/core/org";
+} from "@agentnative-fork/core/server";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import { setResponseStatus, type H3Event } from "h3";
-import type { MissingKeyResponse } from "@agent-native/core/server";
+import type { MissingKeyResponse } from "@agentnative-fork/core/server";
 
 /**
  * Build a CredentialContext from the current H3 event's session. Throws a

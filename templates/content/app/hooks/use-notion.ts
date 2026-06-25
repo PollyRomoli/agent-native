@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { appApiPath } from "@agent-native/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 import type {
   CreateNotionPageRequest,
   Document,

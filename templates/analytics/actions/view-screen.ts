@@ -1,13 +1,13 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   readAppState,
   readAppStateForCurrentTab,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { getAnalysis, getDashboard } from "../server/lib/dashboards-store";
 import { listAnalyticsPublicKeys } from "../server/lib/first-party-analytics.js";
 import { listDashboardCatalog } from "../server/lib/dashboard-catalog";

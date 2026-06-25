@@ -19,7 +19,7 @@ import {
   useSession,
   type CollabUser,
   type UseCollaborativeDocResult,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const TAB_ID = `videos-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 

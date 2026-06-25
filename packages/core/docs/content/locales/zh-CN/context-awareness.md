@@ -73,7 +73,7 @@ UI 在每次路由更改时将 `navigation` 密钥写入应用程序状态。这
 代理在行动前阅读以下内容：
 
 ```ts
-import { readAppState } from "@agent-native/core/application-state";
+import { readAppState } from "@agentnative-fork/core/application-state";
 
 const navigation = await readAppState("navigation");
 // { view: "inbox", threadId: "thread-123", label: "important" }
@@ -143,7 +143,7 @@ if (url?.searchParams) {
 当用户选择、聚焦或多选有意义的对象时，从 UI 写入：
 
 ```tsx
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 
 async function syncSelection(selection: unknown | null) {
   await setClientAppState("selection", selection, { keepalive: true });
@@ -173,7 +173,7 @@ async function syncSelection(selection: unknown | null) {
 当自定义编辑器的选择不由本机浏览器选择表示时，可以编写相同的键：
 
 ```tsx
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 
 await setClientAppState(
   "pending-selection-context",
@@ -195,7 +195,7 @@ await setClientAppState(
 {
   "filename": "actions/view-screen.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { readAppState } from \"@agent-native/core/application-state\";\nimport { eq, inArray } from \"drizzle-orm\";\nimport { z } from \"zod\";\nimport { getDb, schema } from \"../server/db/index.js\";\n\nexport default defineAction({\n  description:\n    \"See what the user is currently looking at on screen.\",\n  schema: z.object({}),\n  http: false,\n  run: async () => {\n    const navigation = (await readAppState(\"navigation\")) as any;\n    const selection = (await readAppState(\"selection\")) as any;\n    const screen: Record<string, unknown> = {};\n    if (navigation) screen.navigation = navigation;\n    if (selection) screen.selection = selection;\n\n    const db = getDb();\n\n    // Fetch data based on what the user is viewing\n    if (navigation?.view === \"inbox\") {\n      screen.emailList = await db\n        .select()\n        .from(schema.emails)\n        .where(eq(schema.emails.label, navigation.label));\n    }\n    if (navigation?.threadId) {\n      screen.thread = await db\n        .select()\n        .from(schema.threads)\n        .where(eq(schema.threads.id, navigation.threadId));\n    }\n    if (selection?.kind === \"email.messages\") {\n      screen.selectedMessages = await db\n        .select()\n        .from(schema.emails)\n        .where(inArray(schema.emails.id, selection.messageIds));\n    }\n\n    if (Object.keys(screen).length === 0) {\n      return \"No application state found. Is the app running?\";\n    }\n    return screen;\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { readAppState } from \"@agentnative-fork/core/application-state\";\nimport { eq, inArray } from \"drizzle-orm\";\nimport { z } from \"zod\";\nimport { getDb, schema } from \"../server/db/index.js\";\n\nexport default defineAction({\n  description:\n    \"See what the user is currently looking at on screen.\",\n  schema: z.object({}),\n  http: false,\n  run: async () => {\n    const navigation = (await readAppState(\"navigation\")) as any;\n    const selection = (await readAppState(\"selection\")) as any;\n    const screen: Record<string, unknown> = {};\n    if (navigation) screen.navigation = navigation;\n    if (selection) screen.selection = selection;\n\n    const db = getDb();\n\n    // Fetch data based on what the user is viewing\n    if (navigation?.view === \"inbox\") {\n      screen.emailList = await db\n        .select()\n        .from(schema.emails)\n        .where(eq(schema.emails.label, navigation.label));\n    }\n    if (navigation?.threadId) {\n      screen.thread = await db\n        .select()\n        .from(schema.threads)\n        .where(eq(schema.threads.id, navigation.threadId));\n    }\n    if (selection?.kind === \"email.messages\") {\n      screen.selectedMessages = await db\n        .select()\n        .from(schema.emails)\n        .where(inArray(schema.emails.id, selection.messageIds));\n    }\n\n    if (Object.keys(screen).length === 0) {\n      return \"No application state found. Is the app running?\";\n    }\n    return screen;\n  },\n});",
   "annotations": [
     { "lines": "10-11", "label": "Tool surface", "note": "The agent reads this description to know it can call `view-screen` to see the current UI." },
     { "lines": "13", "label": "http: false", "note": "Internal action — not exposed over HTTP. The agent and `pnpm action` call it, not the browser." },
@@ -219,7 +219,7 @@ await setClientAppState(
 有时上下文不应该仅仅处于应用程序状态。用户单击按钮、放下评论图钉、选择项目并选择“询问代理”，或者按下工具栏中的 AI 命令。那次点击是一个指令。在浏览器UI中，将其交给带有`sendToAgentChat()`的代理。
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 function askAgentAboutSelection(selection: {
   documentId: string;
@@ -274,7 +274,7 @@ function askAgentAboutSelection(selection: {
 
 ```ts
 // Agent side -- write a navigate command
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 
 await writeAppState("navigate", { view: "inbox", threadId: "thread-123" });
 ```
@@ -299,11 +299,11 @@ await writeAppState("navigate", { view: "inbox", threadId: "thread-123" });
 - **出站（UI→代理）：**每当路线改变时写入`navigation`密钥，因此代理始终知道当前视图。
 - **入站（代理 → UI）：**轮询 `navigate` 命令、运行导航并删除命令。
 
-它很短，因为它是真实框架原语 `useAgentRouteState`（从 `@agent-native/core/client` 导出）的薄包装。您提供两个特定于应用程序的功能，框架将完成其余的工作：
+它很短，因为它是真实框架原语 `useAgentRouteState`（从 `@agentnative-fork/core/client` 导出）的薄包装。您提供两个特定于应用程序的功能，框架将完成其余的工作：
 
 ```tsx
 // app/hooks/use-navigation-state.ts -- this file lives in YOUR app
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 interface NavigationState {
@@ -345,7 +345,7 @@ export function useNavigationState() {
 
 当代理写入应用程序状态时，同步系统可能会导致 UI 重新获取刚刚写入的数据。这会产生抖动。解决方案是源标记：
 
-使用 `@agent-native/core/client` 中的 `setClientAppState`、`writeClientAppState`、`readClientAppState` 和 `deleteClientAppState` 进行浏览器端应用程序状态访问。与`useDbSync({ ignoreSource: TAB_ID })`配对时通过`{ requestSource: TAB_ID }`对UI进行写入；通过 `{ keepalive: true }` 进行短期写入，例如卸载期间的选择清理。
+使用 `@agentnative-fork/core/client` 中的 `setClientAppState`、`writeClientAppState`、`readClientAppState` 和 `deleteClientAppState` 进行浏览器端应用程序状态访问。与`useDbSync({ ignoreSource: TAB_ID })`配对时通过`{ requestSource: TAB_ID }`对UI进行写入；通过 `{ keepalive: true }` 进行短期写入，例如卸载期间的选择清理。
 
 ```ts
 // app/root.tsx

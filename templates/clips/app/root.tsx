@@ -11,7 +11,7 @@ import {
 import { useCallback, useEffect, useState } from "react";
 import { useNavigationState } from "@/hooks/use-navigation-state";
 import { useQueryClient } from "@tanstack/react-query";
-import { getBrowserTabId, useDbSync } from "@agent-native/core/client";
+import { getBrowserTabId, useDbSync } from "@agentnative-fork/core/client";
 import {
   AppProviders,
   CommandMenu,
@@ -25,8 +25,8 @@ import {
   type LocalizationPreference,
   useCommandMenuShortcut,
   useT,
-} from "@agent-native/core/client";
-import { resolveLocaleFromRequest } from "@agent-native/core/server";
+} from "@agentnative-fork/core/client";
+import { resolveLocaleFromRequest } from "@agentnative-fork/core/server";
 import { IconCheck, IconSun, IconMoon } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import changelog from "../CHANGELOG.md?raw";
@@ -42,7 +42,7 @@ import {
 } from "@/components/ui/dialog";
 import type { LinksFunction, LoaderFunctionArgs } from "react-router";
 import stylesheet from "./global.css?url";
-import { configureTracking } from "@agent-native/core/client";
+import { configureTracking } from "@agentnative-fork/core/client";
 import { i18nCatalog, loadI18nMessages } from "./i18n";
 
 configureTracking({
@@ -394,4 +394,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

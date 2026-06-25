@@ -10,9 +10,9 @@ import {
   type SendLaterPayload,
 } from "../lib/jobs.js";
 import { processAutomations } from "../lib/automation-engine.js";
-import { listOAuthAccounts } from "@agent-native/core/oauth-tokens";
+import { listOAuthAccounts } from "@agentnative-fork/core/oauth-tokens";
 import { getClientForAccount, startWatch } from "../lib/google-auth.js";
-import { registerEvent } from "@agent-native/core/event-bus";
+import { registerEvent } from "@agentnative-fork/core/event-bus";
 import { z } from "zod";
 
 const INTERVAL_MS = 60_000; // 1 minute

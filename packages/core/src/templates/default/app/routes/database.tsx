@@ -1,4 +1,4 @@
-import { DbAdminPage } from "@agent-native/core/client/db-admin";
+import { DbAdminPage } from "@agentnative-fork/core/client/db-admin";
 
 export function meta() {
   return [{ title: "Database" }];

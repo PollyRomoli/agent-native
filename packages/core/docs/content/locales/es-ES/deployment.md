@@ -20,7 +20,7 @@ Utilice `DATABASE_AUTH_TOKEN` solo cuando su proveedor de base de datos requiera
 Si tu proyecto es [workspace](/docs/multi-app-workspace), puedes enviar todas las aplicaciones que contiene a un único origen con un solo comando:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
@@ -49,26 +49,26 @@ wrangler pages deploy dist
 Para implementaciones unificadas de Netlify, utilice el ajuste preestablecido de Netlify:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 Para implementaciones unificadas de Vercel, utilice el ajuste preestablecido de Vercel:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
-Al configurar un comando de compilación de proveedor, use el mismo comando con `--build-only`. Vercel debería ejecutar `npx @agent-native/core@latest deploy --preset vercel --build-only`; el comando escribe `.vercel/output` directamente, por lo que no se requiere ningún `vercel.json` para el enrutamiento del espacio de trabajo.
+Al configurar un comando de compilación de proveedor, use el mismo comando con `--build-only`. Vercel debería ejecutar `npx @agentnative-fork/core@latest deploy --preset vercel --build-only`; el comando escribe `.vercel/output` directamente, por lo que no se requiere ningún `vercel.json` para el enrutamiento del espacio de trabajo.
 
 Las compilaciones de espacios de trabajo alojados requieren `A2A_SECRET` en el entorno del proveedor de implementación.
 Esto hace que los currículums Slack, webhooks entrante y A2A entre aplicaciones funcionen mediante firma
 procesadores en segundo plano. Las comprobaciones de artefactos locales `--build-only` aún se ejecutan sin él.
 
-Aún se admite la implementación independiente por aplicación, solo `cd apps/<name> && npx @agent-native/core@latest build` como un andamio independiente.
+Aún se admite la implementación independiente por aplicación, solo `cd apps/<name> && npx @agentnative-fork/core@latest build` como un andamio independiente.
 
 ## Cómo funciona {#how-it-works}
 
-Cuando ejecuta `npx @agent-native/core@latest build`, Nitro construye tanto el cliente SPA como el servidor API en `.output/`:
+Cuando ejecuta `npx @agentnative-fork/core@latest build`, Nitro construye tanto el cliente SPA como el servidor API en `.output/`:
 
 ```an-file-tree title="Salida de compilación"
 {
@@ -95,7 +95,7 @@ El resultado es autónomo: copie `.output/` a cualquier entorno y ejecútelo.
 De forma predeterminada, Nitro se compila para Node.js. Para apuntar a una plataforma diferente, configure el ajuste preestablecido en su `vite.config.ts`:
 
 ```ts
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -106,7 +106,7 @@ export default defineConfig({
 O utilice la variable de entorno `NITRO_PRESET` en el momento de la compilación:
 
 ```bash
-NITRO_PRESET=netlify npx @agent-native/core@latest build
+NITRO_PRESET=netlify npx @agentnative-fork/core@latest build
 ```
 
 ## Node.js (predeterminado) {#nodejs}
@@ -114,7 +114,7 @@ NITRO_PRESET=netlify npx @agent-native/core@latest build
 El valor predeterminado predeterminado. Construir y ejecutar:
 
 ```bash
-npx @agent-native/core@latest build
+npx @agentnative-fork/core@latest build
 node .output/server/index.mjs
 ```
 
@@ -163,13 +163,13 @@ vercel deploy
 Para un espacio de trabajo, cree cada aplicación en un paquete Vercel Build Output API:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
 Para implementaciones de Vercel Git, configure el comando de compilación en:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 La compilación del espacio de trabajo copia la salida Nitro `vercel` de cada aplicación en la raíz `.vercel/output`, le da a cada función su propio entorno de ruta de montaje y escribe la configuración de ruta que sirve a las aplicaciones en `/<app-id>`.
@@ -190,7 +190,7 @@ export default defineConfig({
 Para un espacio de trabajo, implemente todas las aplicaciones desde un sitio de Netlify ejecutando:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 La compilación del espacio de trabajo escribe recursos estáticos en `dist/_workspace_static/` y enruta cada aplicación a su propia función Netlify sin redirecciones forzadas de activos, por lo que archivos como `/mail/assets/...` se sirven estáticamente antes de que la función del servidor maneje las rutas de las aplicaciones.
@@ -230,7 +230,7 @@ export default defineConfig({
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PORT`                      | Puerto del servidor (solo Node.js)                                                                                                                                                    |
 | `NITRO_PRESET`              | Anular el valor preestablecido de compilación en el momento de la compilación                                                                                                         |
-| `APP_BASE_PATH`             | Monte la aplicación bajo un prefijo (por ejemplo, `/mail`). Establecido automáticamente por `npx @agent-native/core@latest deploy`; déjelo sin configurar para que sea independiente. |
+| `APP_BASE_PATH`             | Monte la aplicación bajo un prefijo (por ejemplo, `/mail`). Establecido automáticamente por `npx @agentnative-fork/core@latest deploy`; déjelo sin configurar para que sea independiente. |
 | `AGENT_PROD_CODE_EXECUTION` | Modo de ejecución de código de producción opcional: `off` (predeterminado), `sandboxed` o `trusted`. Ver [Production Code Execution](#production-code-execution).                     |
 
 Las variables de conexión de la base de datos (`DATABASE_URL`, `DATABASE_AUTH_TOKEN`, `<APP_NAME>_DATABASE_URL` por aplicación) se encuentran en [Database](/docs/database#production).

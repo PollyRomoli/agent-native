@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
 import { eq } from "drizzle-orm";
-import { AGENT_NATIVE_DEFAULT_SOCIAL_IMAGE } from "@agent-native/core/shared";
+import { AGENT_NATIVE_DEFAULT_SOCIAL_IMAGE } from "@agentnative-fork/core/shared";
 import { getDb, schema } from "../db/index.js";
 import {
   clipsShareDescription,

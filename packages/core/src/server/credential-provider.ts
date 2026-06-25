@@ -862,14 +862,66 @@ export async function deleteBuilderCredentials(
 // (KVesta Space, 2026-04).
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Credential mode — platform / BYOK / platform-with-override
+// ---------------------------------------------------------------------------
+
+export type CredentialMode = "byok" | "platform" | "platform-with-override";
+
+let _credentialMode: CredentialMode = "byok";
+let _platformCredentialResolver: ((key: string) => Promise<string | null>) | null = null;
+
+export function setCredentialMode(mode: CredentialMode): void {
+  _credentialMode = mode;
+}
+
+export function getCredentialMode(): CredentialMode {
+  return _credentialMode;
+}
+
+export function setPlatformCredentialResolver(
+  fn: ((key: string) => Promise<string | null>) | null,
+): void {
+  _platformCredentialResolver = fn;
+}
+
+async function resolvePlatformCredential(key: string): Promise<string | null> {
+  if (_platformCredentialResolver) {
+    return _platformCredentialResolver(key);
+  }
+  const envKey = `PLATFORM_${key}`;
+  return process.env[envKey] || process.env[key] || null;
+}
+
+// ---------------------------------------------------------------------------
+// Request-scoped secret resolution
+// ---------------------------------------------------------------------------
+
 /**
  * Resolve a request-scoped secret. Reads from `app_secrets` first (current
  * user override, active org, then workspace row); falls back to `process.env`
  * only when the deploy fallback policy allows it.
+ *
+ * When credential mode is set to `"platform"`, user/org secrets are skipped
+ * entirely and the platform credential resolver is used instead. When set to
+ * `"platform-with-override"`, user/org secrets are checked first, then the
+ * platform resolver is used as a fallback.
  */
 export async function resolveSecret(key: string): Promise<string | null> {
   const traceLookup = shouldTraceCredentialResolve();
   const email = getRequestUserEmail();
+
+  // Platform-only mode: skip user/org secrets entirely.
+  if (_credentialMode === "platform") {
+    const platformValue = await resolvePlatformCredential(key);
+    if (traceLookup) {
+      console.log(
+        `[resolve-secret] key=${key} mode=platform email=${email ?? "(none)"} hit=${!!platformValue}`,
+      );
+    }
+    return platformValue;
+  }
+
   if (email) {
     try {
       const { readAppSecret } = await import("../secrets/storage.js");
@@ -961,7 +1013,30 @@ export async function resolveSecret(key: string): Promise<string | null> {
         `[resolve-secret] key=${key} email=${email} orgId=${getRequestOrgId() ?? "(none)"} scope=${envFallback ? "env-fallback" : "none"} hit=${!!envFallback}`,
       );
     }
+    // Platform-with-override: fall back to platform credentials before
+    // giving up entirely.
+    if (_credentialMode === "platform-with-override") {
+      const platformValue = await resolvePlatformCredential(key);
+      if (platformValue) {
+        if (traceLookup) {
+          console.log(
+            `[resolve-secret] key=${key} email=${email} scope=platform-override hit=true`,
+          );
+        }
+        return platformValue;
+      }
+    }
     return envFallback;
+  }
+  // Platform-with-override in unauthenticated context: use platform resolver.
+  if (_credentialMode === "platform-with-override") {
+    const platformValue = await resolvePlatformCredential(key);
+    if (traceLookup) {
+      console.log(
+        `[resolve-secret] key=${key} mode=platform-override email=(none) hit=${!!platformValue}`,
+      );
+    }
+    return platformValue;
   }
   // Unauthenticated / local-dev / CLI / background context: env fallback
   // is safe because there's no user to mis-identify.

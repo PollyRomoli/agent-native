@@ -10,9 +10,9 @@ type Command = "add" | "list" | "help";
 type InstructionTarget = "agents" | "claude";
 
 export const MANAGED_BLOCK_START =
-  "<!-- BEGIN @agent-native/skills managed block -->";
+  "<!-- BEGIN @agentnative-fork/skills managed block -->";
 export const MANAGED_BLOCK_END =
-  "<!-- END @agent-native/skills managed block -->";
+  "<!-- END @agentnative-fork/skills managed block -->";
 
 export const HELP = `skills
 
@@ -676,7 +676,7 @@ function buildManagedBlock(input: {
   return `${MANAGED_BLOCK_START}
 ## Installed Agent Skills
 
-This block is managed by \`@agent-native/skills\`. Re-run the installer to update
+This block is managed by \`@agentnative-fork/skills\`. Re-run the installer to update
 it.
 
 Source: \`${input.source}\`

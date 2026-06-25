@@ -76,7 +76,7 @@ patterns live in `.agents/skills/`.
 ## App-Backed Skill Distribution
 
 - The preferred hosted install path is
-  `npx @agent-native/core@latest skills add design-exploration` (or `design`).
+  `npx @agentnative-fork/core@latest skills add design-exploration` (or `design`).
   It installs the exported Design exploration instructions and registers the
   hosted Design MCP connector together.
 - The open Skills CLI path

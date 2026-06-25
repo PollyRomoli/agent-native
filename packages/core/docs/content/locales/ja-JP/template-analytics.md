@@ -80,7 +80,7 @@ description: "わかりやすい英語で分析に関する質問をし、グラ
 CLI から新しい分析アプリを作成します:
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 ローカル開発者:
@@ -162,7 +162,7 @@ GCP コンソール → API とサービス → 認証情報 → OAuth クライ
 
 コア テーブル (`templates/analytics/server/db/schema.ts` を参照):
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ GCP コンソール → API とサービス → 認証情報 → OAuth クライ
 }
 ```
 
-さらに、`@agent-native/core/org` によって提供されるリソースごとの共有テーブル (`dashboard_shares`、`analysis_shares`) と組織テーブル (`organizations`、`org_members`、`org_invitations`)。データ ディクショナリは、スコープ付きキーの下のフレームワークの `settings` テーブルに存在します。
+さらに、`@agentnative-fork/core/org` によって提供されるリソースごとの共有テーブル (`dashboard_shares`、`analysis_shares`) と組織テーブル (`organizations`、`org_members`、`org_invitations`)。データ ディクショナリは、スコープ付きキーの下のフレームワークの `settings` テーブルに存在します。
 
 - **`dashboards`** — Explorer と SQL の両方のダッシュボード。 `kind` は `"explorer"` または `"sql"` です。 `config` は、`SqlDashboardConfig` に一致する JSON BLOB です。
 - **`dashboard_shares`** — リソースごとの共有付与 (プリンシパル、ロール)。
@@ -222,7 +222,7 @@ GCP コンソール → API とサービス → 認証情報 → OAuth クライ
 - **`analysis_shares`** — 分析に対するリソースごとの共有の許可。
 - **`bigquery_cache`** — バイト処理アカウンティングを使用した SQL ハッシュをキーとするクエリ結果キャッシュ。
 
-さらに、`@agent-native/core/org` によって提供される組織テーブル (`organizations`、`org_members`、`org_invitations`)。
+さらに、`@agentnative-fork/core/org` によって提供される組織テーブル (`organizations`、`org_members`、`org_invitations`)。
 
 データ ディクショナリは、スコープ付きキーの下のフレームワークの `settings` テーブルに存在します。完全な形状については、`list-data-dictionary` および `save-data-dictionary-entry` actions を参照してください。
 

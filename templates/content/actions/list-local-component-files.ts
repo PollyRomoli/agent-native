@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getLocalArtifactApp } from "@agent-native/core/local-artifacts";
+import { defineAction } from "@agentnative-fork/core";
+import { getLocalArtifactApp } from "@agentnative-fork/core/local-artifacts";
 import { z } from "zod";
 import {
   isLocalComponentAccessError,

@@ -1,4 +1,4 @@
-# @agent-native/pinpoint
+# @agentnative-fork/pinpoint
 
 Visual feedback and annotation tool for web applications. Users select UI elements, add feedback, and send structured context to any AI agent.
 
@@ -11,13 +11,13 @@ Instructions for an AI agent (Builder.io, Claude Code, Codex, Cursor, etc.) to a
 ### Step 1: Install
 
 ```sh
-pnpm add @agent-native/pinpoint
+pnpm add @agentnative-fork/pinpoint
 ```
 
 ### Step 2: Initialize agent actions and skill
 
 ```sh
-npx @agent-native/pinpoint@latest init
+npx @agentnative-fork/pinpoint@latest init
 ```
 
 This copies agent actions to `actions/` and the Pinpoint skill to `.agents/skills/pinpoint/`. No manual file copying needed.
@@ -27,7 +27,7 @@ This copies agent actions to `actions/` and the Pinpoint skill to `.agents/skill
 Find the root React component (typically `app/App.tsx` or `src/App.tsx`). Add the `<Pinpoint />` component:
 
 ```tsx
-import { Pinpoint } from "@agent-native/pinpoint/react";
+import { Pinpoint } from "@agentnative-fork/pinpoint/react";
 
 // Add as a sibling to your app root — renders nothing, mounts overlay in Shadow DOM
 <Pinpoint author="User" endpoint="/api/pins" autoSubmit colorScheme="auto" />;
@@ -36,7 +36,7 @@ import { Pinpoint } from "@agent-native/pinpoint/react";
 If the app is not React-based, use the imperative API:
 
 ```ts
-import { mountPinpoint } from "@agent-native/pinpoint";
+import { mountPinpoint } from "@agentnative-fork/pinpoint";
 mountPinpoint({ author: "User", endpoint: "/api/pins", autoSubmit: true });
 ```
 
@@ -45,7 +45,7 @@ mountPinpoint({ author: "User", endpoint: "/api/pins", autoSubmit: true });
 Find the Express server setup (typically `server/index.ts`). Add the pin routes:
 
 ```ts
-import { pagePinRoutes } from "@agent-native/pinpoint/server";
+import { pagePinRoutes } from "@agentnative-fork/pinpoint/server";
 
 // Add before your page routes
 app.use("/api/pins", pagePinRoutes());
@@ -91,7 +91,7 @@ Pins are stored as individual JSON files in `data/pins/{uuid}.json`:
 - `selector` — CSS selector to find the element in the DOM
 - `comment` — what the user wants changed
 
-**Agent commands** (available after `npx @agent-native/pinpoint@latest init`):
+**Agent commands** (available after `npx @agentnative-fork/pinpoint@latest init`):
 
 - `pnpm action get-pins --status open` — list unresolved pins
 - `pnpm action resolve-pin --id <uuid>` — mark as resolved after fixing
@@ -120,9 +120,9 @@ Pins are stored as individual JSON files in `data/pins/{uuid}.json`:
 ## Install
 
 ```sh
-pnpm add @agent-native/pinpoint
+pnpm add @agentnative-fork/pinpoint
 # or
-npm install @agent-native/pinpoint
+npm install @agentnative-fork/pinpoint
 ```
 
 ## Quick Start
@@ -130,7 +130,7 @@ npm install @agent-native/pinpoint
 ### React
 
 ```tsx
-import { Pinpoint } from "@agent-native/pinpoint/react";
+import { Pinpoint } from "@agentnative-fork/pinpoint/react";
 
 function App() {
   return (
@@ -145,7 +145,7 @@ function App() {
 ### Vanilla JS / Script Tag
 
 ```html
-<script src="https://unpkg.com/@agent-native/pinpoint/dist/index.browser.js"></script>
+<script src="https://unpkg.com/@agentnative-fork/pinpoint/dist/index.browser.js"></script>
 <script>
   Pinpoint.mountPinpoint({ author: "Designer" });
 </script>
@@ -154,7 +154,7 @@ function App() {
 ### Imperative API (Non-React)
 
 ```ts
-import { mountPinpoint } from "@agent-native/pinpoint";
+import { mountPinpoint } from "@agentnative-fork/pinpoint";
 
 const { dispose } = mountPinpoint({
   author: "Designer",
@@ -168,13 +168,13 @@ const { dispose } = mountPinpoint({
 ### 1. Install
 
 ```sh
-pnpm add @agent-native/pinpoint
+pnpm add @agentnative-fork/pinpoint
 ```
 
 ### 2. Initialize
 
 ```sh
-npx @agent-native/pinpoint@latest init
+npx @agentnative-fork/pinpoint@latest init
 ```
 
 Copies agent actions to `actions/` and the Pinpoint skill to `.agents/skills/pinpoint/`.
@@ -183,7 +183,7 @@ Copies agent actions to `actions/` and the Pinpoint skill to `.agents/skills/pin
 
 ```tsx
 // app/App.tsx
-import { Pinpoint } from "@agent-native/pinpoint/react";
+import { Pinpoint } from "@agentnative-fork/pinpoint/react";
 
 function App() {
   return (
@@ -204,8 +204,8 @@ function App() {
 
 ```ts
 // server/index.ts
-import { createServer } from "@agent-native/core/server";
-import { pagePinRoutes } from "@agent-native/pinpoint/server";
+import { createServer } from "@agentnative-fork/core/server";
+import { pagePinRoutes } from "@agentnative-fork/pinpoint/server";
 
 const app = createServer({
   /* ... */
@@ -249,8 +249,8 @@ All options can be passed as props to `<Pinpoint />` or as the config object to 
 ## CLI
 
 ```sh
-npx @agent-native/pinpoint@latest init   # Copy actions and skill to your project
-npx @agent-native/pinpoint@latest        # Show help
+npx @agentnative-fork/pinpoint@latest init   # Copy actions and skill to your project
+npx @agentnative-fork/pinpoint@latest        # Show help
 ```
 
 ## Keyboard Shortcuts
@@ -267,18 +267,18 @@ npx @agent-native/pinpoint@latest        # Show help
 
 | Import Path                         | What It Provides                                              |
 | ----------------------------------- | ------------------------------------------------------------- |
-| `@agent-native/pinpoint`            | `mountPinpoint()`, `unmountPinpoint()`, types                 |
-| `@agent-native/pinpoint/react`      | `<Pinpoint />` React component                                |
-| `@agent-native/pinpoint/server`     | `pagePinRoutes()` Express middleware                          |
-| `@agent-native/pinpoint/primitives` | `getElementContext()`, `freeze()`, `unfreeze()`, `openFile()` |
-| `@agent-native/pinpoint/types`      | TypeScript types (`Pin`, `PinpointConfig`, etc.)              |
+| `@agentnative-fork/pinpoint`            | `mountPinpoint()`, `unmountPinpoint()`, types                 |
+| `@agentnative-fork/pinpoint/react`      | `<Pinpoint />` React component                                |
+| `@agentnative-fork/pinpoint/server`     | `pagePinRoutes()` Express middleware                          |
+| `@agentnative-fork/pinpoint/primitives` | `getElementContext()`, `freeze()`, `unfreeze()`, `openFile()` |
+| `@agentnative-fork/pinpoint/types`      | TypeScript types (`Pin`, `PinpointConfig`, etc.)              |
 
 ## Server Middleware
 
 Express middleware for pin CRUD:
 
 ```ts
-import { pagePinRoutes } from "@agent-native/pinpoint/server";
+import { pagePinRoutes } from "@agentnative-fork/pinpoint/server";
 
 app.use("/api/pins", pagePinRoutes({ dataDir: "data/pins" }));
 ```
@@ -294,7 +294,7 @@ app.use("/api/pins", pagePinRoutes({ dataDir: "data/pins" }));
 
 ## Agent Actions
 
-Available after running `npx @agent-native/pinpoint@latest init`:
+Available after running `npx @agentnative-fork/pinpoint@latest init`:
 
 | Action          | Purpose              | Args                                   |
 | --------------- | -------------------- | -------------------------------------- |
@@ -316,7 +316,7 @@ import {
   unfreeze,
   openFile,
   detectFramework,
-} from "@agent-native/pinpoint/primitives";
+} from "@agentnative-fork/pinpoint/primitives";
 
 const context = getElementContext(document.querySelector(".sidebar"));
 
@@ -329,7 +329,7 @@ openFile("src/components/Sidebar.tsx", 42); // Open in editor
 ## Plugin System
 
 ```ts
-import type { Plugin } from "@agent-native/pinpoint/types";
+import type { Plugin } from "@agentnative-fork/pinpoint/types";
 
 const myPlugin: Plugin = {
   name: "analytics",
@@ -363,7 +363,7 @@ Expose pins to external agents via A2A or MCP:
 import {
   registerPinpointA2A,
   createPinpointMCPTools,
-} from "@agent-native/pinpoint/server";
+} from "@agentnative-fork/pinpoint/server";
 
 registerPinpointA2A(app); // /.well-known/agent-card.json
 
@@ -388,7 +388,7 @@ const { tools, handleTool } = createPinpointMCPTools(); // MCP tool handlers
 
 ## Builder.io Integration
 
-Inside [Builder.io's Fusion](https://builder.io), annotations are sent via `sendToAgentChat()` from `@agent-native/core`:
+Inside [Builder.io's Fusion](https://builder.io), annotations are sent via `sendToAgentChat()` from `@agentnative-fork/core`:
 
 ```tsx
 <Pinpoint author="Builder User" autoSubmit outputFormat="standard" />

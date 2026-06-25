@@ -13,7 +13,7 @@ search: "harness代理AgentHarness ai-sdk HarnessAgent Claude代码Codex Pi Curs
 线束代理是一个完整的代理运行时 - Claude 代码、Codex、Pi 等 -
 拥有自己的循环、工作区、本机文件工具、会话状态、压缩，
 审批模型和沙箱行为。 Agent-Native 通过
-**`AgentHarness`** `@agent-native/core/agent/harness` 中的基质，流式传输它们
+**`AgentHarness`** `@agentnative-fork/core/agent/harness` 中的基质，流式传输它们
 将事件放入正常的记录中，并保留其本机会话，以便成为一个线程
 可以暂停和恢复。
 
@@ -25,7 +25,7 @@ search: "harness代理AgentHarness ai-sdk HarnessAgent Claude代码Codex Pi Curs
 
 ```an-diagram title="安全带拥有它的环； Agent-Native 驱动会话" summary="AgentHarness 底层 creates/resumes 本机会话，将其事件流式传输到正常转录本中，并在轮次之间将恢复状态保留在 SQL 中。"
 {
-  "html": "<div class=\"diagram-harness\"><div class=\"diagram-box\" data-rough><strong>AgentHarness substrate</strong><small class=\"diagram-muted\">@agent-native/core/agent/harness</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-panel center\" data-rough><strong>Native harness loop</strong><small class=\"diagram-muted\">Claude Code · Codex · Pi — own tools, sandbox, compaction</small></div><div class=\"diagram-col\"><div class=\"diagram-pill accent\">events &rarr; transcript</div><div class=\"diagram-pill ok\">resumeState &rarr; SQL session</div></div></div>",
+  "html": "<div class=\"diagram-harness\"><div class=\"diagram-box\" data-rough><strong>AgentHarness substrate</strong><small class=\"diagram-muted\">@agentnative-fork/core/agent/harness</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-panel center\" data-rough><strong>Native harness loop</strong><small class=\"diagram-muted\">Claude Code · Codex · Pi — own tools, sandbox, compaction</small></div><div class=\"diagram-col\"><div class=\"diagram-pill accent\">events &rarr; transcript</div><div class=\"diagram-pill ok\">resumeState &rarr; SQL session</div></div></div>",
   "css": ".diagram-harness{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.diagram-harness .diagram-col{display:flex;flex-direction:column;gap:8px}.diagram-harness .diagram-arrow{font-size:22px;line-height:1}.diagram-harness .center{display:flex;flex-direction:column;align-items:center;gap:4px}"
 }
 ```
@@ -92,7 +92,7 @@ Agent-Native可以充当[ACP](https://agentclientprotocol.com)（代理客户端
 import {
   registerBuiltinAgentHarnesses,
   resolveAgentHarness,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 registerBuiltinAgentHarnesses();
 
@@ -138,7 +138,7 @@ it) 并写入发出 `file-change` 事件；终端方法未公布，
   改为验证。
 
 因此，如果有人询问哪个包带有 Codex OAuth 路径：用于本地编码
-会话，使用`@agent-native/core` /桌面加上已安装的
+会话，使用`@agentnative-fork/core` /桌面加上已安装的
 `@openai/codex` CLI 和 `codex login`。对于沙盒 `ai-sdk-harness:codex`，
 将登录信息复制到沙箱时使用显式 `codexCliAuth` 选择加入
 可以接受。
@@ -160,7 +160,7 @@ const adapter = resolveAgentHarness("ai-sdk-harness:codex", {
 import {
   registerBuiltinAgentHarnesses,
   resolveAgentHarness,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 registerBuiltinAgentHarnesses();
 const adapter = resolveAgentHarness("ai-sdk-harness:codex");
@@ -181,7 +181,7 @@ turn，将每个线束事件转换为转录事件，并分离
 回合完成时可恢复状态。
 
 ```ts
-import { startAgentHarnessRun } from "@agent-native/core/agent/harness";
+import { startAgentHarnessRun } from "@agentnative-fork/core/agent/harness";
 
 const run = startAgentHarnessRun({
   runId,
@@ -224,7 +224,7 @@ const run = startAgentHarnessRun({
 import {
   getLatestAgentHarnessSessionForThread,
   listAgentHarnessSessions,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 const last = await getLatestAgentHarnessSessionForThread(threadId);
 // Feed last?.resumeState into createSession.resumeState on the next turn.
@@ -290,7 +290,7 @@ Harness 将项目运行到共享的 `BackgroundAgentRun` 形状中
 import {
   registerAgentHarness,
   type AgentHarnessAdapter,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 const myHarness: AgentHarnessAdapter = {
   name: "acme:my-coder",

@@ -23,9 +23,9 @@ import {
   vi,
 } from "vitest";
 import * as planSchema from "../server/db/schema.js";
-import { registerShareableResource } from "@agent-native/core/sharing";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
-import { resolveOrgIdForEmail } from "@agent-native/core/org";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
+import { resolveOrgIdForEmail } from "@agentnative-fork/core/org";
 
 let client: Client;
 let db: LibSQLDatabase<typeof planSchema>;
@@ -44,9 +44,9 @@ vi.mock("../server/lib/local-plan-files.js", () => ({
   localPlansDir: () => "/tmp/plans-test",
   localPlanFolder: (id: string) => `/tmp/plans-test/${id}`,
 }));
-vi.mock("@agent-native/core/org", async (importOriginal) => {
+vi.mock("@agentnative-fork/core/org", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("@agent-native/core/org")>();
+    await importOriginal<typeof import("@agentnative-fork/core/org")>();
   return {
     ...actual,
     resolveOrgIdForEmail: vi.fn(async () => null),

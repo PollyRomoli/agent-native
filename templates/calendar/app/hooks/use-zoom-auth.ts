@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { agentNativePath, oauthRedirectUri } from "@agent-native/core/client";
+import { agentNativePath, oauthRedirectUri } from "@agentnative-fork/core/client";
 
 export interface ZoomAuthStatus {
   connected: boolean;

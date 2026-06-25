@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router";
-import { useActionQuery, useT } from "@agent-native/core/client";
+import { useActionQuery, useT } from "@agentnative-fork/core/client";
 import {
   IconBook2,
   IconCircleCheck,

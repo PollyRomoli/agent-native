@@ -1,4 +1,4 @@
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 import type { DesignSystemData } from "../../shared/api";
 
 const DEFAULT_DESIGN_SYSTEM: DesignSystemData = {

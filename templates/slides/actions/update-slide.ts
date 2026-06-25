@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { notifyClients } from "../server/handlers/decks.js";
 import { getDb, schema } from "../server/db/index.js"; // ensure registerShareableResource runs

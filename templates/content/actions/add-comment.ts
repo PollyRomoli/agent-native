@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail } from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
 

@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { setKnowledgeCanonicalResource } from "../server/lib/brain.js";
 import { booleanishSchema } from "./_schemas.js";

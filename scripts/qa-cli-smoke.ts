@@ -187,15 +187,15 @@ function assertWorkspaceApp(
   assertScaffoldBasics(appDir);
   const pkg = readJson(path.join(appDir, "package.json"));
   assert.equal(pkg.name, appName);
-  assert.equal(pkg.dependencies["@agent-native/core"], coreDependencyVersion);
+  assert.equal(pkg.dependencies["@agentnative-fork/core"], coreDependencyVersion);
   assert.equal(pkg.dependencies[workspaceCoreName], "workspace:*");
 }
 
 function assertDispatchPackageDependency(pkg: any, context: string): void {
   assert.equal(
-    pkg.dependencies["@agent-native/dispatch"],
+    pkg.dependencies["@agentnative-fork/dispatch"],
     "latest",
-    `${context} must resolve @agent-native/dispatch from npm`,
+    `${context} must resolve @agentnative-fork/dispatch from npm`,
   );
 }
 
@@ -231,7 +231,7 @@ try {
   const appDir = path.join(tmpDir, "qa-cli-app");
   const pkg = readJson(path.join(appDir, "package.json"));
   assert.equal(pkg.name, "qa-cli-app");
-  assert.equal(pkg.dependencies["@agent-native/core"], coreDependencyVersion);
+  assert.equal(pkg.dependencies["@agentnative-fork/core"], coreDependencyVersion);
   assertNoWorkspaceProtocolDeps(pkg);
   assertScaffoldBasics(appDir);
 
@@ -248,7 +248,7 @@ try {
   const dispatchPkg = readJson(path.join(dispatchDir, "package.json"));
   assert.equal(dispatchPkg.name, "qa-dispatch-app");
   assert.equal(
-    dispatchPkg.dependencies["@agent-native/core"],
+    dispatchPkg.dependencies["@agentnative-fork/core"],
     coreDependencyVersion,
   );
   assertNoWorkspaceProtocolDeps(dispatchPkg);
@@ -282,7 +282,7 @@ try {
   assert.equal(
     fs.existsSync(path.join(workspaceDir, "packages", "scheduling")),
     true,
-    "calendar workspace scaffold must copy @agent-native/scheduling",
+    "calendar workspace scaffold must copy @agentnative-fork/scheduling",
   );
   assert.equal(
     fs.existsSync(path.join(workspaceDir, "packages", "shared")),

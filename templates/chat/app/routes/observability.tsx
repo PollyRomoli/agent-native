@@ -1,4 +1,4 @@
-import { ObservabilityDashboard, useT } from "@agent-native/core/client";
+import { ObservabilityDashboard, useT } from "@agentnative-fork/core/client";
 import { useSetPageTitle } from "@/components/layout/HeaderActions";
 
 export function meta() {

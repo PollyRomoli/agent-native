@@ -151,7 +151,7 @@ Informationen zum Ressourcenmodell und zu den kanonischen Pfaden finden Sie unte
 
 ## Setup-Checkliste
 
-Für einen neuen Arbeitsbereich nach dem Ausführen von `npx @agent-native/core@latest create`:
+Für einen neuen Arbeitsbereich nach dem Ausführen von `npx @agentnative-fork/core@latest create`:
 
 **Git & GitHub:**
 

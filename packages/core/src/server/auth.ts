@@ -82,6 +82,7 @@ import {
   getOnboardingHtml,
   getResetPasswordHtml,
   type OnboardingHtmlOptions,
+  type ThemeConfig,
 } from "./onboarding-html.js";
 import type { GoogleAuthMode } from "./google-auth-mode.js";
 import { readBody } from "../server/h3-helpers.js";
@@ -283,6 +284,13 @@ export interface AuthOptions {
    * Additional Better Auth configuration (social providers, plugins, etc.)
    */
   betterAuth?: BetterAuthConfig;
+  /**
+   * Theme configuration for white-labeling the built-in login page.
+   * Overrides hardcoded Agent-Native branding (logo, colors, fonts,
+   * terms/privacy URLs, social image, favicon). Has no effect when
+   * `loginHtml` is provided.
+   */
+  theme?: ThemeConfig;
 }
 
 // ---------------------------------------------------------------------------
@@ -1021,6 +1029,7 @@ function getOnboardingHtmlOptions(
     googleSignInNotice: options.googleSignInNotice,
     signupLegalNotice: options.signupLegalNotice,
     googleAuthMode: options.googleAuthMode,
+    theme: options.theme,
     requestHost: event ? getRequestHost(event) : undefined,
     requestPath: rawPath,
     requestOrigin: event ? getOrigin(event) : undefined,

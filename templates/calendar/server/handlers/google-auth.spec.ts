@@ -29,7 +29,7 @@ vi.mock("h3", () => ({
   setResponseStatus: mocks.setResponseStatus,
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   createOAuthSession: mocks.createOAuthSession,
   decodeOAuthState: mocks.decodeOAuthState,
   encodeOAuthState: mocks.encodeOAuthState,
@@ -57,7 +57,7 @@ vi.mock("@agent-native/core/server", () => ({
   setDesktopExchangeError: mocks.setDesktopExchangeError,
 }));
 
-vi.mock("@agent-native/core/oauth-tokens", () => ({
+vi.mock("@agentnative-fork/core/oauth-tokens", () => ({
   OAuthAccountOwnedByOtherUserError: class OAuthAccountOwnedByOtherUserError extends Error {
     accountId?: string;
     attemptedOwner?: string;

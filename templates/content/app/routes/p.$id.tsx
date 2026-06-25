@@ -4,12 +4,12 @@ import { eq } from "drizzle-orm";
 import { getDb, schema } from "../../server/db";
 import { useEffect, useState } from "react";
 import { IconLock, IconMessageCircle } from "@tabler/icons-react";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import {
   getConfiguredAppBasePath,
   getRequestUserEmail,
-} from "@agent-native/core/server";
-import { resolveAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import { VisualEditor } from "@/components/editor/VisualEditor";
 import { buildPublicDocumentDescription } from "@shared/og-description";
 

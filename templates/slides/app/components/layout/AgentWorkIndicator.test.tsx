@@ -8,9 +8,9 @@ import {
   screen,
   waitFor,
 } from "@testing-library/react";
-import { focusAgentChat } from "@agent-native/core/client";
+import { focusAgentChat } from "@agentnative-fork/core/client";
 
-vi.mock("@agent-native/core/client", () => ({
+vi.mock("@agentnative-fork/core/client", () => ({
   focusAgentChat: vi.fn(),
 }));
 

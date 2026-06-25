@@ -27,7 +27,7 @@ Déposez un fichier `*.eval.ts` n'importe où dans l'application (ou un fichier 
 
 ```ts
 // evals/greeting.eval.ts
-import { defineEval, contains, llmJudge } from "@agent-native/core/eval";
+import { defineEval, contains, llmJudge } from "@agentnative-fork/core/eval";
 
 export default defineEval({
   name: "greets the user by name",
@@ -65,7 +65,7 @@ interface AgentRunOutput {
 
 ## Buteurs intégrés {#built-in}
 
-Importé depuis `@agent-native/core/eval` :
+Importé depuis `@agentnative-fork/core/eval` :
 
 | Buteur                   | Note                                                                          | Modèle ? |
 | ------------------------ | ----------------------------------------------------------------------------- | -------- |
@@ -97,7 +97,7 @@ generateReason(...) → string     human-readable why (optional)
 `preprocess` et `analyze` sont par défaut l'identité (le marqueur voit le `AgentRunOutput` brut). L'étape `analyze` reçoit un `ctx` avec un assistant `judge()` indépendant du fournisseur pour la notation basée sur LLM :
 
 ```ts
-import { createScorer, clamp01 } from "@agent-native/core/eval";
+import { createScorer, clamp01 } from "@agentnative-fork/core/eval";
 
 // A scorer that rewards short, tool-using answers.
 const concise = createScorer({

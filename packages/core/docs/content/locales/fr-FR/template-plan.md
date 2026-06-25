@@ -53,7 +53,7 @@ le flux d'authentification/configuration spécifique au client en une seule éta
 frapper un mur OAuth :
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 La commande installe les deux commandes : `/visual-plan` et `/visual-recap`.
@@ -78,15 +78,15 @@ Par défaut, le CLI cible tous les clients locaux pris en charge qu'il peut conf
 vous souhaitez limiter la configuration à un seul hôte :
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 Passez `--no-connect` pour enregistrer le connecteur sans vous authentifier, puis exécutez
-`npx @agent-native/core@latest connect https://plan.agent-native.com --client all`
+`npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client all`
 quand vous êtes prêt, ou choisissez un `--client` plus étroit :
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --no-connect
+npx @agentnative-fork/core@latest skills add visual-plan --no-connect
 ```
 
 Pour générer automatiquement un récapitulatif sur **chaque demande d'extraction**, transmettez `--with-github-action`.
@@ -95,11 +95,11 @@ publie un plan récapitulatif interactif avec une capture d'écran en ligne comm
 voir [PR Visual Recap](/docs/pr-visual-recap).
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --with-github-action
+npx @agentnative-fork/core@latest skills add visual-plan --with-github-action
 ```
 
-Une fois le workflow écrit, exécutez `npx @agent-native/core@latest recap setup` pour configurer
-GitHub Actions secrets/variables lorsque cela est possible et `npx @agent-native/core@latest recap doctor`
+Une fois le workflow écrit, exécutez `npx @agentnative-fork/core@latest recap setup` pour configurer
+GitHub Actions secrets/variables lorsque cela est possible et `npx @agentnative-fork/core@latest recap doctor`
 pour vérifier que le dépôt est prêt.
 
 Si vous souhaitez uniquement le fichier d'instructions portable via le Skills CLI ouvert, utilisez :
@@ -231,8 +231,8 @@ Après avoir écrit le dossier, l'agent démarre un petit pont localhost et ouvr
 Plan UI hébergé sur cette source locale uniquement :
 
 ```bash
-npx @agent-native/core@latest plan local check --dir plans/<slug>
-npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --open
+npx @agentnative-fork/core@latest plan local check --dir plans/<slug>
+npx @agentnative-fork/core@latest plan local serve --dir plans/<slug> --kind plan --open
 ```
 
 Le pont URL ressemble à
@@ -251,7 +251,7 @@ Page Plan HTTPS à partir de la récupération d'un pont hôte local HTTP. Pour 
 dépannage, exécutez :
 
 ```bash
-npx @agent-native/core@latest plan local verify --dir plans/<slug> --kind plan
+npx @agentnative-fork/core@latest plan local verify --dir plans/<slug> --kind plan
 ```
 
 `verify` démarre le pont, vérifie le contrôle en amont du réseau privé et JSON
@@ -355,7 +355,7 @@ touchez les fichiers locaux.
 
 Si un outil Plans renvoie jamais `needs auth`, `Unauthorized` ou `Session
 terminated`, ne réessayez pas. Authentifier le connecteur avec
-`npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex`
+`npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex`
 pour Codex, ou réexécutez `/mcp` → **Authentifier** sur un hôte compatible OAuth. Démarrer un
 nouveau thread Codex ou redémarrez/rechargez le client concerné avant d'attendre l'outil
 registre à mettre à jour.
@@ -368,7 +368,7 @@ La plupart des utilisateurs devraient installer la compétence avec le CLI au li
 ### Démarrage rapide
 
 ```bash
-npx @agent-native/core@latest create my-plans --standalone --template plan
+npx @agentnative-fork/core@latest create my-plans --standalone --template plan
 cd my-plans
 pnpm install
 pnpm dev
@@ -502,7 +502,7 @@ import { z } from "zod";
 import {
   markdown,
   type BlockMdxConfig,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 
 export type RiskCardSeverity = "low" | "medium" | "high";
 
@@ -554,7 +554,7 @@ import {
   defineBlock,
   registerLibraryBlockConfigs,
   registerBlocks,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 import {
   riskCardMdx,
   riskCardSchema,
@@ -591,7 +591,7 @@ import {
   registerLibraryBlocks,
   registerBlocks,
   type BlockReadProps,
-} from "@agent-native/core/blocks";
+} from "@agentnative-fork/core/blocks";
 import {
   riskCardMdx,
   riskCardSchema,

@@ -174,7 +174,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 सेट होने पर एक्सेस टोकन `A2A_SECRET` के साथ हस्ताक्षरित होते हैं, अन्यथा `BETTER_AUTH_SECRET`। वे हस्ताक्षरित उपयोगकर्ता/संगठन पहचान और `mcp:read`, `mcp:write`, और/या `mcp:apps` स्कोप रखते हैं, और सटीक MCP संसाधन URL के लिए दर्शकों से बंधे हैं। रिफ्रेश टोकन केवल हैश के रूप में संग्रहीत होते हैं और प्रत्येक रिफ्रेश पर घूमते हैं। टूल कॉल और MCP ऐप्स संसाधन रीड साइन-इन उपयोगकर्ता के समान अनुरोध संदर्भ के अंदर चलते हैं; एम्बेडेड MCP ऐप iframe को कभी भी कच्चा OAuth टोकन प्राप्त नहीं होता है।
 
-`npx @agent-native/core@latest connect <url> --client claude-code` इस मानक प्रवाह के लिए केवल URL MCP प्रविष्टि लिखता है। उन ग्राहकों के लिए जो दूरस्थ MCP OAuth नहीं कर सकते, एक स्पष्ट बियरर-टोकन प्रविष्टि लिखने के लिए कनेक्ट पेज या `npx @agent-native/core@latest connect --token <token>` फ़ॉलबैक का उपयोग करें।
+`npx @agentnative-fork/core@latest connect <url> --client claude-code` इस मानक प्रवाह के लिए केवल URL MCP प्रविष्टि लिखता है। उन ग्राहकों के लिए जो दूरस्थ MCP OAuth नहीं कर सकते, एक स्पष्ट बियरर-टोकन प्रविष्टि लिखने के लिए कनेक्ट पेज या `npx @agentnative-fork/core@latest connect --token <token>` फ़ॉलबैक का उपयोग करें।
 
 ## अपनी स्वयं की प्रामाणिकता लाएं {#byoa}
 
@@ -182,7 +182,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 ```ts
 // server/plugins/auth.ts
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   getSession: async (event) => {
@@ -250,7 +250,7 @@ interface AuthSession {
 क्लाइंट पर, `useSession()` हुक का उपयोग करें:
 
 ```ts
-import { useSession } from "@agent-native/core/client";
+import { useSession } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const { session, isLoading } = useSession();

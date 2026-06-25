@@ -1,4 +1,4 @@
-import { resolveBuilderCredential } from "@agent-native/core/server";
+import { resolveBuilderCredential } from "@agentnative-fork/core/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   listBuilderCmsModels,
@@ -6,7 +6,7 @@ import {
   readBuilderCmsModelFields,
 } from "./_builder-cms-read-client";
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   resolveBuilderCredential: vi.fn(),
 }));
 

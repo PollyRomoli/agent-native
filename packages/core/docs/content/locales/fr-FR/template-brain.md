@@ -122,7 +122,7 @@ Le reste de ce document s'adresse à toute personne qui crée ou étend le modè
 ### Démarrage rapide
 
 ```bash
-npx @agent-native/core@latest create my-brain --standalone --template brain
+npx @agentnative-fork/core@latest create my-brain --standalone --template brain
 cd my-brain
 pnpm install
 pnpm dev

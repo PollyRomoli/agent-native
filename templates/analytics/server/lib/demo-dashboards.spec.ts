@@ -74,12 +74,12 @@ const mocks = vi.hoisted(() => {
   };
 });
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getUserSetting: mocks.getUserSetting,
   putUserSetting: mocks.putUserSetting,
 }));
 
-vi.mock("@agent-native/core/collab", () => ({
+vi.mock("@agentnative-fork/core/collab", () => ({
   applyText: mocks.applyText,
   hasCollabState: mocks.hasCollabState,
   seedFromText: mocks.seedFromText,

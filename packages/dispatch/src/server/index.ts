@@ -1,7 +1,7 @@
 import {
   registerPackageActions,
   type NitroPluginDef,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import type { DispatchConfig } from "../config.js";
 import { dispatchActions } from "../actions/index.js";
 
@@ -11,7 +11,7 @@ import { dispatchActions } from "../actions/index.js";
  * directory, so consumers can still override any single action by dropping
  * a same-named file in their own `actions/`.
  *
- * Side-effect import — placing it at module top means `import "@agent-native/
+ * Side-effect import — placing it at module top means `import "@agentnative-fork/
  * dispatch/server"` is enough to wire up actions, even before `setupDispatch`
  * is called.
  */
@@ -39,23 +39,23 @@ export function getDispatchConfig(): DispatchConfig {
  *
  * ```ts
  * // server/plugins/setup-dispatch.ts
- * import { setupDispatch } from "@agent-native/dispatch/server";
+ * import { setupDispatch } from "@agentnative-fork/dispatch/server";
  * export default setupDispatch({ auth: { googleOnly: true } });
  *
  * // server/plugins/auth.ts
- * export { dispatchAuthPlugin as default } from "@agent-native/dispatch/server";
+ * export { dispatchAuthPlugin as default } from "@agentnative-fork/dispatch/server";
  *
  * // server/plugins/integrations.ts
- * export { dispatchIntegrationsPlugin as default } from "@agent-native/dispatch/server";
+ * export { dispatchIntegrationsPlugin as default } from "@agentnative-fork/dispatch/server";
  *
  * // server/plugins/agent-chat.ts
- * export { dispatchAgentChatPlugin as default } from "@agent-native/dispatch/server";
+ * export { dispatchAgentChatPlugin as default } from "@agentnative-fork/dispatch/server";
  *
  * // server/plugins/db.ts
- * export { dispatchDbPlugin as default } from "@agent-native/dispatch/server";
+ * export { dispatchDbPlugin as default } from "@agentnative-fork/dispatch/server";
  *
  * // server/plugins/core-routes.ts
- * export { dispatchCoreRoutesPlugin as default } from "@agent-native/dispatch/server";
+ * export { dispatchCoreRoutesPlugin as default } from "@agentnative-fork/dispatch/server";
  * ```
  *
  * The plugins read from the same `getDispatchConfig()` singleton this

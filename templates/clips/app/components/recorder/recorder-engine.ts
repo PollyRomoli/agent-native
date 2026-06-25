@@ -6,7 +6,7 @@
  * but no React state lives here — callers subscribe via `onState`, `onChunk`,
  * and `onError`.
  */
-import { appBasePath, captureClientException } from "@agent-native/core/client";
+import { appBasePath, captureClientException } from "@agentnative-fork/core/client";
 import {
   COMPRESS_THRESHOLD_BYTES,
   COMPRESSION_ENABLED,

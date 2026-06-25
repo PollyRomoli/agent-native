@@ -21,7 +21,7 @@
  */
 import { defineEventHandler } from "h3";
 import { and, eq, isNull } from "drizzle-orm";
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 import { getDb, schema } from "../db/index.js";
 import {
   clearGuestAuthorCookie,

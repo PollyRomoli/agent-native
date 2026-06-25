@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Settings panel
+// @agentnative-fork/pinpoint — Settings panel
 // MIT License
 
 import { type Component } from "solid-js";

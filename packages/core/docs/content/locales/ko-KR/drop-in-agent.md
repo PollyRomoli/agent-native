@@ -25,7 +25,7 @@ description: "<AgentPanel>, <AgentSidebar> 및 sendToAgentChat()을 사용하여
 | `sendToAgentChat()`   | 프로그래밍 방식으로 채팅에 메시지 보내기                                               | 인라인으로 실행하는 대신 에이전트에 직접 작업을 수행하는 버튼       |
 | `useActionMutation()` | 작업 주위의 유형 안전 프런트엔드 래퍼                                                  | UI는 에이전트 도구가 실행하는 것과 동일한 작업을 실행해야 합니다.   |
 
-이 모든 것은 `@agent-native/core/client`에서 내보내집니다.
+이 모든 것은 `@agentnative-fork/core/client`에서 내보내집니다.
 
 ```an-diagram title="마운트 모델" summary="<AgentSidebar>은 기존 레이아웃을 래핑합니다. 경로는 주요 영역에서 렌더링됩니다. 에이전트 패널이 그 옆에 마운트됩니다. <AgentPanel>은 래퍼가 없는 동일한 패널입니다."
 {
@@ -44,7 +44,7 @@ description: "<AgentPanel>, <AgentSidebar> 및 sendToAgentChat()을 사용하여
 {
   "filename": "app/root.tsx",
   "language": "tsx",
-  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agent-native/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
+  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agentnative-fork/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
   "annotations": [
     { "lines": "6", "label": "Wrapper", "note": "`<AgentSidebar>` wraps your whole layout. It adds the toggleable side panel; everything you pass as children stays in the main app area." },
     { "lines": "8-12", "label": "Starter prompts", "note": "`suggestions` render as clickable chips on the empty chat." },
@@ -73,7 +73,7 @@ description: "<AgentPanel>, <AgentSidebar> 및 sendToAgentChat()을 사용하여
 
 ```tsx
 // app/routes/agent.tsx
-import { AgentPanel } from "@agent-native/core/client";
+import { AgentPanel } from "@agentnative-fork/core/client";
 
 export default function AgentRoute() {
   return (
@@ -94,14 +94,14 @@ export default function AgentRoute() {
 - **`isFullscreen`** / **`onToggleFullscreen`** — Claude 스타일 중앙 열을 원하는 경우 외부 전체 화면 상태를 연결합니다.
 - **`storageKey`** — `localStorage` 키의 네임스페이스입니다. 동일한 페이지에서 여러 패널(다른 앱 인스턴스 또는 작업 공간)을 렌더링할 때 유용합니다.
 
-전체 소품: `@agent-native/core/client`의 `AgentPanelProps`.
+전체 소품: `@agentnative-fork/core/client`의 `AgentPanelProps`.
 
 ## 프로그래밍 메시지: `sendToAgentChat()` {#send}
 
 인라인 `llm()` 호출을 실행하는 대신 에이전트에 직접 작업을 전달하는 버튼 - [ladder](/docs/what-is-agent-native#the-ladder)의 안티 패턴:
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 <Button
   onClick={() =>
@@ -151,7 +151,7 @@ MCP 앱 브리지 동작을 위한 [Client](/docs/client#sendtoagentchat).
 로드 상태를 원하면 `useSendToAgentChat()` 후크를 사용하세요. `send`와 `isGenerating`를 모두 반환합니다.
 
 ```ts
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 
 const { send, isGenerating } = useSendToAgentChat();
 ```
@@ -186,7 +186,7 @@ const { send, isGenerating } = useSendToAgentChat();
 UI가 에이전트 도구가 실행하는 것과 동일한 작업을 실행해야 하는 경우([ladder](/docs/what-is-agent-native#rung-three)의 3번 단계) `useActionMutation`를 사용하세요.
 
 ```tsx
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 const { mutate, isPending } = useActionMutation("reply-to-email");
 
@@ -218,7 +218,7 @@ import {
   AgentSidebar,
   AgentToggleButton,
   sendToAgentChat,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export default function Root() {
   return (

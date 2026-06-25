@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Framework adapter interface and auto-detection
+// @agentnative-fork/pinpoint — Framework adapter interface and auto-detection
 // MIT License
 
 import type {

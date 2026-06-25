@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import {
   GuidedQuestionFlow,
   type GuidedQuestion,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import type { DesignSystemData, QuestionFlowQuestion } from "@shared/api";
 
 interface QuestionFlowProps {

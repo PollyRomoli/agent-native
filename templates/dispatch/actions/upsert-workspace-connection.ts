@@ -1,12 +1,12 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getWorkspaceConnectionProvider,
   type WorkspaceConnectionProvider,
-} from "@agent-native/core/connections";
+} from "@agentnative-fork/core/connections";
 import {
   upsertWorkspaceConnection,
   type WorkspaceConnectionStatus,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 import { z } from "zod";
 
 const statusSchema = z.enum([

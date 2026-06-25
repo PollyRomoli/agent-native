@@ -45,7 +45,7 @@
  *   echo-check (the client MUST verify `state` it generated) bound the
  *   replay window. We intentionally do NOT add a Dispatch-side jti store:
  *   the core MCP connect-store jti helpers are not importable from a public
- *   `@agent-native/core` subpath, and a bespoke store would be net-new
+ *   `@agentnative-fork/core` subpath, and a bespoke store would be net-new
  *   surface for a token whose window is already <=2 min and single-origin.
  *   This is documented as the chosen trade-off.
  *
@@ -70,9 +70,9 @@ import {
   createAuthPlugin,
   getH3App,
   getSession,
-} from "@agent-native/core/server";
-import { signA2AToken } from "@agent-native/core/a2a";
-import { getOrgDomain } from "@agent-native/core/org";
+} from "@agentnative-fork/core/server";
+import { signA2AToken } from "@agentnative-fork/core/a2a";
+import { getOrgDomain } from "@agentnative-fork/core/org";
 import { defineEventHandler, getMethod } from "h3";
 import type { H3Event } from "h3";
 import {

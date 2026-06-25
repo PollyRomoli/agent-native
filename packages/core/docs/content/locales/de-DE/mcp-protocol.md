@@ -165,7 +165,7 @@ Der MCP-Endpunkt unterstützt den Standard-Remote-MCP OAuth sowie den vorhandene
 | Modus                              | Wie es funktioniert                                                                                                                                 |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Standard MCP OAuth                 | Der Client erkennt die Authentifizierung von `WWW-Authenticate`, registriert sich, führt PKCE aus und sendet `Authorization: Bearer <access-token>` |
-| Connect-Minted JWT                 | `npx @agent-native/core@latest connect` / Die Connect-Seite prägt ein widerrufliches JWT pro Benutzer                                               |
+| Connect-Minted JWT                 | `npx @agentnative-fork/core@latest connect` / Die Connect-Seite prägt ein widerrufliches JWT pro Benutzer                                               |
 | `ACCESS_TOKEN`                     | Statisches Inhabertoken – Client sendet `Authorization: Bearer <token>`                                                                             |
 | `ACCESS_TOKENS`                    | Komma-getrennte Liste gültiger statischer Trägertoken                                                                                               |
 | `A2A_SECRET`                       | JWT-basierte Authentifizierung – Token werden kryptografisch überprüft                                                                              |
@@ -209,7 +209,7 @@ Zugriffstoken sind signierte JWTs, deren Zielgruppe genau die MCP-Ressource URL 
 | `mcp:write`     | Mutierung von actions und `ask-agent`         |
 | `mcp:apps`      | MCP Apps-Ressourcen (`ui://` HTML-Ressourcen) |
 
-Aktualisierungstoken werden nur als Hashes gespeichert und bei jeder Aktualisierung rotiert. `npx @agent-native/core@latest connect` schreibt standardmäßig diesen nur für URL gültigen OAuth-Eintrag für Claude-Code-Clients. Behalten Sie die Connect-Seite, `npx @agent-native/core@latest connect --token <token>` und die statische Bearer-Konfiguration für lokales Standard-Proxying, ältere Clients und Notfall-/Debug-Flows bei.
+Aktualisierungstoken werden nur als Hashes gespeichert und bei jeder Aktualisierung rotiert. `npx @agentnative-fork/core@latest connect` schreibt standardmäßig diesen nur für URL gültigen OAuth-Eintrag für Claude-Code-Clients. Behalten Sie die Connect-Seite, `npx @agentnative-fork/core@latest connect --token <token>` und die statische Bearer-Konfiguration für lokales Standard-Proxying, ältere Clients und Notfall-/Debug-Flows bei.
 
 ## Benutzerdefiniertes MCP-Setup {#custom-setup}
 
@@ -217,8 +217,8 @@ Der MCP-Server wird vom Agent-Chat-Plugin automatisch gemountet. Für die meiste
 
 ```ts
 // server/plugins/mcp.ts
-import { mountMCP } from "@agent-native/core/mcp";
-import { autoDiscoverActions } from "@agent-native/core/server";
+import { mountMCP } from "@agentnative-fork/core/mcp";
+import { autoDiscoverActions } from "@agentnative-fork/core/server";
 
 export default defineNitroPlugin(async (nitro) => {
   const actions = await autoDiscoverActions(import.meta.url);

@@ -19,8 +19,8 @@ import { fileURLToPath } from "node:url";
 import {
   uploadFile,
   getActiveFileUploadProvider,
-} from "@agent-native/core/file-upload";
-import { resolveHasBuilderPrivateKey } from "@agent-native/core/server";
+} from "@agentnative-fork/core/file-upload";
+import { resolveHasBuilderPrivateKey } from "@agentnative-fork/core/server";
 import {
   getPresignedS3ObjectUrl,
   getS3Object,

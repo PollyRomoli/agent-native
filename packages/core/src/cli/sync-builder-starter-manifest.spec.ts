@@ -21,7 +21,7 @@ describe("sync-builder-starter-manifest", () => {
     };
 
     expect(packageJson.name).toBe("builder-agent-native-starter");
-    expect(deps["@agent-native/core"]).toBe("latest");
+    expect(deps["@agentnative-fork/core"]).toBe("latest");
     expect(deps.postgres).toBe("^3.4.9");
     expect(
       Object.values(deps).some((value) => value.startsWith("workspace:")),
@@ -40,7 +40,7 @@ describe("sync-builder-starter-manifest", () => {
         description: "Workspace app for Builder Agent Native Starter.",
         private: true,
         dependencies: {
-          "@agent-native/core": "0.69.0",
+          "@agentnative-fork/core": "0.69.0",
         },
       },
       canonical,
@@ -52,7 +52,7 @@ describe("sync-builder-starter-manifest", () => {
       "Workspace app for Builder Agent Native Starter.",
     );
     expect(
-      (merged.dependencies as Record<string, string>)["@agent-native/core"],
+      (merged.dependencies as Record<string, string>)["@agentnative-fork/core"],
     ).toBe("0.69.0");
     expect((merged.dependencies as Record<string, string>).postgres).toBe(
       "^3.4.9",
@@ -70,7 +70,7 @@ describe("sync-builder-starter-manifest", () => {
           "db:migrate": "drizzle-kit migrate",
         },
         dependencies: {
-          "@agent-native/core": "0.72.1",
+          "@agentnative-fork/core": "0.72.1",
           "@neondatabase/serverless": "^1.0.2",
           "drizzle-orm": "0.45.2",
         },
@@ -86,7 +86,7 @@ describe("sync-builder-starter-manifest", () => {
     const devDeps = merged.devDependencies as Record<string, string>;
     const scripts = merged.scripts as Record<string, string>;
 
-    expect(deps["@agent-native/core"]).toBe("0.72.1");
+    expect(deps["@agentnative-fork/core"]).toBe("0.72.1");
     expect(deps["@neondatabase/serverless"]).toBe("^1.0.2");
     expect(deps["drizzle-orm"]).toBe("0.45.2");
     expect(deps.postgres).toBe("^3.4.9");

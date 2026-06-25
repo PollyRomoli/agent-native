@@ -3,7 +3,7 @@ import {
   BlockRegistry,
   serializeSpecBlock,
   introspect,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 import { registerPlanBlocks } from "../shared/plan-block-registry.js";
 import { planContentSchema, type PlanContent } from "../shared/plan-content.js";
 import {

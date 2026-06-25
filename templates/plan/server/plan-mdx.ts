@@ -31,7 +31,7 @@ import {
   serializeSpecBlock,
   parseSpecBlock,
   type MdxJsxNode,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 import { registerPlanBlocks } from "../shared/plan-block-registry.js";
 import {
   PLAN_ASSET_MAX_SINGLE_BYTES,
@@ -348,7 +348,7 @@ async function formatMdx(source: string): Promise<string> {
 
 // `prop`, `escapeAttr`, `jsonExpression`, and the attribute reader
 // (`attributeValue` + its estree literal walker) now live in
-// `@agent-native/core/blocks` and are imported above. They are the MDX
+// `@agentnative-fork/core/blocks` and are imported above. They are the MDX
 // round-trip contract — shared verbatim so registry-driven and legacy blocks
 // encode/decode identically.
 
@@ -929,7 +929,7 @@ function findAttribute(node: MdxNode, name: string): MdxAttribute | undefined {
 }
 
 // `attributeValue` and its estree literal walker now come from
-// `@agent-native/core/blocks` (imported above) — the shared parse-side contract.
+// `@agentnative-fork/core/blocks` (imported above) — the shared parse-side contract.
 
 function stringAttr(node: MdxNode, name: string): string | undefined {
   const value = attributeValue(findAttribute(node, name));

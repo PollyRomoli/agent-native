@@ -33,7 +33,7 @@ A2A 是此框架中跨应用程序委派的基础 - 最显着的是 [Dispatch](/
 
 ```ts
 // server/plugins/a2a.ts
-import { mountA2A } from "@agent-native/core/a2a";
+import { mountA2A } from "@agentnative-fork/core/a2a";
 
 export default defineNitroPlugin((nitro) => {
   mountA2A(nitro, {
@@ -177,7 +177,7 @@ _（版本可能有所不同；在 `/.well-known/agent-card.json` 获取当前 `
 `A2AClient` 类处理发现、消息传递和流式传输：
 
 ```ts
-import { A2AClient } from "@agent-native/core/a2a";
+import { A2AClient } from "@agentnative-fork/core/a2a";
 
 const client = new A2AClient("https://analytics.example.com", "my-api-key");
 
@@ -213,7 +213,7 @@ for await (const update of client.stream({
 对于简单的文本输入/文本输出调用，请使用 `callAgent()`：
 
 ```ts
-import { callAgent } from "@agent-native/core/a2a";
+import { callAgent } from "@agentnative-fork/core/a2a";
 
 // One-shot: send text, get text back
 const response = await callAgent(
@@ -232,7 +232,7 @@ URL。它使用与
 `agent-native agents` 和 `agent-native invoke` CLI 命令。
 
 ```ts
-import { agentNative } from "@agent-native/core/agent-native";
+import { agentNative } from "@agentnative-fork/core/agent-native";
 
 const agents = await agentNative.listAgents();
 
@@ -371,8 +371,8 @@ A2A 异步调度和 [integration webhook queue](/docs/messaging) 使用的框架
 
 ```ts
 // In the mail agent's actions/get-analytics.ts
-import { defineAction } from "@agent-native/core/action";
-import { callAgent } from "@agent-native/core/a2a";
+import { defineAction } from "@agentnative-fork/core/action";
+import { callAgent } from "@agentnative-fork/core/a2a";
 import { z } from "zod";
 
 export default defineAction({

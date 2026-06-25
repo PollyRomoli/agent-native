@@ -178,7 +178,7 @@ Enregistrez-le sous une nouvelle valeur `AGENT_NATIVE_SANDBOX` (par exemple `rem
 L'autre joint d'adaptateur enveloppe un seul outil de ligne de commande (`gh`, `ffmpeg`, `stripe`, `aws`) afin que l'agent puisse le découvrir, vérifier s'il est installé et l'exécuter avec un résultat stdout/stderr/exit-code cohérent. Chaque adaptateur CLI implémente `CliAdapter` :
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -197,7 +197,7 @@ interface CliResult {
 Pour la plupart des CLI, `ShellCliAdapter` encapsule n'importe quel binaire avec des valeurs par défaut raisonnables, et `CliRegistry` collecte des adaptateurs pour la découverte du runtime :
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(

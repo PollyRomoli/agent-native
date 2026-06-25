@@ -5,7 +5,7 @@ import { and, eq, inArray } from "drizzle-orm";
 import type { InferSelectModel } from "drizzle-orm";
 import { getDb, schema } from "../db/index.js";
 import { canonicalizeNfm, nfmToDoc, type PMNode } from "../../shared/nfm.js";
-import { deleteCollabState, releaseDoc } from "@agent-native/core/collab";
+import { deleteCollabState, releaseDoc } from "@agentnative-fork/core/collab";
 import {
   createNotionPageWithMarkdown,
   fetchNotionPage,

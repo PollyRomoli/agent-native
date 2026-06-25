@@ -78,7 +78,7 @@ await client.execute(`SELECT * FROM users WHERE id = '${id}'`);
 Any server-side `fetch` of a user- or agent-controlled URL must go through the framework SSRF guard — a bare `fetch()` can be steered at cloud metadata (`169.254.169.254`), `localhost`, or internal services.
 
 ```ts
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 // Blocks private/internal targets, re-checks the resolved IP at connect time
 // (DNS rebinding), and re-validates every redirect hop.
 const res = await ssrfSafeFetch(userProvidedUrl, {}, { maxRedirects: 3 });
@@ -89,7 +89,7 @@ For a pre-flight-only check (e.g. before a streaming or one-shot fetch), use `is
 ## Secrets
 
 - OAuth tokens go in the `oauth_tokens` store via `saveOAuthTokens()`.
-- Per-user / per-org API keys go through `saveCredential` / `resolveCredential` (`@agent-native/core/credentials`) or the `app_secrets` vault. Both encrypt values at rest with AES-256-GCM (keyed by `SECRETS_ENCRYPTION_KEY`, falling back to `BETTER_AUTH_SECRET`; production refuses to start without one).
+- Per-user / per-org API keys go through `saveCredential` / `resolveCredential` (`@agentnative-fork/core/credentials`) or the `app_secrets` vault. Both encrypt values at rest with AES-256-GCM (keyed by `SECRETS_ENCRYPTION_KEY`, falling back to `BETTER_AUTH_SECRET`; production refuses to start without one).
 - Never hand-roll secrets into `settings`, `application_state`, source code, or action responses sent to the client. The credential / vault APIs above are the only sanctioned stores.
 - Never commit real keys, tokens, webhook URLs, signing secrets, or private
   Builder/customer data in examples or fixtures. Use placeholders that cannot be
@@ -100,7 +100,7 @@ For a pre-flight-only check (e.g. before a streaming or one-shot fetch), use `is
 User credentials (API keys, third-party tokens) are per-user (or per-org) data. They MUST live in SQL, scoped per-user (`u:<email>:credential:KEY`) or per-org (`o:<orgId>:credential:KEY`). Always read with the request context:
 
 ```ts
-import { resolveCredential } from "@agent-native/core/credentials";
+import { resolveCredential } from "@agentnative-fork/core/credentials";
 const apiKey = await resolveCredential("OPENAI_API_KEY", { userEmail, orgId });
 ```
 
@@ -117,7 +117,7 @@ If a deploy-level value genuinely needs an env var (CI-set token, host secret), 
 
 Two more CI guards (also wired into `pnpm prep`) target the 2026-04 cross-tenant leak class — request-state escaping into shared process state, and dev-mode sentinel identities used as production fallbacks.
 
-- `scripts/guard-no-env-mutation.mjs` — bans `process.env.<KEY> = …` (and bracket / compound forms) anywhere in production code. On serverless, every warm container handles many concurrent requests in one Node process, so `process.env` mutation leaks across in-flight requests (the "restore" line at the end of a handler races and never helps — most recently the Zoom webhook). Use `runWithRequestContext({ userEmail, orgId, timezone }, fn)` from `@agent-native/core/server` instead — it's AsyncLocalStorage-backed and per-request safe. Allowlisted paths: `scripts/`, `*.spec.ts` / `*.test.ts`, `packages/core/src/dev**`, `templates/*/test/`, anything under `/cli/` or `/scaffold/`. Per-line opt-out: `process.env.X = y // guard:allow-env-mutation — <reason>`.
+- `scripts/guard-no-env-mutation.mjs` — bans `process.env.<KEY> = …` (and bracket / compound forms) anywhere in production code. On serverless, every warm container handles many concurrent requests in one Node process, so `process.env` mutation leaks across in-flight requests (the "restore" line at the end of a handler races and never helps — most recently the Zoom webhook). Use `runWithRequestContext({ userEmail, orgId, timezone }, fn)` from `@agentnative-fork/core/server` instead — it's AsyncLocalStorage-backed and per-request safe. Allowlisted paths: `scripts/`, `*.spec.ts` / `*.test.ts`, `packages/core/src/dev**`, `templates/*/test/`, anything under `/cli/` or `/scaffold/`. Per-line opt-out: `process.env.X = y // guard:allow-env-mutation — <reason>`.
 - `scripts/guard-no-localhost-fallback.mjs` — bans the literal `"local@localhost"` / `'local@localhost'` / `` `local@localhost` `` in production code. The bug class: `getRequestUserEmail() ?? "local@localhost"` silently pools every unauthenticated request into a single shared tenant, leaking credentials, tools, and `application_state` rows between accounts. The right behavior is to throw / 401 when there's no session. Allowlisted paths: the dev-mode auth shim (`packages/core/src/server/auth.ts`), `packages/core/src/dev**`, tests, `scripts/`, `seed/` / `seeds/`, plus a few framework helpers that intentionally inspect or migrate the dev identity. SQL DDL `DEFAULT 'local@localhost'` and the Drizzle helper `.default('local@localhost')` are skipped per-line — schema column defaults are intentional dev fixtures, not the dangerous fallback pattern. Per-line opt-out: `email ?? "local@localhost" // guard:allow-localhost-fallback — <reason>`.
 
 ## Auth
@@ -129,7 +129,7 @@ Two more CI guards (also wired into `pnpm prep`) target the 2026-04 cross-tenant
 - If you must create custom `/api/` routes, always call `getSession(event)` and reject requests without a session:
 
 ```ts
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 
 export default defineEventHandler(async (event) => {
   const session = await getSession(event);
@@ -167,7 +167,7 @@ Rules:
 This is the single most-failed rule in the codebase. Auto-mounted action routes (`/_agent-native/actions/...`) get a request context wired up automatically. **Hand-written `/api/*` Nitro routes do not.** If your handler queries an ownable resource (any table with `...ownableColumns()`), you MUST:
 
 1. Read the session: `const session = await getSession(event).catch(() => null)`.
-2. Run the work inside `runWithRequestContext({ userEmail: session?.email, orgId: session?.orgId }, fn)` from `@agent-native/core/server`.
+2. Run the work inside `runWithRequestContext({ userEmail: session?.email, orgId: session?.orgId }, fn)` from `@agentnative-fork/core/server`.
 3. Inside `fn`, query through one of:
    - `accessFilter(table, sharesTable)` in the WHERE clause for list/read-many.
    - `resolveAccess("<type>", id)` for read-by-id (returns null if no access — return 404, not 403, so existence isn't leaked).
@@ -181,8 +181,8 @@ export default defineEventHandler(async () => {
 });
 
 // Good
-import { getSession, runWithRequestContext } from "@agent-native/core/server";
-import { accessFilter } from "@agent-native/core/sharing";
+import { getSession, runWithRequestContext } from "@agentnative-fork/core/server";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 export default defineEventHandler(async (event) => {
   const session = await getSession(event).catch(() => null);
   return runWithRequestContext(

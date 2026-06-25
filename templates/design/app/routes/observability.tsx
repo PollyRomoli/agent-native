@@ -1,4 +1,4 @@
-import { ObservabilityDashboard } from "@agent-native/core/client";
+import { ObservabilityDashboard } from "@agentnative-fork/core/client";
 
 export function meta() {
   return [{ title: "Agent Observability" }];

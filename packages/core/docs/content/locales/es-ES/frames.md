@@ -9,7 +9,7 @@ Cada aplicación nativa del agente se ejecuta con un agente de IA junto a la apl
 el contenedor que aloja ambos: muestra su aplicación y le da al agente un lugar para
 chatear, ejecutar y (en desarrollo) editar código. Hay tres fotogramas que comparten un tiempo de ejecución:
 
-- **Panel de agente integrado**: se envía dentro de cada aplicación desde `@agent-native/core`.
+- **Panel de agente integrado**: se envía dentro de cada aplicación desde `@agentnative-fork/core`.
   Esta es la barra lateral que muestra su aplicación, en desarrollo y en producción.
 - **Marco de desarrollo local**: un contenedor delgado que carga la aplicación en ejecución en un iframe
   y agrega el mismo panel de agente más un terminal CLI integrado al lado. Usado
@@ -30,10 +30,10 @@ a su aplicación a través del mismo actions y estado de la aplicación en todos
 ## Panel de agente integrado {#embedded-agent}
 
 El panel integrado es la barra lateral del agente que representa su aplicación. Se envía con
-`@agent-native/core`: no hay ningún paquete independiente para instalar, y es el mismo
+`@agentnative-fork/core`: no hay ningún paquete independiente para instalar, y es el mismo
 componente en desarrollo y producción
 
-- Exportado como `AgentPanel` desde `@agent-native/core/client`, con un
+- Exportado como `AgentPanel` desde `@agentnative-fork/core/client`, con un
   variante de producción exclusiva `ProductionAgentPanel`.
 - Proporciona la superficie completa de chat/CLI/espacio de trabajo, por lo que la entrada del agente permanece encendida
   la pila de compositores compartida utilizada en el resto del marco.
@@ -75,7 +75,7 @@ barra lateral dentro del iframe, para que puedas obtener una vista previa exacta
 ## Terminal integrado y conmutación CLI {#cli-terminal}
 
 En desarrollo, el panel incluye un terminal integrado (`AgentTerminal`, también
-de `@agent-native/core/client`) respaldado por un servidor PTY. Puedes ejecutar un verdadero
+de `@agentnative-fork/core/client`) respaldado por un servidor PTY. Puedes ejecutar un verdadero
 codificar CLI justo al lado de la aplicación y alternar entre ellas; el terminal se reinicia
 con el CLI seleccionado.
 
@@ -113,7 +113,7 @@ consistente en ambos.
 
 ## API en tiempo de ejecución {#runtime-apis}
 
-Estos se envían con `@agent-native/core` y son los que usa su aplicación para hablar con el
+Estos se envían con `@agentnative-fork/core` y son los que usa su aplicación para hablar con el
 agente, independientemente del marco que lo aloje:
 
 1. **Enviar un mensaje**: `sendToAgentChat()` envía un mensaje al agente. El
@@ -134,12 +134,12 @@ El panel de agente integrado es parte de cada aplicación: cree una plantilla y 
 ya está ahí:
 
 ```bash
-npx @agent-native/core@latest create my-app --template mail --standalone
+npx @agentnative-fork/core@latest create my-app --template mail --standalone
 cd my-app
 pnpm dev
 ```
 
-El marco de desarrollo local (el paquete privado `@agent-native/frame` en el repositorio del marco) es un paquete de herramientas interno que no está publicado en npm. Carga el servidor de desarrollo de la aplicación activa en un iframe y monta el panel integrado junto a él, seleccionando la aplicación a través del parámetro de consulta `app`. El terminal CLI integrado requiere el escritorio Agent Native, que proporciona el código local y el acceso PTY que necesita el terminal; sin él, el panel muestra la superficie de chat y le solicita que abra el Escritorio para usar el CLI.
+El marco de desarrollo local (el paquete privado `@agentnative-fork/frame` en el repositorio del marco) es un paquete de herramientas interno que no está publicado en npm. Carga el servidor de desarrollo de la aplicación activa en un iframe y monta el panel integrado junto a él, seleccionando la aplicación a través del parámetro de consulta `app`. El terminal CLI integrado requiere el escritorio Agent Native, que proporciona el código local y el acceso PTY que necesita el terminal; sin él, el panel muestra la superficie de chat y le solicita que abra el Escritorio para usar el CLI.
 
 ## Notas de compatibilidad {#compatibility}
 

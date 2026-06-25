@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { getAccessTokens, fetchLabelMap } from "./helpers.js";
-import { getRequestUserEmail, buildDeepLink } from "@agent-native/core/server";
-import { getUserSetting } from "@agent-native/core/settings";
+import { getRequestUserEmail, buildDeepLink } from "@agentnative-fork/core/server";
+import { getUserSetting } from "@agentnative-fork/core/settings";
 import { gmailGetThread } from "../server/lib/google-api.js";
 import { gmailToEmailMessage, isConnected } from "../server/lib/google-auth.js";
 import { z } from "zod";

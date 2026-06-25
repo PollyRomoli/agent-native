@@ -88,7 +88,7 @@ description: "自然言語条件を使用したイベントトリガーおよび
 サーバー プラグインにイベント タイプを登録し、それを actions または Webhook ハンドラーから発行します。
 
 ```ts
-import { registerEvent, emit } from "@agent-native/core/event-bus";
+import { registerEvent, emit } from "@agentnative-fork/core/event-bus";
 import { z } from "zod";
 
 // Register the event type (once, at module load)

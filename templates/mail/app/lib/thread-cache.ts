@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from "react";
 import type { EmailMessage } from "@shared/types";
-import { appApiPath } from "@agent-native/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 type CacheEntry = {

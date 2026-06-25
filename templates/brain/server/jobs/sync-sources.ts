@@ -1,6 +1,6 @@
 import { and, eq, ne } from "drizzle-orm";
-import { accessFilter } from "@agent-native/core/sharing";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+import { accessFilter } from "@agentnative-fork/core/sharing";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 import { getDb, schema } from "../db/index.js";
 import { nowIso, parseJson } from "../lib/brain.js";
 import { runConnectorSync } from "../lib/connectors.js";

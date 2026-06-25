@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
 import { IconDots, IconTrash } from "@tabler/icons-react";
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,

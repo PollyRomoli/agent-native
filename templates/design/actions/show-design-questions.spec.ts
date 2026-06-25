@@ -5,16 +5,16 @@ const mocks = vi.hoisted(() => ({
   assertAccess: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   writeAppState: mocks.writeAppState,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: mocks.assertAccess,
   registerShareableResource: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   buildDeepLink: (args: {
     app: string;
     view: string;

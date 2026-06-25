@@ -1,6 +1,6 @@
 /**
  * Parse CLI-style arguments (--key value or --flag).
- * Replaces the broken @agent-native/core parseArgs import.
+ * Replaces the broken @agentnative-fork/core parseArgs import.
  */
 export function parseArgs(argv: string[]): Record<string, string | boolean> {
   const values: Record<string, string | boolean> = {};

@@ -14,7 +14,7 @@ const schemaMock = vi.hoisted(() => ({
   },
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   FeatureNotConfiguredError: class FeatureNotConfiguredError extends Error {
     readonly requiredCredential: string;
 

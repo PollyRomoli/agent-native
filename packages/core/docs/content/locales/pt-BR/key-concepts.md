@@ -111,7 +111,7 @@ As lojas principais SQL são criadas automaticamente e estão disponíveis em to
 
 ```ts
 // Drizzle schema for domain data
-import { table, text, integer } from "@agent-native/core/db/schema";
+import { table, text, integer } from "@agentnative-fork/core/db/schema";
 
 export const forms = table("forms", {
   id: text("id").primaryKey(),
@@ -145,7 +145,7 @@ O UI nunca chama um LLM diretamente. Quando um usuário clica em “Gerar gráfi
 
 ```ts
 // In a React component — delegate AI work to the agent
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 sendToAgentChat({
   message: "Generate a chart showing signups by source",
@@ -167,7 +167,7 @@ Quando o agente precisa fazer algo complexo — chamar um API, processar dados, 
 
 ```ts
 // actions/fetch-data.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -198,7 +198,7 @@ As alterações do banco de dados são sincronizadas com UI por meio de `useDbSy
 
 ```ts
 // Client: subscribe to agent/UI data changes once near the app shell
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 
 useDbSync({ queryClient });
 ```
@@ -266,7 +266,7 @@ Não há base de código compartilhada para quebrar. Você é o proprietário do
 
 Duas regras arquitetônicas mantêm os aplicativos portáteis entre bancos de dados e hosts:
 
-- **Independente de banco de dados.** Escreva esquemas com `@agent-native/core/db/schema` e leia/grave com a consulta portátil Drizzle do DSL para que o mesmo código seja executado em qualquer provedor compatível. Use SQL bruto apenas para migrações aditivas ou manutenção única, mantido parametrizado e independente de dialeto. Consulte [Database](/docs/database).
+- **Independente de banco de dados.** Escreva esquemas com `@agentnative-fork/core/db/schema` e leia/grave com a consulta portátil Drizzle do DSL para que o mesmo código seja executado em qualquer provedor compatível. Use SQL bruto apenas para migrações aditivas ou manutenção única, mantido parametrizado e independente de dialeto. Consulte [Database](/docs/database).
 - **Hosting-agnostic.** O servidor é executado em Nitro e compila para qualquer destino de implantação. Nunca use APIs específicos do nó (`fs`, `child_process`, `path`) em rotas de servidor ou plug-ins e nunca assuma um processo de servidor persistente - serverless e edge são stateless, portanto, mantenha todo o estado em SQL. Consulte [Deployment](/docs/deployment).
 
 ## Espaço de trabalho {#workspace}

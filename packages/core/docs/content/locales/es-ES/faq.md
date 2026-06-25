@@ -76,7 +76,7 @@ Ese es el punto. Bifurca una plantilla y personalízala preguntándole al agente
 
 ### ¿Puedo crear algo que las plantillas no cubran? {#build-from-scratch}
 
-Sí. Si desea una aplicación de chat básica, ejecute `npx @agent-native/core@latest create my-chat-app --template chat`; obtienes hilos de chat duraderos, actions, autenticación, estado de ejecución respaldado por SQL y espacio para agregar tus propias pantallas. Si desea la aplicación más pequeña de acción primero sin UI, ejecute `npx @agent-native/core@latest create my-agent --headless`. Consulte [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps) y [Chat](/docs/template-chat).
+Sí. Si desea una aplicación de chat básica, ejecute `npx @agentnative-fork/core@latest create my-chat-app --template chat`; obtienes hilos de chat duraderos, actions, autenticación, estado de ejecución respaldado por SQL y espacio para agregar tus propias pantallas. Si desea la aplicación más pequeña de acción primero sin UI, ejecute `npx @agentnative-fork/core@latest create my-agent --headless`. Consulte [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps) y [Chat](/docs/template-chat).
 
 ### ¿Puedo probarlo sin bifurcar una plantilla? {#try-with-a-skill}
 

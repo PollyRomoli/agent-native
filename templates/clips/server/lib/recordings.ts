@@ -1,13 +1,13 @@
 import { and, desc, eq, sql } from "drizzle-orm";
 import type { H3Event } from "h3";
 import { getDb, schema } from "../db/index.js";
-import { getSession } from "@agent-native/core/server";
-import { orgMembers } from "@agent-native/core/org";
+import { getSession } from "@agentnative-fork/core/server";
+import { orgMembers } from "@agentnative-fork/core/org";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
-import { readAppState } from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/server/request-context";
+import { readAppState } from "@agentnative-fork/core/application-state";
 
 export function getCurrentOwnerEmail(): string {
   const email = getRequestUserEmail();
@@ -27,7 +27,7 @@ export async function getEventOwnerContext(event: H3Event): Promise<{
   let orgId = session.orgId ?? null;
   if (!orgId) {
     try {
-      const { getOrgContext } = await import("@agent-native/core/org");
+      const { getOrgContext } = await import("@agentnative-fork/core/org");
       const ctx = await getOrgContext(event);
       orgId = ctx?.orgId ?? null;
     } catch {
@@ -126,7 +126,7 @@ export async function getActiveOrganizationId(
 ): Promise<string | null> {
   if (event) {
     try {
-      const { getOrgContext } = await import("@agent-native/core/org");
+      const { getOrgContext } = await import("@agentnative-fork/core/org");
       const ctx = await getOrgContext(event);
       if (ctx?.orgId) return ctx.orgId;
     } catch {
@@ -148,7 +148,7 @@ export async function getActiveOrganizationId(
       // first membership — the same logic getOrgContext uses for HTTP paths.
       // Don't reach into org_members directly: an ORDER BY here picks the
       // wrong org when the user belongs to more than one.
-      const { resolveOrgIdForEmail } = await import("@agent-native/core/org");
+      const { resolveOrgIdForEmail } = await import("@agentnative-fork/core/org");
       const orgId = await resolveOrgIdForEmail(email);
       if (orgId) return orgId;
     } catch {

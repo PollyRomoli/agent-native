@@ -63,7 +63,7 @@ The generated blueprint tells the coding agent to fetch the URL (and the pages i
 
 Drop a Markdown file into `packages/core/blueprints/<kind>/<name>.md`. The kind is the subdirectory; the name is the filename without `.md`. It is picked up automatically — `--list`, name resolution, and the catalog all read the directory at runtime. No code change is needed to register it.
 
-Blueprint `.md` files ship in the published package via the `blueprints` entry in `package.json` `files`, so they resolve at `node_modules/@agent-native/core/blueprints/**` for end users.
+Blueprint `.md` files ship in the published package via the `blueprints` entry in `package.json` `files`, so they resolve at `node_modules/@agentnative-fork/core/blueprints/**` for end users.
 
 Write each blueprint as an instruction set for a coding agent with no other context. A good blueprint has:
 

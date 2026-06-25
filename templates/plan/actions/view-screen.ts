@@ -7,9 +7,9 @@
  *   pnpm action view-screen
  */
 
-import { defineAction } from "@agent-native/core";
-import { readAppState } from "@agent-native/core/application-state";
-import { accessFilter, currentAccess } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { readAppState } from "@agentnative-fork/core/application-state";
+import { accessFilter, currentAccess } from "@agentnative-fork/core/sharing";
 import { and, desc, isNull } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

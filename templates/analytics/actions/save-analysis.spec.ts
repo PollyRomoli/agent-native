@@ -1,10 +1,10 @@
-import { isAgentActionStopError } from "@agent-native/core";
+import { isAgentActionStopError } from "@agentnative-fork/core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const upsertAnalysis = vi.fn();
 const hasDataQueryAttempt = vi.fn(() => true);
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getRequestRunContext: () => ({ toolResults: [{ name: "hubspot-deals" }] }),
   getRequestUserEmail: () => "brent@builder.io",
   getRequestOrgId: () => "org-1",

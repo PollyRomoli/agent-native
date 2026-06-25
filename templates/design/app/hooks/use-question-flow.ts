@@ -4,7 +4,7 @@ import {
   sendToAgentChat,
   useGuidedQuestionFlow,
   type GuidedQuestionAnswers,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 interface UseQuestionFlowOptions {
   continuationTabId?: string | null;

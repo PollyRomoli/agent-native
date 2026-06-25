@@ -30,7 +30,7 @@ de longa duração (padrão de 30 dias, atualização deslizante de 365 dias), e
 quando isso acontece, a solução leve é:
 
 ```bash
-npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex
+npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex
 ```
 
 `reconnect` encontra e atualiza o conector por URL para o local selecionado
@@ -44,7 +44,7 @@ o conector Plano MCP. Eles escrevem `plans/<slug>/plan.mdx` mais opcional
 `canvas.mdx`, `prototype.mdx` e `.plan-state.json` e visualize localmente com:
 
 ```bash
-npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --open
+npx @agentnative-fork/core@latest plan local serve --dir plans/<slug> --kind plan --open
 ```
 
 Isso inicia uma pequena ponte localhost e abre o Plano UI no local
@@ -65,7 +65,7 @@ Algumas dicas sobre o modo de arquivos locais que vale a pena conhecer:
   raspando o stdout `serve` de longa duração. Trate-o como um arquivo de token local e
   não o cometa.
 - **Verifique sem cabeça** quando nenhum navegador estiver disponível:
-  `npx @agent-native/core@latest plan local verify --dir plans/<slug>` inicia o
+  `npx @agentnative-fork/core@latest plan local verify --dir plans/<slug>` inicia o
   bridge, verifica o comprovante da rede privada e a carga útil JSON, imprime
   diagnósticos e saídas diferentes de zero em caso de falha — não são necessários olhos humanos.
 - **Execute `plan local check` primeiro.** Ele valida o MDX em relação ao Plano
@@ -106,13 +106,13 @@ Existem três maneiras de entrar. A **rota universal CLI** é a que recomendamos
 Funciona para qualquer host - Código Claude, Codex, Cursor, Cline, Goose, aplicativos ChatGPT personalizados MCP, Claude Cowork e qualquer outra coisa compatível com MCP. O Agent-Native CLI instala ambos os skills, registra o conector do Plano MCP hospedado, **e executa a autenticação para o(s) cliente(s) local(is) selecionado(s) na mesma etapa**, para que sua primeira chamada de ferramenta não atinja uma parede OAuth:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 Isso instala `visual-plan` mais a habilidade complementar `visual-recap`, registra o conector `plan` e executa a autenticação (prompt OAuth para compartilhamento hospedado/apoiado por conta). Sinalizadores úteis:
 
 - `--client codex|claude-code|claude-code-cli|cowork|all` — para quais agentes locais gravar a configuração MCP (padrão `all`).
-- `--no-connect` — registre o conector sem autenticar; execute `npx @agent-native/core@latest connect https://plan.agent-native.com --client all` mais tarde ou escolha um `--client` mais estreito.
+- `--no-connect` — registre o conector sem autenticar; execute `npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client all` mais tarde ou escolha um `--client` mais estreito.
 - `--mode hosted|local-files|self-hosted` — escolha compartilhamento hospedado, arquivos MDX totalmente locais ou seu próprio aplicativo Plan.
 - `--mcp-url <url>` — aponte o conector para uma origem personalizada (um túnel ngrok, um servidor de desenvolvimento local ou uma implantação auto-hospedada) em vez do padrão hospedado.
 - `--with-github-action` — escreva também a ação PR Visual Recap GitHub (consulte [PR Visual Recap](/docs/pr-visual-recap)).
@@ -122,8 +122,8 @@ presente. Diga sim para adicioná-lo durante a configuração da habilidade ou e
 com `--with-github-action`. Depois que o fluxo de trabalho for escrito, execute:
 
 ```bash
-npx @agent-native/core@latest recap setup
-npx @agent-native/core@latest recap doctor
+npx @agentnative-fork/core@latest recap setup
+npx @agentnative-fork/core@latest recap doctor
 ```
 
 `recap setup` configura os segredos e variáveis da ação GitHub sempre que possível,
@@ -159,9 +159,9 @@ codex plugin add agent-native-visual-plans@agent-native-apps
 codex mcp login plan   # OAuth in the browser
 ```
 
-Após a instalação, **inicie um novo thread Codex** para que as ferramentas skills e MCP sejam carregadas na sessão. O plugin vem com um conector somente URL (`[mcp_servers.plan]` → `https://plan.agent-native.com/_agent-native/mcp`); `codex mcp login plan` executa o fluxo OAuth. A rota universal CLI acima também funciona para Codex (`npx @agent-native/core@latest skills add visual-plan --client codex`) se você preferir um comando que instale e autentique juntos ou quando desejar arquivos locais ou modo auto-hospedado.
+Após a instalação, **inicie um novo thread Codex** para que as ferramentas skills e MCP sejam carregadas na sessão. O plugin vem com um conector somente URL (`[mcp_servers.plan]` → `https://plan.agent-native.com/_agent-native/mcp`); `codex mcp login plan` executa o fluxo OAuth. A rota universal CLI acima também funciona para Codex (`npx @agentnative-fork/core@latest skills add visual-plan --client codex`) se você preferir um comando que instale e autentique juntos ou quando desejar arquivos locais ou modo auto-hospedado.
 
-> **Instalações mais antigas:** se sua configuração ainda tiver uma entrada `agent-native-plans` apontando para o mesmo URL, executando `npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex` para Codex ou o mesmo comando com seu `--client` de destino, consolida-o no nome canônico `plan`.
+> **Instalações mais antigas:** se sua configuração ainda tiver uma entrada `agent-native-plans` apontando para o mesmo URL, executando `npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex` para Codex ou o mesmo comando com seu `--client` de destino, consolida-o no nome canônico `plan`.
 
 ## Atualizações {#updates}
 
@@ -169,7 +169,7 @@ O plug-in direciona a atualização automática – você não reembala ou adici
 
 - **Código Claude** — a entrada do mercado define `autoUpdate: true` e o plugin usa controle de versão commit-SHA, então o Código Claude extrai novas versões do repositório na inicialização; execute `/reload-plugins` para ativar. Cada push para o branch padrão do repositório alcança os usuários instalados automaticamente.
 - **Codex** — o plug-in `version` incorpora um hash de conteúdo do endpoint skills e MCP incluído (por exemplo, `1.0.0+codex.<hash>`), portanto, qualquer alteração de habilidade ou endpoint gera uma nova versão. A atualização automática de inicialização do Codex reinstala os mercados git configurados por conta própria; basta **iniciar um novo tópico** para pegar a mudança. Nenhum `codex plugin marketplace upgrade` manual é necessário para atualizações de rotina.
-- **Rota CLI universal** — execute `npx @agent-native/core@latest skills status visual-plan` para verificar as pastas de habilidades copiadas ou `npx @agent-native/core@latest skills update visual-plan` para atualizá-las no lugar. A nova execução do `skills add visual-plan` ainda funciona quando você também deseja registrar/autenticar novamente o conector. `@latest` sempre extrai o skills atual do pacote `@agent-native/core` publicado.
+- **Rota CLI universal** — execute `npx @agentnative-fork/core@latest skills status visual-plan` para verificar as pastas de habilidades copiadas ou `npx @agentnative-fork/core@latest skills update visual-plan` para atualizá-las no lugar. A nova execução do `skills add visual-plan` ainda funciona quando você também deseja registrar/autenticar novamente o conector. `@latest` sempre extrai o skills atual do pacote `@agentnative-fork/core` publicado.
 
 O conector aponta para um aplicativo **hospedado**, portanto, o actions do aplicativo Plan e a superfície da ferramenta ativa sempre refletem a versão implantada, independentemente de quando você instalou; apenas as instruções de habilidade incluídas seguem os mecanismos de atualização acima.
 
@@ -190,7 +190,7 @@ Resumindo: envie-o como um mercado git auto-hospedado/público e os usuários in
 
 Uma **habilidade** é um único arquivo de instrução `SKILL.md` que o agente lê quando uma tarefa corresponde. Um **plug-in** (plug-in de mercado de código Claude ou plug-in Codex) é um pacote que agrupa um ou mais skills **mais** um conector MCP e metadados, para que um host possa instalar tudo em uma única etapa.
 
-Nos bastidores, todas as três rotas são produzidas a partir da mesma fonte pelo `npx @agent-native/core@latest app-skill` CLI: `app-skill pack` cria os adaptadores de mercado/plug-in e `skills add` é o instalador amigável de uma etapa que também registra e autentica o conector MCP. Consulte [Skills Guide](/docs/skills-guide) para obter o formato do manifesto de habilidade do aplicativo e [External Agents](/docs/external-agents) para conectar qualquer host MCP e o fluxo `npx @agent-native/core@latest connect`.
+Nos bastidores, todas as três rotas são produzidas a partir da mesma fonte pelo `npx @agentnative-fork/core@latest app-skill` CLI: `app-skill pack` cria os adaptadores de mercado/plug-in e `skills add` é o instalador amigável de uma etapa que também registra e autentica o conector MCP. Consulte [Skills Guide](/docs/skills-guide) para obter o formato do manifesto de habilidade do aplicativo e [External Agents](/docs/external-agents) para conectar qualquer host MCP e o fluxo `npx @agentnative-fork/core@latest connect`.
 
 ## O que vem a seguir {#whats-next}
 

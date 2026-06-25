@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { signA2AToken } from "@agent-native/core/a2a";
+import { signA2AToken } from "@agentnative-fork/core/a2a";
 import {
   ORG_APPS_PATH,
   buildOrgAppsResponse,
@@ -219,7 +219,7 @@ describe("buildOrgAppsResponse", () => {
     // (discoverAgents -> getBuiltinAgents -> BUILTIN_AGENTS), which already
     // excludes hidden templates. Assert no hidden first-party slug leaks.
     const { getBuiltinAgents } =
-      await import("@agent-native/core/server/agent-discovery");
+      await import("@agentnative-fork/core/server/agent-discovery");
     const builtins = getBuiltinAgents("dispatch");
     const res = buildOrgAppsResponse({
       org: "acme.com",

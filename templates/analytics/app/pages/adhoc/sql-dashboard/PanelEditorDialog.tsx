@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactElement, type ReactNode } from "react";
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

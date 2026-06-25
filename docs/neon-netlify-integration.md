@@ -20,7 +20,7 @@ deploys, we use Neon's copy-on-write branching via GitHub Actions.
 3. **PR closed** — the workflow deletes the Neon branches and removes the
    `NETLIFY_DATABASE_URL` env overrides.
 
-`@agent-native/core` stays provider-agnostic — it only reads `DATABASE_URL`.
+`@agentnative-fork/core` stays provider-agnostic — it only reads `DATABASE_URL`.
 The Neon/Netlify specifics live in the workflow and each template's
 `netlify.toml`.
 

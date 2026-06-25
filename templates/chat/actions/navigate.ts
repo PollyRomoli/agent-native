@@ -13,9 +13,9 @@
  *   --threadId Chat thread ID to open on the chat route
  */
 
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 
 export default defineAction({
   description:

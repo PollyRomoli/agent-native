@@ -21,14 +21,14 @@ import {
   setDesktopExchange,
   setDesktopExchangeError,
   safeReturnPath,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   getAuthUrl,
   exchangeCode,
   getAuthStatus,
   disconnect,
 } from "../lib/google-calendar.js";
-import { OAuthAccountOwnedByOtherUserError } from "@agent-native/core/oauth-tokens";
+import { OAuthAccountOwnedByOtherUserError } from "@agentnative-fork/core/oauth-tokens";
 
 const OAUTH_STATE_APP_ID = process.env.APP_NAME || "calendar";
 const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";

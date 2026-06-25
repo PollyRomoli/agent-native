@@ -7,18 +7,18 @@ import { MemoryRouter } from "react-router";
 import type { ReactNode } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   cn: (...args: unknown[]) =>
     args
       .flat(Infinity)
       .filter((v) => typeof v === "string" && v.length > 0)
       .join(" "),
 }));
-vi.mock("@agent-native/core/client/extensions", () => ({
+vi.mock("@agentnative-fork/core/client/extensions", () => ({
   ExtensionsSidebarSection: () => null,
 }));
-vi.mock("@agent-native/core/client", () => ({
-  // `@/lib/utils` re-exports `cn` from `@agent-native/core/client`, so the
+vi.mock("@agentnative-fork/core/client", () => ({
+  // `@/lib/utils` re-exports `cn` from `@agentnative-fork/core/client`, so the
   // client mock must provide it or components crash on first render.
   cn: (...args: unknown[]) =>
     args
@@ -38,7 +38,7 @@ vi.mock("@agent-native/core/client", () => ({
       "sidebar.collapseSidebar": "Collapse sidebar",
     })[key] ?? key,
 }));
-vi.mock("@agent-native/core/client/org", () => ({
+vi.mock("@agentnative-fork/core/client/org", () => ({
   OrgSwitcher: () => null,
 }));
 

@@ -3,7 +3,7 @@ import { isValidElement, useCallback, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { IconLink } from "@tabler/icons-react";
-import { CodeSurface } from "@agent-native/core/blocks";
+import { CodeSurface } from "@agentnative-fork/core/blocks";
 import { cn } from "@/lib/utils";
 import { PlanImageViewer } from "./PlanImageViewer";
 import { detectPlanTextDirection } from "./planTextDirection";

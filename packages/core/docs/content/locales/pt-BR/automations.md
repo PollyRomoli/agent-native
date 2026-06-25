@@ -88,7 +88,7 @@ Chame `manage-automations` com `action=list-events` do agente para ver todos os 
 Registre um tipo de evento em um plug-in de servidor e emita-o a partir de actions ou manipuladores de webhook:
 
 ```ts
-import { registerEvent, emit } from "@agent-native/core/event-bus";
+import { registerEvent, emit } from "@agentnative-fork/core/event-bus";
 import { z } from "zod";
 
 // Register the event type (once, at module load)

@@ -59,7 +59,7 @@ step is still pending. Use `🔴` only when blocked on user input.
 - For provider integrations used in ad hoc analysis, querying, reporting, or
   cross-source research, prefer the shared `provider-api-catalog`,
   `provider-api-docs`, and `provider-api-request` action pattern from
-  `@agent-native/core/provider-api` instead of hardcoding one action per
+  `@agentnative-fork/core/provider-api` instead of hardcoding one action per
   provider endpoint/filter. This is a framework tenet: first-class actions are
   ergonomic shortcuts, not artificial capability limits. When the upstream API
   can express an endpoint, filter, pagination mode, or payload, agents should

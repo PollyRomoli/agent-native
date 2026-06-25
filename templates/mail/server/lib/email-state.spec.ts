@@ -19,12 +19,12 @@ import {
 // Module mocks
 // ---------------------------------------------------------------------------
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getUserSetting: vi.fn(),
   putUserSetting: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/oauth-tokens", () => ({
+vi.mock("@agentnative-fork/core/oauth-tokens", () => ({
   getOAuthTokens: vi.fn(),
   listOAuthAccountsByOwner: vi.fn(),
   saveOAuthTokens: vi.fn(),
@@ -50,11 +50,11 @@ vi.mock("./thread-cache.js", () => ({
   THREAD_CACHE_TTL: 300_000,
 }));
 
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 import {
   getOAuthTokens,
   listOAuthAccountsByOwner,
-} from "@agent-native/core/oauth-tokens";
+} from "@agentnative-fork/core/oauth-tokens";
 import {
   gmailGetMessage,
   gmailModifyMessage,

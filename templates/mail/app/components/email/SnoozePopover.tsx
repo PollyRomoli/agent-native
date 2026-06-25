@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { useParseDate, useSnoozeEmail } from "@/hooks/use-scheduled-jobs";
 import { IconAlarm } from "@tabler/icons-react";
 import { toast } from "sonner";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 interface SnoozePopoverProps {
   emailId: string;

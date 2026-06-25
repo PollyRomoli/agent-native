@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { runWithRequestContext } from "@agent-native/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
 import {
   generateWorkspaceAppDescription,
   listAvailableWorkspaceTemplates,
@@ -30,15 +30,15 @@ const mocks = vi.hoisted(() => {
   };
 });
 
-vi.mock("@agent-native/core/db", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@agent-native/core/db")>();
+vi.mock("@agentnative-fork/core/db", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@agentnative-fork/core/db")>();
   return {
     ...actual,
     getDbExec: () => mocks.getDbExec(),
   };
 });
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getSetting: (...args: any[]) => mocks.getSetting(...args),
   putSetting: (...args: any[]) => mocks.putSetting(...args),
 }));

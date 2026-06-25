@@ -208,7 +208,7 @@ describe("getOnboardingHtml", () => {
     vi.stubEnv("GOOGLE_CLIENT_SECRET", "google-client-secret");
 
     const command =
-      "npx @agent-native/core@latest create my-mail-app --template mail";
+      "npx @agentnative-fork/core@latest create my-mail-app --template mail";
     const html = getOnboardingHtml({
       googleOnly: true,
       marketing: {

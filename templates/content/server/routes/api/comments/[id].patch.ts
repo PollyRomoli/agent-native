@@ -3,8 +3,8 @@ import {
   getSession,
   readBody,
   runWithRequestContext,
-} from "@agent-native/core/server";
-import { assertAccess, ForbiddenError } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { assertAccess, ForbiddenError } from "@agentnative-fork/core/sharing";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../../../db/index.js";
 

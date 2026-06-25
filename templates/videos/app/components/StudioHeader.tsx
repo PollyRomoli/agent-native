@@ -9,7 +9,7 @@ import {
   NotificationsBell,
   ShareButton,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useDbStatus } from "@/hooks/use-db-status";
 import { CloudUpgrade } from "@/components/CloudUpgrade";
 import {

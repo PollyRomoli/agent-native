@@ -17,7 +17,7 @@ import {
   useMentionMembers,
   type MentionMember,
 } from "@/hooks/use-mention-members";
-import { sendToAgentChat, emailToName } from "@agent-native/core/client";
+import { sendToAgentChat, emailToName } from "@agentnative-fork/core/client";
 import {
   IconCheck,
   IconMessageCircle,

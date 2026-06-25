@@ -9,7 +9,7 @@ Jede agentennative App wird mit einem KI-Agenten neben der App UI ausgeführt. E
 der Wrapper, der beides hostet: Er zeigt Ihre App und gibt dem Agenten einen Platz dafür
 Chatten, ausführen und (im Entwickler) Code bearbeiten. Es gibt drei Frames, die sich eine Laufzeit teilen:
 
-- **Eingebettetes Agent-Panel** – ist in jeder App von `@agent-native/core` enthalten.
+- **Eingebettetes Agent-Panel** – ist in jeder App von `@agentnative-fork/core` enthalten.
   Dies ist die Seitenleiste, die Ihre App in der Entwicklung und in der Produktion selbst rendert.
 - **Local Dev Frame** – ein Thin Wrapper, der Ihre laufende App in einen Iframe lädt
   und fügt das gleiche Agentenpanel sowie daneben ein integriertes CLI-Terminal hinzu. Gebraucht
@@ -30,10 +30,10 @@ zu Ihrer App in jedem Fall über denselben actions und Anwendungsstatus.
 ## Eingebettetes Agentenfeld {#embedded-agent}
 
 Das eingebettete Panel ist die Agent-Seitenleiste, die Ihre App rendert. Im Lieferumfang ist
-`@agent-native/core` – es muss kein separates Paket installiert werden – und ist dasselbe
+`@agentnative-fork/core` – es muss kein separates Paket installiert werden – und ist dasselbe
 Komponente in Entwicklung und Produktion.
 
-- Exportiert als `AgentPanel` von `@agent-native/core/client`, mit einem
+- Exportiert als `AgentPanel` von `@agentnative-fork/core/client`, mit einem
   Nur-Produktionsvariante `ProductionAgentPanel`.
 - Stellt die vollständige Chat-/CLI-/Workspace-Oberfläche bereit, sodass die Agenteneingabe aktiviert bleibt
   der gemeinsam genutzte Composer-Stack, der überall sonst im Framework verwendet wird.
@@ -75,7 +75,7 @@ Seitenleiste stattdessen im Iframe, damit Sie genau das in der Vorschau sehen k�
 ## Integriertes Terminal und CLI-Switching {#cli-terminal}
 
 In der Entwicklung enthält das Panel auch ein eingebettetes Terminal (`AgentTerminal`
-von `@agent-native/core/client`), unterstützt von einem PTY-Server. Sie können ein echtes
+von `@agentnative-fork/core/client`), unterstützt von einem PTY-Server. Sie können ein echtes
 Kodieren Sie CLI direkt neben der App und wechseln Sie zwischen ihnen; Das Terminal startet neu
 mit dem ausgewählten CLI.
 
@@ -113,7 +113,7 @@ Sie leiten an den lokalen Dev-Frame weiter, daher ist das obige Verhalten von de
 
 ## Laufzeit APIs {#runtime-apis}
 
-Diese werden mit `@agent-native/core` geliefert und dienen Ihrer App zur Kommunikation mit dem
+Diese werden mit `@agentnative-fork/core` geliefert und dienen Ihrer App zur Kommunikation mit dem
 Agent, unabhängig davon, welcher Frame ihn hostet:
 
 1. **Nachricht senden** – `sendToAgentChat()` sendet eine Nachricht an den Agenten. Die
@@ -134,12 +134,12 @@ Das eingebettete Agenten-Panel ist Teil jeder App – erstellen Sie eine Vorlage
 bereits da:
 
 ```bash
-npx @agent-native/core@latest create my-app --template mail --standalone
+npx @agentnative-fork/core@latest create my-app --template mail --standalone
 cd my-app
 pnpm dev
 ```
 
-Der lokale Entwicklungsrahmen (das private `@agent-native/frame`-Paket im Framework-Repository) ist ein internes Toolpaket, das nicht auf npm veröffentlicht wird. Es lädt den Entwicklungsserver der aktiven App in einen Iframe, stellt das eingebettete Panel daneben bereit und wählt die App über den Abfrageparameter `app` aus. Das integrierte CLI-Terminal erfordert den Agent Native-Desktop, der den lokalen Code und den PTY-Zugriff bereitstellt, den das Terminal benötigt; Ohne diese Option zeigt das Panel die Chat-Oberfläche an und fordert Sie auf, Desktop zu öffnen, um CLI zu verwenden.
+Der lokale Entwicklungsrahmen (das private `@agentnative-fork/frame`-Paket im Framework-Repository) ist ein internes Toolpaket, das nicht auf npm veröffentlicht wird. Es lädt den Entwicklungsserver der aktiven App in einen Iframe, stellt das eingebettete Panel daneben bereit und wählt die App über den Abfrageparameter `app` aus. Das integrierte CLI-Terminal erfordert den Agent Native-Desktop, der den lokalen Code und den PTY-Zugriff bereitstellt, den das Terminal benötigt; Ohne diese Option zeigt das Panel die Chat-Oberfläche an und fordert Sie auf, Desktop zu öffnen, um CLI zu verwenden.
 
 ## Kompatibilitätshinweise {#compatibility}
 

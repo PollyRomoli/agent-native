@@ -74,7 +74,7 @@ description: "由代理支持的日历，具有 Google Calendar 同步和 Calend
 使用日历模板创建新工作区：
 
 ```bash
-npx @agent-native/core@latest create my-app --standalone --template calendar
+npx @agentnative-fork/core@latest create my-app --standalone --template calendar
 cd my-app
 pnpm install
 pnpm dev

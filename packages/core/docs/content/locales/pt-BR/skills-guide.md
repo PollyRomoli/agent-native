@@ -200,24 +200,24 @@ trabalho off-line ou uso sensível à privacidade.
 
 ```bash
 # Happy path: exported instructions plus hosted MCP connector.
-npx @agent-native/core@latest skills add visual-plan
-npx @agent-native/core@latest skills add assets
+npx @agentnative-fork/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add assets
 
 # Repo-first Content docs/blog/MDX editing.
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 
 # Vercel/open Skills CLI: exported instructions only, no MCP config.
 npx skills@latest add BuilderIO/agent-native --skill assets
 
 # Register a hosted MCP connector for local agent clients.
-npx @agent-native/core@latest app-skill ensure --manifest templates/assets/agent-native.app-skill.json
+npx @agentnative-fork/core@latest app-skill ensure --manifest templates/assets/agent-native.app-skill.json
 
 # Materialize and run editable local source.
-npx @agent-native/core@latest app-skill launch --manifest templates/assets/agent-native.app-skill.json --local --into ./assets-local
+npx @agentnative-fork/core@latest app-skill launch --manifest templates/assets/agent-native.app-skill.json --local --into ./assets-local
 
 # Build marketplace adapters: Codex plugin, Claude marketplace, Vercel skills,
 # plain/Claude skills, and MCP configs.
-npx @agent-native/core@latest app-skill pack --manifest templates/assets/agent-native.app-skill.json --out ./dist/assets-skill
+npx @agentnative-fork/core@latest app-skill pack --manifest templates/assets/agent-native.app-skill.json --out ./dist/assets-skill
 
 # Install a local exported bundle with the Vercel/open Skills CLI.
 npx skills@latest add ./dist/assets-skill --skill assets -a codex -y
@@ -257,8 +257,8 @@ Para usuários que instalam o skills copiado através do CLI universal em vez de
 mercado de plugins, use os comandos de atualização CLI:
 
 ```bash
-npx @agent-native/core@latest skills status visual-plan
-npx @agent-native/core@latest skills update visual-plan
+npx @agentnative-fork/core@latest skills status visual-plan
+npx @agentnative-fork/core@latest skills update visual-plan
 ```
 
 `skills update` verifica projetos Codex/Claude conhecidos e pastas de habilidades do usuário, compara
@@ -273,7 +273,7 @@ espaço de trabalho). Atualize os skills com andaime do CLI atual/mais recente c
 ```bash
 npm run skills:update
 # or, without relying on the local package script:
-npx @agent-native/core@latest skills update scaffold --project
+npx @agentnative-fork/core@latest skills update scaffold --project
 ```
 
 `AGENTS.md` e `.agents/skills` permanecem canônicos. O comando update também repara

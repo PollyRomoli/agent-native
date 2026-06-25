@@ -24,14 +24,14 @@
  *   pnpm action cleanup-transcript --transcript="..." --task=summary
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   resolveBuilderCredentials,
   resolveSecret,
   FeatureNotConfiguredError,
-} from "@agent-native/core/server";
-import { createBuilderEngine } from "@agent-native/core/agent/engine";
+} from "@agentnative-fork/core/server";
+import { createBuilderEngine } from "@agentnative-fork/core/agent/engine";
 
 // Builder gateway maps this to Gemini 3.1 Flash-Lite (see transcribe-voice.ts:52).
 const BUILDER_MODEL = "gemini-3-1-flash-lite";

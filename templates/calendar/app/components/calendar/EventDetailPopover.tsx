@@ -56,7 +56,7 @@ import {
 import { useCalendarContext } from "@/components/layout/AppLayout";
 import { useEvent, useUpdateEvent } from "@/hooks/use-events";
 import { useConnectZoom, useZoomStatus } from "@/hooks/use-zoom-auth";
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import { useGuestNotificationPrompt } from "@/components/calendar/GuestNotificationDialog";
 import {

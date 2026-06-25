@@ -8,17 +8,17 @@ coding agents can discover the same workspace-wide guidance from the root.
 
 ## Framework Docs Lookup
 
-Version-matched Agent Native docs ship with `@agent-native/core` in
-`node_modules/@agent-native/core/docs`. A source-only corpus of core and
-first-party template patterns ships in `node_modules/@agent-native/core/corpus`.
+Version-matched Agent Native docs ship with `@agentnative-fork/core` in
+`node_modules/@agentnative-fork/core/docs`. A source-only corpus of core and
+first-party template patterns ships in `node_modules/@agentnative-fork/core/corpus`.
 
 - From an app directory, use `pnpm action docs-search --query "<topic>"`,
   `pnpm action docs-search --slug <slug>`, or `pnpm action docs-search --list`.
   Use `pnpm action source-search --query "<pattern>"` or
   `pnpm action source-search --path <path>` when source examples matter.
-- From the workspace root, read `node_modules/@agent-native/core/docs/AGENTS.md`
-  and search `node_modules/@agent-native/core/docs/content/` directly with `rg`.
-  Search `node_modules/@agent-native/core/corpus/` for core and template source
+- From the workspace root, read `node_modules/@agentnative-fork/core/docs/AGENTS.md`
+  and search `node_modules/@agentnative-fork/core/docs/content/` directly with `rg`.
+  Search `node_modules/@agentnative-fork/core/corpus/` for core and template source
   examples.
 - For advanced workspace features, start with `workspace`, `multi-app-workspace`,
   `a2a-protocol`, `pure-agent-apps`, `automations`, `recurring-jobs`,
@@ -27,8 +27,8 @@ first-party template patterns ships in `node_modules/@agent-native/core/corpus`.
 Use package docs for framework APIs, the package corpus for reusable
 framework/template patterns, and `packages/shared/AGENTS.md` plus
 `packages/shared/.agents/skills/` for workspace-specific conventions.
-After updating `@agent-native/core`, run `pnpm skills:update` or
-`npx @agent-native/core@latest skills update scaffold --project` from the
+After updating `@agentnative-fork/core`, run `pnpm skills:update` or
+`npx @agentnative-fork/core@latest skills update scaffold --project` from the
 workspace root to refresh framework-provided shared skills and repair
 `CLAUDE.md` / `.claude/skills` compatibility links.
 
@@ -143,7 +143,7 @@ workspace root to refresh framework-provided shared skills and repair
   `/_agent-native/actions/:name`. Action-backed UI is what makes agent-created
   or agent-edited records appear without a manual refresh.
 - App database code must be provider-agnostic. Define schemas with
-  `@agent-native/core/db/schema` helpers and write app reads/writes with
+  `@agentnative-fork/core/db/schema` helpers and write app reads/writes with
   Drizzle's query builder and portable `drizzle-orm` operators. Do not import
   from `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core` in app templates.
   Keep raw SQL for additive migrations, health checks, or carefully scoped

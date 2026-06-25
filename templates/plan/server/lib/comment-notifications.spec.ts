@@ -13,7 +13,7 @@ vi.mock("drizzle-orm", () => ({
   eq: vi.fn((left: unknown, right: unknown) => ({ left, right })),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   emailStrong: (value: string) => `<strong>${value}</strong>`,
   getAppProductionUrl: () => "https://plans.example.test",
   isEmailConfigured: () => isEmailConfiguredMock(),

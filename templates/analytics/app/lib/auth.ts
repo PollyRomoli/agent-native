@@ -2,7 +2,7 @@
 // getIdToken returns null so existing fetch calls safely skip the Authorization header.
 // In production, auth is enforced at the middleware layer via cookies.
 
-import type { AuthSession } from "@agent-native/core";
+import type { AuthSession } from "@agentnative-fork/core";
 
 export type AnalyticsAuth = AuthSession;
 

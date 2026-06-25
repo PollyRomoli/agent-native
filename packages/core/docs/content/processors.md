@@ -30,7 +30,7 @@ A processor implements any subset of three optional lifecycle hooks (the shape i
 Each processor gets its own mutable, run-scoped `state` object that persists across every one of its hook invocations within a single run and is **isolated** from other processors' state.
 
 ```ts
-import type { Processor } from "@agent-native/core";
+import type { Processor } from "@agentnative-fork/core";
 
 const noSecretsInOutput: Processor = {
   name: "no-secrets",
@@ -64,7 +64,7 @@ const coverageGate: Processor = {
 A hook halts the run by calling `abort(reason, meta?)`, which throws a **`TripWire`**. The loop catches it, emits a single **`tripwire` event**, stops cleanly, and surfaces the reason as the final assistant message.
 
 ```ts
-import { TripWire } from "@agent-native/core";
+import { TripWire } from "@agentnative-fork/core";
 ```
 
 The `tripwire` event carries:

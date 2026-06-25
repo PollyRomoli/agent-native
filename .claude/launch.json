@@ -112,7 +112,7 @@
     {
       "name": "docs",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["--filter", "@agent-native/docs", "dev"],
+      "runtimeArgs": ["--filter", "@agentnative-fork/docs", "dev"],
       "port": 3000,
       "autoPort": true
     },

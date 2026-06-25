@@ -6,7 +6,7 @@ This guide is for development-mode agents editing this app's source code. For ap
 
 - **PNPM**: Prefer pnpm
 - **Frontend**: React 18 + React Router 6 (spa) + TypeScript + Vite + TailwindCSS 3
-- **Backend**: Nitro (via @agent-native/core) — file-based API routing
+- **Backend**: Nitro (via @agentnative-fork/core) — file-based API routing
 - **Testing**: Vitest
 - **UI**: Radix UI + TailwindCSS 3 + Lucide React icons
 - **Video**: Remotion for programmatic video compositions
@@ -34,9 +34,9 @@ shared/                   # Types used by both client & server
 └── api.ts                # Shared API interfaces
 ```
 
-## Framework Basics (Nitro + @agent-native/core)
+## Framework Basics (Nitro + @agentnative-fork/core)
 
-This app uses **Nitro** (via `@agent-native/core`) for the server. All server code lives in `server/`.
+This app uses **Nitro** (via `@agentnative-fork/core`) for the server. All server code lives in `server/`.
 
 ### Server Directory
 
@@ -50,7 +50,7 @@ server/
 
 ### Adding App Data
 
-Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agent-native/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
+Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agentnative-fork/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
 
 ### Adding a Route-Only Endpoint
 
@@ -63,21 +63,21 @@ Each route-only endpoint still exports a default `defineEventHandler`, but keep 
 Startup logic (auth, SSE, etc.) lives in `server/plugins/`. Use `defineNitroPlugin` from core:
 
 ```ts
-import { defineNitroPlugin } from "@agent-native/core";
+import { defineNitroPlugin } from "@agentnative-fork/core";
 
 export default defineNitroPlugin(async (nitroApp) => {
   // Runs once at server startup
 });
 ```
 
-### Key Imports from `@agent-native/core`
+### Key Imports from `@agentnative-fork/core`
 
 | Import                                       | Purpose                                                                    |
 | -------------------------------------------- | -------------------------------------------------------------------------- |
 | `defineNitroPlugin`                          | Define a server plugin (re-exported from Nitro)                            |
 | `createDefaultSSEHandler`                    | Create SSE endpoint for DB change events (server)                          |
-| `readAppState`, `writeAppState`              | Read/write application state (from `@agent-native/core/application-state`) |
-| `readSetting`, `writeSetting`                | Read/write settings (from `@agent-native/core/settings`)                   |
+| `readAppState`, `writeAppState`              | Read/write application state (from `@agentnative-fork/core/application-state`) |
+| `readSetting`, `writeSetting`                | Read/write settings (from `@agentnative-fork/core/settings`)                   |
 | `defineEventHandler`, `readBody`, `getQuery` | H3 route handler utilities (re-exported)                                   |
 | `sendToAgentChat`                            | Send messages to agent from UI (client-side)                               |
 | `agentChat`                                  | Send messages to agent from scripts (server-side)                          |

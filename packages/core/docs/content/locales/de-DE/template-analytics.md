@@ -80,7 +80,7 @@ Der Rest dieses Dokuments richtet sich an alle, die die Analytics-Vorlage verzwe
 Erstellen Sie eine neue Analytics-App aus CLI:
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 Lokaler Entwickler:
@@ -162,7 +162,7 @@ Der Anmeldeclient mit geringem Bereich bleibt von den Google API-Integrationscli
 
 Kerntabellen (siehe `templates/analytics/server/db/schema.ts`):
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ Kerntabellen (siehe `templates/analytics/server/db/schema.ts`):
 }
 ```
 
-Plus Pro-Ressourcen-Freigabetabellen (`dashboard_shares`, `analysis_shares`) und die von `@agent-native/core/org` bereitgestellten Organisationstabellen (`organizations`, `org_members`, `org_invitations`). Das Datenwörterbuch befindet sich in der `settings`-Tabelle des Frameworks unter bereichsbezogenen Schlüsseln.
+Plus Pro-Ressourcen-Freigabetabellen (`dashboard_shares`, `analysis_shares`) und die von `@agentnative-fork/core/org` bereitgestellten Organisationstabellen (`organizations`, `org_members`, `org_invitations`). Das Datenwörterbuch befindet sich in der `settings`-Tabelle des Frameworks unter bereichsbezogenen Schlüsseln.
 
 - **`dashboards`** – sowohl Explorer- als auch SQL-Dashboards. `kind` ist `"explorer"` oder `"sql"`; `config` ist ein JSON-Blob, der zu `SqlDashboardConfig` passt.
 - **`dashboard_shares`** – Aktienzuteilungen pro Ressource (Prinzipal, Rolle).
@@ -222,7 +222,7 @@ Plus Pro-Ressourcen-Freigabetabellen (`dashboard_shares`, `analysis_shares`) und
 - **`analysis_shares`** – Aktienzuteilungen pro Ressource für Analysen.
 - **`bigquery_cache`** – Abfrageergebnis-Cache, verschlüsselt durch SQL-Hash mit Byte-verarbeiteter Abrechnung.
 
-Plus die von `@agent-native/core/org` bereitgestellten Organisationstabellen (`organizations`, `org_members`, `org_invitations`).
+Plus die von `@agentnative-fork/core/org` bereitgestellten Organisationstabellen (`organizations`, `org_members`, `org_invitations`).
 
 Das Datenwörterbuch befindet sich in der `settings`-Tabelle des Frameworks unter bereichsbezogenen Schlüsseln. Die vollständige Form finden Sie unter `list-data-dictionary` und `save-data-dictionary-entry` actions.
 

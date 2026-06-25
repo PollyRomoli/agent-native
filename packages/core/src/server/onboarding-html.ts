@@ -30,6 +30,42 @@ import {
 import { normalizeAppBasePath } from "./app-base-path.js";
 import { hasGoogleSignInCredentials } from "./google-oauth-credentials.js";
 
+// ─── Theme configuration ───────────────────────────────────────────────────
+
+export interface ThemeConfig {
+  appName?: string;
+  logoUrl?: string;
+  colors?: {
+    primary?: string;
+    background?: string;
+    text?: string;
+    accent?: string;
+  };
+  fonts?: {
+    heading?: string;
+    body?: string;
+  };
+  cssOverrides?: string;
+  termsUrl?: string;
+  privacyUrl?: string;
+  socialImageUrl?: string;
+  faviconUrl?: string;
+}
+
+let _globalTheme: ThemeConfig | undefined;
+
+export function setTheme(theme: ThemeConfig | undefined): void {
+  _globalTheme = theme;
+}
+
+export function getTheme(): ThemeConfig | undefined {
+  return _globalTheme;
+}
+
+function resolveTheme(opts: OnboardingHtmlOptions): ThemeConfig | undefined {
+  return opts.theme ?? _globalTheme;
+}
+
 function hasGoogleOAuth(): boolean {
   return hasGoogleSignInCredentials();
 }
@@ -135,6 +171,13 @@ export interface OnboardingHtmlOptions {
    * iframes use popup; Builder desktop preview/editor surfaces use redirect.
    */
   googleAuthMode?: GoogleAuthMode;
+  /**
+   * Theme configuration for white-labeling the login page.
+   * When provided, overrides hardcoded Agent-Native branding (logo, colors,
+   * fonts, terms/privacy URLs, social image, favicon). Falls back to defaults
+   * for any field that is not set.
+   */
+  theme?: ThemeConfig;
 }
 
 export function getOnboardingHtml(opts: OnboardingHtmlOptions = {}): string {
@@ -163,12 +206,16 @@ export function getOnboardingHtml(opts: OnboardingHtmlOptions = {}): string {
     });
   const hasMarketing = !!marketing;
   const runLocalCommand = marketing?.runLocalCommand?.trim();
-  const brandMarkSrc = withAppBasePath("/agent-native-icon-dark.svg");
-  const socialImageUrl = withAgentNativeSocialImageCacheBuster(
-    opts.requestOrigin
-      ? `${opts.requestOrigin}${withAppBasePath(AGENT_NATIVE_SOCIAL_IMAGE_PATH)}`
-      : withAppBasePath(AGENT_NATIVE_SOCIAL_IMAGE_PATH),
-  );
+  const theme = resolveTheme(opts);
+  const brandMarkSrc = theme?.logoUrl ?? withAppBasePath("/agent-native-icon-dark.svg");
+  const socialImageUrl = theme?.socialImageUrl ??
+    withAgentNativeSocialImageCacheBuster(
+      opts.requestOrigin
+        ? `${opts.requestOrigin}${withAppBasePath(AGENT_NATIVE_SOCIAL_IMAGE_PATH)}`
+        : withAppBasePath(AGENT_NATIVE_SOCIAL_IMAGE_PATH),
+    );
+  const faviconUrl = theme?.faviconUrl ?? withAppBasePath("/favicon.svg");
+  const appleTouchIconUrl = theme?.faviconUrl ?? withAppBasePath("/icon-180.svg");
   const esc = (s: string) =>
     s
       .replace(/&/g, "&amp;")
@@ -179,8 +226,8 @@ export function getOnboardingHtml(opts: OnboardingHtmlOptions = {}): string {
     opts.signupLegalNotice === undefined &&
     isAgentNativeHostedHost(opts.requestHost)
       ? {
-          termsUrl: AGENT_NATIVE_TERMS_URL,
-          privacyUrl: AGENT_NATIVE_PRIVACY_URL,
+          termsUrl: theme?.termsUrl ?? AGENT_NATIVE_TERMS_URL,
+          privacyUrl: theme?.privacyUrl ?? AGENT_NATIVE_PRIVACY_URL,
         }
       : undefined;
   const signupLegalNotice =
@@ -647,9 +694,9 @@ ${
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>${hasMarketing ? esc(marketing!.appName) + " — Sign in" : "Welcome"}</title>
-<link rel="icon" type="image/svg+xml" href="${withAppBasePath("/favicon.svg")}">
-<link rel="apple-touch-icon" href="${withAppBasePath("/icon-180.svg")}">
+<title>${hasMarketing ? esc(marketing!.appName) + " — Sign in" : (theme?.appName ? esc(theme.appName) + " — Sign in" : "Welcome")}</title>
+<link rel="icon" type="image/svg+xml" href="${esc(faviconUrl)}">
+<link rel="apple-touch-icon" href="${esc(appleTouchIconUrl)}">
 ${
   hasMarketing
     ? `<meta name="description" content="${esc(marketing!.tagline)}">
@@ -1079,6 +1126,7 @@ ${
   .local-note a { color: #888; text-decoration: none; }
   .local-note a:hover { color: #bbb; }
 ${marketingStyles}
+${theme?.cssOverrides ? `/* Theme overrides */\n${theme.cssOverrides}` : ""}
 </style>
 </head>
 <body${hasMarketing ? ' class="has-marketing"' : ""}>

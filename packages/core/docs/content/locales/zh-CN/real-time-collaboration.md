@@ -76,7 +76,7 @@ gate 确保仅采用真正较新的内容 - 滞后的民意调查响应
 当前可见的对等体中。代理的意识条目使用
 `AGENT_CLIENT_ID` (max int) 所以它永远不可能成为领先。客户端编辑
 独自一人永远是领先者。选举是确定性的，没有协调
-往返（从 `@agent-native/core/client` 到 `isReconcileLeadClient`）。
+往返（从 `@agentnative-fork/core/client` 到 `isReconcileLeadClient`）。
 
 ### 5。 SSE 快速路径+轮询回退（传输）
 
@@ -122,7 +122,7 @@ pnpm add @tiptap/extension-collaboration @tiptap/extension-collaboration-caret @
 ```ts
 // vite.config.ts
 import { reactRouter } from "@react-router/dev/vite";
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -149,7 +149,7 @@ export default defineConfig({
 
 ```ts
 // server/plugins/collab.ts
-import { createCollabPlugin } from "@agent-native/core/server";
+import { createCollabPlugin } from "@agentnative-fork/core/server";
 
 export default createCollabPlugin({
   table: "documents",
@@ -166,7 +166,7 @@ import {
   useCollaborativeDoc,
   emailToColor,
   emailToName,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const TAB_ID = generateTabId(); // or Math.random().toString(36)
 
@@ -273,7 +273,7 @@ import {
   RemoteSelectionRings,
   useCollaborativeDoc,
   usePresence,
-} from "@agent-native/core/client/collab";
+} from "@agentnative-fork/core/client/collab";
 ```
 
 服务器端代理存在帮助程序保留在较低级别的协作包中：
@@ -283,7 +283,7 @@ import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 ```
 
 ### 公共API {#presence-public-api}
@@ -336,7 +336,7 @@ import {
 返回远程参与者的反应列表和本地在线状态有效负载的设置器：
 
 ```ts
-import { usePresence } from "@agent-native/core/client";
+import { usePresence } from "@agentnative-fork/core/client";
 
 const { others, setPresence } = usePresence(awareness, ydoc?.clientID);
 
@@ -359,7 +359,7 @@ setPresence({ cursor: { x: 0.4, y: 0.7 }, selection: "#hero" });
 将远程光标呈现为容器元素上的绝对定位标签：
 
 ```tsx
-import { LiveCursorOverlay } from "@agent-native/core/client";
+import { LiveCursorOverlay } from "@agentnative-fork/core/client";
 
 // cursor positions stored as { x, y } normalized 0–1 under presence.cursor
 <div ref={containerRef} style={{ position: "relative" }}>
@@ -379,7 +379,7 @@ import { LiveCursorOverlay } from "@agent-native/core/client";
 在远程选择的元素上渲染彩色轮廓环+名称标签：
 
 ```tsx
-import { RemoteSelectionRings } from "@agent-native/core/client";
+import { RemoteSelectionRings } from "@agentnative-fork/core/client";
 
 <div ref={containerRef} style={{ position: "relative" }}>
   {content}
@@ -399,7 +399,7 @@ import { RemoteSelectionRings } from "@agent-native/core/client";
 每当跟随的参与者的视口发生变化时调用回调：
 
 ```ts
-import { useFollowUser } from "@agent-native/core/client";
+import { useFollowUser } from "@agentnative-fork/core/client";
 
 const { isFollowing, stopFollowing } = useFollowUser({
   others,
@@ -434,7 +434,7 @@ const { isFollowing, stopFollowing } = useFollowUser({
 ### 标准化坐标助手 {#norm-coords}
 
 ```ts
-import { toNormalized, fromNormalized } from "@agent-native/core/client";
+import { toNormalized, fromNormalized } from "@agentnative-fork/core/client";
 
 // In a pointer event handler:
 const norm = toNormalized(
@@ -457,7 +457,7 @@ import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 
 agentEnterDocument(docId);
 agentUpdateSelection(docId, {
@@ -656,7 +656,7 @@ undoManager.redo(); // Shift+Cmd+Z
   （持久存在心跳）。
 
 Use `emailToColor(email)` and `emailToName(email)` from
-`@agent-native/core/client` 生成一致的光标颜色和显示
+`@agentnative-fork/core/client` 生成一致的光标颜色和显示
 电子邮件地址中的姓名。
 
 使用 `activeUsers` 渲染的 `PresenceBar` 显示活人和特工

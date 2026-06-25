@@ -1,5 +1,5 @@
 import { defineEventHandler, getQuery } from "h3";
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 import { getClient } from "../../../lib/google-calendar.js";
 import { peopleSearchDirectoryPeople } from "../../../lib/google-api.js";
 

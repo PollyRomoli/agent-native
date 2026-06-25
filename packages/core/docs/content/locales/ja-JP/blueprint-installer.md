@@ -63,7 +63,7 @@ agent-native add provider https://docs.example.com/api | claude
 
 Markdown ファイルを `packages/core/blueprints/<kind>/<name>.md` にドロップします。種類はサブディレクトリです。名前は`.md`を除いたファイル名です。これは自動的に取得されます。`--list`、名前解決、カタログはすべて実行時にディレクトリを読み取ります。登録するためにコードを変更する必要はありません。
 
-ブループリント `.md` ファイルは、`package.json` `files` の `blueprints` エントリを介して公開パッケージに同梱されるため、エンド ユーザーにとっては `node_modules/@agent-native/core/blueprints/**` で解決されます。
+ブループリント `.md` ファイルは、`package.json` `files` の `blueprints` エントリを介して公開パッケージに同梱されるため、エンド ユーザーにとっては `node_modules/@agentnative-fork/core/blueprints/**` で解決されます。
 
 各ブループリントを、他のコンテキストを持たないコーディング エージェントの命令セットとして作成します。優れた青写真には次のような特徴があります。
 

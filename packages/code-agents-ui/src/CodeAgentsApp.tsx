@@ -47,7 +47,7 @@ import {
   type PromptComposerFile,
   type SlashCommand,
   type TiptapComposerHandle,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import {
   CODE_AGENT_GOALS,
@@ -60,7 +60,7 @@ import {
   type CodeAgentGoalId,
   type CodeAgentPermissionMode,
 } from "./code-agents.js";
-import type { AppConfig } from "@agent-native/shared-app-config";
+import type { AppConfig } from "@agentnative-fork/shared-app-config";
 import {
   DropdownMenu,
   DropdownMenuContent,

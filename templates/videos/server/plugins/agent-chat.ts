@@ -1,9 +1,9 @@
 import {
   createAgentChatPlugin,
   loadActionsFromStaticRegistry,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import actionsRegistry from "../../.generated/actions-registry.js";
-import { getOrgContext } from "@agent-native/core/org";
+import { getOrgContext } from "@agentnative-fork/core/org";
 
 const INITIAL_TOOL_NAMES = [
   "view-screen",

@@ -1,7 +1,7 @@
 import { resolveCredential, type CredentialContext } from "./credentials";
-import type { WorkspaceConnectionCredentialResolution } from "@agent-native/core/workspace-connections";
-import { resolveWorkspaceConnectionCredentialForApp } from "@agent-native/core/workspace-connections";
-import type { SecretRef } from "@agent-native/core/secrets";
+import type { WorkspaceConnectionCredentialResolution } from "@agentnative-fork/core/workspace-connections";
+import { resolveWorkspaceConnectionCredentialForApp } from "@agentnative-fork/core/workspace-connections";
+import type { SecretRef } from "@agentnative-fork/core/secrets";
 
 export const ANALYTICS_APP_ID = "analytics";
 

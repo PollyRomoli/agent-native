@@ -4,7 +4,7 @@ import { coreChatScripts } from "./chat/index.js";
 import { coreDocsScripts } from "./docs/index.js";
 
 /**
- * Registry of all core scripts provided by @agent-native/core.
+ * Registry of all core scripts provided by @agentnative-fork/core.
  * The script runner falls back to these when a local script isn't found.
  */
 export const coreScripts: Record<string, (args: string[]) => Promise<void>> = {

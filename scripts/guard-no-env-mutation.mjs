@@ -280,7 +280,7 @@ if (violations.length > 0) {
     "  - Use `runWithRequestContext({ userEmail, orgId, timezone }, fn)`",
   );
   console.error(
-    "    from `@agent-native/core/server`. Inside `fn`, the framework",
+    "    from `@agentnative-fork/core/server`. Inside `fn`, the framework",
   );
   console.error("    helpers (`getRequestUserEmail`, `getRequestOrgId`,");
   console.error(

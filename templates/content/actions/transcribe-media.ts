@@ -1,15 +1,15 @@
-import { defineAction } from "@agent-native/core";
-import { resolveCredential } from "@agent-native/core/credentials";
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
-import { readAppSecret } from "@agent-native/core/secrets";
+import { defineAction } from "@agentnative-fork/core";
+import { resolveCredential } from "@agentnative-fork/core/credentials";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
+import { readAppSecret } from "@agentnative-fork/core/secrets";
 import {
   buildDeepLink,
   getCredentialContext,
   getRequestUserEmail,
   resolveHasBuilderPrivateKey,
-} from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
-import { transcribeWithBuilder } from "@agent-native/core/transcription/builder";
+} from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
+import { transcribeWithBuilder } from "@agentnative-fork/core/transcription/builder";
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 import { z } from "zod";

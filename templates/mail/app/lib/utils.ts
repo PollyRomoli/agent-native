@@ -1,4 +1,4 @@
-export { cn } from "@agent-native/core/client";
+export { cn } from "@agentnative-fork/core/client";
 import {
   decodeCommonHtmlEntities,
   escapeHtml,

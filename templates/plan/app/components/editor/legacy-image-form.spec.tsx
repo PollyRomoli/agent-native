@@ -6,7 +6,7 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import {
   SchemaBlockEditor,
   type BlockRenderContext,
-} from "@agent-native/core/blocks";
+} from "@agentnative-fork/core/blocks";
 import { imageDataSchema } from "@shared/plan-content";
 
 let container: HTMLElement;

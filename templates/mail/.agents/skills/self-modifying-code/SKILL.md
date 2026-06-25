@@ -28,7 +28,7 @@ Not all modifications are equal. Use this to decide what level of care is needed
 | 1: Data       | Files in `data/`      | JSON state, generated content, markdown          | Nothing — these are routine       |
 | 2: Source     | App code              | Components, routes, styles, scripts              | Run `pnpm typecheck && pnpm lint` |
 | 3: Config     | Project config        | `package.json`, `tsconfig.json`, `vite.config.*` | Ask for explicit approval first   |
-| 4: Off limits | Secrets and framework | `.env`, `@agent-native/core` internals           | Never modify these                |
+| 4: Off limits | Secrets and framework | `.env`, `@agentnative-fork/core` internals           | Never modify these                |
 
 ## Git Checkpoint Pattern
 
@@ -74,7 +74,7 @@ inline strings in components.
 ## Don't
 
 - Don't modify `.env` files or files containing secrets
-- Don't modify `@agent-native/core` package internals
+- Don't modify `@agentnative-fork/core` package internals
 - Don't modify `.agents/skills/` or `AGENTS.md` unless explicitly requested
 - Don't skip the typecheck/lint step after editing source code
 - Don't make source changes without a git checkpoint to roll back to

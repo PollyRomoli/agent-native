@@ -939,7 +939,7 @@ export function agentNativeMetricsExtension(): string {
       <template x-if="!loading && !error">
         <div class="space-y-5">
           <section class="rounded-lg border bg-card p-5 space-y-4">
-            <div><h2 class="text-base font-semibold">npm package downloads per week</h2><p class="mt-0.5 text-xs text-muted-foreground">@agent-native/core / daily grain / 7-day moving average</p></div>
+            <div><h2 class="text-base font-semibold">npm package downloads per week</h2><p class="mt-0.5 text-xs text-muted-foreground">@agentnative-fork/core / daily grain / 7-day moving average</p></div>
             <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
               <div class="rounded-lg border p-4"><div class="text-xs text-muted-foreground">Current 7-day avg / day</div><div class="mt-1 text-2xl font-bold" x-text="fmt(Math.round(launchRows().at(-1)?.ma7 || 0))"></div></div>
               <div class="rounded-lg border p-4"><div class="text-xs text-muted-foreground">Last 7 days</div><div class="mt-1 text-2xl font-bold" x-text="fmt(sum(launchRows().slice(-7), 'downloads'))"></div></div>
@@ -949,7 +949,7 @@ export function agentNativeMetricsExtension(): string {
             <svg viewBox="0 0 720 220" class="h-72 w-full rounded border bg-muted/20 p-2" preserveAspectRatio="none">
               <polyline :points="chartPoints(launchRows(), 'ma7', 700, 190)" fill="none" stroke="#4e9fea" stroke-width="3"></polyline>
             </svg>
-            <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] text-muted-foreground"><span>Source: npmjs.org downloads API / @agent-native/core</span><span x-show="npmMeta?.fetchedAt" x-text="'Last fetched: ' + new Date(npmMeta.fetchedAt).toLocaleString()"></span></div>
+            <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] text-muted-foreground"><span>Source: npmjs.org downloads API / @agentnative-fork/core</span><span x-show="npmMeta?.fetchedAt" x-text="'Last fetched: ' + new Date(npmMeta.fetchedAt).toLocaleString()"></span></div>
           </section>
 
           <section class="rounded-lg border bg-card p-5 space-y-4">

@@ -15,7 +15,7 @@ import {
   IconBrandGoogle,
 } from "@tabler/icons-react";
 import { toast } from "@/hooks/use-toast";
-import { appBasePath } from "@agent-native/core/client";
+import { appBasePath } from "@agentnative-fork/core/client";
 
 interface ExportMenuProps {
   deckId: string;

@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
 import { z } from "zod";
-import { putUserSetting, putSetting } from "@agent-native/core/settings";
+import { putUserSetting, putSetting } from "@agentnative-fork/core/settings";
 import type { Settings } from "../shared/api.js";
 
 export default defineAction({

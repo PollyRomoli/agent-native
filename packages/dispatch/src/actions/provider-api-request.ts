@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { stagingExecuteRequest } from "@agent-native/core/provider-api/staging";
-import { getCredentialContext } from "@agent-native/core/server/request-context";
+import { defineAction } from "@agentnative-fork/core";
+import { stagingExecuteRequest } from "@agentnative-fork/core/provider-api/staging";
+import { getCredentialContext } from "@agentnative-fork/core/server/request-context";
 import { z } from "zod";
 import {
   DISPATCH_APP_ID,

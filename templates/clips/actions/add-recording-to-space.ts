@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
-import { writeAppState } from "@agent-native/core/application-state";
-import { assertAccess } from "@agent-native/core/sharing";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { parseSpaceIds, stringifySpaceIds } from "../server/lib/recordings.js";
 
 export default defineAction({

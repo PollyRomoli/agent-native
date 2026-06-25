@@ -1,7 +1,7 @@
 /**
  * Behavior + drift guards for the skills-CLI telemetry sender.
  *
- * The standalone installer and `@agent-native/core` each ship their own copy of
+ * The standalone installer and `@agentnative-fork/core` each ship their own copy of
  * `telemetry.ts` (skills can't depend on the heavyweight core), so the funnel
  * event contract — and therefore the analytics dashboard — only stays correct
  * if the two copies match. The drift guard fails CI if they diverge.
@@ -119,7 +119,7 @@ describe("createCliTelemetry", () => {
 });
 
 describe("telemetry drift guard", () => {
-  it("matches the @agent-native/core copy (ignoring the doc comment)", () => {
+  it("matches the @agentnative-fork/core copy (ignoring the doc comment)", () => {
     if (!fs.existsSync(coreTelemetry)) {
       // Running outside the monorepo (published package) — nothing to compare.
       return;

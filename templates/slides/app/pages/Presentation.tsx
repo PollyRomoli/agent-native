@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDecks } from "@/context/DeckContext";
 import type { Deck } from "@/context/DeckContext";
 import PresentationView from "@/components/presentation/PresentationView";
-import { callAction } from "@agent-native/core/client";
+import { callAction } from "@agentnative-fork/core/client";
 
 export default function Presentation() {
   const { id } = useParams<{ id: string }>();

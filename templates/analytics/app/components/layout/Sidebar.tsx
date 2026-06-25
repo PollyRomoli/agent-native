@@ -86,7 +86,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Skeleton } from "@/components/ui/skeleton";
-import { OrgSwitcher } from "@agent-native/core/client/org";
+import { OrgSwitcher } from "@agentnative-fork/core/client/org";
 import {
   DevDatabaseLink,
   FeedbackButton,
@@ -97,8 +97,8 @@ import {
   useActionMutation,
   useChangeVersions,
   useT,
-} from "@agent-native/core/client";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
+} from "@agentnative-fork/core/client";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
 import { NewDashboardDialog } from "./NewDashboardDialog";
 import { NewAnalysisDialog } from "./NewAnalysisDialog";
 import { useUserPref } from "@/hooks/use-user-pref";
@@ -1311,7 +1311,7 @@ export function Sidebar({ mobile }: { mobile?: boolean } = {}) {
   // depend on `action` too because the agent runner emits an `action`
   // event for every successful tool call — even when the matching
   // resource-table emit (`dashboards` / `analyses`) is missed (e.g. event
-  // batching). See `use-change-version.ts` in @agent-native/core.
+  // batching). See `use-change-version.ts` in @agentnative-fork/core.
   const dashboardsSync = useChangeVersions(["dashboards", "action"]);
   const analysesSync = useChangeVersions(["analyses", "action"]);
   const dashboardsSyncRef = useRef(dashboardsSync);

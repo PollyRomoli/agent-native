@@ -73,7 +73,7 @@ import {
   emailToName,
   type AgentSidebarStateChangeDetail,
   type RichMarkdownCollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   useAcceptInvitation,
   useJoinByDomain,
@@ -81,7 +81,7 @@ import {
   type OrgInfo,
   type OrgInvitationSummary,
   type DomainMatchOrg,
-} from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client/org";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7720,7 +7720,7 @@ function SignedInPlanAccessActions({
 }
 
 const PLAN_SKILL_INSTALL_COMMAND =
-  "npx @agent-native/core@latest skills add visual-plans";
+  "npx @agentnative-fork/core@latest skills add visual-plans";
 
 type PlanSkillDemo = {
   command: string;

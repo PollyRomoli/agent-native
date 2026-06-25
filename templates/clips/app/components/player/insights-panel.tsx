@@ -14,7 +14,7 @@ import {
   IconTarget,
 } from "@tabler/icons-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 export interface InsightsPanelProps {
   recordingId: string;

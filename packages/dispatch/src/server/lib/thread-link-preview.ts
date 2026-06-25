@@ -1,4 +1,4 @@
-import type { ChatThread } from "@agent-native/core/server";
+import type { ChatThread } from "@agentnative-fork/core/server";
 import {
   extractThreadPreviewImageUrl,
   type ThreadLinkPreview,
@@ -16,7 +16,7 @@ export async function loadThreadLinkPreview(
   const id = threadId?.trim();
   if (!id) return null;
   const { getRequestContext, getThread } =
-    await import("@agent-native/core/server");
+    await import("@agentnative-fork/core/server");
   const viewerEmail = getRequestContext()?.userEmail?.trim();
   if (!viewerEmail) return null;
   const thread = await getThread(id).catch(() => null);

@@ -1,10 +1,10 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import fs from "fs";
 import path from "path";
 import { eq } from "drizzle-orm";
-import { writeAppState } from "@agent-native/core/application-state";
-import { assertAccess } from "@agent-native/core/sharing";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../server/db/index.js";
 import { notifyClients } from "../server/handlers/decks.js";
 import { parseSlidesFigDesignSystem } from "../server/lib/fig-design-system.js";

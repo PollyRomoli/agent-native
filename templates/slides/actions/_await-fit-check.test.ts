@@ -3,11 +3,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 const mockReadAppState = vi.fn();
 let mockRunContext: { browserTabId?: string } | undefined;
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   readAppState: (...args: unknown[]) => mockReadAppState(...args),
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestRunContext: () => mockRunContext,
 }));
 

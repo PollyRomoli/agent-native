@@ -9,9 +9,9 @@
 import {
   createOnboardingPlugin,
   registerOnboardingStep,
-} from "@agent-native/core/onboarding";
-import { getActiveFileUploadProvider } from "@agent-native/core/file-upload";
-import { resolveHasBuilderPrivateKey } from "@agent-native/core/server";
+} from "@agentnative-fork/core/onboarding";
+import { getActiveFileUploadProvider } from "@agentnative-fork/core/file-upload";
+import { resolveHasBuilderPrivateKey } from "@agentnative-fork/core/server";
 
 const basePlugin = createOnboardingPlugin();
 

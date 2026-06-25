@@ -19,8 +19,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { useSendToAgentChat, useT } from "@agent-native/core/client";
-import { ExtensionSlot } from "@agent-native/core/client/extensions";
+import { useSendToAgentChat, useT } from "@agentnative-fork/core/client";
+import { ExtensionSlot } from "@agentnative-fork/core/client/extensions";
 import {
   useIntegration,
   useAllIntegrations,

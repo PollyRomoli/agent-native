@@ -1,7 +1,7 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { and, desc, eq, inArray, sql } from "drizzle-orm";
 import { z } from "zod";
-import { accessFilter, resolveAccess } from "@agent-native/core/sharing";
+import { accessFilter, resolveAccess } from "@agentnative-fork/core/sharing";
 import { getDb, schema } from "../server/db/index.js";
 import {
   latestDistillationQueuesForCaptures,

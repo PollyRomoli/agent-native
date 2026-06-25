@@ -26,7 +26,7 @@ import { ExplorerChart } from "../explorer/components/ExplorerChart";
 import { buildSql } from "../explorer/sql-builder";
 import type { ExplorerConfig } from "../explorer/types";
 import type { DashboardChart } from "./index";
-import { callAction } from "@agent-native/core/client";
+import { callAction } from "@agentnative-fork/core/client";
 import {
   Tooltip,
   TooltipContent,

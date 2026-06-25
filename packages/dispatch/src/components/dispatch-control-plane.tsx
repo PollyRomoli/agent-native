@@ -10,8 +10,8 @@ import {
   useChatModels,
   useChatThreads,
   type ChatThreadSummary,
-} from "@agent-native/core/client";
-import { RunsTray } from "@agent-native/core/client/progress";
+} from "@agentnative-fork/core/client";
+import { RunsTray } from "@agentnative-fork/core/client/progress";
 import {
   IconActivity,
   IconAlertTriangle,

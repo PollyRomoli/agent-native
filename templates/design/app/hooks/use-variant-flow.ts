@@ -5,7 +5,7 @@ import {
   agentNativePath,
   callAction,
   isEmbedAuthActive,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export const DESIGN_VARIANT_PICKED_EVENT = "agent-native-design-variant-picked";
 

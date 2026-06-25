@@ -34,11 +34,11 @@ import {
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../../../../db/index.js";
 import { getEventOwnerContext } from "../../../../lib/recordings.js";
-import { runWithRequestContext } from "@agent-native/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
 import {
   writeAppState,
   deleteAppStateByPrefix,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { MAX_UPLOAD_BYTES as MAX_RECORDING_UPLOAD_BYTES } from "@shared/upload-limits.js";
 
 interface CompressionMeta {

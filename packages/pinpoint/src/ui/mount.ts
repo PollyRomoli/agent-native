@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Shadow DOM mounting with singleton guard
+// @agentnative-fork/pinpoint — Shadow DOM mounting with singleton guard
 // MIT License
 //
 // Mounts the SolidJS overlay app inside Shadow DOM for perfect CSS isolation.

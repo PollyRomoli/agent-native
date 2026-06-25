@@ -37,7 +37,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 /** Which header field a RecipientInput represents — used for cross-field drag. */
 export type RecipientField = "to" | "cc" | "bcc";

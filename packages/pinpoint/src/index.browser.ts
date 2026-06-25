@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Browser entry point (includes SolidJS UI)
+// @agentnative-fork/pinpoint — Browser entry point (includes SolidJS UI)
 // MIT License
 
 // Re-export everything from main entry

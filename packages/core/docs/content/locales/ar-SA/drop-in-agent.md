@@ -25,7 +25,7 @@ description: "قم بتثبيت دردشة الوكيل + مساحة العمل 
 | `sendToAgentChat()`   | إرسال رسالة إلى الدردشة برمجيًا                                                  | زر يقوم بتسليم العمل إلى الوكيل بدلاً من التشغيل المضمّن |
 | `useActionMutation()` | مجمّع الواجهة الأمامية الآمنة حول الإجراء                                        | يحتاج UI إلى تشغيل نفس العملية التي ستجريها أداة الوكيل  |
 
-يتم تصدير كل هذه العناصر من `@agent-native/core/client`.
+يتم تصدير كل هذه العناصر من `@agentnative-fork/core/client`.
 
 ```an-diagram title="نموذج جبل" summary="<AgentSidebar> يغلف تخطيطك الحالي. يتم عرض مساراتك في المنطقة الرئيسية؛ يتم تركيب لوحة الوكيل بجانبهم. <AgentPanel> هي نفس اللوحة بدون الغلاف."
 {
@@ -44,7 +44,7 @@ description: "قم بتثبيت دردشة الوكيل + مساحة العمل 
 {
   "filename": "app/root.tsx",
   "language": "tsx",
-  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agent-native/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
+  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agentnative-fork/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
   "annotations": [
     { "lines": "6", "label": "Wrapper", "note": "`<AgentSidebar>` wraps your whole layout. It adds the toggleable side panel; everything you pass as children stays in the main app area." },
     { "lines": "8-12", "label": "Starter prompts", "note": "`suggestions` render as clickable chips on the empty chat." },
@@ -73,7 +73,7 @@ description: "قم بتثبيت دردشة الوكيل + مساحة العمل 
 
 ```tsx
 // app/routes/agent.tsx
-import { AgentPanel } from "@agent-native/core/client";
+import { AgentPanel } from "@agentnative-fork/core/client";
 
 export default function AgentRoute() {
   return (
@@ -94,14 +94,14 @@ export default function AgentRoute() {
 - **`isFullscreen`** / **`onToggleFullscreen`** — قم بتوصيل حالة ملء الشاشة الخارجية إذا كنت تريد عمودًا مركزيًا بنمط Claude.
 - **`storageKey`** — مساحة الاسم لمفاتيح `localStorage`. يكون ذلك مفيدًا عند عرض لوحات متعددة (مثيلات تطبيق أو مساحات عمل مختلفة) في نفس الصفحة.
 
-الدعائم الكاملة: `AgentPanelProps` في `@agent-native/core/client`.
+الدعائم الكاملة: `AgentPanelProps` في `@agentnative-fork/core/client`.
 
 ## الرسائل البرمجية: `sendToAgentChat()` {#send}
 
 زر يقوم بتسليم العمل إلى الوكيل (بدلاً من تشغيل استدعاء `llm()` المضمن - النمط المضاد من [ladder](/docs/what-is-agent-native#the-ladder)):
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 <Button
   onClick={() =>
@@ -151,7 +151,7 @@ sendToAgentChat({
 إذا كنت تريد حالة تحميل، فاستخدم الخطاف `useSendToAgentChat()` - فهو يُرجع كلاً من `send` و`isGenerating`:
 
 ```ts
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 
 const { send, isGenerating } = useSendToAgentChat();
 ```
@@ -186,7 +186,7 @@ const { send, isGenerating } = useSendToAgentChat();
 عندما يحتاج UI إلى تشغيل نفس العملية، سيتم تشغيل أداة الوكيل - الدرجة 3 من [ladder](/docs/what-is-agent-native#rung-three) - استخدم `useActionMutation`:
 
 ```tsx
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 const { mutate, isPending } = useActionMutation("reply-to-email");
 
@@ -218,7 +218,7 @@ import {
   AgentSidebar,
   AgentToggleButton,
   sendToAgentChat,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export default function Root() {
   return (

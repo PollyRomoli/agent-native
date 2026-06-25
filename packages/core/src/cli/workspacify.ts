@@ -5,7 +5,7 @@
  * workspace. The transform:
  *
  *   1. Rewrites package.json:
- *      - @agent-native/core and package-backed apps stay as regular npm deps
+ *      - @agentnative-fork/core and package-backed apps stay as regular npm deps
  *      - Adds @<workspace-scope>/shared as a workspace:* dep so the app
  *        inherits shared plugins/skills/AGENTS.md via the three-layer model.
  *   2. Removes files that only make sense in standalone apps
@@ -36,7 +36,7 @@ export interface WorkspacifyOptions {
   workspaceRoot: string;
   /** Shared workspace package name (e.g. "@my-company/shared") */
   workspaceCoreName: string;
-  /** Version range to use for the published @agent-native/core package */
+  /** Version range to use for the published @agentnative-fork/core package */
   coreDependencyVersion?: string;
   /** Version range to use for the package-backed Dispatch app */
   dispatchDependencyVersion?: string;
@@ -48,9 +48,9 @@ export function workspacifyApp(opts: WorkspacifyOptions): void {
   const dispatchDependencyVersion = opts.dispatchDependencyVersion ?? "latest";
 
   // 1) Rewrite package.json to add the workspace core dep and resolve
-  //    @agent-native/core / @agent-native/dispatch workspace:* refs to
+  //    @agentnative-fork/core / @agentnative-fork/dispatch workspace:* refs to
   //    published package ranges. Other workspace:* deps (e.g.
-  //    @agent-native/scheduling) stay as-is — they resolve within the
+  //    @agentnative-fork/scheduling) stay as-is — they resolve within the
   //    workspace because the required package is scaffolded alongside the app.
   const pkgPath = path.join(appDir, "package.json");
   if (fs.existsSync(pkgPath)) {
@@ -65,10 +65,10 @@ export function workspacifyApp(opts: WorkspacifyOptions): void {
         if (!deps) continue;
         for (const [key, val] of Object.entries(deps)) {
           if (typeof val === "string" && val.startsWith("workspace:")) {
-            if (key === "@agent-native/core") {
+            if (key === "@agentnative-fork/core") {
               deps[key] = coreDependencyVersion;
             }
-            if (key === "@agent-native/dispatch") {
+            if (key === "@agentnative-fork/dispatch") {
               deps[key] = dispatchDependencyVersion;
             }
           }
@@ -161,7 +161,7 @@ function writeInheritedChatPlugin(
   fs.writeFileSync(
     pluginPath,
     [
-      `import { ${opts.exportName} as frameworkDefault } from "@agent-native/core/server";`,
+      `import { ${opts.exportName} as frameworkDefault } from "@agentnative-fork/core/server";`,
       `import * as workspaceServer from ${JSON.stringify(`${workspaceCoreName}/server`)};`,
       "",
       `const workspacePlugin = (workspaceServer as Record<string, unknown>).${opts.exportName};`,
@@ -189,7 +189,7 @@ function writeInheritedChatAgentChatPlugin(
       `  createAgentChatPlugin,`,
       `  loadActionsFromStaticRegistry,`,
       `  type AgentChatPluginOptions,`,
-      `} from "@agent-native/core/server";`,
+      `} from "@agentnative-fork/core/server";`,
       `import * as workspaceServer from ${JSON.stringify(`${workspaceCoreName}/server`)};`,
       `import actionsRegistry from "../../.generated/actions-registry.js";`,
       "",

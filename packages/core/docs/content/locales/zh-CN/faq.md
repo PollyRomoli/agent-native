@@ -76,7 +76,7 @@ Anthropic Claude、OpenAI（GPT-5 系列）、Google Gemini 以及使用 OpenAI 
 
 ### 我可以构建模板未涵盖的内容吗？ {#build-from-scratch}
 
-是的。如果你想要一个基本的聊天应用程序，请运行`npx @agent-native/core@latest create my-chat-app --template chat`；您可以获得持久的聊天线程、actions、身份验证、SQL 支持的运行时状态以及添加您自己的屏幕的空间。如果您想要没有 UI 的最小操作优先应用程序，请运行 `npx @agent-native/core@latest create my-agent --headless`。请参阅 [Getting Started](/docs/getting-started)、[Pure-Agent Apps](/docs/pure-agent-apps) 和 [Chat](/docs/template-chat)。
+是的。如果你想要一个基本的聊天应用程序，请运行`npx @agentnative-fork/core@latest create my-chat-app --template chat`；您可以获得持久的聊天线程、actions、身份验证、SQL 支持的运行时状态以及添加您自己的屏幕的空间。如果您想要没有 UI 的最小操作优先应用程序，请运行 `npx @agentnative-fork/core@latest create my-agent --headless`。请参阅 [Getting Started](/docs/getting-started)、[Pure-Agent Apps](/docs/pure-agent-apps) 和 [Chat](/docs/template-chat)。
 
 ### 我可以在不分叉模板的情况下尝试它吗？ {#try-with-a-skill}
 

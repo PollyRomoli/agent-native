@@ -1,14 +1,14 @@
-# @agent-native/skills
+# @agentnative-fork/skills
 
 Install BuilderIO skill folders into Codex and Claude skill directories.
 
 ```bash
-npx @agent-native/skills@latest add
-npx @agent-native/skills@latest add --skill quick-recap --client codex --scope project --update-instructions
-npx @agent-native/skills@latest add --skill visual-recap --client all --with-github-action
-npx @agent-native/skills@latest add --skill visual-plan --mode local-files
-npx @agent-native/skills@latest add --skill content --mode local-files --scope project
-npx @agent-native/skills@latest update scaffold --project
+npx @agentnative-fork/skills@latest add
+npx @agentnative-fork/skills@latest add --skill quick-recap --client codex --scope project --update-instructions
+npx @agentnative-fork/skills@latest add --skill visual-recap --client all --with-github-action
+npx @agentnative-fork/skills@latest add --skill visual-plan --mode local-files
+npx @agentnative-fork/skills@latest add --skill content --mode local-files --scope project
+npx @agentnative-fork/skills@latest update scaffold --project
 ```
 
 Use `--skill <name>` one or more times to select specific skills, or omit it in
@@ -24,7 +24,7 @@ instruction-style skills.
 
 Skill content comes from `BuilderIO/skills@main` at install/list time for plain
 skill installs. Explicit app-backed installs such as `visual-plan`,
-`visual-recap`, and `content` delegate to `@agent-native/core` so mode
+`visual-recap`, and `content` delegate to `@agentnative-fork/core` so mode
 selection, MCP registration, and local-files instructions stay in one
 framework-owned flow.
 
@@ -34,7 +34,7 @@ Generated Agent Native apps and workspaces can refresh their framework-provided
 ```bash
 npm run skills:update
 # or
-npx @agent-native/core@latest skills update scaffold --project
+npx @agentnative-fork/core@latest skills update scaffold --project
 ```
 
 `AGENTS.md` and `.agents/skills` are the canonical files. The scaffold command

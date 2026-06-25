@@ -6,6 +6,7 @@ import {
   resolveSignupTrackingIdentity,
 } from "./better-auth-instance.js";
 import { getAppBasePath, getOrigin } from "./google-oauth.js";
+import { getCredentialMode } from "./credential-provider.js";
 
 const DEFAULT_BUILDER_APP_HOST = "https://builder.io";
 const DEFAULT_BUILDER_API_HOST = "https://api.builder.io";
@@ -138,6 +139,8 @@ export interface BuilderBrowserStatus {
    */
   envManaged: boolean;
   credentialSource?: "user" | "org" | "workspace" | "env";
+  /** Server-side credential mode — controls whether user API keys are used. */
+  credentialMode?: "byok" | "platform" | "platform-with-override";
   /**
    * The currently effective Builder credential was rejected by Builder's API.
    * This is durable status about the credential pair, not a failure of an
@@ -746,6 +749,7 @@ export function getBuilderBrowserStatus(origin: string): BuilderBrowserStatus {
     branchProjectId: branchProjectId || undefined,
     envManaged,
     credentialSource: envManaged ? "env" : undefined,
+    credentialMode: getCredentialMode(),
     appHost: getBuilderAppHost(),
     apiHost: getBuilderApiHost(),
     connectUrl: getBuilderBrowserConnectUrl(origin),

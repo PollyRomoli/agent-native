@@ -8,8 +8,8 @@ import {
   getOAuthTokens,
   saveOAuthTokens,
   listOAuthAccountsByOwner,
-} from "@agent-native/core/oauth-tokens";
-import { getSession } from "@agent-native/core/server";
+} from "@agentnative-fork/core/oauth-tokens";
+import { getSession } from "@agentnative-fork/core/server";
 import { isConnected } from "../../lib/google-auth.js";
 import {
   createOAuth2Client,

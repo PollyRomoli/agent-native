@@ -104,7 +104,7 @@ description: "عمليات التشغيل التلقائي المجدولة وا
 قم بتسجيل نوع الحدث في مكون إضافي للخادم، ثم قم بإصداره من actions أو معالجات خطاف الويب:
 
 ```ts
-import { registerEvent, emit } from "@agent-native/core/event-bus";
+import { registerEvent, emit } from "@agentnative-fork/core/event-bus";
 import { z } from "zod";
 
 // Register the event type (once, at module load)

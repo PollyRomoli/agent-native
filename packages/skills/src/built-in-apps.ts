@@ -2,9 +2,9 @@
  * Canonical "built-in agent-native app -> MCP server" descriptor registry.
  *
  * This is a dependency-free mirror of the manifest data encoded in
- * `@agent-native/core`'s `BUILT_IN_APP_SKILLS` object
+ * `@agentnative-fork/core`'s `BUILT_IN_APP_SKILLS` object
  * (`packages/core/src/cli/skills.ts`, around line 1711+). The standalone
- * `@agent-native/skills` installer uses this to know which skill name maps to
+ * `@agentnative-fork/skills` installer uses this to know which skill name maps to
  * which hosted MCP server without importing the (much heavier) core CLI module.
  *
  * IMPORTANT: every URL / serverName / alias / authMode below MUST stay byte-for-byte

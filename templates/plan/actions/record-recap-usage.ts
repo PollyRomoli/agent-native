@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { calculateCost, recordUsage } from "@agent-native/core/usage";
+import { defineAction } from "@agentnative-fork/core";
+import { calculateCost, recordUsage } from "@agentnative-fork/core/usage";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

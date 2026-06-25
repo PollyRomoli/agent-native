@@ -28,8 +28,8 @@ import {
   useChangeVersions,
   ChangelogDialog,
   useT,
-} from "@agent-native/core/client";
-import { extensionPath } from "@agent-native/core/client/extensions";
+} from "@agentnative-fork/core/client";
+import { extensionPath } from "@agentnative-fork/core/client/extensions";
 import changelog from "../../../CHANGELOG.md?raw";
 import { commandPaletteKeywords } from "./command-palette-search";
 

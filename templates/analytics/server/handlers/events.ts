@@ -3,7 +3,7 @@ import { getAccessToken } from "../lib/gcloud";
 import { resolveCredential } from "../lib/credentials";
 import { withRequestContextFromEvent } from "../lib/credentials";
 import { getAppEventsTable } from "../lib/bigquery";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 
 /**
  * POST /api/events/track

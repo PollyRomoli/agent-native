@@ -3,8 +3,8 @@
 import React, { act, cloneElement, isValidElement, useState } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { BlockRenderContext } from "@agent-native/core/blocks";
-import { CalloutBlockEdit, type CalloutData } from "@agent-native/core/blocks";
+import type { BlockRenderContext } from "@agentnative-fork/core/blocks";
+import { CalloutBlockEdit, type CalloutData } from "@agentnative-fork/core/blocks";
 
 function TestEditSurface({
   trigger,
@@ -38,7 +38,7 @@ function setInputValue(input: HTMLTextAreaElement, value: string) {
 }
 
 // The `callout` block now lives in the shared core library
-// (`@agent-native/core/blocks`); plan registers it via `registerLibraryBlocks`.
+// (`@agentnative-fork/core/blocks`); plan registers it via `registerLibraryBlocks`.
 // This guards that plan's expected callout edit UX — inline-prose body plus a
 // tone/type picker in the edit popover — survives in the shared component.
 describe("CalloutBlockEdit", () => {

@@ -16,7 +16,7 @@ import {
   agentNativePath,
   isInBuilderFrame,
   oauthRedirectUri,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   useGoogleAuthStatus,
   useGoogleAuthUrl,

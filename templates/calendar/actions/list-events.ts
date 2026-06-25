@@ -1,15 +1,15 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getRequestTimezone,
   getRequestUserEmail,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { and, gte, inArray, lte, ne } from "drizzle-orm";
-import { accessFilter } from "@agent-native/core/sharing";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import type { CalendarEvent, ExternalCalendar } from "../shared/api.js";
 import * as googleCalendar from "../server/lib/google-calendar.js";
 import { fetchICalEvents } from "../server/lib/ical-fetcher.js";
-import { getUserSetting } from "@agent-native/core/settings";
+import { getUserSetting } from "@agentnative-fork/core/settings";
 import { getDb, schema } from "../server/db/index.js";
 import { calendarEventMatchesQuery } from "./event-search.js";
 

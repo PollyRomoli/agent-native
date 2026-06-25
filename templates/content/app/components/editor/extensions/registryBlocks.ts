@@ -1,4 +1,4 @@
-import { createRegistryBlockNode } from "@agent-native/core/client";
+import { createRegistryBlockNode } from "@agentnative-fork/core/client";
 
 /* -------------------------------------------------------------------------- */
 /* Content's registry-block Tiptap node — a thin wrapper over the core node.   */

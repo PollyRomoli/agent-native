@@ -34,8 +34,8 @@ import {
   callAction,
   useActionMutation,
   useChangeVersions,
-} from "@agent-native/core/client";
-import { useSendToAgentChat } from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 import Markdown from "@/components/Markdown";
 import LegacyFusionAnalysis, {
   isLegacyFusionAnalysis,

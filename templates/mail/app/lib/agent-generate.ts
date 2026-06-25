@@ -1,4 +1,4 @@
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import { isMcpChatBridgeActive } from "./mcp-chat-bridge";
 
 async function readStatus(path: string): Promise<any | null> {

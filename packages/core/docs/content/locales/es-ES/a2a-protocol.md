@@ -33,7 +33,7 @@ La mayoría de las plantillas obtienen A2A a través del complemento de chat del
 
 ```ts
 // server/plugins/a2a.ts
-import { mountA2A } from "@agent-native/core/a2a";
+import { mountA2A } from "@agentnative-fork/core/a2a";
 
 export default defineNitroPlugin((nitro) => {
   mountA2A(nitro, {
@@ -177,7 +177,7 @@ Los mensajes contienen partes escritas: texto, datos estructurados y archivos pu
 La clase `A2AClient` maneja el descubrimiento, la mensajería y la transmisión:
 
 ```ts
-import { A2AClient } from "@agent-native/core/a2a";
+import { A2AClient } from "@agentnative-fork/core/a2a";
 
 const client = new A2AClient("https://analytics.example.com", "my-api-key");
 
@@ -213,7 +213,7 @@ for await (const update of client.stream({
 Para llamadas simples de entrada y salida de texto, utilice `callAgent()`:
 
 ```ts
-import { callAgent } from "@agent-native/core/a2a";
+import { callAgent } from "@agentnative-fork/core/a2a";
 
 // One-shot: send text, get text back
 const response = await callAgent(
@@ -232,7 +232,7 @@ URL. Utiliza las mismas primitivas de descubrimiento e invocación A2A que
 Comandos `agent-native agents` y `agent-native invoke` CLI.
 
 ```ts
-import { agentNative } from "@agent-native/core/agent-native";
+import { agentNative } from "@agentnative-fork/core/agent-native";
 
 const agents = await agentNative.listAgents();
 
@@ -371,8 +371,8 @@ Un agente de correo necesita datos analíticos. El agente de análisis expone un
 
 ```ts
 // In the mail agent's actions/get-analytics.ts
-import { defineAction } from "@agent-native/core/action";
-import { callAgent } from "@agent-native/core/a2a";
+import { defineAction } from "@agentnative-fork/core/action";
+import { callAgent } from "@agentnative-fork/core/a2a";
 import { z } from "zod";
 
 export default defineAction({

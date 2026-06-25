@@ -5,8 +5,8 @@
  *   pnpm action create-space --name="Engineering" --color="#18181B" --iconEmoji="⚙️"
  */
 
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";
 import { nanoid, requireOrganizationAccess } from "../server/lib/recordings.js";

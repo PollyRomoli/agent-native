@@ -80,7 +80,7 @@ El resto de este documento es para cualquiera que bifurque la plantilla de Analy
 Cree una nueva aplicación de Analytics desde CLI:
 
 ```bash
-npx @agent-native/core@latest create my-analytics --standalone --template analytics
+npx @agentnative-fork/core@latest create my-analytics --standalone --template analytics
 ```
 
 Desarrollador local:
@@ -162,7 +162,7 @@ El cliente de inicio de sesión de bajo alcance permanece separado de los client
 
 Tablas principales (ver `templates/analytics/server/db/schema.ts`):
 
-```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agent-native/core/org."
+```an-schema title="Analytics data model" summary="Dashboards and analyses are the resources; views, shares, and a query cache hang off them. Org tables come from @agentnative-fork/core/org."
 {
   "entities": [
     {
@@ -213,7 +213,7 @@ Tablas principales (ver `templates/analytics/server/db/schema.ts`):
 }
 ```
 
-Además de las tablas compartidas por recurso (`dashboard_shares`, `analysis_shares`) y las tablas de organización (`organizations`, `org_members`, `org_invitations`) proporcionadas por `@agent-native/core/org`. El diccionario de datos se encuentra en la tabla `settings` del marco bajo claves de ámbito.
+Además de las tablas compartidas por recurso (`dashboard_shares`, `analysis_shares`) y las tablas de organización (`organizations`, `org_members`, `org_invitations`) proporcionadas por `@agentnative-fork/core/org`. El diccionario de datos se encuentra en la tabla `settings` del marco bajo claves de ámbito.
 
 - **`dashboards`**: paneles de Explorer y SQL. `kind` es `"explorer"` o `"sql"`; `config` es un blob JSON que coincide con `SqlDashboardConfig`.
 - **`dashboard_shares`**: subvenciones compartidas por recurso (principal, función).
@@ -222,7 +222,7 @@ Además de las tablas compartidas por recurso (`dashboard_shares`, `analysis_sha
 - **`analysis_shares`**: subvenciones compartidas por recurso para análisis.
 - **`bigquery_cache`**: caché de resultados de consultas codificados por hash SQL con contabilidad procesada en bytes.
 
-Además de las tablas de organización (`organizations`, `org_members`, `org_invitations`) proporcionadas por `@agent-native/core/org`.
+Además de las tablas de organización (`organizations`, `org_members`, `org_invitations`) proporcionadas por `@agentnative-fork/core/org`.
 
 El diccionario de datos se encuentra en la tabla `settings` del marco bajo claves de alcance; consulte `list-data-dictionary` y `save-data-dictionary-entry` actions para ver la forma completa.
 

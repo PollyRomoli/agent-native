@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/skills",
+  "name": "@agentnative-fork/skills",
   "version": "0.2.89",
   "type": "module",
   "description": "Install BuilderIO skills for coding agents.",
@@ -42,7 +42,7 @@
     "vitest": "catalog:"
   },
   "dependencies": {
-    "@agent-native/core": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
     "@clack/prompts": "^1.5.1"
   }
 }

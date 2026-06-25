@@ -89,7 +89,7 @@ function verifyStateSignature(state: Record<string, any>): {
 }
 
 /**
- * Mirror of `safeReturnPath` from `@agent-native/core/server` — duplicated
+ * Mirror of `safeReturnPath` from `@agentnative-fork/core/server` — duplicated
  * here so this fix doesn't depend on a yet-unreleased core export. Rejects
  * absolute URLs, protocol-relative `//host` URLs, backslash bypasses, and
  * data:/javascript: schemes by parsing against a sentinel origin.

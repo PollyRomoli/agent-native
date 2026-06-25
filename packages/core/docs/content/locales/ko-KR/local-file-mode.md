@@ -97,7 +97,7 @@ SQL 행 또는 로컬 파일
 스킬:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 `content` 스킬을 저장소의 에이전트 스킬 폴더에 복사하고 씁니다.

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { IconEdit } from "@tabler/icons-react";
 import { toast } from "sonner";
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";

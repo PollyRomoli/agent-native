@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail, buildDeepLink } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail, buildDeepLink } from "@agentnative-fork/core/server";
 import {
   listGmailMessages,
   gmailToEmailMessage,
@@ -8,7 +8,7 @@ import {
   isConnected,
 } from "../server/lib/google-auth.js";
 import { buildGmailEmailSearchQuery } from "../server/lib/gmail-query.js";
-import { getUserSetting } from "@agent-native/core/settings";
+import { getUserSetting } from "@agentnative-fork/core/settings";
 import { emailMessageMatchesSearch } from "@shared/search.js";
 import { z } from "zod";
 

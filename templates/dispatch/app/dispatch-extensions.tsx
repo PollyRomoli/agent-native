@@ -1,4 +1,4 @@
-import type { DispatchExtensionConfig } from "@agent-native/dispatch/components";
+import type { DispatchExtensionConfig } from "@agentnative-fork/dispatch/components";
 
 /**
  * Local Dispatch extensions for this generated workspace.

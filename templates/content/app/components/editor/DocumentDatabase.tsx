@@ -16,7 +16,7 @@ import {
   useBuilderConnectFlow,
   useBuilderStatus,
   useCodeMode,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   IconArrowDown,
   IconArrowLeft,

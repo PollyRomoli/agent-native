@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { getCurrentOwnerEmail } from "../server/lib/documents.js";
 import { z } from "zod";
 import { and, eq, isNull } from "drizzle-orm";

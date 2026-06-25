@@ -164,7 +164,7 @@ El resto de este documento es para cualquiera que bifurque la plantilla Clips o 
 ### Inicio rápido
 
 ```bash
-npx @agent-native/core@latest create my-clips --standalone --template clips
+npx @agentnative-fork/core@latest create my-clips --standalone --template clips
 cd my-clips
 pnpm install
 pnpm dev
@@ -187,7 +187,7 @@ aplicación de bandeja en su implementación.
 1. **Crea la aplicación.**
 
    ```bash
-   npx @agent-native/core@latest crear mis-clips --independiente --clips de plantilla
+   npx @agentnative-fork/core@latest crear mis-clips --independiente --clips de plantilla
    cd mis-clips
    Instalación pnpm
    ```

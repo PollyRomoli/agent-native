@@ -1,10 +1,10 @@
-import { defineNitroPlugin } from "@agent-native/core/server";
-import { registerOnboardingStep } from "@agent-native/core/onboarding";
+import { defineNitroPlugin } from "@agentnative-fork/core/server";
+import { registerOnboardingStep } from "@agentnative-fork/core/onboarding";
 import {
   isFirstPartyRemoteEndpointTrusted,
   listRemoteServers,
-} from "@agent-native/core/mcp-client";
-import { fetchOrgApps } from "@agent-native/core/mcp";
+} from "@agentnative-fork/core/mcp-client";
+import { fetchOrgApps } from "@agentnative-fork/core/mcp";
 
 const SERVER_NAME = "assets";
 

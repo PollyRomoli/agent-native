@@ -72,8 +72,8 @@ export default defineEventHandler(() => ({
 
 ```ts
 // actions/classify-message.ts
-import { defineAction } from "@agent-native/core/action";
-import { completeText } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core/action";
+import { completeText } from "@agentnative-fork/core/server";
 import { z } from "zod";
 
 export default defineAction({
@@ -107,7 +107,7 @@ export default defineAction({
 {
   "filename": "server/routes/api/projects.get.ts",
   "language": "ts",
-  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agent-native/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agent-native/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.projectसाझा करेंs));\n    },\n  );\n});",
+  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agentnative-fork/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agentnative-fork/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.projectसाझा करेंs));\n    },\n  );\n});",
   "annotations": [
     {
       "lines": "7-10",
@@ -128,7 +128,7 @@ export default defineAction({
 }
 ```
 
-`server/db/index.ts` में `createGetDb(schema)` के माध्यम से प्रति ऐप `getDb` बनाया जाता है, इसलिए कस्टम रूट इसे टेम्पलेट (`../../db/index.js`) से आयात करते हैं, `@agent-native/core/db` से नहीं; [Database — Where the DB Client Lives](/docs/database#db-client) देखें। कस्टम मार्गों में बिना दायरे वाले `db.select().from(ownableTable)` को न चलाएं।
+`server/db/index.ts` में `createGetDb(schema)` के माध्यम से प्रति ऐप `getDb` बनाया जाता है, इसलिए कस्टम रूट इसे टेम्पलेट (`../../db/index.js`) से आयात करते हैं, `@agentnative-fork/core/db` से नहीं; [Database — Where the DB Client Lives](/docs/database#db-client) देखें। कस्टम मार्गों में बिना दायरे वाले `db.select().from(ownableTable)` को न चलाएं।
 
 ## सर्वर प्लगइन्स {#server-plugins}
 
@@ -136,7 +136,7 @@ export default defineAction({
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -236,7 +236,7 @@ export default runMigrations(
 एक पूर्व-कॉन्फ़िगर किया गया ऐप और राउटर लौटाता है:
 
 ```ts
-import { createServer } from "@agent-native/core/server";
+import { createServer } from "@agentnative-fork/core/server";
 import { defineEventHandler } from "h3";
 
 const { app, router } = createServer();
@@ -256,7 +256,7 @@ router.get(
 एजेंट चैट प्लगइन.
 
 ```ts
-import { createProductionAgentHandler } from "@agent-native/core/server";
+import { createProductionAgentHandler } from "@agentnative-fork/core/server";
 
 const handler = createProductionAgentHandler({
   scripts,

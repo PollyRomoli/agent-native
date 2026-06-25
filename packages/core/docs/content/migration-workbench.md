@@ -17,14 +17,14 @@ It runs as a normal Code session you can resume, attach to, inspect, and stop.
 ```
 
 ```bash
-npx @agent-native/core@latest code /migrate ./my-next-app --out ../migrated-app
-npx @agent-native/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
-npx @agent-native/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
+npx @agentnative-fork/core@latest code /migrate ./my-next-app --out ../migrated-app
+npx @agentnative-fork/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
+npx @agentnative-fork/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
 ```
 
 The full guide — input shapes (path / URL / description), `--emit` dossiers,
 Plan vs Auto mode, run controls, credentials, Desktop deep links, and the
-`@agent-native/migrate` package exports — lives in
+`@agentnative-fork/migrate` package exports — lives in
 [Agent-Native Code UI → Migrating to Agent-Native](/docs/code-agents-ui#migrate).
 
 > [!NOTE]

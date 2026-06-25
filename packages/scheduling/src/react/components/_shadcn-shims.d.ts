@@ -12,7 +12,7 @@
  * behaviour is driven entirely by the consumer's actual shadcn modules.
  *
  * Expected consumer primitives (add to your `app/components/ui/` folder
- * before importing any `@agent-native/scheduling/react/components` files):
+ * before importing any `@agentnative-fork/scheduling/react/components` files):
  *
  *   - button    (Button)
  *   - input     (Input)

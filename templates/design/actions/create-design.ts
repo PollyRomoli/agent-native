@@ -1,13 +1,13 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import { getDb, schema } from "../server/db/index.js";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
-import { assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server/request-context";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 
 /** Editor deep link so external agents can surface "Open design". */
 function designDeepLink(designId: string): string {

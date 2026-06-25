@@ -1,1 +1,1 @@
-export { dispatchIntegrationsPlugin as default } from "@agent-native/dispatch/server";
+export { dispatchIntegrationsPlugin as default } from "@agentnative-fork/dispatch/server";

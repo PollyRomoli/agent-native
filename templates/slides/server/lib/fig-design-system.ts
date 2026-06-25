@@ -1,12 +1,12 @@
 import type {
   BrandKitData,
   BrandKitDefaults,
-} from "@agent-native/core/brand-kit";
+} from "@agentnative-fork/core/brand-kit";
 import {
   extractFigBrandKit,
   looksLikeFigFile,
   type FigBrandKitPreview,
-} from "@agent-native/core/brand-kit/fig";
+} from "@agentnative-fork/core/brand-kit/fig";
 import type { DesignSystemData } from "../../shared/api.js";
 
 export const MAX_FIG_BYTES = 200 * 1024 * 1024;

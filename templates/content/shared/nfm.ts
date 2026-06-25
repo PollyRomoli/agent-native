@@ -33,7 +33,7 @@
  * a registered tag becomes a `registryBlock` atom carrying the verbatim element
  * source in `__raw`; on WRITE it emits that `__raw` back (or re-serializes from
  * the editor's typed data). This module stays React-free — it only consults the
- * content registry's tag set (`@agent-native/core/blocks/server` config) to tell
+ * content registry's tag set (`@agentnative-fork/core/blocks/server` config) to tell
  * a registered PascalCase block tag from a lowercase Notion container tag.
  *
  * Local-file content can also use repo-local MDX components. Unknown PascalCase

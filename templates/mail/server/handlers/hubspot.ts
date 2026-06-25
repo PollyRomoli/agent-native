@@ -5,7 +5,7 @@ import {
   setResponseStatus,
   type H3Event,
 } from "h3";
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 import {
   getHubSpotApiKey,
   HubSpotLookupError,

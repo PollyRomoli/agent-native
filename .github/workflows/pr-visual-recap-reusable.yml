@@ -22,12 +22,12 @@ name: PR Visual Recap (reusable)
 on:
   workflow_call:
     inputs:
-      # Version of @agent-native/core to use when the consumer repo does NOT
+      # Version of @agentnative-fork/core to use when the consumer repo does NOT
       # have a local packages/core/src/cli/index.ts (the normal case for
       # consumer repos).  Defaults to "latest".  Pin to a specific version or
       # tag for reproducibility: e.g. "1.2.3" or "latest".
       cli-version:
-        description: "Version of @agent-native/core CLI (npx @agent-native/core@<version>)"
+        description: "Version of @agentnative-fork/core CLI (npx @agentnative-fork/core@<version>)"
         required: false
         type: string
         default: "latest"
@@ -60,7 +60,7 @@ on:
         type: string
         default: "https://plan.agent-native.com"
       # Controls which visual-recap guidance the agent prompt is built from.
-      # 'auto' / 'latest' uses the bundled guidance in @agent-native/core.
+      # 'auto' / 'latest' uses the bundled guidance in @agentnative-fork/core.
       # 'repo' pins to the committed visual-recap skill in the caller's repo.
       skill-source:
         description: "Skill-source mode: auto (default), latest, or repo"
@@ -313,10 +313,10 @@ jobs:
           set -euo pipefail
           VERSION="$RECAP_CLI_VERSION"
           if [ "$VERSION" = "latest" ]; then
-            VERSION="$(npm view @agent-native/core@latest version)"
+            VERSION="$(npm view @agentnative-fork/core@latest version)"
           fi
           for attempt in 1 2 3; do
-            if npm install --prefix "$RUNNER_TEMP/recap-cli" --no-audit --no-fund "@agent-native/core@$VERSION"; then
+            if npm install --prefix "$RUNNER_TEMP/recap-cli" --no-audit --no-fund "@agentnative-fork/core@$VERSION"; then
               break
             fi
             if [ "$attempt" = "3" ]; then exit 1; fi

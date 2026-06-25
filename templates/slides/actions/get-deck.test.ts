@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const mockResolveAccess = vi.fn();
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   resolveAccess: (...args: unknown[]) => mockResolveAccess(...args),
 }));
 

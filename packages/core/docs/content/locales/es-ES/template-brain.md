@@ -122,7 +122,7 @@ El resto de este documento es para cualquiera que bifurque la plantilla Brain o 
 ### Inicio rápido
 
 ```bash
-npx @agent-native/core@latest create my-brain --standalone --template brain
+npx @agentnative-fork/core@latest create my-brain --standalone --template brain
 cd my-brain
 pnpm install
 pnpm dev

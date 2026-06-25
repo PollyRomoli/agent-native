@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/core",
+  "name": "@agentnative-fork/core",
   "version": "0.76.12",
   "type": "module",
   "engines": {

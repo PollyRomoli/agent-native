@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/dispatch",
+  "name": "@agentnative-fork/dispatch",
   "version": "0.12.3",
   "type": "module",
   "description": "Dispatch — workspace control plane for agent-native apps. Vault, integrations, destinations, scheduled jobs, and cross-app delegation, shipped as a single drop-in package.",
@@ -43,7 +43,7 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@agent-native/core": ">=0.8.0",
+    "@agentnative-fork/core": ">=0.8.0",
     "react": ">=18",
     "react-dom": ">=18",
     "react-router": ">=7"
@@ -97,7 +97,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@agent-native/core": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
     "@react-router/dev": "^7.16.0",
     "@types/node": "^24.2.1",
     "@types/react": "^19.2.14",

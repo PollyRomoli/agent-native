@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   validateUrl,
@@ -13,7 +13,7 @@ import {
   ROOT_PATTERNS,
   SECONDARY_PATHS,
   COLOR_VAR_PATTERN,
-} from "@agent-native/core/server/design-token-utils";
+} from "@agentnative-fork/core/server/design-token-utils";
 
 export default defineAction({
   description:

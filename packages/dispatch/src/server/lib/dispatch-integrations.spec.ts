@@ -11,7 +11,7 @@ vi.mock("./dispatch-store.js", () => ({
   resolveLinkedOwner: mocks.resolveLinkedOwner,
 }));
 
-vi.mock("@agent-native/core/org", () => ({
+vi.mock("@agentnative-fork/core/org", () => ({
   resolveOrgIdForEmail: mocks.resolveOrgIdForEmail,
 }));
 
@@ -19,7 +19,7 @@ import {
   identityKeyForIncoming,
   resolveDispatchOwner,
 } from "./dispatch-integrations.js";
-import type { IncomingMessage } from "@agent-native/core/server";
+import type { IncomingMessage } from "@agentnative-fork/core/server";
 
 const originalFetch = globalThis.fetch;
 

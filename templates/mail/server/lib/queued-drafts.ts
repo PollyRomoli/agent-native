@@ -1,15 +1,15 @@
 import { and, asc, desc, eq, or, sql } from "drizzle-orm";
 import { nanoid } from "nanoid";
-import { writeAppState } from "@agent-native/core/application-state";
-import { notify } from "@agent-native/core/notifications";
-import { orgMembers } from "@agent-native/core/org";
-import { getUserSetting } from "@agent-native/core/settings";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { notify } from "@agentnative-fork/core/notifications";
+import { orgMembers } from "@agentnative-fork/core/org";
+import { getUserSetting } from "@agentnative-fork/core/settings";
 import {
   getAppProductionUrl,
   getRequestOrgId,
   getRequestUserEmail,
   withConfiguredAppBasePath,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { getDb, schema } from "../db/index.js";
 import { appendSignatureToBody } from "../../shared/signature.js";
 

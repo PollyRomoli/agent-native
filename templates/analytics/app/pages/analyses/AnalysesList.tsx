@@ -15,7 +15,7 @@ import {
   callAction,
   useSendToAgentChat,
   useChangeVersions,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 interface AnalysisSummary {
   id: string;

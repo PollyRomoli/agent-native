@@ -7,7 +7,7 @@ import {
   listOAuthAccountsByOwner,
   saveOAuthTokens,
   setOAuthDisplayName,
-} from "@agent-native/core/oauth-tokens";
+} from "@agentnative-fork/core/oauth-tokens";
 
 const GITHUB_AUTH_URL = "https://github.com/login/oauth/authorize";
 const GITHUB_TOKEN_URL = "https://github.com/login/oauth/access_token";

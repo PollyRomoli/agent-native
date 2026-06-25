@@ -174,7 +174,7 @@ Les requêtes MCP non authentifiées renvoient un défi `WWW-Authenticate` point
 
 Les jetons d'accès sont signés avec `A2A_SECRET` lorsqu'ils sont définis, sinon `BETTER_AUTH_SECRET`. Ils portent l'identité d'utilisateur/d'organisation signée et les étendues `mcp:read`, `mcp:write` et/ou `mcp:apps`, et sont liés à l'audience à la ressource MCP exacte, URL. Les jetons d'actualisation sont stockés uniquement sous forme de hachages et tournent à chaque actualisation. Les appels d'outils et les lectures de ressources d'applications MCP s'exécutent dans le même contexte de demande que l'utilisateur connecté ; l'iframe de l'application MCP intégrée ne reçoit jamais de jetons OAuth bruts.
 
-`npx @agent-native/core@latest connect <url> --client claude-code` écrit l’entrée MCP uniquement URL pour ce flux standard. Pour les clients qui ne peuvent pas exécuter MCP OAuth à distance, utilisez la page Connect ou la solution de secours `npx @agent-native/core@latest connect --token <token>` pour écrire une entrée explicite de jeton de porteur.
+`npx @agentnative-fork/core@latest connect <url> --client claude-code` écrit l’entrée MCP uniquement URL pour ce flux standard. Pour les clients qui ne peuvent pas exécuter MCP OAuth à distance, utilisez la page Connect ou la solution de secours `npx @agentnative-fork/core@latest connect --token <token>` pour écrire une entrée explicite de jeton de porteur.
 
 ## Apportez votre propre authentification {#byoa}
 
@@ -182,7 +182,7 @@ Transmettez un rappel `getSession` personnalisé pour utiliser n'importe quel fo
 
 ```ts
 // server/plugins/auth.ts
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   getSession: async (event) => {
@@ -250,7 +250,7 @@ interface AuthSession {
 Sur le client, utilisez le hook `useSession()` :
 
 ```ts
-import { useSession } from "@agent-native/core/client";
+import { useSession } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const { session, isLoading } = useSession();

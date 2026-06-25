@@ -1,5 +1,5 @@
 import { getIdToken } from "./auth";
-import { appApiPath } from "@agent-native/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 
 /**
  * Track when a metric is viewed in a dashboard.

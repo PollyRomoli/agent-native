@@ -1,4 +1,4 @@
-import { isEmbedMcpChatBridgeActive } from "@agent-native/core/client";
+import { isEmbedMcpChatBridgeActive } from "@agentnative-fork/core/client";
 
 export function isMcpChatBridgeActive(): boolean {
   return isEmbedMcpChatBridgeActive();

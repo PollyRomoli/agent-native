@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { useEffect, useRef, useState } from "react";
-import { useLocale, useT } from "@agent-native/core/client";
+import { useLocale, useT } from "@agentnative-fork/core/client";
 import { AgentNativeDemoVideo } from "../components/AgentNativeDemoVideo";
 import CodeBlock from "../components/CodeBlock";
 import Seascape from "../components/Seascape";
@@ -572,7 +572,7 @@ export default function Home() {
   const { locale } = useLocale();
   const localizedPath = (path: string) => sitePathForLocale(path, locale);
   const chatCommand =
-    "npx @agent-native/core@latest create my-clips-app --template clips";
+    "npx @agentnative-fork/core@latest create my-clips-app --template clips";
   const quickStartCode = `# ${t("home.code.quickStartComment")}
 ${chatCommand}
 cd my-clips-app
@@ -580,7 +580,7 @@ pnpm install
 pnpm action hello --name Builder
 pnpm agent "Call hello for Builder"`;
   const skillInstallCode = `# ${t("home.code.skillInstallComment")}
-npx @agent-native/core@latest skills add visual-plan`;
+npx @agentnative-fork/core@latest skills add visual-plan`;
   const frameworkCode = `// ${t("home.code.frameworkComment")}
 export default defineAction({
   description: "${t("home.code.frameworkDescription")}",

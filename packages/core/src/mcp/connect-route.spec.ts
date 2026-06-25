@@ -196,7 +196,7 @@ describe("handleMcpConnect", () => {
         "claude mcp add --transport http agent-native-mail",
       );
       expect(body).toContain(
-        "npx @agent-native/core@latest connect https://mail.agent-native.com",
+        "npx @agentnative-fork/core@latest connect https://mail.agent-native.com",
       );
       expect(body).toContain('<details id="assistantSetup" class="hosts">');
       expect(body).not.toContain(
@@ -249,7 +249,7 @@ describe("handleMcpConnect", () => {
         },
       });
       expect(data.cli).toBe(
-        "npx @agent-native/core@latest connect https://mail.agent-native.com",
+        "npx @agentnative-fork/core@latest connect https://mail.agent-native.com",
       );
 
       const { payload } = await jose.jwtVerify(
@@ -446,7 +446,7 @@ describe("handleMcpConnect", () => {
           "https://mail.agent-native.com/mail/_agent-native/mcp",
         );
         expect(data.cli).toBe(
-          "npx @agent-native/core@latest connect https://mail.agent-native.com/mail",
+          "npx @agentnative-fork/core@latest connect https://mail.agent-native.com/mail",
         );
       } finally {
         delete process.env.APP_BASE_PATH;

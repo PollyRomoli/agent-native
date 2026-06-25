@@ -10,7 +10,7 @@ import {
   PromptComposer,
   useSendToAgentChat,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 type NewCompositionPopoverProps = {
   isNew: boolean;

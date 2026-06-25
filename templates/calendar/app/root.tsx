@@ -27,8 +27,8 @@ import {
   useCommandMenuShortcut,
   useDbSync,
   useT,
-} from "@agent-native/core/client";
-import { resolveLocaleFromRequest } from "@agent-native/core/server";
+} from "@agentnative-fork/core/client";
+import { resolveLocaleFromRequest } from "@agentnative-fork/core/server";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import changelog from "../CHANGELOG.md?raw";
 import type { LinksFunction, LoaderFunctionArgs } from "react-router";
@@ -257,4 +257,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

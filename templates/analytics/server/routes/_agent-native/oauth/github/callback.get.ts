@@ -11,8 +11,8 @@ import {
   getSession,
   oauthErrorPage,
   resolveOAuthOwner,
-} from "@agent-native/core/server";
-import { getOrgContext } from "@agent-native/core/org";
+} from "@agentnative-fork/core/server";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import {
   exchangeGitHubOAuthCode,
   fetchGitHubViewer,

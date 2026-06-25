@@ -2,8 +2,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createClient, type Client } from "@libsql/client";
-import { registerShareableResource } from "@agent-native/core/sharing";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 import { drizzle, type LibSQLDatabase } from "drizzle-orm/libsql";
 import { eq } from "drizzle-orm";
 import {

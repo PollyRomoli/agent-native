@@ -9,7 +9,7 @@ Todo aplicativo nativo do agente é executado com um agente de IA próximo ao ap
 o wrapper que hospeda ambos: ele mostra seu aplicativo e dá ao agente um local para
 converse, execute e (no desenvolvimento) edite o código. Existem três frames, compartilhando um tempo de execução:
 
-- **Painel de agente incorporado** — fornecido em todos os aplicativos do `@agent-native/core`.
+- **Painel de agente incorporado** — fornecido em todos os aplicativos do `@agentnative-fork/core`.
   Esta é a barra lateral que seu aplicativo renderiza, em desenvolvimento e em produção.
 - **Quadro de desenvolvimento local** — um wrapper fino que carrega seu aplicativo em execução em um iframe
   e adiciona o mesmo painel de agente mais um terminal CLI integrado ao lado dele. Usado
@@ -30,10 +30,10 @@ ao seu aplicativo por meio do mesmo actions e estado do aplicativo em todos os c
 ## Painel de agente incorporado {#embedded-agent}
 
 O painel incorporado é a barra lateral do agente que seu aplicativo renderiza. Ele é enviado com
-`@agent-native/core` — não há pacote separado para instalar — e é o mesmo
+`@agentnative-fork/core` — não há pacote separado para instalar — e é o mesmo
 componente em desenvolvimento e produção.
 
-- Exportado como `AgentPanel` de `@agent-native/core/client`, com um
+- Exportado como `AgentPanel` de `@agentnative-fork/core/client`, com um
   variante somente de produção `ProductionAgentPanel`.
 - Fornece a superfície completa do Chat / CLI / Workspace, para que a entrada do agente permaneça ativada
   a pilha compartilhada do compositor usada em todos os outros lugares da estrutura.
@@ -75,7 +75,7 @@ barra lateral dentro do iframe, para que você possa visualizar exatamente o que
 ## Terminal integrado e comutação CLI {#cli-terminal}
 
 Em desenvolvimento, o painel inclui um terminal incorporado (`AgentTerminal`, também
-de `@agent-native/core/client`) apoiado por um servidor PTY. Você pode executar um verdadeiro
+de `@agentnative-fork/core/client`) apoiado por um servidor PTY. Você pode executar um verdadeiro
 codifique CLI ao lado do aplicativo e alterne entre eles; o terminal reinicia
 com o CLI selecionado.
 
@@ -113,7 +113,7 @@ consistente em ambos.
 
 ## APIs de tempo de execução {#runtime-apis}
 
-Eles são fornecidos com o `@agent-native/core` e são o que seu aplicativo usa para se comunicar com o
+Eles são fornecidos com o `@agentnative-fork/core` e são o que seu aplicativo usa para se comunicar com o
 agente, independentemente do frame que o hospeda:
 
 1. **Enviar uma mensagem** — `sendToAgentChat()` envia uma mensagem ao agente. O
@@ -134,12 +134,12 @@ O painel do agente incorporado faz parte de todos os aplicativos. Crie um modelo
 já está lá:
 
 ```bash
-npx @agent-native/core@latest create my-app --template mail --standalone
+npx @agentnative-fork/core@latest create my-app --template mail --standalone
 cd my-app
 pnpm dev
 ```
 
-O quadro de desenvolvimento local (o pacote `@agent-native/frame` privado no repositório da estrutura) é um pacote de ferramentas interno que não é publicado no npm. Ele carrega o servidor de desenvolvimento do aplicativo ativo em um iframe e monta o painel incorporado ao lado dele, selecionando o aplicativo por meio do parâmetro de consulta `app`. O terminal CLI integrado requer o Agent Native Desktop, que fornece o código local e acesso PTY às necessidades do terminal; sem ele, o painel mostra a superfície de bate-papo e solicita que você abra a área de trabalho para usar o CLI.
+O quadro de desenvolvimento local (o pacote `@agentnative-fork/frame` privado no repositório da estrutura) é um pacote de ferramentas interno que não é publicado no npm. Ele carrega o servidor de desenvolvimento do aplicativo ativo em um iframe e monta o painel incorporado ao lado dele, selecionando o aplicativo por meio do parâmetro de consulta `app`. O terminal CLI integrado requer o Agent Native Desktop, que fornece o código local e acesso PTY às necessidades do terminal; sem ele, o painel mostra a superfície de bate-papo e solicita que você abra a área de trabalho para usar o CLI.
 
 ## Notas de compatibilidade {#compatibility}
 

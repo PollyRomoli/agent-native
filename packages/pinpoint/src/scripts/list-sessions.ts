@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — List annotation sessions by page URL
+// @agentnative-fork/pinpoint — List annotation sessions by page URL
 // MIT License
 
 import { FileStore } from "../storage/file-store.js";

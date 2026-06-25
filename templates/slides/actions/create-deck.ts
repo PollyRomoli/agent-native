@@ -1,14 +1,14 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import { z } from "zod";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { writeAppState } from "@agent-native/core/application-state";
-import { assertAccess } from "@agent-native/core/sharing";
-import { buildDeepLink } from "@agent-native/core/server";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { assertAccess } from "@agentnative-fork/core/sharing";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { notifyClients } from "../server/handlers/decks.js";
 import { ASPECT_RATIO_VALUES } from "../shared/aspect-ratios.js";
 import { getDeckUrl } from "./_app-url.js";

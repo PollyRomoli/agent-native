@@ -17,7 +17,7 @@ import { EmptyState } from "@/components/library/empty-state";
 import { SortMenu, type SortKey } from "@/components/library/sort-menu";
 import { PageHeader } from "@/components/library/page-header";
 import { useRecordings, type RecordingSummary } from "@/hooks/use-library";
-import { useActionMutation, useT } from "@agent-native/core/client";
+import { useActionMutation, useT } from "@agentnative-fork/core/client";
 
 export function meta() {
   return [{ title: "Trash · Clips" }];

@@ -13,8 +13,8 @@ import {
   useAgentChatHomeHandoffLinks,
   useGuidedQuestionFlow,
   useT,
-} from "@agent-native/core/client";
-import { InvitationBanner } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { InvitationBanner } from "@agentnative-fork/core/client/org";
 import { useNavigationState } from "@/hooks/use-navigation-state";
 import { TAB_ID } from "@/lib/tab-id";
 

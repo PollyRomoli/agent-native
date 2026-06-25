@@ -4,7 +4,7 @@ import {
   MCP_APP_REQUEST_ORIGIN_CSP_SOURCE,
   type ActionMcpAppCsp,
   type ActionMcpAppCspBuilder,
-} from "@agent-native/core";
+} from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   listGrantedDispatchMcpAppOrigins,

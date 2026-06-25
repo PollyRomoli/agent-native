@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Text range selection
+// @agentnative-fork/pinpoint — Text range selection
 // MIT License
 //
 // Listens for selectionchange, captures Selection.getRangeAt(0),

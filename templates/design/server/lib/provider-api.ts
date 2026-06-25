@@ -6,8 +6,8 @@ import {
   type ProviderApiId,
   type ProviderApiMethod,
   type ProviderApiRequestArgs,
-} from "@agent-native/core/provider-api";
-import { getCredentialContext, resolveSecret } from "@agent-native/core/server";
+} from "@agentnative-fork/core/provider-api";
+import { getCredentialContext, resolveSecret } from "@agentnative-fork/core/server";
 
 export const DESIGN_APP_ID = "design";
 export const DESIGN_PROVIDER_API_IDS = listProviderApiIdsForTemplateUse(

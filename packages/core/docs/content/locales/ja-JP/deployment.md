@@ -20,7 +20,7 @@ description: "Nitro プリセット (Node.js、Vercel、Netlify、Cloudflare、A
 プロジェクトが [workspace](/docs/multi-app-workspace) の場合、1 つのコマンドでプロジェクト内のすべてのアプリを単一のオリジンに配布できます。
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
@@ -49,26 +49,26 @@ wrangler pages deploy dist
 Netlify 統合デプロイの場合は、Netlify プリセットを使用します。
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 Vercel 統合デプロイの場合は、Vercel プリセットを使用します。
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
-プロバイダーのビルド コマンドを構成する場合は、`--build-only` と同じコマンドを使用します。 Vercel は `npx @agent-native/core@latest deploy --preset vercel --build-only` を実行する必要があります。このコマンドは `.vercel/output` を直接書き込むため、ワークスペースのルーティングに `vercel.json` は必要ありません。
+プロバイダーのビルド コマンドを構成する場合は、`--build-only` と同じコマンドを使用します。 Vercel は `npx @agentnative-fork/core@latest deploy --preset vercel --build-only` を実行する必要があります。このコマンドは `.vercel/output` を直接書き込むため、ワークスペースのルーティングに `vercel.json` は必要ありません。
 
 ホストされたワークスペース ビルドには、デプロイ プロバイダー環境で `A2A_SECRET` が必要です。
 これにより、Slack、インバウンド webhooks、およびクロスアプリ A2A が署名を通じて作業を再開します
 バックグラウンドプロセッサ。ローカルの `--build-only` アーティファクト チェックは、これなしでも実行されます。
 
-アプリごとの独立したデプロイは引き続きサポートされています。スタンドアロンの足場と同様に `cd apps/<name> && npx @agent-native/core@latest build` のみです。
+アプリごとの独立したデプロイは引き続きサポートされています。スタンドアロンの足場と同様に `cd apps/<name> && npx @agentnative-fork/core@latest build` のみです。
 
 ## 仕組み {#how-it-works}
 
-`npx @agent-native/core@latest build` を実行すると、Nitro はクライアント SPA とサーバー API の両方を `.output/` に構築します。
+`npx @agentnative-fork/core@latest build` を実行すると、Nitro はクライアント SPA とサーバー API の両方を `.output/` に構築します。
 
 ```an-file-tree title="ビルド出力"
 {
@@ -95,7 +95,7 @@ npx @agent-native/core@latest deploy --preset vercel
 デフォルトでは、Nitro は Node.js 用にビルドされます。別のプラットフォームをターゲットにするには、`vite.config.ts` でプリセットを設定します。
 
 ```ts
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -106,7 +106,7 @@ export default defineConfig({
 または、ビルド時に `NITRO_PRESET` 環境変数を使用します。
 
 ```bash
-NITRO_PRESET=netlify npx @agent-native/core@latest build
+NITRO_PRESET=netlify npx @agentnative-fork/core@latest build
 ```
 
 ## Node.js (デフォルト) {#nodejs}
@@ -114,7 +114,7 @@ NITRO_PRESET=netlify npx @agent-native/core@latest build
 デフォルトのプリセット。ビルドして実行します:
 
 ```bash
-npx @agent-native/core@latest build
+npx @agentnative-fork/core@latest build
 node .output/server/index.mjs
 ```
 
@@ -163,13 +163,13 @@ vercel deploy
 ワークスペースの場合、すべてのアプリを 1 つの Vercel Build Output API バンドルにビルドします。
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
 Vercel Git デプロイメントの場合、ビルド コマンドを次のように設定します。
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 ワークスペース ビルドは、各アプリの Nitro `vercel` 出力をルート `.vercel/output` にコピーし、各関数に独自のマウント パス環境を与え、`/<app-id>` でアプリを提供するルート構成を書き込みます。
@@ -190,7 +190,7 @@ export default defineConfig({
 ワークスペースの場合、次のコマンドを実行して、1 つの Netlify サイトからすべてのアプリをデプロイします。
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 ワークスペース ビルドは、`dist/_workspace_static/` の下に静的アセットを書き込み、アセットを強制的にリダイレクトせずに各アプリを独自の Netlify 関数にルーティングします。そのため、サーバー関数がアプリのルートを処理する前に、`/mail/assets/...` のようなファイルが静的に提供されます。
@@ -230,7 +230,7 @@ export default defineConfig({
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PORT`                      | サーバー ポート (Node.js のみ)                                                                                                                                                      |
 | `NITRO_PRESET`              | ビルド時にビルド プリセットをオーバーライドする                                                                                                                                     |
-| `APP_BASE_PATH`             | プレフィックス (例: `/mail`) の下でアプリをマウントします。 `npx @agent-native/core@latest deploy` によって自動的に設定されます。スタンドアロンの場合は未設定のままにしておきます。 |
+| `APP_BASE_PATH`             | プレフィックス (例: `/mail`) の下でアプリをマウントします。 `npx @agentnative-fork/core@latest deploy` によって自動的に設定されます。スタンドアロンの場合は未設定のままにしておきます。 |
 | `AGENT_PROD_CODE_EXECUTION` | オプションの実稼働コード実行モード: `off` (デフォルト)、`sandboxed`、または `trusted`。 [Production Code Execution](#production-code-execution) を参照してください。                |
 
 データベース接続変数 (`DATABASE_URL`、`DATABASE_AUTH_TOKEN`、アプリごとの `<APP_NAME>_DATABASE_URL`) は [Database](/docs/database#production) に存在します。

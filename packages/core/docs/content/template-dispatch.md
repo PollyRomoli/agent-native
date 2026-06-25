@@ -84,11 +84,11 @@ _How it works under the hood (for developers)._
 
 - **Orchestrator agent.** The chat is set up as a router: it reads `AGENTS.md`, `LEARNINGS.md`, and routes to specialist sub-agents or remote A2A agents.
 - **Remote agent registry.** A2A agent manifests are workspace-runtime entries (not a checked-in template source folder): in a multi-app workspace, sibling apps under `apps/` are auto-discovered as A2A peers — no manual registration needed. Dispatch calls them using the `call-agent` action.
-- **Vault schema.** Drizzle tables for secrets, grants, requests, approvals, and audit logs. These live in the `@agent-native/dispatch` package (`packages/dispatch/src/db/schema.ts`) and are re-exported into the template via `templates/dispatch/server/db/index.ts` — there is no template-local `server/db/schema.ts`. Dispatch's runtime ships in the package, not in template source (consistent with the note below that `@agent-native/dispatch` owns the shell, sidebar, and built-in pages).
+- **Vault schema.** Drizzle tables for secrets, grants, requests, approvals, and audit logs. These live in the `@agentnative-fork/dispatch` package (`packages/dispatch/src/db/schema.ts`) and are re-exported into the template via `templates/dispatch/server/db/index.ts` — there is no template-local `server/db/schema.ts`. Dispatch's runtime ships in the package, not in template source (consistent with the note below that `@agentnative-fork/dispatch` owns the shell, sidebar, and built-in pages).
 - **Slack / Telegram plugins.** Server plugins that register webhooks and forward incoming messages to the orchestrator agent.
 - **Workspace MCP resources.** Add HTTP MCP server definitions under `mcp-servers/*.json` in Resources, then scope them to All apps or selected app grants just like skills and context.
 
-```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agent-native/dispatch (packages/dispatch/src/db/schema.ts)."
+```an-schema title="Secrets vault schema" summary="Secrets are stored once; grants give a named app access; requests + reviews gate sensitive access; the audit log records who used which secret when. Defined in @agentnative-fork/dispatch (packages/dispatch/src/db/schema.ts)."
 {
   "entities": [
     { "id": "secrets", "name": "vault_secrets", "note": "Stored credential values", "fields": [
@@ -170,14 +170,14 @@ pnpm action create-dream-report --allSources true --sourceTimeoutMs 30000 --limi
 ## Scaffolding {#scaffolding}
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 # pick "Dispatch" in the multi-select picker, plus whichever domain apps you want
 ```
 
 If you prefer to name the template directly instead of using the picker:
 
 ```bash
-npx @agent-native/core@latest create my-platform --template dispatch
+npx @agentnative-fork/core@latest create my-platform --template dispatch
 # add more apps in the same workspace as you go
 ```
 
@@ -208,7 +208,7 @@ Dispatch is a full template like any other — see [Templates](/docs/cloneable-s
 
 For workspace-specific management screens, add local React Router pages and
 register them in `app/dispatch-extensions.tsx`. The generated workspace owns
-only the extra tab and route; `@agent-native/dispatch` keeps owning the shell,
+only the extra tab and route; `@agentnative-fork/dispatch` keeps owning the shell,
 sidebar, built-in pages, and future package updates.
 
 ## What's next

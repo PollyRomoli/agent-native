@@ -81,7 +81,7 @@ Hay dos lecturas actions disponibles para el agente **y** la interfaz de cada ap
 Cree una fuente de actividad o una línea "quién cambió esto" llamando a `list-audit-events` desde UI con `useActionQuery`; nunca escriba a mano una búsqueda en la tabla de auditoría:
 
 ```tsx
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 const { data } = useActionQuery("list-audit-events", {
   targetType: "recording",

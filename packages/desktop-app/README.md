@@ -50,7 +50,7 @@ node scripts/dev-electron.ts --apps calendar,slides
 Or run just the Electron shell (if apps are already running):
 
 ```bash
-pnpm --filter @agent-native/desktop-app dev
+pnpm --filter @agentnative-fork/desktop-app dev
 ```
 
 ---
@@ -230,7 +230,7 @@ agentnative://shortcuts/upsert?accelerator=Control%2BAlt%2BV&app=mail&view=inbox
 ## Building for distribution
 
 ```bash
-pnpm --filter @agent-native/desktop-app build
+pnpm --filter @agentnative-fork/desktop-app build
 ```
 
 This outputs:

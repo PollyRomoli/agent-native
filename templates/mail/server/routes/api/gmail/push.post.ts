@@ -6,7 +6,7 @@ import {
   type H3Event,
 } from "h3";
 import { createRemoteJWKSet, jwtVerify, type JWTPayload } from "jose";
-import { listOAuthAccounts } from "@agent-native/core/oauth-tokens";
+import { listOAuthAccounts } from "@agentnative-fork/core/oauth-tokens";
 import {
   bumpHistoryWatermark,
   invalidateListCacheForOwner,

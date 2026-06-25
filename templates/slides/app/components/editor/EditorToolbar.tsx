@@ -41,7 +41,7 @@ import {
   agentNativePath,
   appBasePath,
   appPath,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 import {
   AgentToggleButton,
@@ -49,8 +49,8 @@ import {
   ShareButton,
   PresenceBar,
   type CollabUser,
-} from "@agent-native/core/client";
-import { RunsTray } from "@agent-native/core/client/progress";
+} from "@agentnative-fork/core/client";
+import { RunsTray } from "@agentnative-fork/core/client/progress";
 import {
   Tooltip,
   TooltipContent,

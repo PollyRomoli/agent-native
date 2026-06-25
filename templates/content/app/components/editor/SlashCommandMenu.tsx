@@ -24,7 +24,7 @@ import {
   IconDatabase,
   IconVideo,
 } from "@tabler/icons-react";
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 import { cn } from "@/lib/utils";
 import {
   Popover,

@@ -93,7 +93,7 @@ SQL 支持的共享。请参阅 [Local File Mode](/docs/local-file-mode)
 要将内容本地文件技能安装到现有存储库中：
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 安装程序会复制您的编码代理的 `content` 技能并写入或
@@ -114,7 +114,7 @@ bridge，已安装的技能仍然为代理提供了回购编辑合同
 使用内容模板搭建新工作区：
 
 ```bash
-npx @agent-native/core@latest create my-workspace --standalone --template content
+npx @agentnative-fork/core@latest create my-workspace --standalone --template content
 cd my-workspace
 pnpm install
 pnpm dev

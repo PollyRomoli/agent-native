@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getDbExec } from "@agent-native/core/db";
+import { defineAction } from "@agentnative-fork/core";
+import { getDbExec } from "@agentnative-fork/core/db";
 import { z } from "zod";
 
 export default defineAction({

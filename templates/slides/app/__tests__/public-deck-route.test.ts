@@ -15,7 +15,7 @@ vi.mock("@/components/ui/spinner", () => ({ Spinner: () => null }));
 // session so the public page stays CDN-cacheable), so the loader no longer
 // reads the request user — it only needs the app base path to build the
 // client-side redirect to the auth-guarded editor for restricted decks.
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getConfiguredAppBasePath: () => "",
 }));
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// @agent-native/pinpoint — CLI for project setup
+// @agentnative-fork/pinpoint — CLI for project setup
 // MIT License
 //
-// Usage: npx @agent-native/pinpoint@latest init
+// Usage: npx @agentnative-fork/pinpoint@latest init
 
 import { existsSync, mkdirSync, cpSync, readdirSync } from "node:fs";
 import { resolve, dirname, join } from "node:path";
@@ -14,7 +14,7 @@ const command = process.argv[2];
 if (command === "init") {
   init();
 } else {
-  console.log("Usage: npx @agent-native/pinpoint@latest init");
+  console.log("Usage: npx @agentnative-fork/pinpoint@latest init");
   console.log("");
   console.log("Commands:");
   console.log("  init    Copy agent scripts and skill to your project");
@@ -79,7 +79,7 @@ function init() {
   console.log("");
   console.log("Next steps:");
   console.log(
-    "  1. Add <Pinpoint /> to your client:  import { Pinpoint } from '@agent-native/pinpoint/react'",
+    "  1. Add <Pinpoint /> to your client:  import { Pinpoint } from '@agentnative-fork/pinpoint/react'",
   );
   console.log(
     '  2. Add middleware to your server:     app.use("/api/pins", pagePinRoutes())',

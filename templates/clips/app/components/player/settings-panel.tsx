@@ -23,7 +23,7 @@ import {
 import {
   useActionMutation,
   useReconciledState,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { SPEED_OPTIONS } from "./player-controls";
 
 export interface SettingsPanelProps {

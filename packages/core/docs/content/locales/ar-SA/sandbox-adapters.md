@@ -178,7 +178,7 @@ registerSandboxAdapter(new RemoteSandboxAdapter());
 تغطي وصلة المحول الأخرى أداة سطر أوامر واحدة (`gh`، `ffmpeg`، `stripe`، `aws`) حتى يتمكن الوكيل من اكتشافها والتحقق من تثبيتها وتشغيلها باستخدام نتيجة كود stdout/stderr/exit متسقة. يقوم كل محول CLI بتنفيذ `CliAdapter`:
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -197,7 +197,7 @@ interface CliResult {
 بالنسبة لمعظم CLI، تقوم `ShellCliAdapter` بتغليف أي ثنائي بافتراضيات معقولة، وتقوم `CliRegistry` بجمع المحولات لاكتشاف وقت التشغيل:
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(

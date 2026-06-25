@@ -111,7 +111,7 @@ description: "كيفية عمل تطبيقات الوكيل الأصلية: acti
 
 ```ts
 // Drizzle schema for domain data
-import { table, text, integer } from "@agent-native/core/db/schema";
+import { table, text, integer } from "@agentnative-fork/core/db/schema";
 
 export const forms = table("forms", {
   id: text("id").primaryKey(),
@@ -145,7 +145,7 @@ pnpm action db-patch --table documents --column content \
 
 ```ts
 // In a React component — delegate AI work to the agent
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 sendToAgentChat({
   message: "Generate a chart showing signups by source",
@@ -167,7 +167,7 @@ sendToAgentChat({
 
 ```ts
 // actions/fetch-data.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -198,7 +198,7 @@ export default defineAction({
 
 ```ts
 // Client: subscribe to agent/UI data changes once near the app shell
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 
 useDbSync({ queryClient });
 ```
@@ -266,7 +266,7 @@ A _frame_ هي البيئة التي تستضيف الوكيل بجوار تطب
 
 هناك قاعدتان معماريتان تحافظان على إمكانية نقل التطبيقات عبر قواعد البيانات والمضيفين:
 
-- **لا تعرف قاعدة البيانات.** اكتب المخططات باستخدام `@agent-native/core/db/schema` وقم بالقراءة/الكتابة باستخدام الاستعلام المحمول Drizzle DSL بحيث يتم تشغيل نفس الكود على أي موفر مدعوم. استخدم SQL الخام فقط لعمليات الترحيل الإضافية أو الصيانة لمرة واحدة، مع الاحتفاظ بمعلمات ومحايدة للهجة. انظر [Database](/docs/database).
+- **لا تعرف قاعدة البيانات.** اكتب المخططات باستخدام `@agentnative-fork/core/db/schema` وقم بالقراءة/الكتابة باستخدام الاستعلام المحمول Drizzle DSL بحيث يتم تشغيل نفس الكود على أي موفر مدعوم. استخدم SQL الخام فقط لعمليات الترحيل الإضافية أو الصيانة لمرة واحدة، مع الاحتفاظ بمعلمات ومحايدة للهجة. انظر [Database](/docs/database).
 - **لا تعتمد على الاستضافة.** يعمل الخادم على Nitro ويترجم إلى أي هدف نشر. لا تستخدم أبدًا APIs الخاصة بالعقدة (`fs`، `child_process`، `path`) في مسارات الخادم أو المكونات الإضافية، ولا تفترض أبدًا عملية خادم مستمرة - بدون خادم والحافة عديمة الحالة، لذا احتفظ بكل الحالة في SQL. انظر [Deployment](/docs/deployment).
 
 ## مساحة العمل {#workspace}

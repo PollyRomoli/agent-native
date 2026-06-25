@@ -10,7 +10,7 @@ import {
   agentNativePath,
   appPath,
   openBuilderConnectPopup,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 function BuilderBMark({ className }: { className?: string }) {
   return (

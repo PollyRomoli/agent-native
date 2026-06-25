@@ -2,9 +2,9 @@ import {
   ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER,
   dataInsightsWidgetResultSchema,
   defineAction,
-} from "@agent-native/core";
-import { createDataInsightsWidgetResult } from "@agent-native/core/data-widgets";
-import { accessFilter, currentAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core";
+import { createDataInsightsWidgetResult } from "@agentnative-fork/core/data-widgets";
+import { accessFilter, currentAccess } from "@agentnative-fork/core/sharing";
 import { and, desc, eq, isNotNull, isNull, or, sql } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

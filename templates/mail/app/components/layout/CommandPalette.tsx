@@ -21,7 +21,7 @@ import {
   IconAlarm,
   IconCheck,
 } from "@tabler/icons-react";
-import { CommandMenu, useT } from "@agent-native/core/client";
+import { CommandMenu, useT } from "@agentnative-fork/core/client";
 import { useTheme } from "next-themes";
 import { useSettings, useUpdateSettings } from "@/hooks/use-emails";
 import { getResolvedTheme } from "@/lib/theme";

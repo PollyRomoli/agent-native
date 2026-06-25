@@ -1,5 +1,5 @@
 import { TAB_ID } from "./tab-id";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 
 export async function apiFetch(
   url: string,

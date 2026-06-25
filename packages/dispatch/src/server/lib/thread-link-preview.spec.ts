@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { ChatThread } from "@agent-native/core/server";
+import type { ChatThread } from "@agentnative-fork/core/server";
 
 const getRequestContextMock = vi.hoisted(() => vi.fn());
 const getThreadMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   getRequestContext: getRequestContextMock,
   getThread: getThreadMock,
 }));

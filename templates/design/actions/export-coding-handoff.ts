@@ -1,11 +1,11 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   signShortLivedToken,
   buildDeepLink,
   getAppProductionUrl,
   getRequestContext,
-} from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { schema } from "../server/db/index.js";
 import {

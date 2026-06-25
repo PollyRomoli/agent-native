@@ -1,4 +1,4 @@
-import type { ActionEntry } from "@agent-native/core/server";
+import type { ActionEntry } from "@agentnative-fork/core/server";
 import approveDispatchChange from "./approve-dispatch-change.js";
 import approveVaultRequest from "./approve-vault-request.js";
 import archiveWorkspaceApp from "./archive-workspace-app.js";
@@ -89,7 +89,7 @@ import viewScreen from "./view-screen.js";
 
 /**
  * Dispatch's actions registered as a flat name→entry map. Imported by
- * `@agent-native/dispatch/server`'s side-effect block, which calls
+ * `@agentnative-fork/dispatch/server`'s side-effect block, which calls
  * `registerPackageActions(dispatchActions)` so the framework's action
  * loader picks them up.
  */

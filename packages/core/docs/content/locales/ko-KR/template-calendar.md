@@ -74,7 +74,7 @@ description: "Google Calendar 동기화 및 Calendly 스타일 예약 링크가 
 캘린더 템플릿을 사용하여 새 작업 공간을 만듭니다.
 
 ```bash
-npx @agent-native/core@latest create my-app --standalone --template calendar
+npx @agentnative-fork/core@latest create my-app --standalone --template calendar
 cd my-app
 pnpm install
 pnpm dev

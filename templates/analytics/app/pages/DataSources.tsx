@@ -64,7 +64,7 @@ import {
   useActionQuery,
   useSendToAgentChat,
   PromptComposer,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   Popover,
   PopoverContent,

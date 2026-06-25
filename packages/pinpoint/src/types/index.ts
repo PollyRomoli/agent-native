@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Core type definitions
+// @agentnative-fork/pinpoint — Core type definitions
 // MIT License
 
 export type PinStatus = "open" | "acknowledged" | "resolved" | "dismissed";

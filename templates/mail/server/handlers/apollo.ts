@@ -8,8 +8,8 @@ import {
   appStateGet,
   appStatePut,
   appStateDelete,
-} from "@agent-native/core/application-state";
-import { readBody, getSession } from "@agent-native/core/server";
+} from "@agentnative-fork/core/application-state";
+import { readBody, getSession } from "@agentnative-fork/core/server";
 
 async function getSessionId(event: H3Event): Promise<string> {
   const session = await getSession(event);

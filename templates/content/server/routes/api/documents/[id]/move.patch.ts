@@ -10,8 +10,8 @@ import {
   getSession,
   readBody,
   runWithRequestContext,
-} from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 
 async function assertParentIsNotDescendant({
   db,

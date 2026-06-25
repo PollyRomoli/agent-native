@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { Link, useParams } from "react-router";
-import { useActionQuery, useT } from "@agent-native/core/client";
+import { useActionQuery, useT } from "@agentnative-fork/core/client";
 import {
   IconArrowLeft,
   IconArrowUpRight,

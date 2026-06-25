@@ -78,7 +78,7 @@ El agente escribe el archivo por usted.
 Coloque un archivo Markdown en `jobs/` a través del recurso APIs del marco:
 
 ```ts
-import { resourcePut } from "@agent-native/core/resources";
+import { resourcePut } from "@agentnative-fork/core/resources";
 
 await resourcePut(
   ownerEmail,
@@ -127,10 +127,10 @@ Se registra una única herramienta `manage-jobs` en cada plantilla. El parámetr
 
 ## Diferente del paquete de programación {#vs-scheduling-package}
 
-No confunda trabajos recurrentes con `@agent-native/scheduling`:
+No confunda trabajos recurrentes con `@agentnative-fork/scheduling`:
 
 - **Trabajos recurrentes (esta página)**: _avisos_ programados cron que el agente ejecuta en segundo plano. Nivel de marco. Vive en el espacio de trabajo. Se ejecuta en cualquier aplicación nativa del agente.
-- **`@agent-native/scheduling`**: un paquete de dominio reutilizable para crear funciones de calendario/reservas (tipos de eventos, períodos de disponibilidad, reservas). Impulsa la plantilla `calendar` y las superficies de programación personalizadas.
+- **`@agentnative-fork/scheduling`**: un paquete de dominio reutilizable para crear funciones de calendario/reservas (tipos de eventos, períodos de disponibilidad, reservas). Impulsa la plantilla `calendar` y las superficies de programación personalizadas.
 
 Los trabajos recurrentes son "¿cómo hago para que el agente actúe por sí solo?" El paquete de programación es "¿cómo creo una aplicación de calendario?" Diferentes preocupaciones.
 

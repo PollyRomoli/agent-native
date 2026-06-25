@@ -8,8 +8,8 @@ const requestContext = vi.hoisted(() => ({
   runContext: undefined as { browserTabId?: string } | undefined,
 }));
 
-vi.mock("@agent-native/core/application-state", () => appState);
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => appState);
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestRunContext: () => requestContext.runContext,
 }));
 

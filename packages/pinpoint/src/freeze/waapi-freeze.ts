@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Web Animations API freeze
+// @agentnative-fork/pinpoint — Web Animations API freeze
 // MIT License
 
 /**

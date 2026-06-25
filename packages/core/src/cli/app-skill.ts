@@ -909,7 +909,7 @@ function writeVercelSkillsAdapter(
       "Then register the app-backed MCP connector:",
       "",
       "```bash",
-      `npx @agent-native/core@latest app-skill ensure --manifest agent-native.app-skill.json --yes`,
+      `npx @agentnative-fork/core@latest app-skill ensure --manifest agent-native.app-skill.json --yes`,
       "```",
       "",
       "The open skills CLI installs instruction files only; it does not run postinstall scripts or register MCP connectors. OAuth or device setup happens in the MCP host; secrets are not stored in skills.",

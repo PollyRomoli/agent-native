@@ -64,7 +64,7 @@ import {
   useChangeVersions,
   useActionMutation,
   type CollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { SqlChartCard } from "./SqlChartCard";
 import {
   DashboardFilterBar,

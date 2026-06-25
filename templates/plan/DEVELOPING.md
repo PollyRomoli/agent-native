@@ -5,10 +5,10 @@ app operations and tools, see AGENTS.md.
 
 ## Tech Stack
 
-- **Framework:** @agent-native/core + React Router v7 (framework mode)
+- **Framework:** @agentnative-fork/core + React Router v7 (framework mode)
 - **Frontend:** React 19, Vite, TailwindCSS, shadcn/ui
 - **Routing:** File-based via `flatRoutes()` — SSR shell + client rendering
-- **Backend:** Nitro (via @agent-native/core) — file-based API routing, server plugins, deploy-anywhere presets
+- **Backend:** Nitro (via @agentnative-fork/core) — file-based API routing, server plugins, deploy-anywhere presets
 - **State:** SQL-backed (SSE for real-time updates)
 
 ## Commands
@@ -91,7 +91,7 @@ export default function MyPageRoute() {
 
 ## Adding App Data
 
-Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agent-native/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
+Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agentnative-fork/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
 
 ## Adding Custom MDX Blocks
 
@@ -102,7 +102,7 @@ them, and agents can discover them through `get-plan-blocks`.
 Use this shape:
 
 - Put the React-free data schema and `BlockMdxConfig` in `shared/*.config.ts`.
-  Import server-safe helpers from `@agent-native/core/blocks/server`.
+  Import server-safe helpers from `@agentnative-fork/core/blocks/server`.
 - Extend `PlanBlockType`, the `PlanBlock` union, and `planBlockSchema` in
   `shared/plan-content.ts` so saves/imports/patches accept the custom type.
 - Register a server spec in `shared/plan-block-registry.ts` with
@@ -130,21 +130,21 @@ Each route-only endpoint still exports a default `defineEventHandler`, but keep 
 Startup logic (auth, SSE, etc.) lives in `server/plugins/`. Use `defineNitroPlugin` from core:
 
 ```ts
-import { defineNitroPlugin } from "@agent-native/core";
+import { defineNitroPlugin } from "@agentnative-fork/core";
 
 export default defineNitroPlugin(async (nitroApp) => {
   // Runs once at server startup
 });
 ```
 
-## Key Imports from `@agent-native/core`
+## Key Imports from `@agentnative-fork/core`
 
 | Import                                       | Purpose                                                                    |
 | -------------------------------------------- | -------------------------------------------------------------------------- |
 | `defineNitroPlugin`                          | Define a server plugin (re-exported from Nitro)                            |
 | `createDefaultSSEHandler`                    | Create SSE endpoint for DB change events (server)                          |
-| `readAppState`, `writeAppState`              | Read/write application state (from `@agent-native/core/application-state`) |
-| `readSetting`, `writeSetting`                | Read/write settings (from `@agent-native/core/settings`)                   |
+| `readAppState`, `writeAppState`              | Read/write application state (from `@agentnative-fork/core/application-state`) |
+| `readSetting`, `writeSetting`                | Read/write settings (from `@agentnative-fork/core/settings`)                   |
 | `defineEventHandler`, `readBody`, `getQuery` | H3 route handler utilities (re-exported)                                   |
 | `sendToAgentChat`                            | Send messages to agent from UI (client-side)                               |
 | `agentChat`                                  | Send messages to agent from scripts (server-side)                          |
@@ -156,7 +156,7 @@ Create `actions/<verb>-<resource>.ts` with `defineAction`. Run with `pnpm action
 **Sending to agent chat from UI:**
 
 ```ts
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 sendToAgentChat({
   message: "Generate something",
   context: "...",
@@ -167,7 +167,7 @@ sendToAgentChat({
 **Sending to agent chat from scripts:**
 
 ```ts
-import { agentChat } from "@agent-native/core";
+import { agentChat } from "@agentnative-fork/core";
 agentChat.submit("Generate something");
 ```
 
@@ -177,7 +177,7 @@ Local development defaults to a SQLite file at `data/app.db`. That local file is
 
 Real credential values belong only in local `.env` files, deployment configuration, or registered secrets/settings UI. Never commit, document, log, return, paste, or include real keys, tokens, webhook URLs, signing secrets, or private data in examples; use empty values or obvious placeholders.
 
-When adding app data, define tables with `@agent-native/core/db/schema` helpers and use Drizzle's query builder for reads/writes. Do not import dialect-specific schema helpers from `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core`, and do not write raw SQL in normal actions or handlers when Drizzle can express the query. Raw SQL belongs in additive migrations, health checks, or carefully scoped maintenance.
+When adding app data, define tables with `@agentnative-fork/core/db/schema` helpers and use Drizzle's query builder for reads/writes. Do not import dialect-specific schema helpers from `drizzle-orm/sqlite-core` or `drizzle-orm/pg-core`, and do not write raw SQL in normal actions or handlers when Drizzle can express the query. Raw SQL belongs in additive migrations, health checks, or carefully scoped maintenance.
 
 | Variable              | Required                        | Description                                                                |
 | --------------------- | ------------------------------- | -------------------------------------------------------------------------- |

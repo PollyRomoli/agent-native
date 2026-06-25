@@ -4,7 +4,7 @@
 // functions directly — the seam where review findings 1, 4, 5, and 7 live.
 
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { runWithRequestContext } from "@agent-native/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
 import { and, eq } from "drizzle-orm";
 import { tmpdir } from "node:os";
 import { join } from "node:path";

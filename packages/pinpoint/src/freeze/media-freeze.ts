@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Media element freeze (video, audio, SVG SMIL)
+// @agentnative-fork/pinpoint — Media element freeze (video, audio, SVG SMIL)
 // MIT License
 
 /**

@@ -4,7 +4,7 @@ import {
   isEmailConfigured,
   renderEmail,
   sendEmail,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../db/index.js";
 import { extractCommentMentions } from "../../shared/comment-context.js";

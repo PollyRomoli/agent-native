@@ -10,8 +10,8 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
-import { appApiPath } from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 import changelog from "../../CHANGELOG.md?raw";
 import {
   IconUsers,
@@ -75,7 +75,7 @@ import type {
   AutomationRule,
   UserSettings,
 } from "@shared/types";
-import { TeamPage } from "@agent-native/core/client/org";
+import { TeamPage } from "@agentnative-fork/core/client/org";
 import { toast } from "sonner";
 import {
   Tooltip,

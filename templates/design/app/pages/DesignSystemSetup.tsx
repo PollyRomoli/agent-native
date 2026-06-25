@@ -19,7 +19,7 @@ import {
   useActionQuery,
   useActionMutation,
   appApiPath,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";

@@ -1,2 +1,2 @@
-// Thin re-export. Implementation lives in @agent-native/core/embedding/agent.
-export * from "@agent-native/core/embedding/agent";
+// Thin re-export. Implementation lives in @agentnative-fork/core/embedding/agent.
+export * from "@agentnative-fork/core/embedding/agent";

@@ -17,14 +17,14 @@ description: "마이그레이션은 별도의 앱이 아닌 Agent-Native 코드 
 ```
 
 ```bash
-npx @agent-native/core@latest code /migrate ./my-next-app --out ../migrated-app
-npx @agent-native/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
-npx @agent-native/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
+npx @agentnative-fork/core@latest code /migrate ./my-next-app --out ../migrated-app
+npx @agentnative-fork/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
+npx @agentnative-fork/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
 ```
 
 전체 가이드 — 입력 모양(경로 / URL / 설명), `--emit` 서류,
 계획 대 자동 모드, 실행 제어, 자격 증명, 데스크톱 딥 링크 및
-`@agent-native/migrate` 패키지 내보내기 — 실시간
+`@agentnative-fork/migrate` 패키지 내보내기 — 실시간
 [Agent-Native Code UI → Migrating to Agent-Native](/docs/code-agents-ui#migrate).
 
 > [!NOTE]

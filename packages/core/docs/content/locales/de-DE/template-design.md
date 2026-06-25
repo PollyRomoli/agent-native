@@ -67,7 +67,7 @@ Der Rest dieses Dokuments richtet sich an alle, die die Design-Vorlage verzweige
 ### Schnellstart
 
 ```bash
-npx @agent-native/core@latest create my-design --standalone --template design
+npx @agentnative-fork/core@latest create my-design --standalone --template design
 cd my-design
 pnpm install
 pnpm dev

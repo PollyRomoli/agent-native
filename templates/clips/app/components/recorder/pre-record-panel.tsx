@@ -18,7 +18,7 @@ import {
   IconUpload,
   IconVideo,
 } from "@tabler/icons-react";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CaptureInstallInlineLink } from "@/components/capture-install-options";

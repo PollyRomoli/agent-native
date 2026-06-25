@@ -32,7 +32,7 @@ describe("list-agent-engines", () => {
       name: "ai-sdk:missing-provider",
       label: "Missing Provider",
       description: "",
-      installPackage: "@agent-native/definitely-missing-ai-provider",
+      installPackage: "@agentnative-fork/definitely-missing-ai-provider",
       capabilities: {} as any,
       defaultModel: "missing-model",
       supportedModels: ["missing-model"],

@@ -1,5 +1,5 @@
 // Framework for agent-native apps.
-// Import everything from "@agent-native/core".
+// Import everything from "@agentnative-fork/core".
 
 // Agent (production mode)
 export {
@@ -121,21 +121,21 @@ export {
 // Client
 //
 // IMPORTANT: this top-level entry (the package `default`/Node condition) must
-// stay server-safe. It is what `import { defineAction } from "@agent-native/core"`
+// stay server-safe. It is what `import { defineAction } from "@agentnative-fork/core"`
 // resolves to in a headless / Node / SSR context, where React, react-router, and
 // @tanstack/react-query are NOT installed. The React client surface therefore
-// lives behind the `@agent-native/core/client` subpath instead of being
+// lives behind the `@agentnative-fork/core/client` subpath instead of being
 // re-exported here — re-exporting "./client/index.js" from this module would
 // eagerly pull route-state.ts → "@tanstack/react-query" into the load graph and
 // crash any headless app at module load.
 //
-// Browser bundlers resolve "@agent-native/core" to the `browser` condition
+// Browser bundlers resolve "@agentnative-fork/core" to the `browser` condition
 // (./index.browser.ts), which re-exports the client surface, so UI code that
 // imports client helpers from the bare specifier keeps working in the browser.
 // Code that runs through the Node entry (SSR, scripts, headless) must import
 // client helpers explicitly:
 //
-//   import { useDbSync, cn } from "@agent-native/core/client";
+//   import { useDbSync, cn } from "@agentnative-fork/core/client";
 
 // Shared (isomorphic)
 export {
@@ -204,6 +204,11 @@ export {
   type UsageBucket,
   type DailyBucket,
   type UsageRecentEntry,
+  setBillingHooks,
+  getBillingHooks,
+  setBillingMode,
+  setCustomPricingResolver,
+  type BillingHooks,
 } from "./usage/store.js";
 
 // Workspace-scoped third-party connection metadata
@@ -319,7 +324,7 @@ export {
   fail,
 } from "./scripts/index.js";
 
-// Secrets registry — import from "@agent-native/core/secrets" when possible
+// Secrets registry — import from "@agentnative-fork/core/secrets" when possible
 // (the subpath keeps the top-level entry point lean), but re-export the
 // public API here for convenience.
 export {

@@ -1,8 +1,8 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   readAppState,
   writeAppState,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 import {
   CALENDAR_VIEW_PREFERENCES_KEY,

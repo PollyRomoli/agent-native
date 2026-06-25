@@ -3,11 +3,11 @@ import {
   readMultipartFormData,
   setResponseStatus,
 } from "h3";
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 import {
   extractFigBrandKit,
   looksLikeFigFile,
-} from "@agent-native/core/brand-kit/fig";
+} from "@agentnative-fork/core/brand-kit/fig";
 import type { DesignSystemData } from "../../shared/api.js";
 
 // .fig files can be large (the document is a kiwi-compressed canvas). Cap to

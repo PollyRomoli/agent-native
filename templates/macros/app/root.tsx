@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useTheme } from "next-themes";
 import { Toaster } from "@/components/ui/sonner";
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import {
   AppProviders,
   CommandMenu,
@@ -14,7 +14,7 @@ import {
   getThemeInitScript,
   useCommandMenuShortcut,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import { TAB_ID } from "@/lib/tab-id";
 import { AppLayout } from "@/components/layout/AppLayout";
@@ -195,4 +195,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { listGrantedDispatchMcpApps } from "../server/lib/mcp-gateway.js";
 

@@ -4,7 +4,7 @@ import {
   useActionMutation,
   useActionQuery,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import { IconPalette, IconPhotoPlus, IconSearch } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";

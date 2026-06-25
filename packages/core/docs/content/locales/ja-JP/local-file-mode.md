@@ -97,7 +97,7 @@ SQL 行またはローカル ファイルへ。
 スキル:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 これにより、`content` スキルがリポジトリのエージェント スキル フォルダにコピーされ、書き込まれます

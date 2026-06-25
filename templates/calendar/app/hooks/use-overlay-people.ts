@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { callAction, useActionQuery } from "@agent-native/core/client";
+import { callAction, useActionQuery } from "@agentnative-fork/core/client";
 import type { CalendarEvent, OverlayPerson } from "@shared/api";
 import { getNextOverlayColor } from "@/lib/overlay-colors";
 

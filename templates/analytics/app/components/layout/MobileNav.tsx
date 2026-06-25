@@ -3,7 +3,7 @@ import { useLocation } from "react-router";
 import { IconMenu, IconChartBar } from "@tabler/icons-react";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Sidebar } from "./Sidebar";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);

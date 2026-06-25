@@ -4,7 +4,7 @@ import {
   readMultipartFormData,
   setResponseStatus,
 } from "h3";
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 import {
   MAX_FIG_BYTES,
   parseSlidesFigDesignSystem,

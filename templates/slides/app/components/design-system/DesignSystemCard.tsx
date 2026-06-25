@@ -1,5 +1,5 @@
 import { IconPalette, IconStar, IconStarFilled } from "@tabler/icons-react";
-import { ShareButton, VisibilityBadge } from "@agent-native/core/client";
+import { ShareButton, VisibilityBadge } from "@agentnative-fork/core/client";
 import type { DesignSystemData } from "../../../shared/api";
 import {
   Tooltip,

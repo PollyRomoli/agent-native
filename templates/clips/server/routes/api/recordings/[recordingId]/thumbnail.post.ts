@@ -20,9 +20,9 @@ import {
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../../../../db/index.js";
 import { getEventOwnerContext } from "../../../../lib/recordings.js";
-import { runWithRequestContext } from "@agent-native/core/server";
-import { writeAppState } from "@agent-native/core/application-state";
-import { uploadFile } from "@agent-native/core/file-upload";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
 import { parseEdits } from "../../../../../app/lib/timestamp-mapping.js";
 
 const MAX_THUMBNAIL_BYTES = 2 * 1024 * 1024;

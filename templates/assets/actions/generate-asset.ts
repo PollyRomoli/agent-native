@@ -1,4 +1,4 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import { z } from "zod";
 import openAssetPicker from "./open-asset-picker.js";
 import {

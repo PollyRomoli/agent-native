@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useLocale, useT } from "@agent-native/core/client";
+import { useLocale, useT } from "@agentnative-fork/core/client";
 import { sitePathForLocale } from "./docs-locale";
 
 export default function Footer() {
@@ -48,7 +48,7 @@ export default function Footer() {
             Discord <span className="text-[10px] opacity-50">↗</span>
           </a>
           <a
-            href="https://www.npmjs.com/package/@agent-native/core"
+            href="https://www.npmjs.com/package/@agentnative-fork/core"
             target="_blank"
             rel="noreferrer"
             className="text-[var(--fg-secondary)] transition hover:text-[var(--fg)]"

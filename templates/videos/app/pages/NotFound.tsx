@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router";
 import { useEffect } from "react";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 const NotFound = () => {
   const t = useT();

@@ -7,7 +7,7 @@ import {
   IconCloud,
   IconChevronRight,
 } from "@tabler/icons-react";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 import { appApiPath } from "@/lib/api-path";
 
 interface CloudUpgradeProps {

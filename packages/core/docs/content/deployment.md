@@ -20,7 +20,7 @@ Use `DATABASE_AUTH_TOKEN` only when your database provider requires a separate t
 If your project is a [workspace](/docs/multi-app-workspace), you can ship every app in it to a single origin with one command:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
@@ -49,26 +49,26 @@ wrangler pages deploy dist
 For Netlify unified deploys, use the Netlify preset:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 For Vercel unified deploys, use the Vercel preset:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
-When configuring a provider build command, use the same command with `--build-only`. Vercel should run `npx @agent-native/core@latest deploy --preset vercel --build-only`; the command writes `.vercel/output` directly, so no `vercel.json` is required for workspace routing.
+When configuring a provider build command, use the same command with `--build-only`. Vercel should run `npx @agentnative-fork/core@latest deploy --preset vercel --build-only`; the command writes `.vercel/output` directly, so no `vercel.json` is required for workspace routing.
 
 Hosted workspace builds require `A2A_SECRET` in the deploy provider environment.
 This makes Slack, inbound webhooks, and cross-app A2A resume work through signed
 background processors. Local `--build-only` artifact checks still run without it.
 
-Per-app independent deploy is still supported — just `cd apps/<name> && npx @agent-native/core@latest build` like a standalone scaffold.
+Per-app independent deploy is still supported — just `cd apps/<name> && npx @agentnative-fork/core@latest build` like a standalone scaffold.
 
 ## How It Works {#how-it-works}
 
-When you run `npx @agent-native/core@latest build`, Nitro builds both the client SPA and the server API into `.output/`:
+When you run `npx @agentnative-fork/core@latest build`, Nitro builds both the client SPA and the server API into `.output/`:
 
 ```an-file-tree title="Build output"
 {
@@ -95,7 +95,7 @@ The output is self-contained — copy `.output/` to any environment and run it.
 By default, Nitro builds for Node.js. To target a different platform, set the preset in your `vite.config.ts`:
 
 ```ts
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -106,7 +106,7 @@ export default defineConfig({
 Or use the `NITRO_PRESET` environment variable at build time:
 
 ```bash
-NITRO_PRESET=netlify npx @agent-native/core@latest build
+NITRO_PRESET=netlify npx @agentnative-fork/core@latest build
 ```
 
 ## Node.js (Default) {#nodejs}
@@ -114,7 +114,7 @@ NITRO_PRESET=netlify npx @agent-native/core@latest build
 The default preset. Build and run:
 
 ```bash
-npx @agent-native/core@latest build
+npx @agentnative-fork/core@latest build
 node .output/server/index.mjs
 ```
 
@@ -163,13 +163,13 @@ vercel deploy
 For a workspace, build every app into one Vercel Build Output API bundle:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel
+npx @agentnative-fork/core@latest deploy --preset vercel
 ```
 
 For Vercel Git deployments, set the build command to:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 The workspace build copies each app's Nitro `vercel` output into the root `.vercel/output`, gives each function its own mount-path environment, and writes the route config that serves apps at `/<app-id>`.
@@ -190,7 +190,7 @@ export default defineConfig({
 For a workspace, deploy every app from one Netlify site by running:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify
+npx @agentnative-fork/core@latest deploy --preset netlify
 ```
 
 The workspace build writes static assets under `dist/_workspace_static/` and routes each app to its own Netlify function without forced asset redirects, so files like `/mail/assets/...` are served statically before the server function handles app routes.
@@ -230,7 +230,7 @@ export default defineConfig({
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PORT`                      | Server port (Node.js only)                                                                                                                        |
 | `NITRO_PRESET`              | Override build preset at build time                                                                                                               |
-| `APP_BASE_PATH`             | Mount the app under a prefix (e.g. `/mail`). Set automatically by `npx @agent-native/core@latest deploy`; leave unset for standalone.             |
+| `APP_BASE_PATH`             | Mount the app under a prefix (e.g. `/mail`). Set automatically by `npx @agentnative-fork/core@latest deploy`; leave unset for standalone.             |
 | `AGENT_PROD_CODE_EXECUTION` | Optional production code-execution mode: `off` (default), `sandboxed`, or `trusted`. See [Production Code Execution](#production-code-execution). |
 
 Database connection variables (`DATABASE_URL`, `DATABASE_AUTH_TOKEN`, per-app `<APP_NAME>_DATABASE_URL`) live in [Database](/docs/database#production).

@@ -11,8 +11,8 @@
 import {
   createOnboardingPlugin,
   registerOnboardingStep,
-} from "@agent-native/core/onboarding";
-import { registerFileUploadProvider } from "@agent-native/core/file-upload";
+} from "@agentnative-fork/core/onboarding";
+import { registerFileUploadProvider } from "@agentnative-fork/core/file-upload";
 import { s3FileUploadProvider } from "../lib/s3-upload-provider.js";
 import { hasRequestVideoStorage } from "../lib/video-storage.js";
 

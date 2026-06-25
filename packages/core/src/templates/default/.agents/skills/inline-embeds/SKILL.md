@@ -51,10 +51,10 @@ the iframe can't navigate the parent window.
 
 Every embed route should include a small "Open" button so the user can pop the
 view out of the chat and into the full app. Import the helper from
-`@agent-native/core/client`:
+`@agentnative-fork/core/client`:
 
 ```tsx
-import { postNavigate, isInAgentEmbed } from "@agent-native/core/client";
+import { postNavigate, isInAgentEmbed } from "@agentnative-fork/core/client";
 
 export function OpenButton({ path }: { path: string }) {
   if (!isInAgentEmbed()) return null;

@@ -147,7 +147,7 @@ Claude 코드와 같은 도구가 강력하다고 느끼는 이유는 모델이 
 
 공유 인프라가 아닌 _귀하의_ 앱이기 때문에 에이전트는 안전하게 코드를 발전시킬 수 있습니다. 앱을 사용할수록 앱이 계속 개선됩니다. 전체 내용을 보려면 [Templates](/docs/cloneable-saas)를 참조하세요.
 
-전체 템플릿을 포크할 준비가 되지 않았습니까? 이미 사용하고 있는 코딩 에이전트에 **스킬**을 추가하여 에이전트 네이티브를 사용해 볼 수도 있습니다. `npx @agent-native/core@latest skills add visual-plan`로 Plans 스킬을 설치하세요. [Skills Guide](/docs/skills-guide#app-backed-skills)를 참조하세요.
+전체 템플릿을 포크할 준비가 되지 않았습니까? 이미 사용하고 있는 코딩 에이전트에 **스킬**을 추가하여 에이전트 네이티브를 사용해 볼 수도 있습니다. `npx @agentnative-fork/core@latest skills add visual-plan`로 Plans 스킬을 설치하세요. [Skills Guide](/docs/skills-guide#app-backed-skills)를 참조하세요.
 
 ## 구성 가능한 에이전트 {#composable-agents}
 
@@ -163,7 +163,7 @@ Claude 코드와 같은 도구가 강력하다고 느끼는 이유는 모델이 
 {
   "filename": "actions/reply-to-email.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread\",\n  schema: z.object({ emailId: z.string(), body: z.string() }),\n  run: async ({ emailId, body }) => {\n    // db and schema come from your app's server/db setup\n    await db.insert(schema.replies).values({ emailId, body });\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread\",\n  schema: z.object({ emailId: z.string(), body: z.string() }),\n  run: async ({ emailId, body }) => {\n    // db and schema come from your app's server/db setup\n    await db.insert(schema.replies).values({ emailId, body });\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Tool surface", "note": "The `description` is what the agent reads to decide when to call this as a tool." },
     { "lines": "6", "label": "타입 계약", "note": "하나의 zod `schema`가 에이전트, UI, HTTP, MCP, A2A 등 **모든** 표면의 입력을 검증합니다." },
@@ -183,7 +183,7 @@ const { mutate } = useActionMutation("reply-to-email");
 
 ```tsx
 // And the agent panel mounted anywhere in your app
-import { AgentSidebar } from "@agent-native/core/client";
+import { AgentSidebar } from "@agentnative-fork/core/client";
 
 <AgentSidebar />;
 ```

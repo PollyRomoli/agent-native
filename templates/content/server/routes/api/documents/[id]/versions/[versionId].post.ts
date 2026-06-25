@@ -6,8 +6,8 @@ import {
   parseDocumentFavorite,
   parseDocumentHideFromSearch,
 } from "../../../../../lib/documents.js";
-import { getSession, runWithRequestContext } from "@agent-native/core/server";
-import { assertAccess } from "@agent-native/core/sharing";
+import { getSession, runWithRequestContext } from "@agentnative-fork/core/server";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 
 function nanoid(size = 12): string {
   const chars =

@@ -41,7 +41,7 @@ Führen Sie `create` ohne Flags aus und Sie werden gefragt, wie Sie beginnen mö
 Chat oder Headless) vor allem anderen:
 
 ```bash
-npx @agent-native/core@latest create my-app
+npx @agentnative-fork/core@latest create my-app
 ```
 
 Oder übergeben Sie ein Flag, um die Eingabeaufforderung zu überspringen:
@@ -50,14 +50,14 @@ Oder übergeben Sie ein Flag, um die Eingabeaufforderung zu überspringen:
 Anpassbarer Chat UI, und jede von Ihnen hinzugefügte Aktion wird automatisch darin angezeigt:
 
 ```bash
-npx @agent-native/core@latest create my-app --template chat
+npx @agentnative-fork/core@latest create my-app --template chat
 ```
 
 **Nur das Headless-Grundelement?** Headless starten – derselbe actions und Agent
 Schleife, keine UI-Shell:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 ```
 
 Installieren Sie dann aus dem von Ihnen erstellten Ordner:
@@ -78,7 +78,7 @@ Versenden Sie mit diesem Beispiel:
 {
   "filename": "actions/hello.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Sage Hallo vom lokalen Agenten.\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Sage Hallo vom lokalen Agenten.\",\n  schema: z.object({\n    name: z.string().default(\"world\"),\n  }),\n  http: { method: \"GET\" },\n  readOnly: true,\n  run: async ({ name }) => {\n    return { message: `Hello, ${name}!` };\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "Tool-Beschreibung", "note": "Der Agent liest `description`, um zu entscheiden, wann er dies als Tool aufruft." },
     { "lines": "6-8", "label": "Typisierter Vertrag", "note": "Ein zod-`schema` validiert Eingaben von jeder Oberfläche: Agent, UI, HTTP, MCP und A2A." },
@@ -149,7 +149,7 @@ ist eine kleine Route, die auf der `<AgentChatSurface>`-Komponente basiert:
 
 ```tsx
 // app/routes/_index.tsx
-import { AgentChatSurface } from "@agent-native/core/client";
+import { AgentChatSurface } from "@agentnative-fork/core/client";
 
 export default function ChatRoute() {
   return <AgentChatSurface mode="page" className="h-full" />;

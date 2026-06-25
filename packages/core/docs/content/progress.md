@@ -12,7 +12,7 @@ import {
   startRun,
   updateRunProgress,
   completeRun,
-} from "@agent-native/core/progress";
+} from "@agentnative-fork/core/progress";
 
 const run = await startRun({
   owner: "steve@builder.io",
@@ -96,7 +96,7 @@ Also emits `run.progress.updated` with the terminal status.
 ### Listing {#list}
 
 ```ts
-import { listRuns, getRun, deleteRun } from "@agent-native/core/progress";
+import { listRuns, getRun, deleteRun } from "@agentnative-fork/core/progress";
 
 const active = await listRuns("steve@builder.io", { activeOnly: true });
 const run = await getRun("run-id", "steve@builder.io");
@@ -132,7 +132,7 @@ Mounted at `/_agent-native/runs/*` by the core-routes plugin. **Read-only over H
 ## UI component {#ui}
 
 ```tsx
-import { RunsTray } from "@agent-native/core/client/progress";
+import { RunsTray } from "@agentnative-fork/core/client/progress";
 
 export function HeaderBar() {
   return (

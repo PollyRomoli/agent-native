@@ -15,7 +15,7 @@ description: "सार्वजनिक मार्गों को एजे
 - Markdown दर्पण जैसे `/docs/getting-started.md`।
 - उत्पादन निर्माण के बाद सार्वजनिक दस्तावेज़ पृष्ठों के लिए `Accept: text/markdown` प्रतिक्रियाएँ।
 - आधार संगठन, वेबसाइट और पेज मेटाडेटा के लिए JSON-LD।
-- एक ऑडिट CLI (`npx @agent-native/core@latest audit-agent-web`) जो उपरोक्त सभी की जांच करता है।
+- एक ऑडिट CLI (`npx @agentnative-fork/core@latest audit-agent-web`) जो उपरोक्त सभी की जांच करता है।
 
 `publicMcp: true` को सेट करने से ऑप्ट-इन actions एक सार्वजनिक MCP एंडपॉइंट के रूप में सामने आता है, जिससे बाहरी एजेंट उन्हें सीधे कॉल कर सकते हैं ([MCP Protocol](/docs/mcp-protocol) देखें)।
 
@@ -99,13 +99,13 @@ description: "सार्वजनिक मार्गों को एजे
 
 ## बिल्ड-टाइम फ़ाइलें {#build-time}
 
-`@agent-native/core/agent-web` में फ्रेमवर्क उपयोगिताएँ एक पृष्ठ सूची से सामान्य फ़ाइलें उत्पन्न करती हैं:
+`@agentnative-fork/core/agent-web` में फ्रेमवर्क उपयोगिताएँ एक पृष्ठ सूची से सामान्य फ़ाइलें उत्पन्न करती हैं:
 
 ```ts
 import {
   buildAgentWebStaticFiles,
   normalizeAgentWebConfig,
-} from "@agent-native/core/agent-web";
+} from "@agentnative-fork/core/agent-web";
 
 const config = normalizeAgentWebConfig(
   { crawlerPolicy: "discoverable-no-training" },
@@ -130,14 +130,14 @@ const files = buildAgentWebStaticFiles({
 });
 ```
 
-Vite ऐप्स उत्पादन निर्माण के दौरान उन फ़ाइलों को `public`, `dist`, `dist/client`, `dist/server/public`, या `build/client` में लिखने के लिए `@agent-native/core/vite` से `createAgentWebVitePlugin` का उपयोग कर सकते हैं।
+Vite ऐप्स उत्पादन निर्माण के दौरान उन फ़ाइलों को `public`, `dist`, `dist/client`, `dist/server/public`, या `build/client` में लिखने के लिए `@agentnative-fork/core/vite` से `createAgentWebVitePlugin` का उपयोग कर सकते हैं।
 
 ## किसी साइट का ऑडिट करें {#audit}
 
 किसी तैनात साइट या स्थानीय उत्पादन सर्वर के विरुद्ध CLI ऑडिट का उपयोग करें:
 
 ```bash
-npx @agent-native/core@latest audit-agent-web --url https://www.agent-native.com
+npx @agentnative-fork/core@latest audit-agent-web --url https://www.agent-native.com
 ```
 
 ऑडिट इसकी जाँच करता है:

@@ -1,4 +1,4 @@
-import { registerRequiredSecret } from "@agent-native/core/secrets";
+import { registerRequiredSecret } from "@agentnative-fork/core/secrets";
 
 // Optional: enables design-system import from private GitHub repositories.
 // The import-github action reads this server-side via resolveSecret(); tokens

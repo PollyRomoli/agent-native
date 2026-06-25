@@ -72,8 +72,8 @@ hachurada.
 
 ```ts
 // actions/classify-message.ts
-import { defineAction } from "@agent-native/core/action";
-import { completeText } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core/action";
+import { completeText } from "@agentnative-fork/core/server";
 import { z } from "zod";
 
 export default defineAction({
@@ -107,7 +107,7 @@ Actions montado pela estrutura é executado automaticamente com contexto de soli
 {
   "filename": "server/routes/api/projects.get.ts",
   "language": "ts",
-  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agent-native/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agent-native/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.projectCompartilhars));\n    },\n  );\n});",
+  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agentnative-fork/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agentnative-fork/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.projectCompartilhars));\n    },\n  );\n});",
   "annotations": [
     {
       "lines": "7-10",
@@ -128,7 +128,7 @@ Actions montado pela estrutura é executado automaticamente com contexto de soli
 }
 ```
 
-`getDb` é criado por aplicativo via `createGetDb(schema)` em `server/db/index.ts`, portanto, rotas personalizadas importam-no do modelo (`../../db/index.js`), não de `@agent-native/core/db`; veja [Database — Where the DB Client Lives](/docs/database#db-client). Não execute `db.select().from(ownableTable)` sem escopo em rotas personalizadas.
+`getDb` é criado por aplicativo via `createGetDb(schema)` em `server/db/index.ts`, portanto, rotas personalizadas importam-no do modelo (`../../db/index.js`), não de `@agentnative-fork/core/db`; veja [Database — Where the DB Client Lives](/docs/database#db-client). Não execute `db.select().from(ownableTable)` sem escopo em rotas personalizadas.
 
 ## Plugins de servidor {#server-plugins}
 
@@ -136,7 +136,7 @@ Os plug-ins ficam no `server/plugins/` e são executados na inicialização. Use
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -236,7 +236,7 @@ Para pacotes personalizados ou testes que precisam de um aplicativo H3 diretamen
 retorna um aplicativo e um roteador pré-configurados:
 
 ```ts
-import { createServer } from "@agent-native/core/server";
+import { createServer } from "@agentnative-fork/core/server";
 import { defineEventHandler } from "h3";
 
 const { app, router } = createServer();
@@ -256,7 +256,7 @@ caso contrário, personalize o agente por meio de `AGENTS.md`, skills, actions e
 plug-in de bate-papo do agente.
 
 ```ts
-import { createProductionAgentHandler } from "@agent-native/core/server";
+import { createProductionAgentHandler } from "@agentnative-fork/core/server";
 
 const handler = createProductionAgentHandler({
   scripts,

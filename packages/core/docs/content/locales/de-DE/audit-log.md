@@ -81,7 +81,7 @@ Zwei gelesene actions stehen dem Agenten **und** dem Frontend in jeder App zur V
 Erstellen Sie einen Aktivitäts-Feed oder eine „Wer hat das geändert“-Zeile, indem Sie `list-audit-events` vom UI mit `useActionQuery` aufrufen – schreiben Sie niemals einen Abruf in die Prüftabelle von Hand:
 
 ```tsx
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 const { data } = useActionQuery("list-audit-events", {
   targetType: "recording",

@@ -3,7 +3,7 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { ToolRendererContext } from "@agent-native/core/client";
+import type { ToolRendererContext } from "@agentnative-fork/core/client";
 import VisualAnswerInline from "./VisualAnswerInline";
 
 /**

@@ -10,7 +10,7 @@ description: "プラグイン可能なプロバイダーによるサーバー側
 これは _product_ 分析です。PostHog/Mixpanel/Amplitude に流れるアプリのイベントです。独自のデータベースに保存されている*エージェント品質*指標 (トレース、コスト、評価、フィードバック) については、[Observability](/docs/observability) を参照してください。
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "order.completed",
@@ -46,7 +46,7 @@ track(
 分析イベントを発生させます。すべての登録プロバイダーにファンアウトします。
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "meal.logged",
@@ -60,7 +60,7 @@ track(
 特徴を持つユーザーを特定します。それをサポートするプロバイダー (PostHog、Mixpanel、Amplitude、Webhook) に転送されます。
 
 ```ts
-import { identify } from "@agent-native/core/tracking";
+import { identify } from "@agentnative-fork/core/tracking";
 
 identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 ```
@@ -73,8 +73,8 @@ identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 
 ```ts
 // actions/create-project.ts
-import { defineAction } from "@agent-native/core/action";
-import { track } from "@agent-native/core/tracking";
+import { defineAction } from "@agentnative-fork/core/action";
+import { track } from "@agentnative-fork/core/tracking";
 import { z } from "zod";
 
 export default defineAction({
@@ -100,7 +100,7 @@ export default defineAction({
 
 ## クライアント側の追跡 {#client}
 
-`track()` はブラウザ/アプリ コードからも動作します。 `@agent-native/core/client` からクライアント ツインをインポートし、同じ方法で呼び出します。イベントを `POST /_agent-native/track` のフレームワーク ルートに POST し、**同じ** 登録されたサーバー側プロバイダー (PostHog、Mixpanel、Amplitude、Webhook) に転送します。ブラウザには分析 SDK は提供されず、プロバイダー キーはクライアント側で公開されません。
+`track()` はブラウザ/アプリ コードからも動作します。 `@agentnative-fork/core/client` からクライアント ツインをインポートし、同じ方法で呼び出します。イベントを `POST /_agent-native/track` のフレームワーク ルートに POST し、**同じ** 登録されたサーバー側プロバイダー (PostHog、Mixpanel、Amplitude、Webhook) に転送します。ブラウザには分析 SDK は提供されず、プロバイダー キーはクライアント側で公開されません。
 
 ```an-api title="The client tracking route"
 {
@@ -117,7 +117,7 @@ export default defineAction({
 ```
 
 ```ts
-import { track } from "@agent-native/core/client";
+import { track } from "@agentnative-fork/core/client";
 
 // e.g. inside a click handler or effect
 track("checkout.completed", { total: 49.99, items: 3 });
@@ -144,7 +144,7 @@ track("checkout.completed", { total: 49.99, items: 3 });
 分析バックエンドのカスタム プロバイダーを登録します。
 
 ```ts
-import { registerTrackingProvider } from "@agent-native/core/tracking";
+import { registerTrackingProvider } from "@agentnative-fork/core/tracking";
 
 registerTrackingProvider({
   name: "my-analytics",
@@ -170,7 +170,7 @@ registerTrackingProvider({
 すべてのプロバイダーをフラッシュします。プロセスが終了する前に呼び出して、保留中のイベントが確実に送信されるようにします。
 
 ```ts
-import { flushTracking } from "@agent-native/core/tracking";
+import { flushTracking } from "@agentnative-fork/core/tracking";
 
 await flushTracking();
 ```

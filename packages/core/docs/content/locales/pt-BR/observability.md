@@ -46,7 +46,7 @@ Adicione o painel a qualquer modelo com uma única rota:
 
 ```tsx
 // app/routes/observability.tsx
-import { ObservabilityDashboard } from "@agent-native/core/client";
+import { ObservabilityDashboard } from "@agentnative-fork/core/client";
 
 export default function ObservabilityPage() {
   return (
@@ -106,7 +106,7 @@ Cinco marcadores determinísticos executados após cada execução do agente:
 Ative a avaliação baseada em amostra de LLM configurando `evalSampleRate`:
 
 ```ts
-import { putSetting } from "@agent-native/core/settings";
+import { putSetting } from "@agentnative-fork/core/settings";
 
 await putSetting("observability-config", {
   enabled: true,
@@ -269,7 +269,7 @@ Cada modelo herda isso automaticamente — não há nada para importar. Para apl
 
 ```ts
 // server/plugins/sentry.ts
-import { createSentryPlugin } from "@agent-native/core/server";
+import { createSentryPlugin } from "@agentnative-fork/core/server";
 export default createSentryPlugin();
 ```
 

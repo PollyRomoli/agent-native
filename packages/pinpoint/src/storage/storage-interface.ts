@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Storage interface re-export
+// @agentnative-fork/pinpoint — Storage interface re-export
 // MIT License
 
 // The PinStorage interface is defined in types/index.ts

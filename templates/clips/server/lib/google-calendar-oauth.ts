@@ -6,9 +6,9 @@ import {
   oauthCallbackResponse,
   oauthErrorPage,
   type OAuthStatePayload,
-} from "@agent-native/core/server";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
-import { writeAppSecret } from "@agent-native/core/secrets";
+} from "@agentnative-fork/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
+import { writeAppSecret } from "@agentnative-fork/core/secrets";
 import { getDb, schema } from "../db/index.js";
 import { getActiveOrganizationId } from "./recordings.js";
 import { exchangeCode, getUserInfo } from "./google-calendar-client.js";

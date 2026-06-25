@@ -4,15 +4,15 @@ const mocks = vi.hoisted(() => ({
   ssrfSafeFetch: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/extensions/url-safety", () => ({
+vi.mock("@agentnative-fork/core/extensions/url-safety", () => ({
   ssrfSafeFetch: mocks.ssrfSafeFetch,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   resolveAccess: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestUserEmail: vi.fn(() => "local@example.com"),
 }));
 

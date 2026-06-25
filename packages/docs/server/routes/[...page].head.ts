@@ -1,7 +1,7 @@
 import {
   createH3SSRHandler,
   DEFAULT_SSR_CACHE_HEADERS,
-} from "@agent-native/core/server/ssr-handler";
+} from "@agentnative-fork/core/server/ssr-handler";
 import { estimateMarkdownTokens } from "../../../core/src/agent-web/index";
 import fs from "fs";
 import path from "path";

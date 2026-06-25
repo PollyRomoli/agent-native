@@ -15,9 +15,9 @@ import {
   readBody,
   runWithRequestContext,
   verifyCaptcha,
-} from "@agent-native/core/server";
-import { emit } from "@agent-native/core/event-bus";
-import { accessFilter } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { emit } from "@agentnative-fork/core/event-bus";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import type {
   Booking,
   CalendarEvent,
@@ -26,7 +26,7 @@ import type {
   CustomField,
   TimeSlot,
 } from "../../shared/api.js";
-import { getSetting, getUserSetting } from "@agent-native/core/settings";
+import { getSetting, getUserSetting } from "@agentnative-fork/core/settings";
 import { getDb, schema } from "../db/index.js";
 import * as googleCalendar from "../lib/google-calendar.js";
 import { eventBlocksAvailability } from "../lib/calendar-availability.js";

@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — MCP server for pin tools
+// @agentnative-fork/pinpoint — MCP server for pin tools
 // MIT License
 
 import { FileStore } from "../storage/file-store.js";
@@ -9,7 +9,7 @@ import { FileStore } from "../storage/file-store.js";
  *
  * ```ts
  * import { Server } from '@modelcontextprotocol/sdk/server/index.js';
- * import { createPinpointMCPTools } from '@agent-native/pinpoint/server';
+ * import { createPinpointMCPTools } from '@agentnative-fork/pinpoint/server';
  *
  * const server = new Server({ name: 'pinpoint', version: '1.0.0' }, { capabilities: { tools: {} } });
  * const tools = createPinpointMCPTools();

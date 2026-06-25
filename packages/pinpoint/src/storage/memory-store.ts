@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — In-memory storage adapter
+// @agentnative-fork/pinpoint — In-memory storage adapter
 // MIT License
 //
 // Used for standalone/clipboard-only mode. Pins live in memory for

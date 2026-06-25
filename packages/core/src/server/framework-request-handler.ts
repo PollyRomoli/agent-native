@@ -572,7 +572,7 @@ function registerMiddleware(
  * to find which default plugin stems are missing from `server/plugins/`, then
  * dynamically imports and mounts them. If a workspace core is present in the
  * ancestor chain, plugin slots the workspace core exports are mounted from
- * there instead of from @agent-native/core — this is the middle layer of the
+ * there instead of from @agentnative-fork/core — this is the middle layer of the
  * three-layer inheritance model (app local > workspace core > framework).
  */
 async function bootstrapDefaultPlugins(nitroApp: any): Promise<void> {

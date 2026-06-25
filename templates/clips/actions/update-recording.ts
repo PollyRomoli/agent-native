@@ -6,14 +6,14 @@
  *   pnpm action update-recording --id=<id> --title="New title"
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
 import { nanoid, stringifySpaceIds } from "../server/lib/recordings.js";
 import { encryptSharePassword } from "../server/lib/share-password.js";
-import { writeAppState } from "@agent-native/core/application-state";
-import { assertAccess } from "@agent-native/core/sharing";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 
 const cliBoolean = z
   .union([z.boolean(), z.enum(["true", "false"])])

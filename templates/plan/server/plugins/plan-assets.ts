@@ -1,4 +1,4 @@
-import { getH3App, awaitBootstrap } from "@agent-native/core/server";
+import { getH3App, awaitBootstrap } from "@agentnative-fork/core/server";
 import { createPlanAssetHandler } from "../plan-asset-route.js";
 
 /**

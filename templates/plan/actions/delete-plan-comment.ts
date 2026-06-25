@@ -1,13 +1,13 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   ForbiddenError,
   assertAccess,
   currentAccess,
   resolveAccess,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import { and, eq, inArray, isNull } from "drizzle-orm";
 import { z } from "zod";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
 import { getDb, schema } from "../server/db/index.js";
 import {
   isAnonymousPublicViewer,

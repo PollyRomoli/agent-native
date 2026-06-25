@@ -11,14 +11,14 @@ import {
 import { nanoid } from "nanoid";
 import type { EmailMessage, Label, UserSettings } from "@shared/types.js";
 import { markdownPreviewSnippet } from "@shared/markdown.js";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
-import { readBody, getSession } from "@agent-native/core/server";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
+import { readBody, getSession } from "@agentnative-fork/core/server";
 import {
   getOAuthTokens,
   saveOAuthTokens,
   listOAuthAccountsByOwner,
   setOAuthDisplayName,
-} from "@agent-native/core/oauth-tokens";
+} from "@agentnative-fork/core/oauth-tokens";
 import {
   createOAuth2Client,
   gmailGetMessage,
@@ -51,7 +51,7 @@ import {
   incrementSendFrequency,
   getContactFrequencyMap,
 } from "../lib/contact-frequency.js";
-import { emit } from "@agent-native/core/event-bus";
+import { emit } from "@agentnative-fork/core/event-bus";
 import { getSyntheticEmailsForView, getSnoozedThreadIds } from "../lib/jobs.js";
 import {
   collectLinks,
@@ -69,8 +69,8 @@ import {
 import { resolveGoogleSenderIdentity } from "../lib/sender-identity.js";
 import { normalizeSignature } from "../../shared/signature.js";
 import { emailMessageMatchesSearch } from "@shared/search.js";
-import { getAppProductionUrl } from "@agent-native/core/server";
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { getAppProductionUrl } from "@agentnative-fork/core/server";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 // State-change operations (archive/unarchive/star/trash/untrash/markRead) have
 // been migrated to the action surface; their handlers have been removed. The
 // shared lib functions in ../lib/email-state.js remain the single source of

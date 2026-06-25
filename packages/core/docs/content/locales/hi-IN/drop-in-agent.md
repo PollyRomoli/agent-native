@@ -25,7 +25,7 @@ description: "एजेंट चैट + वर्कस्पेस को <Ag
 | `sendToAgentChat()`   | प्रोग्रामेटिक रूप से चैट पर एक संदेश भेजें                                                 | एक बटन जो इनलाइन चलने के बजाय एजेंट को काम सौंपता है          |
 | `useActionMutation()` | किसी क्रिया के चारों ओर टाइपसेफ फ्रंटएंड रैपर                                              | UI को वही ऑपरेशन चलाने की ज़रूरत है जो एक एजेंट टूल चलाएगा    |
 
-ये सभी `@agent-native/core/client` से निर्यात किए जाते हैं।
+ये सभी `@agentnative-fork/core/client` से निर्यात किए जाते हैं।
 
 ```an-diagram title="माउंट मॉडल" summary="<AgentSidebar> आपके मौजूदा लेआउट को लपेटता है। आपके मार्ग मुख्य क्षेत्र में प्रस्तुत होते हैं; एजेंट पैनल उनके बगल में लगा होता है। <AgentPanel> बिना रैपर वाला वही पैनल है।"
 {
@@ -44,7 +44,7 @@ description: "एजेंट चैट + वर्कस्पेस को <Ag
 {
   "filename": "app/root.tsx",
   "language": "tsx",
-  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agent-native/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
+  "code": "import { Outlet } from \"react-router\";\nimport { AgentSidebar, AgentToggleButton } from \"@agentnative-fork/core/client\";\n\nexport default function Root() {\n  return (\n    <AgentSidebar\n      emptyStateText=\"How can I help?\"\n      suggestions={[\n        \"Summarize my inbox\",\n        \"Draft a reply to the latest email\",\n        \"Show me yesterday's signup numbers\",\n      ]}\n      dynamicSuggestions\n      defaultSidebarWidth={420}\n      position=\"right\"\n    >\n      <header>\n        <AgentToggleButton />\n      </header>\n\n      <main>\n        <Outlet />\n      </main>\n    </AgentSidebar>\n  );\n}",
   "annotations": [
     { "lines": "6", "label": "Wrapper", "note": "`<AgentSidebar>` wraps your whole layout. It adds the toggleable side panel; everything you pass as children stays in the main app area." },
     { "lines": "8-12", "label": "Starter prompts", "note": "`suggestions` render as clickable chips on the empty chat." },
@@ -73,7 +73,7 @@ description: "एजेंट चैट + वर्कस्पेस को <Ag
 
 ```tsx
 // app/routes/agent.tsx
-import { AgentPanel } from "@agent-native/core/client";
+import { AgentPanel } from "@agentnative-fork/core/client";
 
 export default function AgentRoute() {
   return (
@@ -94,14 +94,14 @@ export default function AgentRoute() {
 - **`isFullscreen`** / **`onToggleFullscreen`** - यदि आप Claude-शैली केंद्रित कॉलम चाहते हैं तो बाहरी पूर्णस्क्रीन स्थिति को तार दें।
 - **`storageKey`** — `localStorage` कुंजियों के लिए नामस्थान। तब उपयोगी होता है जब आप एक ही पेज में एकाधिक पैनल (अलग-अलग ऐप इंस्टेंस या वर्कस्पेस) प्रस्तुत करते हैं।
 
-पूर्ण प्रॉप्स: `@agent-native/core/client` में `AgentPanelProps`।
+पूर्ण प्रॉप्स: `@agentnative-fork/core/client` में `AgentPanelProps`।
 
 ## प्रोग्रामेटिक संदेश: `sendToAgentChat()` {#send}
 
 एक बटन जो एजेंट को काम सौंपता है (इनलाइन `llm()` कॉल चलाने के बजाय - [ladder](/docs/what-is-agent-native#the-ladder) से एंटी-पैटर्न):
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 <Button
   onClick={() =>
@@ -151,7 +151,7 @@ MCP ऐप ब्रिज व्यवहार के लिए [Client](/docs
 यदि आप लोडिंग स्थिति चाहते हैं, तो `useSendToAgentChat()` हुक का उपयोग करें - यह `send` और `isGenerating` दोनों लौटाता है:
 
 ```ts
-import { useSendToAgentChat } from "@agent-native/core/client";
+import { useSendToAgentChat } from "@agentnative-fork/core/client";
 
 const { send, isGenerating } = useSendToAgentChat();
 ```
@@ -186,7 +186,7 @@ const { send, isGenerating } = useSendToAgentChat();
 जब UI को समान ऑपरेशन चलाने की आवश्यकता होती है तो एक एजेंट टूल चलेगा - [ladder](/docs/what-is-agent-native#rung-three) का क्रमांक 3 - `useActionMutation` का उपयोग करें:
 
 ```tsx
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 const { mutate, isPending } = useActionMutation("reply-to-email");
 
@@ -218,7 +218,7 @@ import {
   AgentSidebar,
   AgentToggleButton,
   sendToAgentChat,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export default function Root() {
   return (

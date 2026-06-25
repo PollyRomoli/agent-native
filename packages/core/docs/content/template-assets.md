@@ -60,7 +60,7 @@ Live demo: [assets.agent-native.com](https://assets.agent-native.com).
 - **Upload and describe references.** Add images or videos from the library UI or prompt composer attachment button, then search by title, description, alt text, prompt, model, media type, status, role, folder, or collection.
 - **Keep a generation audit log.** Every run records prompts, model, aspect ratio, references, source asset, lineage, generated assets, status, errors, and timestamps for later design review.
 - **Preserve logo accuracy.** The agent can generate a placeholder area and the server composites the uploaded canonical logo onto the final image instead of relying on the image model to redraw it.
-- **Embed as a picker.** Other apps can iframe `/picker` and listen for the `chooseAsset` event from `@agent-native/embedding`, turning Assets into an asset picker/generator for blog editors, site builders, slide decks, and custom apps. The picker also emits the legacy `chooseImage` alias for existing image-only hosts.
+- **Embed as a picker.** Other apps can iframe `/picker` and listen for the `chooseAsset` event from `@agentnative-fork/embedding`, turning Assets into an asset picker/generator for blog editors, site builders, slide decks, and custom apps. The picker also emits the legacy `chooseImage` alias for existing image-only hosts.
 - **Install as an app-backed skill.** The `agent-native.app-skill.json` manifest exports an Assets skill plus MCP connector metadata so marketplaces can install the app, its instructions, and its picker together.
 - **Serve other agents.** Slides, Design, Content, Mail, and Dispatch can call Assets through A2A to list libraries, generate batches, create videos, refine an asset, fetch exports, and render inline previews where embedding is allowed.
 
@@ -71,7 +71,7 @@ Generate and pick brand media without leaving Codex, Claude Code, Claude, or Cha
 1. **Install once.** This adds the skill instructions and registers the hosted MCP connector together:
 
    ```bash
-   npx @agent-native/core@latest skills add assets   # alias: image-generation
+   npx @agentnative-fork/core@latest skills add assets   # alias: image-generation
    ```
 
    Default client is `codex`; add `--client claude-code` or `--client all` for others.
@@ -109,7 +109,7 @@ The rest of this doc is for anyone forking the Assets template or extending it.
 ### Scaffolding
 
 ```bash
-npx @agent-native/core@latest create my-assets --standalone --template assets
+npx @agentnative-fork/core@latest create my-assets --standalone --template assets
 ```
 
 ### Data model
@@ -210,7 +210,7 @@ another product. Image is the default media type; pass `mediaType=video` when
 you want video browsing/selection:
 
 ```tsx
-import { EmbeddedApp } from "@agent-native/embedding";
+import { EmbeddedApp } from "@agentnative-fork/embedding";
 
 <EmbeddedApp
   url="https://assets.agent-native.com/picker?mediaType=image"
@@ -254,19 +254,19 @@ The Assets app skill has app id `assets` and hosted MCP URL
 
 ```bash
 # Easiest hosted install: exported skill instructions plus MCP connector.
-npx @agent-native/core@latest skills add assets
+npx @agentnative-fork/core@latest skills add assets
 
 # Vercel/open Skills CLI install: exported instructions only, no MCP config.
 npx skills@latest add BuilderIO/agent-native --skill assets
 
 # Hosted install: URL-only MCP connector, no shared secrets in skill files.
-npx @agent-native/core@latest app-skill ensure --manifest templates/assets/agent-native.app-skill.json
+npx @agentnative-fork/core@latest app-skill ensure --manifest templates/assets/agent-native.app-skill.json
 
 # Local editable launch.
-npx @agent-native/core@latest app-skill launch --manifest templates/assets/agent-native.app-skill.json --local --into ./assets-local
+npx @agentnative-fork/core@latest app-skill launch --manifest templates/assets/agent-native.app-skill.json --local --into ./assets-local
 
 # Marketplace package, including Claude Code marketplace and Vercel Labs skills adapters.
-npx @agent-native/core@latest app-skill pack --manifest templates/assets/agent-native.app-skill.json --out ./dist/assets-skill
+npx @agentnative-fork/core@latest app-skill pack --manifest templates/assets/agent-native.app-skill.json --out ./dist/assets-skill
 
 # Install a local exported Assets bundle with the open skills CLI.
 npx skills@latest add ./dist/assets-skill --skill assets -a codex -y
@@ -291,7 +291,7 @@ If you install from a raw marketplace bundle with `npx skills@latest`, register 
 hosted MCP connector so those instructions can call the live Assets app:
 
 ```bash
-npx @agent-native/core@latest app-skill ensure --manifest ./dist/assets-skill/agent-native.app-skill.json --yes
+npx @agentnative-fork/core@latest app-skill ensure --manifest ./dist/assets-skill/agent-native.app-skill.json --yes
 ```
 
 ## What's next

@@ -18,7 +18,7 @@
  *
  * Usage in agent-chat plugins:
  * ```ts
- * import { autoDiscoverActions } from "@agent-native/core/server";
+ * import { autoDiscoverActions } from "@agentnative-fork/core/server";
  *
  * export default createAgentChatPlugin({
  *   actions: () => autoDiscoverActions(import.meta.url),
@@ -59,7 +59,7 @@ function isRuntimeSourceFile(filename: string): boolean {
 
 /**
  * Global registry of actions contributed by published packages
- * (e.g. `@agent-native/dispatch`). Populated by `registerPackageActions()`
+ * (e.g. `@agentnative-fork/dispatch`). Populated by `registerPackageActions()`
  * which the package calls from import side effects, then merged into
  * `autoDiscoverActions` after the template's local `actions/` directory.
  *
@@ -75,7 +75,7 @@ const packageActionRegistry: Record<string, ActionEntry> = {};
  * Called from a package's server entrypoint via import side effects:
  * ```ts
  * // packages/dispatch/src/server/index.ts
- * import { registerPackageActions } from "@agent-native/core/server";
+ * import { registerPackageActions } from "@agentnative-fork/core/server";
  * import { actions } from "../actions/index.js";
  * registerPackageActions(actions);
  * ```
@@ -504,7 +504,7 @@ export async function autoDiscoverActions(
   }
 
   // 1c. Package-registered actions — contributed by published packages
-  //     (e.g. @agent-native/dispatch) via `registerPackageActions()` from
+  //     (e.g. @agentnative-fork/dispatch) via `registerPackageActions()` from
   //     import side effects. Merged with skip-existing so the template's
   //     own actions/ files always win on name collision.
   for (const [name, entry] of Object.entries(getPackageActions())) {

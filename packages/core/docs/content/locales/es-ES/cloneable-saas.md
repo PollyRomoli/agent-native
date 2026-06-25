@@ -102,13 +102,13 @@ No es necesario. Cada plantilla también está disponible como una aplicación a
 Si está realizando un scaffolding ahora, el comando CLI es:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
-Obtendrás un selector de selección múltiple. Elija una aplicación (independiente) o varias (espacio de trabajo: las aplicaciones comparten autenticación, marca, configuración del agente y base de datos). Cada plantilla seleccionada se estructura en `apps/<name>/` con cada archivo que necesita. Para una aplicación de solo acción en lugar de una plantilla UI, use `npx @agent-native/core@latest create my-agent --headless`.
+Obtendrás un selector de selección múltiple. Elija una aplicación (independiente) o varias (espacio de trabajo: las aplicaciones comparten autenticación, marca, configuración del agente y base de datos). Cada plantilla seleccionada se estructura en `apps/<name>/` con cada archivo que necesita. Para una aplicación de solo acción en lugar de una plantilla UI, use `npx @agentnative-fork/core@latest create my-agent --headless`.
 
 Complete `.env` (principalmente `ANTHROPIC_API_KEY` y `DATABASE_URL`), `pnpm install`, `pnpm dev` y funciona. Sin "TODO: implementar inicio de sesión", sin rutas de marcador de posición.
 
-Destinos de implementación: cualquier host compatible con Nitro (Node, Cloudflare, Netlify, Vercel, Deno, Lambda, Bun) y cualquier base de datos SQL compatible con Drizzle (SQLite, Postgres, Turso, D1, Supabase, Neon). Para los espacios de trabajo, `npx @agent-native/core@latest deploy` crea todas las aplicaciones a la vez y las envía detrás de un único origen. Ver [Deployment](/docs/deployment).
+Destinos de implementación: cualquier host compatible con Nitro (Node, Cloudflare, Netlify, Vercel, Deno, Lambda, Bun) y cualquier base de datos SQL compatible con Drizzle (SQLite, Postgres, Turso, D1, Supabase, Neon). Para los espacios de trabajo, `npx @agentnative-fork/core@latest deploy` crea todas las aplicaciones a la vez y las envía detrás de un único origen. Ver [Deployment](/docs/deployment).
 
 Para crear y publicar su propia plantilla, consulte [Creating Templates](/docs/creating-templates).

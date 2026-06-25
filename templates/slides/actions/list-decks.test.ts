@@ -27,11 +27,11 @@ vi.mock("../server/db/index.js", () => ({
   },
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestUserEmail: () => "alice@example.com",
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   accessFilter: () => ({ allowed: true }),
 }));
 

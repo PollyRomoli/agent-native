@@ -182,7 +182,7 @@ const mocks = vi.hoisted(() => {
   };
 });
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   defineAction: (action: unknown) => action,
 }));
 
@@ -191,26 +191,26 @@ vi.mock("../server/db/index.js", () => ({
   schema: mocks.schema,
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   readAppState: vi.fn(async () => null),
 }));
 
-vi.mock("@agent-native/core/resources/store", () => ({
+vi.mock("@agentnative-fork/core/resources/store", () => ({
   SHARED_OWNER: "shared",
   resourcePut: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestOrgId: () => "org-1",
   getRequestUserEmail: () => "owner@example.test",
 }));
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getSetting: vi.fn(async () => null),
   putSetting: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   accessFilter: () => ({ op: "access" }),
   assertAccess: vi.fn(),
   registerShareableResource: vi.fn(),

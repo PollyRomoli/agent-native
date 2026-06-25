@@ -40,7 +40,7 @@ function writeSkill(root: string, name: string, body = "Body") {
   return dir;
 }
 
-describe("@agent-native/skills", () => {
+describe("@agentnative-fork/skills", () => {
   it("parses add defaults and instruction aliases", () => {
     expect(
       parseSkillsCliArgs([
@@ -255,8 +255,8 @@ describe("@agent-native/skills", () => {
     const file = path.join(root, "AGENTS.md");
     fs.writeFileSync(file, "# Project\n", "utf-8");
 
-    const first = `${MANAGED_BLOCK_START}\nfirst\n<!-- END @agent-native/skills managed block -->\n`;
-    const second = `${MANAGED_BLOCK_START}\nsecond\n<!-- END @agent-native/skills managed block -->\n`;
+    const first = `${MANAGED_BLOCK_START}\nfirst\n<!-- END @agentnative-fork/skills managed block -->\n`;
+    const second = `${MANAGED_BLOCK_START}\nsecond\n<!-- END @agentnative-fork/skills managed block -->\n`;
 
     expect(upsertManagedBlock(file, first)).toBe(true);
     expect(upsertManagedBlock(file, second)).toBe(true);

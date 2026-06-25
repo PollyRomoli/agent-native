@@ -1,5 +1,5 @@
-import { createAgentChatPlugin } from "@agent-native/core/server";
-import { getOrgContext } from "@agent-native/core/org";
+import { createAgentChatPlugin } from "@agentnative-fork/core/server";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import { dispatchActions } from "../../actions/index.js";
 
 const INITIAL_TOOL_NAMES = [

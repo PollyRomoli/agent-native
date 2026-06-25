@@ -76,7 +76,7 @@ Das ist der springende Punkt. Forken Sie eine Vorlage und passen Sie sie an, ind
 
 ### Kann ich etwas erstellen, das die Vorlagen nicht abdecken? {#build-from-scratch}
 
-Ja. Wenn Sie eine einfache Chat-App wünschen, führen Sie `npx @agent-native/core@latest create my-chat-app --template chat` aus. Sie erhalten dauerhafte Chat-Threads, actions, Authentifizierung, SQL-gestützten Laufzeitstatus und Platz zum Hinzufügen eigener Bildschirme. Wenn Sie die kleinste Action-First-App ohne UI wünschen, führen Sie `npx @agent-native/core@latest create my-agent --headless` aus. Siehe [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps) und [Chat](/docs/template-chat).
+Ja. Wenn Sie eine einfache Chat-App wünschen, führen Sie `npx @agentnative-fork/core@latest create my-chat-app --template chat` aus. Sie erhalten dauerhafte Chat-Threads, actions, Authentifizierung, SQL-gestützten Laufzeitstatus und Platz zum Hinzufügen eigener Bildschirme. Wenn Sie die kleinste Action-First-App ohne UI wünschen, führen Sie `npx @agentnative-fork/core@latest create my-agent --headless` aus. Siehe [Getting Started](/docs/getting-started), [Pure-Agent Apps](/docs/pure-agent-apps) und [Chat](/docs/template-chat).
 
 ### Kann ich es ausprobieren, ohne eine Vorlage zu forken? {#try-with-a-skill}
 

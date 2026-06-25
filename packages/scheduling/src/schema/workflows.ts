@@ -11,7 +11,7 @@ import {
   integer,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const workflows = table("workflows", {
   id: text("id").primaryKey(),

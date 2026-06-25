@@ -7,7 +7,7 @@
  *
  * Rows are scoped either to a user (by email) or a workspace / organization
  * (by orgId). OAuth-kind secrets never create a row here — they surface via
- * `@agent-native/core/oauth-tokens` instead.
+ * `@agentnative-fork/core/oauth-tokens` instead.
  */
 
 import { table, text, integer } from "../db/schema.js";

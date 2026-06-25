@@ -1,4 +1,4 @@
-import { ExtensionViewerPage } from "@agent-native/core/client/extensions";
+import { ExtensionViewerPage } from "@agentnative-fork/core/client/extensions";
 import { PageHeader } from "@/components/library/page-header";
 
 export default function ExtensionViewerRoute() {

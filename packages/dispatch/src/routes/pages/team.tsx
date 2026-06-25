@@ -1,4 +1,4 @@
-import { TeamPage } from "@agent-native/core/client/org";
+import { TeamPage } from "@agentnative-fork/core/client/org";
 import { DispatchShell } from "@/components/dispatch-shell";
 
 export function meta() {

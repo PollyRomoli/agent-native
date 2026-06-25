@@ -517,6 +517,19 @@ export {
   type AgentSidebarProps,
 } from "./AgentPanel.js";
 export {
+  hideSidebarAction,
+  showSidebarAction,
+  isSidebarActionHidden,
+  registerSidebarHeaderAction,
+  unregisterSidebarHeaderAction,
+  getCustomSidebarHeaderActions,
+  registerSidebarNavItem,
+  unregisterSidebarNavItem,
+  getCustomSidebarNavItems,
+  type SidebarHeaderAction,
+  type SidebarNavItem,
+} from "./sidebar-registry.js";
+export {
   AGENT_CHAT_HOME_HANDOFF_TTL_MS,
   AGENT_CHAT_VIEW_TRANSITION_CLASS,
   AGENT_CHAT_VIEW_TRANSITION_NAME,
@@ -836,7 +849,7 @@ export {
   type UseCollaborativeArrayResult,
 } from "../collab/client-struct.js";
 export { NotificationsBell } from "./notifications/index.js";
-// Block registry (also available as the dedicated `@agent-native/core/blocks`
+// Block registry (also available as the dedicated `@agentnative-fork/core/blocks`
 // subpath, which server/agent code should prefer via `/blocks/server`).
 export {
   defineBlock,

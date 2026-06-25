@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { readAppState } from "@agent-native/core/application-state";
-import { resolveHasCompleteBuilderConnection } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { readAppState } from "@agentnative-fork/core/application-state";
+import { resolveHasCompleteBuilderConnection } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import {
   isBuilderImageGenerationEnabled,

@@ -3,7 +3,7 @@ import {
   AgentToggleButton,
   useActionQuery,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useHeaderTitle, useHeaderActions } from "./HeaderActions";
 
 const pageTitleKeys: Record<string, string> = {

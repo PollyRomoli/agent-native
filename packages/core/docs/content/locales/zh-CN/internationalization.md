@@ -6,7 +6,7 @@ description: "使用共享区域设置目录、语言选择器、浏览器语言
 # 国际化
 
 Agent Native应用程序可以通过共享本地化框架和模板UI
-`@agent-native/core/client/i18n` 运行时。框架存储用户的
+`@agentnative-fork/core/client/i18n` 运行时。框架存储用户的
 SQL 设置中的语言选择，将其公开为 actions，并回退到
 当应用尚未翻译字符串时为英语。
 
@@ -15,7 +15,7 @@ SQL 设置中的语言选择，将其公开为 actions，并回退到
 通过`AppProviders`使用提供者：
 
 ```tsx
-import { AppProviders, getLocaleInitScript } from "@agent-native/core/client";
+import { AppProviders, getLocaleInitScript } from "@agentnative-fork/core/client";
 import { i18nCatalog } from "./i18n";
 
 const LOCALE_INIT_SCRIPT = getLocaleInitScript();
@@ -32,7 +32,7 @@ const LOCALE_INIT_SCRIPT = getLocaleInitScript();
 
 `getLocaleInitScript()` 设置初始 `lang`、`dir` 和
 `window.__AGENT_NATIVE_LOCALE__` 在 React 水合之前。公共SSR路线可以
-从`@agent-native/core/server`调用`resolveLocaleFromRequest()`并传递
+从`@agentnative-fork/core/server`调用`resolveLocaleFromRequest()`并传递
 将区域设置/目录解析到该脚本中以避免水合不匹配。
 
 ## 目录
@@ -42,7 +42,7 @@ const LOCALE_INIT_SCRIPT = getLocaleInitScript();
 ```ts
 // app/i18n/index.ts
 import enUS from "./en-US";
-import type { AgentNativeI18nCatalog } from "@agent-native/core/client";
+import type { AgentNativeI18nCatalog } from "@agentnative-fork/core/client";
 
 export const i18nCatalog = {
   sourceLocale: "en-US",
@@ -73,7 +73,7 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 function SettingsPage() {
   const t = useT();

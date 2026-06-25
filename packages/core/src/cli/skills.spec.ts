@@ -245,7 +245,7 @@ describe("agent-native skills", () => {
 
       expect(result.mcpClients).toEqual([]);
       expect(result.connectCommand).toBe(
-        "npx @agent-native/core@latest connect https://plan.agent-native.com --client codex --scope user",
+        "npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex --scope user",
       );
       expect(fs.existsSync(path.join(codexHome, "config.toml"))).toBe(false);
     } finally {
@@ -278,7 +278,7 @@ describe("agent-native skills", () => {
     expect(runConnect).not.toHaveBeenCalled();
     expect(result.connected).toBe(false);
     expect(result.connectCommand).toBe(
-      "npx @agent-native/core@latest connect https://assets.agent-native.com --client claude-code --scope project",
+      "npx @agentnative-fork/core@latest connect https://assets.agent-native.com --client claude-code --scope project",
     );
   });
 
@@ -365,7 +365,7 @@ describe("agent-native skills", () => {
     expect(result.id).toBe("assets");
     expect(result.skillNames).toEqual(["assets"]);
     // Built-in skill instructions are written straight into the client's skills
-    // directory (no npx @agent-native/skills@latest shell-out).
+    // directory (no npx @agentnative-fork/skills@latest shell-out).
     const skillDir = path.join(root, ".agents", "skills", "assets");
     expect(result.written).toContain(skillDir);
     expect(fs.existsSync(path.join(skillDir, "SKILL.md"))).toBe(true);
@@ -625,7 +625,7 @@ describe("agent-native skills", () => {
       );
       expect(fs.existsSync(path.join(codexHome, "config.toml"))).toBe(false);
       expect(result.commands).toContain(
-        "npx @agent-native/core@latest connect https://plan.agent-native.com --client codex --scope project",
+        "npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex --scope project",
       );
       expect(materializedVisualPlan).toContain("pass it as `planText`");
       expect(materializedVisualPlan).toContain("contentPatches");
@@ -986,7 +986,7 @@ describe("agent-native skills", () => {
       id: "context-xray",
       local: true,
       commands: [
-        "npx @agent-native/core@latest skills add xray --client codex --scope user --yes",
+        "npx @agentnative-fork/core@latest skills add xray --client codex --scope user --yes",
       ],
     });
     expect(fs.existsSync(path.join(root, ".agents"))).toBe(false);
@@ -1016,7 +1016,7 @@ describe("agent-native skills", () => {
 
     expect(result.skillNames).toEqual(["assets"]);
     // Built-in instructions are written in-process, so nothing shells out to
-    // the standalone @agent-native/skills installer.
+    // the standalone @agentnative-fork/skills installer.
     expect(commands).toHaveLength(0);
     const skillDir = path.join(root, ".claude", "skills", "assets");
     expect(result.written).toContain(skillDir);
@@ -1027,7 +1027,7 @@ describe("agent-native skills", () => {
     ).toBe("https://assets.agent-native.com/_agent-native/mcp");
   });
 
-  it("delegates plain GitHub skill repos to @agent-native/skills", async () => {
+  it("delegates plain GitHub skill repos to @agentnative-fork/skills", async () => {
     const root = tmpDir();
     const commands: { cmd: string; args: string[]; stdio?: string }[] = [];
 
@@ -1064,7 +1064,7 @@ describe("agent-native skills", () => {
     expect(commands[0]).toMatchObject({ cmd: "npx", stdio: "silent" });
     expect(commands[0].args).toEqual(
       expect.arrayContaining([
-        "@agent-native/skills@latest",
+        "@agentnative-fork/skills@latest",
         "add",
         "--copy",
         "BuilderIO/skills",
@@ -1236,7 +1236,7 @@ describe("agent-native skills", () => {
     expect(fs.readFileSync(workflow, "utf-8")).toContain("PR Visual Recap");
     expect(stdout.join("")).toContain("PR Visual Recap workflow: wrote");
     expect(stdout.join("")).toContain(
-      "npx @agent-native/core@latest recap setup",
+      "npx @agentnative-fork/core@latest recap setup",
     );
   });
 
@@ -1271,7 +1271,7 @@ describe("agent-native skills", () => {
     expect(promptGithubAction).toHaveBeenCalledTimes(1);
     expect(fs.existsSync(path.join(root, ".github"))).toBe(false);
     expect(stdout.join("")).toContain(
-      "npx @agent-native/core@latest skills add visual-recap --with-github-action",
+      "npx @agentnative-fork/core@latest skills add visual-recap --with-github-action",
     );
   });
 
@@ -1570,7 +1570,7 @@ describe("agent-native skills", () => {
     expect(commands[0]).toMatchObject({ cmd: "npx" });
     expect(commands[0].args).toEqual(
       expect.arrayContaining([
-        "@agent-native/skills@latest",
+        "@agentnative-fork/skills@latest",
         "add",
         "--quiet",
         "--copy",
@@ -1618,11 +1618,11 @@ describe("agent-native skills", () => {
     });
 
     const publicCopy = commands.find((command) =>
-      command.args.includes("@agent-native/skills@latest"),
+      command.args.includes("@agentnative-fork/skills@latest"),
     );
     expect(publicCopy?.args).toEqual(
       expect.arrayContaining([
-        "@agent-native/skills@latest",
+        "@agentnative-fork/skills@latest",
         "add",
         "--copy",
         "BuilderIO/skills",
@@ -1671,7 +1671,7 @@ describe("agent-native skills", () => {
     expect(commands[0]).toMatchObject({ cmd: "npx" });
     expect(commands[0].args).toEqual(
       expect.arrayContaining([
-        "@agent-native/skills@latest",
+        "@agentnative-fork/skills@latest",
         "add",
         "--copy",
         "BuilderIO/skills",
@@ -1849,7 +1849,7 @@ describe("agent-native skills", () => {
     );
 
     expect(result.commands).toEqual([
-      "npx @agent-native/core@latest skills add assets --client claude-code,codex,cowork,cursor,opencode,github-copilot --scope project --yes",
+      "npx @agentnative-fork/core@latest skills add assets --client claude-code,codex,cowork,cursor,opencode,github-copilot --scope project --yes",
     ]);
     expect(result.commands.join("\n")).not.toContain(os.tmpdir());
     expect(fs.existsSync(path.join(root, ".mcp.json"))).toBe(false);
@@ -1871,7 +1871,7 @@ describe("agent-native skills", () => {
     );
 
     expect(result.commands).toEqual([
-      "npx @agent-native/core@latest skills add visual-recap --client claude-code,codex,cowork,cursor,opencode,github-copilot --scope project --with-github-action --yes",
+      "npx @agentnative-fork/core@latest skills add visual-recap --client claude-code,codex,cowork,cursor,opencode,github-copilot --scope project --with-github-action --yes",
     ]);
     expect(result.githubActionPath).toBe(
       path.join(".github", "workflows", "pr-visual-recap.yml"),
@@ -1897,7 +1897,7 @@ describe("agent-native skills", () => {
           mcpUrl: "https://plan.agent-native.com/_agent-native/mcp",
           installedAt: "2026-01-01T00:00:00.000Z",
           updateCommand:
-            "npx @agent-native/core@latest skills update visual-plan",
+            "npx @agentnative-fork/core@latest skills update visual-plan",
         },
         null,
         2,
@@ -1951,7 +1951,7 @@ describe("agent-native skills", () => {
           mcpUrl: "https://plan.agent-native.com/_agent-native/mcp",
           installedAt: "2026-01-01T00:00:00.000Z",
           updateCommand:
-            "npx @agent-native/core@latest skills update visual-plan",
+            "npx @agentnative-fork/core@latest skills update visual-plan",
         },
         null,
         2,
@@ -2061,7 +2061,7 @@ describe("agent-native skills", () => {
       JSON.stringify(
         {
           name: "headless-app",
-          dependencies: { "@agent-native/core": "latest" },
+          dependencies: { "@agentnative-fork/core": "latest" },
         },
         null,
         2,
@@ -2174,7 +2174,7 @@ describe("agent-native skills", () => {
       const codexConfig = path.join(codexHome, "config.toml");
       expect(fs.existsSync(codexConfig)).toBe(false);
       expect(result.commands).toContain(
-        "npx @agent-native/core@latest connect https://assets.agent-native.com --client codex --scope user",
+        "npx @agentnative-fork/core@latest connect https://assets.agent-native.com --client codex --scope user",
       );
       expect(fs.existsSync(path.join(home, ".codex", "config.toml"))).toBe(
         false,

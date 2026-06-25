@@ -1,20 +1,20 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   isProviderApiId,
   listProviderApiCatalog,
-} from "@agent-native/core/provider-api";
+} from "@agentnative-fork/core/provider-api";
 import {
   listWorkspaceConnectionProviders,
   type WorkspaceConnectionCapability,
   type WorkspaceConnectionTemplateUse,
-} from "@agent-native/core/connections";
+} from "@agentnative-fork/core/connections";
 import {
   getWorkspaceConnectionAppAccess,
   listWorkspaceConnectionGrants,
   listWorkspaceConnections,
   summarizeWorkspaceConnectionProviderReadiness,
-} from "@agent-native/core/workspace-connections";
-import { dispatchActions } from "@agent-native/dispatch/actions";
+} from "@agentnative-fork/core/workspace-connections";
+import { dispatchActions } from "@agentnative-fork/dispatch/actions";
 import { z } from "zod";
 
 const httpBoolean = z.preprocess((value) => {

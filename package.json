@@ -15,7 +15,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "postinstall": "pnpm --filter @agent-native/shared-app-config --filter @agent-native/core --filter @agent-native/code-agents-ui --filter @agent-native/migrate --filter @agent-native/pinpoint --filter @agent-native/scheduling --filter @agent-native/embedding --filter @agent-native/dispatch run build && pnpm rebuild better-sqlite3",
+    "postinstall": "pnpm --filter @agentnative-fork/shared-app-config --filter @agentnative-fork/core --filter @agentnative-fork/code-agents-ui --filter @agentnative-fork/migrate --filter @agentnative-fork/pinpoint --filter @agentnative-fork/scheduling --filter @agentnative-fork/embedding --filter @agentnative-fork/dispatch run build && pnpm rebuild better-sqlite3",
     "setup": "pnpm install",
     "build": "pnpm -r build",
     "dev": "node scripts/dev-lazy.ts",
@@ -72,7 +72,7 @@
     "dev:eager:desktop": "node scripts/dev-all.ts --desktop",
     "dev:all": "node scripts/dev-all.ts",
     "dev:all:desktop": "node scripts/dev-all.ts --desktop",
-    "dev:docs": "pnpm --filter @agent-native/docs dev",
+    "dev:docs": "pnpm --filter @agentnative-fork/docs dev",
     "dev:electron": "node scripts/dev-electron.ts",
     "dev:electron:lazy": "node scripts/dev-lazy.ts --electron",
     "dev:electron:apps": "node scripts/dev-electron.ts --apps"

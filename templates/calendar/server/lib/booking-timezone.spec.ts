@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const getUserSettingMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getUserSetting: getUserSettingMock,
 }));
 

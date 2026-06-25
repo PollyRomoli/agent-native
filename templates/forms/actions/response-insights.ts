@@ -2,14 +2,14 @@ import {
   ACTION_CHAT_UI_DATA_WIDGET_RENDERER,
   dataWidgetResultSchema,
   defineAction,
-} from "@agent-native/core";
+} from "@agentnative-fork/core";
 import {
   createDataChartWidgetResult,
   createDataInsightsWidgetResult,
   createDataTableWidgetResult,
-} from "@agent-native/core/data-widgets";
-import { buildDeepLink } from "@agent-native/core/server";
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/data-widgets";
+import { buildDeepLink } from "@agentnative-fork/core/server";
+import { accessFilter, assertAccess } from "@agentnative-fork/core/sharing";
 import { and, desc, eq, inArray, isNull, sql } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

@@ -78,7 +78,7 @@ Punkt mit Slack/Telegram, geplanten Jobs und Shared Secrets sofort einsatzbereit
 Der kleinste lokale Pfad ist ein Headless-Agent-Gerüst plus einer Aktion:
 
 ```bash
-npx @agent-native/core@latest create my-agent --headless
+npx @agentnative-fork/core@latest create my-agent --headless
 cd my-agent
 pnpm install
 ```
@@ -87,7 +87,7 @@ Definieren Sie dann den dauerhaften Betrieb:
 
 ```ts
 // actions/summarize-week.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -147,7 +147,7 @@ direkt über den Server API. Dies ist eine niedrigere Ebene als actions – Sie 
 Die Engine, das Modell, die Nachrichten, actions und die Ereignissenke selbst:
 
 ```ts
-import { runAgentLoop } from "@agent-native/core/server";
+import { runAgentLoop } from "@agentnative-fork/core/server";
 
 await runAgentLoop({ engine, model, systemPrompt, actions, messages, send });
 ```
@@ -201,13 +201,13 @@ Arbeiten genehmigen, native Ergebnisse überprüfen und einen dauerhaften Thread
 Für einen vollständigen App-Startpunkt verwenden Sie [Chat template](/docs/template-chat):
 
 ```bash
-npx @agent-native/core@latest create my-chat-app --template chat
+npx @agentnative-fork/core@latest create my-chat-app --template chat
 ```
 
 Der einfachste ganzseitige Chat:
 
 ```tsx
-import { AgentChatSurface } from "@agent-native/core/client/chat";
+import { AgentChatSurface } from "@agentnative-fork/core/client/chat";
 
 export default function ChatRoute() {
   return <AgentChatSurface mode="page" className="h-screen" />;
@@ -226,7 +226,7 @@ import {
   AgentSidebar,
   useAgentChatHomeHandoff,
   useAgentChatHomeHandoffLinks,
-} from "@agent-native/core/client/chat";
+} from "@agentnative-fork/core/client/chat";
 import { useLocation } from "react-router";
 
 function ChatRoute() {
@@ -259,7 +259,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
 Der einfachste eingebettete Chat mit Ihrem eigenen Chrome:
 
 ```tsx
-import { AssistantChat } from "@agent-native/core/client/chat";
+import { AssistantChat } from "@agentnative-fork/core/client/chat";
 
 export function ProjectChat({ threadId }: { threadId: string }) {
   return <AssistantChat threadId={threadId} />;
@@ -281,7 +281,7 @@ Komponist, Transkript, Toolaufrufe, Genehmigungen, native Widgets und App-Layout
 import {
   AssistantChat,
   createHttpAgentChatRuntime,
-} from "@agent-native/core/client/chat";
+} from "@agentnative-fork/core/client/chat";
 
 const runtime = createHttpAgentChatRuntime({
   endpoint: "/api/support-agent/chat",
@@ -313,7 +313,7 @@ Das Server-Plugin stellt Agent-Native-Routen in Ihre Host-App ein und löst sie 
 Hostidentität serverseitig:
 
 ```ts
-import { createAgentNativeEmbeddedPlugin } from "@agent-native/core/server";
+import { createAgentNativeEmbeddedPlugin } from "@agentnative-fork/core/server";
 
 export default createAgentNativeEmbeddedPlugin({
   databaseUrl: process.env.AGENT_NATIVE_DATABASE_URL,
@@ -325,7 +325,7 @@ export default createAgentNativeEmbeddedPlugin({
 Der Sidecar React übergibt Seitenkontext und Hostbefehle:
 
 ```tsx
-import { AgentNativeEmbedded } from "@agent-native/core/client";
+import { AgentNativeEmbedded } from "@agentnative-fork/core/client";
 
 export function AppShell({ children }) {
   return (

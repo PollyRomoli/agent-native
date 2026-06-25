@@ -1,15 +1,15 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import {
   getRequestUserEmail,
   getRequestOrgId,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { z } from "zod";
 import {
   getOrgSetting,
   getUserSetting,
   putOrgSetting,
   putUserSetting,
-} from "@agent-native/core/settings";
+} from "@agentnative-fork/core/settings";
 import { cliBoolean } from "./schema-helpers.js";
 import { resolveDictionaryTrustDefaults } from "./data-dictionary-trust.js";
 

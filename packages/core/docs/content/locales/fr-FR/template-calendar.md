@@ -74,7 +74,7 @@ Le reste de ce document s'adresse à toute personne qui crée le modèle de cale
 Créez un nouvel espace de travail avec le modèle de calendrier :
 
 ```bash
-npx @agent-native/core@latest create my-app --standalone --template calendar
+npx @agentnative-fork/core@latest create my-app --standalone --template calendar
 cd my-app
 pnpm install
 pnpm dev

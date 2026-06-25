@@ -25,7 +25,7 @@ Add `mountA2A()` to a server plugin:
 
 ```ts
 // server/plugins/a2a.ts
-import { mountA2A } from "@agent-native/core/a2a";
+import { mountA2A } from "@agentnative-fork/core/a2a";
 
 export default defineNitroPlugin((nitro) => {
   const app = nitro.h3App;
@@ -107,7 +107,7 @@ The agent card is auto-generated at `GET /.well-known/agent-card.json`. Other ag
 ### Simple: `callAgent()` (text in, text out)
 
 ```ts
-import { callAgent } from "@agent-native/core/a2a";
+import { callAgent } from "@agentnative-fork/core/a2a";
 
 const answer = await callAgent(
   "https://analytics.example.com",
@@ -120,7 +120,7 @@ const answer = await callAgent(
 ### Advanced: `A2AClient` (full control)
 
 ```ts
-import { A2AClient } from "@agent-native/core/a2a";
+import { A2AClient } from "@agentnative-fork/core/a2a";
 
 const client = new A2AClient(
   "https://analytics.example.com",
@@ -203,8 +203,8 @@ A mail agent calls an analytics agent to include data in an email draft:
 
 ```ts
 // actions/draft-with-analytics.ts
-import { callAgent } from "@agent-native/core/a2a";
-import { writeAppState } from "@agent-native/core/application-state";
+import { callAgent } from "@agentnative-fork/core/a2a";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 
 export default async function (args: string[]) {
   // Ask the analytics agent for data
@@ -227,7 +227,7 @@ export default async function (args: string[]) {
 
 ## All Types
 
-All types are exported from `@agent-native/core/a2a`:
+All types are exported from `@agentnative-fork/core/a2a`:
 
 ```ts
 import type {
@@ -249,7 +249,7 @@ import type {
   Artifact,
   JsonRpcRequest,
   JsonRpcResponse,
-} from "@agent-native/core/a2a";
+} from "@agentnative-fork/core/a2a";
 ```
 
 ## Related Skills

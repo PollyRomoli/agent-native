@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Primitives API
+// @agentnative-fork/pinpoint — Primitives API
 // MIT License
 //
 // Standalone exports for agent-initiated element inspection.

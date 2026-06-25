@@ -42,20 +42,20 @@ import {
   type H3Event,
 } from "h3";
 import { eq } from "drizzle-orm";
-import { readAppState } from "@agent-native/core/application-state";
+import { readAppState } from "@agentnative-fork/core/application-state";
 import {
   createSsrfSafeDispatcher,
   isBlockedExtensionUrlWithDns,
-} from "@agent-native/core/extensions/url-safety";
-import { getOrgContext } from "@agent-native/core/org";
-import { resolveAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/extensions/url-safety";
+import { getOrgContext } from "@agentnative-fork/core/org";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import {
   captureRouteError,
   getSession,
   runWithRequestContext,
   signShortLivedToken,
   verifyShortLivedToken,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   LOOM_START_MS_QUERY_PARAM,
   isLoomEmbedBackedRecording,

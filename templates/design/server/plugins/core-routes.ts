@@ -1,4 +1,4 @@
-import { createCoreRoutesPlugin } from "@agent-native/core/server";
+import { createCoreRoutesPlugin } from "@agentnative-fork/core/server";
 
 // Land external-agent deep links straight on the real SPA route. Every
 // design `link` builder (generate-design, apply-tweaks, get-design-snapshot,

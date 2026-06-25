@@ -1,8 +1,8 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { getAccessTokens } from "./helpers.js";
-import { getRequestUserEmail } from "@agent-native/core/server";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
-import { writeAppState } from "@agent-native/core/application-state";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import {
   gmailGetMessage,
   gmailListLabels,

@@ -1,4 +1,4 @@
-import { createDbExec, getDbExec, type DbExec } from "@agent-native/core/db";
+import { createDbExec, getDbExec, type DbExec } from "@agentnative-fork/core/db";
 import { currentOrgId, currentOwnerEmail } from "./dispatch-store.js";
 
 const CONFIG_ENV_KEY = "AGENT_NATIVE_THREAD_DEBUG_DATABASES";

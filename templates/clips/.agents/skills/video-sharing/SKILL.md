@@ -41,10 +41,10 @@ Read this skill before:
 
 ## Dropping in the share UI
 
-Clips' `app/components/player/share-dialog.tsx` is a **thin wrapper around the framework `ShareDialog`** from `@agent-native/core/client`. The framework component handles per-user / per-org grants, visibility, and tabbed copy-link / embed UI — Clips just composes it with recording-specific extras.
+Clips' `app/components/player/share-dialog.tsx` is a **thin wrapper around the framework `ShareDialog`** from `@agentnative-fork/core/client`. The framework component handles per-user / per-org grants, visibility, and tabbed copy-link / embed UI — Clips just composes it with recording-specific extras.
 
 ```tsx
-import { ShareDialog } from "@agent-native/core/client";
+import { ShareDialog } from "@agentnative-fork/core/client";
 
 <ShareDialog
   resourceType="recording"

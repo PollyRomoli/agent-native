@@ -30,7 +30,7 @@ beforeEach(async () => {
 
 afterEach(async () => {
   try {
-    const { closeDbExec } = await import("@agent-native/core/db");
+    const { closeDbExec } = await import("@agentnative-fork/core/db");
     await closeDbExec();
   } catch {}
   restoreEnv();
@@ -45,7 +45,7 @@ describe("dispatch migrations", () => {
   it("quietly records source_health when the column already exists", async () => {
     const [{ getDbExec, runMigrations }, { dispatchMigrations }] =
       await Promise.all([
-        import("@agent-native/core/db"),
+        import("@agentnative-fork/core/db"),
         import("./migrations.js"),
       ]);
     const exec = getDbExec();

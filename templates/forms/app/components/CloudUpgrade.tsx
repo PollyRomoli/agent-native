@@ -17,7 +17,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { agentNativePath, appApiPath } from "@agent-native/core/client";
+import { agentNativePath, appApiPath } from "@agentnative-fork/core/client";
 
 interface CloudUpgradeProps {
   title?: string;

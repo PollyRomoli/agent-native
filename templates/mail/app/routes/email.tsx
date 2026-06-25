@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useSearchParams } from "react-router";
-import { postNavigate, isInAgentEmbed } from "@agent-native/core/client";
+import { postNavigate, isInAgentEmbed } from "@agentnative-fork/core/client";
 import { useThreadMessages } from "@/hooks/use-emails";
 import { formatEmailDate, formatEmailDateFull, cn } from "@/lib/utils";
 import { sanitizeHtml } from "@/lib/sanitize-html";

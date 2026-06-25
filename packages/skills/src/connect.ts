@@ -1,9 +1,9 @@
 /**
- * MCP-server registration + authentication for `@agent-native/skills`.
+ * MCP-server registration + authentication for `@agentnative-fork/skills`.
  *
  * This is a dependency-free port of the MCP-config-writing + device-code/OAuth
- * flow that lives in `@agent-native/core`'s `cli/connect.ts`. The skills package
- * ships standalone (no `@agent-native/core` dependency), so this module
+ * flow that lives in `@agentnative-fork/core`'s `cli/connect.ts`. The skills package
+ * ships standalone (no `@agentnative-fork/core` dependency), so this module
  * re-implements just the registration surface against the shared on-disk
  * writers in `./mcp-config-writers.js`. It writes the SAME config and speaks the
  * SAME device-code/OAuth protocol as core.
@@ -244,7 +244,7 @@ function fallbackConnectCommand(
   clients: ClientId[],
   scope: string,
 ): string {
-  return `npx @agent-native/core@latest connect ${baseUrl} --client ${clientArgForClients(
+  return `npx @agentnative-fork/core@latest connect ${baseUrl} --client ${clientArgForClients(
     clients,
   )} --scope ${scope}`;
 }

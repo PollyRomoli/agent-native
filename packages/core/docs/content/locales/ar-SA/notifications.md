@@ -10,7 +10,7 @@ description: "إشعارات داخل التطبيق مع قنوات قابلة 
 الإشعارات عبارة عن تنبيهات أحادية الاتجاه تصل إلى صندوق بريد الجرس الخاص بالتطبيق (بالإضافة إلى نشر خطاف الويب). للتحدث مع وكيلك من Slack/email/Telegram/WhatsApp، راجع [Messaging](/docs/messaging).
 
 ```ts
-import { notify } from "@agent-native/core/notifications";
+import { notify } from "@agentnative-fork/core/notifications";
 
 await notify(
   { severity: "info", title: "Booking confirmed", body: "Jane at 3pm" },
@@ -77,7 +77,7 @@ await notify(
 قم بتسجيل قناة مخصصة من أي مكون إضافي للخادم.
 
 ```ts
-import { registerNotificationChannel } from "@agent-native/core/notifications";
+import { registerNotificationChannel } from "@agentnative-fork/core/notifications";
 
 registerNotificationChannel({
   name: "slack-ops",
@@ -105,7 +105,7 @@ import {
   markNotificationRead,
   markAllNotificationsRead,
   deleteNotification,
-} from "@agent-native/core/notifications";
+} from "@agentnative-fork/core/notifications";
 
 const rows = await listNotifications("steve@builder.io", {
   unreadOnly: true,
@@ -174,7 +174,7 @@ interface NotificationMeta {
 ## مكون UI {#ui}
 
 ```tsx
-import { NotificationsBell } from "@agent-native/core/client/notifications";
+import { NotificationsBell } from "@agentnative-fork/core/client/notifications";
 
 export function HeaderBar() {
   return (

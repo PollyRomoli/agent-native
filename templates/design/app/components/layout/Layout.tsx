@@ -16,7 +16,7 @@ import {
   isEmbedAuthActive,
   getBrowserTabId,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useNavigationState } from "@/hooks/use-navigation-state";
 import { cn } from "@/lib/utils";
 

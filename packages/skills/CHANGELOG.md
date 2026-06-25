@@ -1,4 +1,4 @@
-# @agent-native/skills
+# @agentnative-fork/skills
 
 ## 0.2.89
 
@@ -6,14 +6,14 @@
 
 - Updated dependencies [93292e4]
 - Updated dependencies [93292e4]
-  - @agent-native/core@0.76.12
+  - @agentnative-fork/core@0.76.12
 
 ## 0.2.88
 
 ### Patch Changes
 
 - Updated dependencies [b6701ee]
-  - @agent-native/core@0.76.11
+  - @agentnative-fork/core@0.76.11
 
 ## 0.2.87
 
@@ -27,14 +27,14 @@
 - Updated dependencies [2be975e]
 - Updated dependencies [2be975e]
 - Updated dependencies [2be975e]
-  - @agent-native/core@0.76.10
+  - @agentnative-fork/core@0.76.10
 
 ## 0.2.86
 
 ### Patch Changes
 
 - Updated dependencies [bbbd01a]
-  - @agent-native/core@0.76.9
+  - @agentnative-fork/core@0.76.9
 
 ## 0.2.85
 
@@ -44,14 +44,14 @@
 - Updated dependencies [fd78baa]
 - Updated dependencies [fd78baa]
 - Updated dependencies [fd78baa]
-  - @agent-native/core@0.76.8
+  - @agentnative-fork/core@0.76.8
 
 ## 0.2.84
 
 ### Patch Changes
 
 - Updated dependencies [dbb5cac]
-  - @agent-native/core@0.76.7
+  - @agentnative-fork/core@0.76.7
 
 ## 0.2.83
 
@@ -59,35 +59,35 @@
 
 - Updated dependencies [c294aaa]
 - Updated dependencies [c294aaa]
-  - @agent-native/core@0.76.6
+  - @agentnative-fork/core@0.76.6
 
 ## 0.2.82
 
 ### Patch Changes
 
 - Updated dependencies [ba634f4]
-  - @agent-native/core@0.76.5
+  - @agentnative-fork/core@0.76.5
 
 ## 0.2.81
 
 ### Patch Changes
 
 - Updated dependencies [6067f27]
-  - @agent-native/core@0.76.4
+  - @agentnative-fork/core@0.76.4
 
 ## 0.2.80
 
 ### Patch Changes
 
 - Updated dependencies [57e72bb]
-  - @agent-native/core@0.76.3
+  - @agentnative-fork/core@0.76.3
 
 ## 0.2.79
 
 ### Patch Changes
 
 - Updated dependencies [93c06b0]
-  - @agent-native/core@0.76.2
+  - @agentnative-fork/core@0.76.2
 
 ## 0.2.78
 
@@ -95,7 +95,7 @@
 
 - Updated dependencies [50f32ff]
 - Updated dependencies [50f32ff]
-  - @agent-native/core@0.76.1
+  - @agentnative-fork/core@0.76.1
 
 ## 0.2.77
 
@@ -103,49 +103,49 @@
 
 - Updated dependencies [16356c2]
 - Updated dependencies [16356c2]
-  - @agent-native/core@0.76.0
+  - @agentnative-fork/core@0.76.0
 
 ## 0.2.76
 
 ### Patch Changes
 
 - Updated dependencies [25802f2]
-  - @agent-native/core@0.75.5
+  - @agentnative-fork/core@0.75.5
 
 ## 0.2.75
 
 ### Patch Changes
 
 - Updated dependencies [dbfbe42]
-  - @agent-native/core@0.75.4
+  - @agentnative-fork/core@0.75.4
 
 ## 0.2.74
 
 ### Patch Changes
 
 - Updated dependencies [8a00851]
-  - @agent-native/core@0.75.3
+  - @agentnative-fork/core@0.75.3
 
 ## 0.2.73
 
 ### Patch Changes
 
 - Updated dependencies [4b3543d]
-  - @agent-native/core@0.75.2
+  - @agentnative-fork/core@0.75.2
 
 ## 0.2.72
 
 ### Patch Changes
 
 - Updated dependencies [98b89e2]
-  - @agent-native/core@0.75.1
+  - @agentnative-fork/core@0.75.1
 
 ## 0.2.71
 
 ### Patch Changes
 
 - Updated dependencies [1272755]
-  - @agent-native/core@0.75.0
+  - @agentnative-fork/core@0.75.0
 
 ## 0.2.70
 
@@ -154,19 +154,19 @@
 - Updated dependencies [4a0d3c4]
 - Updated dependencies [4a0d3c4]
 - Updated dependencies [4a0d3c4]
-  - @agent-native/core@0.74.0
+  - @agentnative-fork/core@0.74.0
 
 ## 0.2.69
 
 ### Patch Changes
 
-- d684bbf: Add scaffold skill refresh commands for generated Agent Native apps and workspaces, plus public `@agent-native/skills` status/update forwarding.
+- d684bbf: Add scaffold skill refresh commands for generated Agent Native apps and workspaces, plus public `@agentnative-fork/skills` status/update forwarding.
 - Updated dependencies [d684bbf]
 - Updated dependencies [d684bbf]
 - Updated dependencies [d684bbf]
 - Updated dependencies [d684bbf]
 - Updated dependencies [d684bbf]
-  - @agent-native/core@0.73.0
+  - @agentnative-fork/core@0.73.0
 
 ## 0.2.68
 
@@ -177,28 +177,28 @@
 - Updated dependencies [17b696f]
 - Updated dependencies [17b696f]
 - Updated dependencies [17b696f]
-  - @agent-native/core@0.72.4
+  - @agentnative-fork/core@0.72.4
 
 ## 0.2.67
 
 ### Patch Changes
 
 - Updated dependencies [6605885]
-  - @agent-native/core@0.72.3
+  - @agentnative-fork/core@0.72.3
 
 ## 0.2.66
 
 ### Patch Changes
 
 - Updated dependencies [cc21a1c]
-  - @agent-native/core@0.72.2
+  - @agentnative-fork/core@0.72.2
 
 ## 0.2.65
 
 ### Patch Changes
 
 - Updated dependencies [b2a5931]
-  - @agent-native/core@0.72.1
+  - @agentnative-fork/core@0.72.1
 
 ## 0.2.64
 
@@ -208,7 +208,7 @@
 - Updated dependencies [9a984f2]
 - Updated dependencies [9a984f2]
 - Updated dependencies [9a984f2]
-  - @agent-native/core@0.72.0
+  - @agentnative-fork/core@0.72.0
 
 ## 0.2.63
 
@@ -217,21 +217,21 @@
 - Updated dependencies [38266fc]
 - Updated dependencies [38266fc]
 - Updated dependencies [38266fc]
-  - @agent-native/core@0.71.0
+  - @agentnative-fork/core@0.71.0
 
 ## 0.2.62
 
 ### Patch Changes
 
 - Updated dependencies [3c80603]
-  - @agent-native/core@0.70.3
+  - @agentnative-fork/core@0.70.3
 
 ## 0.2.61
 
 ### Patch Changes
 
 - Updated dependencies [2d36525]
-  - @agent-native/core@0.70.2
+  - @agentnative-fork/core@0.70.2
 
 ## 0.2.60
 
@@ -246,7 +246,7 @@
 - Updated dependencies [8003c56]
 - Updated dependencies [8003c56]
 - Updated dependencies [8003c56]
-  - @agent-native/core@0.70.1
+  - @agentnative-fork/core@0.70.1
 
 ## 0.2.59
 
@@ -260,21 +260,21 @@
 - Updated dependencies [b35c8cb]
 - Updated dependencies [b35c8cb]
 - Updated dependencies [b35c8cb]
-  - @agent-native/core@0.70.0
+  - @agentnative-fork/core@0.70.0
 
 ## 0.2.58
 
 ### Patch Changes
 
 - Updated dependencies [530de18]
-  - @agent-native/core@0.69.0
+  - @agentnative-fork/core@0.69.0
 
 ## 0.2.57
 
 ### Patch Changes
 
 - Updated dependencies [9db3c12]
-  - @agent-native/core@0.68.3
+  - @agentnative-fork/core@0.68.3
 
 ## 0.2.56
 
@@ -285,7 +285,7 @@
 - Updated dependencies [feaf633]
 - Updated dependencies [feaf633]
 - Updated dependencies [feaf633]
-  - @agent-native/core@0.68.2
+  - @agentnative-fork/core@0.68.2
 
 ## 0.2.55
 
@@ -294,7 +294,7 @@
 - Updated dependencies [48356d7]
 - Updated dependencies [48356d7]
 - Updated dependencies [48356d7]
-  - @agent-native/core@0.68.1
+  - @agentnative-fork/core@0.68.1
 
 ## 0.2.54
 
@@ -308,28 +308,28 @@
 - Updated dependencies [a623ab6]
 - Updated dependencies [a623ab6]
 - Updated dependencies [a623ab6]
-  - @agent-native/core@0.68.0
+  - @agentnative-fork/core@0.68.0
 
 ## 0.2.53
 
 ### Patch Changes
 
 - Updated dependencies [7ceb907]
-  - @agent-native/core@0.67.1
+  - @agentnative-fork/core@0.67.1
 
 ## 0.2.52
 
 ### Patch Changes
 
 - Updated dependencies [1b61a90]
-  - @agent-native/core@0.67.0
+  - @agentnative-fork/core@0.67.0
 
 ## 0.2.51
 
 ### Patch Changes
 
 - Updated dependencies [11a28e7]
-  - @agent-native/core@0.66.9
+  - @agentnative-fork/core@0.66.9
 
 ## 0.2.50
 
@@ -343,7 +343,7 @@
 - Updated dependencies [f514c12]
 - Updated dependencies [f514c12]
 - Updated dependencies [f514c12]
-  - @agent-native/core@0.66.8
+  - @agentnative-fork/core@0.66.8
 
 ## 0.2.49
 
@@ -351,7 +351,7 @@
 
 - Updated dependencies [3d7df7d]
 - Updated dependencies [3d7df7d]
-  - @agent-native/core@0.66.7
+  - @agentnative-fork/core@0.66.7
 
 ## 0.2.48
 
@@ -360,28 +360,28 @@
 - Updated dependencies [337bcc5]
 - Updated dependencies [337bcc5]
 - Updated dependencies [337bcc5]
-  - @agent-native/core@0.66.6
+  - @agentnative-fork/core@0.66.6
 
 ## 0.2.47
 
 ### Patch Changes
 
 - Updated dependencies [c650d44]
-  - @agent-native/core@0.66.5
+  - @agentnative-fork/core@0.66.5
 
 ## 0.2.46
 
 ### Patch Changes
 
 - Updated dependencies [54b2c33]
-  - @agent-native/core@0.66.4
+  - @agentnative-fork/core@0.66.4
 
 ## 0.2.45
 
 ### Patch Changes
 
 - Updated dependencies [533afe1]
-  - @agent-native/core@0.66.3
+  - @agentnative-fork/core@0.66.3
 
 ## 0.2.44
 
@@ -392,7 +392,7 @@
 - Updated dependencies [89d3852]
 - Updated dependencies [89d3852]
 - Updated dependencies [89d3852]
-  - @agent-native/core@0.66.2
+  - @agentnative-fork/core@0.66.2
 
 ## 0.2.43
 
@@ -400,42 +400,42 @@
 
 - Updated dependencies [113abe7]
 - Updated dependencies [113abe7]
-  - @agent-native/core@0.66.1
+  - @agentnative-fork/core@0.66.1
 
 ## 0.2.42
 
 ### Patch Changes
 
 - Updated dependencies [bd0d8b5]
-  - @agent-native/core@0.66.0
+  - @agentnative-fork/core@0.66.0
 
 ## 0.2.41
 
 ### Patch Changes
 
 - Updated dependencies [2b8cfd0]
-  - @agent-native/core@0.65.0
+  - @agentnative-fork/core@0.65.0
 
 ## 0.2.40
 
 ### Patch Changes
 
 - Updated dependencies [13c202b]
-  - @agent-native/core@0.64.1
+  - @agentnative-fork/core@0.64.1
 
 ## 0.2.39
 
 ### Patch Changes
 
 - Updated dependencies [9d5f12b]
-  - @agent-native/core@0.64.0
+  - @agentnative-fork/core@0.64.0
 
 ## 0.2.38
 
 ### Patch Changes
 
 - Updated dependencies [0105ab5]
-  - @agent-native/core@0.63.6
+  - @agentnative-fork/core@0.63.6
 
 ## 0.2.37
 
@@ -443,7 +443,7 @@
 
 - 7c28a87: Fix CLI commands hanging indefinitely on success due to Node.js keep-alive and telemetry timers
 - Updated dependencies [7c28a87]
-  - @agent-native/core@0.63.5
+  - @agentnative-fork/core@0.63.5
 
 ## 0.2.36
 
@@ -452,14 +452,14 @@
 - Updated dependencies [7d72d52]
 - Updated dependencies [7d72d52]
 - Updated dependencies [7d72d52]
-  - @agent-native/core@0.63.4
+  - @agentnative-fork/core@0.63.4
 
 ## 0.2.35
 
 ### Patch Changes
 
 - Updated dependencies [ad14341]
-  - @agent-native/core@0.63.3
+  - @agentnative-fork/core@0.63.3
 
 ## 0.2.34
 
@@ -468,7 +468,7 @@
 - Updated dependencies [d9e93a3]
 - Updated dependencies [d9e93a3]
 - Updated dependencies [d9e93a3]
-  - @agent-native/core@0.63.2
+  - @agentnative-fork/core@0.63.2
 
 ## 0.2.33
 
@@ -479,21 +479,21 @@
 - Updated dependencies [7157583]
 - Updated dependencies [7157583]
 - Updated dependencies [7157583]
-  - @agent-native/core@0.63.1
+  - @agentnative-fork/core@0.63.1
 
 ## 0.2.32
 
 ### Patch Changes
 
 - Updated dependencies [b7c8bb6]
-  - @agent-native/core@0.63.0
+  - @agentnative-fork/core@0.63.0
 
 ## 0.2.31
 
 ### Patch Changes
 
 - Updated dependencies [edb1fa7]
-  - @agent-native/core@0.62.1
+  - @agentnative-fork/core@0.62.1
 
 ## 0.2.30
 
@@ -519,14 +519,14 @@
 - Updated dependencies [8a74b0a]
 - Updated dependencies [8a74b0a]
 - Updated dependencies [8a74b0a]
-  - @agent-native/core@0.62.0
+  - @agentnative-fork/core@0.62.0
 
 ## 0.2.29
 
 ### Patch Changes
 
 - Updated dependencies [96a0668]
-  - @agent-native/core@0.61.0
+  - @agentnative-fork/core@0.61.0
 
 ## 0.2.28
 
@@ -549,7 +549,7 @@
 - Updated dependencies [ca3efcf]
 - Updated dependencies [ca3efcf]
 - Updated dependencies [ca3efcf]
-  - @agent-native/core@0.60.0
+  - @agentnative-fork/core@0.60.0
 
 ## 0.2.27
 
@@ -559,21 +559,21 @@
 - Updated dependencies [e151605]
 - Updated dependencies [e151605]
 - Updated dependencies [e151605]
-  - @agent-native/core@0.59.1
+  - @agentnative-fork/core@0.59.1
 
 ## 0.2.26
 
 ### Patch Changes
 
 - Updated dependencies [d3e0239]
-  - @agent-native/core@0.59.0
+  - @agentnative-fork/core@0.59.0
 
 ## 0.2.25
 
 ### Patch Changes
 
 - Updated dependencies [a832c55]
-  - @agent-native/core@0.58.5
+  - @agentnative-fork/core@0.58.5
 
 ## 0.2.24
 
@@ -588,14 +588,14 @@
 - Updated dependencies [f16980e]
 - Updated dependencies [f16980e]
 - Updated dependencies [f16980e]
-  - @agent-native/core@0.58.4
+  - @agentnative-fork/core@0.58.4
 
 ## 0.2.23
 
 ### Patch Changes
 
 - Updated dependencies [bb38b6f]
-  - @agent-native/core@0.58.3
+  - @agentnative-fork/core@0.58.3
 
 ## 0.2.22
 
@@ -603,14 +603,14 @@
 
 - Updated dependencies [2c3fcb9]
 - Updated dependencies [2c3fcb9]
-  - @agent-native/core@0.58.2
+  - @agentnative-fork/core@0.58.2
 
 ## 0.2.21
 
 ### Patch Changes
 
 - Updated dependencies [a2992cb]
-  - @agent-native/core@0.58.1
+  - @agentnative-fork/core@0.58.1
 
 ## 0.2.20
 
@@ -618,7 +618,7 @@
 
 - Updated dependencies [9e20092]
 - Updated dependencies [9e20092]
-  - @agent-native/core@0.58.0
+  - @agentnative-fork/core@0.58.0
 
 ## 0.2.19
 
@@ -629,14 +629,14 @@
 - Updated dependencies [3446e34]
 - Updated dependencies [3446e34]
 - Updated dependencies [3446e34]
-  - @agent-native/core@0.57.0
+  - @agentnative-fork/core@0.57.0
 
 ## 0.2.18
 
 ### Patch Changes
 
 - Updated dependencies [e3e8515]
-  - @agent-native/core@0.56.1
+  - @agentnative-fork/core@0.56.1
 
 ## 0.2.17
 
@@ -647,7 +647,7 @@
 - Updated dependencies [78687a1]
 - Updated dependencies [78687a1]
 - Updated dependencies [78687a1]
-  - @agent-native/core@0.56.0
+  - @agentnative-fork/core@0.56.0
 
 ## 0.2.16
 
@@ -660,14 +660,14 @@
 - Updated dependencies [364e4be]
 - Updated dependencies [364e4be]
 - Updated dependencies [364e4be]
-  - @agent-native/core@0.55.0
+  - @agentnative-fork/core@0.55.0
 
 ## 0.2.15
 
 ### Patch Changes
 
 - Updated dependencies [cc1e11c]
-  - @agent-native/core@0.54.1
+  - @agentnative-fork/core@0.54.1
 
 ## 0.2.14
 
@@ -683,7 +683,7 @@
 - Updated dependencies [f81e032]
 - Updated dependencies [f81e032]
 - Updated dependencies [f81e032]
-  - @agent-native/core@0.54.0
+  - @agentnative-fork/core@0.54.0
 
 ## 0.2.13
 
@@ -703,7 +703,7 @@
 - Updated dependencies [5a57b60]
 - Updated dependencies [5a57b60]
 - Updated dependencies [5a57b60]
-  - @agent-native/core@0.53.0
+  - @agentnative-fork/core@0.53.0
 
 ## 0.2.12
 
@@ -715,7 +715,7 @@
 - Updated dependencies [9dc6ba7]
 - Updated dependencies [9dc6ba7]
 - Updated dependencies [9dc6ba7]
-  - @agent-native/core@0.52.0
+  - @agentnative-fork/core@0.52.0
 
 ## 0.2.11
 
@@ -723,7 +723,7 @@
 
 - ef16690: Open local Plan previews from local-files mode and clarify plugin installs use hosted Plans by default.
 - Updated dependencies [ef16690]
-  - @agent-native/core@0.51.15
+  - @agentnative-fork/core@0.51.15
 
 ## 0.2.10
 
@@ -731,7 +731,7 @@
 
 - cb49d6f: Keep Plan install mode flags scoped to Plan skills when the public skills CLI delegates extra text-skill copies.
 - Updated dependencies [cb49d6f]
-  - @agent-native/core@0.51.14
+  - @agentnative-fork/core@0.51.14
 
 ## 0.2.9
 
@@ -749,7 +749,7 @@
   The hosted Plans option now also calls out that it is 100% free and open
   source.
 - Updated dependencies [49685d9]
-  - @agent-native/core@0.51.13
+  - @agentnative-fork/core@0.51.13
 
 ## 0.2.7
 
@@ -759,13 +759,13 @@
   its matching core runtime, defaults public skills visibly, asks the Plan storage
   mode before client setup, and avoids duplicate Claude Code client choices.
 - Updated dependencies [7a6b32b]
-  - @agent-native/core@0.51.12
+  - @agentnative-fork/core@0.51.12
 
 ## 0.2.6
 
 ### Patch Changes
 
-- 914c8db: Unify the skills CLI flow so `@agent-native/skills` delegates normal user-facing
+- 914c8db: Unify the skills CLI flow so `@agentnative-fork/skills` delegates normal user-facing
   list/add flows to the core skills CLI with an expanded public skills catalog,
   while `agent-native skills` keeps the Agent Native-only catalog.
 
@@ -809,10 +809,10 @@
 
 ### Minor Changes
 
-- d77a37f: Add best-effort install-funnel analytics to both skills CLIs (`npx @agent-native/skills@latest` and `npx @agent-native/core@latest skills`). Each run reports a step-by-step funnel — started, skills prompted, skills selected, clients selected, scope selected, install completed, MCP registered, connect, and completed/failed/cancelled — to the first-party Agent Native Analytics endpoint, so install volume, skill selection, and step-by-step dropoff can be measured. Events carry a stable per-machine install id (unique installs) and a per-run id (dropoff) and never include paths, repo names, or other identifying data. Telemetry is fire-and-forget, flushes before exit, and is opt-out via `DO_NOT_TRACK=1` or `AGENT_NATIVE_TELEMETRY_DISABLED=1`.
+- d77a37f: Add best-effort install-funnel analytics to both skills CLIs (`npx @agentnative-fork/skills@latest` and `npx @agentnative-fork/core@latest skills`). Each run reports a step-by-step funnel — started, skills prompted, skills selected, clients selected, scope selected, install completed, MCP registered, connect, and completed/failed/cancelled — to the first-party Agent Native Analytics endpoint, so install volume, skill selection, and step-by-step dropoff can be measured. Events carry a stable per-machine install id (unique installs) and a per-run id (dropoff) and never include paths, repo names, or other identifying data. Telemetry is fire-and-forget, flushes before exit, and is opt-out via `DO_NOT_TRACK=1` or `AGENT_NATIVE_TELEMETRY_DISABLED=1`.
 - d77a37f: Unify the two skills installers onto one codebase + UX.
-  - `npx @agent-native/skills@latest add` / `list` now delegate to `@agent-native/core`'s
-    clack-based installer (`runSkills`, newly exported at `@agent-native/core/cli/skills`),
+  - `npx @agentnative-fork/skills@latest add` / `list` now delegate to `@agentnative-fork/core`'s
+    clack-based installer (`runSkills`, newly exported at `@agentnative-fork/core/cli/skills`),
     so the standalone CLI and `agent-native skills` share the exact same interactive
     experience, MCP-server registration, and authentication. A `AGENT_NATIVE_SKILLS_DIRECT`
     env guard keeps core's plain-repo delegation from looping back.
@@ -834,7 +834,7 @@
     `agent-native-plans`.
   - Installs no longer write duplicate alias entries and clean up existing
     duplicates on the next connect or skills-add run.
-  - All CLI, server, skill, and docs guidance now uses `npx @agent-native/core@latest reconnect <app-url>`
+  - All CLI, server, skill, and docs guidance now uses `npx @agentnative-fork/core@latest reconnect <app-url>`
     as the documented one-line reauth path and consistently teaches that
     reinstalling from scratch is never needed to fix auth.
 
@@ -852,4 +852,4 @@
 
 ### Minor Changes
 
-- 3c1d3eb: Add the `@agent-native/skills` installer CLI for plain Codex/Claude skill repos and let `agent-native skills add` delegate public skill repositories like `BuilderIO/skills` to it.
+- 3c1d3eb: Add the `@agentnative-fork/skills` installer CLI for plain Codex/Claude skill repos and let `agent-native skills add` delegate public skill repositories like `BuilderIO/skills` to it.

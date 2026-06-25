@@ -164,7 +164,7 @@ Der Rest dieses Dokuments richtet sich an alle, die die Clips-Vorlage verzweigen
 ### Schnellstart
 
 ```bash
-npx @agent-native/core@latest create my-clips --standalone --template clips
+npx @agentnative-fork/core@latest create my-clips --standalone --template clips
 cd my-clips
 pnpm install
 pnpm dev
@@ -187,7 +187,7 @@ Tray-App bei Ihrer Bereitstellung.
 1. **Erstellen Sie die App.**
 
    ```bash
-   npx @agent-native/core@latest create my-clips --standalone --template clips
+   npx @agentnative-fork/core@latest create my-clips --standalone --template clips
    cd my-clips
    pnpm-Installation
    ```

@@ -1,5 +1,5 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import { z } from "zod";
 
 const TRAFFIC_DASHBOARD_PATH = "/dashboards/agent-native-templates-first-party";

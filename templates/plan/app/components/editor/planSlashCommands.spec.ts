@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { BlockRegistry } from "@agent-native/core/blocks";
+import type { BlockRegistry } from "@agentnative-fork/core/blocks";
 import { buildPlanSlashCommands } from "./planSlashCommands";
 
 /**

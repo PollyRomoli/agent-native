@@ -4,8 +4,8 @@ import { IconMenu2 } from "@tabler/icons-react";
 import { NavSidebar } from "./NavSidebar";
 import { Header } from "./Header";
 import { HeaderActionsProvider } from "./HeaderActions";
-import { AgentSidebar, useT } from "@agent-native/core/client";
-import { InvitationBanner } from "@agent-native/core/client/org";
+import { AgentSidebar, useT } from "@agentnative-fork/core/client";
+import { InvitationBanner } from "@agentnative-fork/core/client/org";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 
 interface LayoutProps {

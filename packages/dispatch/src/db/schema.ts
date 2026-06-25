@@ -1,4 +1,4 @@
-import { table, text, integer } from "@agent-native/core/db/schema";
+import { table, text, integer } from "@agentnative-fork/core/db/schema";
 
 export const dispatchDestinations = table("dispatch_destinations", {
   id: text("id").primaryKey(),

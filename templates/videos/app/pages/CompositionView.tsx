@@ -15,8 +15,8 @@ import {
   useDevMode,
   ShareButton,
   useSession,
-} from "@agent-native/core/client";
-import type { CollabUser } from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
+import type { CollabUser } from "@agentnative-fork/core/client";
 import { useComposition } from "@/contexts/CompositionContext";
 import { useTimeline } from "@/contexts/TimelineContext";
 import { usePlayback } from "@/contexts/PlaybackContext";

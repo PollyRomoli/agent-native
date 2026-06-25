@@ -53,7 +53,7 @@ Codex، أو رمز Claude، أو Markdown، أو خطة التنفيذ المل
 اصطدم بحائط OAuth:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 يقوم الأمر بتثبيت كلا الأمرين: `/visual-plan` و`/visual-recap`.
@@ -78,15 +78,15 @@ npx @agent-native/core@latest skills add visual-plan
 تريد تضييق نطاق الإعداد ليقتصر على مضيف واحد:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 مرر `--no-connect` لتسجيل الموصل دون المصادقة، ثم قم بتشغيل
-`npx @agent-native/core@latest connect https://plan.agent-native.com --client all`
+`npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client all`
 عندما تكون مستعدًا، أو اختر `--client` الأضيق:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --no-connect
+npx @agentnative-fork/core@latest skills add visual-plan --no-connect
 ```
 
 لإنشاء ملخص تلقائيًا عن **كل طلب سحب**، قم بتمرير `--with-github-action`.
@@ -95,11 +95,11 @@ npx @agent-native/core@latest skills add visual-plan --no-connect
 راجع [PR Visual Recap](/docs/pr-visual-recap).
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan --with-github-action
+npx @agentnative-fork/core@latest skills add visual-plan --with-github-action
 ```
 
-بعد كتابة سير العمل، قم بتشغيل `npx @agent-native/core@latest recap setup` للتكوين
-أسرار/متغيرات GitHub Actions حيثما أمكن و`npx @agent-native/core@latest recap doctor`
+بعد كتابة سير العمل، قم بتشغيل `npx @agentnative-fork/core@latest recap setup` للتكوين
+أسرار/متغيرات GitHub Actions حيثما أمكن و`npx @agentnative-fork/core@latest recap doctor`
 للتحقق من أن الريبو جاهز.
 
 إذا كنت تريد فقط ملف التعليمات المحمول من خلال Skills CLI المفتوح، فاستخدم:
@@ -231,8 +231,8 @@ export AGENT_NATIVE_PLANS_MODE=local-files
 استضاف خطة UI مقابل هذا المصدر المحلي فقط:
 
 ```bash
-npx @agent-native/core@latest plan local check --dir plans/<slug>
-npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --open
+npx @agentnative-fork/core@latest plan local check --dir plans/<slug>
+npx @agentnative-fork/core@latest plan local serve --dir plans/<slug> --kind plan --open
 ```
 
 يبدو شكل الجسر URL
@@ -251,7 +251,7 @@ npx @agent-native/core@latest plan local serve --dir plans/<slug> --kind plan --
 استكشاف الأخطاء وإصلاحها، تشغيل:
 
 ```bash
-npx @agent-native/core@latest plan local verify --dir plans/<slug> --kind plan
+npx @agentnative-fork/core@latest plan local verify --dir plans/<slug> --kind plan
 ```
 
 يبدأ `verify` عملية الجسر، ويتحقق من الاختبار المبدئي للشبكة الخاصة وJSON
@@ -355,7 +355,7 @@ http://localhost:<port>/local-plans/<slug>?path=plans%2F<slug>
 
 إذا قامت أداة الخطط بإرجاع `needs auth` أو `Unauthorized` أو `Session
 تم إنهاؤه`، لا تستمر في إعادة المحاولة. قم بمصادقة الموصل باستخدام
-`npx -y @agent-native/core@latest reconnect https://plan.agent-native.com --client codex`
+`npx -y @agentnative-fork/core@latest reconnect https://plan.agent-native.com --client codex`
 لـ Codex، أو أعد تشغيل `/mcp` → **المصادقة** في مضيف قادر على OAuth. ابدأ
 سلسلة رسائل Codex جديدة أو إعادة تشغيل/إعادة تحميل العميل ذي الصلة قبل توقع الأداة
 التسجيل المراد تحديثه.
@@ -368,7 +368,7 @@ http://localhost:<port>/local-plans/<slug>?path=plans%2F<slug>
 ### بداية سريعة
 
 ```bash
-npx @agent-native/core@latest create my-plans --standalone --template plan
+npx @agentnative-fork/core@latest create my-plans --standalone --template plan
 cd my-plans
 pnpm install
 pnpm dev
@@ -502,7 +502,7 @@ import { z } from "zod";
 import {
   markdown,
   type BlockMdxConfig,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 
 export type RiskCardSeverity = "low" | "medium" | "high";
 
@@ -554,7 +554,7 @@ import {
   defineBlock,
   registerLibraryBlockConfigs,
   registerBlocks,
-} from "@agent-native/core/blocks/server";
+} from "@agentnative-fork/core/blocks/server";
 import {
   riskCardMdx,
   riskCardSchema,
@@ -591,7 +591,7 @@ import {
   registerLibraryBlocks,
   registerBlocks,
   type BlockReadProps,
-} from "@agent-native/core/blocks";
+} from "@agentnative-fork/core/blocks";
 import {
   riskCardMdx,
   riskCardSchema,

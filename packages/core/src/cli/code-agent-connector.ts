@@ -732,7 +732,7 @@ function resolveCodeAgentCliInvocation(): { command: string; args: string[] } {
     command: "pnpm",
     args: [
       "--filter",
-      "@agent-native/core",
+      "@agentnative-fork/core",
       "exec",
       "node",
       "dist/cli/index.js",

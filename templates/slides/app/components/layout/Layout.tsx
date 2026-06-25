@@ -3,8 +3,8 @@ import { useLocation } from "react-router";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
 import { HeaderActionsProvider } from "./HeaderActions";
-import { AgentSidebar, useT } from "@agent-native/core/client";
-import { InvitationBanner } from "@agent-native/core/client/org";
+import { AgentSidebar, useT } from "@agentnative-fork/core/client";
+import { InvitationBanner } from "@agentnative-fork/core/client/org";
 import { IconMenu2 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { useSidebarCollapsed } from "@/hooks/use-sidebar-collapsed";
@@ -21,7 +21,7 @@ interface LayoutProps {
 function pageHasOwnToolbar(pathname: string): boolean {
   if (pathname.startsWith("/deck/")) return true;
   // /extensions (list) and /extensions/<id> (viewer) both render their own headers
-  // from @agent-native/core/client/extensions.
+  // from @agentnative-fork/core/client/extensions.
   if (pathname === "/extensions" || pathname.startsWith("/extensions/"))
     return true;
   return false;

@@ -34,14 +34,14 @@ Anwendungsstatus, Erweiterungen, Erweiterungsdaten, Geheimnisse, Browsersitzunge
 Aktionsrouten.
 
 ```bash
-pnpm add @agent-native/core
+pnpm add @agentnative-fork/core
 ```
 
 Auf dem Server:
 
 ```ts
 // server/plugins/agent-native.ts
-import { createAgentNativeEmbeddedPlugin } from "@agent-native/core/server";
+import { createAgentNativeEmbeddedPlugin } from "@agentnative-fork/core/server";
 import { builderActions } from "../agent-native/actions";
 import { getBuilderSession } from "../auth";
 
@@ -73,7 +73,7 @@ Auf dem Client:
 import {
   AgentNativeEmbedded,
   defineClientAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 export function BuilderAppShell({ children, content, editor }) {
   return (
@@ -146,27 +146,27 @@ Nur wenn es besser zu Ihrer Situation passt:
 
 | Modus                          | Verwenden Sie es, wenn                                                                                                      | Paket                                              |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| **EmbeddedApp-Auswahl**        | Starten einer vollständigen Agent-Native-App als fokussierten Iframe (Asset-Auswahl, Formularersteller, Genehmigungspanel). | `@agent-native/embedding`                          |
-| **`<AgentNative>`-Hostbrücke** | Eigenständige Sidecar-Apps oder ursprungsübergreifende Iframes, die Seitenkontext und Client actions manuell verbinden.     | `@agent-native/core/client`                        |
-| **Portable Erweiterungen**     | Host-Benutzer können Sandbox-Mini-Apps erstellen, wenn das SaaS bereits über Erweiterungsspeicher/-genehmigung verfügt.     | `@agent-native/core/client`-Erweiterungssteckplatz |
+| **EmbeddedApp-Auswahl**        | Starten einer vollständigen Agent-Native-App als fokussierten Iframe (Asset-Auswahl, Formularersteller, Genehmigungspanel). | `@agentnative-fork/embedding`                          |
+| **`<AgentNative>`-Hostbrücke** | Eigenständige Sidecar-Apps oder ursprungsübergreifende Iframes, die Seitenkontext und Client actions manuell verbinden.     | `@agentnative-fork/core/client`                        |
+| **Portable Erweiterungen**     | Host-Benutzer können Sandbox-Mini-Apps erstellen, wenn das SaaS bereits über Erweiterungsspeicher/-genehmigung verfügt.     | `@agentnative-fork/core/client`-Erweiterungssteckplatz |
 
-Das `@agent-native/embedding`-Paket auf niedrigerer Ebene stellt Folgendes bereit:
+Das `@agentnative-fork/embedding`-Paket auf niedrigerer Ebene stellt Folgendes bereit:
 
 | Importpfad                         | Was es bietet                                                                                         |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `@agent-native/embedding`          | `EmbeddedApp`-Auswahlkomponente, `getA2AUrl`, `getMcpUrl`, `sendMessage` (Streaming A2A)              |
-| `@agent-native/embedding/react`    | React-spezifische Hooks und Komponenten                                                               |
-| `@agent-native/embedding/bridge`   | `announceEmbeddedAppReady`, `sendEmbeddedAppMessage` – wird innerhalb der eingebetteten App verwendet |
-| `@agent-native/embedding/agent`    | Agent-Endpunkt-Helfer                                                                                 |
-| `@agent-native/embedding/protocol` | Protokolltypen                                                                                        |
+| `@agentnative-fork/embedding`          | `EmbeddedApp`-Auswahlkomponente, `getA2AUrl`, `getMcpUrl`, `sendMessage` (Streaming A2A)              |
+| `@agentnative-fork/embedding/react`    | React-spezifische Hooks und Komponenten                                                               |
+| `@agentnative-fork/embedding/bridge`   | `announceEmbeddedAppReady`, `sendEmbeddedAppMessage` – wird innerhalb der eingebetteten App verwendet |
+| `@agentnative-fork/embedding/agent`    | Agent-Endpunkt-Helfer                                                                                 |
+| `@agentnative-fork/embedding/protocol` | Protokolltypen                                                                                        |
 
 ```bash
-pnpm add @agent-native/embedding
+pnpm add @agentnative-fork/embedding
 ```
 
 ### Eingebettete App und Auswahlmodus
 
-Verwenden Sie `@agent-native/embedding`, wenn das Hostprodukt eine vollständige Ausführung starten möchte
+Verwenden Sie `@agentnative-fork/embedding`, wenn das Hostprodukt eine vollständige Ausführung starten möchte
 Agent-Native-App als fokussierte Iframe-Oberfläche: Asset-Auswahl, Asset-Generator,
 Formular-Builder, Kalender-Slot-Auswahl, Genehmigungspanel oder andere aufgabenspezifische Elemente
 Workflow. Dies ist absichtlich kleiner als die Sidecar-Host-Brücke unten: die
@@ -174,7 +174,7 @@ iframe kündigt die Bereitschaft an, der Host kann benannte Nachrichten senden u
 App kann Domänenereignisse wie `chooseAsset` oder `close` ausgeben.
 
 ```tsx
-import { EmbeddedApp } from "@agent-native/embedding";
+import { EmbeddedApp } from "@agentnative-fork/embedding";
 
 export function AssetPickerDialog({ close }) {
   return (
@@ -207,7 +207,7 @@ Ereignisse zurück an den Host:
 import {
   announceEmbeddedAppReady,
   sendEmbeddedAppMessage,
-} from "@agent-native/embedding/bridge";
+} from "@agentnative-fork/embedding/bridge";
 
 announceEmbeddedAppReady({ app: "assets", mode: "picker" });
 sendEmbeddedAppMessage("chooseAsset", {
@@ -230,7 +230,7 @@ Dasselbe Paket enthält Agent-Endpunkt-Helfer für die Protokollerkennung und
 Text über A2A streamen:
 
 ```ts
-import { getA2AUrl, getMcpUrl, sendMessage } from "@agent-native/embedding";
+import { getA2AUrl, getMcpUrl, sendMessage } from "@agentnative-fork/embedding";
 
 getMcpUrl("https://assets.agent-native.com");
 getA2AUrl("https://assets.agent-native.com");
@@ -252,7 +252,7 @@ for await (const chunk of sendMessage(
 Verwenden Sie für eigenständige Sidecar-Apps oder ursprungsübergreifende Iframes den untergeordneten `<AgentNative />`. Es rendert den Iframe-Sidecar- und Wire-Seitenkontext, den Live-Client actions und die Aktualisierungs-/Navigationsbefehle des Hosts an einem Ort:
 
 ```tsx
-import { AgentNative, defineClientAction } from "@agent-native/core/client";
+import { AgentNative, defineClientAction } from "@agentnative-fork/core/client";
 
 export function AssistantDock({ customer, sessionToken }) {
   return (
@@ -340,7 +340,7 @@ import {
   requestAgentNativeHostContext,
   runAgentNativeHostAction,
   sendAgentNativeHostCommand,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 announceAgentNativeFrameReady({ hostOrigin: "https://app.example.com" });
 
@@ -384,7 +384,7 @@ Starten Sie in der Sidecar-App die Browser-Session-Bridge einmal, wenn der Ifram
 
 ```tsx
 import { useEffect } from "react";
-import { startAgentNativeBrowserSessionBridge } from "@agent-native/core/client";
+import { startAgentNativeBrowserSessionBridge } from "@agentnative-fork/core/client";
 
 export function SidecarRuntime() {
   useEffect(() => {
@@ -437,7 +437,7 @@ import {
   AgentNativeExtensionSlot,
   createHttpAgentNativeExtensionStorage,
   defineClientAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const storage = createHttpAgentNativeExtensionStorage({
   endpoint: "/api/agent-native/extensions/storage",

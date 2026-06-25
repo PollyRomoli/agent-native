@@ -50,7 +50,7 @@ import {
   agentNativePath,
   callAction,
   type CollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   resourceCanEdit,
   resourceCanManage,

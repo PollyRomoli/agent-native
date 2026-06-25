@@ -6,7 +6,7 @@
  */
 
 import { IconBolt } from "@tabler/icons-react";
-import type { CollabUser } from "@agent-native/core/client";
+import type { CollabUser } from "@agentnative-fork/core/client";
 import { cn } from "@/lib/utils";
 
 interface CollabPresenceBarProps {

@@ -68,7 +68,7 @@ Legen Sie `GEMINI_API_KEY`, `GROQ_API_KEY` oder `OPENAI_API_KEY` als Umgebungsva
 }
 ```
 
-Sie müssen dies nicht direkt aufrufen – der Composer tut dies. Wenn Sie eine benutzerdefinierte Eingabeoberfläche erstellen, verwenden Sie zunächst die gemeinsam genutzten Composer-/Voice-Client-Teile von `@agent-native/core/client` wieder. Behandeln Sie diese Route als Low-Level-Transportgrenze für benutzerdefinierte Helfer, die mehrteiliges Audio senden müssen.
+Sie müssen dies nicht direkt aufrufen – der Composer tut dies. Wenn Sie eine benutzerdefinierte Eingabeoberfläche erstellen, verwenden Sie zunächst die gemeinsam genutzten Composer-/Voice-Client-Teile von `@agentnative-fork/core/client` wieder. Behandeln Sie diese Route als Low-Level-Transportgrenze für benutzerdefinierte Helfer, die mehrteiliges Audio senden müssen.
 
 ## Anpassen des Anbieters {#customizing}
 

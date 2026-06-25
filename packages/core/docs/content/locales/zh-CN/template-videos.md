@@ -71,7 +71,7 @@ description: "用于动态图形、产品演示和动态文本的程序化视频
 从 CLI 搭建新的视频应用程序：
 
 ```bash
-npx @agent-native/core@latest create my-video-app --standalone --template videos
+npx @agentnative-fork/core@latest create my-video-app --standalone --template videos
 cd my-video-app
 pnpm install
 pnpm dev

@@ -68,7 +68,7 @@ Définissez `GEMINI_API_KEY`, `GROQ_API_KEY` ou `OPENAI_API_KEY` en tant que var
 }
 ```
 
-Vous n'avez pas besoin de l'appeler directement : le compositeur le fait. Si vous créez une surface de saisie personnalisée, réutilisez d'abord les éléments partagés du compositeur/client vocal de `@agent-native/core/client`. Traitez cet itinéraire comme la limite de transport de bas niveau pour les assistants personnalisés qui doivent envoyer de l'audio en plusieurs parties.
+Vous n'avez pas besoin de l'appeler directement : le compositeur le fait. Si vous créez une surface de saisie personnalisée, réutilisez d'abord les éléments partagés du compositeur/client vocal de `@agentnative-fork/core/client`. Traitez cet itinéraire comme la limite de transport de bas niveau pour les assistants personnalisés qui doivent envoyer de l'audio en plusieurs parties.
 
 ## Personnalisation du fournisseur {#customizing}
 

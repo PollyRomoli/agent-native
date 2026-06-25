@@ -15,7 +15,7 @@ import {
   setResponseHeader,
   type H3Event,
 } from "h3";
-import { getSession, runWithRequestContext } from "@agent-native/core/server";
+import { getSession, runWithRequestContext } from "@agentnative-fork/core/server";
 import exportInsightsCsv from "../../../../actions/export-insights-csv.js";
 
 export default defineEventHandler(async (event: H3Event) => {

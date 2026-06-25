@@ -82,7 +82,7 @@ function localActionNames(): string[] {
 function writeAddAction(): void {
   fs.writeFileSync(
     path.join(appDir, "actions", "add.ts"),
-    `import { defineAction } from "@agent-native/core/action";
+    `import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -104,7 +104,7 @@ export default defineAction({
 function main(): void {
   if (!fs.existsSync(cliEntry)) {
     throw new Error(
-      `Missing ${cliEntry}. Run pnpm --filter @agent-native/core build first.`,
+      `Missing ${cliEntry}. Run pnpm --filter @agentnative-fork/core build first.`,
     );
   }
 
@@ -131,7 +131,7 @@ function main(): void {
   };
   assert.equal(pkg.scripts?.action, "agent-native action");
   assert.equal(pkg.scripts?.agent, "agent-native agent");
-  assert.match(pkg.dependencies?.["@agent-native/core"] ?? "", /^file:/);
+  assert.match(pkg.dependencies?.["@agentnative-fork/core"] ?? "", /^file:/);
 
   const hello = run("pnpm", ["action", "hello", "--name", "Builder"], {
     cwd: appDir,

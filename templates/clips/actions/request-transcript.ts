@@ -31,7 +31,7 @@
  *   pnpm action request-transcript --recordingId=<id>
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
@@ -39,17 +39,17 @@ import { getCurrentOwnerEmail } from "../server/lib/recordings.js";
 import {
   readAppState,
   writeAppState,
-} from "@agent-native/core/application-state";
-import { getSetting } from "@agent-native/core/settings";
-import { resolveCredential } from "@agent-native/core/credentials";
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
-import { readAppSecret } from "@agent-native/core/secrets";
+} from "@agentnative-fork/core/application-state";
+import { getSetting } from "@agentnative-fork/core/settings";
+import { resolveCredential } from "@agentnative-fork/core/credentials";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
+import { readAppSecret } from "@agentnative-fork/core/secrets";
 import {
   getRequestUserEmail,
   getCredentialContext,
-} from "@agent-native/core/server/request-context";
-import { resolveHasBuilderPrivateKey } from "@agent-native/core/server";
-import { transcribeWithBuilder } from "@agent-native/core/transcription/builder";
+} from "@agentnative-fork/core/server/request-context";
+import { resolveHasBuilderPrivateKey } from "@agentnative-fork/core/server";
+import { transcribeWithBuilder } from "@agentnative-fork/core/transcription/builder";
 import regenerateTitle, {
   queueTitleRegenerationRequest,
 } from "./regenerate-title.js";

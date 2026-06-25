@@ -15,7 +15,7 @@ O site de documentos é a implementação de referência. Hoje é enviado:
 - Espelhos Markdown como `/docs/getting-started.md`.
 - Respostas `Accept: text/markdown` para páginas de documentos públicos após uma compilação de produção.
 - JSON-LD para organização base, site e metadados de página.
-- Uma auditoria CLI (`npx @agent-native/core@latest audit-agent-web`) que verifica todos os itens acima.
+- Uma auditoria CLI (`npx @agentnative-fork/core@latest audit-agent-web`) que verifica todos os itens acima.
 
 A configuração de `publicMcp: true` também expõe o actions ativado como um endpoint MCP público, permitindo que agentes externos liguem para eles diretamente (consulte [MCP Protocol](/docs/mcp-protocol)).
 
@@ -99,13 +99,13 @@ Para expor uma ação por meio de um protocolo de agente público, a ação deve
 
 ## Arquivos em tempo de compilação {#build-time}
 
-Os utilitários de estrutura em `@agent-native/core/agent-web` geram os arquivos comuns a partir de uma lista de páginas:
+Os utilitários de estrutura em `@agentnative-fork/core/agent-web` geram os arquivos comuns a partir de uma lista de páginas:
 
 ```ts
 import {
   buildAgentWebStaticFiles,
   normalizeAgentWebConfig,
-} from "@agent-native/core/agent-web";
+} from "@agentnative-fork/core/agent-web";
 
 const config = normalizeAgentWebConfig(
   { crawlerPolicy: "discoverable-no-training" },
@@ -130,14 +130,14 @@ const files = buildAgentWebStaticFiles({
 });
 ```
 
-Os aplicativos Vite podem usar `createAgentWebVitePlugin` de `@agent-native/core/vite` para gravar esses arquivos em `public`, `dist`, `dist/client`, `dist/server/public` ou `build/client` durante compilações de produção.
+Os aplicativos Vite podem usar `createAgentWebVitePlugin` de `@agentnative-fork/core/vite` para gravar esses arquivos em `public`, `dist`, `dist/client`, `dist/server/public` ou `build/client` durante compilações de produção.
 
 ## Auditar um site {#audit}
 
 Use a auditoria CLI em um site implantado ou em um servidor de produção local:
 
 ```bash
-npx @agent-native/core@latest audit-agent-web --url https://www.agent-native.com
+npx @agentnative-fork/core@latest audit-agent-web --url https://www.agent-native.com
 ```
 
 A auditoria verifica:

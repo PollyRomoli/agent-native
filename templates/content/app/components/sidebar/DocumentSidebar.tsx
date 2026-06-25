@@ -30,18 +30,18 @@ import {
 import { toast } from "sonner";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { OrgSwitcher } from "@agent-native/core/client/org";
+import { OrgSwitcher } from "@agentnative-fork/core/client/org";
 import {
   DevDatabaseLink,
   FeedbackButton,
   appPath,
   useCodeMode,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   ExtensionSlot,
   ExtensionsSidebarSection,
-} from "@agent-native/core/client/extensions";
+} from "@agentnative-fork/core/client/extensions";
 import { NotionButton } from "./NotionButton";
 import { DocumentSidebarIcon, DocumentTreeItem } from "./DocumentTreeItem";
 import {

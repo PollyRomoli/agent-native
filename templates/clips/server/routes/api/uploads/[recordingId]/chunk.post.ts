@@ -31,12 +31,12 @@ import {
   shouldRejectVideoUploadWithoutStorage,
   STORAGE_SETUP_REQUIRED_REASON,
 } from "../../../../lib/video-storage.js";
-import { runWithRequestContext } from "@agent-native/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
 import {
   listAppState,
   readAppState,
   writeAppState,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import finalizeRecording from "../../../../../actions/finalize-recording.js";
 import { MAX_UPLOAD_BYTES as MAX_RECORDING_UPLOAD_BYTES } from "@shared/upload-limits.js";
 const RECORDING_TOO_LARGE_REASON = `Recording exceeds the ${Math.round(MAX_RECORDING_UPLOAD_BYTES / (1024 * 1024))} MB size limit. Please record a shorter clip.`;

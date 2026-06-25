@@ -6,7 +6,7 @@ import { type RouteConfig, route, index } from "@react-router/dev/routes";
  *
  * ```ts
  * import { type RouteConfig } from "@react-router/dev/routes";
- * import { dispatchRoutes } from "@agent-native/dispatch/routes";
+ * import { dispatchRoutes } from "@agentnative-fork/dispatch/routes";
  *
  * export default [
  *   ...localRoutes,    // consumer's own routes win on collision

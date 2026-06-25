@@ -1,5 +1,5 @@
 import { and, eq, gte } from "drizzle-orm";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 import type { AvailabilityConfig } from "../../shared/api.js";
 import { getDb, schema } from "../db/index.js";
 

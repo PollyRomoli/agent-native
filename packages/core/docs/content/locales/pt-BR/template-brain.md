@@ -122,7 +122,7 @@ O restante deste documento é para qualquer pessoa que faça bifurcação do mod
 ### Início rápido
 
 ```bash
-npx @agent-native/core@latest create my-brain --standalone --template brain
+npx @agentnative-fork/core@latest create my-brain --standalone --template brain
 cd my-brain
 pnpm install
 pnpm dev

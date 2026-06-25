@@ -38,7 +38,7 @@ description: "साझा प्रमाणीकरण, RBAC, निर्द
 कार्यस्थान एजेंट-मूल प्रोजेक्ट का डिफ़ॉल्ट आकार है। मचान एक के साथ:
 
 ```bash
-npx @agent-native/core@latest create my-company-platform
+npx @agentnative-fork/core@latest create my-company-platform
 ```
 
 CLI प्रत्येक प्रथम-पक्ष टेम्पलेट का एक बहु-चयन पिकर दिखाता है। आप जितने चाहें उतने चुनें - मेल + कैलेंडर + फॉर्म, उदाहरण के लिए - और वे सभी एक ही कार्यक्षेत्र में प्रमाणीकरण और डेटाबेस डिफ़ॉल्ट साझा करने के लिए तैयार हो जाते हैं।
@@ -87,13 +87,13 @@ pnpm dev                         # opens Dispatch; other apps start on first vis
 कार्यस्थान के अंदर कहीं से भी:
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 CLI आपके द्वारा पहले से इंस्टॉल किए गए ऐप्स को फ़िल्टर करके फिर से टेम्पलेट पिकर दिखाता है। एक या अधिक चुनें और वे `apps/` के अंतर्गत आ जाएंगे। गैर-संवादात्मक संस्करण:
 
 ```bash
-npx @agent-native/core@latest add-app crm --template content
+npx @agentnative-fork/core@latest add-app crm --template content
 ```
 
 कोई भी प्रथम-पक्ष टेम्पलेट वर्कस्पेस ऐप के रूप में काम करता है - CLI टेम्पलेट पर एक छोटा **workspacify** ट्रांसफॉर्म चलाता है जो साझा पैकेज को एक डिप के रूप में जोड़ता है और `workspace:*` संदर्भों को हल करता है। बनाए रखने के लिए कोई समानांतर "वर्कस्पेस-ऐप" मचान नहीं।
@@ -111,13 +111,13 @@ pnpm dev
 
 1. **ऐप स्थानीय** - `apps/<name>/` के अंदर फ़ाइलें (सर्वोच्च प्राथमिकता)
 2. **कार्यस्थान साझा** - `packages/shared/` (साझा मध्य परत) के अंदर फ़ाइलें
-3. **फ्रेमवर्क डिफ़ॉल्ट** — `@agent-native/core` (न्यूनतम)
+3. **फ्रेमवर्क डिफ़ॉल्ट** — `@agentnative-fork/core` (न्यूनतम)
 
 मर्ज फ़ाइल नाम से होता है। यदि कोई ऐप एक स्थानीय फ़ाइल प्रदान करता है जो अपस्ट्रीम में भी मौजूद है, तो स्थानीय जीतता है। यदि ऐसा नहीं होता है, तो कार्यस्थान साझा संस्करण लागू होता है। यदि साझा एक भी प्रदान नहीं करता है, तो फ्रेमवर्क डिफ़ॉल्ट शुरू हो जाता है। यह प्लगइन्स, skills, actions, और `AGENTS.md` पर लागू होता है।
 
 ```an-diagram title="तीन परतें, फ़ाइल नाम से मर्ज की गईं" summary="प्रत्येक ऐप पहले ऐप-लोकल से प्लगइन्स, कौशल, क्रियाएं और AGENTS.md को हल करता है, फिर साझा पैकेज, फिर फ्रेमवर्क डिफ़ॉल्ट।"
 {
-  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agent-native/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
+  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agentnative-fork/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
   "css": ".layer{display:flex;flex-direction:column;align-items:center;gap:6px}.layer .diagram-card{display:flex;flex-direction:column;gap:3px;padding:12px 16px;width:320px}.layer .diagram-arrow{font-size:18px;line-height:1}.layer .diagram-box{margin-top:2px}"
 }
 ```
@@ -187,7 +187,7 @@ my-company-platform/
 
 ## साझा क्रेडेंशियल {#shared-credentials}
 
-एक ही कार्यक्षेत्र में ऐप्स डिफ़ॉल्ट रूप से एक ही `DATABASE_URL` पर इंगित करते हैं, इसलिए फ्रेमवर्क क्रेडेंशियल स्टोरेज प्रत्येक ऐप के लिए प्रति-ऐप कॉन्फिगरेशन के बिना एक क्रेडेंशियल उपलब्ध करा सकता है। यदि आपका कार्यक्षेत्र सख्त नामकरण परंपरा चाहता है तो सीधे `@agent-native/core/credentials` का उपयोग करें, या `packages/shared` में एक पतला सहायक जोड़ें।
+एक ही कार्यक्षेत्र में ऐप्स डिफ़ॉल्ट रूप से एक ही `DATABASE_URL` पर इंगित करते हैं, इसलिए फ्रेमवर्क क्रेडेंशियल स्टोरेज प्रत्येक ऐप के लिए प्रति-ऐप कॉन्फिगरेशन के बिना एक क्रेडेंशियल उपलब्ध करा सकता है। यदि आपका कार्यक्षेत्र सख्त नामकरण परंपरा चाहता है तो सीधे `@agentnative-fork/core/credentials` का उपयोग करें, या `packages/shared` में एक पतला सहायक जोड़ें।
 
 ## साझा डिज़ाइन टोकन {#design-tokens}
 
@@ -217,13 +217,13 @@ my-company-platform/
 एक कमांड कार्यक्षेत्र में प्रत्येक ऐप बनाता है और उन्हें एक ही मूल, प्रति ऐप एक पथ के पीछे भेजता है:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
 ```
 
-प्रत्येक ऐप `APP_BASE_PATH=/<name>` और `VITE_APP_BASE_PATH=/<name>` के साथ बनाया गया है और चयनित Nitro प्रीसेट के माध्यम से उत्सर्जित होता है। क्लाउडफ्लेयर पेज डिफ़ॉल्ट प्रीसेट है और `dist/_worker.js` प्लस `_routes.json` पर एक डिस्पैचर वर्कर का उपयोग करता है। Netlify `npx @agent-native/core@latest deploy --preset netlify` के साथ समर्थित है; यह `.netlify/functions-internal/<app>-server` के तहत ऐप फ़ंक्शंस उत्सर्जित करता है और रीडायरेक्ट उत्पन्न करता है जो स्थैतिक संपत्तियों को अप्रचलित छोड़ देता है इसलिए CDN पहले फ़ाइलों को प्रस्तुत करता है। वर्सेल `npx @agent-native/core@latest deploy --preset vercel` के साथ समर्थित है; यह वर्सेल के बिल्ड आउटपुट API का उपयोग करके एक रूट `.vercel/output` बंडल लिखता है।
+प्रत्येक ऐप `APP_BASE_PATH=/<name>` और `VITE_APP_BASE_PATH=/<name>` के साथ बनाया गया है और चयनित Nitro प्रीसेट के माध्यम से उत्सर्जित होता है। क्लाउडफ्लेयर पेज डिफ़ॉल्ट प्रीसेट है और `dist/_worker.js` प्लस `_routes.json` पर एक डिस्पैचर वर्कर का उपयोग करता है। Netlify `npx @agentnative-fork/core@latest deploy --preset netlify` के साथ समर्थित है; यह `.netlify/functions-internal/<app>-server` के तहत ऐप फ़ंक्शंस उत्सर्जित करता है और रीडायरेक्ट उत्पन्न करता है जो स्थैतिक संपत्तियों को अप्रचलित छोड़ देता है इसलिए CDN पहले फ़ाइलों को प्रस्तुत करता है। वर्सेल `npx @agentnative-fork/core@latest deploy --preset vercel` के साथ समर्थित है; यह वर्सेल के बिल्ड आउटपुट API का उपयोग करके एक रूट `.vercel/output` बंडल लिखता है।
 
 ```an-diagram title="एकीकृत परिनियोजन: प्रति ऐप एक मूल, एक पथ" summary="प्रत्येक ऐप एक ही मूल के पीछे शिप होता है, इसलिए लॉगिन सत्र और क्रॉस-ऐप A2A निःशुल्क हैं।"
 {
@@ -247,13 +247,13 @@ wrangler pages deploy dist
 नेटलिफ़ाई के लिए:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify --build-only
+npx @agentnative-fork/core@latest deploy --preset netlify --build-only
 ```
 
 वर्सेल गिट परिनियोजन के लिए, बिल्ड कमांड को यहां सेट करें:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 ### सार्वजनिक ऐप रूट
@@ -287,7 +287,7 @@ npx @agent-native/core@latest deploy --preset vercel --build-only
 
 ### प्रति-ऐप स्वतंत्र तैनाती
 
-प्रत्येक ऐप को उसके अपने डोमेन (`mail.company.com`, `calendar.company.com`) पर प्राथमिकता दें? कार्यक्षेत्र में प्रत्येक ऐप अभी भी एक स्वतंत्र तैनाती योग्य है - `cd apps/mail && npx @agent-native/core@latest build` बिल्कुल एक स्टैंडअलोन मचान की तरह व्यवहार करता है। क्रॉस-ऐप A2A फिर साझा `A2A_SECRET` के साथ मानक JWT-हस्ताक्षरित पथ से गुजरता है। अलग-अलग तैनात ऐप्स के बीच क्रॉस-डोमेन SSO को हब के रूप में डिस्पैच के साथ पहचान महासंघ द्वारा नियंत्रित किया जाता है - [Cross-App SSO](/docs/cross-app-sso) देखें; एकीकृत एकल-मूल परिनियोजन इसकी आवश्यकता से बचाता है।
+प्रत्येक ऐप को उसके अपने डोमेन (`mail.company.com`, `calendar.company.com`) पर प्राथमिकता दें? कार्यक्षेत्र में प्रत्येक ऐप अभी भी एक स्वतंत्र तैनाती योग्य है - `cd apps/mail && npx @agentnative-fork/core@latest build` बिल्कुल एक स्टैंडअलोन मचान की तरह व्यवहार करता है। क्रॉस-ऐप A2A फिर साझा `A2A_SECRET` के साथ मानक JWT-हस्ताक्षरित पथ से गुजरता है। अलग-अलग तैनात ऐप्स के बीच क्रॉस-डोमेन SSO को हब के रूप में डिस्पैच के साथ पहचान महासंघ द्वारा नियंत्रित किया जाता है - [Cross-App SSO](/docs/cross-app-sso) देखें; एकीकृत एकल-मूल परिनियोजन इसकी आवश्यकता से बचाता है।
 
 ### साझा डेटाबेस, साझा क्रेडेंशियल
 

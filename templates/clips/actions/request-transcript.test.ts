@@ -31,41 +31,41 @@ const mockCleanupTranscriptRun = vi.hoisted(() => vi.fn());
 const mockRegenerateTitleRun = vi.hoisted(() => vi.fn());
 const mockQueueTitleRegenerationRequest = vi.hoisted(() => vi.fn());
 
-vi.mock("@agent-native/core", () => ({
+vi.mock("@agentnative-fork/core", () => ({
   defineAction: (options: unknown) => options,
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   readAppState: vi.fn(),
   writeAppState: (...args: unknown[]) => mockWriteAppState(...args),
 }));
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getSetting: (...args: unknown[]) => mockGetSetting(...args),
 }));
 
-vi.mock("@agent-native/core/credentials", () => ({
+vi.mock("@agentnative-fork/core/credentials", () => ({
   resolveCredential: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/extensions/url-safety", () => ({
+vi.mock("@agentnative-fork/core/extensions/url-safety", () => ({
   ssrfSafeFetch: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/secrets", () => ({
+vi.mock("@agentnative-fork/core/secrets", () => ({
   readAppSecret: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   getRequestUserEmail: vi.fn(() => "owner@example.com"),
   getCredentialContext: vi.fn(() => null),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   resolveHasBuilderPrivateKey: vi.fn(async () => false),
 }));
 
-vi.mock("@agent-native/core/transcription/builder", () => ({
+vi.mock("@agentnative-fork/core/transcription/builder", () => ({
   transcribeWithBuilder: vi.fn(),
 }));
 

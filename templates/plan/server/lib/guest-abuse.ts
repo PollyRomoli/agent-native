@@ -33,7 +33,7 @@
  */
 import { createHash, randomUUID } from "node:crypto";
 import { getHeader, getRequestIP, type H3Event } from "h3";
-import { getDbExec } from "@agent-native/core/db";
+import { getDbExec } from "@agentnative-fork/core/db";
 import {
   GUEST_AUTHOR_DOMAIN,
   isGuestAuthorIdentity,

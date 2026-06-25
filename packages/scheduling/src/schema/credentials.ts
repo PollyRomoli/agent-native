@@ -5,7 +5,7 @@
  * metadata and flags needed by the scheduling UI (display name, invalid
  * flag, app icon, default-for-type).
  */
-import { table, text, integer } from "@agent-native/core/db/schema";
+import { table, text, integer } from "@agentnative-fork/core/db/schema";
 
 export const schedulingCredentials = table("scheduling_credentials", {
   id: text("id").primaryKey(),

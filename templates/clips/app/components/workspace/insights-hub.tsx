@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { IconChartLine, IconDownload, IconUsers } from "@tabler/icons-react";
-import { appBasePath, useActionQuery } from "@agent-native/core/client";
+import { appBasePath, useActionQuery } from "@agentnative-fork/core/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

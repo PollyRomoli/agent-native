@@ -30,7 +30,7 @@ description: "حلقة المراقبة الداخلية/خطافات الدرا
 يحصل كل معالج على كائن `state` القابل للتغيير ونطاق التشغيل والذي يستمر عبر كل واحد من استدعاءات الخطاف الخاصة به في عملية تشغيل واحدة و**معزول\*\*** عن حالة المعالجات الأخرى.
 
 ```ts
-import type { Processor } from "@agent-native/core";
+import type { Processor } from "@agentnative-fork/core";
 
 const noSecretsInOutput: Processor = {
   name: "no-secrets",
@@ -64,7 +64,7 @@ const coverageGate: Processor = {
 يقوم الخطاف بإيقاف التشغيل عن طريق استدعاء `abort(reason, meta?)`، مما يؤدي إلى ظهور **`TripWire`**. تلتقطه الحلقة، وترسل **حدث `tripwire`** واحدًا، وتتوقف بشكل واضح، وتظهر السبب كرسالة مساعدة نهائية.
 
 ```ts
-import { TripWire } from "@agent-native/core";
+import { TripWire } from "@agentnative-fork/core";
 ```
 
 يحتوي الحدث `tripwire` على:

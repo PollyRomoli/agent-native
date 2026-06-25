@@ -174,7 +174,7 @@ Solicitações MCP não autenticadas retornam um desafio `WWW-Authenticate` apon
 
 Os tokens de acesso são assinados com `A2A_SECRET` quando definidos, caso contrário, `BETTER_AUTH_SECRET`. Eles carregam a identidade assinada do usuário/organização e os escopos `mcp:read`, `mcp:write` e/ou `mcp:apps` e estão vinculados ao público ao recurso MCP exato URL. Os tokens de atualização são armazenados apenas como hashes e são alternados a cada atualização. Chamadas de ferramentas e leituras de recursos de aplicativos MCP são executadas dentro do mesmo contexto de solicitação que o usuário conectado; o iframe do aplicativo MCP incorporado nunca recebe tokens OAuth brutos.
 
-`npx @agent-native/core@latest connect <url> --client claude-code` grava a entrada MCP somente URL para este fluxo padrão. Para clientes que não podem executar MCP OAuth remoto, use a página Conectar ou o substituto `npx @agent-native/core@latest connect --token <token>` para gravar uma entrada explícita de token de portador.
+`npx @agentnative-fork/core@latest connect <url> --client claude-code` grava a entrada MCP somente URL para este fluxo padrão. Para clientes que não podem executar MCP OAuth remoto, use a página Conectar ou o substituto `npx @agentnative-fork/core@latest connect --token <token>` para gravar uma entrada explícita de token de portador.
 
 ## Traga sua própria autenticação {#byoa}
 
@@ -182,7 +182,7 @@ Passe um retorno de chamada `getSession` personalizado para usar qualquer proved
 
 ```ts
 // server/plugins/auth.ts
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   getSession: async (event) => {
@@ -250,7 +250,7 @@ interface AuthSession {
 No cliente, use o gancho `useSession()`:
 
 ```ts
-import { useSession } from "@agent-native/core/client";
+import { useSession } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const { session, isLoading } = useSession();

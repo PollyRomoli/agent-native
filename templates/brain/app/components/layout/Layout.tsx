@@ -7,7 +7,7 @@ import {
   useAgentChatHomeHandoff,
   useAgentChatHomeHandoffLinks,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { IconMenu2 } from "@tabler/icons-react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { TAB_ID } from "@/lib/tab-id";

@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail } from "@agent-native/core/server";
-import { putUserSetting } from "@agent-native/core/settings";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
+import { putUserSetting } from "@agentnative-fork/core/settings";
 import { z } from "zod";
 import type { OverlayPerson } from "../shared/api.js";
 

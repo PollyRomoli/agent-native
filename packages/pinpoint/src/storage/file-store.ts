@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Server-side file storage adapter
+// @agentnative-fork/pinpoint — Server-side file storage adapter
 // MIT License
 //
 // Writes to data/pins/{uuid}.json — one file per annotation.

@@ -7,13 +7,13 @@ import {
   useBuilderConnectFlow,
   useBuilderStatus,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import changelog from "../../CHANGELOG.md?raw";
 import {
   useOnboarding,
   type OnboardingMethod,
   type OnboardingStepStatus,
-} from "@agent-native/core/client/onboarding";
+} from "@agentnative-fork/core/client/onboarding";
 import { useQueryClient } from "@tanstack/react-query";
 import {
   IconAlertCircle,

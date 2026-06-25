@@ -1,6 +1,6 @@
 import * as schema from "./schema.js";
-import { createGetDb } from "@agent-native/core/db";
-import { registerShareableResource } from "@agent-native/core/sharing";
+import { createGetDb } from "@agentnative-fork/core/db";
+import { registerShareableResource } from "@agentnative-fork/core/sharing";
 import { resolvePlanAccessContext } from "../lib/local-identity.js";
 
 export const getDb = createGetDb(schema);

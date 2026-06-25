@@ -5,7 +5,7 @@ import {
   trackEvent,
   useLocale,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { AgentNativeDemoVideo } from "../components/AgentNativeDemoVideo";
 import { sitePathForLocale } from "../components/docs-locale";
 import arSA from "../i18n/ar-SA";
@@ -60,7 +60,7 @@ export const meta = ({ params }: { params?: { locale?: string } } = {}) => {
   ]);
 };
 
-const INSTALL_COMMAND = "npx @agent-native/core@latest skills add";
+const INSTALL_COMMAND = "npx @agentnative-fork/core@latest skills add";
 
 type Skill = {
   command: string;

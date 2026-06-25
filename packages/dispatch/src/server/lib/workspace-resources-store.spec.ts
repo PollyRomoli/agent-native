@@ -91,7 +91,7 @@ const mocks = vi.hoisted(() => ({
   putUserSetting: vi.fn(async () => undefined),
 }));
 
-vi.mock("@agent-native/core/db", () => ({
+vi.mock("@agentnative-fork/core/db", () => ({
   getDbExec: () => mocks.getDbExec(),
   isPostgres: () => mocks.isPostgres(),
 }));
@@ -114,7 +114,7 @@ vi.mock("./dispatch-store.js", () => ({
   recordAudit: (...args: any[]) => mocks.recordAudit(...args),
 }));
 
-vi.mock("@agent-native/core/resources/store", () => ({
+vi.mock("@agentnative-fork/core/resources/store", () => ({
   SHARED_OWNER: "__shared__",
   WORKSPACE_OWNER: "__workspace__",
   resourcePut: (...args: any[]) => mocks.resourcePut(...args),
@@ -126,14 +126,14 @@ vi.mock("@agent-native/core/resources/store", () => ({
   resourceDeleteByPath: (...args: any[]) => mocks.resourceDeleteByPath(...args),
 }));
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getOrgSetting: (...args: any[]) => mocks.getOrgSetting(...args),
   getUserSetting: (...args: any[]) => mocks.getUserSetting(...args),
   putOrgSetting: (...args: any[]) => mocks.putOrgSetting(...args),
   putUserSetting: (...args: any[]) => mocks.putUserSetting(...args),
 }));
 
-vi.mock("@agent-native/core/server/agent-discovery", () => ({
+vi.mock("@agentnative-fork/core/server/agent-discovery", () => ({
   discoverAgents: vi.fn(async () => []),
 }));
 

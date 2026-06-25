@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { MemoryRouter } from "react-router";
-import { AgentNativeI18nProvider } from "@agent-native/core/client";
+import { AgentNativeI18nProvider } from "@agentnative-fork/core/client";
 import DocsSidebar from "./DocsSidebar";
 import { docsI18nCatalog } from "../i18n";
 

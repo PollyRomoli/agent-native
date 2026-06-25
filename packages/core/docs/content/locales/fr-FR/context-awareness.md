@@ -73,7 +73,7 @@ Gardez `navigation` petit et sémantique. Il doit identifier l'écran actuel, et
 L'agent lit ceci avant d'agir :
 
 ```ts
-import { readAppState } from "@agent-native/core/application-state";
+import { readAppState } from "@agentnative-fork/core/application-state";
 
 const navigation = await readAppState("navigation");
 // { view: "inbox", threadId: "thread-123", label: "important" }
@@ -143,7 +143,7 @@ Utilisez la clé d'état de l'application `selection` pour une sélection durabl
 Écrivez-le à partir du UI lorsque l'utilisateur sélectionne, concentre ou sélectionne plusieurs objets significatifs :
 
 ```tsx
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 
 async function syncSelection(selection: unknown | null) {
   await setClientAppState("selection", selection, { keepalive: true });
@@ -173,7 +173,7 @@ L'agent de production injecte cette clé dans le tour suivant comme contexte de 
 Les éditeurs personnalisés peuvent écrire la même clé lorsque leur sélection n'est pas représentée par la sélection native du navigateur :
 
 ```tsx
-import { setClientAppState } from "@agent-native/core/client";
+import { setClientAppState } from "@agentnative-fork/core/client";
 
 await setClientAppState(
   "pending-selection-context",
@@ -195,7 +195,7 @@ Chaque modèle doit avoir une action `view-screen`. Il lit l'état de navigation
 {
   "filename": "actions/view-screen.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { readAppState } from \"@agent-native/core/application-state\";\nimport { eq, inArray } from \"drizzle-orm\";\nimport { z } from \"zod\";\nimport { getDb, schema } from \"../server/db/index.js\";\n\nexport default defineAction({\n  description:\n    \"See what the user is currently looking at on screen.\",\n  schema: z.object({}),\n  http: false,\n  run: async () => {\n    const navigation = (await readAppState(\"navigation\")) as any;\n    const selection = (await readAppState(\"selection\")) as any;\n    const screen: Record<string, unknown> = {};\n    if (navigation) screen.navigation = navigation;\n    if (selection) screen.selection = selection;\n\n    const db = getDb();\n\n    // Fetch data based on what the user is viewing\n    if (navigation?.view === \"inbox\") {\n      screen.emailList = await db\n        .select()\n        .from(schema.emails)\n        .where(eq(schema.emails.label, navigation.label));\n    }\n    if (navigation?.threadId) {\n      screen.thread = await db\n        .select()\n        .from(schema.threads)\n        .where(eq(schema.threads.id, navigation.threadId));\n    }\n    if (selection?.kind === \"email.messages\") {\n      screen.selectedMessages = await db\n        .select()\n        .from(schema.emails)\n        .where(inArray(schema.emails.id, selection.messageIds));\n    }\n\n    if (Object.keys(screen).length === 0) {\n      return \"No application state found. Is the app running?\";\n    }\n    return screen;\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { readAppState } from \"@agentnative-fork/core/application-state\";\nimport { eq, inArray } from \"drizzle-orm\";\nimport { z } from \"zod\";\nimport { getDb, schema } from \"../server/db/index.js\";\n\nexport default defineAction({\n  description:\n    \"See what the user is currently looking at on screen.\",\n  schema: z.object({}),\n  http: false,\n  run: async () => {\n    const navigation = (await readAppState(\"navigation\")) as any;\n    const selection = (await readAppState(\"selection\")) as any;\n    const screen: Record<string, unknown> = {};\n    if (navigation) screen.navigation = navigation;\n    if (selection) screen.selection = selection;\n\n    const db = getDb();\n\n    // Fetch data based on what the user is viewing\n    if (navigation?.view === \"inbox\") {\n      screen.emailList = await db\n        .select()\n        .from(schema.emails)\n        .where(eq(schema.emails.label, navigation.label));\n    }\n    if (navigation?.threadId) {\n      screen.thread = await db\n        .select()\n        .from(schema.threads)\n        .where(eq(schema.threads.id, navigation.threadId));\n    }\n    if (selection?.kind === \"email.messages\") {\n      screen.selectedMessages = await db\n        .select()\n        .from(schema.emails)\n        .where(inArray(schema.emails.id, selection.messageIds));\n    }\n\n    if (Object.keys(screen).length === 0) {\n      return \"No application state found. Is the app running?\";\n    }\n    return screen;\n  },\n});",
   "annotations": [
     { "lines": "10-11", "label": "Tool surface", "note": "The agent reads this description to know it can call `view-screen` to see the current UI." },
     { "lines": "13", "label": "http: false", "note": "Internal action — not exposed over HTTP. The agent and `pnpm action` call it, not the browser." },
@@ -219,7 +219,7 @@ L'agent doit appeler `pnpm action view-screen` avant d'agir sur le UI actuel. Il
 Parfois, le contexte ne doit pas simplement rester dans l'état de l'application. Un utilisateur clique sur un bouton, dépose une épingle de commentaire, sélectionne un élément et choisit « Demander à l'agent » ou appuie sur une commande AI dans une barre d'outils. Ce clic est une instruction. Dans le navigateur UI, remettez-le à l'agent avec `sendToAgentChat()`.
 
 ```tsx
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 function askAgentAboutSelection(selection: {
   documentId: string;
@@ -274,7 +274,7 @@ Cela donne à l'utilisateur le comportement magique « c'est ce que je voulais d
 
 ```ts
 // Agent side -- write a navigate command
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 
 await writeAppState("navigate", { view: "inbox", threadId: "thread-123" });
 ```
@@ -299,11 +299,11 @@ dans une transition de vue afin que la barre d'adresse et la page visible resten
 - **Sortant (UI → agent) :** écrit la clé `navigation` chaque fois que l'itinéraire change, afin que l'agent connaisse toujours la vue actuelle.
 - **Entrant (agent → UI) :** interroge la commande `navigate`, exécute la navigation et supprime la commande.
 
-Il reste court car il s'agit d'une fine enveloppe autour de la véritable primitive de framework, `useAgentRouteState` (exportée depuis `@agent-native/core/client`). Vous fournissez deux fonctions spécifiques à l'application et le framework fait le reste :
+Il reste court car il s'agit d'une fine enveloppe autour de la véritable primitive de framework, `useAgentRouteState` (exportée depuis `@agentnative-fork/core/client`). Vous fournissez deux fonctions spécifiques à l'application et le framework fait le reste :
 
 ```tsx
 // app/hooks/use-navigation-state.ts -- this file lives in YOUR app
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 interface NavigationState {
@@ -345,7 +345,7 @@ export function useNavigationState() {
 
 Lorsque l'agent écrit dans l'état de l'application, le système de synchronisation peut amener le UI à récupérer les données qu'il vient d'écrire. Cela crée de la gigue. La solution est le balisage source :
 
-Utilisez `setClientAppState`, `writeClientAppState`, `readClientAppState` et `deleteClientAppState` à partir de `@agent-native/core/client` pour l'accès à l'état de l'application côté navigateur. Passez `{ requestSource: TAB_ID }` sur les écritures UI lors de l'appairage avec `useDbSync({ ignoreSource: TAB_ID })` ; transmettez `{ keepalive: true }` pour les écritures de courte durée telles que le nettoyage de la sélection pendant le déchargement.
+Utilisez `setClientAppState`, `writeClientAppState`, `readClientAppState` et `deleteClientAppState` à partir de `@agentnative-fork/core/client` pour l'accès à l'état de l'application côté navigateur. Passez `{ requestSource: TAB_ID }` sur les écritures UI lors de l'appairage avec `useDbSync({ ignoreSource: TAB_ID })` ; transmettez `{ keepalive: true }` pour les écritures de courte durée telles que le nettoyage de la sélection pendant le déchargement.
 
 ```ts
 // app/root.tsx

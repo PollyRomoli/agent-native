@@ -102,13 +102,13 @@ Pas prêt à monter un échafaudage ? Vous pouvez ajouter des super pouvoirs na
 Si vous créez un échafaudage maintenant, la commande CLI est :
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
-Vous obtiendrez un sélecteur à sélection multiple. Choisissez une application (autonome) ou plusieurs (espace de travail : les applications partagent l'authentification, la marque, la configuration de l'agent et la base de données). Chaque modèle sélectionné est intégré dans `apps/<name>/` avec chaque fichier dont vous avez besoin. Pour une application d'action uniquement au lieu d'un modèle UI, utilisez `npx @agent-native/core@latest create my-agent --headless`.
+Vous obtiendrez un sélecteur à sélection multiple. Choisissez une application (autonome) ou plusieurs (espace de travail : les applications partagent l'authentification, la marque, la configuration de l'agent et la base de données). Chaque modèle sélectionné est intégré dans `apps/<name>/` avec chaque fichier dont vous avez besoin. Pour une application d'action uniquement au lieu d'un modèle UI, utilisez `npx @agentnative-fork/core@latest create my-agent --headless`.
 
 Remplissez `.env` (principalement `ANTHROPIC_API_KEY` et `DATABASE_URL`), `pnpm install`, `pnpm dev`, et cela fonctionne. Pas de "TODO : implémenter la connexion", pas de routes d'espace réservé.
 
-Cibles de déploiement : tout hôte compatible Nitro (Node, Cloudflare, Netlify, Vercel, Deno, Lambda, Bun) et toute base de données SQL compatible Drizzle (SQLite, Postgres, Turso, D1, Supabase, Neon). Pour les espaces de travail, `npx @agent-native/core@latest deploy` crée chaque application en même temps et les livre derrière une seule origine. Voir [Deployment](/docs/deployment).
+Cibles de déploiement : tout hôte compatible Nitro (Node, Cloudflare, Netlify, Vercel, Deno, Lambda, Bun) et toute base de données SQL compatible Drizzle (SQLite, Postgres, Turso, D1, Supabase, Neon). Pour les espaces de travail, `npx @agentnative-fork/core@latest deploy` crée chaque application en même temps et les livre derrière une seule origine. Voir [Deployment](/docs/deployment).
 
 Pour créer et publier votre propre modèle, consultez [Creating Templates](/docs/creating-templates).

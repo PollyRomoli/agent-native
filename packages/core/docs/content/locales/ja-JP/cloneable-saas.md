@@ -102,13 +102,13 @@ description: "動作する SaaS 製品をフォークして、エージェント
 現在スキャフォールディングを行っている場合、CLI コマンドは次のとおりです:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
-複数選択ピッカーが表示されます。 1 つのアプリ (スタンドアロン) または複数のアプリ (ワークスペース - アプリは認証、ブランド、エージェント構成、データベースを共有) を選択します。選択した各テンプレートは、必要なすべてのファイルとともに `apps/<name>/` にスキャフォールディングされます。テンプレート UI の代わりにアクション専用アプリの場合は、`npx @agent-native/core@latest create my-agent --headless` を使用します。
+複数選択ピッカーが表示されます。 1 つのアプリ (スタンドアロン) または複数のアプリ (ワークスペース - アプリは認証、ブランド、エージェント構成、データベースを共有) を選択します。選択した各テンプレートは、必要なすべてのファイルとともに `apps/<name>/` にスキャフォールディングされます。テンプレート UI の代わりにアクション専用アプリの場合は、`npx @agentnative-fork/core@latest create my-agent --headless` を使用します。
 
 `.env` (主に `ANTHROPIC_API_KEY` と `DATABASE_URL`)、`pnpm install`、`pnpm dev` を入力すると機能します。 「TODO: ログインの実装」、プレースホルダー ルートはありません。
 
-デプロイターゲット: Nitro 互換ホスト (Node、Cloudflare、Netlify、Vercel、Deno、Lambda、Bun) および Drizzle 互換 SQL データベース (SQLite、Postgres、Turso、D1、Supabase、Neon)。ワークスペースの場合、`npx @agent-native/core@latest deploy` はすべてのアプリを一度に構築し、単一のオリジンの背後で出荷します。 [Deployment](/docs/deployment) を参照してください。
+デプロイターゲット: Nitro 互換ホスト (Node、Cloudflare、Netlify、Vercel、Deno、Lambda、Bun) および Drizzle 互換 SQL データベース (SQLite、Postgres、Turso、D1、Supabase、Neon)。ワークスペースの場合、`npx @agentnative-fork/core@latest deploy` はすべてのアプリを一度に構築し、単一のオリジンの背後で出荷します。 [Deployment](/docs/deployment) を参照してください。
 
 独自のテンプレートを作成して公開するには、[Creating Templates](/docs/creating-templates) を参照してください。

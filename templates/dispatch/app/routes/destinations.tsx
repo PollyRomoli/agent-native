@@ -1,4 +1,4 @@
 export {
   default,
   meta,
-} from "@agent-native/dispatch/routes/pages/destinations";
+} from "@agentnative-fork/dispatch/routes/pages/destinations";

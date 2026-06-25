@@ -95,7 +95,7 @@ Le reste de ce document s'adresse à toute personne qui crée le modèle Mail ou
 Créez un nouvel espace de travail avec le modèle Mail :
 
 ```bash
-npx @agent-native/core@latest create my-mail --standalone --template mail
+npx @agentnative-fork/core@latest create my-mail --standalone --template mail
 cd my-mail
 pnpm install
 pnpm dev
@@ -104,7 +104,7 @@ pnpm dev
 Ou ajoutez Mail à un espace de travail natif d'agent existant :
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 Pour connecter Gmail en développement, vous avez besoin d'un client Google OAuth :
@@ -230,7 +230,7 @@ C'est à vous de modifier le courrier. Tout ce qui est important se trouve dans 
 
 **Modifier le comportement de l'agent.** Le guidage de l'agent se trouve dans `templates/mail/AGENTS.md` et le skills dans `templates/mail/.agents/skills/` (`email-drafts`, `real-time-sync`, `security`, `self-modifying-code` et autres). Le comportement de l'agent est modifié en modifiant le démarque, et non le code.
 
-**Modification des données ou des paramètres.** Les schémas des tables de suivi et des structures associées se trouvent dans `templates/mail/server/db/`. Les lectures et écritures des paramètres passent par `readSetting` / `writeSetting` depuis `@agent-native/core/settings`. L'état de l'application (navigation, brouillons, commandes ponctuelles) utilise `readAppState` / `writeAppState` de `@agent-native/core/application-state`.
+**Modification des données ou des paramètres.** Les schémas des tables de suivi et des structures associées se trouvent dans `templates/mail/server/db/`. Les lectures et écritures des paramètres passent par `readSetting` / `writeSetting` depuis `@agentnative-fork/core/settings`. L'état de l'application (navigation, brouillons, commandes ponctuelles) utilise `readAppState` / `writeAppState` de `@agentnative-fork/core/application-state`.
 
 **Ajout d'un nouveau type d'action d'automatisation.** Étendre le schéma d'action dans `templates/mail/actions/manage-automations.ts` et l'exécuteur dans `templates/mail/actions/trigger-automations.ts`.
 

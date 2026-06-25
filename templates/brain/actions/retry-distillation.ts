@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { accessFilter, assertAccess } from "@agentnative-fork/core/sharing";
 import { and, desc, eq, inArray, lte, or } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

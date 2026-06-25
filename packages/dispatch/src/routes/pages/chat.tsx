@@ -11,7 +11,7 @@ import {
   appBasePath,
   appPath,
   markAgentChatHomeHandoff,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { submitOverviewPrompt } from "@/lib/overview-chat";
 
 function chatThreadPath(threadId: string | null): string {

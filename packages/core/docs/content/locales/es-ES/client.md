@@ -5,9 +5,9 @@ description: "Utilidades y enlaces React para aplicaciones nativas del agente: s
 
 # Cliente
 
-`@agent-native/core` proporciona ganchos y utilidades React para el lado del navegador de aplicaciones nativas del agente.
+`@agentnative-fork/core` proporciona ganchos y utilidades React para el lado del navegador de aplicaciones nativas del agente.
 
-Estos clientes/React API se exportan desde `@agent-native/core` y `@agent-native/core/client`. Importarlos desde `@agent-native/core/client` (la entrada del navegador) para mayor claridad y correcta agrupación, ya que la raíz desnuda de `@agent-native/core` se resuelve en la compilación del Nodo de forma predeterminada.
+Estos clientes/React API se exportan desde `@agentnative-fork/core` y `@agentnative-fork/core/client`. Importarlos desde `@agentnative-fork/core/client` (la entrada del navegador) para mayor claridad y correcta agrupación, ya que la raíz desnuda de `@agentnative-fork/core` se resuelve en la compilación del Nodo de forma predeterminada.
 
 Para enrutamiento basado en archivos (agregar páginas, parámetros dinámicos y navegación), consulte [Routing](/docs/routing).
 
@@ -27,7 +27,7 @@ import {
   useActionQuery,
   useActionMutation,
   callAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 // Read: auto-cached, auto-invalidated on mutations
 const { data, isLoading } = useActionQuery("get-lead", { leadId });
@@ -45,7 +45,7 @@ await callAction("archive-lead", { leadId });
 Envíe un mensaje al chat del agente a través de postMessage, la forma común de delegar una tarea de IA desde una interacción UI. Pase `context` para contexto de modelo oculto y `submit: true` para enviar inmediatamente, o `submit: false` para completar previamente un borrador que el usuario revisa primero.
 
 ```ts
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 // Auto-submit a prompt with hidden context
 sendToAgentChat({
@@ -136,7 +136,7 @@ la pestaña Configuración de la barra lateral del agente. Pase una identificaci
 `"automations"`, `"voice"` o `"limits"` para abrir una sección específica.
 
 ```ts
-import { openAgentSettings } from "@agent-native/core/client";
+import { openAgentSettings } from "@agentnative-fork/core/client";
 
 openAgentSettings();
 openAgentSettings("secrets");
@@ -145,7 +145,7 @@ openAgentSettings("secrets");
 Prefiera este ayudante a enviar `agent-panel:open-settings` directamente.
 
 ```tsx
-import { useAgentChatContext } from "@agent-native/core/client";
+import { useAgentChatContext } from "@agentnative-fork/core/client";
 
 function SelectionContextButton({ record }: { record: { id: string } }) {
   const chatContext = useAgentChatContext();
@@ -204,7 +204,7 @@ inicia el trabajo del agente, en lugar de crear un modal personalizado. Alcanza 
 compositor para detalles de forma libre y un formulario/ventana emergente para entrada de múltiples campos.
 
 ```tsx
-import { askUserQuestion, sendToAgentChat } from "@agent-native/core/client";
+import { askUserQuestion, sendToAgentChat } from "@agentnative-fork/core/client";
 
 const length = await askUserQuestion({
   question: "How long should this deck be?",
@@ -238,7 +238,7 @@ el agente pregunta cuando _it_ llega a una bifurcación genuina que no puede res
 
 Las rutas integradas como aplicaciones MCP deben ser URL primero: cargue el artefacto actual desde
 Parámetros de ruta/consulta, renderice la ruta React real o un componente compartido enfocado,
-y usar el puente de host solo para comportamientos propiedad del host. `@agent-native/core/client`
+y usar el puente de host solo para comportamientos propiedad del host. `@agentnative-fork/core/client`
 exporta la llamada de rutas integradas de ayuda:
 
 ```ts
@@ -248,7 +248,7 @@ import {
   requestMcpAppDisplayMode,
   updateMcpAppModelContext,
   useMcpAppHostContext,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 ```
 
 `getMcpAppHostContext()` lee la última instantánea del contexto del host enviado;
@@ -283,7 +283,7 @@ Configure `dynamicSuggestions={false}` para mantener solo chips estáticos. Pase
 Enganche React que incluye sendToAgentChat con seguimiento del estado de carga:
 
 ```ts
-import { useAgentChatGenerating } from "@agent-native/core/client";
+import { useAgentChatGenerating } from "@agentnative-fork/core/client";
 
 function GenerateButton() {
   const [isGenerating, send] = useAgentChatGenerating();
@@ -310,7 +310,7 @@ function GenerateButton() {
 Enganche React (anteriormente `useFileWatcher`) que escucha los cambios en la base de datos a través de SSE, recurre al sondeo e invalida los cachés de consultas del marco que mantienen el UI alineado con las escrituras del agente:
 
 ```ts
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 function App() {
@@ -355,7 +355,7 @@ Cuando ocurre cualquier mutación en la base de datos del lado del servidor, el 
 
 ```tsx
 import { useQuery } from "@tanstack/react-query";
-import { useChangeVersion } from "@agent-native/core/client";
+import { useChangeVersion } from "@agentnative-fork/core/client";
 
 function DashboardView({ id }) {
   // Get version for dashboards domain source
@@ -388,7 +388,7 @@ function DashboardView({ id }) {
 Utilidad para fusionar nombres de clases (clsx + tailwind-merge):
 
 ```ts
-import { cn } from "@agent-native/core/client";
+import { cn } from "@agentnative-fork/core/client";
 
 <div className={cn(
   "px-4 py-2 rounded",

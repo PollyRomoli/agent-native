@@ -25,7 +25,7 @@ The agent and the UI are equal citizens of the same system. Every action works b
 Don't want to scaffold a whole app yet? Add agent-native superpowers to a coding agent you already use — Claude Code, Codex, Cursor, Pi, OpenCode, GitHub Copilot / VS Code, and similar agents — with one command:
 
 ```bash
-npx @agent-native/core@latest skills add visual-plan
+npx @agentnative-fork/core@latest skills add visual-plan
 ```
 
 It installs the skills, writes shared `.agents` skill folders for agents that support them, registers the hosted MCP connector for supported local clients, and signs in the selected client(s) in one step. You get two slash commands that upgrade how your agent plans and reports its work:
@@ -200,7 +200,7 @@ Every template is a complete cloneable SaaS — fork it, customize it with the a
 ## Quick Start
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 cd my-platform
 pnpm install
 pnpm dev
@@ -211,7 +211,7 @@ The CLI shows a multi-select picker so you can include as many templates as you 
 Want a single app, no monorepo? Use `--standalone`:
 
 ```bash
-npx @agent-native/core@latest create my-app --standalone --template mail
+npx @agentnative-fork/core@latest create my-app --standalone --template mail
 ```
 
 ## Workspaces (Monorepo)
@@ -234,13 +234,13 @@ my-platform/
 Add another app later:
 
 ```bash
-npx @agent-native/core@latest add-app notes --template content
+npx @agentnative-fork/core@latest add-app notes --template content
 ```
 
 Deploy every app behind one origin:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → mail
 # https://your-agents.com/calendar/*   → calendar
 # https://your-agents.com/forms/*      → forms

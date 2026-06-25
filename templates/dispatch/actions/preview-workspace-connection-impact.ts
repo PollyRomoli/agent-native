@@ -1,11 +1,11 @@
-import { defineAction } from "@agent-native/core";
-import { getWorkspaceConnectionProvider } from "@agent-native/core/connections";
+import { defineAction } from "@agentnative-fork/core";
+import { getWorkspaceConnectionProvider } from "@agentnative-fork/core/connections";
 import {
   getWorkspaceConnectionAppAccess,
   listWorkspaceConnectionGrants,
   listWorkspaceConnections,
   summarizeWorkspaceConnectionProviderReadiness,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 import { z } from "zod";
 
 const KNOWN_IMPACT_APPS = [

@@ -13,12 +13,12 @@
 import {
   createOnboardingPlugin,
   registerOnboardingStep,
-} from "@agent-native/core/onboarding";
-import { registerFileUploadProvider } from "@agent-native/core/file-upload";
+} from "@agentnative-fork/core/onboarding";
+import { registerFileUploadProvider } from "@agentnative-fork/core/file-upload";
 import {
   resolveHasCompleteBuilderConnection,
   resolveSecret,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { isObjectStorageConfigured } from "../lib/storage.js";
 import { s3FileUploadProvider } from "../lib/s3-upload-provider.js";
 import { isBuilderImageGenerationEnabled } from "../lib/generation.js";

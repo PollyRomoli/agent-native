@@ -9,7 +9,7 @@ import {
   IconLoader2,
 } from "@tabler/icons-react";
 import { cn, formatShortcut } from "@/lib/utils";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import {
   Tooltip,

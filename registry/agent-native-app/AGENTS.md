@@ -26,9 +26,9 @@ the agent can use.
 
 - Before using non-trivial Agent Native APIs, read the version-matched package
   docs with `pnpm action docs-search --query "<topic>"` or
-  `node_modules/@agent-native/core/docs`. When implementation examples or
+  `node_modules/@agentnative-fork/core/docs`. When implementation examples or
   template patterns matter, use `pnpm action source-search --query "<pattern>"`
-  or search `node_modules/@agent-native/core/corpus`.
+  or search `node_modules/@agentnative-fork/core/corpus`.
 - Use TypeScript for app source.
 - Use shadcn/ui primitives for standard controls and dialogs.
 - Do not use browser `alert`, `confirm`, or `prompt`; use app dialogs.

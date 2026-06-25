@@ -5,9 +5,9 @@ description: "एजेंट-नेटिव ऐप्स के लिए Reac
 
 # ग्राहक
 
-`@agent-native/core` एजेंट-नेटिव ऐप्स के ब्राउज़र-साइड के लिए React हुक और उपयोगिताएँ प्रदान करता है।
+`@agentnative-fork/core` एजेंट-नेटिव ऐप्स के ब्राउज़र-साइड के लिए React हुक और उपयोगिताएँ प्रदान करता है।
 
-ये क्लाइंट/React APIs `@agent-native/core` और `@agent-native/core/client` दोनों से निर्यात किए जाते हैं। स्पष्टता और सही बंडलिंग के लिए उन्हें `@agent-native/core/client` (ब्राउज़र प्रविष्टि) से आयात करें, क्योंकि नंगे `@agent-native/core` रूट डिफ़ॉल्ट रूप से नोड बिल्ड का समाधान करता है।
+ये क्लाइंट/React APIs `@agentnative-fork/core` और `@agentnative-fork/core/client` दोनों से निर्यात किए जाते हैं। स्पष्टता और सही बंडलिंग के लिए उन्हें `@agentnative-fork/core/client` (ब्राउज़र प्रविष्टि) से आयात करें, क्योंकि नंगे `@agentnative-fork/core` रूट डिफ़ॉल्ट रूप से नोड बिल्ड का समाधान करता है।
 
 फ़ाइल-आधारित रूटिंग के लिए - पेज, डायनामिक पैरामीटर और नेविगेशन जोड़ना - [Routing](/docs/routing) देखें।
 
@@ -27,7 +27,7 @@ import {
   useActionQuery,
   useActionMutation,
   callAction,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 // Read: auto-cached, auto-invalidated on mutations
 const { data, isLoading } = useActionQuery("get-lead", { leadId });
@@ -45,7 +45,7 @@ await callAction("archive-lead", { leadId });
 पोस्टमैसेज के माध्यम से एजेंट चैट को एक संदेश भेजें - UI इंटरैक्शन से AI कार्य सौंपने का सामान्य तरीका। छिपे हुए मॉडल संदर्भ के लिए `context` और तुरंत भेजने के लिए `submit: true` पास करें, या उपयोगकर्ता द्वारा पहले समीक्षा किए गए ड्राफ्ट को प्रीफिल करने के लिए `submit: false` पास करें।
 
 ```ts
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 // Auto-submit a prompt with hidden context
 sendToAgentChat({
@@ -136,7 +136,7 @@ overwrite the user's active conversation. Use the returned `tabId` if the UI
 किसी विशिष्ट अनुभाग को खोलने के लिए `"automations"`, `"voice"`, या `"limits"`।
 
 ```ts
-import { openAgentSettings } from "@agent-native/core/client";
+import { openAgentSettings } from "@agentnative-fork/core/client";
 
 openAgentSettings();
 openAgentSettings("secrets");
@@ -145,7 +145,7 @@ openAgentSettings("secrets");
 सीधे `agent-panel:open-settings` भेजने के बजाय इस सहायक को प्राथमिकता दें।
 
 ```tsx
-import { useAgentChatContext } from "@agent-native/core/client";
+import { useAgentChatContext } from "@agentnative-fork/core/client";
 
 function SelectionContextButton({ record }: { record: { id: string } }) {
   const chatContext = useAgentChatContext();
@@ -204,7 +204,7 @@ function SelectionContextButton({ record }: { record: { id: string } }) {
 फ्रीफॉर्म विवरण के लिए कंपोजर, और मल्टी-फील्ड इनपुट के लिए एक फॉर्म/पॉपओवर।
 
 ```tsx
-import { askUserQuestion, sendToAgentChat } from "@agent-native/core/client";
+import { askUserQuestion, sendToAgentChat } from "@agentnative-fork/core/client";
 
 const length = await askUserQuestion({
   question: "How long should this deck be?",
@@ -238,7 +238,7 @@ if (length) {
 
 MCP ऐप्स के रूप में एम्बेड किए गए रूट URL-पहले होने चाहिए: वर्तमान आर्टिफैक्ट को यहां से लोड करें
 पथ/क्वेरी पैरामीटर, वास्तविक React मार्ग या एक केंद्रित साझा घटक प्रस्तुत करें,
-और होस्ट ब्रिज का उपयोग केवल होस्ट-स्वामित्व वाले व्यवहार के लिए करें। `@agent-native/core/client`
+और होस्ट ब्रिज का उपयोग केवल होस्ट-स्वामित्व वाले व्यवहार के लिए करें। `@agentnative-fork/core/client`
 सहायक एम्बेडेड रूट कॉल निर्यात करता है:
 
 ```ts
@@ -248,7 +248,7 @@ import {
   requestMcpAppDisplayMode,
   updateMcpAppModelContext,
   useMcpAppHostContext,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 ```
 
 `getMcpAppHostContext()` नवीनतम पुश किए गए होस्ट संदर्भ स्नैपशॉट को पढ़ता है;
@@ -283,7 +283,7 @@ import {
 React हुक जो लोडिंग स्थिति ट्रैकिंग के साथ sentToAgentChat को लपेटता है:
 
 ```ts
-import { useAgentChatGenerating } from "@agent-native/core/client";
+import { useAgentChatGenerating } from "@agentnative-fork/core/client";
 
 function GenerateButton() {
   const [isGenerating, send] = useAgentChatGenerating();
@@ -310,7 +310,7 @@ function GenerateButton() {
 React हुक (पूर्व में `useFileWatcher`) जो SSE पर डेटाबेस परिवर्तनों को सुनता है, पोलिंग पर वापस आ जाता है, और फ्रेमवर्क क्वेरी कैश को अमान्य कर देता है जो UI को एजेंट राइट्स के साथ संरेखित रखता है:
 
 ```ts
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 function App() {
@@ -355,7 +355,7 @@ function App() {
 
 ```tsx
 import { useQuery } from "@tanstack/react-query";
-import { useChangeVersion } from "@agent-native/core/client";
+import { useChangeVersion } from "@agentnative-fork/core/client";
 
 function DashboardView({ id }) {
   // Get version for dashboards domain source
@@ -388,7 +388,7 @@ function DashboardView({ id }) {
 वर्ग नामों को मर्ज करने की उपयोगिता (clsx + टेलविंड-मर्ज):
 
 ```ts
-import { cn } from "@agent-native/core/client";
+import { cn } from "@agentnative-fork/core/client";
 
 <div className={cn(
   "px-4 py-2 rounded",

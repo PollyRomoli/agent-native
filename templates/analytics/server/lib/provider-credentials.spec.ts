@@ -6,7 +6,7 @@ const mocks = vi.hoisted(() => ({
   coreResolverCalls: [] as Array<Record<string, unknown>>,
 }));
 
-vi.mock("@agent-native/core/workspace-connections", () => ({
+vi.mock("@agentnative-fork/core/workspace-connections", () => ({
   resolveWorkspaceConnectionCredentialForApp: vi.fn(async (args) => {
     mocks.coreResolverCalls.push(args);
     return (

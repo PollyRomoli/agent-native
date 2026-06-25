@@ -4,7 +4,7 @@ import {
   isEmailConfigured,
   renderEmail,
   sendEmail,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import type { Booking } from "../../shared/api.js";
 import {
   DEFAULT_BOOKING_TIMEZONE,

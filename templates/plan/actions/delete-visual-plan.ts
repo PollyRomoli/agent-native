@@ -1,12 +1,12 @@
-import { defineAction, embedApp } from "@agent-native/core";
-import { getDbExec } from "@agent-native/core/db";
-import { deleteCollabState } from "@agent-native/core/collab";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { getDbExec } from "@agentnative-fork/core/db";
+import { deleteCollabState } from "@agentnative-fork/core/collab";
 import {
   ForbiddenError,
   assertAccess,
   currentAccess,
-} from "@agent-native/core/sharing";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/sharing";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
 import { and, eq, isNull } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

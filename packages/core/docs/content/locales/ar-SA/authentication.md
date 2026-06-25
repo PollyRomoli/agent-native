@@ -174,7 +174,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 يتم توقيع رموز الوصول باستخدام `A2A_SECRET` عند تعيينها، وإلا مع `BETTER_AUTH_SECRET`. وهي تحمل هوية المستخدم/المؤسسة الموقعة ونطاقات `mcp:read` و/أو `mcp:write` و/أو `mcp:apps`، وهي مرتبطة بالجمهور بمورد MCP الدقيق URL. يتم تخزين رموز التحديث فقط كتجزئة ويتم تدويرها عند كل تحديث. يتم تشغيل استدعاءات الأدوات وقراءات موارد تطبيقات MCP داخل نفس سياق الطلب مثل المستخدم الذي قام بتسجيل الدخول؛ لا يتلقى إطار iframe لتطبيق MCP المضمن رموز OAuth الأولية أبدًا.
 
-يكتب `npx @agent-native/core@latest connect <url> --client claude-code` إدخال URL فقط MCP لهذا التدفق القياسي. بالنسبة للعملاء الذين لا يمكنهم تنفيذ MCP OAuth عن بعد، استخدم صفحة الاتصال أو البديل `npx @agent-native/core@latest connect --token <token>` لكتابة إدخال صريح للرمز المميز للحامل.
+يكتب `npx @agentnative-fork/core@latest connect <url> --client claude-code` إدخال URL فقط MCP لهذا التدفق القياسي. بالنسبة للعملاء الذين لا يمكنهم تنفيذ MCP OAuth عن بعد، استخدم صفحة الاتصال أو البديل `npx @agentnative-fork/core@latest connect --token <token>` لكتابة إدخال صريح للرمز المميز للحامل.
 
 ## إحضار المصادقة الخاصة بك {#byoa}
 
@@ -182,7 +182,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 ```ts
 // server/plugins/auth.ts
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   getSession: async (event) => {
@@ -250,7 +250,7 @@ interface AuthSession {
 على العميل، استخدم الخطاف `useSession()`:
 
 ```ts
-import { useSession } from "@agent-native/core/client";
+import { useSession } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const { session, isLoading } = useSession();

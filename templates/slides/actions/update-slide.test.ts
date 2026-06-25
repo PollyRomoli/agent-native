@@ -48,12 +48,12 @@ vi.mock("drizzle-orm", () => ({
   eq: (...args: unknown[]) => ({ eq: args }),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   buildDeepLink: ({ params }: { params: { deckId: string } }) =>
     `/deck/${params.deckId}`,
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: (...args: unknown[]) => mockAssertAccess(...args),
 }));
 

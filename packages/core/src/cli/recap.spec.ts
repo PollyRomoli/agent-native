@@ -786,7 +786,7 @@ describe("recap prompt builder", () => {
     expect(prompt).toContain("local-files privacy mode");
     expect(prompt).toContain("plans/private-recap");
     expect(prompt).toContain(
-      "npx @agent-native/core@latest plan local preview",
+      "npx @agentnative-fork/core@latest plan local preview",
     );
     expect(prompt).not.toContain("preview.html");
     expect(prompt).toContain("recap-url.txt");
@@ -840,7 +840,7 @@ describe("recap prompt builder", () => {
 
   it("builds the latest bundled skill with sibling reference files", () => {
     const bundle = readVisualRecapSkillBundle(repoRoot, "latest");
-    expect(bundle.source).toBe("bundled:@agent-native/core/visual-recap");
+    expect(bundle.source).toBe("bundled:@agentnative-fork/core/visual-recap");
     expect(bundle.text).toContain("Bundled visual-recap reference files");
     expect(bundle.text).toContain("references/wireframe.md");
     expect(bundle.text).toContain("HTML wireframe quality");
@@ -2214,7 +2214,7 @@ describe("bundled workflow — RECAP_CLI_VERSION pinning", () => {
   it("uses vars.RECAP_CLI_VERSION in the Resolve recap CLI step", () => {
     expect(PR_VISUAL_RECAP_WORKFLOW_YML).toContain("RECAP_CLI_VERSION");
     expect(PR_VISUAL_RECAP_WORKFLOW_YML).toContain(
-      "@agent-native/core@$VERSION",
+      "@agentnative-fork/core@$VERSION",
     );
     expect(PR_VISUAL_RECAP_WORKFLOW_YML).toContain(
       "vars.RECAP_CLI_VERSION || 'latest'",
@@ -2240,7 +2240,7 @@ describe("recap comment body — auth-failure differentiation", () => {
     expect(body).toContain("generation failed");
     expect(body).toContain("PLAN_RECAP_TOKEN");
     expect(body).toContain("expired or revoked");
-    expect(body).toContain("npx -y @agent-native/core@latest reconnect");
+    expect(body).toContain("npx -y @agentnative-fork/core@latest reconnect");
   });
 
   it("shows generic failure copy when RECAP_AUTH_FAILED is absent/false", () => {
@@ -2631,7 +2631,7 @@ describe("reusable workflow file structure", () => {
     // always use the published CLI — consumer repos don't have packages/core.
     expect(content).not.toContain("pnpm exec tsx");
     expect(content).toContain("Install published recap CLI");
-    expect(content).toContain("@agent-native/core@$VERSION");
+    expect(content).toContain("@agentnative-fork/core@$VERSION");
     expect(content).toContain("node_modules/.bin/agent-native");
     expect(content).toContain("RECAP_PLAYWRIGHT");
   });

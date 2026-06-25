@@ -38,7 +38,7 @@ tokens, webhook secrets. It gives you:
 ## When NOT to use
 
 - OAuth flows that need to run the full authorization code exchange — use
-  `@agent-native/core/oauth-tokens` directly to save/refresh tokens. The
+  `@agentnative-fork/core/oauth-tokens` directly to save/refresh tokens. The
   registry can still surface the OAuth connection in the sidebar by
   registering a secret with `kind: "oauth"` — that just delegates status
   lookup to oauth-tokens and renders a Connect button, no `app_secrets` row
@@ -51,8 +51,8 @@ tokens, webhook secrets. It gives you:
 
 ```ts
 // server/plugins/register-secrets.ts
-import { defineNitroPlugin } from "@agent-native/core/server";
-import { registerRequiredSecret } from "@agent-native/core/secrets";
+import { defineNitroPlugin } from "@agentnative-fork/core/server";
+import { registerRequiredSecret } from "@agentnative-fork/core/secrets";
 
 export default defineNitroPlugin(() => {
   registerRequiredSecret({
@@ -112,9 +112,9 @@ row is written — status is derived from `hasOAuthTokens("google")`.
 
 ```ts
 import { z } from "zod";
-import { defineAction } from "@agent-native/core/action";
-import { readAppSecret } from "@agent-native/core/secrets";
-import { getRequestUserEmail } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core/action";
+import { readAppSecret } from "@agentnative-fork/core/secrets";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
 
 export default defineAction({
   description: "Transcribe an audio file with Whisper",
@@ -218,7 +218,7 @@ the tool call — the raw secret value never enters the agent's context.
 import {
   resolveKeyReferences,
   validateUrlAllowlist,
-} from "@agent-native/core/secrets/substitution";
+} from "@agentnative-fork/core/secrets/substitution";
 
 // Resolve all ${keys.NAME} references in a string
 const { resolved, usedKeys } = await resolveKeyReferences(

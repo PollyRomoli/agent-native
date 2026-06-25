@@ -38,7 +38,7 @@ Actions 是您的应用所做的任何事情的唯一事实来源。使用 `defi
 
 ```ts
 // actions/hello.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -83,7 +83,7 @@ pnpm agent "Call hello for Steve and explain the result"
 {
   "filename": "actions/reply-to-email.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread in the user's voice.\",\n  schema: z.object({\n    emailId: z.string().describe(\"The id of the email to reply to.\"),\n    body: z.string().describe(\"The reply body, in markdown.\"),\n  }),\n  run: async ({ emailId, body }) => {\n    await db.insert(replies).values({ emailId, body });\n    return { ok: true, emailId };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread in the user's voice.\",\n  schema: z.object({\n    emailId: z.string().describe(\"The id of the email to reply to.\"),\n    body: z.string().describe(\"The reply body, in markdown.\"),\n  }),\n  run: async ({ emailId, body }) => {\n    await db.insert(replies).values({ emailId, body });\n    return { ok: true, emailId };\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "工具表面", "note": "`description` 是代理读取以决定何时调用此动作的内容。每个字段的 `.describe()` 也会进入 JSON Schema。" },
     { "lines": "6-9", "label": "类型化契约", "note": "一个 schema 会验证来自**每个**界面的输入，并转换为供模型使用的 JSON Schema。无效输入永远不会进入 `run`。" },
@@ -286,7 +286,7 @@ export default defineAction({
 
 ```ts
 // actions/create-lead.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 import { getDb } from "../server/db/index.js";
 import * as schema from "../server/db/schema.js";
@@ -353,14 +353,14 @@ export default defineAction({
 
 ## 从UI调用 {#ui}
 
-两个挂钩，均位于 `@agent-native/core/client` 中。类型是从您的 `defineAction` 架构中推断出来的 - 无需手动类型声明。
+两个挂钩，均位于 `@agentnative-fork/core/client` 中。类型是从您的 `defineAction` 架构中推断出来的 - 无需手动类型声明。
 
 ### `useActionMutation` {#use-action-mutation}
 
 对于改变状态的actions：
 
 ```tsx
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 const { mutate, isPending } = useActionMutation("reply-to-email");
 
@@ -379,7 +379,7 @@ const { mutate, isPending } = useActionMutation("reply-to-email");
 对于只读 GET actions：
 
 ```ts
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 const { data, isLoading } = useActionQuery("get-lead", { leadId });
 ```
@@ -394,12 +394,12 @@ Actions 可以返回应用内聊天呈现的结构化小部件数据
 外部 MCP 主机。
 
 ```ts
-import { defineAction } from "@agent-native/core/action";
-import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agent-native/core/action-ui";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agentnative-fork/core/action-ui";
 import {
   createDataInsightsWidgetResult,
   dataInsightsWidgetResultSchema,
-} from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core/data-widgets";
 
 export default defineAction({
   description: "Summarize response trends.",
@@ -434,7 +434,7 @@ export default defineAction({
 
 内置判别式为 `"data-table"`、`"data-chart"` 和
 `"data-insights"`，具有服务器安全的构建器和架构
-`@agent-native/core/data-widgets`。见[Native Chat UI](/docs/native-chat-ui)
+`@agentnative-fork/core/data-widgets`。见[Native Chat UI](/docs/native-chat-ui)
 获取完整结果合约和 BYO 运行时指南，或
 [Agent Surfaces](/docs/agent-surfaces) 了解如何保持相同的操作
 无头、在聊天中渲染或变成全屏。
@@ -462,7 +462,7 @@ JSON 输入是代理和复杂对象的首选形状。标志是
 对于支持 UI 的 MCP 主机，操作可以通过 `mcpApp` 字段（加上匹配的 `link`）声明可选的 MCP Apps 资源，以便有能力的主机内联渲染结果。当 `link` 和 `mcpApp` 应指向同一路线时，`embedRoute()` 从一个纯路径构建器构建两者：
 
 ```ts
-import { embedRoute } from "@agent-native/core";
+import { embedRoute } from "@agentnative-fork/core";
 
 export default defineAction({
   description: "Create an email draft for review.",
@@ -491,8 +491,8 @@ export default defineAction({
 
 ```ts
 // actions/view-screen.ts
-import { defineAction } from "@agent-native/core/action";
-import { readAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { readAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -518,8 +518,8 @@ export default defineAction({
 
 ```ts
 // actions/navigate.ts
-import { defineAction } from "@agent-native/core/action";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -541,7 +541,7 @@ export default defineAction({
 
 ```ts
 // actions/debug-dump.ts — CLI-only
-import { parseArgs } from "@agent-native/core";
+import { parseArgs } from "@agentnative-fork/core";
 
 export default async function main(args: string[]) {
   const { table } = parseArgs(args);
@@ -556,7 +556,7 @@ export default async function main(args: string[]) {
 旧式 actions 的帮助程序。解析 `--key value` 或 `--key=value` 格式的 CLI 参数：
 
 ```ts
-import { parseArgs } from "@agent-native/core";
+import { parseArgs } from "@agentnative-fork/core";
 
 const args = parseArgs(["--name", "Steve", "--verbose", "--count=3"]);
 // { name: "Steve", verbose: "true", count: "3" }

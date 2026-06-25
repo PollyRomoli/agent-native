@@ -7,7 +7,7 @@ import {
   type ClientLoaderFunctionArgs,
   type LoaderFunctionArgs,
 } from "react-router";
-import { useActionQuery, appPath, useT } from "@agent-native/core/client";
+import { useActionQuery, appPath, useT } from "@agentnative-fork/core/client";
 import {
   IconArrowLeft,
   IconArrowUpRight,

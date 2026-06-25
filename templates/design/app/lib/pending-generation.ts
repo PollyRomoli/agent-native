@@ -1,5 +1,5 @@
 import type { UploadedFile } from "@/components/editor/PromptDialog";
-import type { PromptComposerSubmitOptions } from "@agent-native/core/client";
+import type { PromptComposerSubmitOptions } from "@agentnative-fork/core/client";
 
 // Pending generation state is a UI recovery aid, not a generation deadline.
 // Keep it long enough for thorough designs while still clearing abandoned runs.

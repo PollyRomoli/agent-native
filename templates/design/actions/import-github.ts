@@ -1,6 +1,6 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
-import { resolveSecret } from "@agent-native/core/server";
+import { resolveSecret } from "@agentnative-fork/core/server";
 import {
   validateUrl,
   parseOwnerRepo,
@@ -15,7 +15,7 @@ import {
   ROOT_PATTERNS,
   SECONDARY_PATHS,
   COLOR_VAR_PATTERN,
-} from "@agent-native/core/server/design-token-utils";
+} from "@agentnative-fork/core/server/design-token-utils";
 
 function githubAccessError(
   owner: string,

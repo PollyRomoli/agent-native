@@ -74,7 +74,7 @@ Der Rest dieses Dokuments richtet sich an alle, die die Kalendervorlage verzweig
 Erstellen Sie einen neuen Arbeitsbereich mit der Kalendervorlage:
 
 ```bash
-npx @agent-native/core@latest create my-app --standalone --template calendar
+npx @agentnative-fork/core@latest create my-app --standalone --template calendar
 cd my-app
 pnpm install
 pnpm dev

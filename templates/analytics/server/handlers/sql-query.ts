@@ -6,7 +6,7 @@ import {
 import { runQuery } from "../lib/bigquery";
 import { runReport } from "../lib/google-analytics";
 import { getUserSegmentation, queryEvents } from "../lib/amplitude";
-import { readBody } from "@agent-native/core/server";
+import { readBody } from "@agentnative-fork/core/server";
 import { queryFirstPartyAnalytics } from "../lib/first-party-analytics";
 import {
   runPrometheusPanel,

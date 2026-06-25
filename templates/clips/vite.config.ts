@@ -1,7 +1,7 @@
 import path from "path";
 import { createRequire } from "module";
 import { reactRouter } from "@react-router/dev/vite";
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import { defineConfig } from "vite";
 
 const _require = createRequire(import.meta.url);

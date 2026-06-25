@@ -1,5 +1,5 @@
-import { runScript } from "@agent-native/core/scripts";
-import { dispatchActions } from "@agent-native/dispatch/actions";
+import { runScript } from "@agentnative-fork/core/scripts";
+import { dispatchActions } from "@agentnative-fork/dispatch/actions";
 
 runScript({
   packageActions: dispatchActions,

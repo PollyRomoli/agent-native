@@ -13,7 +13,7 @@
  *   or edits it; the list itself is not an import/sync cache.
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   and,
@@ -29,7 +29,7 @@ import {
   sql,
 } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { accessFilter } from "@agent-native/core/sharing";
+import { accessFilter } from "@agentnative-fork/core/sharing";
 import { listEvents } from "../server/lib/google-calendar-client.js";
 import {
   calendarEventToMeetingView,

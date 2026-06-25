@@ -5,7 +5,7 @@
  * their own app-local `react-router` dependency:
  *
  *   import { ServerRouter } from "react-router";
- *   import { createDocumentRequestHandler, streamTimeout } from "@agent-native/core/server/entry-server";
+ *   import { createDocumentRequestHandler, streamTimeout } from "@agentnative-fork/core/server/entry-server";
  *
  *   const handleDocumentRequest = createDocumentRequestHandler(ServerRouter);
  *   export { streamTimeout };

@@ -1,17 +1,17 @@
 import { eq, and } from "drizzle-orm";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
 import {
   registerBuiltinEngines,
   resolveEngine,
-} from "@agent-native/core/agent/engine";
-import { runWithRequestContext } from "@agent-native/core/server";
+} from "@agentnative-fork/core/agent/engine";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
 import {
   listOAuthAccounts,
   listOAuthAccountsByOwner,
   getOAuthTokens,
   saveOAuthTokens,
-} from "@agent-native/core/oauth-tokens";
-import { emit } from "@agent-native/core/event-bus";
+} from "@agentnative-fork/core/oauth-tokens";
+import { emit } from "@agentnative-fork/core/event-bus";
 import { db, schema } from "../db/index.js";
 import {
   createOAuth2Client,
@@ -428,7 +428,7 @@ async function callModel(
     // main chat in the Usage settings panel.
     if (usage) {
       try {
-        const { recordUsage } = await import("@agent-native/core");
+        const { recordUsage } = await import("@agentnative-fork/core");
         await recordUsage({
           ownerEmail,
           inputTokens: usage.inputTokens,

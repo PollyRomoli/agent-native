@@ -16,7 +16,7 @@ Search is built at runtime from the loaded markdown docs. There is no generated 
 ## Development
 
 ```bash
-pnpm --filter @agent-native/docs dev
+pnpm --filter @agentnative-fork/docs dev
 ```
 
 The dev server runs through `agent-native dev` on port 3000.
@@ -24,7 +24,7 @@ The dev server runs through `agent-native dev` on port 3000.
 ## Testing
 
 ```bash
-pnpm --filter @agent-native/docs test
+pnpm --filter @agentnative-fork/docs test
 node scripts/guard-template-list.mjs
 ```
 
@@ -33,7 +33,7 @@ The template-list guard enforces that public template surfaces only include allo
 ## Build
 
 ```bash
-pnpm --filter @agent-native/docs build
+pnpm --filter @agentnative-fork/docs build
 ```
 
 Build output goes to the docs package `dist/` directory. The build also refreshes `public/source-index.json` and `public/sitemap.xml`.

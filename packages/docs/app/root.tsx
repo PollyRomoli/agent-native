@@ -19,7 +19,7 @@ import {
   configureTracking,
   getLocaleInitScript,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import {

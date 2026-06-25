@@ -22,13 +22,13 @@ description: "独自のエージェント ネイティブ アプリ テンプレ
 フレームワークの配線がすでに整っている最小限のアプリが必要な場合は、チャット テンプレートを使用します。
 
 ```bash
-npx @agent-native/core@latest create my-template --template chat --standalone
+npx @agentnative-fork/core@latest create my-template --template chat --standalone
 ```
 
 複数のアプリを含むワークスペースの場合は、ピッカーを実行し、必要なドメイン テンプレートを使用してチャットを含めます。
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 チャットでは、認証、耐久性のあるチャット スレッド、SQL を利用したリソース、ツール、アプリケーションの状態、actions、ポーリング同期が提供されます。ドメイン モデルと製品 UI を追加します。
@@ -87,7 +87,7 @@ import {
   now,
   ownableColumns,
   createSharesTable,
-} from "@agent-native/core/db/schema";
+} from "@agentnative-fork/core/db/schema";
 
 export const projects = table("projects", {
   id: text("id").primaryKey(),
@@ -112,7 +112,7 @@ export const projectShares = createSharesTable("project_shares");
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -145,7 +145,7 @@ Actions は、アプリの動作に関する唯一の信頼できる情報源で
 {
   "filename": "actions/create-project.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { getDb } from \"../server/db/index.js\";\nimport { nanoid } from \"nanoid\";\nimport { z } from \"zod\";\nimport * as schema from \"../server/db/schema\";\n\nexport default defineAction({\n  description: \"Create a project.\",\n  schema: z.object({\n    title: z.string().min(1).describe(\"Project title\"),\n  }),\n  run: async ({ title }, ctx) => {\n    const db = getDb();\n    const id = nanoid();\n    await db.insert(schema.projects).values({\n      id,\n      title,\n      ownerEmail: ctx.userEmail,\n      orgId: ctx.orgId,\n    });\n    return { id, title };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { getDb } from \"../server/db/index.js\";\nimport { nanoid } from \"nanoid\";\nimport { z } from \"zod\";\nimport * as schema from \"../server/db/schema\";\n\nexport default defineAction({\n  description: \"Create a project.\",\n  schema: z.object({\n    title: z.string().min(1).describe(\"Project title\"),\n  }),\n  run: async ({ title }, ctx) => {\n    const db = getDb();\n    const id = nanoid();\n    await db.insert(schema.projects).values({\n      id,\n      title,\n      ownerEmail: ctx.userEmail,\n      orgId: ctx.orgId,\n    });\n    return { id, title };\n  },\n});",
   "annotations": [
     { "lines": "2", "note": "`getDb` is created per app via `createGetDb(schema)` in `server/db/index.ts`." },
     { "lines": "8", "label": "Tool surface", "note": "The `description` is what the agent reads to decide when to call this action as a tool." },
@@ -162,7 +162,7 @@ Actions は、アプリの動作に関する唯一の信頼できる情報源で
 ルートは `app/routes/` に存在し、React Router v7 ファイル ルーティングを使用します。 actions または API ハンドラーを通じてデータをクエリし、デフォルトでミューテーションを楽観的にします。
 
 ```tsx
-import { useActionMutation, useActionQuery } from "@agent-native/core/client";
+import { useActionMutation, useActionQuery } from "@agentnative-fork/core/client";
 
 export default function ProjectsPage() {
   const { data: projects = [] } = useActionQuery("list-projects", {});
@@ -179,7 +179,7 @@ export default function ProjectsPage() {
 ライブ同期をアプリ シェルの近くに 1 回接続して、エージェント、別のタブ、またはアクションがデータを変更したときに React クエリ キャッシュが更新されるようにします。
 
 ```tsx
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 export function AppSync() {
@@ -192,7 +192,7 @@ export function AppSync() {
 **エージェント ネイティブの約束: エージェントの書き込みは手動更新なしで UI に表示されます。** `useActionQuery` が簡単なパスです。変更アクションが `source: "action"` を発行すると、すべてのフックが再フェッチされます。カスタム キー (統合ステータスを読み取る低レベルのクライアント ヘルパーなど) を使用して生の `useQuery` に到達する場合は、ターゲットを絞った更新のためにソースごとのカウンターを queryKey に組み込みます。
 
 ```tsx
-import { useChangeVersions } from "@agent-native/core/client";
+import { useChangeVersions } from "@agentnative-fork/core/client";
 
 const v = useChangeVersions(["dashboards", "action"]);
 useQuery({
@@ -215,7 +215,7 @@ useQuery({
 アプリケーション状態の書き込み、タブスコープのコマンド読み取り、読み取り後の削除、および重複コマンド保護の一貫性を維持するには、UI フックに `useAgentRouteState` を使用します。
 
 ```tsx
-import { useAgentRouteState } from "@agent-native/core/client";
+import { useAgentRouteState } from "@agentnative-fork/core/client";
 import { TAB_ID } from "@/lib/tab-id";
 
 export function useNavigationState() {
@@ -240,8 +240,8 @@ URL クエリ パラメータで共有可能なフィルターを保持します
 
 ```ts
 // actions/navigate.ts
-import { defineAction } from "@agent-native/core/action";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -335,8 +335,8 @@ Use this skill when the user uploads a legacy project CSV.
 
 ```ts
 // server/plugins/onboarding.ts
-import { defineNitroPlugin } from "@agent-native/core/server";
-import { registerOnboardingStep } from "@agent-native/core/onboarding";
+import { defineNitroPlugin } from "@agentnative-fork/core/server";
+import { registerOnboardingStep } from "@agentnative-fork/core/onboarding";
 
 export default defineNitroPlugin(() => {
   registerOnboardingStep({
@@ -389,7 +389,7 @@ export default defineNitroPlugin(() => {
 コミュニティ テンプレートは、GitHub リポジトリから作成できます。
 
 ```bash
-npx @agent-native/core@latest create my-app --template github:user/repo
+npx @agentnative-fork/core@latest create my-app --template github:user/repo
 ```
 
 ## フレームワークモノリポジトリへの貢献 {#contributing}
@@ -401,11 +401,11 @@ npx @agent-native/core@latest create my-app --template github:user/repo
 ローカルパッケージフラグ:
 
 ```bash
-AGENT_NATIVE_CREATE_USE_LOCAL_CORE=1 pnpm --filter @agent-native/core create my-platform
+AGENT_NATIVE_CREATE_USE_LOCAL_CORE=1 pnpm --filter @agentnative-fork/core create my-platform
 ```
 
-生成されたワークスペースは、ローカルの `@agent-native/core` と
-`@agent-native/dispatch` パッケージのため、コア API、ディスパッチ ワークスペースに変更
+生成されたワークスペースは、ローカルの `@agentnative-fork/core` と
+`@agentnative-fork/dispatch` パッケージのため、コア API、ディスパッチ ワークスペースに変更
 動作やファーストパーティのテンプレートは、公開前にテストできます。パッケージ
 `prepack` スクリプトは、リンク前に `dist` をビルドし、生成されたファイルを保持します
 現在のビルド出力を指すワークスペース。

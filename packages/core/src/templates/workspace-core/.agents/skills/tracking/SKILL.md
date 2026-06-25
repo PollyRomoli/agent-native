@@ -29,7 +29,7 @@ The tracking system provides a single `track()` call that fans out to all regist
 Fire an analytics event.
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "meal.logged",
@@ -43,7 +43,7 @@ track(
 Identify a user with traits. Forwarded to providers that support it.
 
 ```ts
-import { identify } from "@agent-native/core/tracking";
+import { identify } from "@agentnative-fork/core/tracking";
 
 identify("user@example.com", { plan: "pro", company: "ExampleCo" });
 ```
@@ -53,7 +53,7 @@ identify("user@example.com", { plan: "pro", company: "ExampleCo" });
 Register a custom provider.
 
 ```ts
-import { registerTrackingProvider } from "@agent-native/core/tracking";
+import { registerTrackingProvider } from "@agentnative-fork/core/tracking";
 
 registerTrackingProvider({
   name: "my-analytics",
@@ -124,7 +124,7 @@ These fields land in the `analytics_events.anonymous_id`, `analytics_events.sess
 
 - `localStorage` key `an_attribution` and first-party cookie `an_ft` (`path=/; max-age=2592000; SameSite=Lax`, not HttpOnly — non-sensitive, written by client JS).
 - Both store the same URL-encoded compact JSON (empty fields omitted, each value capped at 120 chars): `{ ref, via, utm_source, utm_medium, utm_campaign, utm_content, utm_term, landing_path, landing_referrer, landed_at }`. `landing_referrer` is the **host only** of `document.referrer` (scrubbed; same-origin referrers are dropped).
-- `getFirstTouchAttribution()` (from `@agent-native/core/client`) returns the parsed object or `null`.
+- `getFirstTouchAttribution()` (from `@agentnative-fork/core/client`) returns the parsed object or `null`.
 
 **Signup event enrichment** (server-side, from the `an_ft` cookie on the signup/OAuth-callback request, derived in `packages/core/src/server/attribution.ts`):
 

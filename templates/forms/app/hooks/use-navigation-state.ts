@@ -2,7 +2,7 @@ import {
   appBasePath,
   markAgentChatHomeHandoff,
   useAgentRouteState,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { useLocation } from "react-router";
 import {
   formsRoutePath,

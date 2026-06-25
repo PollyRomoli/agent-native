@@ -4,16 +4,16 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
-import { Button } from "@agent-native/dispatch/components/ui/button";
+} from "@agentnative-fork/core/client";
+import { Button } from "@agentnative-fork/dispatch/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@agent-native/dispatch/components/ui/card";
-import { Label } from "@agent-native/dispatch/components/ui/label";
+} from "@agentnative-fork/dispatch/components/ui/card";
+import { Label } from "@agentnative-fork/dispatch/components/ui/label";
 import changelog from "../../CHANGELOG.md?raw";
 
 export function meta() {

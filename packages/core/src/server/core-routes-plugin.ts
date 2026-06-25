@@ -3319,7 +3319,7 @@ export function createCoreRoutesPlugin(
  * Usage in templates:
  * ```ts
  * // server/plugins/core-routes.ts
- * export { defaultCoreRoutesPlugin as default } from "@agent-native/core/server";
+ * export { defaultCoreRoutesPlugin as default } from "@agentnative-fork/core/server";
  * ```
  */
 export const defaultCoreRoutesPlugin: NitroPluginDef = createCoreRoutesPlugin();

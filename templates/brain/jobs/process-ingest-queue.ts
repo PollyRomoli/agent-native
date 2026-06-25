@@ -1,5 +1,5 @@
 import { and, asc, eq, isNull, lte, or } from "drizzle-orm";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 import { getDb, schema } from "../server/db/index.js";
 import {
   nowIso,
@@ -183,7 +183,7 @@ function buildDistillationMessage(
 
 async function defaultDistillationRunner(context: DistillationAgentContext) {
   const { guidance } = await readBrainAgentGuidance();
-  const core = await import("@agent-native/core/server");
+  const core = await import("@agentnative-fork/core/server");
   const registry = await import("../.generated/actions-registry.js");
   const actions = core.loadActionsFromStaticRegistry(
     ((registry as { default?: unknown }).default ?? registry) as Record<

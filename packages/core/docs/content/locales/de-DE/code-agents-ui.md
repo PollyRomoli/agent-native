@@ -17,17 +17,17 @@ description: "Erstellen und passen Sie Agent-Native-Codeoberflächen mit dem gem
 | Tausch das Backend, das das **`run-code`-Tool** des Agenten ausführt               | [Adapters](/docs/sandbox-adapters)     |
 | Verpacken Sie ein CLI-Tool (`gh`, `ffmpeg`), damit der Agent anrufen kann          | [Adapters](/docs/sandbox-adapters)     |
 
-Agent-Native Code ist die Agent-Native-Codierungsoberfläche: ein lokaler Arbeitsbereich im Claude Code/Codex-Stil für Codierungssitzungen, Slash-Befehle, Migrationen, Audits, Transkripte, Laufkontrollen und Nachverfolgungen. Ein einfacher `npx @agent-native/core@latest`-Befehl öffnet diesen Arbeitsbereich; `npx @agent-native/core@latest code` ist der explizite Unterbefehl für dasselbe Erlebnis.
+Agent-Native Code ist die Agent-Native-Codierungsoberfläche: ein lokaler Arbeitsbereich im Claude Code/Codex-Stil für Codierungssitzungen, Slash-Befehle, Migrationen, Audits, Transkripte, Laufkontrollen und Nachverfolgungen. Ein einfacher `npx @agentnative-fork/core@latest`-Befehl öffnet diesen Arbeitsbereich; `npx @agentnative-fork/core@latest code` ist der explizite Unterbefehl für dasselbe Erlebnis.
 
 Es gibt drei Ebenen:
 
-- **CLI**: `npx @agent-native/core@latest` und `npx @agent-native/core@latest code` starten, fortsetzen, prüfen und stoppen Läufe.
+- **CLI**: `npx @agentnative-fork/core@latest` und `npx @agentnative-fork/core@latest code` starten, fortsetzen, prüfen und stoppen Läufe.
 - **Desktop**: Die Registerkarte „Code“ in der linken Seitenleiste fügt nativen Terminalstart, App-Webansichten und Desktop-Deep-Links hinzu, während dasselbe Ausführungsmodell verwendet wird.
-- **Shared UI**: `@agent-native/code-agents-ui` rendert die wiederverwendbare React-Oberfläche.
+- **Shared UI**: `@agentnative-fork/code-agents-ui` rendert die wiederverwendbare React-Oberfläche.
 
 ```an-diagram title="Drei Schichten über einem Run Store" summary="CLI, Desktop und die gemeinsame Benutzeroberfläche sind unterschiedliche Oberflächen über denselben dateigestützten Ausführungsspeicher und Executor; Hosts passen es über den CodeAgentsHost-Vertrag an."
 {
-  "html": "<div class=\"diagram-layers\"><div class=\"diagram-row\"><div class=\"diagram-card\" data-rough><span class=\"diagram-pill\">CLI</span><small class=\"diagram-muted\">start · resume · status · stop</small></div><div class=\"diagram-card\" data-rough><span class=\"diagram-pill\">Desktop</span><small class=\"diagram-muted\">native terminal · webviews · deep links</small></div><div class=\"diagram-card\" data-rough><span class=\"diagram-pill accent\">Teilend UI</span><small class=\"diagram-muted\">@agent-native/code-agents-ui</small></div></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-panel center\" data-rough><span class=\"diagram-pill\">CodeAgentsHost</span><small class=\"diagram-muted\">host contract</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box\" data-rough>File-backed run store + executor<br><small class=\"diagram-muted\">@agent-native/core/code-agents</small></div></div>",
+  "html": "<div class=\"diagram-layers\"><div class=\"diagram-row\"><div class=\"diagram-card\" data-rough><span class=\"diagram-pill\">CLI</span><small class=\"diagram-muted\">start · resume · status · stop</small></div><div class=\"diagram-card\" data-rough><span class=\"diagram-pill\">Desktop</span><small class=\"diagram-muted\">native terminal · webviews · deep links</small></div><div class=\"diagram-card\" data-rough><span class=\"diagram-pill accent\">Teilend UI</span><small class=\"diagram-muted\">@agentnative-fork/code-agents-ui</small></div></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-panel center\" data-rough><span class=\"diagram-pill\">CodeAgentsHost</span><small class=\"diagram-muted\">host contract</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box\" data-rough>File-backed run store + executor<br><small class=\"diagram-muted\">@agentnative-fork/core/code-agents</small></div></div>",
   "css": ".diagram-layers{display:flex;flex-direction:column;gap:10px;align-items:center}.diagram-layers .diagram-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}.diagram-layers .diagram-card{display:flex;flex-direction:column;gap:4px;padding:12px 16px}.diagram-layers .diagram-arrow{font-size:22px;line-height:1}.diagram-layers .center{display:flex;flex-direction:column;align-items:center;gap:4px}"
 }
 ```
@@ -37,8 +37,8 @@ Die aktuelle Aufteilung ist absichtlich konvergierend: Die Standard-Agenten-Seit
 Das gemeinsam genutzte UI ist hostgesteuert. Es weiß nicht, ob es in Electron, einer Browservorlage oder einer künftig gehosteten Shell ausgeführt wird. Hosts stellen eine `CodeAgentsHost`-Implementierung bereit.
 
 ```ts
-import { CodeAgentsApp, type CodeAgentsHost } from "@agent-native/code-agents-ui";
-import "@agent-native/code-agents-ui/styles.css";
+import { CodeAgentsApp, type CodeAgentsHost } from "@agentnative-fork/code-agents-ui";
+import "@agentnative-fork/code-agents-ui/styles.css";
 
 const host: CodeAgentsHost = {
   listRuns: (goalId) => listRunsSomehow(goalId),
@@ -105,9 +105,9 @@ explizit aktiviert.
 Die alte versteckte `code`-Vorlage wurde entfernt. Um eine vom Browser gehostete Codeoberfläche zu erstellen, erstellen Sie eine normale App und mounten das freigegebene UI-Paket mit einer Host-Implementierung:
 
 ```bash
-npx @agent-native/core@latest create my-code-ui --template chat
+npx @agentnative-fork/core@latest create my-code-ui --template chat
 cd my-code-ui
-pnpm add @agent-native/code-agents-ui
+pnpm add @agentnative-fork/code-agents-ui
 pnpm install
 pnpm dev
 ```
@@ -124,7 +124,7 @@ actions – Zuordnung jeder `CodeAgentsHost`-Methode zum Laufspeicher, zum Beisp
 - eine „Aktualisierungslauf“-Aktion, die `updateRun` unterstützt
 - eine „Kontrolllauf“-Aktion, die `controlRun` unterstützt
 
-Jeder ruft `@agent-native/core/code-agents` auf, wodurch dasselbe verfügbar gemacht wird
+Jeder ruft `@agentnative-fork/core/code-agents` auf, wodurch dasselbe verfügbar gemacht wird
 dateigestützter Ausführungsspeicher und Executor, der vom CLI verwendet wird.
 
 ## CLI Laufkontrollen
@@ -132,19 +132,19 @@ dateigestützter Ausführungsspeicher und Executor, der vom CLI verwendet wird.
 Der CLI der obersten Ebene verhält sich wie der Claude-Code oder der Codex:
 
 ```bash
-npx @agent-native/core@latest
-npx @agent-native/core@latest "fix the failing auth tests"
-npx @agent-native/core@latest code
+npx @agentnative-fork/core@latest
+npx @agentnative-fork/core@latest "fix the failing auth tests"
+npx @agentnative-fork/core@latest code
 ```
 
-Verwenden Sie `npx @agent-native/core@latest code`, wenn Sie den expliziten Namespace wünschen. Eingebauter Schrägstrich
+Verwenden Sie `npx @agentnative-fork/core@latest code`, wenn Sie den expliziten Namespace wünschen. Eingebauter Schrägstrich
 Ziele und Projektbefehle können im interaktiven Arbeitsbereich oder direkt ausgeführt werden
 aus der Shell:
 
 ```bash
-npx @agent-native/core@latest code /migrate ./legacy-app --emit ./migration-dossier
-npx @agent-native/core@latest code /audit --url https://example.com
-npx @agent-native/core@latest code /release-check
+npx @agentnative-fork/core@latest code /migrate ./legacy-app --emit ./migration-dossier
+npx @agentnative-fork/core@latest code /audit --url https://example.com
+npx @agentnative-fork/core@latest code /release-check
 ```
 
 Hier sind `/migrate` und `/audit` integrierte Ziele (die integrierten Ziele sind
@@ -155,13 +155,13 @@ Befehle kommen von `.agents/commands/*.md`; Projekt skills stammen von
 zeichnet auf, dass auf der Registerkarte „Desktop-Code“ und der freigegebenen UI Folgendes angezeigt wird:
 
 ```bash
-npx @agent-native/core@latest code list
-npx @agent-native/core@latest code status --last
-npx @agent-native/core@latest code attach --last
-npx @agent-native/core@latest code logs --last
-npx @agent-native/core@latest code resume --last
-npx @agent-native/core@latest code stop --last
-npx @agent-native/core@latest code ui
+npx @agentnative-fork/core@latest code list
+npx @agentnative-fork/core@latest code status --last
+npx @agentnative-fork/core@latest code attach --last
+npx @agentnative-fork/core@latest code logs --last
+npx @agentnative-fork/core@latest code resume --last
+npx @agentnative-fork/core@latest code stop --last
+npx @agentnative-fork/core@latest code ui
 ```
 
 `resume` hängt Kontext an und setzt einen Lauf fort, `status` meldet den letzten Lauf
@@ -182,7 +182,7 @@ Bewertung, Architektur, Überprüfung oder jede Aufgabe, bei der Sie vorher eine
 Änderungen.
 
 Für oberflächenübergreifende Listen, Dashboards oder Überwachungsbereiche bevorzugen Sie die gemeinsame Nutzung
-Im Hintergrund ausgeführte Exporte von `@agent-native/core/code-agents` über das Lesen von Code
+Im Hintergrund ausgeführte Exporte von `@agentnative-fork/core/code-agents` über das Lesen von Code
 Dateien direkt ausführen. Sie normalisieren lokale Codesitzungen im gleichen Vokabular
 wird von gehosteten Hintergrundarbeiten verwendet: Lauf-ID, Status, CWD, Bedarfseingabe,
 Genehmigung erforderlich, Transkriptereignisse und Artefaktstamm.
@@ -248,7 +248,7 @@ Browser-Hosts sollten einen ordnungsgemäßen `openTerminal`-Fehler zurückgeben
 ## Gemeinsamer Komponist
 
 Agent-Native-Code verwendet dasselbe `AgentComposerFrame` + `PromptComposer` /
-`TiptapComposer`-Stack wurde aus `@agent-native/core/client/composer` als
+`TiptapComposer`-Stack wurde aus `@agentnative-fork/core/client/composer` als
 Framework-Agent-Seitenleiste. Verzweigen Sie kein separates
 Textbereich, Codierungstool-Auswahl, Upload-Auswahl, Sprachschaltfläche, Modellauswahl oder Enter-to-Submit
 Implementierung für Code-ähnliche Oberflächen. Wenn ein Host ein zusätzliches Steuerelement benötigt, übergeben Sie
@@ -295,13 +295,13 @@ Agent-Native Code behandelt Migration als eine Funktion, nicht als separate App-
 `/migrate` ist das integrierte Ziel für die Verschiebung einer vorhandenen App, URL, oder eines beschriebenen Produkts nach Agent-Native. Es handelt sich um ein Slash-Ziel im Code-Arbeitsbereich – keine separate Vorlage zum Gerüstbauen und kein einmaliges Produkt – es nutzt also den gleichen Sitzungsspeicher, die gleiche Transkription, die gleichen Ausführungssteuerungen und den gleichen Desktop-Hub wie jede andere Code-Sitzung, und Sie können sie auf die gleiche Weise fortsetzen, anhängen, prüfen und stoppen.
 
 ```bash
-npx @agent-native/core@latest code /migrate ./my-next-app --out ../migrated-app
-npx @agent-native/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
-npx @agent-native/core@latest code /migrate --describe "A Rails admin app with reports and CSV imports" --emit
-npx @agent-native/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
+npx @agentnative-fork/core@latest code /migrate ./my-next-app --out ../migrated-app
+npx @agentnative-fork/core@latest code /migrate https://example.com --describe "marketing site plus dashboard"
+npx @agentnative-fork/core@latest code /migrate --describe "A Rails admin app with reports and CSV imports" --emit
+npx @agentnative-fork/core@latest migrate ./my-next-app --out ../migrated-app   # shortcut into the same goal
 ```
 
-Lokale Quellpfade sind schreibgeschützt; Die generierte Ausgabe muss außerhalb des Quellbaums liegen. Verwenden Sie `--emit <dir>`, um ein tragbares Migrationsdossier zu schreiben (`AGENTS.md`, `MIGRATION_PLAYBOOK.md`, Bewertung und ein `ir.json`-Inventar, sofern verfügbar) und übergeben Sie es an einen anderen Codierungsagenten, anstatt die interne Ausführungsoberfläche zu öffnen. `/migrate` verwendet das normale Anmeldeinformationssystem des Frameworks wieder – es gibt keinen migrationsspezifischen Schlüsselspeicher. Das `@agent-native/migrate`-Paket stellt eine wiederverwendbare Engine (`createMigrationRun`, `discoverMigration`, `planMigration`, Quell-/Zieladapter) für benutzerdefinierte Workflows bereit.
+Lokale Quellpfade sind schreibgeschützt; Die generierte Ausgabe muss außerhalb des Quellbaums liegen. Verwenden Sie `--emit <dir>`, um ein tragbares Migrationsdossier zu schreiben (`AGENTS.md`, `MIGRATION_PLAYBOOK.md`, Bewertung und ein `ir.json`-Inventar, sofern verfügbar) und übergeben Sie es an einen anderen Codierungsagenten, anstatt die interne Ausführungsoberfläche zu öffnen. `/migrate` verwendet das normale Anmeldeinformationssystem des Frameworks wieder – es gibt keinen migrationsspezifischen Schlüsselspeicher. Das `@agentnative-fork/migrate`-Paket stellt eine wiederverwendbare Engine (`createMigrationRun`, `discoverMigration`, `planMigration`, Quell-/Zieladapter) für benutzerdefinierte Workflows bereit.
 
 Projektspezifische Befehle leben in:
 
@@ -317,7 +317,7 @@ Projekt skills live in:
 .agents/skills/*/SKILL.md
 ```
 
-Wenn der Host `listCodePacks` implementiert, zeigt der gemeinsam genutzte UI Projektbefehle und skills in der Schiene an. Befehlszeilen fügen `/<command>` ein, und Fertigkeitszeilen fügen eine fokussierte Eingabeaufforderung „Verwenden Sie die Fertigkeit <skill>…“ ein, damit die Schiene umsetzbar bleibt. Die integrierten Slash-Ziele `/migrate` und `/audit` bleiben für die globalen Agent-Native-Codesteuerelemente reserviert, ebenso wie Run-Control-Namen wie `status` und `resume` – das sind Unterbefehle, die ohne Schrägstrich aufgerufen werden (`npx @agent-native/core@latest code status`, `npx @agent-native/core@latest code resume`), keine Slash-Ziele.
+Wenn der Host `listCodePacks` implementiert, zeigt der gemeinsam genutzte UI Projektbefehle und skills in der Schiene an. Befehlszeilen fügen `/<command>` ein, und Fertigkeitszeilen fügen eine fokussierte Eingabeaufforderung „Verwenden Sie die Fertigkeit <skill>…“ ein, damit die Schiene umsetzbar bleibt. Die integrierten Slash-Ziele `/migrate` und `/audit` bleiben für die globalen Agent-Native-Codesteuerelemente reserviert, ebenso wie Run-Control-Namen wie `status` und `resume` – das sind Unterbefehle, die ohne Schrägstrich aufgerufen werden (`npx @agentnative-fork/core@latest code status`, `npx @agentnative-fork/core@latest code resume`), keine Slash-Ziele.
 
 Erstellen Sie keine separate Slash-Befehls-Registrierung für einen neuen Code-Host. Projekt
 Befehle und skills werden von `.agents/commands/*.md` und
@@ -426,7 +426,7 @@ Telegram verwendet das gleiche Relay über Dispatch. Unterstützte Befehle sind:
 Paket-Stylesheet importieren:
 
 ```ts
-import "@agent-native/code-agents-ui/styles.css";
+import "@agentnative-fork/code-agents-ui/styles.css";
 ```
 
 Das Stylesheet verwendet dieselben benutzerdefinierten HSL-Eigenschaften im Shadcn-Stil wie die Vorlagen und die Desktop-Shell. Ändern Sie lieber Token oder kleine Klassenüberschreibungen in der Host-App, bevor Sie das gemeinsam genutzte UI forken.

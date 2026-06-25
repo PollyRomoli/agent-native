@@ -1,12 +1,12 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import { eq } from "drizzle-orm";
-import { assertAccess } from "@agent-native/core/sharing";
+import { assertAccess } from "@agentnative-fork/core/sharing";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { getDb, schema } from "../server/db/index.js";
 import {
   DEFAULT_GENERATION_REFERENCE_LIMIT,

@@ -2,11 +2,11 @@
  * Get a single meeting (with its participants and action items) — access checked.
  */
 
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { and, eq, isNull } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
-import { resolveAccess } from "@agent-native/core/sharing";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import {
   materializeCalendarMeetingFromVirtualId,
   parseCalendarMeetingId,

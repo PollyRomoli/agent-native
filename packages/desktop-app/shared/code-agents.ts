@@ -1,1 +1,1 @@
-export * from "@agent-native/code-agents-ui/code-agents";
+export * from "@agentnative-fork/code-agents-ui/code-agents";

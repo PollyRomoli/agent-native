@@ -111,7 +111,7 @@ export function createResourcesPlugin(): NitroPluginDef {
  * Usage in templates:
  * ```ts
  * // server/plugins/resources.ts
- * import { defaultResourcesPlugin } from "@agent-native/core/server";
+ * import { defaultResourcesPlugin } from "@agentnative-fork/core/server";
  * export default defaultResourcesPlugin;
  * ```
  */

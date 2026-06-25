@@ -53,7 +53,7 @@ Registre un proveedor personalizado en un complemento de servidor para usar cual
 
 ```ts
 // server/plugins/file-upload.ts
-import { registerFileUploadProvider } from "@agent-native/core/file-upload";
+import { registerFileUploadProvider } from "@agentnative-fork/core/file-upload";
 
 export default defineNitroPlugin(() => {
   registerFileUploadProvider({
@@ -103,10 +103,10 @@ interface FileUploadResult {
 }
 ```
 
-Utilice `uploadFile()` de `@agent-native/core/file-upload` en actions o código de servidor:
+Utilice `uploadFile()` de `@agentnative-fork/core/file-upload` en actions o código de servidor:
 
 ```ts
-import { uploadFile } from "@agent-native/core/file-upload";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
 
 const result = await uploadFile({
   data: fileBuffer,

@@ -25,11 +25,11 @@ vi.mock("drizzle-orm", () => ({
   lt: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   readBody: (...args: unknown[]) => mockReadBody(...args),
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: (...args: unknown[]) => mockAssertAccess(...args),
   ForbiddenError: class ForbiddenError extends Error {
     statusCode = 403;

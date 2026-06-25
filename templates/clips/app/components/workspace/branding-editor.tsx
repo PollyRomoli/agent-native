@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IconPalette, IconPhoto } from "@tabler/icons-react";
-import { appBasePath, useActionMutation } from "@agent-native/core/client";
+import { appBasePath, useActionMutation } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";

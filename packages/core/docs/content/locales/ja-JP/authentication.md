@@ -174,7 +174,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 アクセス トークンは、設定されている場合は `A2A_SECRET` で署名され、それ以外の場合は `BETTER_AUTH_SECRET` で署名されます。これらは、署名されたユーザー/組織 ID と `mcp:read`、`mcp:write`、および/または `mcp:apps` スコープを保持し、正確な MCP リソース URL にオーディエンス バインドされています。リフレッシュ トークンはハッシュとしてのみ保存され、リフレッシュのたびにローテーションされます。ツール呼び出しと MCP アプリ リソースの読み取りは、サインインしているユーザーと同じ要求コンテキスト内で実行されます。埋め込まれた MCP アプリ iframe は、生の OAuth トークンを受信しません。
 
-`npx @agent-native/core@latest connect <url> --client claude-code` は、この標準フローの URL 専用の MCP エントリを書き込みます。リモート MCP OAuth を実行できないクライアントの場合は、接続ページまたは `npx @agent-native/core@latest connect --token <token>` フォールバックを使用して、明示的なベアラー トークン エントリを書き込みます。
+`npx @agentnative-fork/core@latest connect <url> --client claude-code` は、この標準フローの URL 専用の MCP エントリを書き込みます。リモート MCP OAuth を実行できないクライアントの場合は、接続ページまたは `npx @agentnative-fork/core@latest connect --token <token>` フォールバックを使用して、明示的なベアラー トークン エントリを書き込みます。
 
 ## 独自の認証を使用する {#byoa}
 
@@ -182,7 +182,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 ```ts
 // server/plugins/auth.ts
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   getSession: async (event) => {
@@ -250,7 +250,7 @@ interface AuthSession {
 クライアントで、`useSession()` フックを使用します。
 
 ```ts
-import { useSession } from "@agent-native/core/client";
+import { useSession } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const { session, isLoading } = useSession();

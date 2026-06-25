@@ -17,14 +17,14 @@
  *   pnpm action get-recording-player-data --recordingId=<id>
  */
 
-import { defineAction, embedApp } from "@agent-native/core";
-import { buildDeepLink } from "@agent-native/core/server";
+import { defineAction, embedApp } from "@agentnative-fork/core";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import { asc, eq } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
 import { parseSpaceIds } from "../server/lib/recordings.js";
-import { resolveAccess, ForbiddenError } from "@agent-native/core/sharing";
-import { readAppState } from "@agent-native/core/application-state";
+import { resolveAccess, ForbiddenError } from "@agentnative-fork/core/sharing";
+import { readAppState } from "@agentnative-fork/core/application-state";
 import {
   normalizeTranscriptSegments,
   parseTranscriptSegments,

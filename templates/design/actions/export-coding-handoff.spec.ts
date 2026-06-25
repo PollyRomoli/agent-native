@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   buildDeepLink: (args: {
     app: string;
     view: string;
@@ -12,7 +12,7 @@ vi.mock("@agent-native/core/server", () => ({
   signShortLivedToken: () => "signed-token",
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: vi.fn(),
   registerShareableResource: vi.fn(),
 }));

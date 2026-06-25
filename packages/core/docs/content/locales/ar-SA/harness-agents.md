@@ -13,7 +13,7 @@ search: "وكلاء تسخير AgentHarness ai-sdk رمز HarnessAgent Claude Co
 وكيل التسخير هو وقت تشغيل كامل للوكيل — رمز Claude، وCodex، وPi، وما شابه ذلك —
 يمتلك حلقة خاصة به، ومساحة عمل، وأدوات ملفات أصلية، وحالة الجلسة، والضغط،
 نموذج الموافقة وسلوك وضع الحماية. يقوم Agent-Native بتشغيل هذه من خلال
-**`AgentHarness`** الركيزة في `@agent-native/core/agent/harness`، تتدفق
+**`AgentHarness`** الركيزة في `@agentnative-fork/core/agent/harness`، تتدفق
 تدرج الأحداث في النص العادي، وتستمر في جلستها الأصلية بحيث تكون سلسلة رسائل
 يمكن إيقافه مؤقتًا واستئنافه.
 
@@ -25,7 +25,7 @@ search: "وكلاء تسخير AgentHarness ai-sdk رمز HarnessAgent Claude Co
 
 ```an-diagram title="يمتلك الحزام حلقته. Agent-Native يقود الجلسة" summary="تقوم الركيزة AgentHarness creates/resumes بالجلسة الأصلية، بتدفق أحداثها إلى النص العادي، وتستمر في حالة الاستئناف في SQL بين المنعطفات."
 {
-  "html": "<div class=\"diagram-harness\"><div class=\"diagram-box\" data-rough><strong>AgentHarness substrate</strong><small class=\"diagram-muted\">@agent-native/core/agent/harness</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-panel center\" data-rough><strong>Native harness loop</strong><small class=\"diagram-muted\">Claude Code · Codex · Pi — own tools, sandbox, compaction</small></div><div class=\"diagram-col\"><div class=\"diagram-pill accent\">events &rarr; transcript</div><div class=\"diagram-pill ok\">resumeState &rarr; SQL session</div></div></div>",
+  "html": "<div class=\"diagram-harness\"><div class=\"diagram-box\" data-rough><strong>AgentHarness substrate</strong><small class=\"diagram-muted\">@agentnative-fork/core/agent/harness</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-panel center\" data-rough><strong>Native harness loop</strong><small class=\"diagram-muted\">Claude Code · Codex · Pi — own tools, sandbox, compaction</small></div><div class=\"diagram-col\"><div class=\"diagram-pill accent\">events &rarr; transcript</div><div class=\"diagram-pill ok\">resumeState &rarr; SQL session</div></div></div>",
   "css": ".diagram-harness{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.diagram-harness .diagram-col{display:flex;flex-direction:column;gap:8px}.diagram-harness .diagram-arrow{font-size:22px;line-height:1}.diagram-harness .center{display:flex;flex-direction:column;align-items:center;gap:4px}"
 }
 ```
@@ -92,7 +92,7 @@ UI مع [`AgentChatRuntime`](/docs/native-chat-ui#byo-agent-runtimes)؛ دع
 import {
   registerBuiltinAgentHarnesses,
   resolveAgentHarness,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 registerBuiltinAgentHarnesses();
 
@@ -138,7 +138,7 @@ it) ويكتب أحداث `file-change`؛ لا يتم الإعلان عن الط
   المصادقة بدلاً من ذلك.
 
 لذلك إذا سأل شخص ما عن الحزمة التي تحمل مسار Codex OAuth: للتشفير المحلي
-الجلسات، استخدم `@agent-native/core` / Desktop بالإضافة إلى المثبت
+الجلسات، استخدم `@agentnative-fork/core` / Desktop بالإضافة إلى المثبت
 `@openai/codex` CLI و`codex login`. بالنسبة إلى وضع الحماية `ai-sdk-harness:codex`،
 استخدم الاشتراك الصريح `codexCliAuth` عند نسخ تسجيل الدخول هذا إلى وضع الحماية
 مقبول.
@@ -160,7 +160,7 @@ const adapter = resolveAgentHarness("ai-sdk-harness:codex", {
 import {
   registerBuiltinAgentHarnesses,
   resolveAgentHarness,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 registerBuiltinAgentHarnesses();
 const adapter = resolveAgentHarness("ai-sdk-harness:codex");
@@ -181,7 +181,7 @@ const adapter = resolveAgentHarness("ai-sdk-harness:codex");
 حالة قابلة للاستئناف عند اكتمال الدور.
 
 ```ts
-import { startAgentHarnessRun } from "@agent-native/core/agent/harness";
+import { startAgentHarnessRun } from "@agentnative-fork/core/agent/harness";
 
 const run = startAgentHarnessRun({
   runId,
@@ -224,7 +224,7 @@ const run = startAgentHarnessRun({
 import {
   getLatestAgentHarnessSessionForThread,
   listAgentHarnessSessions,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 const last = await getLatestAgentHarnessSessionForThread(threadId);
 // Feed last?.resumeState into createSession.resumeState on the next turn.
@@ -290,7 +290,7 @@ const last = await getLatestAgentHarnessSessionForThread(threadId);
 import {
   registerAgentHarness,
   type AgentHarnessAdapter,
-} from "@agent-native/core/agent/harness";
+} from "@agentnative-fork/core/agent/harness";
 
 const myHarness: AgentHarnessAdapter = {
   name: "acme:my-coder",

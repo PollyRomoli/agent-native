@@ -95,7 +95,7 @@ description: "代理驱动的电子邮件客户端。连接您的 Gmail，客服
 使用邮件模板创建新工作区：
 
 ```bash
-npx @agent-native/core@latest create my-mail --standalone --template mail
+npx @agentnative-fork/core@latest create my-mail --standalone --template mail
 cd my-mail
 pnpm install
 pnpm dev
@@ -104,7 +104,7 @@ pnpm dev
 或者将邮件添加到现有的代理本机工作区：
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 要在开发中连接 Gmail，您需要 Google OAuth 客户端：
@@ -230,7 +230,7 @@ UI 中的路由：
 
 **更改代理的行为方式。**代理指导位于 `templates/mail/AGENTS.md` 中，skills 位于 `templates/mail/.agents/skills/` 中（`email-drafts`、`real-time-sync`、`security`、`self-modifying-code` 等）。代理行为是通过编辑 markdown 来更改的，而不是代码。
 
-**更改数据或设置。**跟踪表和相关结构的架构位于 `templates/mail/server/db/` 中。设置读取和写入从`@agent-native/core/settings`开始经过`readSetting` / `writeSetting`。应用程序状态（导航、草稿、一次性命令）使用 `@agent-native/core/application-state` 中的 `readAppState` / `writeAppState`。
+**更改数据或设置。**跟踪表和相关结构的架构位于 `templates/mail/server/db/` 中。设置读取和写入从`@agentnative-fork/core/settings`开始经过`readSetting` / `writeSetting`。应用程序状态（导航、草稿、一次性命令）使用 `@agentnative-fork/core/application-state` 中的 `readAppState` / `writeAppState`。
 
 **添加新的自动化操作类型。**扩展 `templates/mail/actions/manage-automations.ts` 中的操作架构和 `templates/mail/actions/trigger-automations.ts` 中的执行器。
 

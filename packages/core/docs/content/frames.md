@@ -9,7 +9,7 @@ Every agent-native app runs with an AI agent next to the app UI. A **frame** is
 the wrapper that hosts both: it shows your app and gives the agent a place to
 chat, run, and (in dev) edit code. There are three frames, sharing one runtime:
 
-- **Embedded agent panel** — ships inside every app from `@agent-native/core`.
+- **Embedded agent panel** — ships inside every app from `@agentnative-fork/core`.
   This is the sidebar your app renders itself, in development and in production.
 - **Local dev frame** — a thin wrapper that loads your running app in an iframe
   and adds the same agent panel plus an integrated CLI terminal beside it. Used
@@ -30,10 +30,10 @@ to your app through the same actions and application state in every case.
 ## Embedded agent panel {#embedded-agent}
 
 The embedded panel is the agent sidebar your app renders. It ships with
-`@agent-native/core` — there is no separate package to install — and is the same
+`@agentnative-fork/core` — there is no separate package to install — and is the same
 component in dev and prod.
 
-- Exported as `AgentPanel` from `@agent-native/core/client`, with a
+- Exported as `AgentPanel` from `@agentnative-fork/core/client`, with a
   production-only variant `ProductionAgentPanel`.
 - Provides the full Chat / CLI / Workspace surface, so the agent input stays on
   the shared composer stack used everywhere else in the framework.
@@ -75,7 +75,7 @@ sidebar inside the iframe instead, so you can preview exactly what end users see
 ## Integrated terminal and CLI switching {#cli-terminal}
 
 In development the panel includes an embedded terminal (`AgentTerminal`, also
-from `@agent-native/core/client`) backed by a PTY server. You can run a real
+from `@agentnative-fork/core/client`) backed by a PTY server. You can run a real
 coding CLI right beside the app and switch between them; the terminal restarts
 with the selected CLI.
 
@@ -113,7 +113,7 @@ consistent across both.
 
 ## Runtime APIs {#runtime-apis}
 
-These ship with `@agent-native/core` and are what your app uses to talk to the
+These ship with `@agentnative-fork/core` and are what your app uses to talk to the
 agent, regardless of which frame is hosting it:
 
 1. **Send a message** — `sendToAgentChat()` sends a message to the agent. The
@@ -134,12 +134,12 @@ The embedded agent panel is part of every app — scaffold a template and it's
 already there:
 
 ```bash
-npx @agent-native/core@latest create my-app --template mail --standalone
+npx @agentnative-fork/core@latest create my-app --template mail --standalone
 cd my-app
 pnpm dev
 ```
 
-The local dev frame (the private `@agent-native/frame` package in the framework repo) is an internal tooling package that is not published to npm. It loads the active app's dev server in an iframe and mounts the embedded panel beside it, selecting the app via the `app` query param. The integrated CLI terminal requires Agent Native Desktop, which provides the local code and PTY access the terminal needs; without it, the panel shows the chat surface and prompts you to open Desktop to use the CLI.
+The local dev frame (the private `@agentnative-fork/frame` package in the framework repo) is an internal tooling package that is not published to npm. It loads the active app's dev server in an iframe and mounts the embedded panel beside it, selecting the app via the `app` query param. The integrated CLI terminal requires Agent Native Desktop, which provides the local code and PTY access the terminal needs; without it, the panel shows the chat surface and prompts you to open Desktop to use the CLI.
 
 ## Compatibility notes {#compatibility}
 

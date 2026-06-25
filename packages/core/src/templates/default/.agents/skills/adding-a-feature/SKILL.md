@@ -24,15 +24,15 @@ When you add a new feature, work through these four areas in order:
 
 ### 1. UI Component
 
-Build the user-facing interface — a page, component, dialog, or route. Use `useActionQuery` and `useActionMutation` from `@agent-native/core/client` to call actions for data fetching and mutations. Do not create a custom REST endpoint just so React can call action-backed data; the action endpoint already exists.
+Build the user-facing interface — a page, component, dialog, or route. Use `useActionQuery` and `useActionMutation` from `@agentnative-fork/core/client` to call actions for data fetching and mutations. Do not create a custom REST endpoint just so React can call action-backed data; the action endpoint already exists.
 
 **Auto-refresh on agent writes is non-negotiable** — when the agent mutates data, the UI must reflect the change without a manual refresh. There are two paths, and you must pick the right one:
 
 - **`useActionQuery` / `useActionMutation`** — covered automatically. The framework's `useDbSync` invalidates `["action"]` on every change event, so every `useActionQuery` hook refetches on agent activity. No extra wiring required. **Prefer this path.**
-- **Raw `useQuery` with custom keys** — needs explicit wiring. Fold `useChangeVersions([<source>, "action"])` from `@agent-native/core/client` into the `queryKey` and set `placeholderData: (prev) => prev`. The `action` source is the reliable signal (the agent runner emits it after every successful tool call); the resource-specific source (`"dashboards"`, `"analyses"`, `"settings"`, etc.) is bonus when emitted. Without this wiring, agent writes will be invisible until manual refresh — that breaks the framework's #1 promise.
+- **Raw `useQuery` with custom keys** — needs explicit wiring. Fold `useChangeVersions([<source>, "action"])` from `@agentnative-fork/core/client` into the `queryKey` and set `placeholderData: (prev) => prev`. The `action` source is the reliable signal (the agent runner emits it after every successful tool call); the resource-specific source (`"dashboards"`, `"analyses"`, `"settings"`, etc.) is bonus when emitted. Without this wiring, agent writes will be invisible until manual refresh — that breaks the framework's #1 promise.
 
   ```tsx
-  import { useChangeVersions } from "@agent-native/core/client";
+  import { useChangeVersions } from "@agentnative-fork/core/client";
   import { useQuery } from "@tanstack/react-query";
 
   const v = useChangeVersions(["dashboards", "action"]);
@@ -59,7 +59,7 @@ or hook first and use that helper from components and docs.
 For provider-backed analysis/query/reporting integrations, do not turn every
 provider endpoint or filter into a rigid action. Prefer the shared
 `provider-api-catalog` / `provider-api-docs` / `provider-api-request` pattern
-from `@agent-native/core/provider-api`, then add narrow convenience actions only
+from `@agentnative-fork/core/provider-api`, then add narrow convenience actions only
 for workflows that truly deserve a first-class shortcut. Treat this as a
 capability requirement, not a nice-to-have: convenience actions must not become
 the ceiling of what the agent can ask the provider to do. Pair broad provider

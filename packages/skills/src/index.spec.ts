@@ -3,7 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { runSkills as runCoreSkills } from "@agent-native/core/cli/skills";
+import { runSkills as runCoreSkills } from "@agentnative-fork/core/cli/skills";
 
 import {
   installSkills,
@@ -12,7 +12,7 @@ import {
   type SkillsPromptContext,
 } from "./index.js";
 
-vi.mock("@agent-native/core/cli/skills", () => ({
+vi.mock("@agentnative-fork/core/cli/skills", () => ({
   runSkills: vi.fn(async () => {}),
 }));
 
@@ -63,7 +63,7 @@ function enableDirectSkillsMode(): () => void {
   };
 }
 
-describe("@agent-native/skills", () => {
+describe("@agentnative-fork/skills", () => {
   it("declares core as a runtime dependency for npx installs", () => {
     const pkg = JSON.parse(
       fs.readFileSync(
@@ -72,8 +72,8 @@ describe("@agent-native/skills", () => {
       ),
     );
 
-    expect(pkg.dependencies["@agent-native/core"]).toBe("workspace:*");
-    expect(pkg.peerDependencies?.["@agent-native/core"]).toBeUndefined();
+    expect(pkg.dependencies["@agentnative-fork/core"]).toBe("workspace:*");
+    expect(pkg.peerDependencies?.["@agentnative-fork/core"]).toBeUndefined();
   });
 
   it("parses the no-source BuilderIO skills install command", () => {
@@ -579,7 +579,7 @@ describe("@agent-native/skills", () => {
     expect(promptGithubAction).toHaveBeenCalledTimes(1);
     expect(promptGithubAction.mock.calls[0]?.[0]).toMatchObject({
       workflowPath: path.join(".github", "workflows", "pr-visual-recap.yml"),
-      setupCommand: "npx @agent-native/core@latest recap setup",
+      setupCommand: "npx @agentnative-fork/core@latest recap setup",
       docsUrl: "https://www.agent-native.com/docs/pr-visual-recap",
     });
     expect(

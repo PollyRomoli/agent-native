@@ -122,7 +122,7 @@ Der Rest dieses Dokuments richtet sich an alle, die die Brain-Vorlage verzweigen
 ### Schnellstart
 
 ```bash
-npx @agent-native/core@latest create my-brain --standalone --template brain
+npx @agentnative-fork/core@latest create my-brain --standalone --template brain
 cd my-brain
 pnpm install
 pnpm dev

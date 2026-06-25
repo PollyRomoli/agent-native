@@ -17,7 +17,7 @@ import {
 import { useNotionConnection, useDisconnectNotion } from "@/hooks/use-notion";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { agentNativePath, appApiPath } from "@agent-native/core/client";
+import { agentNativePath, appApiPath } from "@agentnative-fork/core/client";
 import {
   Tooltip,
   TooltipContent,

@@ -7,7 +7,7 @@ const mocks = vi.hoisted(() => ({
   localCredential: undefined as string | undefined,
 }));
 
-vi.mock("@agent-native/core/workspace-connections", () => ({
+vi.mock("@agentnative-fork/core/workspace-connections", () => ({
   getWorkspaceConnectionAppAccess: vi.fn(
     (
       connection: { id: string; allowedApps: string[] },
@@ -57,14 +57,14 @@ vi.mock("@agent-native/core/workspace-connections", () => ({
   listWorkspaceConnectionGrants: vi.fn(async () => mocks.grants),
 }));
 
-vi.mock("@agent-native/core/secrets", () => ({
+vi.mock("@agentnative-fork/core/secrets", () => ({
   readAppSecret: vi.fn(async (ref: Record<string, string>) => {
     const value = mocks.secrets.get(`${ref.scope}:${ref.scopeId}:${ref.key}`);
     return value ? { value, last4: value.slice(-4), updatedAt: 1 } : null;
   }),
 }));
 
-vi.mock("@agent-native/core/credentials", () => ({
+vi.mock("@agentnative-fork/core/credentials", () => ({
   resolveCredential: vi.fn(async () => mocks.localCredential),
 }));
 

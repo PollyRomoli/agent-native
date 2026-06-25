@@ -1,5 +1,5 @@
-import { createGetDb } from "@agent-native/core/db";
-import { schema } from "@agent-native/dispatch/db";
+import { createGetDb } from "@agentnative-fork/core/db";
+import { schema } from "@agentnative-fork/dispatch/db";
 
 export const getDb = createGetDb(schema);
 

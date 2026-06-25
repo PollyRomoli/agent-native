@@ -97,7 +97,7 @@ For an existing docs, blog, or MDX workspace, install the Content local-files
 skill:
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 This copies the `content` skill into the repo's agent skill folders and writes

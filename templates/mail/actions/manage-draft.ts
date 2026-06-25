@@ -1,12 +1,12 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   readAppState,
   writeAppState,
   deleteAppState,
   deleteAppStateByPrefix,
-} from "@agent-native/core/application-state";
-import { getUserSetting } from "@agent-native/core/settings";
-import { getRequestUserEmail, buildDeepLink } from "@agent-native/core/server";
+} from "@agentnative-fork/core/application-state";
+import { getUserSetting } from "@agentnative-fork/core/settings";
+import { getRequestUserEmail, buildDeepLink } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import { appendSignatureToBody } from "../shared/signature.js";
 

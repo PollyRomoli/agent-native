@@ -164,7 +164,7 @@ Le reste de ce document s'adresse à toute personne qui crée le modèle Clips o
 ### Démarrage rapide
 
 ```bash
-npx @agent-native/core@latest create my-clips --standalone --template clips
+npx @agentnative-fork/core@latest create my-clips --standalone --template clips
 cd my-clips
 pnpm install
 pnpm dev
@@ -187,7 +187,7 @@ application de barre d'état lors de votre déploiement.
 1. **Créez l'application.**
 
    ```bash
-   npx @agent-native/core@latest créer mes-clips --standalone --template clips
+   npx @agentnative-fork/core@latest créer mes-clips --standalone --template clips
    cd mes-clips
    Installation de pnpm
    ```

@@ -12,7 +12,7 @@
  *     honoured.
  *
  * `server.ts` re-exports `createMCPServerForRequest` and the auth helpers so
- * any (future) external importer of `@agent-native/core/mcp` keeps resolving.
+ * any (future) external importer of `@agentnative-fork/core/mcp` keeps resolving.
  *
  * Node-only at the SDK level, but this module itself has no Node-only imports
  * — it can be bundled into the serverless function alongside `mountMCP`.

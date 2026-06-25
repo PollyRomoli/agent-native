@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Browser-side REST client storage adapter
+// @agentnative-fork/pinpoint — Browser-side REST client storage adapter
 // MIT License
 //
 // The browser never writes files directly — it always goes through the server.

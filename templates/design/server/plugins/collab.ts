@@ -1,4 +1,4 @@
-import { createCollabPlugin } from "@agent-native/core/server";
+import { createCollabPlugin } from "@agentnative-fork/core/server";
 import { getDb, schema } from "../db/index.js";
 import { eq } from "drizzle-orm";
 

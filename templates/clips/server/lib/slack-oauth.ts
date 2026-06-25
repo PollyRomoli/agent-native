@@ -10,15 +10,15 @@ import {
   resolveOAuthRedirectUri,
   safeReturnPath,
   type OAuthStatePayload,
-} from "@agent-native/core/server";
-import { runWithRequestContext } from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server/request-context";
 import {
   deleteAppSecret,
   readAppSecret,
   writeAppSecret,
   type SecretScope,
-} from "@agent-native/core/secrets";
-import { writeAppState } from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/secrets";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { getDb, schema } from "../db/index.js";
 import {
   getActiveOrganizationId,

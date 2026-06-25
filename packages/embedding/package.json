@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/embedding",
+  "name": "@agentnative-fork/embedding",
   "version": "0.2.0",
   "type": "module",
   "description": "Embed Agent-Native apps, pickers, and agents inside other apps.",
@@ -52,7 +52,7 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@agent-native/core": ">=0.22.0",
+    "@agentnative-fork/core": ">=0.22.0",
     "react": ">=18"
   },
   "peerDependenciesMeta": {
@@ -61,7 +61,7 @@
     }
   },
   "devDependencies": {
-    "@agent-native/core": "workspace:*",
+    "@agentnative-fork/core": "workspace:*",
     "@types/react": "^19.2.15",
     "react": "^19.2.6",
     "typescript": "^6.0.3",

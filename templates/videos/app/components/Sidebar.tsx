@@ -30,13 +30,13 @@ import { useComposition } from "@/contexts/CompositionContext";
 import { useTimeline } from "@/contexts/TimelineContext";
 import { usePlayback } from "@/contexts/PlaybackContext";
 import { useFolders } from "@/hooks/use-folders";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
 import {
   DevDatabaseLink,
   FeedbackButton,
   useT,
-} from "@agent-native/core/client";
-import { OrgSwitcher } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { OrgSwitcher } from "@agentnative-fork/core/client/org";
 import {
   Tooltip,
   TooltipContent,

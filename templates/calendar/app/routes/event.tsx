@@ -10,8 +10,8 @@ import {
 } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import { useActionQuery } from "@agent-native/core/client";
-import { postNavigate, isInAgentEmbed } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
+import { postNavigate, isInAgentEmbed } from "@agentnative-fork/core/client";
 import type { CalendarEvent } from "@shared/api";
 
 type EventPreviewResult = CalendarEvent | { error: string };

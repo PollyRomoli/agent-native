@@ -3,7 +3,7 @@ import { flatRoutes } from "@react-router/fs-routes";
 
 /**
  * Routes are file-based (one shell file per route under `app/routes/`).
- * Each shell is a 1-line re-export from `@agent-native/dispatch/routes/pages/<name>`.
+ * Each shell is a 1-line re-export from `@agentnative-fork/dispatch/routes/pages/<name>`.
  *
  * Why not splat `dispatchRoutes` from the package directly? React Router 7's
  * programmatic routes config uses `file` paths that the dev compiler resolves

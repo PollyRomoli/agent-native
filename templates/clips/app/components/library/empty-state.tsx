@@ -8,7 +8,7 @@ import {
   IconPlayerRecord,
 } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 
 type EmptyKind =
   | "library"

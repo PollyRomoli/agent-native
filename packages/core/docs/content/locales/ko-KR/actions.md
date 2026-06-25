@@ -38,7 +38,7 @@ UI와 상담원 모두가 뭔가를 해야 하는 경우 맞춤 작업이 아닌
 
 ```ts
 // actions/hello.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -83,7 +83,7 @@ actions 정도이며 작업 자체에 필요한 전제 조건은 아닙니다.
 {
   "filename": "actions/reply-to-email.ts",
   "language": "ts",
-  "code": "import { defineAction } from \"@agent-native/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread in the user's voice.\",\n  schema: z.object({\n    emailId: z.string().describe(\"The id of the email to reply to.\"),\n    body: z.string().describe(\"The reply body, in markdown.\"),\n  }),\n  run: async ({ emailId, body }) => {\n    await db.insert(replies).values({ emailId, body });\n    return { ok: true, emailId };\n  },\n});",
+  "code": "import { defineAction } from \"@agentnative-fork/core/action\";\nimport { z } from \"zod\";\n\nexport default defineAction({\n  description: \"Reply to an email thread in the user's voice.\",\n  schema: z.object({\n    emailId: z.string().describe(\"The id of the email to reply to.\"),\n    body: z.string().describe(\"The reply body, in markdown.\"),\n  }),\n  run: async ({ emailId, body }) => {\n    await db.insert(replies).values({ emailId, body });\n    return { ok: true, emailId };\n  },\n});",
   "annotations": [
     { "lines": "5", "label": "도구 표면", "note": "`description`은 에이전트가 이 액션을 언제 호출할지 판단하기 위해 읽는 내용입니다. 각 필드의 `.describe()` 호출도 JSON Schema에 들어갑니다." },
     { "lines": "6-9", "label": "타입 계약", "note": "하나의 schema가 **모든** 표면의 입력을 검증하고 모델용 JSON Schema로 변환합니다. 유효하지 않은 입력은 `run`에 도달하지 않습니다." },
@@ -286,7 +286,7 @@ export default defineAction({
 
 ```ts
 // actions/create-lead.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 import { getDb } from "../server/db/index.js";
 import * as schema from "../server/db/schema.js";
@@ -353,14 +353,14 @@ export default defineAction({
 
 ## UI에서 호출 {#ui}
 
-두 개의 후크, 둘 다 `@agent-native/core/client`에 있습니다. 유형은 `defineAction` 스키마에서 추론되며 수동 유형 선언이 없습니다.
+두 개의 후크, 둘 다 `@agentnative-fork/core/client`에 있습니다. 유형은 `defineAction` 스키마에서 추론되며 수동 유형 선언이 없습니다.
 
 ### `useActionMutation` {#use-action-mutation}
 
 상태를 변경하는 actions의 경우:
 
 ```tsx
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 
 const { mutate, isPending } = useActionMutation("reply-to-email");
 
@@ -379,7 +379,7 @@ const { mutate, isPending } = useActionMutation("reply-to-email");
 읽기 전용 GET actions의 경우:
 
 ```ts
-import { useActionQuery } from "@agent-native/core/client";
+import { useActionQuery } from "@agentnative-fork/core/client";
 
 const { data, isLoading } = useActionQuery("get-lead", { leadId });
 ```
@@ -394,12 +394,12 @@ summaries, and insight cards; use [MCP Apps](/docs/mcp-apps) for inline UI in
 외부 MCP 호스트.
 
 ```ts
-import { defineAction } from "@agent-native/core/action";
-import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agent-native/core/action-ui";
+import { defineAction } from "@agentnative-fork/core/action";
+import { ACTION_CHAT_UI_DATA_INSIGHTS_RENDERER } from "@agentnative-fork/core/action-ui";
 import {
   createDataInsightsWidgetResult,
   dataInsightsWidgetResultSchema,
-} from "@agent-native/core/data-widgets";
+} from "@agentnative-fork/core/data-widgets";
 
 export default defineAction({
   description: "Summarize response trends.",
@@ -434,7 +434,7 @@ export default defineAction({
 
 내장 판별자는 `"data-table"`, `"data-chart"` 및
 `"data-insights"`, 서버 안전 빌더 및 스키마 포함
-`@agent-native/core/data-widgets`. [Native Chat UI](/docs/native-chat-ui) 참조
+`@agentnative-fork/core/data-widgets`. [Native Chat UI](/docs/native-chat-ui) 참조
 전체 결과 계약 및 BYO 런타임 지침
 같은 행동이 어떻게 유지될 수 있는지에 대한 [Agent Surfaces](/docs/agent-surfaces)
 헤드리스, 채팅에서 렌더링 또는 전체 화면으로 확장
@@ -462,7 +462,7 @@ MCP를 활성화하면 actions가 프레임워크의 MCP 서버 `/_agent-native/
 UI 지원 MCP 호스트의 경우 작업은 `mcpApp` 필드(및 일치하는 `link`)를 통해 선택적 MCP 앱 리소스를 선언할 수 있으므로 지원 호스트는 결과를 인라인으로 렌더링합니다. `link` 및 `mcpApp`가 동일한 경로를 가리켜야 하는 경우 `embedRoute()`는 하나의 순수 경로 빌더에서 두 가지를 모두 빌드합니다.
 
 ```ts
-import { embedRoute } from "@agent-native/core";
+import { embedRoute } from "@agentnative-fork/core";
 
 export default defineAction({
   description: "Create an email draft for review.",
@@ -491,8 +491,8 @@ CLI 및 비UI MCP 클라이언트에 대한 대체 항목으로 `link`를 유지
 
 ```ts
 // actions/view-screen.ts
-import { defineAction } from "@agent-native/core/action";
-import { readAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { readAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -518,8 +518,8 @@ export default defineAction({
 
 ```ts
 // actions/navigate.ts
-import { defineAction } from "@agent-native/core/action";
-import { writeAppState } from "@agent-native/core/application-state";
+import { defineAction } from "@agentnative-fork/core/action";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 import { z } from "zod";
 
 export default defineAction({
@@ -541,7 +541,7 @@ export default defineAction({
 
 ```ts
 // actions/debug-dump.ts — CLI-only
-import { parseArgs } from "@agent-native/core";
+import { parseArgs } from "@agentnative-fork/core";
 
 export default async function main(args: string[]) {
   const { table } = parseArgs(args);
@@ -556,7 +556,7 @@ export default async function main(args: string[]) {
 레거시 스타일 actions용 도우미. `--key value` 또는 `--key=value` 형식의 CLI 인수를 구문 분석합니다.
 
 ```ts
-import { parseArgs } from "@agent-native/core";
+import { parseArgs } from "@agentnative-fork/core";
 
 const args = parseArgs(["--name", "Steve", "--verbose", "--count=3"]);
 // { name: "Steve", verbose: "true", count: "3" }

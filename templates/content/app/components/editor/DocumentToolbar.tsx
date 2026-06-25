@@ -47,8 +47,8 @@ import {
   appPath,
   useActionMutation,
   type CollabUser,
-} from "@agent-native/core/client";
-import { ShareButton } from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
+import { ShareButton } from "@agentnative-fork/core/client";
 import {
   Tooltip,
   TooltipContent,

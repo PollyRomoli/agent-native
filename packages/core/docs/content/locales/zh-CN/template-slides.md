@@ -67,7 +67,7 @@ description: "根据提示生成套牌、进行可视化编辑并全屏呈现。
 从 CLI 创建新的幻灯片应用：
 
 ```bash
-npx @agent-native/core@latest create my-slides --standalone --template slides
+npx @agentnative-fork/core@latest create my-slides --standalone --template slides
 cd my-slides
 pnpm install
 pnpm dev

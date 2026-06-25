@@ -1,4 +1,4 @@
-import { accessFilter, assertAccess } from "@agent-native/core/sharing";
+import { accessFilter, assertAccess } from "@agentnative-fork/core/sharing";
 import { and, asc, eq, inArray, sql, type InferSelectModel } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
 import {

@@ -12,7 +12,7 @@ import {
   updateLocalFileDocument,
 } from "./_local-file-documents";
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   writeAppState: vi.fn(),
   appStateGet: vi.fn(),
   appStatePut: vi.fn(),

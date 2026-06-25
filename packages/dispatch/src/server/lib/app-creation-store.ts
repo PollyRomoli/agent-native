@@ -2,8 +2,8 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { getSetting, putSetting } from "@agent-native/core/settings";
-import { assertValidWorkspaceAppId } from "@agent-native/core/shared";
+import { getSetting, putSetting } from "@agentnative-fork/core/settings";
+import { assertValidWorkspaceAppId } from "@agentnative-fork/core/shared";
 import {
   getBuilderBranchProjectId,
   getRequestContext,
@@ -11,8 +11,8 @@ import {
   resolveBuilderBranchProjectId,
   resolveBuilderCredentials,
   runBuilderAgent,
-} from "@agent-native/core/server";
-import { getDbExec } from "@agent-native/core/db";
+} from "@agentnative-fork/core/server";
+import { getDbExec } from "@agentnative-fork/core/db";
 import {
   currentOrgId,
   currentOwnerEmail,
@@ -1246,7 +1246,7 @@ export async function listWorkspaceApps(
 /**
  * First-party templates the user can scaffold into this workspace via the
  * Apps page tiles. Inlined here (rather than importing from
- * `@agent-native/shared-app-config`) because the published `@agent-native/dispatch`
+ * `@agentnative-fork/shared-app-config`) because the published `@agentnative-fork/dispatch`
  * package has no `workspace:*` runtime dependencies. Keep in sync with
  * `packages/core/src/cli/templates-meta.ts`.
  */

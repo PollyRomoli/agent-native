@@ -60,7 +60,7 @@ O restante deste documento é para qualquer pessoa que faça bifurcação do mod
 ### Início rápido
 
 ```bash
-npx @agent-native/core@latest create my-forms --standalone --template forms
+npx @agentnative-fork/core@latest create my-forms --standalone --template forms
 cd my-forms
 pnpm install
 pnpm dev
@@ -69,7 +69,7 @@ pnpm dev
 Para um espaço de trabalho com Formulários junto com outros aplicativos:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 Escolha formulários e quaisquer outros modelos desejados durante a configuração do espaço de trabalho.

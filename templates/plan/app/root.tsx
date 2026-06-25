@@ -9,7 +9,7 @@ import {
 import { useCallback, useState } from "react";
 import { useNavigationState } from "@/hooks/use-navigation-state";
 import { useQueryClient } from "@tanstack/react-query";
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import {
   AppProviders,
   CommandMenu,
@@ -21,7 +21,7 @@ import {
   navigateWithAgentChatViewTransition,
   useCommandMenuShortcut,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import changelog from "../CHANGELOG.md?raw";
@@ -34,7 +34,7 @@ import { APP_TITLE } from "@/lib/app-config";
 import "@/lib/register-chat-renderers";
 import type { LinksFunction } from "react-router";
 import stylesheet from "./global.css?url";
-import { configureTracking } from "@agent-native/core/client";
+import { configureTracking } from "@agentnative-fork/core/client";
 import { i18nCatalog } from "./i18n";
 configureTracking({
   getDefaultProps: (_name, properties) => ({
@@ -192,4 +192,4 @@ export default function Root() {
   );
 }
 
-export { ErrorBoundary } from "@agent-native/core/client";
+export { ErrorBoundary } from "@agentnative-fork/core/client";

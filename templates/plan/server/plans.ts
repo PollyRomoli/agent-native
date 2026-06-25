@@ -1,11 +1,11 @@
-import { buildDeepLink } from "@agent-native/core/server";
-import { emit } from "@agent-native/core/event-bus";
+import { buildDeepLink } from "@agentnative-fork/core/server";
+import { emit } from "@agentnative-fork/core/event-bus";
 import {
   assertAccess,
   ForbiddenError,
   currentAccess,
   resolveAccess,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import { and, asc, eq, inArray, isNull } from "drizzle-orm";
 import { Buffer } from "node:buffer";
 import { z } from "zod";

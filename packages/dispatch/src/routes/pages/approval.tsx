@@ -5,7 +5,7 @@ import {
   isInAgentEmbed,
   postNavigate,
   appPath,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { toast } from "sonner";
 import {
   ApprovalValueBlock,

@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { and, asc, eq, inArray, or, sql } from "drizzle-orm";
 import { getDb, schema } from "../server/db/index.js";
 import {
@@ -11,12 +11,12 @@ import {
   accessFilter,
   ROLE_RANK,
   type ShareRole,
-} from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/sharing";
 import { serializeDatabaseMembership } from "./_database-utils.js";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import { z } from "zod";
 import { serializeDocumentSource } from "./_document-source.js";
 import {

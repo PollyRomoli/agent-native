@@ -4,7 +4,7 @@ import type { BlockMdxConfig } from "../types.js";
 /**
  * Pure (React-free) part of the standard `code-tabs` block: its data schema and
  * MDX round-trip config. Shared by the server MDX adapter (a plan/content app
- * registers it via `@agent-native/core/blocks/server`) and the full client spec
+ * registers it via `@agentnative-fork/core/blocks/server`) and the full client spec
  * (`code-tabs.tsx`). Keeping this React-free means importing it into a server
  * module never pulls React into the Nitro/SSR bundle.
  *

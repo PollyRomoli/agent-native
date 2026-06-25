@@ -1,5 +1,5 @@
 {
-  "name": "@agent-native/shared-app-config",
+  "name": "@agentnative-fork/shared-app-config",
   "version": "0.1.2",
   "type": "module",
   "description": "Shared Agent-Native app catalog and configuration helpers.",

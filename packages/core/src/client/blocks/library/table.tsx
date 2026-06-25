@@ -28,7 +28,7 @@ import {
 
 /**
  * Standard `table` block — a simple grid of header columns and string rows.
- * STANDARD library block: lives in core (`@agent-native/core/blocks`) so any
+ * STANDARD library block: lives in core (`@agentnative-fork/core/blocks`) so any
  * app can register it. The plan app's registries (server + client) import
  * {@link tableBlock} (browser) and the React-free {@link tableMdx}/
  * {@link tableSchema} config (server) so its render + MDX round-trip move out

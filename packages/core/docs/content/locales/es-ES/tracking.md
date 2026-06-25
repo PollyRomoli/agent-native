@@ -10,7 +10,7 @@ Una función, múltiples destinos. Llame a `track()` desde cualquier código del
 Esto es análisis de _producto_: los eventos de su aplicación fluyen hacia PostHog/Mixpanel/Amplitude. Para conocer las métricas de _calidad del agente_ (seguimientos, costos, evaluaciones, comentarios) almacenadas en su propia base de datos, consulte [Observability](/docs/observability).
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "order.completed",
@@ -46,7 +46,7 @@ Varios proveedores pueden estar activos simultáneamente. Cada evento es para to
 Activa un evento de análisis. Distribución en abanico para todos los proveedores registrados.
 
 ```ts
-import { track } from "@agent-native/core/tracking";
+import { track } from "@agentnative-fork/core/tracking";
 
 track(
   "meal.logged",
@@ -60,7 +60,7 @@ track(
 Identificar un usuario con rasgos. Reenviado a proveedores que lo admiten (PostHog, Mixpanel, Amplitude, webhook).
 
 ```ts
-import { identify } from "@agent-native/core/tracking";
+import { identify } from "@agentnative-fork/core/tracking";
 
 identify("steve@builder.io", { plan: "pro", company: "Builder.io" });
 ```
@@ -73,8 +73,8 @@ Llame a `track()` desde los controladores de acciones para registrar la activida
 
 ```ts
 // actions/create-project.ts
-import { defineAction } from "@agent-native/core/action";
-import { track } from "@agent-native/core/tracking";
+import { defineAction } from "@agentnative-fork/core/action";
+import { track } from "@agentnative-fork/core/tracking";
 import { z } from "zod";
 
 export default defineAction({
@@ -100,7 +100,7 @@ Las llamadas de seguimiento son activadas y olvidadas: regresan inmediatamente y
 
 ## Seguimiento del lado del cliente {#client}
 
-`track()` también funciona desde el código del navegador/aplicación. Importe el cliente gemelo de `@agent-native/core/client` y llámelo de la misma manera: envía el evento a la ruta del marco en `POST /_agent-native/track`, que lo reenvía a los **mismos** proveedores registrados del lado del servidor (PostHog, Mixpanel, Amplitude, webhook). No se envía ningún análisis SDK al navegador y no se exponen claves de proveedor en el lado del cliente.
+`track()` también funciona desde el código del navegador/aplicación. Importe el cliente gemelo de `@agentnative-fork/core/client` y llámelo de la misma manera: envía el evento a la ruta del marco en `POST /_agent-native/track`, que lo reenvía a los **mismos** proveedores registrados del lado del servidor (PostHog, Mixpanel, Amplitude, webhook). No se envía ningún análisis SDK al navegador y no se exponen claves de proveedor en el lado del cliente.
 
 ```an-api title="The client tracking route"
 {
@@ -117,7 +117,7 @@ Las llamadas de seguimiento son activadas y olvidadas: regresan inmediatamente y
 ```
 
 ```ts
-import { track } from "@agent-native/core/client";
+import { track } from "@agentnative-fork/core/client";
 
 // e.g. inside a click handler or effect
 track("checkout.completed", { total: 49.99, items: 3 });
@@ -144,7 +144,7 @@ La mayoría de las aplicaciones solo necesitan `track()` / `identify()` y un pro
 Registre un proveedor personalizado para cualquier backend de análisis.
 
 ```ts
-import { registerTrackingProvider } from "@agent-native/core/tracking";
+import { registerTrackingProvider } from "@agentnative-fork/core/tracking";
 
 registerTrackingProvider({
   name: "my-analytics",
@@ -170,7 +170,7 @@ registerTrackingProvider({
 Elimine a todos los proveedores. Llame antes de salir del proceso para asegurarse de que se envíen los eventos pendientes.
 
 ```ts
-import { flushTracking } from "@agent-native/core/tracking";
+import { flushTracking } from "@agentnative-fork/core/tracking";
 
 await flushTracking();
 ```

@@ -12,7 +12,7 @@
  * rejected.
  *
  * The gating here deliberately mirrors the existing dev-only auth precedents in
- * `@agent-native/core`:
+ * `@agentnative-fork/core`:
  *   - `packages/core/src/scripts/dev-session.ts` (CLI dev session bootstrap)
  *   - the "latest session" fallback in `packages/core/src/server/agent-chat-plugin.ts`
  *

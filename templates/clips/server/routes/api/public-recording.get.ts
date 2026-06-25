@@ -24,7 +24,7 @@ import {
   type H3Event,
 } from "h3";
 import { asc, eq } from "drizzle-orm";
-import { getSession, signShortLivedToken } from "@agent-native/core/server";
+import { getSession, signShortLivedToken } from "@agentnative-fork/core/server";
 import { getDb, schema } from "../../db/index.js";
 import { parseSpaceIds } from "../../lib/recordings.js";
 import { resolvePlayerVideoUrl } from "../../lib/player-video-url.js";

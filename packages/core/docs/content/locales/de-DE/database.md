@@ -9,7 +9,7 @@ Agent-native Apps verwenden [Drizzle ORM](https://orm.drizzle.team) und unterst�
 
 ```an-diagram title="Ein Schema, viele Backends" summary="App-Code verwendet die dialektunabhängigen Helfer des Frameworks. Der Dialekt wird zur Laufzeit automatisch von DATABASE_URL erkannt; unset bedeutet eine lokale SQLite-Datei."
 {
-  "html": "<div class=\"diagram-db\"><div class=\"diagram-panel center\" data-rough><span class=\"diagram-pill accent\">@agent-native/core/db/schema</span><small class=\"diagram-muted\">table · text · integer · real · now</small><small class=\"diagram-muted\">+ Drizzle query DSL</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-box\" data-rough>DATABASE_URL<br><small class=\"diagram-muted\">dialect auto-detected</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-grid\"><span class=\"diagram-pill\">Postgres<br><small class=\"diagram-muted\">Neon · Supabase</small></span><span class=\"diagram-pill\">libSQL / Turso</span><span class=\"diagram-pill\">Cloudflare D1</span><span class=\"diagram-pill warn\">SQLite file<br><small class=\"diagram-muted\">unset = local dev only</small></span></div></div>",
+  "html": "<div class=\"diagram-db\"><div class=\"diagram-panel center\" data-rough><span class=\"diagram-pill accent\">@agentnative-fork/core/db/schema</span><small class=\"diagram-muted\">table · text · integer · real · now</small><small class=\"diagram-muted\">+ Drizzle query DSL</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-box\" data-rough>DATABASE_URL<br><small class=\"diagram-muted\">dialect auto-detected</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&rarr;</div><div class=\"diagram-grid\"><span class=\"diagram-pill\">Postgres<br><small class=\"diagram-muted\">Neon · Supabase</small></span><span class=\"diagram-pill\">libSQL / Turso</span><span class=\"diagram-pill\">Cloudflare D1</span><span class=\"diagram-pill warn\">SQLite file<br><small class=\"diagram-muted\">unset = local dev only</small></span></div></div>",
   "css": ".diagram-db{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.diagram-db .center{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 16px}.diagram-db .diagram-arrow{font-size:22px;line-height:1}.diagram-db .diagram-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}"
 }
 ```
@@ -47,26 +47,26 @@ _Geplant (noch nicht verfügbar):_ Wenn Ihre App mit Builder.io verbunden ist, k
 
 ## Wo der DB-Client lebt {#db-client}
 
-Jede Vorlage erstellt einen verzögerten Singleton-Drizzle-Client, indem sie `createGetDb(schema)` von `@agent-native/core/db` aus aufruft. Der kanonische Speicherort ist `server/db/index.ts`:
+Jede Vorlage erstellt einen verzögerten Singleton-Drizzle-Client, indem sie `createGetDb(schema)` von `@agentnative-fork/core/db` aus aufruft. Der kanonische Speicherort ist `server/db/index.ts`:
 
 ```ts
 // server/db/index.ts
-import { createGetDb } from "@agent-native/core/db";
+import { createGetDb } from "@agentnative-fork/core/db";
 import * as schema from "./schema.js";
 
 export const getDb = createGetDb(schema);
 ```
 
-Importieren Sie `getDb` aus diesem vorlagenlokalen Pfad – `../../server/db/index.js` in Routen, `../server/db/index.js` in actions – und nicht direkt aus `@agent-native/core`. Der Kernexport gibt eine generische, untypisierte Instanz zurück; Der `getDb()` der Vorlage trägt Ihre Schematypen. Unter [Server](/docs/server#request-context) erfahren Sie, wie actions und benutzerdefinierte Routen es jeweils importieren.
+Importieren Sie `getDb` aus diesem vorlagenlokalen Pfad – `../../server/db/index.js` in Routen, `../server/db/index.js` in actions – und nicht direkt aus `@agentnative-fork/core`. Der Kernexport gibt eine generische, untypisierte Instanz zurück; Der `getDb()` der Vorlage trägt Ihre Schematypen. Unter [Server](/docs/server#request-context) erfahren Sie, wie actions und benutzerdefinierte Routen es jeweils importieren.
 
 ## Dialektunabhängiges Schema und Abfragen {#schema}
 
 App-Datenbankcode sollte das Schema von Drizzle verwenden und DSL abfragen, damit er anbieterübergreifend ausgeführt werden kann. Schreiben Sie niemals nur die SQLite-Syntax (`INSERT OR REPLACE`, `AUTOINCREMENT`, `datetime('now')`) oder nur die Postgres-Syntax in den Produktcode.
 
-Verwenden Sie die Schema-Helfer des Frameworks von `@agent-native/core/db/schema`:
+Verwenden Sie die Schema-Helfer des Frameworks von `@agentnative-fork/core/db/schema`:
 
 ```ts
-import { table, text, integer, real, now } from "@agent-native/core/db/schema";
+import { table, text, integer, real, now } from "@agentnative-fork/core/db/schema";
 
 export const tasks = table("tasks", {
   id: text("id").primaryKey(),
@@ -110,7 +110,7 @@ Die obige `tasks`-Tabelle definiert die gleichen Spalten auf jedem Backend:
 }
 ```
 
-Niemals direkt aus `drizzle-orm/sqlite-core` oder `drizzle-orm/pg-core` importieren. Verwenden Sie immer `@agent-native/core/db/schema`.
+Niemals direkt aus `drizzle-orm/sqlite-core` oder `drizzle-orm/pg-core` importieren. Verwenden Sie immer `@agentnative-fork/core/db/schema`.
 
 Tabellen, in denen benutzerbezogene Daten gespeichert werden, müssen eine `owner_email`-Spalte enthalten, damit das Scoping auf SQL-Ebene des Frameworks Zeilen für den authentifizierten Benutzer filtern kann – siehe [Security](/docs/security#data-scoping). Tabellen, die auch die Freigabe mit anderen Benutzern oder Organisationen unterstützen, sollten stattdessen `...ownableColumns()` verbreiten, wodurch `owner_email`, `org_id` und `visibility` in einem Aufruf hinzugefügt werden – siehe [Sharing](/docs/sharing#building).
 
@@ -166,7 +166,7 @@ Anstatt direkt zu pushen, sollten Schemaänderungen über SQL-Migrationen angewe
 {
   "filename": "server/plugins/db.ts",
   "language": "ts",
-  "code": "import { runMigrations } from \"@agent-native/core/db\";\n\nexport default runMigrations(\n  [\n    {\n      version: 1,\n      sql: `ALTER TABLE projects ADD COLUMN IF NOT EXISTS sort_order INTEGER NOT NULL DEFAULT 0`,\n    },\n    {\n      // Dialect-gated: runs only on the matching backend. Omit the other key\n      // to make it a no-op on that dialect.\n      version: 2,\n      sql: {\n        postgres: `ALTER TABLE projects ADD COLUMN IF NOT EXISTS tsv tsvector`,\n        sqlite: `SELECT 1`, // no-op; tsvector is Postgres-only\n      },\n    },\n  ],\n  { table: \"my_app_migrations\" },\n);",
+  "code": "import { runMigrations } from \"@agentnative-fork/core/db\";\n\nexport default runMigrations(\n  [\n    {\n      version: 1,\n      sql: `ALTER TABLE projects ADD COLUMN IF NOT EXISTS sort_order INTEGER NOT NULL DEFAULT 0`,\n    },\n    {\n      // Dialect-gated: runs only on the matching backend. Omit the other key\n      // to make it a no-op on that dialect.\n      version: 2,\n      sql: {\n        postgres: `ALTER TABLE projects ADD COLUMN IF NOT EXISTS tsv tsvector`,\n        sqlite: `SELECT 1`, // no-op; tsvector is Postgres-only\n      },\n    },\n  ],\n  { table: \"my_app_migrations\" },\n);",
   "annotations": [
     { "lines": "6-7", "label": "Additive only", "note": "`ADD COLUMN IF NOT EXISTS` is safe to re-run and never drops data. Renames look like drop+create to Drizzle, so add-then-migrate instead." },
     { "lines": "13-16", "label": "Dialect gating", "note": "Pass an object keyed by dialect to run different SQL per backend. Make the other key a no-op (`SELECT 1`) for Postgres-only or SQLite-only features." },

@@ -63,15 +63,15 @@ Run with `pnpm action <name>`:
 
 If the repository does not have Pinpoint set up:
 
-1. `pnpm add @agent-native/pinpoint`
-2. `npx @agent-native/pinpoint init` — copies scripts and skill to your project
+1. `pnpm add @agentnative-fork/pinpoint`
+2. `npx @agentnative-fork/pinpoint init` — copies scripts and skill to your project
 3. Add `<Pinpoint />` component to the root React component:
    ```tsx
-   import { Pinpoint } from "@agent-native/pinpoint/react";
+   import { Pinpoint } from "@agentnative-fork/pinpoint/react";
    <Pinpoint author="User" endpoint="/api/pins" autoSubmit />
    ```
 4. Add server middleware in the Express setup:
    ```ts
-   import { pagePinRoutes } from "@agent-native/pinpoint/server";
+   import { pagePinRoutes } from "@agentnative-fork/pinpoint/server";
    app.use("/api/pins", pagePinRoutes());
    ```

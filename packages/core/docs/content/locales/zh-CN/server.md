@@ -72,8 +72,8 @@ export default defineEventHandler(() => ({
 
 ```ts
 // actions/classify-message.ts
-import { defineAction } from "@agent-native/core/action";
-import { completeText } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core/action";
+import { completeText } from "@agentnative-fork/core/server";
 import { z } from "zod";
 
 export default defineAction({
@@ -107,7 +107,7 @@ Actions 由框架自动安装并与请求上下文一起运行。自定义路线
 {
   "filename": "server/routes/api/projects.get.ts",
   "language": "ts",
-  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agent-native/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agent-native/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.project分享s));\n    },\n  );\n});",
+  "code": "import { defineEventHandler, createError } from \"h3\";\nimport { getSession, runWithRequestContext } from \"@agentnative-fork/core/server\";\nimport { getDb } from \"../../db/index.js\";\nimport { accessFilter } from \"@agentnative-fork/core/sharing\";\nimport * as schema from \"../../db/schema\";\n\nexport default defineEventHandler(async (event) => {\n  const session = await getSession(event);\n  if (!session?.email) {\n    throw createError({ statusCode: 401, statusMessage: \"Unauthorized\" });\n  }\n\n  return runWithRequestContext(\n    { userEmail: session.email, orgId: session.orgId },\n    async () => {\n      const db = getDb();\n      return db\n        .select()\n        .from(schema.projects)\n        .where(accessFilter(schema.projects, schema.project分享s));\n    },\n  );\n});",
   "annotations": [
     {
       "lines": "7-10",
@@ -128,7 +128,7 @@ Actions 由框架自动安装并与请求上下文一起运行。自定义路线
 }
 ```
 
-`getDb`是通过`server/db/index.ts`中的`createGetDb(schema)`为每个应用程序创建的，因此自定义路由从模板（`../../db/index.js`）导入，而不是从`@agent-native/core/db`导入；见[Database — Where the DB Client Lives](/docs/database#db-client)。不要在自定义路由中运行无作用域的 `db.select().from(ownableTable)`。
+`getDb`是通过`server/db/index.ts`中的`createGetDb(schema)`为每个应用程序创建的，因此自定义路由从模板（`../../db/index.js`）导入，而不是从`@agentnative-fork/core/db`导入；见[Database — Where the DB Client Lives](/docs/database#db-client)。不要在自定义路由中运行无作用域的 `db.select().from(ownableTable)`。
 
 ## 服务器插件 {#server-plugins}
 
@@ -136,7 +136,7 @@ Actions 由框架自动安装并与请求上下文一起运行。自定义路线
 
 ```ts
 // server/plugins/db.ts
-import { runMigrations } from "@agent-native/core/db";
+import { runMigrations } from "@agentnative-fork/core/db";
 
 export default runMigrations(
   [
@@ -236,7 +236,7 @@ export default runMigrations(
 返回预配置的应用程序和路由器：
 
 ```ts
-import { createServer } from "@agent-native/core/server";
+import { createServer } from "@agentnative-fork/core/server";
 import { defineEventHandler } from "h3";
 
 const { app, router } = createServer();
@@ -256,7 +256,7 @@ router.get(
 代理聊天插件。
 
 ```ts
-import { createProductionAgentHandler } from "@agent-native/core/server";
+import { createProductionAgentHandler } from "@agentnative-fork/core/server";
 
 const handler = createProductionAgentHandler({
   scripts,

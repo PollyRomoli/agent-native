@@ -1,6 +1,6 @@
 import type { TrackingProvider, TrackingEvent } from "./types.js";
 
-const REGISTRY_KEY = Symbol.for("@agent-native/core/tracking.registry");
+const REGISTRY_KEY = Symbol.for("@agentnative-fork/core/tracking.registry");
 interface GlobalWithRegistry {
   [REGISTRY_KEY]?: Map<string, TrackingProvider>;
 }

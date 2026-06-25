@@ -38,7 +38,7 @@ That same boundary applies when your app wants to use another first-party app. A
 Workspace is the default shape of an agent-native project. Scaffold one with:
 
 ```bash
-npx @agent-native/core@latest create my-company-platform
+npx @agentnative-fork/core@latest create my-company-platform
 ```
 
 The CLI shows a multi-select picker of every first-party template. Pick as many as you want — Mail + Calendar + Forms, for example — and they all get scaffolded into the same workspace sharing auth and database defaults.
@@ -87,13 +87,13 @@ Every app already knows how to log in, share the same database, and load the wor
 From anywhere inside the workspace:
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 The CLI shows the template picker again with apps you've already installed filtered out. Pick one or more and they get scaffolded under `apps/`. Non-interactive variant:
 
 ```bash
-npx @agent-native/core@latest add-app crm --template content
+npx @agentnative-fork/core@latest add-app crm --template content
 ```
 
 Any first-party template works as a workspace app — the CLI runs a small **workspacify** transform on the template that adds the shared package as a dep and resolves `workspace:*` references. No parallel "workspace-app" scaffold to maintain.
@@ -111,13 +111,13 @@ Agent-native apps inside a workspace resolve cross-cutting behavior from three p
 
 1. **App local** — files inside `apps/<name>/` (highest priority)
 2. **Workspace shared** — files inside `packages/shared/` (the shared mid-layer)
-3. **Framework default** — `@agent-native/core` (lowest)
+3. **Framework default** — `@agentnative-fork/core` (lowest)
 
 The merge happens by file name. If an app provides a local file that also exists upstream, the local one wins. If it doesn't, the workspace shared version applies. If shared doesn't provide one either, the framework default kicks in. This applies to plugins, skills, actions, and `AGENTS.md`.
 
 ```an-diagram title="Three layers, merged by file name" summary="Each app resolves plugins, skills, actions, and AGENTS.md from app-local first, then the shared package, then the framework default."
 {
-  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agent-native/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
+  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agentnative-fork/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
   "css": ".layer{display:flex;flex-direction:column;align-items:center;gap:6px}.layer .diagram-card{display:flex;flex-direction:column;gap:3px;padding:12px 16px;width:320px}.layer .diagram-arrow{font-size:18px;line-height:1}.layer .diagram-box{margin-top:2px}"
 }
 ```
@@ -187,7 +187,7 @@ A few onboarding flows are workspace-aware out of the box:
 
 ## Shared credentials {#shared-credentials}
 
-Apps in the same workspace point at the same `DATABASE_URL` by default, so framework credential storage can make a credential available to every app without per-app config. Use `@agent-native/core/credentials` directly, or add a thin helper in `packages/shared` if your workspace wants a stricter naming convention.
+Apps in the same workspace point at the same `DATABASE_URL` by default, so framework credential storage can make a credential available to every app without per-app config. Use `@agentnative-fork/core/credentials` directly, or add a thin helper in `packages/shared` if your workspace wants a stricter naming convention.
 
 ## Shared design tokens {#design-tokens}
 
@@ -217,13 +217,13 @@ You have two options: **unified deploy** (the default for workspaces) or per-app
 One command builds every app in the workspace and ships them behind a single origin, one path per app:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
 ```
 
-Each app is built with `APP_BASE_PATH=/<name>` and `VITE_APP_BASE_PATH=/<name>` and emitted through the selected Nitro preset. Cloudflare Pages is the default preset and uses a dispatcher worker at `dist/_worker.js` plus `_routes.json`. Netlify is supported with `npx @agent-native/core@latest deploy --preset netlify`; it emits app functions under `.netlify/functions-internal/<app>-server` and generated redirects that leave static assets unforced so the CDN serves files first. Vercel is supported with `npx @agent-native/core@latest deploy --preset vercel`; it writes a root `.vercel/output` bundle using Vercel's Build Output API.
+Each app is built with `APP_BASE_PATH=/<name>` and `VITE_APP_BASE_PATH=/<name>` and emitted through the selected Nitro preset. Cloudflare Pages is the default preset and uses a dispatcher worker at `dist/_worker.js` plus `_routes.json`. Netlify is supported with `npx @agentnative-fork/core@latest deploy --preset netlify`; it emits app functions under `.netlify/functions-internal/<app>-server` and generated redirects that leave static assets unforced so the CDN serves files first. Vercel is supported with `npx @agentnative-fork/core@latest deploy --preset vercel`; it writes a root `.vercel/output` bundle using Vercel's Build Output API.
 
 ```an-diagram title="Unified deploy: one origin, one path per app" summary="Every app ships behind a single origin, so login sessions and cross-app A2A are free."
 {
@@ -247,13 +247,13 @@ wrangler pages deploy dist
 For Netlify:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify --build-only
+npx @agentnative-fork/core@latest deploy --preset netlify --build-only
 ```
 
 For Vercel Git deployments, set the build command to:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 ### Public app routes
@@ -287,7 +287,7 @@ These settings only affect read-only page navigation. Framework tools, agent cha
 
 ### Per-app independent deploy
 
-Prefer each app on its own domain (`mail.company.com`, `calendar.company.com`)? Every app in the workspace is still an independent deployable — `cd apps/mail && npx @agent-native/core@latest build` behaves exactly like a standalone scaffold. Cross-app A2A then goes through the standard JWT-signed path with a shared `A2A_SECRET`. Cross-domain SSO between separately-deployed apps is handled by identity federation with Dispatch as the hub — see [Cross-App SSO](/docs/cross-app-sso); the unified single-origin deploy avoids needing it.
+Prefer each app on its own domain (`mail.company.com`, `calendar.company.com`)? Every app in the workspace is still an independent deployable — `cd apps/mail && npx @agentnative-fork/core@latest build` behaves exactly like a standalone scaffold. Cross-app A2A then goes through the standard JWT-signed path with a shared `A2A_SECRET`. Cross-domain SSO between separately-deployed apps is handled by identity federation with Dispatch as the hub — see [Cross-App SSO](/docs/cross-app-sso); the unified single-origin deploy avoids needing it.
 
 ### Shared database, shared credentials
 

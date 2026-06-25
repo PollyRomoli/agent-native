@@ -4,7 +4,7 @@ Create, edit, and manage email drafts. Each draft is stored as an application st
 
 ## Storage
 
-Drafts are stored in the `application_state` SQL table via `writeAppState("compose-{id}", draft)` from `@agent-native/core/application-state`. Each entry is one draft. Multiple drafts can exist simultaneously — they appear as tabs in the compose panel.
+Drafts are stored in the `application_state` SQL table via `writeAppState("compose-{id}", draft)` from `@agentnative-fork/core/application-state`. Each entry is one draft. Multiple drafts can exist simultaneously — they appear as tabs in the compose panel.
 
 ## Schema
 
@@ -78,7 +78,7 @@ pnpm action manage-draft --action=create --to=jane@example.com --subject="Quick 
 
 Or from code:
 ```ts
-import { writeAppState } from "@agent-native/core/application-state";
+import { writeAppState } from "@agentnative-fork/core/application-state";
 await writeAppState("compose-draft1", {
   id: "draft1",
   to: "jane@example.com",
@@ -93,7 +93,7 @@ await writeAppState("compose-draft1", {
 Read the current draft, modify it, write it back:
 
 ```ts
-import { readAppState, writeAppState } from "@agent-native/core/application-state";
+import { readAppState, writeAppState } from "@agentnative-fork/core/application-state";
 const draft = await readAppState("compose-draft1");
 draft.body = "Hi Jane,\n\nI refined the draft as requested...";
 await writeAppState("compose-draft1", draft);
@@ -107,14 +107,14 @@ pnpm action view-composer
 
 Or from code:
 ```ts
-import { listAppState } from "@agent-native/core/application-state";
+import { listAppState } from "@agentnative-fork/core/application-state";
 const drafts = await listAppState("compose-");
 ```
 
 ## Closing a Draft
 
 ```ts
-import { deleteAppState } from "@agent-native/core/application-state";
+import { deleteAppState } from "@agentnative-fork/core/application-state";
 await deleteAppState("compose-draft1");
 ```
 

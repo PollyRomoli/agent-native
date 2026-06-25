@@ -1,4 +1,4 @@
-import { getRequestUserEmail } from "@agent-native/core/server";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import * as googleCalendar from "../server/lib/google-calendar.js";
 

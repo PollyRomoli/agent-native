@@ -1,1 +1,1 @@
-export { dispatchCoreRoutesPlugin as default } from "@agent-native/dispatch/server";
+export { dispatchCoreRoutesPlugin as default } from "@agentnative-fork/dispatch/server";

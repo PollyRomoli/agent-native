@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — Output formatting (compact/standard/detailed)
+// @agentnative-fork/pinpoint — Output formatting (compact/standard/detailed)
 // MIT License
 
 import type { Pin, OutputFormat } from "../types/index.js";

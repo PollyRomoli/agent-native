@@ -17,7 +17,7 @@ import {
   sendToAgentChat,
   setClientAppState,
   useSession,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { RecordingCard } from "./recording-card";
 import { EmptyState } from "./empty-state";
 import { SortMenu, type SortKey } from "./sort-menu";

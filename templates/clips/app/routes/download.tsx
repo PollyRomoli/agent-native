@@ -6,7 +6,7 @@ import {
   IconExternalLink,
   IconPlayerRecord,
 } from "@tabler/icons-react";
-import { appBasePath, appPath } from "@agent-native/core/client";
+import { appBasePath, appPath } from "@agentnative-fork/core/client";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import {

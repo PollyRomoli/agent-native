@@ -44,11 +44,11 @@ vi.mock("../server/lib/fig-design-system.js", () => ({
     mockParseSlidesFigDesignSystem(...args),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   writeAppState: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/sharing", () => ({
+vi.mock("@agentnative-fork/core/sharing", () => ({
   assertAccess: vi.fn(),
 }));
 

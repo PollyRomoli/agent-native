@@ -72,7 +72,7 @@ Options:
   -h, --help         Show this help.
 
 Authoring (evals/example.eval.ts):
-  import { defineEval, contains, llmJudge } from "@agent-native/core/eval";
+  import { defineEval, contains, llmJudge } from "@agentnative-fork/core/eval";
   export default defineEval({
     name: "answers the FAQ",
     input: { prompt: "What is your return policy?" },

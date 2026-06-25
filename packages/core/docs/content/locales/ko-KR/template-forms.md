@@ -60,7 +60,7 @@ Forms는 에이전트 기반 양식 작성 도구입니다. 원하는 양식을 
 ### 빠른 시작
 
 ```bash
-npx @agent-native/core@latest create my-forms --standalone --template forms
+npx @agentnative-fork/core@latest create my-forms --standalone --template forms
 cd my-forms
 pnpm install
 pnpm dev
@@ -69,7 +69,7 @@ pnpm dev
 다른 앱과 함께 Forms가 있는 작업공간의 경우:
 
 ```bash
-npx @agent-native/core@latest create my-platform
+npx @agentnative-fork/core@latest create my-platform
 ```
 
 작업공간 설정 중에 원하는 양식 및 기타 템플릿을 선택하세요.

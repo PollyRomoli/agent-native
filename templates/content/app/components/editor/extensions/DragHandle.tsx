@@ -1,4 +1,4 @@
-import { DragHandle as CoreDragHandle } from "@agent-native/core/client";
+import { DragHandle as CoreDragHandle } from "@agentnative-fork/core/client";
 
 /**
  * Content's drag-handle extension.

@@ -53,7 +53,7 @@ Register a custom provider in a server plugin to use any storage backend (S3, Cl
 
 ```ts
 // server/plugins/file-upload.ts
-import { registerFileUploadProvider } from "@agent-native/core/file-upload";
+import { registerFileUploadProvider } from "@agentnative-fork/core/file-upload";
 
 export default defineNitroPlugin(() => {
   registerFileUploadProvider({
@@ -103,10 +103,10 @@ interface FileUploadResult {
 }
 ```
 
-Use `uploadFile()` from `@agent-native/core/file-upload` in actions or server code:
+Use `uploadFile()` from `@agentnative-fork/core/file-upload` in actions or server code:
 
 ```ts
-import { uploadFile } from "@agent-native/core/file-upload";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
 
 const result = await uploadFile({
   data: fileBuffer,

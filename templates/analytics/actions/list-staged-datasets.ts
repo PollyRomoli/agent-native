@@ -1,10 +1,10 @@
 /**
  * Thin analytics re-export of the core list-staged-datasets action.
  */
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
-import { getCredentialContext } from "@agent-native/core/server/request-context";
-import { listStagedDatasets } from "@agent-native/core/provider-api/staged-datasets-store";
+import { getCredentialContext } from "@agentnative-fork/core/server/request-context";
+import { listStagedDatasets } from "@agentnative-fork/core/provider-api/staged-datasets-store";
 import { ANALYTICS_APP_ID } from "../server/lib/provider-credentials";
 
 export default defineAction({

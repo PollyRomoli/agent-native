@@ -1,6 +1,6 @@
 import { defineEventHandler, setResponseStatus, getRouterParam } from "h3";
-import { getSession, runWithRequestContext } from "@agent-native/core/server";
-import { assertAccess, ForbiddenError } from "@agent-native/core/sharing";
+import { getSession, runWithRequestContext } from "@agentnative-fork/core/server";
+import { assertAccess, ForbiddenError } from "@agentnative-fork/core/sharing";
 import { and, eq } from "drizzle-orm";
 import { getDb, schema } from "../../../db/index.js";
 

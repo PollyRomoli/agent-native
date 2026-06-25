@@ -38,7 +38,7 @@ Cette même limite s'applique lorsque votre application souhaite utiliser une au
 L'espace de travail est la forme par défaut d'un projet natif d'agent. Échafaudez-en un avec :
 
 ```bash
-npx @agent-native/core@latest create my-company-platform
+npx @agentnative-fork/core@latest create my-company-platform
 ```
 
 Le CLI affiche un sélecteur à sélection multiple de chaque modèle propriétaire. Choisissez-en autant que vous le souhaitez (Mail + Calendrier + Formulaires, par exemple) et ils seront tous intégrés dans le même espace de travail partageant les paramètres d'authentification et de base de données par défaut.
@@ -87,13 +87,13 @@ Chaque application sait déjà comment se connecter, partager la même base de d
 Depuis n'importe où dans l'espace de travail :
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 Le CLI affiche à nouveau le sélecteur de modèles avec les applications que vous avez déjà installées filtrées. Choisissez-en un ou plusieurs et ils seront échafaudés sous `apps/`. Variante non interactive :
 
 ```bash
-npx @agent-native/core@latest add-app crm --template content
+npx @agentnative-fork/core@latest add-app crm --template content
 ```
 
 Tout modèle propriétaire fonctionne comme une application d'espace de travail : le CLI exécute une petite transformation **workspacify** sur le modèle qui ajoute le package partagé en tant que dépôt et résout les références `workspace:*`. Aucun échafaudage « espace de travail-application » parallèle à maintenir.
@@ -111,13 +111,13 @@ Les applications natives d'agent au sein d'un espace de travail résolvent les c
 
 1. **Application locale** — fichiers dans `apps/<name>/` (priorité la plus élevée)
 2. **Espace de travail partagé** : fichiers dans `packages/shared/` (la couche intermédiaire partagée)
-3. **Framework par défaut** — `@agent-native/core` (le plus bas)
+3. **Framework par défaut** — `@agentnative-fork/core` (le plus bas)
 
 La fusion s'effectue par nom de fichier. Si une application fournit un fichier local qui existe également en amont, le fichier local l'emporte. Si ce n’est pas le cas, la version partagée de l’espace de travail s’applique. Si shared n'en fournit pas non plus, la valeur par défaut du framework entre en jeu. Cela s'applique aux plugins skills, actions et `AGENTS.md`.
 
 ```an-diagram title="Trois calques, fusionnés par nom de fichier" summary="Chaque application résout d'abord les plugins, les compétences, les actions et AGENTS.md à partir de l'application locale, puis du package partagé, puis de la valeur par défaut du framework."
 {
-  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agent-native/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
+  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agentnative-fork/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
   "css": ".layer{display:flex;flex-direction:column;align-items:center;gap:6px}.layer .diagram-card{display:flex;flex-direction:column;gap:3px;padding:12px 16px;width:320px}.layer .diagram-arrow{font-size:18px;line-height:1}.layer .diagram-box{margin-top:2px}"
 }
 ```
@@ -187,7 +187,7 @@ Quelques flux d'intégration sont prêts à l'emploi et adaptés à l'espace de 
 
 ## Identifiants partagés {#shared-credentials}
 
-Les applications du même espace de travail pointent par défaut vers le même `DATABASE_URL`, de sorte que le stockage des informations d'identification du framework peut rendre les informations d'identification disponibles pour chaque application sans configuration par application. Utilisez `@agent-native/core/credentials` directement ou ajoutez un assistant léger dans `packages/shared` si votre espace de travail souhaite une convention de dénomination plus stricte.
+Les applications du même espace de travail pointent par défaut vers le même `DATABASE_URL`, de sorte que le stockage des informations d'identification du framework peut rendre les informations d'identification disponibles pour chaque application sans configuration par application. Utilisez `@agentnative-fork/core/credentials` directement ou ajoutez un assistant léger dans `packages/shared` si votre espace de travail souhaite une convention de dénomination plus stricte.
 
 ## Jetons de conception partagés {#design-tokens}
 
@@ -217,13 +217,13 @@ Vous disposez de deux options : **déploiement unifié** (valeur par défaut po
 Une seule commande crée chaque application dans l'espace de travail et les envoie derrière une seule origine, un chemin par application :
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
 ```
 
-Chaque application est construite avec `APP_BASE_PATH=/<name>` et `VITE_APP_BASE_PATH=/<name>` et émise via le préréglage Nitro sélectionné. Cloudflare Pages est le préréglage par défaut et utilise un répartiteur chez `dist/_worker.js` plus `_routes.json`. Netlify est pris en charge avec `npx @agent-native/core@latest deploy --preset netlify` ; il émet des fonctions d'application sous `.netlify/functions-internal/<app>-server` et génère des redirections qui laissent les actifs statiques non forcés afin que le CDN serve les fichiers en premier. Vercel est pris en charge avec `npx @agent-native/core@latest deploy --preset vercel` ; il écrit un bundle `.vercel/output` racine à l'aide du Build Output API de Vercel.
+Chaque application est construite avec `APP_BASE_PATH=/<name>` et `VITE_APP_BASE_PATH=/<name>` et émise via le préréglage Nitro sélectionné. Cloudflare Pages est le préréglage par défaut et utilise un répartiteur chez `dist/_worker.js` plus `_routes.json`. Netlify est pris en charge avec `npx @agentnative-fork/core@latest deploy --preset netlify` ; il émet des fonctions d'application sous `.netlify/functions-internal/<app>-server` et génère des redirections qui laissent les actifs statiques non forcés afin que le CDN serve les fichiers en premier. Vercel est pris en charge avec `npx @agentnative-fork/core@latest deploy --preset vercel` ; il écrit un bundle `.vercel/output` racine à l'aide du Build Output API de Vercel.
 
 ```an-diagram title="Déploiement unifié : une origine, un chemin par application" summary="Chaque application est livrée derrière une seule origine, donc les sessions de connexion et les A2A inter-applications sont gratuites."
 {
@@ -247,13 +247,13 @@ wrangler pages deploy dist
 Pour Netlify :
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify --build-only
+npx @agentnative-fork/core@latest deploy --preset netlify --build-only
 ```
 
 Pour les déploiements Vercel Git, définissez la commande build sur :
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 ### Itinéraires d'applications publiques
@@ -287,7 +287,7 @@ Ces paramètres affectent uniquement la navigation dans les pages en lecture seu
 
 ### Déploiement indépendant par application
 
-Vous préférez chaque application sur son propre domaine (`mail.company.com`, `calendar.company.com`) ? Chaque application de l'espace de travail est toujours un déployable indépendant : `cd apps/mail && npx @agent-native/core@latest build` se comporte exactement comme un échafaudage autonome. Le A2A inter-applications passe ensuite par le chemin signé JWT standard avec un `A2A_SECRET` partagé. Le SSO inter-domaines entre des applications déployées séparément est géré par la fédération d'identité avec Dispatch comme hub — voir [Cross-App SSO](/docs/cross-app-sso) ; le déploiement unifié à origine unique évite d'en avoir besoin.
+Vous préférez chaque application sur son propre domaine (`mail.company.com`, `calendar.company.com`) ? Chaque application de l'espace de travail est toujours un déployable indépendant : `cd apps/mail && npx @agentnative-fork/core@latest build` se comporte exactement comme un échafaudage autonome. Le A2A inter-applications passe ensuite par le chemin signé JWT standard avec un `A2A_SECRET` partagé. Le SSO inter-domaines entre des applications déployées séparément est géré par la fédération d'identité avec Dispatch comme hub — voir [Cross-App SSO](/docs/cross-app-sso) ; le déploiement unifié à origine unique évite d'en avoir besoin.
 
 ### Base de données partagée, identifiants partagés
 

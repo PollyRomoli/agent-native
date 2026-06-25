@@ -1,8 +1,8 @@
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
-import { uploadFile } from "@agent-native/core/file-upload";
-import { buildDeepLink } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
+import { uploadFile } from "@agentnative-fork/core/file-upload";
+import { buildDeepLink } from "@agentnative-fork/core/server";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "../server/db/index.js";

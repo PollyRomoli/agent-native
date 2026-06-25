@@ -1,10 +1,10 @@
 import { IconComponents } from "@tabler/icons-react";
-import type { BlockRegistry, BlockSpec } from "@agent-native/core/blocks";
+import type { BlockRegistry, BlockSpec } from "@agentnative-fork/core/blocks";
 import {
   buildRegistryBlockSlashItems,
   getRegistryBlockSlashDescription,
   getRegistryBlockSlashSearchText,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { serializeRegistryBlockToMdx } from "@shared/nfm-registry";
 import { createContentBlockId } from "./extensions/registryBlocks";
 

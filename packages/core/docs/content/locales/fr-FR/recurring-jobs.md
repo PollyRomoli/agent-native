@@ -78,7 +78,7 @@ L'agent écrit le fichier pour vous.
 Déposez un fichier Markdown dans `jobs/` via la ressource APIs du framework :
 
 ```ts
-import { resourcePut } from "@agent-native/core/resources";
+import { resourcePut } from "@agentnative-fork/core/resources";
 
 await resourcePut(
   ownerEmail,
@@ -127,10 +127,10 @@ Un seul outil `manage-jobs` est enregistré dans chaque modèle. Le paramètre `
 
 ## Différent du package de planification {#vs-scheduling-package}
 
-Ne confondez pas les tâches récurrentes avec `@agent-native/scheduling` :
+Ne confondez pas les tâches récurrentes avec `@agentnative-fork/scheduling` :
 
 - **Tâches récurrentes (cette page)** — _invites_ planifiées par cron que l'agent exécute en arrière-plan. Au niveau du framework. Vit dans l'espace de travail. S'exécute sur n'importe quelle application native d'agent.
-- **`@agent-native/scheduling`** — un package de domaine réutilisable pour créer des fonctionnalités de calendrier/réservation (types d'événements, fenêtres de disponibilité, réservations). Alimente le modèle `calendar` et les surfaces de planification personnalisées.
+- **`@agentnative-fork/scheduling`** — un package de domaine réutilisable pour créer des fonctionnalités de calendrier/réservation (types d'événements, fenêtres de disponibilité, réservations). Alimente le modèle `calendar` et les surfaces de planification personnalisées.
 
 Les tâches récurrentes sont : "Comment faire en sorte que l'agent agisse seul ?" Le package de planification est « Comment puis-je créer une application de calendrier ? » Différentes préoccupations.
 

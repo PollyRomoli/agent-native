@@ -97,7 +97,7 @@ Pour un espace de travail de documents, de blog ou MDX existant, installez les f
 compétence :
 
 ```bash
-npx @agent-native/core@latest skills add content --mode local-files --scope project
+npx @agentnative-fork/core@latest skills add content --mode local-files --scope project
 ```
 
 Cela copie la compétence `content` dans les dossiers de compétences d'agent du dépôt et écrit

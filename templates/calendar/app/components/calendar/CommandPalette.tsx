@@ -10,7 +10,7 @@ import {
   IconLink,
   IconExternalLink,
 } from "@tabler/icons-react";
-import { CommandMenu } from "@agent-native/core/client";
+import { CommandMenu } from "@agentnative-fork/core/client";
 import { cn } from "@/lib/utils";
 import type { CalendarEvent } from "@shared/api";
 

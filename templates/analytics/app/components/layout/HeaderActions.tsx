@@ -4,7 +4,7 @@ import {
   type ReactNode,
   type FC,
 } from "react";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 import { Skeleton } from "@/components/ui/skeleton";
 
 /**

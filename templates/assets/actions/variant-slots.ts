@@ -2,7 +2,7 @@ import {
   deleteAppState,
   readAppState,
   writeAppState,
-} from "@agent-native/core/application-state";
+} from "@agentnative-fork/core/application-state";
 import { nowIso } from "../server/lib/json.js";
 import type { AssetVariantState } from "../shared/api.js";
 

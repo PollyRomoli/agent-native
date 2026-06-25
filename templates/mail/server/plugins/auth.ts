@@ -1,4 +1,4 @@
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 // Mail requires a Google connection to read/send emails, so the onboarding
 // page only offers "Sign in with Google" — no email/password account
@@ -34,7 +34,7 @@ export default createAuthPlugin({
       "Autonomous triage, archiving, and follow-ups",
     ],
     runLocalCommand:
-      "npx @agent-native/core@latest create my-mail-app --template mail",
+      "npx @agentnative-fork/core@latest create my-mail-app --template mail",
   },
   googleSignInNotice: {
     host: "mail.agent-native.com",

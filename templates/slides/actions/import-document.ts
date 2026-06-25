@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   extractDocumentColors,
@@ -6,7 +6,7 @@ import {
   classifyFile,
   suggestionsForType,
   unique,
-} from "@agent-native/core/server/design-token-utils";
+} from "@agentnative-fork/core/server/design-token-utils";
 
 export default defineAction({
   description:

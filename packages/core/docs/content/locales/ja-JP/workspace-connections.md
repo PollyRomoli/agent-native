@@ -31,7 +31,7 @@ Slack を 1 回接続し、Brain と Analytics に許可します:
 import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 await upsertWorkspaceConnection({
   id: "acme-slack",
@@ -98,7 +98,7 @@ await upsertWorkspaceConnectionGrant({
 ユーザーに新しいキーの貼り付けを依頼する前に、まず準備が整っているかどうかを確認してください。
 
 ```ts
-import { listWorkspaceConnectionProviderCatalogForApp } from "@agent-native/core/workspace-connections";
+import { listWorkspaceConnectionProviderCatalogForApp } from "@agentnative-fork/core/workspace-connections";
 
 const catalog = await listWorkspaceConnectionProviderCatalogForApp({
   appId: "brain",
@@ -120,14 +120,14 @@ if (slack.readiness.status === "needs_credentials") {
 
 ### プロバイダー カタログ
 
-`@agent-native/core/connections` からカタログをインポートします:
+`@agentnative-fork/core/connections` からカタログをインポートします:
 
 ```ts
 import {
   getWorkspaceConnectionProvider,
   listWorkspaceConnectionProvidersForTemplate,
   workspaceConnectionProviderSupports,
-} from "@agent-native/core/connections";
+} from "@agentnative-fork/core/connections";
 
 const brainProviders = listWorkspaceConnectionProvidersForTemplate("brain");
 const slack = getWorkspaceConnectionProvider("slack");
@@ -165,7 +165,7 @@ import {
   upsertWorkspaceConnection,
   upsertWorkspaceConnectionGrant,
   revokeWorkspaceConnectionGrant,
-} from "@agent-native/core/workspace-connections";
+} from "@agentnative-fork/core/workspace-connections";
 
 const connections = await listWorkspaceConnections({ includeDisabled: true });
 const grants = await listWorkspaceConnectionGrants({ appId: "brain" });
@@ -232,8 +232,8 @@ Credential Vault は、「シークレットはどこに保存されているの
 
 共有プロバイダー認証情報を使用するアプリは、読み取り専用の準備アクションと、以下をカバーする小さなセットアップ面を公開する必要があります。
 
-- **プロバイダー カタログ:** プロバイダー ID、ラベル、機能、推奨されるテンプレートの使用法、および `@agent-native/core/connections` からの必要な資格情報キー名。
-- **ワークスペースの概要:** 接続数、アクティブ/許可数、許可状態、認証情報参照名、および `@agent-native/core/workspace-connections` からの非シークレット アカウント ラベル。
+- **プロバイダー カタログ:** プロバイダー ID、ラベル、機能、推奨されるテンプレートの使用法、および `@agentnative-fork/core/connections` からの必要な資格情報キー名。
+- **ワークスペースの概要:** 接続数、アクティブ/許可数、許可状態、認証情報参照名、および `@agentnative-fork/core/workspace-connections` からの非シークレット アカウント ラベル。
 - **プロバイダーの準備状況:** `ready`、`needs_credentials`、`needs_attention`、`checking`、`disabled`、または `not_configured` (`summarizeWorkspaceConnectionProviderReadiness()` 経由)。
 - **ソースの状態:** アプリローカルに設定されたソース、カーソル、同期ステータス、および次のアクション。
 
@@ -243,8 +243,8 @@ Brain の Sources ページはリファレンス実装です。 Brain ソース 
 
 新しいプロバイダーが複数のテンプレートで動作する必要がある場合:
 
-1. **プロバイダー メタデータ:** `@agent-native/core/connections` にプロバイダーを追加または再利用します。これは、安定した ID、表示ラベル、機能リスト、推奨されるテンプレートの使用、および認証キーの名前です。
-2. **ワークスペース接続:** Dispatch または別のワークスペース セットアップ サーフェスは、接続されたアカウントの安全なメタデータ、ステータス、スコープ、`credentialRefs`、および `@agent-native/core/workspace-connections` を介したアプリ権限を保存します。
+1. **プロバイダー メタデータ:** `@agentnative-fork/core/connections` にプロバイダーを追加または再利用します。これは、安定した ID、表示ラベル、機能リスト、推奨されるテンプレートの使用、および認証キーの名前です。
+2. **ワークスペース接続:** Dispatch または別のワークスペース セットアップ サーフェスは、接続されたアカウントの安全なメタデータ、ステータス、スコープ、`credentialRefs`、および `@agentnative-fork/core/workspace-connections` を介したアプリ権限を保存します。
 3. **アプリローカル ソース:** Brain、Analytics、Mail、または別のアプリは、Slack チャネル、GitHub リポジトリ、HubSpot オブジェクト フィルター、同期カーソル、ポーリング ケイデンスなど、所有するアプリ固有の選択肢のみを保存します。
 
 各アプリで OAuth/トークン ストレージを重複させないでください。接続レコードには、「これは Acme Slack であり、そのトークンは `SLACK_BOT_TOKEN` に存在します」と記載されています。アプリのローカル ソースには、「Brain は Slack 接続から `#product` と `#dev-fusion` を取り込む可能性があります。」と書かれています。

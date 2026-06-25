@@ -1,11 +1,11 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import {
   createCodeAnalysisState,
   analyzeCodeFile,
   CODE_MAX_FILES,
   CODE_MAX_TOTAL_BYTES,
-} from "@agent-native/core/server/design-token-utils";
+} from "@agentnative-fork/core/server/design-token-utils";
 
 export default defineAction({
   description:

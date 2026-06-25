@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, Link } from "react-router";
 import { createPortal } from "react-dom";
-import { useLocale, useT } from "@agent-native/core/client";
+import { useLocale, useT } from "@agentnative-fork/core/client";
 import { buildSearchIndexAsync, type SearchEntry } from "./docs-content";
 import { docsPathForSlug } from "./docs-locale";
 

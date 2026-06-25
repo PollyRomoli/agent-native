@@ -1,4 +1,4 @@
-import { ssrfSafeFetch } from "@agent-native/core/extensions/url-safety";
+import { ssrfSafeFetch } from "@agentnative-fork/core/extensions/url-safety";
 import { normalizeLoomShareUrl } from "../../shared/loom.js";
 import {
   normalizeTranscriptSegments,

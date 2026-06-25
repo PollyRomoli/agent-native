@@ -15,7 +15,7 @@
  *   S3_PUBLIC_BASE_URL | R2_PUBLIC_BASE_URL — optional (for public read URLs)
  */
 
-import type { FileUploadProvider } from "@agent-native/core/file-upload";
+import type { FileUploadProvider } from "@agentnative-fork/core/file-upload";
 
 interface S3Config {
   region: string;

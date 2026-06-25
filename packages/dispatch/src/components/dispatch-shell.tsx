@@ -4,7 +4,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useT } from "@agent-native/core/client";
+import { useT } from "@agentnative-fork/core/client";
 import { IconInfoCircle } from "@tabler/icons-react";
 import { useSetPageTitle } from "@/components/layout/HeaderActions";
 

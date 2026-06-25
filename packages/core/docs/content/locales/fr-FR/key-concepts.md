@@ -111,7 +111,7 @@ Les magasins Core SQL sont créés automatiquement et disponibles dans chaque mo
 
 ```ts
 // Drizzle schema for domain data
-import { table, text, integer } from "@agent-native/core/db/schema";
+import { table, text, integer } from "@agentnative-fork/core/db/schema";
 
 export const forms = table("forms", {
   id: text("id").primaryKey(),
@@ -145,7 +145,7 @@ Le UI n’appelle jamais directement un LLM. Lorsqu'un utilisateur clique sur «
 
 ```ts
 // In a React component — delegate AI work to the agent
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 sendToAgentChat({
   message: "Generate a chart showing signups by source",
@@ -167,7 +167,7 @@ Lorsque l'agent doit effectuer quelque chose de complexe (appeler un API, traite
 
 ```ts
 // actions/fetch-data.ts
-import { defineAction } from "@agent-native/core/action";
+import { defineAction } from "@agentnative-fork/core/action";
 import { z } from "zod";
 
 export default defineAction({
@@ -198,7 +198,7 @@ Les modifications de la base de données sont synchronisées avec le UI via `use
 
 ```ts
 // Client: subscribe to agent/UI data changes once near the app shell
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 
 useDbSync({ queryClient });
 ```
@@ -266,7 +266,7 @@ Il n'y a pas de base de code partagée à casser. Vous êtes propriétaire de l'
 
 Deux règles architecturales garantissent la portabilité des applications entre les bases de données et les hôtes :
 
-- **Agnostique de base de données.** Écrivez des schémas avec `@agent-native/core/db/schema` et lit/écrit avec la requête portable DSL de Drizzle afin que le même code s'exécute sur n'importe quel fournisseur pris en charge. Utilisez le SQL brut uniquement pour les migrations additives ou la maintenance ponctuelle, conservé paramétré et indépendant du dialecte. Voir [Database](/docs/database).
+- **Agnostique de base de données.** Écrivez des schémas avec `@agentnative-fork/core/db/schema` et lit/écrit avec la requête portable DSL de Drizzle afin que le même code s'exécute sur n'importe quel fournisseur pris en charge. Utilisez le SQL brut uniquement pour les migrations additives ou la maintenance ponctuelle, conservé paramétré et indépendant du dialecte. Voir [Database](/docs/database).
 - **Agnostique en matière d'hébergement.** Le serveur s'exécute sur Nitro et se compile sur n'importe quelle cible de déploiement. N'utilisez jamais de API spécifiques au nœud (`fs`, `child_process`, `path`) dans les routes de serveur ou les plugins, et ne supposez jamais un processus de serveur persistant : le sans serveur et le Edge sont sans état, conservez donc tous les états dans SQL. Voir [Deployment](/docs/deployment).
 
 ## Espace de travail {#workspace}

@@ -7,7 +7,7 @@ import {
   setResponseHeader,
   type H3Event,
 } from "h3";
-import { streamFile, getSession } from "@agent-native/core/server";
+import { streamFile, getSession } from "@agentnative-fork/core/server";
 import fs from "node:fs";
 import path from "node:path";
 import { nanoid } from "nanoid";

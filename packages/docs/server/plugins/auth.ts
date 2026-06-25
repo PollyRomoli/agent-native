@@ -2,7 +2,7 @@ import {
   createAuthPlugin,
   getAppBasePath,
   type AuthOptions,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import { getCookie, getRequestURL, setCookie, type H3Event } from "h3";
 import { randomUUID } from "crypto";
 

@@ -15,7 +15,7 @@ import {
   IconClock,
   IconBuilding,
 } from "@tabler/icons-react";
-import { callAction, useChangeVersions } from "@agent-native/core/client";
+import { callAction, useChangeVersions } from "@agentnative-fork/core/client";
 
 type OrgItem = {
   id: string;

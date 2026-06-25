@@ -1,9 +1,9 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import { eq, inArray } from "drizzle-orm";
-import { assertAccess } from "@agent-native/core/sharing";
-import { getRequestUserEmail } from "@agent-native/core/server/request-context";
+import { assertAccess } from "@agentnative-fork/core/sharing";
+import { getRequestUserEmail } from "@agentnative-fork/core/server/request-context";
 import { getDb, schema } from "../server/db/index.js";
 import { nowIso, stringifyJson } from "../server/lib/json.js";
 import { serializeGenerationSession } from "./_helpers.js";

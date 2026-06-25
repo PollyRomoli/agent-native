@@ -10,15 +10,15 @@ import {
 } from "react-router";
 import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { useDbSync } from "@agent-native/core/client";
+import { useDbSync } from "@agentnative-fork/core/client";
 import {
   AppProviders,
   appPath,
   getLocaleInitScript,
   getThemeInitScript,
   createAgentNativeQueryClient,
-} from "@agent-native/core/client";
-import { configureTracking } from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
+import { configureTracking } from "@agentnative-fork/core/client";
 import { useNavigationState } from "./hooks/use-navigation-state";
 import { i18nCatalog } from "./i18n";
 import { TAB_ID } from "./lib/tab-id";

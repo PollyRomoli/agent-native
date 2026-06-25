@@ -17,20 +17,20 @@ const mocks = vi.hoisted(() => ({
   getOrgDomain: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server/agent-discovery", () => ({
+vi.mock("@agentnative-fork/core/server/agent-discovery", () => ({
   discoverAgents: mocks.discoverAgents,
 }));
 
-vi.mock("@agent-native/core/settings", () => ({
+vi.mock("@agentnative-fork/core/settings", () => ({
   getUserSetting: mocks.getUserSetting,
   getOrgSetting: mocks.getOrgSetting,
   putUserSetting: vi.fn(),
   putOrgSetting: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/server", async (importOriginal) => {
+vi.mock("@agentnative-fork/core/server", async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import("@agent-native/core/server")>();
+    await importOriginal<typeof import("@agentnative-fork/core/server")>();
   return {
     ...actual,
     createEmbedSessionTicket: mocks.createEmbedSessionTicket,
@@ -38,17 +38,17 @@ vi.mock("@agent-native/core/server", async (importOriginal) => {
   };
 });
 
-vi.mock("@agent-native/core/a2a", () => ({
+vi.mock("@agentnative-fork/core/a2a", () => ({
   callAgent: vi.fn(),
   signA2AToken: mocks.signA2AToken,
 }));
 
-vi.mock("@agent-native/core/org", () => ({
+vi.mock("@agentnative-fork/core/org", () => ({
   getOrgA2ASecret: mocks.getOrgA2ASecret,
   getOrgDomain: mocks.getOrgDomain,
 }));
 
-vi.mock("@agent-native/core/mcp-client", () => ({
+vi.mock("@agentnative-fork/core/mcp-client", () => ({
   buildMcpToolName: (serverId: string, toolName: string) =>
     `mcp__${serverId}__${toolName}`,
   McpClientManager: class MockMcpClientManager {
@@ -77,7 +77,7 @@ import {
   openGrantedDispatchMcpApp,
   resolveGrantedDispatchMcpApp,
 } from "./mcp-gateway.js";
-import { runWithRequestContext } from "@agent-native/core/server";
+import { runWithRequestContext } from "@agentnative-fork/core/server";
 
 const analyticsAgent = {
   id: "analytics",

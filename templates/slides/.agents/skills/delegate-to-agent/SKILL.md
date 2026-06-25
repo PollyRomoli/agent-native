@@ -17,7 +17,7 @@ metadata:
 The UI never calls an LLM directly. Product workflows are delegated to the
 agent through the chat bridge so users can see, steer, and audit the work.
 Server-side one-shot model calls are an explicit escape hatch for narrow text
-transforms only; use `completeText()` from `@agent-native/core/server` when the
+transforms only; use `completeText()` from `@agentnative-fork/core/server` when the
 work intentionally does not need tools, chat history, or run state.
 
 ## Why
@@ -29,7 +29,7 @@ The agent is the single AI interface. It has context about the full project, can
 **From the UI (client):**
 
 ```ts
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 sendToAgentChat({
   message: "Generate a summary of this document",
@@ -41,7 +41,7 @@ sendToAgentChat({
 **From the UI, in the background:**
 
 ```ts
-import { sendToAgentChat } from "@agent-native/core/client";
+import { sendToAgentChat } from "@agentnative-fork/core/client";
 
 sendToAgentChat({
   message: "Analyze this import and create any missing records",
@@ -59,7 +59,7 @@ all remain active. It simply does not focus or open the sidebar.
 **From scripts (Node):**
 
 ```ts
-import { agentChat } from "@agent-native/core";
+import { agentChat } from "@agentnative-fork/core";
 
 agentChat.submit("Process the uploaded images and create thumbnails");
 ```
@@ -67,7 +67,7 @@ agentChat.submit("Process the uploaded images and create thumbnails");
 **For narrow server-side text transforms:**
 
 ```ts
-import { completeText } from "@agent-native/core/server";
+import { completeText } from "@agentnative-fork/core/server";
 
 const result = await completeText({
   systemPrompt: "Return exactly one sentiment label.",
@@ -83,7 +83,7 @@ Do not call provider SDKs directly.
 **From the UI, detecting when agent is done:**
 
 ```ts
-import { useAgentChatGenerating } from "@agent-native/core/client";
+import { useAgentChatGenerating } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const isGenerating = useAgentChatGenerating();
@@ -242,7 +242,7 @@ thread state.
 `sendToAgentChat()` delegates work to the **local** agent — the one running alongside your app. When the work should go to a **different** agent entirely (e.g., asking an analytics agent for data, or a calendar agent for availability), use the A2A (agent-to-agent) protocol instead.
 
 ```ts
-import { callAgent } from "@agent-native/core/a2a";
+import { callAgent } from "@agentnative-fork/core/a2a";
 
 // Call a different agent — not the local agent chat
 const stats = await callAgent(

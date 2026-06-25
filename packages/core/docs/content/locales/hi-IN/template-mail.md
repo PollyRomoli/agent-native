@@ -95,7 +95,7 @@ Google खाता कनेक्ट किए बिना, ऐप एक ख
 मेल टेम्पलेट के साथ एक नया कार्यक्षेत्र बनाएं:
 
 ```bash
-npx @agent-native/core@latest create my-mail --standalone --template mail
+npx @agentnative-fork/core@latest create my-mail --standalone --template mail
 cd my-mail
 pnpm install
 pnpm dev
@@ -104,7 +104,7 @@ pnpm dev
 या किसी मौजूदा एजेंट-मूल कार्यस्थान में मेल जोड़ें:
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 Gmail को डेव में कनेक्ट करने के लिए, आपको एक Google OAuth क्लाइंट की आवश्यकता है:
@@ -230,7 +230,7 @@ UI में रूट:
 
 **एजेंट के व्यवहार को बदलना।** एजेंट मार्गदर्शन `templates/mail/AGENTS.md` में रहता है और skills `templates/mail/.agents/skills/` (`email-drafts`, `real-time-sync`, `security`, `self-modifying-code`, और अन्य) में रहता है। एजेंट का व्यवहार मार्कडाउन संपादित करके बदला जाता है - कोड नहीं।
 
-**डेटा या सेटिंग्स बदलना।** ट्रैकिंग तालिकाओं और संबंधित संरचनाओं के लिए स्कीमा `templates/mail/server/db/` में हैं। पढ़ने और लिखने की सेटिंग्स `@agent-native/core/settings` से `readSetting` / `writeSetting` के माध्यम से जाती हैं। एप्लिकेशन स्थिति (नेविगेशन, ड्राफ्ट, वन-शॉट कमांड) `@agent-native/core/application-state` से `readAppState` / `writeAppState` का उपयोग करती है।
+**डेटा या सेटिंग्स बदलना।** ट्रैकिंग तालिकाओं और संबंधित संरचनाओं के लिए स्कीमा `templates/mail/server/db/` में हैं। पढ़ने और लिखने की सेटिंग्स `@agentnative-fork/core/settings` से `readSetting` / `writeSetting` के माध्यम से जाती हैं। एप्लिकेशन स्थिति (नेविगेशन, ड्राफ्ट, वन-शॉट कमांड) `@agentnative-fork/core/application-state` से `readAppState` / `writeAppState` का उपयोग करती है।
 
 **एक नया स्वचालन क्रिया प्रकार जोड़ना।** `templates/mail/actions/manage-automations.ts` में क्रिया स्कीमा और `templates/mail/actions/trigger-automations.ts` में निष्पादक का विस्तार करें।
 

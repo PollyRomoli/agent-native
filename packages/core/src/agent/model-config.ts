@@ -133,7 +133,37 @@ const FRAMEWORK_DEFAULT_OPENROUTER_MODEL = openRouterModelId(
   FRAMEWORK_DEFAULT_OPENAI_MODEL,
 );
 
-export const AGENT_MODEL_CONFIG = {
+// ---------------------------------------------------------------------------
+// Mutable model config registry
+//
+// AGENT_MODEL_CONFIG is a mutable registry layered on top of the built-in
+// defaults. registerModelConfig() allows the SaaS customization layer to
+// override defaults and supported models per engine. When no overrides are
+// registered, the built-in defaults below are used — preserving backward
+// compatibility.
+// ---------------------------------------------------------------------------
+
+export interface EngineModelConfig {
+  defaultModel: string;
+  supportedModels: string[];
+}
+
+export type ModelConfigRegistry = {
+  builder: EngineModelConfig;
+  anthropic: EngineModelConfig;
+  aiSdk: {
+    anthropic: EngineModelConfig;
+    openai: EngineModelConfig;
+    openrouter: EngineModelConfig;
+    google: EngineModelConfig;
+    groq: EngineModelConfig;
+    mistral: EngineModelConfig;
+    cohere: EngineModelConfig;
+    ollama: EngineModelConfig;
+  };
+} & Record<string, EngineModelConfig | Record<string, EngineModelConfig>>;
+
+const _defaultModelConfig = {
   builder: {
     defaultModel: FRAMEWORK_DEFAULT_BUILDER_MODEL,
     supportedModels: [
@@ -228,7 +258,48 @@ export const AGENT_MODEL_CONFIG = {
       supportedModels: ["llama3.1", "llama3.2", "mistral", "codestral"],
     },
   },
-} as const;
+} as ModelConfigRegistry;
+
+/**
+ * Mutable model config registry. Consumers read from this object.
+ * Use registerModelConfig() to override entries — do not mutate directly.
+ */
+export const AGENT_MODEL_CONFIG: ModelConfigRegistry = _defaultModelConfig;
+
+/**
+ * Override the model config for a given engine.
+ * Only top-level engines (builder, anthropic) and aiSdk sub-providers are
+ * supported. The override replaces the entire config for that engine.
+ */
+export function registerModelConfig(
+  engine: string,
+  config: EngineModelConfig,
+): void {
+  const aiSdkProviders = _defaultModelConfig.aiSdk as Record<string, EngineModelConfig>;
+  if (engine.startsWith("aiSdk:")) {
+    const provider = engine.slice("aiSdk:".length);
+    if (aiSdkProviders[provider]) {
+      aiSdkProviders[provider] = config;
+    }
+  } else if (engine === "builder" || engine === "anthropic") {
+    (_defaultModelConfig as Record<string, EngineModelConfig>)[engine] = config;
+  }
+}
+
+/**
+ * Get the model config for a given engine. Returns undefined for unknown engines.
+ */
+export function getModelConfig(engine: string): EngineModelConfig | undefined {
+  const aiSdkProviders = _defaultModelConfig.aiSdk as Record<string, EngineModelConfig>;
+  if (engine.startsWith("aiSdk:")) {
+    const provider = engine.slice("aiSdk:".length);
+    return aiSdkProviders[provider];
+  }
+  if (engine === "builder" || engine === "anthropic") {
+    return (_defaultModelConfig as Record<string, EngineModelConfig>)[engine];
+  }
+  return undefined;
+}
 
 export const BUILDER_MODEL_CONFIG = AGENT_MODEL_CONFIG.builder;
 export const ANTHROPIC_MODEL_CONFIG = AGENT_MODEL_CONFIG.anthropic;

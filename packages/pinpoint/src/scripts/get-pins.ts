@@ -1,7 +1,7 @@
-// @agent-native/pinpoint — List/filter annotations script
+// @agentnative-fork/pinpoint — List/filter annotations script
 // MIT License
 
-import { parseArgs } from "@agent-native/core/scripts";
+import { parseArgs } from "@agentnative-fork/core/scripts";
 import { FileStore } from "../storage/file-store.js";
 import type { PinStatus } from "../types/index.js";
 

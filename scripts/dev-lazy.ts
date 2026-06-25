@@ -1264,7 +1264,7 @@ function killChildProcessTree(
 function ensureElectronBinary() {
   try {
     execSync(
-      `pnpm --filter @agent-native/desktop-app exec node -e "require('electron')"`,
+      `pnpm --filter @agentnative-fork/desktop-app exec node -e "require('electron')"`,
       { stdio: "ignore" },
     );
     return;
@@ -1275,11 +1275,11 @@ function ensureElectronBinary() {
   }
 
   try {
-    execSync("pnpm --filter @agent-native/desktop-app rebuild electron", {
+    execSync("pnpm --filter @agentnative-fork/desktop-app rebuild electron", {
       stdio: "inherit",
     });
     execSync(
-      `pnpm --filter @agent-native/desktop-app exec node -e "require('electron')"`,
+      `pnpm --filter @agentnative-fork/desktop-app exec node -e "require('electron')"`,
       { stdio: "ignore" },
     );
   } catch (err) {
@@ -1287,7 +1287,7 @@ function ensureElectronBinary() {
       "[dev-lazy] Electron is installed but its binary could not be prepared.",
     );
     console.error(
-      "Run this once and retry:\n  pnpm --filter @agent-native/desktop-app rebuild electron",
+      "Run this once and retry:\n  pnpm --filter @agentnative-fork/desktop-app rebuild electron",
     );
     throw err;
   }
@@ -1376,7 +1376,7 @@ if (dryRun) {
   }
   if (includeElectron) {
     console.log(`[dev-lazy] frame: http://localhost:${FRAME_PORT}`);
-    console.log("[dev-lazy] electron: @agent-native/desktop-app dev");
+    console.log("[dev-lazy] electron: @agentnative-fork/desktop-app dev");
   }
   process.exit(0);
 }
@@ -1394,8 +1394,8 @@ if (shouldKill) {
   for (const port of ports) killPort(port);
 }
 
-console.log("[dev-lazy] Prebuilding @agent-native/core...");
-execSync("pnpm --filter @agent-native/core build", { stdio: "inherit" });
+console.log("[dev-lazy] Prebuilding @agentnative-fork/core...");
+execSync("pnpm --filter @agentnative-fork/core build", { stdio: "inherit" });
 
 if (usePollingFileWatcher) {
   console.log(
@@ -1405,7 +1405,7 @@ if (usePollingFileWatcher) {
 
 startBackgroundProcess("core", "pnpm", [
   "--filter",
-  "@agent-native/core",
+  "@agentnative-fork/core",
   "exec",
   "tsc",
   "--watch",
@@ -1495,13 +1495,13 @@ function listen(port: number, attempts = 20): void {
       startBackgroundProcess(
         "frame",
         "pnpm",
-        ["--filter", "@agent-native/frame", "dev"],
+        ["--filter", "@agentnative-fork/frame", "dev"],
         env,
       );
       startBackgroundProcess(
         "electron",
         "pnpm",
-        ["--filter", "@agent-native/desktop-app", "dev"],
+        ["--filter", "@agentnative-fork/desktop-app", "dev"],
         env,
       );
     }

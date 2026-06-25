@@ -17,7 +17,7 @@ wants to understand where context is going.
 Recommended install path:
 
 ```bash
-npx @agent-native/core@latest skills add context-xray --client all
+npx @agentnative-fork/core@latest skills add context-xray --client all
 ```
 
 That installs a local `context-xray` command plus Codex/Claude skills and slash

@@ -38,7 +38,7 @@ Die gleiche Grenze gilt, wenn Ihre App eine andere Erstanbieter-App verwenden m�
 Arbeitsbereich ist die Standardform eines agentennativen Projekts. Gerüst eins mit:
 
 ```bash
-npx @agent-native/core@latest create my-company-platform
+npx @agentnative-fork/core@latest create my-company-platform
 ```
 
 CLI zeigt eine Mehrfachauswahlauswahl für jede Erstanbietervorlage. Wählen Sie so viele aus, wie Sie möchten – zum Beispiel Mail + Kalender + Formulare – und alle werden in denselben Arbeitsbereich integriert und teilen Authentifizierungs- und Datenbankstandards.
@@ -87,13 +87,13 @@ Jede App weiß bereits, wie sie sich anmeldet, dieselbe Datenbank freigibt und d
 Von überall im Arbeitsbereich:
 
 ```bash
-npx @agent-native/core@latest add-app
+npx @agentnative-fork/core@latest add-app
 ```
 
 Der CLI zeigt erneut die Vorlagenauswahl mit herausgefilterten Apps an, die Sie bereits installiert haben. Wählen Sie eine oder mehrere aus und sie werden unter `apps/` eingerüstet. Nicht interaktive Variante:
 
 ```bash
-npx @agent-native/core@latest add-app crm --template content
+npx @agentnative-fork/core@latest add-app crm --template content
 ```
 
 Jede Vorlage eines Erstanbieters funktioniert als Arbeitsbereichs-App – CLI führt eine kleine **workspacify**-Transformation auf der Vorlage aus, die das freigegebene Paket als Dep hinzufügt und `workspace:*`-Referenzen auflöst. Es muss kein paralleles „Workspace-App“-Gerüst gepflegt werden.
@@ -111,13 +111,13 @@ Agent-native Apps innerhalb eines Arbeitsbereichs lösen übergreifendes Verhalt
 
 1. **App local** – Dateien innerhalb von `apps/<name>/` (höchste Priorität)
 2. **Freigegebener Arbeitsbereich** – Dateien innerhalb von `packages/shared/` (der gemeinsam genutzten Mittelschicht)
-3. **Framework-Standard** – `@agent-native/core` (niedrigste)
+3. **Framework-Standard** – `@agentnative-fork/core` (niedrigste)
 
 Die Zusammenführung erfolgt nach Dateinamen. Wenn eine App eine lokale Datei bereitstellt, die auch im Upstream vorhanden ist, gewinnt die lokale Datei. Ist dies nicht der Fall, gilt die gemeinsam genutzte Version des Arbeitsbereichs. Wenn shared auch keines bereitstellt, tritt die Framework-Standardeinstellung in Kraft. Dies gilt für die Plugins skills, actions und `AGENTS.md`.
 
 ```an-diagram title="Drei Ebenen, nach Dateinamen zusammengeführt" summary="Jede App löst Plugins, Skills, Aktionen und AGENTS.md zuerst aus App-Local, dann aus dem freigegebenen Paket und dann aus dem Framework-Standard auf."
 {
-  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agent-native/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
+  "html": "<div class=\"layer\"><div class=\"diagram-card accent\"><span class=\"diagram-pill accent\">1 &middot; App local</span><small class=\"diagram-muted\"><code>apps/&lt;name&gt;/</code> &mdash; highest priority</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">2 &middot; Workspace shared</span><small class=\"diagram-muted\"><code>packages/shared/</code> &mdash; the mid-layer</small></div><div class=\"diagram-arrow diagram-muted\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-card\"><span class=\"diagram-pill\">3 &middot; Framework default</span><small class=\"diagram-muted\"><code>@agentnative-fork/core</code> &mdash; lowest</small></div><div class=\"diagram-arrow diagram-accent\" aria-hidden=\"true\">&darr;</div><div class=\"diagram-box ok\">first match wins</div></div>",
   "css": ".layer{display:flex;flex-direction:column;align-items:center;gap:6px}.layer .diagram-card{display:flex;flex-direction:column;gap:3px;padding:12px 16px;width:320px}.layer .diagram-arrow{font-size:18px;line-height:1}.layer .diagram-box{margin-top:2px}"
 }
 ```
@@ -187,7 +187,7 @@ Einige Onboarding-Abläufe sind standardmäßig arbeitsbereichsorientiert:
 
 ## Gemeinsame Anmeldeinformationen {#shared-credentials}
 
-Apps im selben Arbeitsbereich verweisen standardmäßig auf denselben `DATABASE_URL`, sodass die Speicherung von Framework-Anmeldeinformationen Anmeldeinformationen für jede App ohne Konfiguration pro App verfügbar machen kann. Verwenden Sie `@agent-native/core/credentials` direkt oder fügen Sie einen Thin Helper in `packages/shared` hinzu, wenn Ihr Arbeitsbereich eine strengere Namenskonvention erfordert.
+Apps im selben Arbeitsbereich verweisen standardmäßig auf denselben `DATABASE_URL`, sodass die Speicherung von Framework-Anmeldeinformationen Anmeldeinformationen für jede App ohne Konfiguration pro App verfügbar machen kann. Verwenden Sie `@agentnative-fork/core/credentials` direkt oder fügen Sie einen Thin Helper in `packages/shared` hinzu, wenn Ihr Arbeitsbereich eine strengere Namenskonvention erfordert.
 
 ## Geteilte Design-Tokens {#design-tokens}
 
@@ -217,13 +217,13 @@ Sie haben zwei Möglichkeiten: **einheitliche Bereitstellung** (Standard für Ar
 Ein Befehl erstellt jede App im Arbeitsbereich und verschickt sie hinter einem einzigen Ursprung, einem Pfad pro App:
 
 ```bash
-npx @agent-native/core@latest deploy
+npx @agentnative-fork/core@latest deploy
 # https://your-agents.com/mail/*       → apps/mail
 # https://your-agents.com/calendar/*   → apps/calendar
 # https://your-agents.com/forms/*      → apps/forms
 ```
 
-Jede App wird mit `APP_BASE_PATH=/<name>` und `VITE_APP_BASE_PATH=/<name>` erstellt und über die ausgewählte Nitro-Voreinstellung ausgegeben. Cloudflare Pages ist die Standardvoreinstellung und verwendet einen Dispatcher-Worker bei `dist/_worker.js` plus `_routes.json`. Netlify wird mit `npx @agent-native/core@latest deploy --preset netlify` unterstützt; Es gibt App-Funktionen unter `.netlify/functions-internal/<app>-server` aus und generiert Weiterleitungen, die statische Assets nicht erzwingen, sodass CDN Dateien zuerst bereitstellt. Vercel wird mit `npx @agent-native/core@latest deploy --preset vercel` unterstützt; Es schreibt ein Root-`.vercel/output`-Bundle mit Vercels Build Output API.
+Jede App wird mit `APP_BASE_PATH=/<name>` und `VITE_APP_BASE_PATH=/<name>` erstellt und über die ausgewählte Nitro-Voreinstellung ausgegeben. Cloudflare Pages ist die Standardvoreinstellung und verwendet einen Dispatcher-Worker bei `dist/_worker.js` plus `_routes.json`. Netlify wird mit `npx @agentnative-fork/core@latest deploy --preset netlify` unterstützt; Es gibt App-Funktionen unter `.netlify/functions-internal/<app>-server` aus und generiert Weiterleitungen, die statische Assets nicht erzwingen, sodass CDN Dateien zuerst bereitstellt. Vercel wird mit `npx @agentnative-fork/core@latest deploy --preset vercel` unterstützt; Es schreibt ein Root-`.vercel/output`-Bundle mit Vercels Build Output API.
 
 ```an-diagram title="Einheitliche Bereitstellung: ein Ursprung, ein Pfad pro App" summary="Jede App wird hinter einem einzigen Ursprung ausgeliefert, sodass Anmeldesitzungen und App-übergreifendes A2A kostenlos sind."
 {
@@ -247,13 +247,13 @@ wrangler pages deploy dist
 Für Netlify:
 
 ```bash
-npx @agent-native/core@latest deploy --preset netlify --build-only
+npx @agentnative-fork/core@latest deploy --preset netlify --build-only
 ```
 
 Legen Sie für Vercel Git-Bereitstellungen den Build-Befehl auf Folgendes fest:
 
 ```bash
-npx @agent-native/core@latest deploy --preset vercel --build-only
+npx @agentnative-fork/core@latest deploy --preset vercel --build-only
 ```
 
 ### Öffentliche App-Routen
@@ -287,7 +287,7 @@ Diese Einstellungen wirken sich nur auf die schreibgeschützte Seitennavigation 
 
 ### Unabhängige Bereitstellung pro App
 
-Bevorzugen Sie jede App in einer eigenen Domain (`mail.company.com`, `calendar.company.com`)? Jede App im Arbeitsbereich ist immer noch ein unabhängiges Deployable – `cd apps/mail && npx @agent-native/core@latest build` verhält sich genau wie ein eigenständiges Gerüst. Der App-übergreifende A2A durchläuft dann den standardmäßigen JWT-signierten Pfad mit einem gemeinsam genutzten `A2A_SECRET`. Der domänenübergreifende SSO zwischen separat bereitgestellten Apps wird von der Identitätsföderation mit Dispatch als Hub abgewickelt – siehe [Cross-App SSO](/docs/cross-app-sso); Durch die einheitliche Single-Origin-Bereitstellung ist dies nicht erforderlich.
+Bevorzugen Sie jede App in einer eigenen Domain (`mail.company.com`, `calendar.company.com`)? Jede App im Arbeitsbereich ist immer noch ein unabhängiges Deployable – `cd apps/mail && npx @agentnative-fork/core@latest build` verhält sich genau wie ein eigenständiges Gerüst. Der App-übergreifende A2A durchläuft dann den standardmäßigen JWT-signierten Pfad mit einem gemeinsam genutzten `A2A_SECRET`. Der domänenübergreifende SSO zwischen separat bereitgestellten Apps wird von der Identitätsföderation mit Dispatch als Hub abgewickelt – siehe [Cross-App SSO](/docs/cross-app-sso); Durch die einheitliche Single-Origin-Bereitstellung ist dies nicht erforderlich.
 
 ### Gemeinsame Datenbank, gemeinsame Anmeldeinformationen
 

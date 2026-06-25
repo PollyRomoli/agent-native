@@ -1,9 +1,9 @@
 /**
  * Thin content re-export of staged dataset deletion, pre-bound to appId="content".
  */
-import { defineAction } from "@agent-native/core";
-import { getCredentialContext } from "@agent-native/core/server/request-context";
-import { deleteStagedDataset } from "@agent-native/core/provider-api/staged-datasets-store";
+import { defineAction } from "@agentnative-fork/core";
+import { getCredentialContext } from "@agentnative-fork/core/server/request-context";
+import { deleteStagedDataset } from "@agentnative-fork/core/provider-api/staged-datasets-store";
 import { z } from "zod";
 import { CONTENT_APP_ID } from "../server/lib/provider-api.js";
 

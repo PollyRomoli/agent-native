@@ -8,7 +8,7 @@ import {
 import { eq } from "drizzle-orm";
 import type { LoaderFunctionArgs, MetaFunction } from "react-router";
 import { useLoaderData } from "react-router";
-import { getConfiguredAppBasePath } from "@agent-native/core/server";
+import { getConfiguredAppBasePath } from "@agentnative-fork/core/server";
 import { getDb, schema } from "../../server/db";
 
 type LoaderData =

@@ -1,5 +1,5 @@
 /**
- * Loads all markdown doc files from @agent-native/core at build time via Vite glob import.
+ * Loads all markdown doc files from @agentnative-fork/core at build time via Vite glob import.
  * The source of truth for docs lives in packages/core/docs/content/.
  * Provides parsed frontmatter, raw markdown, and heading extraction for TOC + search.
  */

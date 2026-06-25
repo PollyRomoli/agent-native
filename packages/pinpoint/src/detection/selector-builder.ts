@@ -1,4 +1,4 @@
-// @agent-native/pinpoint — CSS selector generation using @medv/finder
+// @agentnative-fork/pinpoint — CSS selector generation using @medv/finder
 // MIT License
 
 import { finder } from "@medv/finder";

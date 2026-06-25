@@ -1,7 +1,7 @@
-// @agent-native/pinpoint — Resolve annotation script
+// @agentnative-fork/pinpoint — Resolve annotation script
 // MIT License
 
-import { parseArgs, fail } from "@agent-native/core/scripts";
+import { parseArgs, fail } from "@agentnative-fork/core/scripts";
 import { FileStore } from "../storage/file-store.js";
 
 export default async function (args: string[]) {

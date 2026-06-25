@@ -13,7 +13,7 @@ import {
   IconX,
   IconPencil,
 } from "@tabler/icons-react";
-import { useActionQuery, useActionMutation } from "@agent-native/core/client";
+import { useActionQuery, useActionMutation } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -37,7 +37,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import PromptPopover from "@/components/editor/PromptDialog";
 import type { UploadedFile } from "@/components/editor/PromptDialog";
-import type { PromptComposerSubmitOptions } from "@agent-native/core/client";
+import type { PromptComposerSubmitOptions } from "@agentnative-fork/core/client";
 import { useDesignSystems } from "@/hooks/use-design-systems";
 import {
   useSetHeaderActions,

@@ -1,9 +1,9 @@
 import type { H3Event } from "h3";
-import { getOrgContext } from "@agent-native/core/org";
+import { getOrgContext } from "@agentnative-fork/core/org";
 import {
   getRequestOrgId,
   getRequestUserEmail,
-} from "@agent-native/core/server/request-context";
+} from "@agentnative-fork/core/server/request-context";
 import {
   deleteOrgSetting,
   deleteSetting,
@@ -14,7 +14,7 @@ import {
   listOrgSettings,
   putOrgSetting,
   putUserSetting,
-} from "@agent-native/core/settings";
+} from "@agentnative-fork/core/settings";
 
 export interface SettingsScope {
   email: string;

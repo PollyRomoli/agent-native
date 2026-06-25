@@ -12,11 +12,11 @@ import {
   type BlockRenderContext,
   type NestedBlock,
   type BlockAiFieldActionProps,
-} from "@agent-native/core/blocks";
+} from "@agentnative-fork/core/blocks";
 import {
   sendToAgentChat,
   type RichMarkdownCollabUser,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import type { PlanBlock } from "@shared/plan-content";
 import { PlanBlockView } from "./DocumentArea";
 import { PlanMarkdownReader } from "./PlanMarkdownReader";

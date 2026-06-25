@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { rescheduleBooking } from "../server/booking-service.js";
 import { getBookingByUid } from "../server/bookings-repo.js";

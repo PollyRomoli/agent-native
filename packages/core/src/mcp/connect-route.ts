@@ -376,7 +376,7 @@ function mcpResultPayload(
       url: mcpUrl,
       ...(Object.keys(headers).length ? { headers } : {}),
     },
-    cli: `npx @agent-native/core@latest connect ${appUrl}`,
+    cli: `npx @agentnative-fork/core@latest connect ${appUrl}`,
   };
 }
 
@@ -420,7 +420,7 @@ function renderConnectPage(params: {
     `claude mcp add --transport http ${serverId} ${mcpUrl}`,
   );
   const safeCodexCmd = escapeHtml(
-    `npx @agent-native/core@latest connect ${appUrl}`,
+    `npx @agentnative-fork/core@latest connect ${appUrl}`,
   );
   const safeGenericConfig = escapeHtml(
     `{\n  "mcpServers": {\n    "${serverId}": {\n      "type": "http",\n      "url": "${mcpUrl}"\n    }\n  }\n}`,

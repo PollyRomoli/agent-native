@@ -1,12 +1,12 @@
 import { reactRouter } from "@react-router/dev/vite";
 import fs from "node:fs";
 import path from "node:path";
-import { agentNative } from "@agent-native/core/vite";
+import { agentNative } from "@agentnative-fork/core/vite";
 import {
   findAgentNativeManifest,
   getLocalArtifactApp,
   type LocalArtifactOptions,
-} from "@agent-native/core/local-artifacts";
+} from "@agentnative-fork/core/local-artifacts";
 import { defineConfig, type Plugin } from "vite";
 import {
   isLocalComponentWorkspaceStoreFile,

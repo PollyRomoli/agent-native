@@ -5,15 +5,15 @@ const mocks = vi.hoisted(() => ({
   loadDashboardSeed: vi.fn(),
 }));
 
-vi.mock("@agent-native/core", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@agent-native/core")>();
+vi.mock("@agentnative-fork/core", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@agentnative-fork/core")>();
   return {
     ...actual,
     embedApp: vi.fn((value: unknown) => value),
   };
 });
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   buildDeepLink: vi.fn(
     ({
       app,

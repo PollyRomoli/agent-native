@@ -54,16 +54,16 @@ import {
   NotificationsBell,
   agentNativePath,
   useT,
-} from "@agent-native/core/client";
-import { InvitationBanner, OrgSwitcher } from "@agent-native/core/client/org";
-import { ExtensionsSidebarSection } from "@agent-native/core/client/extensions";
+} from "@agentnative-fork/core/client";
+import { InvitationBanner, OrgSwitcher } from "@agentnative-fork/core/client/org";
+import { ExtensionsSidebarSection } from "@agentnative-fork/core/client/extensions";
 import type { Label } from "@shared/types";
 import { toast } from "sonner";
 
 import { AccountFilterContext } from "@/hooks/use-account-filter";
 import { useHeaderTitle, useHeaderActions } from "./HeaderActions";
 import { useQueuedDraftCount } from "@/hooks/use-draft-queue";
-import { appApiPath } from "@agent-native/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 import { isMcpEmbedSurface } from "@/lib/mcp-embed";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {

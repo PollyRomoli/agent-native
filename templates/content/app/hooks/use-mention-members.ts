@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { agentNativePath } from "@agent-native/core/client";
+import { agentNativePath } from "@agentnative-fork/core/client";
 
 export interface MentionMember {
   email: string;

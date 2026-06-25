@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   emailLink: (label: string, url: string) => `${label}: ${url}`,
   emailStrong: (value: string) => value,
   isEmailConfigured: () => false,

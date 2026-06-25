@@ -174,7 +174,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 액세스 토큰은 설정된 경우 `A2A_SECRET`로 서명되고 그렇지 않으면 `BETTER_AUTH_SECRET`로 서명됩니다. 서명된 사용자/조직 ID와 `mcp:read`, `mcp:write` 및/또는 `mcp:apps` 범위를 전달하며 대상은 정확한 MCP 리소스 URL에 바인딩됩니다. 새로 고침 토큰은 해시로만 저장되며 새로 고칠 때마다 교체됩니다. 도구 호출 및 MCP 앱 리소스 읽기는 로그인한 사용자와 동일한 요청 컨텍스트 내에서 실행됩니다. 내장된 MCP 앱 iframe은 원시 OAuth 토큰을 수신하지 않습니다.
 
-`npx @agent-native/core@latest connect <url> --client claude-code`는 이 표준 흐름에 대해 URL 전용 MCP 항목을 작성합니다. 원격 MCP OAuth를 수행할 수 없는 클라이언트의 경우 연결 페이지 또는 `npx @agent-native/core@latest connect --token <token>` 대체를 사용하여 명시적인 베어러 토큰 항목을 작성하세요.
+`npx @agentnative-fork/core@latest connect <url> --client claude-code`는 이 표준 흐름에 대해 URL 전용 MCP 항목을 작성합니다. 원격 MCP OAuth를 수행할 수 없는 클라이언트의 경우 연결 페이지 또는 `npx @agentnative-fork/core@latest connect --token <token>` 대체를 사용하여 명시적인 베어러 토큰 항목을 작성하세요.
 
 ## 자신만의 인증 가져오기 {#byoa}
 
@@ -182,7 +182,7 @@ https://mail.agent-native.com/_agent-native/mcp
 
 ```ts
 // server/plugins/auth.ts
-import { createAuthPlugin } from "@agent-native/core/server";
+import { createAuthPlugin } from "@agentnative-fork/core/server";
 
 export default createAuthPlugin({
   getSession: async (event) => {
@@ -250,7 +250,7 @@ interface AuthSession {
 클라이언트에서는 `useSession()` 후크를 사용합니다.
 
 ```ts
-import { useSession } from "@agent-native/core/client";
+import { useSession } from "@agentnative-fork/core/client";
 
 function MyComponent() {
   const { session, isLoading } = useSession();

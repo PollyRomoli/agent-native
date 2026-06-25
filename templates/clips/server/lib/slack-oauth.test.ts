@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-vi.mock("@agent-native/core/server", () => ({
+vi.mock("@agentnative-fork/core/server", () => ({
   encodeOAuthState: vi.fn(),
   getSession: vi.fn(),
   isElectron: vi.fn(() => false),
@@ -10,17 +10,17 @@ vi.mock("@agent-native/core/server", () => ({
   safeReturnPath: vi.fn((value: string | undefined) => value || "/"),
 }));
 
-vi.mock("@agent-native/core/server/request-context", () => ({
+vi.mock("@agentnative-fork/core/server/request-context", () => ({
   runWithRequestContext: vi.fn((_ctx: unknown, fn: () => unknown) => fn()),
 }));
 
-vi.mock("@agent-native/core/secrets", () => ({
+vi.mock("@agentnative-fork/core/secrets", () => ({
   deleteAppSecret: vi.fn(),
   readAppSecret: vi.fn(),
   writeAppSecret: vi.fn(),
 }));
 
-vi.mock("@agent-native/core/application-state", () => ({
+vi.mock("@agentnative-fork/core/application-state", () => ({
   writeAppState: vi.fn(),
 }));
 

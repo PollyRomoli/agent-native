@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { parseDocx } from "../server/handlers/import/docx-parser.js";
 import { convertSectionsToSlides } from "../server/handlers/import/html-converter.js";

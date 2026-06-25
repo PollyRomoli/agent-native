@@ -90,7 +90,7 @@ deferred.
 
 - Hosted default: connect `https://assets.agent-native.com/_agent-native/mcp`.
   Do not put shared secrets in skill files.
-- Local customization: run `npx @agent-native/core@latest app-skill launch --local` from the
+- Local customization: run `npx @agentnative-fork/core@latest app-skill launch --local` from the
   Assets app-skill manifest, or pass `--into <path>` for editable source.
 - For MCP callers, `generate-asset` is the portable first choice because the
   same MCP App picker renders inline in Agent-Native chat, ChatGPT, and Claude

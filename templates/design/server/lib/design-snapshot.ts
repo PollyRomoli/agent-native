@@ -12,7 +12,7 @@
  */
 
 import { eq } from "drizzle-orm";
-import { hasCollabState, getText } from "@agent-native/core/collab";
+import { hasCollabState, getText } from "@agentnative-fork/core/collab";
 import { getDb, schema } from "../db/index.js";
 import {
   resolveTweaksToCssVars,

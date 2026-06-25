@@ -178,7 +178,7 @@ Registrieren Sie es unter einem neuen `AGENT_NATIVE_SANDBOX`-Wert (z. B. `remote
 Die andere Adapternaht umschließt ein einzelnes Befehlszeilentool (`gh`, `ffmpeg`, `stripe`, `aws`), sodass der Agent es erkennen, prüfen kann, ob es installiert ist, und es mit einem konsistenten stdout/stderr/exit-code-Ergebnis ausführen kann. Jeder CLI-Adapter implementiert `CliAdapter`:
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -197,7 +197,7 @@ interface CliResult {
 Bei den meisten CLIs umschließt `ShellCliAdapter` jede Binärdatei mit sinnvollen Standardwerten, und `CliRegistry` sammelt Adapter für die Laufzeiterkennung:
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(

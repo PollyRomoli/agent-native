@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import type { GeneratedSlide } from "@shared/api";
 import { z } from "zod";
 

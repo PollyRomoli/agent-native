@@ -9,8 +9,8 @@ import {
   type ProviderApiMethod,
   type ProviderApiRequestArgs,
   type ProviderApiResolvedCredential,
-} from "@agent-native/core/provider-api";
-import { getCredentialContext } from "@agent-native/core/server";
+} from "@agentnative-fork/core/provider-api";
+import { getCredentialContext } from "@agentnative-fork/core/server";
 import { getHubSpotApiKey } from "./hubspot.js";
 
 export const MAIL_APP_ID = "mail";

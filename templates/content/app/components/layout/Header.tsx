@@ -4,7 +4,7 @@ import { useHeaderTitle, useHeaderActions } from "./HeaderActions";
 import {
   AgentToggleButton,
   NotificationsBell,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 const pageTitles: Record<string, string> = {
   "/": "Content",

@@ -4,7 +4,7 @@ import {
   RegistryBlockDataProvider,
   useRegistryBlockData,
   type RegistryBlockDataValue,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import { createPlanBlockId, type PlanBlock } from "@shared/plan-content";
 
 /* -------------------------------------------------------------------------- */

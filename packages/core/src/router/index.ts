@@ -1,5 +1,5 @@
 // Re-export React Router utilities for framework mode.
-// Import from "@agent-native/core/router" in route modules.
+// Import from "@agentnative-fork/core/router" in route modules.
 
 export {
   Link,

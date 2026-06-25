@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { callAction } from "@agent-native/core/client";
+import { callAction } from "@agentnative-fork/core/client";
 import {
   suppressThread,
   unsuppressThread,
@@ -7,7 +7,7 @@ import {
   flattenInfiniteEmails,
   type InfiniteEmails,
 } from "./use-emails";
-import { appApiPath } from "@agent-native/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 import type { ComposeAttachment } from "@shared/types";
 
 export interface ScheduledJob {

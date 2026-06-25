@@ -63,7 +63,7 @@ O blueprint gerado diz ao agente de codificação para buscar o URL (e as págin
 
 Solte um arquivo Markdown em `packages/core/blueprints/<kind>/<name>.md`. O tipo é o subdiretório; o nome é o nome do arquivo sem `.md`. Ele é obtido automaticamente - `--list`, resolução de nomes e o catálogo leem o diretório em tempo de execução. Nenhuma alteração de código é necessária para registrá-lo.
 
-Os arquivos Blueprint `.md` são enviados no pacote publicado por meio da entrada `blueprints` em `package.json` `files`, portanto, eles são resolvidos em `node_modules/@agent-native/core/blueprints/**` para usuários finais.
+Os arquivos Blueprint `.md` são enviados no pacote publicado por meio da entrada `blueprints` em `package.json` `files`, portanto, eles são resolvidos em `node_modules/@agentnative-fork/core/blueprints/**` para usuários finais.
 
 Escreva cada blueprint como um conjunto de instruções para um agente de codificação sem outro contexto. Um bom plano tem:
 

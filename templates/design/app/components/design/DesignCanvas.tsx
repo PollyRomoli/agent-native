@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback, useMemo } from "react";
-import { agentChat } from "@agent-native/core";
-import { usePinchZoom } from "@agent-native/core/client";
+import { agentChat } from "@agentnative-fork/core";
+import { usePinchZoom } from "@agentnative-fork/core/client";
 import { DeviceFrame } from "./DeviceFrame";
 import type { ElementInfo, DeviceFrameType } from "./types";
 import { isTrustedCanvasBridgeMessage } from "./bridge-security";

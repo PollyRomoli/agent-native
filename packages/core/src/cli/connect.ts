@@ -216,7 +216,7 @@ export function normalizeUrl(raw: string): string {
   const trimmed = (raw ?? "").trim();
   if (!trimmed) {
     throw new Error(
-      "Missing app URL. Usage: npx @agent-native/core@latest connect <url>",
+      "Missing app URL. Usage: npx @agentnative-fork/core@latest connect <url>",
     );
   }
   let parsed: URL;
@@ -225,7 +225,7 @@ export function normalizeUrl(raw: string): string {
   } catch {
     throw new Error(
       `Not a valid URL: "${raw}". Pass a full origin, e.g. ` +
-        `npx @agent-native/core@latest connect https://mail.agent-native.com`,
+        `npx @agentnative-fork/core@latest connect https://mail.agent-native.com`,
     );
   }
   if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
@@ -1803,7 +1803,7 @@ async function connectProdProfile(
       const app = apps.find((candidate) => candidate.name === row.app);
       logOut(
         `    ${row.app.padEnd(12)} ${row.client.padEnd(18)} ` +
-          `run: npx @agent-native/core@latest connect ${app?.url ?? "<url>"} --client ${row.client}`,
+          `run: npx @agentnative-fork/core@latest connect ${app?.url ?? "<url>"} --client ${row.client}`,
       );
     }
   }
@@ -1888,7 +1888,7 @@ async function resolveReconnectTarget(
     if (matches.length === 0) {
       logErr(`  No existing Agent Native MCP entry found for ${mcpUrl}.`);
       logErr(
-        "  First-time setup still uses: npx @agent-native/core@latest connect <url> --client <client>",
+        "  First-time setup still uses: npx @agentnative-fork/core@latest connect <url> --client <client>",
       );
       return null;
     }
@@ -1971,7 +1971,7 @@ async function resolveReconnectTarget(
       "  Pass a URL, or use --name <serverName> if the entry has a custom name.",
     );
     logErr(
-      "  First-time setup still uses: npx @agent-native/core@latest connect <url> --client <client>",
+      "  First-time setup still uses: npx @agentnative-fork/core@latest connect <url> --client <client>",
     );
     return null;
   }
@@ -2037,7 +2037,7 @@ async function resolveReconnectTarget(
   for (const u of urlList) {
     // Strip the MCP path suffix for a cleaner reconnect URL suggestion.
     const baseUrl = u.replace(/\/_agent-native\/mcp$/, "");
-    logErr(`    npx -y @agent-native/core@latest reconnect ${baseUrl}`);
+    logErr(`    npx -y @agentnative-fork/core@latest reconnect ${baseUrl}`);
   }
   return null;
 }
@@ -2076,7 +2076,7 @@ async function reconnectOne(
       `  Did not touch ${clientLabelList(skippedClients)} because no matching MCP entry was found.`,
     );
     logOut(
-      `  To add another client, run: npx @agent-native/core@latest connect ${baseUrl} --client CLIENT --scope ${effectiveParsed.scope}`,
+      `  To add another client, run: npx @agentnative-fork/core@latest connect ${baseUrl} --client CLIENT --scope ${effectiveParsed.scope}`,
     );
   }
   if (res.ok) {
@@ -2449,7 +2449,7 @@ export async function runServiceTokenMint(
   if (!parsed.url) {
     logErr("  --service-token requires the app URL.");
     logErr(
-      "  Usage: npx @agent-native/core@latest connect <url> --service-token <name> [--ttl-days <1-365>]",
+      "  Usage: npx @agentnative-fork/core@latest connect <url> --service-token <name> [--ttl-days <1-365>]",
     );
     return false;
   }
@@ -2500,7 +2500,7 @@ export async function runServiceTokenMint(
     logErr(
       "  This app does not expose the create-org-service-token action yet.",
     );
-    logErr("  Redeploy it with a current @agent-native/core, then retry.");
+    logErr("  Redeploy it with a current @agentnative-fork/core, then retry.");
     return false;
   }
   if (status < 200 || status >= 300 || typeof json?.token !== "string") {
@@ -2543,14 +2543,14 @@ export async function runServiceTokenMint(
 // Entry point
 // ---------------------------------------------------------------------------
 
-const HELP = `npx @agent-native/core@latest connect — wire your coding agent to a deployed app
+const HELP = `npx @agentnative-fork/core@latest connect — wire your coding agent to a deployed app
 
 Usage:
-  npx @agent-native/core@latest connect [--client <c>] [--scope user|project]
+  npx @agentnative-fork/core@latest connect [--client <c>] [--scope user|project]
       With no URL, opens a picker for the built-in hosted apps
       (mail.agent-native.com, calendar.agent-native.com, and friends).
 
-  npx @agent-native/core@latest connect <url> [--client <c>] [--scope user|project] [--name <n>]
+  npx @agentnative-fork/core@latest connect <url> [--client <c>] [--scope user|project] [--name <n>]
       Writes the HTTP MCP entry into your selected client config(s). Claude
       Code, Cursor, OpenCode, and GitHub Copilot / VS Code use standard remote
       MCP OAuth and get URL-only config. Codex / Cowork use the browser
@@ -2564,13 +2564,13 @@ Usage:
       URL-only OAuth config and prompts you to authenticate in that host.
 
       For cross-app access, prefer the unified Dispatch gateway:
-      npx @agent-native/core@latest connect https://dispatch.agent-native.com
+      npx @agentnative-fork/core@latest connect https://dispatch.agent-native.com
 
-  npx @agent-native/core@latest connect <url> --token <token>
+  npx @agentnative-fork/core@latest connect <url> --token <token>
       No-browser fallback. Skip the device flow and write the entry with
       the supplied token (get it from the app's Connect page).
 
-  npx @agent-native/core@latest connect <url> --service-token <name> [--ttl-days <1-365>]
+  npx @agentnative-fork/core@latest connect <url> --service-token <name> [--ttl-days <1-365>]
       Mint an ORG service token for CI (e.g. the PLAN_RECAP_TOKEN secret for
       PR Visual Recap). Authenticates you via the browser device flow, then
       mints a token owned by your ORGANIZATION — it keeps working if you
@@ -2578,8 +2578,8 @@ Usage:
       org-visible. Org owner/admin only. Printed once; nothing is written
       to local MCP configs.
 
-  npx -y @agent-native/core@latest reconnect [<url>] [--client <c>] [--scope user|project]
-  npx -y @agent-native/core@latest connect reconnect [<url>] [--client <c>] [--scope user|project]
+  npx -y @agentnative-fork/core@latest reconnect [<url>] [--client <c>] [--scope user|project]
+  npx -y @agentnative-fork/core@latest connect reconnect [<url>] [--client <c>] [--scope user|project]
       Re-authenticate an existing MCP entry without reinstalling apps/skills.
       With a URL, it reuses the existing server name for that MCP URL when
       possible, reconnecting only clients that already have that entry. Pass
@@ -2587,15 +2587,15 @@ Usage:
       --client codex. Without a URL, it reconnects the only matching Agent
       Native entry in local client configs. Use --name for custom server names.
 
-  npx @agent-native/core@latest connect --all [--client <c>] [--scope user|project]
+  npx @agentnative-fork/core@latest connect --all [--client <c>] [--scope user|project]
       Connect every first-party hosted app as separate MCP resources.
 
 Developer:
-  npx @agent-native/core@latest connect dev [--apps mail,calendar] [--client <c>]
+  npx @agentnative-fork/core@latest connect dev [--apps mail,calendar] [--client <c>]
       Switch selected first-party MCP entries to a local dev-lazy gateway.
       Defaults to ${DEFAULT_DEV_GATEWAY}; override with --gateway or --port.
 
-  npx @agent-native/core@latest connect prod [--apps mail,calendar] [--client <c>]
+  npx @agentnative-fork/core@latest connect prod [--apps mail,calendar] [--client <c>]
       Restore production MCP entries saved before the dev switch.
 
 Clients:  all (default), claude-code, codex, cowork, cursor, opencode, github-copilot

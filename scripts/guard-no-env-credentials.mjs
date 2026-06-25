@@ -613,7 +613,7 @@ if (violations.length > 0) {
   console.error(
     "  - Read credentials via `resolveCredential(key, { userEmail, orgId })`",
   );
-  console.error("    from `@agent-native/core/credentials`.");
+  console.error("    from `@agentnative-fork/core/credentials`.");
   console.error(
     "  - If a value is genuinely deploy-level config (host secret,",
   );

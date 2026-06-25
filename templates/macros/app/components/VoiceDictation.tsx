@@ -6,7 +6,7 @@ import {
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { useAgentChatGenerating } from "@agent-native/core/client";
+import { useAgentChatGenerating } from "@agentnative-fork/core/client";
 
 interface VoiceDictationProps {
   currentDate: Date;

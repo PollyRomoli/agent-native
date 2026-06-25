@@ -14,8 +14,8 @@ import {
   AgentToggleButton,
   NotificationsBell,
   useAppearanceSync,
-} from "@agent-native/core/client";
-import { InvitationBanner } from "@agent-native/core/client/org";
+} from "@agentnative-fork/core/client";
+import { InvitationBanner } from "@agentnative-fork/core/client/org";
 import { Sidebar } from "./Sidebar";
 import { AddCalendarDialog } from "@/components/calendar/AddCalendarDialog";
 import { GoogleConnectBanner } from "@/components/calendar/GoogleConnectBanner";

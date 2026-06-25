@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { addBytesProcessed } from "./cost-tracker";
 import { getIdToken } from "./auth";
 import type { DataSourceType } from "@/pages/adhoc/sql-dashboard/types";
-import { appApiPath } from "@agent-native/core/client";
+import { appApiPath } from "@agentnative-fork/core/client";
 
 export interface SqlQueryResult {
   rows: Record<string, unknown>[];

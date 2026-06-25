@@ -1,4 +1,4 @@
-import { createProviderCorpusJobAction } from "@agent-native/core/provider-api/corpus-jobs";
+import { createProviderCorpusJobAction } from "@agentnative-fork/core/provider-api/corpus-jobs";
 import { getAnalyticsProviderApiRuntime } from "../server/lib/provider-api";
 import { ANALYTICS_APP_ID } from "../server/lib/provider-credentials";
 

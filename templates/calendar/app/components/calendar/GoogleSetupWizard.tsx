@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { agentNativePath, oauthRedirectUri } from "@agent-native/core/client";
+import { agentNativePath, oauthRedirectUri } from "@agentnative-fork/core/client";
 
 interface EnvKeyStatus {
   key: string;

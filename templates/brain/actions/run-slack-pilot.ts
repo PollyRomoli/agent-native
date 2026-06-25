@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { assertAccess, resolveAccess } from "@agent-native/core/sharing";
+import { defineAction } from "@agentnative-fork/core";
+import { assertAccess, resolveAccess } from "@agentnative-fork/core/sharing";
 import { z } from "zod";
 import { runSlackPilot } from "../server/lib/connectors.js";
 

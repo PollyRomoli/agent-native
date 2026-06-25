@@ -10,7 +10,7 @@ describe("buildConnectCommand", () => {
         scope: "project",
       }),
     ).toContain(
-      "@agent-native/core@latest connect 'https://dispatch.agent-native.com/' --client github-copilot --scope project",
+      "@agentnative-fork/core@latest connect 'https://dispatch.agent-native.com/' --client github-copilot --scope project",
     );
   });
 

@@ -10,9 +10,9 @@
  *   pnpm action create-organization --name="Acme"
  */
 
-import { defineAction } from "@agent-native/core";
-import { writeAppState } from "@agent-native/core/application-state";
-import { createOrganization } from "@agent-native/core/org";
+import { defineAction } from "@agentnative-fork/core";
+import { writeAppState } from "@agentnative-fork/core/application-state";
+import { createOrganization } from "@agentnative-fork/core/org";
 import { z } from "zod";
 import { getCurrentOwnerEmail } from "../server/lib/recordings.js";
 import { getDb, schema } from "../server/db/index.js";

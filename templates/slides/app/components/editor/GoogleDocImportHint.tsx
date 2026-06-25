@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { agentNativePath, oauthRedirectUri } from "@agent-native/core/client";
+import { agentNativePath, oauthRedirectUri } from "@agentnative-fork/core/client";
 import {
   IconAlertCircle,
   IconBrandGoogleDrive,

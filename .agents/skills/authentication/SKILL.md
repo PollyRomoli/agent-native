@@ -47,7 +47,7 @@ identity plus `mcp:read`, `mcp:write`, and/or `mcp:apps`; refresh tokens are
 stored hashed and rotate. Keep `ACCESS_TOKEN` and `pnpm exec agent-native connect` for
 local stdio proxying and fallback clients. The CLI
 uses the OAuth-native URL-only entry for Claude Code/Claude Code CLI by
-default; use the Connect page or `npx @agent-native/core@latest connect --token <token>` when a
+default; use the Connect page or `npx @agentnative-fork/core@latest connect --token <token>` when a
 client needs explicit bearer headers.
 
 ## Local → Real Account Migration
@@ -108,7 +108,7 @@ auto-mounted action endpoint instead. If a route-only concern forces a custom
 route:
 
 ```ts
-import { getSession } from "@agent-native/core/server";
+import { getSession } from "@agentnative-fork/core/server";
 
 export default defineEventHandler(async (event) => {
   const session = await getSession(event);
@@ -148,7 +148,7 @@ client and redirects signed-out visitors to `/_agent-native/sign-in?return=…`
 instead of spinning:
 
 ```tsx
-import { AppProviders, RequireSession } from "@agent-native/core/client";
+import { AppProviders, RequireSession } from "@agentnative-fork/core/client";
 
 <AppProviders queryClient={queryClient}>
   <RequireSession bypass={isMcpEmbedSurface()}>

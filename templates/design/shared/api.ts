@@ -7,13 +7,13 @@ export const API_BASE = "/api";
 // --- Design Systems / Brand Kits ---
 
 // The shared, template-agnostic token model lives in
-// `@agent-native/core/brand-kit` (a "Brand Kit" = design tokens + brand assets
+// `@agentnative-fork/core/brand-kit` (a "Brand Kit" = design tokens + brand assets
 // + custom instructions). This template narrows it with the page-oriented
 // `spacing.pagePadding` and `defaults` keys it persists.
 import type {
   BrandKitData,
   BrandKitDefaults,
-} from "@agent-native/core/brand-kit";
+} from "@agentnative-fork/core/brand-kit";
 
 export interface DesignSystemData extends BrandKitData {
   spacing: { pagePadding: string; elementGap: string };

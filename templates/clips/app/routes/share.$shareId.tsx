@@ -27,7 +27,7 @@ import {
   useSession,
   AgentPanel,
   getBrowserTabId,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 import {
   VideoPlayer,
   type VideoPlayerHandle,
@@ -58,8 +58,8 @@ import { getDb, schema } from "../../server/db";
 import {
   getRequestUserEmail,
   signShortLivedToken,
-} from "@agent-native/core/server";
-import { resolveAccess } from "@agent-native/core/sharing";
+} from "@agentnative-fork/core/server";
+import { resolveAccess } from "@agentnative-fork/core/sharing";
 import { parsePlaybackSpeed } from "@/lib/playback-speed";
 import { isStorageSetupFailureReason } from "@/lib/storage-failures";
 import { buildAgentApiUrls, safeJsonForHtml } from "../../shared/agent-context";

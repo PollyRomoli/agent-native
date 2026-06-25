@@ -178,7 +178,7 @@ registerSandboxAdapter(new RemoteSandboxAdapter());
 다른 어댑터 이음매는 단일 명령줄 도구(`gh`, `ffmpeg`, `stripe`, `aws`)를 래핑하므로 에이전트는 이를 검색하고 설치 여부를 확인한 후 일관된 stdout/stderr/exit-code 결과로 실행할 수 있습니다. 모든 CLI 어댑터는 `CliAdapter`를 구현합니다:
 
 ```ts
-import type { CliAdapter, CliResult } from "@agent-native/core/adapters/cli";
+import type { CliAdapter, CliResult } from "@agentnative-fork/core/adapters/cli";
 
 interface CliAdapter {
   name: string; // "gh", "stripe", "ffmpeg"
@@ -197,7 +197,7 @@ interface CliResult {
 대부분의 CLI의 경우 `ShellCliAdapter`는 합리적인 기본값으로 바이너리를 래핑하고 `CliRegistry`는 런타임 검색을 위해 어댑터를 수집합니다.
 
 ```ts
-import { CliRegistry, ShellCliAdapter } from "@agent-native/core/adapters/cli";
+import { CliRegistry, ShellCliAdapter } from "@agentnative-fork/core/adapters/cli";
 
 const cliRegistry = new CliRegistry();
 cliRegistry.register(

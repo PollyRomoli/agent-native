@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { IconLoader2, IconX } from "@tabler/icons-react";
-import { appBasePath, sendToAgentChat } from "@agent-native/core/client";
+import { appBasePath, sendToAgentChat } from "@agentnative-fork/core/client";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";

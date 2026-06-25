@@ -6,8 +6,8 @@ import {
 } from "h3";
 import { nanoid } from "nanoid";
 import type { Alias } from "@shared/types.js";
-import { getUserSetting, putUserSetting } from "@agent-native/core/settings";
-import { readBody, getSession } from "@agent-native/core/server";
+import { getUserSetting, putUserSetting } from "@agentnative-fork/core/settings";
+import { readBody, getSession } from "@agentnative-fork/core/server";
 
 async function uEmail(event: H3Event): Promise<string> {
   const session = await getSession(event);

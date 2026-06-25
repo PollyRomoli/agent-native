@@ -13,16 +13,16 @@ Agent-Native एक पूर्ण साइडबार शिप करता
 केंद्रित क्लाइंट उपपथ से ब्राउज़र UI आयात करें:
 
 ```tsx
-import { AgentSidebar } from "@agent-native/core/client";
-import { PromptComposer } from "@agent-native/core/client/composer";
-import { AgentConversation } from "@agent-native/core/client/conversation";
-import { usePresence } from "@agent-native/core/client/collab";
-import { SharedRichEditor } from "@agent-native/core/client/editor";
-import { ResourcesPanel } from "@agent-native/core/client/resources";
+import { AgentSidebar } from "@agentnative-fork/core/client";
+import { PromptComposer } from "@agentnative-fork/core/client/composer";
+import { AgentConversation } from "@agentnative-fork/core/client/conversation";
+import { usePresence } from "@agentnative-fork/core/client/collab";
+import { SharedRichEditor } from "@agentnative-fork/core/client/editor";
+import { ResourcesPanel } from "@agentnative-fork/core/client/resources";
 ```
 
-निष्पक्ष `@agent-native/core` पैकेज से UI घटकों को आयात करने से बचें। उपयोग करें
-`@agent-native/core/client` या एक केंद्रित `@agent-native/core/client/*` उपपथ
+निष्पक्ष `@agentnative-fork/core` पैकेज से UI घटकों को आयात करने से बचें। उपयोग करें
+`@agentnative-fork/core/client` या एक केंद्रित `@agentnative-fork/core/client/*` उपपथ
 इसलिए बंडलर ब्राउज़र-सुरक्षित प्रविष्टि चुनते हैं।
 
 ```an-diagram title="एक परत नीचे गिराएं, ढांचे से बाहर नहीं" summary="प्रत्येक परत आपको क्रोम पर अधिक नियंत्रण प्रदान करते हुए समान रनटाइम - क्रियाएं, थ्रेड स्थिति और SQL-backed सिंक रखती है।"
@@ -36,22 +36,22 @@ import { ResourcesPanel } from "@agent-native/core/client/resources";
 
 | API                                  | आयात पथ                                       | कब उपयोग करें                                                                                           |
 | ------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `<AgentSidebar>`                     | `@agent-native/core/client` या `/client/chat` | आप अपने ऐप के चारों ओर संपूर्ण साइडबार चाहते हैं।                                                       |
-| `<AgentToggleButton>`                | `@agent-native/core/client` या `/client/chat` | आप साइडबार के लिए अपना स्वयं का हेडर बटन प्रस्तुत करते हैं।                                             |
-| `<AgentPanel>`                       | `@agent-native/core/client` या `/client/chat` | आप पूरा पैनल अपने लेआउट, रूट, डायलॉग या साइड कॉलम में चाहते हैं।                                        |
-| `<AgentChatSurface>`                 | `@agent-native/core/client` या `/client/chat` | आप साइडबार रैपर के बिना पैनल या पेज मोड में चैट करना चाहते हैं।                                         |
-| `<AssistantChat>`                    | `@agent-native/core/client` या `/client/chat` | आप मानक वार्तालाप और कंपोज़र रनटाइम को बनाए रखते हुए आसपास के क्रोम का स्वामी बनना चाहते हैं।           |
-| `<MultiTabAssistantChat>`            | `@agent-native/core/client` या `/client/chat` | आप `AgentPanel` क्रोम के बिना फ्रेमवर्क के थ्रेड टैब चाहते हैं।                                         |
-| `createHttpAgentChatRuntime()`       | `@agent-native/core/client` या `/client/chat` | आपके पास एक BYO एजेंट एंडपॉइंट है जो सामान्यीकृत चैट इवेंट को स्ट्रीम करता है।                          |
-| `createOpenAIAgentsChatRuntime()`    | `@agent-native/core/client` या `/client/chat` | आपके पास एक OpenAI एजेंट SDK स्ट्रीम है और आप इसके आसपास मानक चैट UI चाहते हैं।                         |
-| `createOpenAIResponsesChatRuntime()` | `@agent-native/core/client` या `/client/chat` | आपके पास एक OpenAI रिस्पॉन्स इवेंट स्ट्रीम है और आप इसे चैट UI में सामान्यीकृत करना चाहते हैं।          |
-| `createAgUiChatRuntime()`            | `@agent-native/core/client` या `/client/chat` | आपके पास एक AG-UI ईवेंट स्ट्रीम है और आप इसे चैट UI में सामान्यीकृत करना चाहते हैं।                     |
-| `createClaudeAgentChatRuntime()`     | `@agent-native/core/client` या `/client/chat` | आपके पास एक Claude एजेंट SDK स्ट्रीम है और आप इसे चैट UI में सामान्यीकृत करना चाहते हैं।                |
-| `createVercelAiChatRuntime()`        | `@agent-native/core/client` या `/client/chat` | आपके पास Vercel AI SDK स्ट्रीम है और आप इसे चैट UI में सामान्यीकृत करना चाहते हैं।                      |
-| `createAgentChatRuntimeAdapter()`    | `@agent-native/core/client` या `/client/chat` | आपको स्वयं एक `AgentChatRuntime` को Assistant-ui में अनुकूलित करना होगा।                                |
-| `createAgentChatAdapter()`           | `@agent-native/core/client` या `/client/chat` | आपको निम्न-स्तरीय सहायक-यूआई एडाप्टर के रूप में अंतर्निहित Agent-Native SSE ट्रांसपोर्ट की आवश्यकता है। |
-| `useChatThreads()`                   | `@agent-native/core/client` या `/client/chat` | आपको एक कस्टम थ्रेड सूची, इतिहास पिकर, या स्कोप्ड चैट UI की आवश्यकता है।                                |
-| `sendToAgentChat()`                  | `@agent-native/core/client` या `/client/chat` | उत्पाद कार्रवाई का काम एजेंट चैट के हाथ में होना चाहिए।                                                 |
+| `<AgentSidebar>`                     | `@agentnative-fork/core/client` या `/client/chat` | आप अपने ऐप के चारों ओर संपूर्ण साइडबार चाहते हैं।                                                       |
+| `<AgentToggleButton>`                | `@agentnative-fork/core/client` या `/client/chat` | आप साइडबार के लिए अपना स्वयं का हेडर बटन प्रस्तुत करते हैं।                                             |
+| `<AgentPanel>`                       | `@agentnative-fork/core/client` या `/client/chat` | आप पूरा पैनल अपने लेआउट, रूट, डायलॉग या साइड कॉलम में चाहते हैं।                                        |
+| `<AgentChatSurface>`                 | `@agentnative-fork/core/client` या `/client/chat` | आप साइडबार रैपर के बिना पैनल या पेज मोड में चैट करना चाहते हैं।                                         |
+| `<AssistantChat>`                    | `@agentnative-fork/core/client` या `/client/chat` | आप मानक वार्तालाप और कंपोज़र रनटाइम को बनाए रखते हुए आसपास के क्रोम का स्वामी बनना चाहते हैं।           |
+| `<MultiTabAssistantChat>`            | `@agentnative-fork/core/client` या `/client/chat` | आप `AgentPanel` क्रोम के बिना फ्रेमवर्क के थ्रेड टैब चाहते हैं।                                         |
+| `createHttpAgentChatRuntime()`       | `@agentnative-fork/core/client` या `/client/chat` | आपके पास एक BYO एजेंट एंडपॉइंट है जो सामान्यीकृत चैट इवेंट को स्ट्रीम करता है।                          |
+| `createOpenAIAgentsChatRuntime()`    | `@agentnative-fork/core/client` या `/client/chat` | आपके पास एक OpenAI एजेंट SDK स्ट्रीम है और आप इसके आसपास मानक चैट UI चाहते हैं।                         |
+| `createOpenAIResponsesChatRuntime()` | `@agentnative-fork/core/client` या `/client/chat` | आपके पास एक OpenAI रिस्पॉन्स इवेंट स्ट्रीम है और आप इसे चैट UI में सामान्यीकृत करना चाहते हैं।          |
+| `createAgUiChatRuntime()`            | `@agentnative-fork/core/client` या `/client/chat` | आपके पास एक AG-UI ईवेंट स्ट्रीम है और आप इसे चैट UI में सामान्यीकृत करना चाहते हैं।                     |
+| `createClaudeAgentChatRuntime()`     | `@agentnative-fork/core/client` या `/client/chat` | आपके पास एक Claude एजेंट SDK स्ट्रीम है और आप इसे चैट UI में सामान्यीकृत करना चाहते हैं।                |
+| `createVercelAiChatRuntime()`        | `@agentnative-fork/core/client` या `/client/chat` | आपके पास Vercel AI SDK स्ट्रीम है और आप इसे चैट UI में सामान्यीकृत करना चाहते हैं।                      |
+| `createAgentChatRuntimeAdapter()`    | `@agentnative-fork/core/client` या `/client/chat` | आपको स्वयं एक `AgentChatRuntime` को Assistant-ui में अनुकूलित करना होगा।                                |
+| `createAgentChatAdapter()`           | `@agentnative-fork/core/client` या `/client/chat` | आपको निम्न-स्तरीय सहायक-यूआई एडाप्टर के रूप में अंतर्निहित Agent-Native SSE ट्रांसपोर्ट की आवश्यकता है। |
+| `useChatThreads()`                   | `@agentnative-fork/core/client` या `/client/chat` | आपको एक कस्टम थ्रेड सूची, इतिहास पिकर, या स्कोप्ड चैट UI की आवश्यकता है।                                |
+| `sendToAgentChat()`                  | `@agentnative-fork/core/client` या `/client/chat` | उत्पाद कार्रवाई का काम एजेंट चैट के हाथ में होना चाहिए।                                                 |
 
 `AgentChatRuntime` मानक चैट शेल के लिए BYO-एजेंट अनुबंध है। उत्तीर्ण
 `runtime` से `<AssistantChat>` जब किसी बाहरी एजेंट को पावर देनी चाहिए
@@ -65,7 +65,7 @@ import { ResourcesPanel } from "@agent-native/core/client/resources";
 सबसे छोटा कस्टम मार्ग अभी भी एक पूर्व-वायर्ड सतह है:
 
 ```tsx
-import { AgentChatSurface } from "@agent-native/core/client/chat";
+import { AgentChatSurface } from "@agentnative-fork/core/client/chat";
 
 export default function ChatRoute() {
   return <AgentChatSurface mode="page" className="h-screen" />;
@@ -75,7 +75,7 @@ export default function ChatRoute() {
 मानक रनटाइम के आसपास कस्टम क्रोम के लिए:
 
 ```tsx
-import { AssistantChat, useChatThreads } from "@agent-native/core/client/chat";
+import { AssistantChat, useChatThreads } from "@agentnative-fork/core/client/chat";
 
 function CustomChat({ projectSlug }: { projectSlug: string }) {
   const threads = useChatThreads(undefined, projectSlug);
@@ -102,7 +102,7 @@ function CustomChat({ projectSlug }: { projectSlug: string }) {
 
 ## चैट फ़ील्ड और संगीतकार {#composer}
 
-जब आपको वही चैट करने की आवश्यकता हो तो `@agent-native/core/client/composer` का उपयोग करें
+जब आपको वही चैट करने की आवश्यकता हो तो `@agentnative-fork/core/client/composer` का उपयोग करें
 कस्टम UI के अंदर साइडबार द्वारा उपयोग किया जाने वाला फ़ील्ड।
 
 | API                               | कब उपयोग करें                                                                                                                                               |
@@ -116,7 +116,7 @@ function CustomChat({ projectSlug }: { projectSlug: string }) {
 अधिकांश कस्टम UIs को `PromptComposer` से शुरू होना चाहिए:
 
 ```tsx
-import { PromptComposer } from "@agent-native/core/client/composer";
+import { PromptComposer } from "@agentnative-fork/core/client/composer";
 
 <PromptComposer
   placeholder="Ask the agent..."
@@ -131,7 +131,7 @@ import { PromptComposer } from "@agent-native/core/client/composer";
 
 ## बातचीत प्रतिपादन {#conversation}
 
-प्रतिलेख-शैली प्रतिपादन के लिए `@agent-native/core/client/conversation` का उपयोग करें
+प्रतिलेख-शैली प्रतिपादन के लिए `@agentnative-fork/core/client/conversation` का उपयोग करें
 पूर्ण एजेंट रनटाइम के बाहर।
 
 | API                                             | कब उपयोग करें                                                     |
@@ -150,7 +150,7 @@ import { PromptComposer } from "@agent-native/core/client/composer";
 जब कोई कार्य परिणाम ऐप-गुणवत्ता UI के रूप में प्रस्तुत होना चाहिए तो मूल टूल विजेट का उपयोग करें
 सादे JSON के बजाय चैट के अंदर। अंतर्निहित पुन: प्रयोज्य आउटपुट में
 `DataTableWidget`, `DataChartWidget`, और `DataWidgetResult`; उनका निर्यात किया जाता है
-`@agent-native/core/client/chat` और रूट क्लाइंट प्रविष्टि से। देखें
+`@agentnative-fork/core/client/chat` और रूट क्लाइंट प्रविष्टि से। देखें
 कार्रवाई परिणाम अनुबंध के लिए [Native Chat UI](/docs/native-chat-ui)।
 
 | API                              | कब उपयोग करें                                                                                          |
@@ -164,7 +164,7 @@ import { PromptComposer } from "@agent-native/core/client/composer";
 
 ## रियलटाइम सहयोग और उपस्थिति {#collab-presence}
 
-लाइवब्लॉक-शैली की उपस्थिति के लिए `@agent-native/core/client/collab` का उपयोग करें और
+लाइवब्लॉक-शैली की उपस्थिति के लिए `@agentnative-fork/core/client/collab` का उपयोग करें और
 सहयोगी दस्तावेज़ हुक.
 
 | API                                                 | कब उपयोग करें                                                                          |
@@ -186,19 +186,19 @@ import { PromptComposer } from "@agent-native/core/client/composer";
 ```
 
 सर्वर-साइड एजेंट actions जो लाइव प्रतिभागी के रूप में दिखना चाहते हैं, इसका उपयोग करें
-निचले स्तर के `@agent-native/core/collab` एजेंट उपस्थिति सहायक:
+निचले स्तर के `@agentnative-fork/core/collab` एजेंट उपस्थिति सहायक:
 
 ```ts
 import {
   agentEnterDocument,
   agentLeaveDocument,
   agentUpdateSelection,
-} from "@agent-native/core/collab";
+} from "@agentnative-fork/core/collab";
 ```
 
 ## समृद्ध संपादक {#rich-editor}
 
-जब आपको साझा मार्कडाउन संपादक की आवश्यकता हो तो `@agent-native/core/client/editor` का उपयोग करें
+जब आपको साझा मार्कडाउन संपादक की आवश्यकता हो तो `@agentnative-fork/core/client/editor` का उपयोग करें
 योजनाओं, सामग्री, संसाधनों और सहयोगी दस्तावेज़ द्वारा उपयोग की जाने वाली सतह
 अनुभव.
 
@@ -216,7 +216,7 @@ import {
 बुनियादी नियंत्रित संपादक केवल मार्कडाउन इन और मार्कडाउन आउट है:
 
 ```tsx
-import { SharedRichEditor } from "@agent-native/core/client/editor";
+import { SharedRichEditor } from "@agentnative-fork/core/client/editor";
 
 <SharedRichEditor
   value={markdown}
@@ -232,8 +232,8 @@ import { SharedRichEditor } from "@agent-native/core/client/editor";
 import {
   emailToColor,
   useCollaborativeDoc,
-} from "@agent-native/core/client/collab";
-import { SharedRichEditor } from "@agent-native/core/client/editor";
+} from "@agentnative-fork/core/client/collab";
+import { SharedRichEditor } from "@agentnative-fork/core/client/editor";
 
 const editorUser = {
   name: user.name,
@@ -256,7 +256,7 @@ const collab = useCollaborativeDoc({
 
 ## कार्यस्थान संसाधन {#resources}
 
-जब आप इसे उजागर करना चाहते हैं तो `@agent-native/core/client/resources` का उपयोग करें
+जब आप इसे उजागर करना चाहते हैं तो `@agentnative-fork/core/client/resources` का उपयोग करें
 कार्यस्थान संसाधन मॉडल जो एजेंट पैनल के कार्यक्षेत्र टैब को शक्ति प्रदान करता है।
 
 | API                                                                   | कब उपयोग करें                                                                         |
@@ -272,7 +272,7 @@ const collab = useCollaborativeDoc({
 संपूर्ण पैनल को किसी प्रॉप्स की आवश्यकता नहीं है:
 
 ```tsx
-import { ResourcesPanel } from "@agent-native/core/client/resources";
+import { ResourcesPanel } from "@agentnative-fork/core/client/resources";
 
 <ResourcesPanel />;
 ```
@@ -287,7 +287,7 @@ import {
   useResource,
   useResourceTree,
   useUpdateResource,
-} from "@agent-native/core/client/resources";
+} from "@agentnative-fork/core/client/resources";
 
 function WorkspaceResources() {
   const tree = useResourceTree("workspace");
@@ -324,18 +324,18 @@ function WorkspaceResources() {
 
 | क्षेत्र       | APIs                                                  | आयात पथ                                   |
 | ------------- | ----------------------------------------------------- | ----------------------------------------- |
-| साझा करना     | `<ShareButton>`, `<ShareDialog>`, `<VisibilityBadge>` | `@agent-native/core/client/sharing`       |
-| सूचनाएं       | `<NotificationsBell>`                                 | `@agent-native/core/client/notifications` |
-| प्रगति        | `<RunsTray>`, प्रगति हुक और प्रकार                    | `@agent-native/core/client/progress`      |
-| ऑनबोर्डिंग    | `useOnboarding()`, ऑनबोर्डिंग पैनल हुक                | `@agent-native/core/client/onboarding`    |
-| अवलोकनशीलता   | `<ObservabilityDashboard>`, `<ThumbsFeedback>`        | `@agent-native/core/client/observability` |
-| संसाधन        | `<ResourcesPanel>`, `<ResourceTree>`, संसाधन हुक      | `@agent-native/core/client/resources`     |
-| समृद्ध संपादक | `<SharedRichEditor>`, स्लैश कमांड, ब्लॉक नोड हुक      | `@agent-native/core/client/editor`        |
+| साझा करना     | `<ShareButton>`, `<ShareDialog>`, `<VisibilityBadge>` | `@agentnative-fork/core/client/sharing`       |
+| सूचनाएं       | `<NotificationsBell>`                                 | `@agentnative-fork/core/client/notifications` |
+| प्रगति        | `<RunsTray>`, प्रगति हुक और प्रकार                    | `@agentnative-fork/core/client/progress`      |
+| ऑनबोर्डिंग    | `useOnboarding()`, ऑनबोर्डिंग पैनल हुक                | `@agentnative-fork/core/client/onboarding`    |
+| अवलोकनशीलता   | `<ObservabilityDashboard>`, `<ThumbsFeedback>`        | `@agentnative-fork/core/client/observability` |
+| संसाधन        | `<ResourcesPanel>`, `<ResourceTree>`, संसाधन हुक      | `@agentnative-fork/core/client/resources`     |
+| समृद्ध संपादक | `<SharedRichEditor>`, स्लैश कमांड, ब्लॉक नोड हुक      | `@agentnative-fork/core/client/editor`        |
 
 ## एकमुश्त पाठ समापन {#one-off-text-completion}
 
 यदि आपको वास्तव में कच्चे टेक्स्ट-इन/टेक्स्ट-आउट की आवश्यकता है, तो इसे सर्वर-साइड रखें और उपयोग करें
-`@agent-native/core/server` से `completeText()`। उपयोगकर्ता-सामना वाले उपयोग को एक
+`@agentnative-fork/core/server` से `completeText()`। उपयोगकर्ता-सामना वाले उपयोग को एक
 कार्रवाई ताकि UI और एजेंट समान क्षमता साझा करें।
 
 ```an-callout
@@ -346,8 +346,8 @@ function WorkspaceResources() {
 ```
 
 ```ts
-import { defineAction } from "@agent-native/core/action";
-import { completeText } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core/action";
+import { completeText } from "@agentnative-fork/core/server";
 
 export default defineAction({
   description: "Classify a short message",

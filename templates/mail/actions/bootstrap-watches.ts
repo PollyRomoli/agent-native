@@ -1,5 +1,5 @@
-import { defineAction } from "@agent-native/core";
-import { getRequestUserEmail } from "@agent-native/core/server";
+import { defineAction } from "@agentnative-fork/core";
+import { getRequestUserEmail } from "@agentnative-fork/core/server";
 import { z } from "zod";
 
 export default defineAction({
@@ -18,7 +18,7 @@ export default defineAction({
     }
 
     const { listOAuthAccountsByOwner } =
-      await import("@agent-native/core/oauth-tokens");
+      await import("@agentnative-fork/core/oauth-tokens");
     const { getClientFromAccount, startWatch } =
       await import("../server/lib/google-auth.js");
 

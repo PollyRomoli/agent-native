@@ -135,7 +135,7 @@ describe("Plans template — allow-list & metadata", () => {
   });
 
   it("declares no first-party workspace package deps that need scaffolding", () => {
-    // The plan template only depends on @agent-native/core (an npm package),
+    // The plan template only depends on @agentnative-fork/core (an npm package),
     // so it must NOT declare requiredPackages — otherwise the CLI would try to
     // download a nonexistent packages/<x> on a fresh install.
     const meta = getTemplate("plan");
@@ -168,8 +168,8 @@ describe(
         );
         expect(val, `${key} must not be bare catalog:`).not.toBe("catalog:");
       }
-      // @agent-native/core must resolve to the CLI's published range.
-      expect(deps["@agent-native/core"]).toBe(_getCoreDependencyVersion());
+      // @agentnative-fork/core must resolve to the CLI's published range.
+      expect(deps["@agentnative-fork/core"]).toBe(_getCoreDependencyVersion());
     });
 
     it("injects the Postgres runtime so a hosted DB install works", async () => {
@@ -343,7 +343,7 @@ describe("Plans skills install — materialized output", () => {
     );
     expect(codexConfigExists).toBe(false);
     expect(result.commands).toContain(
-      "npx @agent-native/core@latest connect https://plan.agent-native.com --client codex --scope project",
+      "npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex --scope project",
     );
 
     for (const [name, constant] of PLANS_INSTALL_SKILLS) {
@@ -412,7 +412,7 @@ describe("Plans skills install — materialized output", () => {
     expect(result.connectCommand).toBeUndefined();
     expect(codexConfigExists).toBe(false);
     expect(result.commands).not.toContain(
-      "npx @agent-native/core@latest connect https://plan.agent-native.com --client codex --scope project",
+      "npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex --scope project",
     );
 
     for (const name of PLANS_INSTALL_SKILL_NAMES) {
@@ -447,7 +447,7 @@ describe("Plans skills install — materialized output", () => {
     expect(plan.result.skillNames).toEqual(["visual-plan"]);
     expect(Object.keys(plan.captured)).toEqual(["visual-plan"]);
     expect(plan.captured["visual-plan"]).toContain(
-      "npx @agent-native/core@latest skills add visual-plans",
+      "npx @agentnative-fork/core@latest skills add visual-plans",
     );
     expect(plan.captured["visual-plan"]).toContain(
       "use `skills add visual-plan` or\n`skills add visual-recap` instead",
@@ -462,7 +462,7 @@ describe("Plans skills install — materialized output", () => {
     // connect command without writing URL-only Codex auth config.
     expect(recap.codexConfigExists).toBe(false);
     expect(recap.result.commands).toContain(
-      "npx @agent-native/core@latest connect https://plan.agent-native.com --client codex --scope project",
+      "npx @agentnative-fork/core@latest connect https://plan.agent-native.com --client codex --scope project",
     );
   });
 

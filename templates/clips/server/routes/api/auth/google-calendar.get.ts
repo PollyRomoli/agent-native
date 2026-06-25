@@ -12,7 +12,7 @@
  * writes the secret-key references onto the `calendar_accounts` row.
  *
  * Reuses framework OAuth helpers (HMAC-signed state, redirect_uri allow-
- * list) from `@agent-native/core/server`.
+ * list) from `@agentnative-fork/core/server`.
  */
 
 import {
@@ -28,7 +28,7 @@ import {
   encodeOAuthState,
   resolveOAuthRedirectUri,
   safeReturnPath,
-} from "@agent-native/core/server";
+} from "@agentnative-fork/core/server";
 import {
   GOOGLE_AUTH_URL,
   GOOGLE_CALENDAR_SCOPES,

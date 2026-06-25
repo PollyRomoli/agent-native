@@ -1,4 +1,4 @@
-import { defineAction } from "@agent-native/core";
+import { defineAction } from "@agentnative-fork/core";
 import { z } from "zod";
 import { writeBrainSettings } from "../server/lib/brain.js";
 import { publishTierSchema } from "./_schemas.js";

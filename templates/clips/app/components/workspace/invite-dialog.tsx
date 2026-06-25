@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IconMailFast, IconUserPlus } from "@tabler/icons-react";
-import { useActionMutation } from "@agent-native/core/client";
+import { useActionMutation } from "@agentnative-fork/core/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";

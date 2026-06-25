@@ -1,11 +1,11 @@
-import { defineAction, embedApp } from "@agent-native/core";
+import { defineAction, embedApp } from "@agentnative-fork/core";
 import {
   readAppState,
   writeAppState,
   deleteAppState,
   deleteAppStateByPrefix,
-} from "@agent-native/core/application-state";
-import { buildDeepLink, getRequestUserEmail } from "@agent-native/core/server";
+} from "@agentnative-fork/core/application-state";
+import { buildDeepLink, getRequestUserEmail } from "@agentnative-fork/core/server";
 import { z } from "zod";
 import type { CalendarEventDraft } from "../shared/api.js";
 import {

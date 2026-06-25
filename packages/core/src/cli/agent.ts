@@ -276,8 +276,8 @@ function buildHeadlessSystemPrompt(actionNames: string[]): string {
   return [
     "You are the app agent for this Agent-Native project.",
     "Use the registered app actions as your source of truth for doing work.",
-    "Use docs-search before implementing or answering advanced Agent Native framework questions; it reads the version-matched docs bundled with @agent-native/core.",
-    "Use source-search when examples or implementation details matter; it reads the version-matched core and template source corpus bundled with @agent-native/core.",
+    "Use docs-search before implementing or answering advanced Agent Native framework questions; it reads the version-matched docs bundled with @agentnative-fork/core.",
+    "Use source-search when examples or implementation details matter; it reads the version-matched core and template source corpus bundled with @agentnative-fork/core.",
     "Use connected GitHub repository tools for repo context when a repository is configured; do not assume a local clone or sandbox exists.",
     "You are running headlessly from the command line, so reply with the final useful result in plain text.",
     actionList,
@@ -310,7 +310,7 @@ export async function createHeadlessBuiltinActions(): Promise<
       readOnly: true,
       tool: {
         description:
-          "Search and read version-matched Agent Native framework documentation bundled in @agent-native/core, plus bundled AGENTS.md and codebase skills. Use --list to see pages, --query to search, and --slug to read a page.",
+          "Search and read version-matched Agent Native framework documentation bundled in @agentnative-fork/core, plus bundled AGENTS.md and codebase skills. Use --list to see pages, --query to search, and --slug to read a page.",
         parameters: {
           type: "object",
           properties: {
@@ -342,7 +342,7 @@ export async function createHeadlessBuiltinActions(): Promise<
       readOnly: true,
       tool: {
         description:
-          "Search and read the packaged Agent Native source corpus under node_modules/@agent-native/core/corpus. Use --list for sections, --query to search core/template source, and --path to read a file.",
+          "Search and read the packaged Agent Native source corpus under node_modules/@agentnative-fork/core/corpus. Use --list for sections, --query to search core/template source, and --path to read a file.",
         parameters: {
           type: "object",
           properties: {

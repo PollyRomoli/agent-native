@@ -1,1 +1,1 @@
-export { dispatchDbPlugin as default } from "@agent-native/dispatch/server";
+export { dispatchDbPlugin as default } from "@agentnative-fork/dispatch/server";

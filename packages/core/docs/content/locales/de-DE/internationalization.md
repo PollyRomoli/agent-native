@@ -6,7 +6,7 @@ description: "Lokalisieren Sie Agent Native-Apps mit freigegebenen Gebietsschema
 # Internationalisierung
 
 Agent Native-Apps können Framework und Vorlage UI über die gemeinsame lokalisieren
-`@agent-native/core/client/i18n`-Laufzeit. Das Framework speichert die Daten des Benutzers
+`@agentnative-fork/core/client/i18n`-Laufzeit. Das Framework speichert die Daten des Benutzers
 Sprachauswahl in den SQL-Einstellungen, macht sie als actions verfügbar und greift auf
 Englisch, wenn eine App eine Zeichenfolge noch nicht übersetzt hat.
 
@@ -15,7 +15,7 @@ Englisch, wenn eine App eine Zeichenfolge noch nicht übersetzt hat.
 Verwenden Sie den Anbieter über `AppProviders`:
 
 ```tsx
-import { AppProviders, getLocaleInitScript } from "@agent-native/core/client";
+import { AppProviders, getLocaleInitScript } from "@agentnative-fork/core/client";
 import { i18nCatalog } from "./i18n";
 
 const LOCALE_INIT_SCRIPT = getLocaleInitScript();
@@ -32,7 +32,7 @@ const LOCALE_INIT_SCRIPT = getLocaleInitScript();
 
 `getLocaleInitScript()` legt die anfänglichen Werte `lang`, `dir` und
 `window.__AGENT_NATIVE_LOCALE__` bevor React hydratisiert. Öffentliche SSR-Routen können
-Rufen Sie `resolveLocaleFromRequest()` von `@agent-native/core/server` auf und übergeben Sie
+Rufen Sie `resolveLocaleFromRequest()` von `@agentnative-fork/core/server` auf und übergeben Sie
 Gebietsschema/Katalog in diesem Skript aufgelöst, um Nichtübereinstimmungen bei der Hydratation zu vermeiden.
 
 ## Kataloge
@@ -42,7 +42,7 @@ Jede lokalisierte Vorlage behält Kataloge unter `app/i18n/`:
 ```ts
 // app/i18n/index.ts
 import enUS from "./en-US";
-import type { AgentNativeI18nCatalog } from "@agent-native/core/client";
+import type { AgentNativeI18nCatalog } from "@agentnative-fork/core/client";
 
 export const i18nCatalog = {
   sourceLocale: "en-US",
@@ -73,7 +73,7 @@ import {
   LanguagePicker,
   openAgentSettings,
   useT,
-} from "@agent-native/core/client";
+} from "@agentnative-fork/core/client";
 
 function SettingsPage() {
   const t = useT();

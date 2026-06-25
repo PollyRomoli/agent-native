@@ -4,17 +4,17 @@ This guide is for development-mode agents editing this app's source code. For ap
 
 ## Tech Stack
 
-- **Framework**: @agent-native/core
+- **Framework**: @agentnative-fork/core
 - **Package manager**: pnpm
 - **Frontend**: React 18, React Router, TypeScript, Vite, TailwindCSS
-- **Backend**: Nitro (via @agent-native/core)
+- **Backend**: Nitro (via @agentnative-fork/core)
 - **Database**: Drizzle ORM over portable SQL (`DATABASE_URL`; local dev defaults to SQLite)
 - **UI**: Radix UI + Lucide icons + shadcn/ui
 - **Path aliases**: `@/*` → app/, `@shared/*` → shared/
 
-## Framework Basics (Nitro + @agent-native/core)
+## Framework Basics (Nitro + @agentnative-fork/core)
 
-This app uses **Nitro** (via `@agent-native/core`) for the server. All server code lives in `server/`.
+This app uses **Nitro** (via `@agentnative-fork/core`) for the server. All server code lives in `server/`.
 
 ### Server Directory
 
@@ -28,7 +28,7 @@ server/
 
 ### Adding App Data
 
-Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agent-native/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
+Normal app data starts as an action, not a custom route. Add `actions/<verb>-<resource>.ts` with `defineAction`, mark reads with `http: { method: "GET" }`, and call reads/writes from React with `useActionQuery` / `useActionMutation` from `@agentnative-fork/core/client`. This keeps the UI and agent on one contract and lets mutating actions refresh action-backed queries automatically.
 
 ### Adding a Route-Only Endpoint
 
@@ -41,14 +41,14 @@ Each route-only endpoint still exports a default `defineEventHandler`, but keep 
 Startup logic (SSE, auth) lives in `server/plugins/`. Use `defineNitroPlugin` from core:
 
 ```ts
-import { defineNitroPlugin } from "@agent-native/core";
+import { defineNitroPlugin } from "@agentnative-fork/core";
 
 export default defineNitroPlugin(async (nitroApp) => {
   // Runs once at server startup
 });
 ```
 
-### Key Imports from `@agent-native/core`
+### Key Imports from `@agentnative-fork/core`
 
 | Import                                       | Purpose                                           |
 | -------------------------------------------- | ------------------------------------------------- |
